@@ -12,7 +12,7 @@ There are three reasons this tool needs to be built (instead of just using Mediu
 * "Template files": posts with sample context that authors can edit and save as new
 
 ## Contributions
-- If you would like to contribute code, documents, design or better organization of this repository, submit a PR. We'll take from here.
+- If you would like to contribute code, documents, design or better organization of this repository, submit a PR. We'll take from it here (do have a look at Liscense.md - this project is under Mozilla 2.0).
 - If you would like to contribute photography, articles or any other creative content please head to http://analog.cafe
 - If you have general feedback, ideas, thoughts or criticisms, please email them to d [at] analog.cafe
 
