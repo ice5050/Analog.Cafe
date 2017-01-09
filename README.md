@@ -15,3 +15,5 @@ There are three reasons this tool needs to be built (instead of just using Mediu
 - If you would like to contribute code, documents, design or better organization of this repository, submit a PR. We'll take from here.
 - If you would like to contribute photography, articles or any other creative content please head to http://analog.cafe
 - If you have general feedback, ideas, thoughts or criticisms, please email them to d [at] analog.cafe
+
+Feel free to browse this repo for design files and the code once it appears. Also please check out the Wiki page, it contains a lot more info on how this project shoudl look, how to replicate its functions and more.
