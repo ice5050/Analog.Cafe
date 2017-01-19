@@ -2,7 +2,7 @@ ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../Gemfile', __dir__)
 
 require 'bundler/setup' # Set up gems listed in the Gemfile.
 
-# Start on port 3001
+# Start server on 3001 port
 require 'rails/commands/server'
 module DefaultOptions
   def default_options
