@@ -12,5 +12,7 @@
  *
  *= require normalize-rails
  *= require_self
- *= require_tree .
+ *=/ require_tree .
  */
+ 
+ @import "main";

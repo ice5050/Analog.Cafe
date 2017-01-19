@@ -1,0 +1,38 @@
+@import "base/colors";
+
+$font-content: Lora, serif;
+$font-content--weight: 400;
+$font-content--spacing: 0.033em;
+$font-content--line: 1.75em;
+
+$font-header: 'Exo 2', sans-serif;
+$font-header--weight: 600;
+
+@mixin text-block($font-size) {
+	font-size: $font-size;
+	margin: 0;
+	padding-top: 1em;
+}
+
+
+
+h1 {
+	@include text-block(3em);
+	font-family: $font-header;
+	font-weight: $font-header--weight;
+	color: $color-brand;
+}
+h2 {
+	@extend h1;
+	font-size: 2em;	
+}
+h3 {
+	@extend h1;
+	font-size: 1.5em;
+	color: $color-foreground--secondary;
+	padding-top: 0;
+}
+p {
+	@include text-block(1.33em);
+	line-height: $font-content--line;
+}

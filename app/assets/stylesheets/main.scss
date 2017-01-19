@@ -1,0 +1,34 @@
+@import "base/typography";
+@import "base/colors";
+
+@import "components/links";
+
+$size-set: 62.5%;
+$size-reset: 1.5em;
+$size-column--maxwidth: 42em;
+$size-column--safety: 1.5em;
+
+@mixin center-block($width) {
+	margin: 0 auto;
+	max-width: $width;
+}
+
+
+
+body {
+	color: $color-foreground;
+	font: $size-set $font-content;
+	letter-spacing: $font-content--spacing;
+	font-weight: $font-content--weight;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: subpixel-antialiased;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+main {
+	font-size: $size-reset;
+	background-color: $color-background;
+}
+main article section {
+	@include center-block($size-column--maxwidth);
+	padding: 0 $size-column--safety;
+}

@@ -49,6 +49,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Normalize.css
 gem 'normalize-rails', '~> 4.1', '>= 4.1.1'
-
-# Living Style Guide
-gem 'livingstyleguide'
