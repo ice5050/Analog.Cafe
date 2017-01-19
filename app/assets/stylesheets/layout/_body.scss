@@ -4,11 +4,10 @@
 
 @import "components/links";
 @import "components/images";
+@import "components/buttons";
+@import "components/cards";
 
-@mixin center-block($width) {
-	margin: 0 auto;
-	max-width: $width;
-}
+@import "helpers/mixins";
 
 
 
@@ -17,13 +16,7 @@ body {
 	font-family: $font-content;
 	
 	min-width: $size-minwidth;
-	font-size: $size-font-m;
-	@include breakpoint($size-breakpoint-xl) {
-		font-size: $size-font-xl;
-	}
-	@include breakpoint($size-breakpoint-xs) {
-		font-size: $size-font-xs;
-	}
+	@include reset-fontsize();
 	
 	letter-spacing: $font-content--spacing;
 	font-weight: $font-content--weight;

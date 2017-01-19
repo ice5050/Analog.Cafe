@@ -1,12 +1,7 @@
 @import "base/colors";
 @import "base/sizes";
 @import "helpers/functions";
-
-@mixin figure--full-bleed() {
-	margin-left: -($size-column--safety/ strip-unit($size-content-block--font) );
-	margin-right: -($size-column--safety/ strip-unit($size-content-block--font) );
-	border-radius: 0;
-}
+@import "helpers/mixins";
 
 article figure {
 	font-size: $size-content-block--font;

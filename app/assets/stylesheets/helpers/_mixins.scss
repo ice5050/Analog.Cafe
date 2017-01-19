@@ -1,0 +1,22 @@
+@import "base/sizes";
+
+@mixin reset-fontsize($multiplier: 1) {
+	font-size: $size-font-m * $multiplier;
+	@include breakpoint($size-breakpoint-xl) {
+		font-size: $size-font-xl * $multiplier;
+	}
+	@include breakpoint($size-breakpoint-xs) {
+		font-size: $size-font-xs * $multiplier;
+	}
+}
+
+@mixin center-block($width) {
+	margin: 0 auto;
+	max-width: $width;
+}
+
+@mixin figure--full-bleed() {
+	margin-left: -($size-column--safety/ strip-unit($size-content-block--font) );
+	margin-right: -($size-column--safety/ strip-unit($size-content-block--font) );
+	border-radius: 0;
+}

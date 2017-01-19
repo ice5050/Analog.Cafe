@@ -1,16 +1,14 @@
-$size-font-m: 62.5%;
-$size-font-xl: 72.5%;
-$size-font-xs: 55%;
-	
-$size-reset: 1.5em;
+$size-minwidth: 320px;
+$breakpoint-to-ems: true;
 
+$size-font-m: 10px; //62.5%;
+$size-font-xl: 11.33px; //72.5%;
+$size-font-xs: 8.66px; //55%;
+$size-reset: 1.5em;
 
 $size-column--maxwidth-m: 675px;
 $size-column--maxwidth-l: 840px;
 $size-column--safety: 1.5em;
-
-$size-minwidth: 320px;
-$breakpoint-to-ems: true;
 
 $size-breakpoint-xl: 1320px;
 //$size-breakpoint-l: 901px 1320px;
@@ -24,3 +22,5 @@ $size-content-block--font: 1.33em;
 
 $size-corner-small: .15em;
 $size-corner-med: .25em;
+
+

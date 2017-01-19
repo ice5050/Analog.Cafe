@@ -1,0 +1,43 @@
+@import "base/colors";
+@import "base/sizes";
+@import "base/typography";
+@import "helpers/mixins";
+
+.card {
+	@include center-block($size-minwidth);
+	
+	display: block;
+	overflow: hidden;
+	border-radius: $size-corner-med*2;
+	box-shadow: 0 1px 3px rgba($color-foreground, .5);
+}
+.card header {
+	padding: $size-content-block-spacing/4 $size-content-block-spacing;
+	box-shadow: 0 1px rgba($color-foreground, .15);
+	background: rgba($color-background, .95);
+	z-index: 1;
+  position: relative;
+}
+.card header h3 {
+	color: rgba($color-foreground, .75);
+}
+.card header a {
+	text-decoration: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: $size-content-block-spacing/1.75;
+}
+.card figure {
+	margin-top: -$size-content-block-spacing*2;
+	border-radius: 0;
+	height: $size-minwidth/2;
+	
+	background-size: cover;
+	background-position: center;
+}
+.card section {
+	font-size: 80%;
+	padding: $size-content-block-spacing;
+}
+.card section p { padding: 0; }
