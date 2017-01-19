@@ -1,0 +1,30 @@
+@import "base/colors";
+@import "base/sizes";
+@import "helpers/functions";
+
+@mixin figure--full-bleed() {
+	margin-left: -($size-column--safety/ strip-unit($size-content-block--font) );
+	margin-right: -($size-column--safety/ strip-unit($size-content-block--font) );
+	border-radius: 0;
+}
+
+article figure {
+	font-size: $size-content-block--font;
+  padding: 0;
+  margin: $size-content-block-spacing 0 0;
+	border-radius: $size-corner-med;
+	background: $color-foreground;
+	overflow: hidden;
+	@include breakpoint($size-breakpoint-s) { @include figure--full-bleed() }
+	@include breakpoint($size-breakpoint-xs) { @include figure--full-bleed() }
+}
+article figure img {
+	width: 100%;
+	display: block;
+}
+article figure figcaption {
+	padding: $size-content-block-spacing;
+	color: rgba($color-background, .5);
+	font-size: .75em;
+	font-variant: small-caps;
+}

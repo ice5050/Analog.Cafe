@@ -4,16 +4,19 @@ a {
 	color: inherit;
 	text-decoration: underline;
 	word-wrap: break-word;
-}
-a:active {
-	color: $color-foreground;
+	&:active {
+		color: $color-foreground;
+		figure & {
+			color: $color-background;
+		}
+	}
 }
 
 p a {
 	@extend a;
 	background: rgba($color-foreground, .05);
 	padding: .15em .25em;
-	border-radius: .15em;
+	border-radius: $size-corner-small;
 }
 p a:active {
   background: $color-foreground;

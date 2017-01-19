@@ -1,12 +1,9 @@
 @import "base/typography";
 @import "base/colors";
+@import "base/sizes";
 
 @import "components/links";
-
-$size-set: 62.5%;
-$size-reset: 1.5em;
-$size-column--maxwidth: 42em;
-$size-column--safety: 1.5em;
+@import "components/images";
 
 @mixin center-block($width) {
 	margin: 0 auto;
@@ -17,7 +14,17 @@ $size-column--safety: 1.5em;
 
 body {
 	color: $color-foreground;
-	font: $size-set $font-content;
+	font-family: $font-content;
+	
+	min-width: $size-minwidth;
+	font-size: $size-font-m;
+	@include breakpoint($size-breakpoint-xl) {
+		font-size: $size-font-xl;
+	}
+	@include breakpoint($size-breakpoint-xs) {
+		font-size: $size-font-xs;
+	}
+	
 	letter-spacing: $font-content--spacing;
 	font-weight: $font-content--weight;
 	-webkit-text-size-adjust: 100%;
@@ -29,6 +36,9 @@ main {
 	background-color: $color-background;
 }
 main article section {
-	@include center-block($size-column--maxwidth);
+	@include center-block($size-column--maxwidth-m);
+	@include breakpoint($size-breakpoint-xl) {
+		@include center-block($size-column--maxwidth-l);
+	}
 	padding: 0 $size-column--safety;
 }
