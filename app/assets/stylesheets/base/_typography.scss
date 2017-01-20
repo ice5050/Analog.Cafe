@@ -11,6 +11,7 @@ $font-content--line: 1.75em;
 $font-header: 'Exo 2', sans-serif;
 $font-header--weight: 600;
 
+
 .small-caption {
 	font-size: .75em;
 	font-variant: small-caps;
@@ -23,12 +24,13 @@ h1 {
 }
 h2 {
 	@extend h1;
+	color: $color-foreground;
 	font-size: 2em;	
 }
 h3 {
 	@extend h1;
+	color: $color-foreground;
 	font-size: 1.5em;
-	color: $color-foreground--secondary;
 	padding-top: 0;
 }
 h4 {
@@ -36,6 +38,8 @@ h4 {
 	font-weight: $font-content--weight;
 	@extend .small-caption;
 }
+
+
 p {
 	font-size: $size-content-block--font;
 	line-height: $font-content--line;
