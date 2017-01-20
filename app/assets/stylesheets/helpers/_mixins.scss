@@ -9,14 +9,19 @@
 		font-size: $size-font-xs * $multiplier;
 	}
 }
-
 @mixin center-block($width) {
 	margin: 0 auto;
 	max-width: $width;
 }
-
+@mixin text-block($font-size) {
+	font-size: $font-size;
+	margin: 0;
+	padding-top: $size-content-block-spacing;
+}
 @mixin figure--full-bleed() {
 	margin-left: -($size-column--safety/ strip-unit($size-content-block--font) );
 	margin-right: -($size-column--safety/ strip-unit($size-content-block--font) );
+	width: 100vw;
+	max-width: 100vw;
 	border-radius: 0;
 }

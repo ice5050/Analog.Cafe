@@ -1,0 +1,54 @@
+@import "base/colors";
+@import "base/sizes";
+@import "helpers/functions";
+@import "helpers/mixins";
+
+.figure {
+	font-size: $size-content-block--font;
+  padding: 0;	
+	float: left;
+	width: 85%;   
+  margin: 0 $size-content-block-spacing $size-content-block-spacing;
+	
+	margin-left: calc((#{$size-column--maxwidth-m} - 100vw})/2.25);
+	@include breakpoint($size-breakpoint-m) {
+		float: none;
+		margin-left: 0;
+		width: 100%;
+	}
+	@include breakpoint($size-breakpoint-xl) {
+		margin-left: calc((#{$size-column--maxwidth-l} - 100vw)/2.75);
+	}
+	@include breakpoint($size-breakpoint-xxl) {
+		margin-left: -$size-minwidth;
+	}
+
+	overflow: hidden;
+	@include breakpoint($size-breakpoint-s) { @include figure--full-bleed() }
+	@include breakpoint($size-breakpoint-xs) { @include figure--full-bleed() }
+}
+figure img {
+	width: 100%;
+	display: block;
+}
+.figure figcaption {
+	@extend .small-caption;
+	@include breakpoint($size-breakpoint-s) {
+		padding: 0 $size-column--safety;
+	}
+}
+
+.card figure {
+	margin: 0;
+	background-size: cover;
+	background-position: center;
+	@include reset-fontsize(2);
+}
+.card figure img {
+	margin-top: -$size-content-block-spacing*2;
+}
+.card figure figcaption {
+	@extend .small-caption;
+	background: $color-background;
+	padding: $size-column--safety;
+}

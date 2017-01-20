@@ -3,11 +3,6 @@
 @import "base/typography";
 @import "helpers/mixins";
 
-@mixin button-fullwidth() {
-	@include figure--full-bleed();
-	max-width: 100vw;
-}
-
 .button {
 	@include reset-fontsize(strip-unit($size-content-block--font) * strip-unit($size-reset));
 	@include center-block($size-minwidth);
@@ -34,11 +29,19 @@
 	}
 	
 	@include breakpoint($size-breakpoint-xs) {
-		@include button-fullwidth();
+		border-radius: 0;
+		max-width: 100%;
 		padding: $size-content-block-spacing/1.5 0;
 	}
 	.card & {
-		@include button-fullwidth();
+		@include figure--full-bleed();
+		border-radius: 0;
+		max-width: 100%;
 		margin: 0;
+	}
+}
+@include breakpoint($size-breakpoint-xs) {
+	section .button {
+			@include figure--full-bleed();
 	}
 }
