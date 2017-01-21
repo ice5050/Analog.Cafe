@@ -25,15 +25,22 @@ body {
 main {
 	@include reset-fontsize();
 	background-color: $color-background;
-}
-main article section {
-	@include center-block--responsive();
-	padding: 0 $size-column--safety;
-}
-
-main article header {
-	padding: $size-column--safety;
-  border-bottom: 1px solid rgba($color-foreground, $opacity-least);
+	
+	& article {
+		& header {
+			padding: $size-column--safety;
+			border-bottom: 1px solid rgba($color-foreground, $opacity-least);
+		}
+		& section {
+			@include center-block--responsive();
+			padding: 0 $size-column--safety;
+			&::after {
+				content: '';
+				clear: both;
+				display: block;
+			}
+		}
+	}
 }
 
 

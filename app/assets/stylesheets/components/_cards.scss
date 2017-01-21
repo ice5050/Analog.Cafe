@@ -15,25 +15,30 @@
 	@include breakpoint($size-breakpoint-xs){
 		border-radius: 0;
 	}
+	
+	& header {
+		border-radius: $size-corner-med $size-corner-med 0 0;
+		padding: $size-content-block-spacing/4 $size-content-block-spacing;
+		padding-right: $size-content-block-spacing * 3;
+		background: rgba($color-foreground, $opacity-most);
+		color: $color-background;
+		z-index: 1;
+		position: relative;
+		& h3 {
+			color: $color-background;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
 }
+
+
+
+// exceptions:
 @include breakpoint($size-breakpoint-xs){
 	main article section .card {
 		width: 100vw;
 		margin-left: -$size-column--safety;
 	}
-}
-.card header {
-	border-radius: $size-corner-med $size-corner-med 0 0;
-	padding: $size-content-block-spacing/4 $size-content-block-spacing;
-	padding-right: $size-content-block-spacing * 3;
-	background: rgba($color-foreground, $opacity-most);
-	color: $color-background;
-	z-index: 1;
-  position: relative;
-}
-.card header h3 {
-	color: $color-background;
-	white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
