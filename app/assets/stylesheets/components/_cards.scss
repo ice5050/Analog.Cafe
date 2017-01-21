@@ -4,31 +4,36 @@
 @import "helpers/mixins";
 
 .card {
+	@include reset-fontsize();
 	@include center-block($size-minwidth);
 	
 	display: block;
 	overflow: hidden;
-	border-radius: $size-corner-med*2;
-	box-shadow: 0 0 1px rgba($color-foreground, .5);
+	border-radius: $size-corner-med;
+	@include card-shadow();
+	
+	@include breakpoint($size-breakpoint-xs){
+		border-radius: 0;
+	}
+}
+@include breakpoint($size-breakpoint-xs){
+	main article section .card {
+		width: 100vw;
+		margin-left: -$size-column--safety;
+	}
 }
 .card header {
+	border-radius: $size-corner-med $size-corner-med 0 0;
 	padding: $size-content-block-spacing/4 $size-content-block-spacing;
 	padding-right: $size-content-block-spacing * 3;
-	box-shadow: 0 1px rgba($color-foreground, .15);
-	background: rgba($color-background, .95);
+	background: rgba($color-foreground, $opacity-most);
+	color: $color-background;
 	z-index: 1;
   position: relative;
 }
 .card header h3 {
-	color: $color-foreground;
+	color: $color-background;
 	white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-.card header a {
-	text-decoration: none;
-	position: absolute;
-	top: 0;
-	right: 0;
-	padding: $size-content-block-spacing/1.75;
 }

@@ -12,48 +12,70 @@ $font-header: 'Exo 2', sans-serif;
 $font-header--weight: 600;
 
 
-.small-caption {
-	font-size: .75em;
-	font-variant: small-caps;
+// standard list of all available typography levels (from header to small type)
+$typography-levels: (
+	/* 1 */	'h1',
+	/* 2 */	'h2',
+	/* 3 */	'h3, .subtitle',
+	/* 4 */	'h4',
+	/* 5 */	'p',
+	/* 6 */	'.small-caption'
+);
+
+// function for easiest selection of a typography level
+@function A($level) {
+  @return nth($typography-levels, $level);
 }
-h1 {
+
+
+
+#{A(1)} {
 	@include text-block(3em);
 	font-family: $font-header;
 	font-weight: $font-header--weight;
 	color: $color-brand;
 }
-h2 {
-	@extend h1;
+#{A(2)} {
+	@extend #{A(1)};
 	color: $color-foreground;
 	font-size: 2em;	
 }
-h3 {
-	@extend h1;
+#{A(3)} {
+	@extend #{A(1)};
 	color: $color-foreground;
 	font-size: 1.5em;
 	padding-top: 0;
+	display: block;
 }
-h4 {
+#{A(4)} {
 	font-family: $font-content;
 	font-weight: $font-content--weight;
-	@extend .small-caption;
+	@extend #{A(6)};
 }
-
-
-p {
+#{A(5)} {
 	font-size: $size-content-block--font;
 	line-height: $font-content--line;
 	display: inline;
+	&::after, &:first-of-type::before {
+		display: block;
+		height: $size-content-block--font;
+		content: "";
+	}
 }
-p::after {
-	display: block;
-	height: $size-content-block--font;
-	content: "";
+#{A(6)} {
+	font-size: .75em;
+	font-variant: small-caps;
 }
-
 
 ::selection {
 	background: $color-background--highlight;
 	color: $color-foreground;
 	text-shadow: 1px 0 0;
+}
+
+
+
+// exceptions:
+main article header .small-caption {
+	font-size: .75 * #{ $size-content-block--font } ;
 }

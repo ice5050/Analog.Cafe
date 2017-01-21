@@ -3,52 +3,69 @@
 @import "helpers/functions";
 @import "helpers/mixins";
 
-.figure {
-	font-size: $size-content-block--font;
-  padding: 0;	
-	float: left;
-	width: 85%;   
-  margin: 0 $size-content-block-spacing $size-content-block-spacing;
-	
-	margin-left: calc((#{$size-column--maxwidth-m} - 100vw})/2.25);
-	@include breakpoint($size-breakpoint-m) {
-		float: none;
-		margin-left: 0;
-		width: 100%;
-	}
-	@include breakpoint($size-breakpoint-xl) {
-		margin-left: calc((#{$size-column--maxwidth-l} - 100vw)/2.75);
-	}
-	@include breakpoint($size-breakpoint-xxl) {
-		margin-left: -$size-minwidth;
-	}
-
-	overflow: hidden;
-	@include breakpoint($size-breakpoint-s) { @include figure--full-bleed() }
-	@include breakpoint($size-breakpoint-xs) { @include figure--full-bleed() }
-}
 figure img {
 	width: 100%;
 	display: block;
 }
-.figure figcaption {
-	@extend .small-caption;
+figcaption {
+	@extend #{A(6)};
+	
 	@include breakpoint($size-breakpoint-s) {
 		padding: 0 $size-column--safety;
 	}
+	.figure-feature & {
+		padding: 0 $size-column--safety;
+	}
+}
+.figure {
+	font-size: $size-content-block--font;
+  padding: 0;	
+	overflow: hidden;
+	margin: 0 0 $size-content-block-spacing;
+  
+	@include breakpoint($size-breakpoint-s) {
+		@include figure-bleed();
+	}
+	@include breakpoint($size-breakpoint-l) {
+ 		width: 85%; 
+		margin-left: calc((#{$size-column--maxwidth-m} - 100vw)/3.75);
+		margin-right: $size-content-block-spacing;
+		float: left;
+  }
+	@include breakpoint($size-breakpoint-xxl) {
+		width: 94%; 
+		margin-left: -$size-column--maxwidth-m/2.75;
+		margin-right: $size-content-block-spacing;
+		float: left;
+	}
+}
+
+.figure-feature {
+	@extend .figure;
+	@include figure-bleed();
+	@include breakpoint($size-column--maxwidth-m + 50px) {
+		margin-left: calc((#{$size-column--maxwidth-m} - 100vw)/2);
+		& figcaption {
+			@include center-block--responsive();
+		}
+	}
+	@include breakpoint($size-breakpoint-xl) {
+		margin-left: calc((#{$size-column--maxwidth-l} - 100vw)/2);
+	}
+	float: none;
 }
 
 .card figure {
 	margin: 0;
 	background-size: cover;
 	background-position: center;
-	@include reset-fontsize(2);
+	font-size: $size-content-block--font;
 }
 .card figure img {
 	margin-top: -$size-content-block-spacing*2;
 }
 .card figure figcaption {
-	@extend .small-caption;
+	@extend #{A(6)};
 	background: $color-background;
 	padding: $size-column--safety;
 }

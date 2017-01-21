@@ -1,4 +1,4 @@
-class CounterController < ApplicationController
-  def index
+class SamplesController < ApplicationController
+  def Article
   end
 end

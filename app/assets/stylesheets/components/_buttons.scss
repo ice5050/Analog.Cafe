@@ -4,20 +4,19 @@
 @import "helpers/mixins";
 
 .button {
-	@include reset-fontsize(strip-unit($size-content-block--font) * strip-unit($size-reset));
 	@include center-block($size-minwidth);
 	
 	text-decoration: none;
-	background: $color-brand;
-	color: $color-background;
+	text-align: center;
 	font-family: $font-header;
 	font-weight: $font-header--weight;
-	box-shadow: 0 -1px 0 darken($color-brand, 10%) inset;
-	
-	display: block;
-	text-align: center;
+	font-size: $size-content-block--font;
 	line-height: $font-content--line;
-	border-radius: $size-corner-med;
+	
+	@include card-shadow();
+	display: block;
+	background: $color-background;
+	border-radius: $size-corner-small;
 	padding: $size-content-block-spacing/3 0;
 	margin-top: $size-content-block-spacing;
 	margin-bottom: $size-content-block-spacing;
@@ -29,18 +28,32 @@
 	}
 	
 	@include breakpoint($size-breakpoint-xs) {
-		@include figure--full-bleed();
-		max-width: 100%;
-		padding: $size-content-block-spacing/1.5 0;
+		@include figure-bleed();
+		margin-left: 0;
 	}
 	.card & {
 		max-width: 100%;
 		margin: 0;
 		border-radius: 0;
 	}
+	main article section & {
+		font-size: $size-content-block--font;
+	}
 }
 @include breakpoint($size-breakpoint-xs) {
-	section .button {
-			@include figure--full-bleed();
+	main article section .button {
+			@include figure-bleed();
+	}
+}
+
+.card header a {
+	text-decoration: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: $size-content-block-spacing/1.75;
+	&:active {
+		background: 0 0;
+		color: $color-brand;
 	}
 }

@@ -1,25 +1,28 @@
 $size-minwidth: 320px;
 $breakpoint-to-ems: true;
 
-$size-font-m: 10px; //62.5%;
-$size-font-xl: 11.33px; //72.5%;
-$size-font-xs: 8.66px; //55%;
-$size-reset: 1.5em;
+$size-font-xs: 	59.33%;
+$size-font-m: 	62.5%;
+$size-font-xl: 	66.66%;
+$size-reset: 		1.5em;
 
 $size-column--maxwidth-m: 675px;
 $size-column--maxwidth-l: 840px;
-$size-column--safety: 1.5em;
+$size-column--safety: 		1.5em;
+
 
 $size-breakpoint-xxl: 1600px;
-$size-breakpoint-xl: 1320px;
-//$size-breakpoint-l: 901px 1320px;
-$size-breakpoint-m: 676px 900px;
-$size-breakpoint-s: 521px 675px;
-$size-breakpoint-xs: $size-minwidth 520px;
+$size-breakpoint-xl: 	1320px;
+$size-breakpoint-l: 	1080px;
+
+$size-breakpoint-m: 	0		$size-column--maxwidth-l;
+$size-breakpoint-s: 	0 	$size-column--maxwidth-m + 30; //( $size-column--safety * $size-font-m )px = 30
+$size-breakpoint-xs: 	0 	$size-minwidth;
 
 
-$size-content-block-spacing: 1em;
-$size-content-block--font: 1.33em;
 
-$size-corner-small: .15em;
-$size-corner-med: .25em;
+$size-content-block-spacing: 	1em;
+$size-content-block--font: 		1.33em;
+
+$size-corner-small: .25em;
+$size-corner-med:		 .5em;
