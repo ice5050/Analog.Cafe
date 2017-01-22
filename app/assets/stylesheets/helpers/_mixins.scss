@@ -27,6 +27,28 @@
 	max-width: 100vw;
 	border-radius: 0;
 }
+@mixin figure-block() {
+	font-size: $size-fontbase--normal;
+	padding: 0;	
+	overflow: hidden;
+	margin: 0 0 $size-content-block-spacing;
+	
+	@include breakpoint($size-breakpoint-s) {
+		@include figure-bleed();
+	}
+	@include breakpoint($size-breakpoint-l) {
+		width: 77.5%; 
+		margin-left: calc((#{$size-column--maxwidth-m} - 100vw)/3.5);
+		margin-right: $size-content-block-spacing;
+		float: left;
+	}
+	@include breakpoint($size-breakpoint-xxl) {
+		width: 94%; 
+		margin-left: -$size-column--maxwidth-m/2.75;
+		margin-right: $size-content-block-spacing;
+		float: left;
+	}
+}
 @mixin button-shadow() {
 	box-shadow: 0 .5px 1px rgba($color-foreground, $opacity-half);
 }

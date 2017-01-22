@@ -7,7 +7,7 @@
 
 
 $figcaption-breakpoint: $size-column--maxwidth-m + $size-column--safety-min * 2;
-$figcaption-padding: 0 ($size-column--safety / strip-unit($size-fontbase--smaller));
+$figcaption-padding: $size-column--safety / strip-unit($size-fontbase--smaller);
 
 figure {
 	& img {
@@ -16,35 +16,11 @@ figure {
 	}
 	& figcaption {
 		@extend #{A(6)};
-		@include breakpoint($size-breakpoint-s) {
-			padding: $figcaption-padding;
-		}
-		.feature & {
-			padding: $figcaption-padding;
-		}
+		padding: $figcaption-padding;
 		border-bottom: $size-fontbase--normal/2 solid $color-foreground;
 	}
 	article section > & {
-		font-size: $size-fontbase--normal;
-		padding: 0;	
-		overflow: hidden;
-		margin: 0 0 $size-content-block-spacing;
-		
-		@include breakpoint($size-breakpoint-s) {
-			@include figure-bleed();
-		}
-		@include breakpoint($size-breakpoint-l) {
-			width: 77.5%; 
-			margin-left: calc((#{$size-column--maxwidth-m} - 100vw)/3.5);
-			margin-right: $size-content-block-spacing;
-			float: left;
-		}
-		@include breakpoint($size-breakpoint-xxl) {
-			width: 94%; 
-			margin-left: -$size-column--maxwidth-m/2.75;
-			margin-right: $size-content-block-spacing;
-			float: left;
-		}
+		@include figure-block();
 		&:not(.feature):first-of-type {
 			padding-top: $size-fontbase--normal;
 		}
@@ -62,9 +38,6 @@ figure {
 				@include breakpoint($figcaption-breakpoint) {
 					@include center-block--responsive();
 				}
-				@include breakpoint($figcaption-breakpoint 0) {
-					padding: $figcaption-padding;
-				}
 			}
 		}
 	}
@@ -80,7 +53,6 @@ figure {
 		& figcaption {
 			@extend #{A(6)};
 			background: $color-background;
-			padding: $size-column--safety;
 		}
 	}
 	

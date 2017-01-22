@@ -16,9 +16,7 @@
 	@include breakpoint($size-breakpoint-xs){
 		border-radius: 0;
 	}
-	
 	& header {
-		border-radius: $size-corner-med $size-corner-med 0 0;
 		padding: $size-content-block-spacing/4 $size-content-block-spacing;
 		padding-right: $size-content-block-spacing * 3;
 		background: $color-foreground;
@@ -35,7 +33,12 @@
 		}
 	}
 }
-
+.card-embed {
+	@extend .card;
+	@include button-shadow();
+	@include figure-block();
+	max-width: 100%;
+}
 
 
 // exceptions:
