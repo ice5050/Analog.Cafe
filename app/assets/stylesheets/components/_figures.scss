@@ -22,13 +22,14 @@ figure {
 		.feature & {
 			padding: $figcaption-padding;
 		}
+		border-bottom: $size-fontbase--normal/2 solid $color-foreground;
 	}
 	article section > & {
 		font-size: $size-fontbase--normal;
 		padding: 0;	
 		overflow: hidden;
 		margin: 0 0 $size-content-block-spacing;
-	
+		
 		@include breakpoint($size-breakpoint-s) {
 			@include figure-bleed();
 		}
@@ -55,7 +56,8 @@ figure {
 			@include breakpoint($size-breakpoint-xl) {
 				margin-left: calc((#{$size-column--maxwidth-l} - 100vw)/2);
 			}
-			float: none;			
+			float: none;
+			border:none;			
 			& figcaption {
 				@include breakpoint($figcaption-breakpoint) {
 					@include center-block--responsive();
@@ -75,9 +77,6 @@ figure {
 		overflow: visible;
     float: none;
     width: 100%;
-		& img {
-			margin-top: -( $size-content-block-spacing + $size-fontbase--smaller * strip-unit($font-content--line) );
-		}
 		& figcaption {
 			@extend #{A(6)};
 			background: $color-background;

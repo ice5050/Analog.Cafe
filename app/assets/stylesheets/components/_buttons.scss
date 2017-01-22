@@ -16,7 +16,7 @@
 	font-size: $size-fontbase--normal;
 	line-height: $font-content--line;
 	
-	@include card-shadow();
+	@include button-shadow();
 	display: block;
 	background: $color-background;
 	border-radius: $size-corner-small;

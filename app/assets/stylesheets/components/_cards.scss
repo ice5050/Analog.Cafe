@@ -21,10 +21,11 @@
 		border-radius: $size-corner-med $size-corner-med 0 0;
 		padding: $size-content-block-spacing/4 $size-content-block-spacing;
 		padding-right: $size-content-block-spacing * 3;
-		background: rgba($color-foreground, $opacity-most);
+		background: $color-foreground;
 		color: $color-background;
 		z-index: 1;
 		position: relative;
+		@include button-shadow();
 		& h3 {
 			font-size: $size-fontbase--normal;
 			color: $color-background;
