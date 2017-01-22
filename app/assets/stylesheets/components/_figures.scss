@@ -1,8 +1,13 @@
 @import "base/colors";
 @import "base/sizes";
+@import "base/typography";
+
 @import "helpers/functions";
 @import "helpers/mixins";
 
+
+$figcaption-breakpoint: $size-column--maxwidth-m + $size-column--safety-min * 2;
+$figcaption-padding: 0 ($size-column--safety / strip-unit($size-fontbase--smaller));
 
 figure {
 	& img {
@@ -11,17 +16,16 @@ figure {
 	}
 	& figcaption {
 		@extend #{A(6)};
-	
 		@include breakpoint($size-breakpoint-s) {
-			padding: 0 $size-column--safety;
+			padding: $figcaption-padding;
 		}
 		.feature & {
-			padding: 0 $size-column--safety;
+			padding: $figcaption-padding;
 		}
 	}
-	
-	article & {
-		font-size: $size-content-block--font;
+	// locked to section (unlock to article level***)
+	article section & {
+		font-size: $size-fontbase--normal;
 		padding: 0;	
 		overflow: hidden;
 		margin: 0 0 $size-content-block-spacing;
@@ -30,8 +34,8 @@ figure {
 			@include figure-bleed();
 		}
 		@include breakpoint($size-breakpoint-l) {
-			width: 85%; 
-			margin-left: calc((#{$size-column--maxwidth-m} - 100vw)/3.75);
+			width: 77.5%; 
+			margin-left: calc((#{$size-column--maxwidth-m} - 100vw)/3.5);
 			margin-right: $size-content-block-spacing;
 			float: left;
 		}
@@ -41,18 +45,26 @@ figure {
 			margin-right: $size-content-block-spacing;
 			float: left;
 		}
+		&:not(.feature):first-of-type {
+			padding-top: $size-fontbase--normal;
+		}
 		&.feature {
 			@include figure-bleed();
-			@include breakpoint($size-column--maxwidth-m + 50px) {
+			@include breakpoint($figcaption-breakpoint) {
 				margin-left: calc((#{$size-column--maxwidth-m} - 100vw)/2);
-				& figcaption {
-					@include center-block--responsive();
-				}
 			}
 			@include breakpoint($size-breakpoint-xl) {
 				margin-left: calc((#{$size-column--maxwidth-l} - 100vw)/2);
 			}
-			float: none;
+			float: none;			
+			& figcaption {
+				@include breakpoint($figcaption-breakpoint) {
+					@include center-block--responsive();
+				}
+				@include breakpoint($figcaption-breakpoint 0) {
+					padding: $figcaption-padding;
+				}
+			}
 		}
 	}
 	
@@ -60,12 +72,12 @@ figure {
 		margin: 0;
 		background-size: cover;
 		background-position: center;
-		font-size: $size-content-block--font;
+		font-size: $size-fontbase--normal;
 		overflow: visible;
     float: none;
     width: 100%;
 		& img {
-			margin-top: -$size-content-block-spacing*2;
+			margin-top: -( $size-content-block-spacing + $size-fontbase--smaller * strip-unit($font-content--line) );
 		}
 		& figcaption {
 			@extend #{A(6)};
@@ -73,6 +85,7 @@ figure {
 			padding: $size-column--safety;
 		}
 	}
+	
 }
 
 

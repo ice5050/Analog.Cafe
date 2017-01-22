@@ -15,7 +15,17 @@ body {
 	color: $color-foreground;
 	font-family: $font-content;
 	
-	@include set-fontsize();
+	font-size: $size-fontbase-m;
+	@include breakpoint($size-breakpoint-xxl) {
+		font-size: $size-fontbase-l;
+	}
+	@include breakpoint($size-breakpoint-s) {
+		font-size: $size-fontbase-s;
+	}
+	@include breakpoint(0 $size-minwidth*1.45) {
+		font-size: $size-fontbase-xs;
+	}
+	
 	letter-spacing: $font-content--spacing;
 	font-weight: $font-content--weight;
 	-webkit-text-size-adjust: 100%;
@@ -23,7 +33,6 @@ body {
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 main {
-	@include reset-fontsize();
 	background-color: $color-background;
 	
 	& article {

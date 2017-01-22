@@ -2,21 +2,6 @@
 
 
 
-
-// fonts
-@mixin set-fontsize() {
-	font-size: $size-font-m;
-	@include breakpoint($size-breakpoint-xl) {
-		font-size: $size-font-xl;
-	}
-	@include breakpoint($size-breakpoint-xs) {
-		font-size: $size-font-xs;
-	}
-}
-@mixin reset-fontsize() {
-	font-size: initial;
-}
-
 // blocks
 @mixin center-block($width) {
 	margin: 0 auto;
@@ -36,8 +21,8 @@
 
 // components
 @mixin figure-bleed() {
-	margin-left: -($size-column--safety/ strip-unit($size-content-block--font) );
-	margin-right: -($size-column--safety/ strip-unit($size-content-block--font) );
+	margin-left: -($size-column--safety/ strip-unit($size-fontbase--normal) );
+	margin-right: -($size-column--safety/ strip-unit($size-fontbase--normal) );
 	width: 100vw;
 	max-width: 100vw;
 	border-radius: 0;

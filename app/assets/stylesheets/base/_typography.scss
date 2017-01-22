@@ -2,6 +2,9 @@
 @import "base/sizes";
 
 @import "helpers/mixins";
+@import "helpers/functions";
+
+
 
 $font-content: Lora, serif;
 $font-content--weight: 400;
@@ -53,17 +56,17 @@ $typography-levels: (
 	@extend #{A(6)};
 }
 #{A(5)} {
-	font-size: $size-content-block--font;
+	font-size: $size-fontbase--normal;
 	line-height: $font-content--line;
 	display: inline;
 	&::after, &:first-of-type::before {
 		display: block;
-		height: $size-content-block--font;
+		height: $size-fontbase--normal;
 		content: "";
 	}
 }
 #{A(6)} {
-	font-size: .75em;
+	font-size: $size-fontbase--smaller;
 	font-variant: small-caps;
 }
 
@@ -77,5 +80,5 @@ $typography-levels: (
 
 // exceptions:
 main article header .small-caption {
-	font-size: .75 * #{ $size-content-block--font } ;
+	font-size: $size-fontbase--smaller * strip-unit($size-fontbase--normal) ;
 }

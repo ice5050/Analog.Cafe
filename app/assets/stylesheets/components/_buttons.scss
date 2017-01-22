@@ -1,7 +1,10 @@
 @import "base/colors";
 @import "base/sizes";
 @import "base/typography";
+
 @import "helpers/mixins";
+
+
 
 .button {
 	@include center-block($size-minwidth);
@@ -10,7 +13,7 @@
 	text-align: center;
 	font-family: $font-header;
 	font-weight: $font-header--weight;
-	font-size: $size-content-block--font;
+	font-size: $size-fontbase--normal;
 	line-height: $font-content--line;
 	
 	@include card-shadow();
@@ -37,7 +40,7 @@
 		border-radius: 0;
 	}
 	main article section & {
-		font-size: $size-content-block--font;
+		font-size: $size-fontbase--normal;
 	}
 }
 @include breakpoint($size-breakpoint-xs) {
@@ -51,7 +54,7 @@
 	position: absolute;
 	top: 0;
 	right: 0;
-	padding: $size-content-block-spacing/1.75;
+	padding: $size-content-block-spacing/4 $size-content-block-spacing/2 ;
 	&:active {
 		background: 0 0;
 		color: $color-brand;

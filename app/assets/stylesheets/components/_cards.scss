@@ -1,15 +1,16 @@
 @import "base/colors";
 @import "base/sizes";
 @import "base/typography";
+
 @import "helpers/mixins";
 
+
+
 .card {
-	@include reset-fontsize();
-	@include center-block($size-minwidth);
-	
 	display: block;
 	overflow: hidden;
 	border-radius: $size-corner-med;
+	@include center-block($size-minwidth);
 	@include card-shadow();
 	
 	@include breakpoint($size-breakpoint-xs){
@@ -25,6 +26,7 @@
 		z-index: 1;
 		position: relative;
 		& h3 {
+			font-size: $size-fontbase--normal;
 			color: $color-background;
 			white-space: nowrap;
 			overflow: hidden;
