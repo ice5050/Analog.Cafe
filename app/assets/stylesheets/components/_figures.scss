@@ -23,8 +23,7 @@ figure {
 			padding: $figcaption-padding;
 		}
 	}
-	// locked to section (unlock to article level***)
-	article section & {
+	article section > & {
 		font-size: $size-fontbase--normal;
 		padding: 0;	
 		overflow: hidden;
