@@ -52,3 +52,6 @@ gem 'normalize-rails', '~> 4.1', '>= 4.1.1'
 
 # Breakpoint for SASS
 gem 'breakpoint', '~> 2.7', '>= 2.7.1'
+
+# Inline SVG
+gem 'inline_svg'

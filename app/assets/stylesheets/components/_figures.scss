@@ -17,7 +17,7 @@ figure {
 	& figcaption {
 		@extend #{A(6)};
 		padding: $figcaption-padding;
-		border-bottom: $size-fontbase--normal/2 solid $color-foreground;
+		border-bottom: $size-fontbase--normal/2 solid;
 	}
 	article section > & {
 		@include figure-block();
@@ -33,7 +33,7 @@ figure {
 				margin-left: calc((#{$size-column--maxwidth-l} - 100vw)/2);
 			}
 			float: none;
-			border:none;			
+			border:none;
 			& figcaption {
 				@include breakpoint($figcaption-breakpoint) {
 					@include center-block--responsive();

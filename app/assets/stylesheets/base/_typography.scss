@@ -33,19 +33,16 @@ $typography-levels: (
 
 
 #{A(1)} {
-	@include text-block(3em);
+	@include text-block($size-fontbase--larger);
 	font-family: $font-header;
 	font-weight: $font-header--weight;
-	color: $color-brand;
 }
 #{A(2)} {
 	@extend #{A(1)};
-	color: $color-foreground;
 	font-size: 2em;	
 }
 #{A(3)} {
 	@extend #{A(1)};
-	color: $color-foreground;
 	font-size: 1.5em;
 	padding-top: 0;
 	display: block;
@@ -72,8 +69,6 @@ $typography-levels: (
 
 ::selection {
 	background: $color-background--highlight;
-	color: $color-foreground;
-	text-shadow: 1px 0 0;
 }
 
 

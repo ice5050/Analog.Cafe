@@ -19,14 +19,12 @@
 	& header {
 		padding: $size-content-block-spacing/4 $size-content-block-spacing;
 		padding-right: $size-content-block-spacing * 3;
-		background: $color-foreground;
-		color: $color-background;
+		background: $color-background;
 		z-index: 1;
 		position: relative;
 		@include button-shadow();
 		& h3 {
 			font-size: $size-fontbase--normal;
-			color: $color-background;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
