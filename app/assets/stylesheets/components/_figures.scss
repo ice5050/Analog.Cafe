@@ -23,6 +23,9 @@ figure {
 		@include figure-block();
 		&:not(.feature):first-of-type {
 			padding-top: $size-fontbase--normal;
+			@include breakpoint($size-breakpoint-s) {
+				padding-top: 0;
+			}
 		}
 		&.feature {
 			@include figure-bleed();

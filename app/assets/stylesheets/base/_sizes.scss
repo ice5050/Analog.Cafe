@@ -3,7 +3,7 @@
 
 
 $size-minwidth: 320px;
-$breakpoint-to-ems: true;
+//$breakpoint-to-ems: true;
 
 
 $size-fontbase-l: 	24px;
@@ -16,10 +16,10 @@ $size-fontbase--normal: 	1em;
 $size-fontbase--smaller: 	.75em;
 
 
-$size-column--maxwidth-m: 750px;
-$size-column--maxwidth-l: 920px;
-$size-column--safety: 		1.5em;
-$size-column--safety-min: strip-unit($size-column--safety) * $size-fontbase-m;
+$size-column--maxwidth-m: 		750px;
+$size-column--maxwidth-l: 		920px;
+$size-column--safety: 				1.5em;
+$size-column--safety-min: 		strip-unit($size-column--safety) * $size-fontbase-m;
 
 $size-content-block-spacing: 	1em;
 

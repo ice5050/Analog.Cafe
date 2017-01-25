@@ -44,7 +44,7 @@
 	}
 	@include breakpoint($size-breakpoint-xxl) {
 		width: 94%; 
-		margin-left: -$size-column--maxwidth-m/2.75;
+		margin-left: -$size-column--maxwidth-m/2.5;
 		margin-right: $size-content-block-spacing;
 		float: left;
 	}

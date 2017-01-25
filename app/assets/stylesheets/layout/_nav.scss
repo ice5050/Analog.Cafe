@@ -1,0 +1,62 @@
+@import "base/colors";
+@import "base/sizes";
+
+@import "helpers/mixins";
+
+
+body > nav {
+	padding-top: $size-column--safety;
+	padding-bottom: 1px;
+	
+	padding-top: $size-fontbase--larger/1.2;
+	padding-bottom: $size-fontbase--larger/2;
+	
+	.logo-container {
+		position: fixed;
+		top: $size-column--safety/2;
+		z-index: 10;
+		padding: $size-content-block-spacing;
+		background: rgba($color-background, $opacity-half);
+		display: block;
+		border-radius: $size-fontbase--larger;
+		-webkit-backdrop-filter: blur(10px);
+		backdrop-filter: blur(10px);	
+		
+		.button {
+			width: $size-fontbase--larger/1.5;
+			height: $size-fontbase--larger/1.5;
+			overflow: hidden;
+			margin: 0 auto;
+			padding: $size-content-block-spacing/2;
+			border-radius: $size-fontbase--larger;
+			background: $color-brand;
+			text-align: center;
+			&:active {
+				background: $color-foreground;
+			}
+			& .logo {
+				max-height: 100%;
+				max-width: 100%;
+				& path {
+					fill: $color-background;
+				}
+			}
+		}
+	}
+	
+	& > ul {
+		padding: 0;
+		list-style: none;
+		display: table;
+		margin: 0 auto;
+		& li {
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			width: 5em;
+			& > span { @extend #{A(6)}; }
+			& a { text-decoration: none; }
+		}
+	}
+	
+}
