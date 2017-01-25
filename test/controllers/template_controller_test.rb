@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class SamplesControllerTest < ActionDispatch::IntegrationTest
+class TemplateControllerTest < ActionDispatch::IntegrationTest
   test "should get Article" do
-    get samples_Article_url
+    get template_Article_url
     assert_response :success
   end
 

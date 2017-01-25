@@ -54,6 +54,11 @@ body > nav {
 			vertical-align: middle;
 			text-align: center;
 			width: 5em;
+			&:not(.nav-center) {
+				@include breakpoint($size-breakpoint-s){
+					display: none;
+				}
+			}
 			& > span { @extend #{A(6)}; }
 			& a { text-decoration: none; }
 		}
