@@ -1,4 +1,5 @@
 @import "base/sizes";
+@import "base/colors";
 
 @import "helpers/mixins";
 
@@ -9,7 +10,9 @@
 		text-align: center;
 		display: block;
 		margin: $size-column--safety auto;
+		padding: $size-column--safety;
 		font-size: $size-fontbase--smaller;
+		span { background: $color-background; }
 	}
 	position: relative;
 	z-index: z('layer-up') + 1;

@@ -1,6 +1,6 @@
 WebFontConfig = {
 	google: {
-		families: ['Exo 2:600', 'Lora']
+		families: ['Exo 2:600', 'Lora:400,400i,700,700i']
 	}
 };
    

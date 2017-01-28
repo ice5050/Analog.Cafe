@@ -1,5 +1,6 @@
 @import "base/sizes";
 @import "base/colors";
+@import "base/typography";
 
 @import "helpers/mixins";
 
@@ -24,14 +25,14 @@
 				display: table-cell;
 			}
 			vertical-align: bottom;
-			width: $size-column--safety * 2;
+			width: 5em;
 			& > a {
 				@include index-cell-figure;
 				display: block;
 				width: calc(100% - #{$size-content-block-spacing});
-				height: 7em;
+				height: $font-content--line * strip-unit($size-fontbase--normal) * 4;
 				margin-bottom: .15em;
-				&:active { background: $color-foreground; background-image: none !important; }
+				margin-bottom: $font-content--spacing/2;
 			}
 		}
 		& .index-cover {
@@ -50,6 +51,7 @@
 				&:active h2 { background: $color-background--highlight; }
 			}
 			& h2, & h3 { display: inline-block; }
+			h3 { color: $color-brand; }
 			.small-caption { display: block; }
 		}
 		&:first-child .index-summary { padding-top: 15em;	}
