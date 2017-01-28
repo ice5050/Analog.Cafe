@@ -50,7 +50,7 @@ main {
 
 		}
 		& section {
-			@include center-block--responsive();
+			@include center-block--responsive;
 			padding: 0 $size-column--safety;
 			&::after {
 				content: '';
@@ -60,21 +60,3 @@ main {
 		}
 	}
 }
-
-
-
-
-
-
-// article.birdseye {
-// 	& {
-// 		transform: scale(.5);
-//     transform-origin: center 0;
-// 	}
-// 	@each $typography-level in $typography-levels {
-// 		& section > #{$typography-level} {
-// 			filter: blur(5px);
-// 			opacity: .25;
-// 		}
-// 	}
-// }

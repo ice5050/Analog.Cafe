@@ -7,7 +7,7 @@
 	margin: 0 auto;
 	max-width: $width;
 }
-@mixin center-block--responsive() {
+@mixin center-block--responsive {
 	@include center-block($size-column--maxwidth-m);
 	@include breakpoint($size-breakpoint-xl) {
 		@include center-block($size-column--maxwidth-l);
@@ -18,23 +18,28 @@
 	margin: 0;
 	padding-top: $size-content-block-spacing;
 }
+@mixin text-turnicate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 
 // components
-@mixin figure-bleed() {
+@mixin figure-bleed {
 	margin-left: -($size-column--safety/ strip-unit($size-fontbase--normal) );
 	margin-right: -($size-column--safety/ strip-unit($size-fontbase--normal) );
 	width: 100vw;
 	max-width: 100vw;
 	border-radius: 0;
 }
-@mixin figure-block() {
+@mixin figure-block {
 	font-size: $size-fontbase--normal;
 	padding: 0;	
 	overflow: hidden;
 	margin: 0 0 $size-content-block-spacing;
 	
 	@include breakpoint($size-breakpoint-s) {
-		@include figure-bleed();
+		@include figure-bleed;
 	}
 	@include breakpoint($size-breakpoint-l) {
 		width: 77.5%; 
@@ -49,9 +54,28 @@
 		float: left;
 	}
 }
-@mixin button-shadow() {
+@mixin button-shadow {
 	box-shadow: 0 .5px 1px rgba($color-foreground, $opacity-half);
 }
-@mixin card-shadow() {
+@mixin card-shadow {
 	box-shadow: 0 #{$size-content-block-spacing / 2} #{$size-content-block-spacing * 2} rgba($color-foreground, $opacity-half);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

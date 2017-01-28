@@ -1,4 +1,4 @@
-<% @title="Article" %>
+<% @document_title="Article" %>
 
 <article>
 	<header>
@@ -16,7 +16,7 @@
 		<h2>Second-level heading</h2>
 		<p>Before I got involved with making websites and even photography animation was my primary method of expression. Back in the 90's my elementary school friends and I got pirated copies of 3D Studio MAX to play with. Back then computers were a novelty so just seeing things move on a screen was cool as fuck. Everything we created was obviously garbage but this process started an itch. An itch to create and experiment that made me the man I am today.</p>
 		<figure>
-			<img alt="This is not a pipe." src="https://www.artsocket.com/images/art/L_Woop-Woop.jpg">
+			<%= image_tag "template/L_Woop-Woop.jpg" %>
 			<figcaption>"This is not a pipe" is a famous play on reality by <a href="https://en.wikipedia.org/wiki/The_Treachery_of_Images">René Magritte</a>. He was trying to say that the image he drew and most would refer to as a "pipe" isn't. It's just a drawing or a collection of color pigments on a piece of paper. Can't smoke that.</figcaption>
 		</figure>
 		
@@ -34,7 +34,7 @@
 		<p>We think something is in motion when it changes ten times per second or faster. What happens to it within each one of those moments is crucial as it adds to our idea of where it moves or how it changes.</p>
 		<p>The irst time we tricked our brains like that was over <a href="https://en.wikipedia.org/wiki/History_of_animation#Early_approaches_to_motion_in_art">5,000 years ago</a>. We never stopped since. Animation has been with us through time as we told stories and brought them to life through sound, written word, and images.</p>
 		<figure class="feature">
-			<img src="https://www.artsocket.com/images/art/L_Very-Red-Flower.jpg">
+			<%= image_tag "template/L_Very-Red-Flower.jpg" %>
 			<figcaption>This is not a pipe" is a famous play on reality by René Magritte. He was trying to say that the image he drew and most would refer to as a "pipe" isn't. It's just a drawing or a collection of color pigments on a piece of paper. Can't smoke that.</figcaption>
 		</figure>
 		<aside class="card">
@@ -43,7 +43,7 @@
 				<a href="#">&#10005;</a>
 			</header>
 			<figure>
-				<img src="https://www.artsocket.com/images/art/L_Let-It-Go.jpg">
+				<%= image_tag "template/L_Let-It-Go.jpg" %>
 				<figcaption>This is a card. It contains additional info, options & contextual menus.</figcaption>
 			</figure>
 			<a href="#" class="button">Section Card Button</a>
@@ -53,13 +53,13 @@
 	<a href="#" class="button">Article Button</a>
 </article>
 <a href="#" class="button">Main Button</a>
-<aside class="card" style="position: absolute; z-index: 2; top: 1040px; left: calc(50% - 160px);">
+<aside class="card" style="position: absolute; top: 1040px; left: calc(50% - 160px);">
 	<header>
 		<h3>Main Card</h3>
 		<a href="#">&#10005;</a>
 	</header>
 	<figure>
-		<img src="https://www.artsocket.com/images/art/L_Let-It-Go.jpg">
+		<%= image_tag "template/L_Let-It-Go.jpg" %>
 		<figcaption>This is a card. It contains additional info, options & contextual menus.</figcaption>
 	</figure>
 	<a href="#" class="button">Main Card Button</a>

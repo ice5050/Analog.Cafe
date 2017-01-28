@@ -4,9 +4,10 @@
 @import "helpers/mixins";
 
 
+$nav-logo-width: $size-fontbase--larger/1.5;
 body > nav {
-	padding-top: $size-column--safety;
-	padding-bottom: 1px;
+	position: relative;
+	z-index: z('menu');
 	
 	padding-top: $size-fontbase--larger/1.2;
 	padding-bottom: $size-fontbase--larger/2;
@@ -23,8 +24,8 @@ body > nav {
 		backdrop-filter: blur(10px);	
 		
 		.button {
-			width: $size-fontbase--larger/1.5;
-			height: $size-fontbase--larger/1.5;
+			width: $nav-logo-width;
+			height: $nav-logo-width;
 			overflow: hidden;
 			margin: 0 auto;
 			padding: $size-content-block-spacing/2;
@@ -46,20 +47,20 @@ body > nav {
 	
 	& > ul {
 		padding: 0;
-		list-style: none;
 		display: table;
 		margin: 0 auto;
 		& li {
 			display: table-cell;
 			vertical-align: middle;
 			text-align: center;
-			width: 5em;
+			width: $nav-logo-width + $size-content-block-spacing * 3;
 			&:not(.nav-center) {
+				width: 6em;
 				@include breakpoint($size-breakpoint-s){
 					display: none;
 				}
 			}
-			& > span { @extend #{A(6)}; }
+			& > span { @extend #{A(6)}; background: $color-background; }
 			& a { text-decoration: none; }
 		}
 	}

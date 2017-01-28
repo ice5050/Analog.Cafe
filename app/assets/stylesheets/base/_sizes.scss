@@ -37,3 +37,19 @@ $size-corner-med:		 .5em;
 
 
 $size-logo-ratio: 1701/200;
+
+
+
+$z-layers: (
+  'overlay':		40,
+  'menu':				30,
+  'card':				20,
+  'layer-up':		10,
+  'tuck':				-1
+);
+@function z($layer) {
+  @if not map-has-key($z-layers, $layer) {
+    @warn "No z-index found in $z-layers map for `#{$layer}`. Property omitted.";
+  }
+  @return map-get($z-layers, $layer);
+}

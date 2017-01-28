@@ -20,7 +20,7 @@ figure {
 		border-bottom: $size-fontbase--normal/2 solid;
 	}
 	article section > & {
-		@include figure-block();
+		@include figure-block;
 		&:not(.feature):first-of-type {
 			padding-top: $size-fontbase--normal;
 			@include breakpoint($size-breakpoint-s) {
@@ -28,7 +28,7 @@ figure {
 			}
 		}
 		&.feature {
-			@include figure-bleed();
+			@include figure-bleed;
 			@include breakpoint($figcaption-breakpoint) {
 				margin-left: calc((#{$size-column--maxwidth-m} - 100vw)/2);
 			}
@@ -39,7 +39,7 @@ figure {
 			border:none;
 			& figcaption {
 				@include breakpoint($figcaption-breakpoint) {
-					@include center-block--responsive();
+					@include center-block--responsive;
 				}
 			}
 		}

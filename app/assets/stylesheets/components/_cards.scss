@@ -7,11 +7,13 @@
 
 
 .card {
+	position: relative;
 	display: block;
+	z-index: z('card');
 	overflow: hidden;
 	border-radius: $size-corner-med;
 	@include center-block($size-minwidth);
-	@include card-shadow();
+	@include card-shadow;
 	
 	@include breakpoint($size-breakpoint-xs){
 		border-radius: 0;
@@ -20,21 +22,19 @@
 		padding: $size-content-block-spacing/4 $size-content-block-spacing;
 		padding-right: $size-content-block-spacing * 3;
 		background: $color-background;
-		z-index: 1;
+		z-index: z('card') + 1;
 		position: relative;
-		@include button-shadow();
+		@include button-shadow;
 		& h3 {
 			font-size: $size-fontbase--normal;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
+			@include text-turnicate;
 		}
 	}
 }
 .card-embed {
 	@extend .card;
-	@include button-shadow();
-	@include figure-block();
+	@include button-shadow;
+	@include figure-block;
 	max-width: 100%;
 }
 

@@ -1,0 +1,16 @@
+@import "base/sizes";
+
+@import "helpers/mixins";
+
+
+.motto {
+	q {
+		@include center-block($size-minwidth);
+		text-align: center;
+		display: block;
+		margin: $size-column--safety auto;
+		font-size: $size-fontbase--smaller;
+	}
+	position: relative;
+	z-index: z('layer-up') + 1;
+}

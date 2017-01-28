@@ -16,7 +16,7 @@
 	font-size: $size-fontbase--normal;
 	line-height: $font-content--line;
 	
-	@include button-shadow();
+	@include button-shadow;
 	display: block;
 	background: $color-background;
 	border-radius: $size-corner-small;
@@ -31,7 +31,7 @@
 	}
 	
 	@include breakpoint($size-breakpoint-xs) {
-		@include figure-bleed();
+		@include figure-bleed;
 		margin-left: 0;
 	}
 	.card & {
@@ -48,7 +48,7 @@
 }
 @include breakpoint($size-breakpoint-xs) {
 	main article section .button {
-			@include figure-bleed();
+			@include figure-bleed;
 	}
 }
 
