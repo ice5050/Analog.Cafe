@@ -1,0 +1,81 @@
+@import "base/colors";
+@import "base/sizes";
+
+@import "helpers/mixins";
+@import "helpers/functions";
+
+
+
+$font-content: Lora, serif;
+$font-content--weight: 400;
+$font-content--spacing: 0.033em;
+$font-content--line: 1.75em;
+
+$font-header: 'Exo 2', sans-serif;
+$font-header--weight: 600;
+
+
+// standard list of all available typography levels (from header to small type)
+$typography-levels: (
+	/* 1 */	'h1',
+	/* 2 */	'h2',
+	/* 3 */	'h3, .subtitle',
+	/* 4 */	'h4',
+	/* 5 */	'p',
+	/* 6 */	'.small-caption'
+);
+
+// function for easiest selection of a typography level
+@function A($level) {
+  @return nth($typography-levels, $level);
+}
+
+
+
+#{A(1)} {
+	@include text-block($size-fontbase--larger);
+	font-family: $font-header;
+	font-weight: $font-header--weight;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}
+#{A(2)} {
+	@extend #{A(1)};
+	font-size: 2em;	
+}
+#{A(3)} {
+	@extend #{A(1)};
+	font-size: 1.5em;
+	padding-top: 0;
+	display: block;
+}
+#{A(4)} {
+	font-family: $font-content;
+	font-weight: $font-content--weight;
+	@extend #{A(6)};
+}
+#{A(5)} {
+	font-size: $size-fontbase--normal;
+	line-height: $font-content--line;
+	display: inline;
+	&::after, &:first-of-type::before {
+		display: block;
+		height: $size-fontbase--normal;
+		content: "";
+	}
+}
+#{A(6)} {
+	font-size: $size-fontbase--smaller;
+	font-variant: small-caps;
+}
+
+::selection {
+	background: $color-background--highlight;
+}
+
+
+
+// exceptions:
+main article header .small-caption {
+	font-size: $size-fontbase--smaller * strip-unit($size-fontbase--normal) ;
+}

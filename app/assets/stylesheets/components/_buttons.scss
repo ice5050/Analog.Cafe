@@ -1,0 +1,77 @@
+@import "base/colors";
+@import "base/sizes";
+@import "base/typography";
+
+@import "helpers/mixins";
+
+
+
+.button {
+	@include center-block($size-minwidth);
+	
+	text-decoration: none;
+	text-align: center;
+	font-family: $font-header;
+	font-weight: $font-header--weight;
+	font-size: $size-fontbase--normal;
+	line-height: $font-content--line;
+	
+	@include button-shadow;
+	display: block;
+	background: $color-background;
+	border-radius: $size-corner-small;
+	padding: $size-content-block-spacing/3 0;
+	margin-top: $size-content-block-spacing;
+	margin-bottom: $size-content-block-spacing;
+	
+	&:active {
+		background: $color-foreground;
+		box-shadow: 0 1px 0 lighten($color-foreground, 20%) inset;
+		color: $color-background;
+	}
+	
+	@include breakpoint($size-breakpoint-xs) {
+		@include figure-bleed;
+		margin-left: 0;
+	}
+	.card & {
+		max-width: 100%;
+		margin: 0;
+		border-radius: 0;
+		&:active {
+			box-shadow: 0 -1px 0 $color-foreground;
+		}
+	}
+	main article section & {
+		font-size: $size-fontbase--normal;
+	}
+}
+@include breakpoint($size-breakpoint-xs) {
+	main article section .button {
+			@include figure-bleed;
+	}
+}
+
+.card header a {
+	text-decoration: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: $size-content-block-spacing/4 $size-content-block-spacing/2 ;
+	&:active {
+		background: 0 0;
+		color: $color-brand;
+	}
+}
+.favorite {
+	display: block;
+	width: $size-column--safety;
+	height: $size-column--safety;
+	background: inline_svg("components/button-favorite--empty.svg", ( fillcolor: #{$color-brand} )) center no-repeat;
+  &:active {
+  	background: inline_svg("components/button-favorite--filled.svg", ( fillcolor: #{$color-brand} )) center no-repeat;
+  }
+  main article header & {
+    margin: $size-column--safety auto 0;
+  }
+}

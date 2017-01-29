@@ -1,0 +1,69 @@
+@import "base/colors";
+@import "base/sizes";
+
+@import "helpers/mixins";
+
+
+$nav-logo-width: $size-fontbase--larger/1.5;
+body > nav {
+	position: relative;
+	z-index: z('menu');
+	
+	padding-top: $size-fontbase--larger/1.2;
+	padding-bottom: $size-fontbase--larger/2;
+	
+	.logo-container {
+		position: fixed;
+		top: $size-column--safety/2;
+		z-index: 10;
+		padding: $size-content-block-spacing;
+		background: rgba($color-background, $opacity-half);
+		display: block;
+		border-radius: $size-fontbase--larger;
+		-webkit-backdrop-filter: blur(10px);
+		backdrop-filter: blur(10px);	
+		
+		.button {
+			width: $nav-logo-width;
+			height: $nav-logo-width;
+			line-height: $nav-logo-width;
+			overflow: hidden;
+			margin: 0 auto;
+			padding: $size-content-block-spacing/2;
+			border-radius: $size-fontbase--larger;
+			background: $color-brand;
+			text-align: center;
+			&:active {
+				background: $color-foreground;
+			}
+			& .logo {
+				max-height: 100%;
+				max-width: 100%;
+				& path {
+					fill: $color-background;
+				}
+			}
+		}
+	}
+	
+	& > ul {
+		padding: 0;
+		display: table;
+		margin: 0 auto;
+		& li {
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			width: $nav-logo-width + $size-content-block-spacing * 3;
+			&:not(.nav-center) {
+				width: 6em;
+				@include breakpoint($size-breakpoint-s){
+					display: none;
+				}
+			}
+			& > span { @extend #{A(6)}; background: $color-background; }
+			& a { text-decoration: none; }
+		}
+	}
+	
+}

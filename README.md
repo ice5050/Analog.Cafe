@@ -1,19 +1,35 @@
 # Analog.Cafe
 ## Analog.Cafe is a web publishing platform for film photographers.
-### "Film photography, the people and the stories that make it special."
 
-This repository is reserved for the open-source software project aimed at giving tools to film photographers to publish high quality content online. *"Medium for film photographers"* sort of speak.
+Essentially, this is a publisher CMS with the following key features:
+* Free-for-all signup process (anyone can become a contributor)
+* Shared asset library for select items (in this case, it's featured images)
+* Editor account(s) which decide what and when to go live and can edit the entries
 
-There are three reasons this tool needs to be built (instead of just using Medium publication):
-- *Community.* There are over a million English-speaking film photographers around the world and they deserve a place that will respect and love their work enough to dedicate 100% of resources to promote it and make it look good. Places like Medium, Instagram, Flickr or Twitter will never care about film photography beyond having a handful of hashtags.
-- *Design.* Above-mentioned Medium, Instagram etc have great usability and design, but they are not for film photographers specifically. Websites which are for film photographers though aren't that pretty, they lack quality content and variety (How many "My name is Joe and this is why I shoot film" interviews can one read every week?) Did I mention that those websites are often not that friendly (think Lomo Homes) and most importantly poorly designed, which makes brilliant works of art that some members produce look sub-par? They are, and that's why everyone's on Instagram, Twitter or Flickr. Besides good layout, colors and typography the website will feature "link cards" which will allow readers to preview almost all links within articles before being forced to open another tab or completely close the page and move to a different website. Readers will also be given an easy non-obstructive way to "converse" (not just share) on certain pieces within social networks of their choice and, of course, image galleries will be beautiful, full-screen experiences that are fast and work marvelously on desktops, iPhones, TVs, fridges and smart toilets.
-- *Content organization.* This website is essentially a custom CMS that allows for an easy way to contribute. One of the challenges that come with film photography is actually getting the images scanned and placed online. There's a lot of friction for people who love it but just don't got the time, tools or resources to get the images into the digital world. At the same time, there is a lot that could be written and said about film photography. The organizational design of this website will separate writers from people who submit images, giving writers the freedom to write without having to add images. The way it's going to work is by building an object library (objects could be film photos, authors/photographers, gear, and links), items in which would be used for the basis of photo essays, stories and articles. For example, Joe, who've never taken a film photo in his life have found 7 beautiful photos on Analog.Cafe that would make a wonderful photo-essay; he uses his writer's talent to compose it and submit to the editor; editor loves it and publishes it, thus giving the world one more way to enjoy the photos and the new creative composition that they form.
-- *Promotional tools for authors and film photographers.* Publishing industry is having a difficult time right now. Everything seems to be clickbait, and clickbait seems to be the only thing that works for publishers. Analog.Cafe will be taking a writer-specific approach, giving the creator tools to promote their personal projects, portfolios, stores, cat videos (what have you). This is done in a simple "link in portfolio" strategy originated by Instagram. The only difference is that authors may assign action words to their links (like on Facebook pages) and those links may appear next to author name every time it's mentioned on the website.
-* "Template files": posts with sample context that authors can edit and save as new
+This is an offline-first web application built with:
+* Ruby 2.3.0 & Rails 5.0.1
+* Angular 2
 
-## Contributions
-- If you would like to contribute code, documents, design or better organization of this repository, submit a PR. We'll take from it here (do have a look at Liscense.md - this project is under Mozilla 2.0).
-- If you would like to contribute photography, articles or any other creative content please head to http://analog.cafe
-- If you have general feedback, ideas, thoughts or criticisms, please email them to d [at] analog.cafe
+The release is schedule for late summer 2017. For now, most of the work is done templating and styling (SASS). You can read more about features and browse documents in Analog.Cafe.wiki repo.
 
-Feel free to browse this repo for design files and the code once it appears. Also please check out the Wiki page, it contains a lot more info on how this project shoudl look, how to replicate its functions and more.
+## Let's get started!
+1. Make sure you got GIT working on your machine. Google is your friend.
+2. Make sure you got Ruby 2.3.0 or later running on your system. Type `ruby -v` to find out what you've got. OSX has it installed by default, but you may want to make sure you've got the latest version.
+3. You'll need Rails 5.0.1; if you already have the framework, you can type `rails -v` to see what version you've got. If not, `gem install rails`. You might wanna Google more detailed instructions for your system.
+4. Fork this repo and run `bundle install` from within the directory on your machine. This should install all the gems required for the project to work automatically.
+5. Run `rails s`. If everything is working as it should, http://localhost:3001 will get the homepage running in your browser.
+
+### Notes
+* All development work is done in "develop" branch.
+* Analog.Cafe.wiki repo has a bunch more info (but it's kind of a mess at the moment).
+
+### Other resources
+* https://medium.com/analog-cafe -> Medium publication; articles and photo essays; a temporary home for Analog.Cafe content.
+* https://twitter.com/analog_cafe -> Twitter.
+* https://www.instagram.com/analog_cafe/ -> Instagram.
+* http://analog.cafe -> Submission form; this is where you can submit photography and stories until we launch.
+* https://analogcafe.slack.com/ -> Slack channel. Drop me a line and I'll send you an invite.
+
+### Launch schedule
+* Kickstarter campaign begins on April 12th (Film Photography Day) and ends on May 14th (Mother's Day).
+* Dev team joins immediately after for 30 days of coding & 30 days of testing and bug-fixing.

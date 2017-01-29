@@ -1,0 +1,48 @@
+@import "base/colors";
+@import "base/sizes";
+@import "base/typography";
+
+@import "helpers/mixins";
+
+
+
+.card {
+	position: relative;
+	display: block;
+	z-index: z('card');
+	overflow: hidden;
+	border-radius: $size-corner-med;
+	@include center-block($size-minwidth);
+	@include card-shadow;
+	
+	@include breakpoint($size-breakpoint-xs){
+		border-radius: 0;
+	}
+	& header {
+		padding: $size-content-block-spacing/4 $size-content-block-spacing;
+		padding-right: $size-content-block-spacing * 3;
+		background: $color-background;
+		z-index: z('card') + 1;
+		position: relative;
+		@include button-shadow;
+		& h3 {
+			font-size: $size-fontbase--normal;
+			@include text-turnicate;
+		}
+	}
+}
+.card-embed {
+	@extend .card;
+	@include button-shadow;
+	@include figure-block;
+	max-width: 100%;
+}
+
+
+// exceptions:
+@include breakpoint($size-breakpoint-xs){
+	main article section .card {
+		width: 100vw;
+		margin-left: -$size-column--safety;
+	}
+}
