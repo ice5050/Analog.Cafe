@@ -36,6 +36,8 @@ $typography-levels: (
 	@include text-block($size-fontbase--larger);
 	font-family: $font-header;
 	font-weight: $font-header--weight;
+	-webkit-hyphens: auto;
+	hyphens: auto;
 }
 #{A(2)} {
 	@extend #{A(1)};

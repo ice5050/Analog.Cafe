@@ -67,19 +67,11 @@
 	display: block;
 	width: $size-column--safety;
 	height: $size-column--safety;
-	overflow: hidden;
-	& svg {
-		width: 100%;
-		height: 100%;
-		display: block;
-		float: left;
-    & path { fill: $color-brand; }
+	background: inline_svg("components/button-favorite--empty.svg", ( fillcolor: #{$color-brand} )) center no-repeat;
+  &:active {
+  	background: inline_svg("components/button-favorite--filled.svg", ( fillcolor: #{$color-brand} )) center no-repeat;
   }
   main article header & {
     margin: $size-column--safety auto 0;
-  }
-  &:active {
-  	background: $color-background;
-  	& svg:first-child { display: none; }
   }
 }

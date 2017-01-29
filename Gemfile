@@ -55,3 +55,6 @@ gem 'breakpoint', '~> 2.7', '>= 2.7.1'
 
 # Inline SVG
 gem 'inline_svg'
+
+# Inline SVG for SASS
+gem 'sass_inline_svg'

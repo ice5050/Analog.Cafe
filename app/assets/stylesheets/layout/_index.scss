@@ -31,7 +31,6 @@
 				display: block;
 				width: calc(100% - #{$size-content-block-spacing});
 				height: $font-content--line * strip-unit($size-fontbase--normal) * 4;
-				margin-bottom: .15em;
 				margin-bottom: $font-content--spacing/2;
 			}
 		}
@@ -62,7 +61,7 @@
 		position: relative;
 		&::after {
 			content: "";
-			background-image: asset-data-url("components/shape-triangle--right.svg");
+			background-image: inline_svg("components/shape-triangle--right.svg", ( fillcolor: #{$color-background} ));
 			background-size: 100%;
 			display: block;
 			position: absolute;

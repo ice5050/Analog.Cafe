@@ -26,6 +26,7 @@ body > nav {
 		.button {
 			width: $nav-logo-width;
 			height: $nav-logo-width;
+			line-height: $nav-logo-width;
 			overflow: hidden;
 			margin: 0 auto;
 			padding: $size-content-block-spacing/2;
