@@ -1,0 +1,93 @@
+@import "base/sizes";
+@import "base/colors";
+@import "base/typography";
+
+@import "helpers/mixins";
+
+
+@mixin toc-cell-figure {
+	background-size: cover;
+	background-position: center;
+}
+
+.table-of-contents {
+	border-bottom: $size-fontbase--normal/2 solid;
+		
+	ul {
+		@include center-block($size-breakpoint-xxl);
+		padding: 0 0 0 $size-column--safety;
+		position: relative;
+		&::after {
+			content: "";
+			background-image: inline_svg("components/shape-triangle--right.svg", ( fillcolor: #{$color-background} ));
+			background-size: 100%;
+			display: block;
+			position: absolute;
+			z-index: z('layer-up');
+			top: 0;
+			right: 0;
+			height: 100%;
+			width: calc(33.333% - #{$size-content-block-spacing/2} + 1px);
+			@include breakpoint(0 $size-breakpoint-l){
+				width: calc(15% - #{$size-content-block-spacing/4} + 2px);
+			}
+		}
+	}
+	
+	li {
+		display: table;
+		list-style: none;
+		width: 100%;
+		box-shadow: 0 -1px 0 rgba($color-foreground, $opacity-least/2);
+		
+		& .toc-figure {
+			display: none;
+			padding-top: $size-column--safety * 4;
+			
+			@include breakpoint($size-breakpoint-l){
+				display: table-cell;
+			}
+			vertical-align: bottom;
+			width: 5em;
+			& > a {
+				@include toc-cell-figure;
+				display: block;
+				width: calc(100% - #{$size-content-block-spacing});
+				height: $font-content--line * strip-unit($size-fontbase--normal) * 4;
+				margin-bottom: $font-content--spacing/2;
+			}
+		}
+		&:last-child .toc-figure, &:last-child .toc-summary { padding-bottom: $size-column--safety * 4; }
+		
+		@include breakpoint($size-breakpoint-l){
+			& .toc-summary {
+			 padding-top: $size-column--safety;
+			}
+		}
+		& .toc-summary {
+			display: table-cell;
+			vertical-align: bottom;
+			padding-top: $size-column--safety*2;
+
+			& > a {
+				text-decoration: none;
+				&:active { background: 0 0; }
+			}
+			& h2, & h3 { padding: 0; }
+			h3 { color: $color-brand; }
+			.small-caption { display: block; }
+		}
+		
+		
+		& .toc-cover {
+			width: 33.333%;
+			display: table-cell;
+			@include toc-cell-figure;
+			@include breakpoint(0 $size-breakpoint-l){
+				width: 15%;
+			}
+		}
+		
+		
+	}
+}
