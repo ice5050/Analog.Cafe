@@ -19,6 +19,7 @@
 		position: relative;
 		&::after {
 			content: "";
+			pointer-events: none;
 			background-image: inline_svg("components/shape-triangle--right.svg", ( fillcolor: #{$color-background} ));
 			background-size: 100%;
 			display: block;
@@ -38,7 +39,7 @@
 		display: table;
 		list-style: none;
 		width: 100%;
-		box-shadow: 0 -1px 0 rgba($color-foreground, $opacity-least/2);
+		box-shadow: 0 1px 0 rgba($color-foreground, $opacity-least/2);
 		
 		& .toc-figure {
 			display: none;
@@ -71,8 +72,8 @@
 
 			& > a {
 				text-decoration: none;
-				&:active { background: 0 0; }
 			}
+			
 			& h2, & h3 { padding: 0; }
 			h3 { color: $color-brand; }
 			.small-caption { display: block; }
@@ -82,9 +83,18 @@
 		& .toc-cover {
 			width: 33.333%;
 			display: table-cell;
+			position: relative;
 			@include toc-cell-figure;
 			@include breakpoint(0 $size-breakpoint-l){
 				width: 15%;
+			}
+			a {
+				display: block;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				position: absolute;
+				&:active { background: inherit; }
 			}
 		}
 		

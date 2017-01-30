@@ -1,11 +1,11 @@
 @import "base/colors";
+@import "base/typography";
 
 
 
 a {
 	color: inherit;
 	text-decoration: underline;
-	word-wrap: break-word;
 	&:active {
 		background: $color-background--highlight;
 		color: $color-foreground;
