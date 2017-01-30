@@ -132,3 +132,26 @@
 		</li>
 	</ul>
 </section>
+<script>
+	var tocFigure = document.querySelectorAll('.toc-figure > a');
+	var tocSummary = document.querySelectorAll('.toc-summary > a');
+	var tocCover =  document.querySelectorAll('.toc-cover > a');
+	var tocLi = document.querySelectorAll('.table-of-contents li');
+
+	for (var i = 0; i < tocFigure.length; i++) {
+			tocFigure[i].addEventListener("mousedown", function(){
+				this.parentElement.parentElement.className = "active";
+			});
+			tocSummary[i].addEventListener("mousedown", function(){
+				this.parentElement.parentElement.className = "active";
+			});
+			tocCover[i].addEventListener("mousedown", function(){
+				this.parentElement.parentElement.className = "active";
+			});
+	}
+	document.addEventListener("mouseup", function(){
+		for (var i = 0; i < tocLi.length; i++) {
+			tocLi[i].className = "";
+		}
+	});
+</script>

@@ -39,7 +39,7 @@
 		display: table;
 		list-style: none;
 		width: 100%;
-		box-shadow: 0 1px 0 rgba($color-foreground, $opacity-least/2);
+		box-shadow: 0 -1px 0 rgba($color-foreground, $opacity-least/2);
 		
 		& .toc-figure {
 			display: none;
@@ -58,6 +58,8 @@
 				margin-bottom: $font-content--spacing/2;
 			}
 		}
+		&.active .toc-figure > a { border-right: $size-content-block-spacing solid $color-background--highlight; }
+		
 		&:last-child .toc-figure, &:last-child .toc-summary { padding-bottom: $size-column--safety * 4; }
 		
 		@include breakpoint($size-breakpoint-l){
