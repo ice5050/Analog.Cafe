@@ -41,9 +41,13 @@
 		width: 100%;
 		box-shadow: 0 -1px 0 rgba($color-foreground, $opacity-least/2);
 		
+		$toc-figure--height: $font-content--line * strip-unit($size-fontbase--normal) * 4;
+		$toc-active-label--font: .5;
+		$toc-active-label--height: $toc-figure--height / $toc-active-label--font - $size-content-block-spacing / $toc-active-label--font;
 		& .toc-figure {
 			display: none;
 			padding-top: $size-column--safety * 4;
+			position: relative;
 			
 			@include breakpoint($size-breakpoint-l){
 				display: table-cell;
@@ -54,11 +58,24 @@
 				@include toc-cell-figure;
 				display: block;
 				width: calc(100% - #{$size-content-block-spacing});
-				height: $font-content--line * strip-unit($size-fontbase--normal) * 4;
+				height: $toc-figure--height;
 				margin-bottom: $font-content--spacing/2;
 			}
 		}
-		&.active .toc-figure > a { border-right: $size-content-block-spacing solid $color-background--highlight; }
+		&.active .toc-figure > a:after {
+			content: attr(data-content-info);
+			text-align: right;
+			height: $size-content-block-spacing / $toc-active-label--font;
+			line-height: $size-content-block-spacing / $toc-active-label--font;
+			padding: 0 $size-content-block-spacing;
+			width: $toc-active-label--height;
+			transform: rotate(-90deg) translate(-#{$toc-active-label--height / 2}, $size-content-block-spacing / $toc-active-label--font);
+			position: absolute;
+			display: block;
+			font-size: #{$toc-active-label--font}em;
+			font-style: italic;
+			background: $color-background--highlight;
+		}
 		
 		&:last-child .toc-figure, &:last-child .toc-summary { padding-bottom: $size-column--safety * 4; }
 		
