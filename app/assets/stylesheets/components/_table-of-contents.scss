@@ -78,15 +78,21 @@
 
 			& > a {
 				text-decoration: none;
+				display: table;
+				min-height: $toc-figure--height - $size-content-block-spacing;
+				width: 100%;
+				& > div {  display: table-cell; vertical-align: bottom; }
+				& #{A(1)} {
+					padding: 0;
+					// background: rgba($color-foreground, .025);
+					display: block;
+				}
+				#{A(3)} { color: $color-brand; }
+				&:active { background: inherit; }
 			}
-			
-			& #{A(1)} {
-				padding: 0;
-				background: rgba($color-foreground, .025);
-			}
-			#{A(3)} { color: $color-brand; }
 			#{A(6)} { display: block; }
 		}
+
 		&.active .toc-summary:after {
 			content: attr(data-content-info);
 			text-align: right;
@@ -99,7 +105,7 @@
 				transform: none;
 				top: $size-column--safety * 2 + $size-content-block-spacing;
 			}
-			transform: rotate(-90deg) translateY(-#{$size-content-block-spacing / $toc-active-label--font});
+			transform: rotate(-90deg) translate(1px, -#{$size-content-block-spacing / $toc-active-label--font});
 			transform-origin: top left;
 			position: absolute;
 			display: block;
