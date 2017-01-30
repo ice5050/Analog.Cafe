@@ -74,6 +74,7 @@
 			display: table-cell;
 			vertical-align: bottom;
 			padding-top: $size-column--safety*2;
+			position: relative;
 
 			& > a {
 				text-decoration: none;
@@ -93,7 +94,11 @@
 			line-height: $size-content-block-spacing / $toc-active-label--font;
 			padding: 0 $size-content-block-spacing;
 			width: $toc-active-label--height;
-			@include breakpoint(0 $size-breakpoint-l){ width: auto; }
+			@include breakpoint(0 $size-breakpoint-l){
+				width: auto;
+				transform: none;
+				top: $size-column--safety * 2 + $size-content-block-spacing;
+			}
 			transform: rotate(-90deg) translateY(-#{$size-content-block-spacing / $toc-active-label--font});
 			transform-origin: top left;
 			position: absolute;
