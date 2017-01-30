@@ -6,9 +6,4 @@
 		padding-top: 13.5em;
 		@include breakpoint($size-breakpoint-l){ padding-top: 16.5em; }
 	}
-	.table-of-contents li:first-child.active .toc-summary:after {
-		@include breakpoint(0 $size-breakpoint-l){
-			top: 13.5em * 2 - $size-content-block-spacing * 2;
-		}
-	}
 }
