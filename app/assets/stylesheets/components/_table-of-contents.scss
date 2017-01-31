@@ -101,7 +101,7 @@
 				transform: none;
 				bottom: - $size-content-block-spacing / $toc-active-label--font;
 			}
-			transform: rotate(-90deg) translate(1px, -#{$size-content-block-spacing / $toc-active-label--font});
+			transform: rotate(-90deg) translate(.5px, -#{$size-content-block-spacing / $toc-active-label--font});
 			transform-origin: top left;
 			position: absolute;
 			display: block;
