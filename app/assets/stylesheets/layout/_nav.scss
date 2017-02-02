@@ -23,6 +23,10 @@ body > nav {
 		-webkit-backdrop-filter: blur(10px);
 		backdrop-filter: blur(10px);	
 		
+		&.active {
+			box-shadow: 0 0 0 1px $color-foreground;
+		}
+		
 		.button {
 			width: $nav-logo-width;
 			height: $nav-logo-width;

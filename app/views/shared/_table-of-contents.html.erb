@@ -1,0 +1,129 @@
+<section class="table-of-contents">
+	<ul>
+		<li>
+			<figure class="toc-figure">
+				<a href="/article" style="background-image:url(<%= asset_path('template/angles.jpg') %>);"></a>
+			</figure>
+			<section data-content-info="6-minute read" class="toc-summary">
+				<a href="/article"><div>
+					<h2>The Science of Analog Photography</h2>
+					<h3>Article</h3>
+				</div></a>
+				<span class="small-caption">Written by <a href="#">dmitrizzle</a> &middot; January 12, 2017</span>
+			</section>
+			<figure class="toc-cover" style="background-image:url(<%= asset_path('template/angles.jpg') %>);"><a href="/article"></a></figure>
+		</li>
+		<li>
+			<figure class="toc-figure">
+				<a href="/article" style="background-image:url(<%= asset_path('template/green.jpg') %>);"></a>
+			</figure>
+			<section data-content-info="12 photos" class="toc-summary">
+				<a href="/article"><div>
+					<h2>Why Shoot Film</h2>
+					<h3>Article</h3>
+				</div></a>
+				<span class="small-caption">Written by <a href="#">Kayla Medica</a> &middot; January 12, 2017</span>
+			</section>
+			<figure class="toc-cover" style="background-image:url(<%= asset_path('template/green.jpg') %>);"><a href="/article"></a></figure>
+		</li>
+		<li>
+			<figure class="toc-figure">
+				<a href="/article" style="background-image:url(<%= asset_path('template/L_Woop-Woop.jpg') %>);"></a>
+			</figure>
+			<section data-content-info="3-minute read" class="toc-summary">
+				<a href="/article"><div>
+					<h2>This Week's Most Notable</h2>
+					<h3>From Twitter</h3>
+				</div></a>
+				<span class="small-caption">Shared by <a href="#">&#x1F916;</a> &middot; January 12, 2017</span>
+			</section>
+			<figure class="toc-cover" style="background-image:url(<%= asset_path('template/L_Woop-Woop.jpg') %>);"><a href="/article"></a></figure>
+		</li>
+		<li>
+			<figure class="toc-figure">
+				<a href="/article" style="background-image:url(<%= asset_path('template/L_Let-It-Go.jpg') %>);"></a>
+			</figure>
+			<section data-content-info="1 photo" class="toc-summary">
+				<a href="/article"><div>
+					<h2>Tokyo Streets at Night</h2>
+					<h3>Featured Photo</h3>
+				</div></a>
+				<span class="small-caption">Taken by <a href="#">chi</a> &middot; January 12, 2017</span>
+			</section>
+			<figure class="toc-cover" style="background-image:url(<%= asset_path('template/L_Let-It-Go.jpg') %>);"><a href="/article"></a></figure>
+		</li>
+		<li>
+			<figure class="toc-figure">
+				<a href="/article" style="background-image:url(<%= asset_path('template/beach.jpg') %>);"></a>
+			</figure>
+			<section data-content-info="3 photos" class="toc-summary">
+				<a href="/article"><div>
+					<h2>Brighton Beach</h2>
+					<h3>Photo Essay</h3>
+				</div></a>
+				<span class="small-caption">Composed by <a href="#">Lee Clark</a> &middot; January 12, 2017</span>
+			</section>
+			<figure class="toc-cover" style="background-image:url(<%= asset_path('template/beach.jpg') %>);"><a href="/article"></a></figure>
+		</li>
+		<li>
+			<figure class="toc-figure">
+				<a href="/article" style="background-image:url(<%= asset_path('template/11.6.2016-de.jpg') %>);"></a>
+			</figure>
+			<section data-content-info="12 photos" class="toc-summary">
+				<a href="/article"><div>
+					<h2>The Misty Adventures</h2>
+					<h3>Photo Essay</h3>
+				</div></a>
+				<span class="small-caption">Composed by <a href="#">dmitrizzle</a> &middot; January 12, 2017</span>
+			</section>
+			<figure class="toc-cover" style="background-image:url(<%= asset_path('template/11.6.2016-de.jpg') %>);"><a href="/article"></a></figure>
+		</li>
+	</ul>
+</section>
+<script>
+	var tocFigure = document.querySelectorAll('.toc-figure > a');
+	var tocSummary = document.querySelectorAll('.toc-summary > a');
+	var tocCover =  document.querySelectorAll('.toc-cover > a');
+	var tocLi = document.querySelectorAll('.table-of-contents li');
+ 
+ 	// touchstart
+	for (var i = 0; i < tocFigure.length; i++) {
+		tocFigure[i].addEventListener("touchstart", function(){
+			this.parentElement.parentElement.className = "active";
+		});
+		tocSummary[i].addEventListener("touchstart", function(){
+			this.parentElement.parentElement.className = "active";
+		});
+		tocCover[i].addEventListener("touchstart", function(){
+			this.parentElement.parentElement.className = "active";
+		});
+	}
+	document.addEventListener("touchend", function(){
+		for (var i = 0; i < tocLi.length; i++) {
+			tocLi[i].className = "";
+		}
+	});
+	
+	// mouseover
+	for (var i = 0; i < tocFigure.length; i++) {
+		tocFigure[i].addEventListener("mouseover", function(){
+			this.parentElement.parentElement.className = "active";
+		});
+		tocSummary[i].addEventListener("mouseover", function(){
+			this.parentElement.parentElement.className = "active";
+		});
+		tocCover[i].addEventListener("mouseover", function(){
+			this.parentElement.parentElement.className = "active";
+		});
+		
+		tocFigure[i].addEventListener("mouseout", function(){
+			this.parentElement.parentElement.className = "";
+		});
+		tocSummary[i].addEventListener("mouseout", function(){
+			this.parentElement.parentElement.className = "";
+		});
+		tocCover[i].addEventListener("mouseout", function(){
+			this.parentElement.parentElement.className = "";
+		});
+	}
+</script>

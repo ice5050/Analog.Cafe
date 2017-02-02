@@ -1,0 +1,141 @@
+@import "base/sizes";
+@import "base/colors";
+@import "base/typography";
+
+@import "helpers/mixins";
+
+
+@mixin toc-cell-figure {
+	background-size: cover;
+	background-position: center;
+}
+
+.table-of-contents {
+	border-bottom: $size-fontbase--normal/2 solid;
+		
+	ul {
+		@include center-block($size-breakpoint-xxl);
+		padding: 0 0 0 $size-column--safety;
+		position: relative;
+		&::after {
+			content: "";
+			pointer-events: none;
+			background-image: inline_svg("components/shape-triangle--right.svg", ( fillcolor: #{$color-background} ));
+			background-size: 100%;
+			display: block;
+			position: absolute;
+			z-index: z('layer-up');
+			top: 0;
+			right: 0;
+			height: 100%;
+			width: calc(33.333% - #{$size-content-block-spacing/2} + 1px);
+			@include breakpoint(0 $size-breakpoint-m){
+				width: calc(15% - #{$size-content-block-spacing/4} + 2px);
+			}
+		}
+	}
+	
+	li {
+		display: table;
+		list-style: none;
+		width: 100%;
+		box-shadow: 0 -1px 0 rgba($color-foreground, $opacity-least/2);
+		
+		$toc-figure--height: $font-content--line * strip-unit($size-fontbase--normal) * 4;
+		$toc-active-label--font: .5;
+		$toc-active-label--height: $toc-figure--height / $toc-active-label--font - $size-content-block-spacing / $toc-active-label--font;
+		& .toc-figure {
+			display: none;
+			padding-top: $size-column--safety * 4;
+			position: relative;
+			
+			@include breakpoint($size-breakpoint-l){
+				display: table-cell;
+			}
+			vertical-align: bottom;
+			width: 5em;
+			& > a {
+				@include toc-cell-figure;
+				display: block;
+				width: calc(100% - #{$size-content-block-spacing});
+				height: $toc-figure--height;
+				margin-bottom: $font-content--spacing/2;
+			}
+		}
+				
+		@include breakpoint($size-breakpoint-l){
+			& .toc-summary {
+			 padding-top: $size-column--safety;
+			}
+		}
+		& .toc-summary {
+			display: table-cell;
+			vertical-align: bottom;
+			padding-top: $size-column--safety*2;
+			position: relative;
+
+			& > a {
+				text-decoration: none;
+				display: table;
+				min-height: $toc-figure--height - $size-content-block-spacing;
+				width: 100%;
+				& > div {  display: table-cell; vertical-align: bottom; }
+				& #{A(1)} {
+					padding: 0;
+					display: block;
+				}
+				#{A(3)} { color: $color-brand; }
+				&:active { background: inherit; }
+			}
+			#{A(6)} { display: block; }
+		}
+		&.active .toc-summary::after {
+			content: attr(data-content-info);
+			text-align: right;
+			height: $size-content-block-spacing / $toc-active-label--font;
+			line-height: $size-content-block-spacing / $toc-active-label--font;
+			padding: 0 $size-content-block-spacing;
+			width: $toc-active-label--height;
+			@include breakpoint(0 $size-breakpoint-l){
+				width: auto;
+				transform: none;
+				bottom: - $size-content-block-spacing / $toc-active-label--font;
+			}
+			transform: rotate(-90deg) translate(.5px, -#{$size-content-block-spacing / $toc-active-label--font});
+			transform-origin: top left;
+			position: absolute;
+			display: block;
+			font-size: #{$toc-active-label--font}em;
+			font-style: italic;
+			background: $color-background--highlight;
+		}
+		&:last-child .toc-figure, &:last-child .toc-summary { padding-bottom: $size-column--safety * 4; }
+		&.active:last-child .toc-summary::after {
+			@include breakpoint(0 $size-breakpoint-l){
+				bottom: $size-column--safety * 4 + ($size-content-block-spacing / $toc-active-label--font) * 2;
+			}
+		}
+
+		
+		
+		& .toc-cover {
+			width: 33.333%;
+			display: table-cell;
+			position: relative;
+			@include toc-cell-figure;
+			@include breakpoint(0 $size-breakpoint-m){
+				width: 15%;
+			}
+			a {
+				display: block;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				position: absolute;
+				&:active { background: inherit; }
+			}
+		}
+		
+		
+	}
+}
