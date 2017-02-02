@@ -1,0 +1,3 @@
+[submodule "documents/wiki"]
+	path = documents/wiki
+	url = git@github.com:dmitrizzle/Analog.Cafe.wiki.git
