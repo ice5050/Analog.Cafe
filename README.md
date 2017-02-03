@@ -1,10 +1,13 @@
 # Analog.Cafe
 ## Analog.Cafe is a web publishing platform for film photographers.
+## Here on GitHub this is an "opinionated" CMS engine project.
 
-Essentially, this is a publisher CMS with the following key features:
+Here are some of the features that stand out:
 * Free-for-all signup process (anyone can become a contributor)
 * Shared asset library for select items (in this case, it's featured images)
 * Editor account(s) which decide what and when to go live and can edit the entries
+* Limited control over design and content for all publishing accounts
+* Offline-first web application
 
 This is an offline-first web application built with:
 * Ruby 2.3.0 & Rails 5.0.1
