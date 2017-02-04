@@ -20,7 +20,7 @@
 		&::after {
 			content: "";
 			pointer-events: none;
-			background-image: inline_svg("components/shape-triangle--right.svg", ( fillcolor: #{$color-background} ));
+			background-image: inline_svg("components/mask-jagged-triangles.svg", ( fillcolor: #{$color-background} ));
 			background-size: 100%;
 			display: block;
 			position: absolute;
@@ -28,9 +28,9 @@
 			top: 0;
 			right: 0;
 			height: 100%;
-			width: calc(33.333% - #{$size-content-block-spacing/2} + 1px);
+			width: calc(35% - #{$size-content-block-spacing/2} + 5px);
 			@include breakpoint(0 $size-breakpoint-m){
-				width: calc(15% - #{$size-content-block-spacing/4} + 2px);
+				width: calc(15% - #{$size-content-block-spacing/4} + 5px);
 			}
 		}
 	}
@@ -119,7 +119,7 @@
 		
 		
 		& .toc-cover {
-			width: 33.333%;
+			width: 35%;
 			display: table-cell;
 			position: relative;
 			@include toc-cell-figure;
