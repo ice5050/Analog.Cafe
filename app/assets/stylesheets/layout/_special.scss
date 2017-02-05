@@ -2,7 +2,7 @@
 	position: absolute;
 	top: 0;
 	width: 100%;
-	.table-of-contents li:first-child .toc-summary {
+	.table-of-contents:first-child li:first-child .toc-summary {
 		padding-top: 13.5em;
 		@include breakpoint($size-breakpoint-l){ padding-top: 16.5em; }
 	}

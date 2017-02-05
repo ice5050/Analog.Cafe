@@ -18,7 +18,6 @@ $toc-row-border-bottom: $size-fontbase--normal/2 solid;;
 	display: table;
 	list-style: none;
 	width: 100%;
-	box-shadow: 0 -1px 0 rgba($color-foreground, $opacity-least/2);
 	
 	& .toc-figure {
 		display: none;
@@ -49,6 +48,9 @@ $toc-row-border-bottom: $size-fontbase--normal/2 solid;;
 		vertical-align: bottom;
 		padding-top: $size-column--safety*2;
 		position: relative;
+		& .small-caption { 
+			box-shadow: 0 -1px 0 rgba($color-foreground, $opacity-least/2) inset;
+		}
 
 		& > a {
 			text-decoration: none;
@@ -143,7 +145,7 @@ $toc-row-border-bottom: $size-fontbase--normal/2 solid;;
 	border-bottom: $toc-row-border-bottom;
 	& > section {
 		@include toc-row;
-		width: auto;
+		width: calc(100% - #{$size-column--safety * 2});
 		padding: 0 0 0 $size-column--safety;
 		.toc-figure, .toc-summary { 
 			padding: $size-column--safety 0;
