@@ -58,3 +58,8 @@ gem 'inline_svg'
 
 # Inline SVG for SASS
 gem 'sass_inline_svg'
+
+# realfavicongenerator.net
+group :development do
+  gem 'rails_real_favicon'
+end
