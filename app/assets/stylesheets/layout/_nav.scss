@@ -64,7 +64,7 @@ body > nav {
 			&:not(.nav-center) { width: 6em; height: $font-content--line; }
 			@include breakpoint($size-breakpoint-s){
 				text-align: left;
-				& span:not(.badge) { display: none; }
+				& span, &:not(.badge-sticker) span.badge { display: none; }
 			}
 			
 			& a {
