@@ -6,11 +6,13 @@
 
 .motto {
 	@include center-block($size-minwidth);
-	q {
+	> span {
 		text-align: center;
 		display: block;
 		padding: $size-column--safety * 2 0 $size-column--safety;
 		font-size: $size-fontbase--smaller;
+	}
+	q {
 		background: $color-background;
 	}
 	position: relative;

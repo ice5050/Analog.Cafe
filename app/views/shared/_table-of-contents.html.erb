@@ -127,54 +127,5 @@
 
 
 <!-- MOUSEOVER & CLICK SCRIPTS FOR THE LIST -->
-<script>
-	var tocFigure = document.querySelectorAll('.toc-figure > a');
-	var tocSummary = document.querySelectorAll('.toc-summary > a');
-	var tocCover =  document.querySelectorAll('.toc-cover > a');
-	var tocLi = document.querySelectorAll('.table-of-contents li, .table-of-contents--feature > section');
- 
- 	// touchstart
-	for (var i = 0; i < tocLi.length; i++) {
-		tocFigure[i].addEventListener("touchstart", function(){
-			this.parentElement.parentElement.className = "active";
-		});
-		tocSummary[i].addEventListener("touchstart", function(){
-			this.parentElement.parentElement.className = "active";
-		});
-		if(tocCover[i] !== undefined)
-		tocCover[i].addEventListener("touchstart", function(){
-			this.parentElement.parentElement.className = "active";
-		});
-	}
-	document.addEventListener("touchend", function(){
-		for (var i = 0; i < tocLi.length; i++) {
-			tocLi[i].className = "";
-		}
-	});
-	
-	// mouseover
-	for (var i = 0; i < tocLi.length; i++) {
-		tocFigure[i].addEventListener("mouseover", function(){
-			this.parentElement.parentElement.className = "active";
-		});
-		tocSummary[i].addEventListener("mouseover", function(){
-			this.parentElement.parentElement.className = "active";
-		});
-		if(tocCover[i] !== undefined)
-		tocCover[i].addEventListener("mouseover", function(){
-			this.parentElement.parentElement.className = "active";
-		});
-		
-		tocFigure[i].addEventListener("mouseout", function(){
-			this.parentElement.parentElement.className = "";
-		});
-		tocSummary[i].addEventListener("mouseout", function(){
-			this.parentElement.parentElement.className = "";
-		});
-		if(tocCover[i] !== undefined)
-		tocCover[i].addEventListener("mouseout", function(){
-			this.parentElement.parentElement.className = "";
-		});
-	}
-</script>
+<script>tocPointerEvents()</script>
 <!-- END MOUSEOVER & CLICK SCRIPTS FOR THE LIST -->
