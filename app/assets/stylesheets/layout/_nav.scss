@@ -1,5 +1,6 @@
 @import "base/colors";
 @import "base/sizes";
+@import "base/typography";
 
 @import "helpers/mixins";
 
@@ -59,15 +60,32 @@ body > nav {
 			vertical-align: middle;
 			text-align: center;
 			width: $nav-logo-width + $size-content-block-spacing * 3;
-			&:not(.nav-center) {
-				width: 6em;
+			&.nav-center { min-width: $nav-logo-width + $size-column--safety * 2; }
+			&:not(.nav-center) { width: 6em; height: $font-content--line; }
+			@include breakpoint($size-breakpoint-s){
+				text-align: left;
+				& span:not(.badge) { display: none; }
+			}
+			
+			& a {
+				@extend #{A(6)};
+				background: $color-background; 
+				text-decoration: none;
+			}
+			
+			& .badge {
+				display: inline-block;
+				width: $size-corner-med;
+				height: $size-corner-med;
+				border-radius: $size-corner-med;
+				margin-bottom: $size-corner-med;
+				background: $color-brand;
 				@include breakpoint($size-breakpoint-s){
-					display: none;
+					position: fixed;
+					margin-top: -#{$size-corner-med};
 				}
 			}
-			& > span { @extend #{A(6)}; background: $color-background; }
-			& a { text-decoration: none; }
+
 		}
 	}
-	
 }
