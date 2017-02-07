@@ -75,6 +75,9 @@ blockquote {
 	padding: $size-column--safety * 4 $size-column--safety * 2;
 	border-top: $size-fontbase--normal/2 * strip-unit($size-fontbase--smaller) solid;
 	border-bottom: $size-fontbase--normal / 2 * strip-unit($size-fontbase--smaller) solid;
+	@include breakpoint($size-breakpoint-s){
+		padding: $size-column--safety * 4 $size-column--safety;
+	}
 	& p {
 		display: block;
 		font-size: $size-fontbase--smaller;
@@ -117,6 +120,7 @@ blockquote {
     bottom: $size-column--safety;
     max-height: $size-column--safety * 4;
     overflow: hidden;
+    margin-left: - $size-column--safety;
     &::before { content: "\2014\0020"; }
   }
 }
