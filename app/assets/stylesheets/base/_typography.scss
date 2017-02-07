@@ -71,22 +71,26 @@ $typography-levels: (
 
 blockquote {
 	position: relative;
-	margin: $size-content-block-spacing 0;
+	margin: $size-content-block-spacing -#{$size-column--safety};
+	overflow: hidden;
+  clear: both;
 	padding: $size-column--safety * 4 $size-column--safety * 2;
 	border-top: $size-fontbase--normal/2 * strip-unit($size-fontbase--smaller) solid;
 	border-bottom: $size-fontbase--normal / 2 * strip-unit($size-fontbase--smaller) solid;
 	@include breakpoint($size-breakpoint-s){
 		padding: $size-column--safety * 4 $size-column--safety;
 	}
-	& p {
-		display: block;
-		font-size: $size-fontbase--smaller;
-		line-height: $font-content--line;
+	&:not(.short) p {
 		@include breakpoint($size-breakpoint-l){
 			-webkit-column-count: 2;
 			column-count: 2;
 			column-gap: $size-column--safety * 2;
 		}
+	}
+	& p {
+		display: block;
+		font-size: $size-fontbase--smaller;
+		line-height: $font-content--line;
 		&::before, &::after, &:first-of-type::before { display: none !important; }
 		&:first-of-type::first-letter {
 			font-size: $size-fontbase--larger * 2;
@@ -116,6 +120,7 @@ blockquote {
   }
   cite {
   	@extend #{A(6)};
+  	font-style: normal;
     position: absolute;
     bottom: $size-column--safety;
     max-height: $size-column--safety * 4;

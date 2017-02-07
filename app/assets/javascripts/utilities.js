@@ -1,11 +1,11 @@
 function __q(q){
 	return document.querySelectorAll(q);
-}
+};
 function __each(el, f){
 	for (var i = 0; i < el.length; i++) {
 		f(i);
 	}
-}
+};
 /* 
 function __parent(el, selector, stopSelector) {
   var retval = null;
