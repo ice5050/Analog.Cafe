@@ -23,6 +23,11 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+@mixin text-coumns {
+	-webkit-column-count: 2;
+	column-count: 2;
+	column-gap: $size-column--safety * 2;
+}
 
 // components
 @mixin figure-bleed {

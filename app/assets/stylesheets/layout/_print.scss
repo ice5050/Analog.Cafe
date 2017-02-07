@@ -1,0 +1,60 @@
+@import "base/typography";
+@import "base/colors";
+@import "base/sizes";
+
+@import "helpers/mixins";
+@import "hacks/shame";
+
+
+@media print {
+	@page {
+		margin: 1in .5in .5in;
+		orphans: 4;
+		widows: 3;
+	}
+	#{A(1)}, li, figure, blockquote {
+		page-break-inside: avoid;
+	}
+	#{A(1)} {
+		page-break-after: avoid;
+	}
+	body {
+		& > nav {
+			padding-top: 2in;
+			.nav-center .logo-container {
+				position: static;
+				box-shadow: none;
+				.button {
+					box-shadow: 0 0 0 $size-fontbase--larger/1.5 $color-brand inset;
+					display: block;
+				}
+			}
+		}
+		& > nav li:not(.nav-center), .card, .motto { display: none; }
+		& main article {
+			& > header { page-break-after: always; }
+			& section > figure {
+				max-height: 8.5in;
+				@include figure-bleed;
+				position: relative;
+				margin-left: calc((#{$size-column--maxwidth-m} - 100vw)/2);
+				float: none;
+				border: none;
+				& figcaption {
+					@include breakpoint($figcaption-breakpoint) {
+						@include center-block--responsive;
+					}
+					position: absolute;
+					bottom: 0;
+					left: -1px;
+					right: 0;
+					background: $color-background;
+					max-width: 100% !important;
+				}
+			}
+		}
+		.card, .motto, .button, .table-of-contents--feature > a { display: none; }
+		@include shame-print;
+	}
+	
+}
