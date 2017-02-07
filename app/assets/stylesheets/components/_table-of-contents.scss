@@ -8,7 +8,7 @@
 $toc-figure--height: $font-content--line * strip-unit($size-fontbase--normal) * 4;
 $toc-active-label--font: .5;
 $toc-active-label--height: $toc-figure--height / $toc-active-label--font - $size-content-block-spacing / $toc-active-label--font;
-$toc-row-border-bottom: $size-fontbase--normal/2 solid;;
+$toc-row-border-bottom: $size-fontbase--normal/2 solid;
 
 @mixin toc-cell-figure {
 	background-size: cover;
