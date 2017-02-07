@@ -69,9 +69,59 @@ $typography-levels: (
 	font-variant: small-caps;
 }
 
-::selection {
-	background: $color-background--highlight;
+blockquote {
+	position: relative;
+	margin: $size-content-block-spacing 0;
+	padding: $size-column--safety * 4 $size-column--safety * 2;
+	border-top: $size-fontbase--normal/2 * strip-unit($size-fontbase--smaller) solid;
+	border-bottom: $size-fontbase--normal / 2 * strip-unit($size-fontbase--smaller) solid;
+	& p {
+		display: block;
+		font-size: $size-fontbase--smaller;
+		line-height: $font-content--line;
+		@include breakpoint($size-breakpoint-l){
+			-webkit-column-count: 2;
+			column-count: 2;
+			column-gap: $size-column--safety * 2;
+		}
+		&::before, &::after, &:first-of-type::before { display: none !important; }
+		&:first-of-type::first-letter {
+			font-size: $size-fontbase--larger * 2;
+			font-weight: 700;
+			float: left;
+			margin: .3em .075em .075em 0;
+			::selection { background: $color-background--highlight; }
+		}		
+	}
+	&::before {
+		content: "\201C";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: $size-fontbase--larger * 2;
+    opacity: $opacity-least;
+  }
+  &::after {
+		content: "\201D";
+    display: block;
+    position: absolute;
+    bottom: - $size-content-block-spacing / 2;
+    right: 0;
+    font-size: $size-fontbase--larger * 2;
+    opacity: $opacity-least;
+  }
+  cite {
+  	@extend #{A(6)};
+    position: absolute;
+    bottom: $size-column--safety;
+    max-height: $size-column--safety * 4;
+    overflow: hidden;
+    &::before { content: "\2014\0020"; }
+  }
 }
+
+::selection { background: $color-background--highlight; }
 
 
 
