@@ -1,5 +1,20 @@
+<!-- LOAD BLOCK -->
+<!-- LIST -->
 <section class="table-of-contents">
 	<ul>
+		<li>
+			<figure class="toc-figure">
+				<a href="/article" style="background-image:url(<%= asset_path('template/green.jpg') %>);"></a>
+			</figure>
+			<section data-content-info="12 photos" class="toc-summary">
+				<a href="/article"><div>
+					<h2>Why Shoot Film</h2>
+					<h3>Story</h3>
+				</div></a>
+				<span class="small-caption">Written by <a href="#">Kayla Medica</a> &middot; January 12, 2017</span>
+			</section>
+			<figure class="toc-cover" style="background-image:url(<%= asset_path('template/green.jpg') %>);"><a href="/article"></a></figure>
+		</li>
 		<li>
 			<figure class="toc-figure">
 				<a href="/article" style="background-image:url(<%= asset_path('template/angles.jpg') %>);"></a>
@@ -12,19 +27,6 @@
 				<span class="small-caption">Written by <a href="#">dmitrizzle</a> &middot; January 12, 2017</span>
 			</section>
 			<figure class="toc-cover" style="background-image:url(<%= asset_path('template/angles.jpg') %>);"><a href="/article"></a></figure>
-		</li>
-		<li>
-			<figure class="toc-figure">
-				<a href="/article" style="background-image:url(<%= asset_path('template/green.jpg') %>);"></a>
-			</figure>
-			<section data-content-info="12 photos" class="toc-summary">
-				<a href="/article"><div>
-					<h2>Why Shoot Film</h2>
-					<h3>Article</h3>
-				</div></a>
-				<span class="small-caption">Written by <a href="#">Kayla Medica</a> &middot; January 12, 2017</span>
-			</section>
-			<figure class="toc-cover" style="background-image:url(<%= asset_path('template/green.jpg') %>);"><a href="/article"></a></figure>
 		</li>
 		<li>
 			<figure class="toc-figure">
@@ -41,16 +43,16 @@
 		</li>
 		<li>
 			<figure class="toc-figure">
-				<a href="/article" style="background-image:url(<%= asset_path('template/L_Let-It-Go.jpg') %>);"></a>
+				<a href="/article" style="background-image:url(<%= asset_path('template/Analog.Cafe-Poster.jpg') %>);"></a>
 			</figure>
-			<section data-content-info="1 photo" class="toc-summary">
+			<section data-content-info="12 photos" class="toc-summary">
 				<a href="/article"><div>
-					<h2>Tokyo Streets at Night</h2>
-					<h3>Featured Photo</h3>
+				<h2>My Vision for Analog.Cafe</h2>
+				<h3>Announcement</h3>
 				</div></a>
-				<span class="small-caption">Taken by <a href="#">chi</a> &middot; January 12, 2017</span>
+				<span class="small-caption">Composed by <a href="#">dmitrizzle</a> &middot; January 12, 2017</span>
 			</section>
-			<figure class="toc-cover" style="background-image:url(<%= asset_path('template/L_Let-It-Go.jpg') %>);"><a href="/article"></a></figure>
+			<figure class="toc-cover" style="background-image:url(<%= asset_path('template/Analog.Cafe-Poster.jpg') %>);"><a href="/article"></a></figure>
 		</li>
 		<li>
 			<figure class="toc-figure">
@@ -80,50 +82,50 @@
 		</li>
 	</ul>
 </section>
-<script>
-	var tocFigure = document.querySelectorAll('.toc-figure > a');
-	var tocSummary = document.querySelectorAll('.toc-summary > a');
-	var tocCover =  document.querySelectorAll('.toc-cover > a');
-	var tocLi = document.querySelectorAll('.table-of-contents li');
- 
- 	// touchstart
-	for (var i = 0; i < tocFigure.length; i++) {
-		tocFigure[i].addEventListener("touchstart", function(){
-			this.parentElement.parentElement.className = "active";
-		});
-		tocSummary[i].addEventListener("touchstart", function(){
-			this.parentElement.parentElement.className = "active";
-		});
-		tocCover[i].addEventListener("touchstart", function(){
-			this.parentElement.parentElement.className = "active";
-		});
-	}
-	document.addEventListener("touchend", function(){
-		for (var i = 0; i < tocLi.length; i++) {
-			tocLi[i].className = "";
-		}
-	});
+<!-- END LIST -->
+
+<!-- FEATURED -->
+<section class="table-of-contents--feature">
+	<a href="/article"><figure><%= image_tag "template/L_Let-It-Go.jpg" %></figure></a>
+	<section>
+		<!-- list component -->
+		<figure class="toc-figure">
+			<a href="/article" style="background-image:url(<%= asset_path('template/L_Let-It-Go.jpg') %>);"></a>
+		</figure>
+		<section data-content-info="1 photo" class="toc-summary">
+			<a href="/article"><div>
+				<h2>Tokyo Streets at Night</h2>
+				<h3>Featured Photo</h3>
+			</div></a>
+			<span class="small-caption">Taken by <a href="#">chi</a> &middot; January 12, 2017</span>
+		</section>
+		<!-- end list component -->
+	</section>
+</section>
+<!-- END FEATURED -->
+<!-- END LOAD BLOCK -->
+
+<!--
+	What is a load block?
+	Top of the page:
+		- 1 (top) list item overflows header
+		- 5 list items
+		- 1 feature (only for default, non-sorted/non-filtered view)
+	Next:
+		- 10 list items
+	Next:
+		- 10 list items
+	...
+	First post ever (last post in this list):
+		- feature (only for default, non-sorted/non-filtered view)
+		- "Load More..." button becomes "Submit Your..."
 	
-	// mouseover
-	for (var i = 0; i < tocFigure.length; i++) {
-		tocFigure[i].addEventListener("mouseover", function(){
-			this.parentElement.parentElement.className = "active";
-		});
-		tocSummary[i].addEventListener("mouseover", function(){
-			this.parentElement.parentElement.className = "active";
-		});
-		tocCover[i].addEventListener("mouseover", function(){
-			this.parentElement.parentElement.className = "active";
-		});
-		
-		tocFigure[i].addEventListener("mouseout", function(){
-			this.parentElement.parentElement.className = "";
-		});
-		tocSummary[i].addEventListener("mouseout", function(){
-			this.parentElement.parentElement.className = "";
-		});
-		tocCover[i].addEventListener("mouseout", function(){
-			this.parentElement.parentElement.className = "";
-		});
-	}
-</script>
+	How is feature defined?
+		- Set by editor/owner, expires after 7 days
+		- If expired/none, 7th post from the top (chronologically)
+-->
+
+
+<!-- MOUSEOVER & CLICK SCRIPTS FOR THE LIST -->
+<script>tocPointerEvents()</script>
+<!-- END MOUSEOVER & CLICK SCRIPTS FOR THE LIST -->

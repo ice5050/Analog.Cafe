@@ -5,14 +5,15 @@
 
 
 .motto {
-	q {
-		@include center-block($size-minwidth);
+	@include center-block($size-minwidth);
+	> span {
 		text-align: center;
 		display: block;
-		margin: $size-column--safety auto;
-		padding: $size-column--safety;
+		padding: $size-column--safety * 2 0 $size-column--safety;
 		font-size: $size-fontbase--smaller;
-		span { background: $color-background; }
+	}
+	q {
+		background: $color-background;
 	}
 	position: relative;
 	z-index: z('layer-up') + 1;
