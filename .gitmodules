@@ -1,6 +1,6 @@
-[submodule "documents/wiki"]
-	path = documents/wiki
+[submodule "docs/wiki"]
+	path = docs/wiki
 	url = git@github.com:dmitrizzle/Analog.Cafe.wiki.git
-[submodule "documents/design"]
-	path = documents/design
+[submodule "docs/design"]
+	path = docs/design
 	url = git@github.com:dmitrizzle/Analog.Cafe.design.git
