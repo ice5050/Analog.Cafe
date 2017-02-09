@@ -38,6 +38,7 @@ $typography-levels: (
 	font-weight: $font-header--weight;
 	-webkit-hyphens: auto;
 	hyphens: auto;
+	text-transform: capitalize;
 }
 #{A(2)} {
 	@extend #{A(1)};
