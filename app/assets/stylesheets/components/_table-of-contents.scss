@@ -51,7 +51,6 @@ $toc-summary-figure--height: 8em;
 			display: table;
 			width: 100%;
 			@include breakpoint($size-breakpoint-s){
-				width: auto;
 				& .toc-summary { width: 100%; }
 			}
 			text-decoration: none;
@@ -91,15 +90,24 @@ $toc-summary-figure--height: 8em;
 					margin-left: -50%;
 				}	
 			}
+			& > div {
+				float: left;
+				@include breakpoint($size-breakpoint-s){ float: none; display: inline-block; }
+				width: calc(100% - #{$toc-summary-figure--width + $size-content-block-spacing});
+			}
 			& #{A(2)} {
 				padding: 0;
 				margin-top: -.25em;
 			}
-			& #{A(4)} {
-				margin-bottom: 0;	
-			}
-			small {
+			& p {
+				@extend #{A(4)};
 				display: block;
+				margin: 0;
+				line-height: #{$font-content--line * strip-unit($size-fontbase--smaller)};
+				&::before { height: #{$size-fontbase--normal / strip-unit($size-fontbase--smaller)}; }
+				&::after { display: none; }
+			}
+			& small {
 				float: left;
 				strong {
 					@extend #{A(3)};
@@ -134,14 +142,16 @@ $toc-summary-figure--height: 8em;
 					& .toc-summary { background: $color-background--highlight; }
 					&::after { display: none; }
 				}
+				&::before { display: none; }
 			}
 			& .toc-summary {
-				padding: 0;
+				padding: 0 0 $size-column--safety;
+				border-bottom: 1px solid rgba($color-foreground, $opacity-least/2);
 				background: $color-background;
 				& > figure {
 					float: none;
-					width: calc(100vw + 1px);
-					margin: 0 0 0 -1px;
+					width: calc(100%);
+					margin: 0;
 					overflow: visible;
 					height: auto;
 					padding-bottom: $size-column--safety;
@@ -151,17 +161,14 @@ $toc-summary-figure--height: 8em;
 						margin: 0;
 					}
 				}
-				& #{A(2)}, #{A(4)}, small {
-					@include breakpoint($figcaption-breakpoint) {
-						// @include center-block--responsive;
-					}
-					// padding: $figcaption-padding;
+				& > div {
+					@include figure-figcaption;
+					@include figure-figcaption--feature;
+					width: 100%;
+					border-bottom: #{$size-fontbase--normal/2 * strip-unit($size-fontbase--smaller)} solid;
 					float: none;
-				}
-				small {
-					border-bottom: $size-fontbase--normal/2 * strip-unit($size-fontbase--smaller) solid;
-					padding-bottom: $figcaption-padding;
-					margin-bottom: $size-column--safety;
+					padding: 0 #{$figcaption-padding * strip-unit($size-fontbase--smaller)} #{$figcaption-padding * strip-unit($size-fontbase--smaller)} #{$figcaption-padding * strip-unit($size-fontbase--smaller)};
+					small { float: none; }
 				}
 			}
 			& .toc-cover { display: none; }

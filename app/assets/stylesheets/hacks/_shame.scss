@@ -1,7 +1,1 @@
 body { overflow-x: hidden; }
-@mixin shame-print {
-	.table-of-contents li .toc-summary .small-caption,
-	.table-of-contents--feature > section .toc-summary .small-caption { box-shadow: none; }
-	.table-of-contents--feature, .table-of-contents { border: none; }
-	.table-of-contents--feature { margin-top: -#{$size-column--safety * 2 }; }
-}
