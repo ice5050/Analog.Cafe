@@ -3,8 +3,6 @@
 @import "base/sizes";
 
 @import "helpers/mixins";
-@import "hacks/shame";
-
 
 @media print {
 	@page {
@@ -12,7 +10,7 @@
 		orphans: 4;
 		widows: 3;
 	}
-	#{A(1)}, li, figure, blockquote {
+	#{A(1)}, li, figure, blockquote, .table-of-contents li.feature {
 		page-break-inside: avoid;
 	}
 	#{A(1)} {
@@ -54,7 +52,6 @@
 			}
 		}
 		.card, .motto, .button, .table-of-contents--feature > a { display: none; }
-		@include shame-print;
 	}
 	
 }
