@@ -9,6 +9,16 @@
 $figcaption-breakpoint: $size-column--maxwidth-m + $size-column--safety-min * 2;
 $figcaption-padding: $size-column--safety / strip-unit($size-fontbase--smaller);
 
+@mixin figure-figcaption {
+	padding: $figcaption-padding;
+	border-bottom: $size-fontbase--normal/2 solid;
+}
+@mixin figure-figcaption--feature {
+	@include breakpoint($figcaption-breakpoint) {
+		@include center-block--responsive;
+	}
+}
+
 figure {
 	& img {
 		width: 100%;
@@ -16,8 +26,7 @@ figure {
 	}
 	& figcaption {
 		@extend #{A(6)};
-		padding: $figcaption-padding;
-		border-bottom: $size-fontbase--normal/2 solid;
+		@include figure-figcaption;
 	}
 	article section > & {
 		@include figure-block;
@@ -37,11 +46,7 @@ figure {
 			}
 			float: none;
 			border:none;
-			& figcaption {
-				@include breakpoint($figcaption-breakpoint) {
-					@include center-block--responsive;
-				}
-			}
+			& figcaption { @include figure-figcaption--feature; }
 		}
 	}
 	

@@ -3,157 +3,175 @@
 @import "base/typography";
 
 @import "helpers/mixins";
+@import "helpers/functions";
+@import "components/figures";
 
 
-$toc-figure--height: $font-content--line * strip-unit($size-fontbase--normal) * 4;
-$toc-active-label--font: .5;
-$toc-active-label--height: $toc-figure--height / $toc-active-label--font - $size-content-block-spacing / $toc-active-label--font;
-$toc-row-border-bottom: $size-fontbase--normal/2 solid;
+$toc-cover-width: 33%;
+$toc-cover-width--shim: calc(#{$toc-cover-width} - #{$size-content-block-spacing} - 5px);
+$toc-summary-figure--width: 5em;
+$toc-summary-figure--height: 8em;
 
-@mixin toc-cell-figure {
-	background-size: cover;
-	background-position: center;
+@mixin toc-fill-figure {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
 }
-@mixin toc-row {
-	display: table;
-	list-style: none;
-	width: 100%;
-	
-	& .toc-figure {
-		display: none;
-		padding-top: $size-column--safety * 4;
-		position: relative;
-		
-		@include breakpoint($size-breakpoint-l){
-			display: table-cell;
-		}
-		vertical-align: bottom;
-		width: 5em;
-		& > a {
-			@include toc-cell-figure;
-			display: block;
-			width: calc(100% - #{$size-content-block-spacing});
-			height: $toc-figure--height;
-			margin-bottom: $font-content--spacing/2;
-		}
-	}
-			
-	@include breakpoint($size-breakpoint-l){
-		& .toc-summary {
-		 padding-top: $size-column--safety;
-		}
-	}
-	& .toc-summary {
-		display: table-cell;
-		vertical-align: bottom;
-		padding-top: $size-column--safety*2;
-		position: relative;
-		& .small-caption { 
-			box-shadow: 0 -1px 0 rgba($color-foreground, $opacity-least/2) inset;
-		}
-
-		& > a {
-			text-decoration: none;
-			display: table;
-			min-height: $toc-figure--height - $size-content-block-spacing;
-			width: 100%;
-			& > div {  display: table-cell; vertical-align: bottom; }
-			& #{A(1)} {
-				padding: 0;
-				display: block;
-			}
-			#{A(3)} { color: $color-brand; }
-			&:active { background: inherit; }
-		}
-		#{A(6)} { display: block; }
-	}
-	&.active .toc-summary::after {
-		content: attr(data-content-info);
-		text-align: right;
-		height: $size-content-block-spacing / $toc-active-label--font;
-		line-height: $size-content-block-spacing / $toc-active-label--font;
-		padding: 0 $size-content-block-spacing;
-		width: $toc-active-label--height;
-		@include breakpoint(0 $size-breakpoint-l){
-			width: auto;
-			transform: none;
-			bottom: - $size-content-block-spacing / $toc-active-label--font;
-		}
-		transform: rotate(-90deg) translate(.5px, -#{$size-content-block-spacing / $toc-active-label--font});
-		transform-origin: top left;
-		position: absolute;
-		display: block;
-		font-size: #{$toc-active-label--font}em;
-		font-style: italic;
-		background: $color-background--highlight;
-	}
+@mixin toc-cover-dimensions {
+	display: block;
+	content: "";
+	width: $toc-cover-width--shim;
+	z-index: z('layer-up');
+	pointer-events: none;
+	@include toc-fill-figure;
+	@include breakpoint($size-breakpoint-s){ display: none; }
 }
+
 
 .table-of-contents {
-	border-bottom: $toc-row-border-bottom;
 	ul {
 		@include center-block($size-breakpoint-xxl);
-		padding: 0 0 0 $size-column--safety;
+		padding: 0;
 		position: relative;
 		&::after {
-			content: "";
-			pointer-events: none;
+			@include toc-cover-dimensions;
+			filter: drop-shadow(1px 0 0 rgba($color-foreground, $opacity-least));
 			background-image: inline_svg("components/mask-jagged-triangles.svg", ( fillcolor: #{$color-background} ));
 			background-size: 100%;
-			display: block;
-			position: absolute;
-			z-index: z('layer-up');
-			top: 0;
-			right: 0;
-			height: 100%;
-			width: calc(35% - #{$size-content-block-spacing/2} + 5px);
-			filter: drop-shadow(1px 0 0 rgba($color-foreground, $opacity-least));
-
-			@include breakpoint(0 $size-breakpoint-m){
-				width: calc(15% - #{$size-content-block-spacing/4} + 2px);
-			}
 		}
 	}
 	li {
-		@include toc-row;
-		&:last-child .toc-figure, &:last-child .toc-summary { padding-bottom: $size-column--safety * 4; }
-		&.active:last-child .toc-summary::after {
-			@include breakpoint(0 $size-breakpoint-l){
-				bottom: $size-column--safety * 4 + ($size-content-block-spacing / $toc-active-label--font) * 2;
+		display: block;
+		list-style: none;
+		width: 100%;
+		overflow: hidden;
+		position: relative;
+		& > a {
+			display: table;
+			width: 100%;
+			@include breakpoint($size-breakpoint-s){
+				& .toc-summary { width: 100%; }
+			}
+			text-decoration: none;
+			padding: $size-column--safety * 2 0 $size-content-block-spacing $size-column--safety;
+			&:active::after {
+				@include toc-cover-dimensions;
+				z-index: z('layer-up') + 1;
+				background: rgba($color-background--highlight, $opacity-most);
+			}
+			&::before {
+				display: block;
+				content: "";
+				z-index: z('layer-up') + 1;
+				@include toc-fill-figure;
+				top: initial;
+				height: 1px;
+				width: 100%;
+				
+				pointer-events: none;
+				background: rgba($color-foreground, $opacity-least/2);
+			}
+			&:active::before { visibility: hidden; }
+		}
+		& .toc-summary {
+			display: table-cell;
+			vertical-align: bottom;
+			padding: $size-column--safety $size-column--safety 0 0;
+			& > figure {
+				float: left;
+				width: $toc-summary-figure--width;
+				height: $toc-summary-figure--height;
+				margin: 0 $size-content-block-spacing $size-content-block-spacing / 2 0;
+				overflow: hidden;
+				& > img {
+					height: 120%;
+					width: auto;
+					margin-left: -50%;
+				}	
+			}
+			& > div {
+				float: left;
+				@include breakpoint($size-breakpoint-s){ float: none; display: inline-block; }
+				width: calc(100% - #{$toc-summary-figure--width + $size-content-block-spacing});
+			}
+			& #{A(2)} {
+				padding: 0;
+				margin-top: -.25em;
+			}
+			& p {
+				@extend #{A(4)};
+				display: block;
+				margin: 0;
+				line-height: #{$font-content--line * strip-unit($size-fontbase--smaller)};
+				&::before { height: #{$size-fontbase--normal / strip-unit($size-fontbase--smaller)}; }
+				&::after { display: none; }
+			}
+			& small {
+				float: left;
+				strong {
+					@extend #{A(3)};
+					color: $color-brand;
+				}
+				em {
+					font-variant: normal;
+				}
 			}
 		}
 		& .toc-cover {
-			width: 35%;
 			display: table-cell;
+			@include breakpoint($size-breakpoint-s){ display: none; }
+			width: $toc-cover-width;
 			position: relative;
-			@include toc-cell-figure;
-			@include breakpoint(0 $size-breakpoint-m){
-				width: 15%;
-			}
-			a {
-				display: block;
-				top: 0;
-				bottom: 0;
-				width: 100%;
+			div {
+				background-size: cover;
+				background-position: center;
 				position: absolute;
-				&:active { background: inherit; }
+				top: -#{$size-column--safety * 2};
+				width: 100%;
+				bottom: -#{$size-content-block-spacing};
 			}
 		}
-	}
-}
-
-.table-of-contents--feature {
-	figure { margin: 0; }
-	border-bottom: $toc-row-border-bottom;
-	& > section {
-		@include toc-row;
-		width: calc(100% - #{$size-column--safety * 2});
-		padding: 0 0 0 $size-column--safety;
-		.toc-figure, .toc-summary { 
-			padding: $size-column--safety 0;
-		}
-		&.active .toc-summary::after {
-			bottom: $size-content-block-spacing;
+		&.feature {
+			& > a {
+				padding: 0;
+				margin: 0;
+				z-index: z('layer-up') + 1;
+				position: relative;
+				&:active {
+					& .toc-summary { background: $color-background--highlight; }
+					&::after { display: none; }
+				}
+				&::before { display: none; }
+			}
+			& .toc-summary {
+				padding: 0 0 $size-column--safety;
+				border-bottom: 1px solid rgba($color-foreground, $opacity-least/2);
+				background: $color-background;
+				& > figure {
+					float: none;
+					width: calc(100%);
+					margin: 0;
+					overflow: visible;
+					height: auto;
+					padding-bottom: $size-column--safety;
+					& > img {
+						height: auto;
+						width: 100%;
+						margin: 0;
+					}
+				}
+				& > div {
+					@include figure-figcaption;
+					@include figure-figcaption--feature;
+					width: 100%;
+					border-bottom: #{$size-fontbase--normal/2 * strip-unit($size-fontbase--smaller)} solid;
+					float: none;
+					padding: 0 #{$figcaption-padding * strip-unit($size-fontbase--smaller)} #{$figcaption-padding * strip-unit($size-fontbase--smaller)} #{$figcaption-padding * strip-unit($size-fontbase--smaller)};
+					small { float: none; }
+				}
+			}
+			& .toc-cover { display: none; }
 		}
 	}
 }
