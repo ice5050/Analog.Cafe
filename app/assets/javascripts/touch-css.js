@@ -4,7 +4,7 @@
 (function(){
 	isScrolling = false;
 	tapVerifying = false;
-	tapVerifyDelay = 15;
+	tapVerifyDelay = 50;
 
 	// Hide :active classes (via SASS, operated via .no-tap) while isScrolling
 	window.addEventListener("scroll", function(){
