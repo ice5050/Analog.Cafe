@@ -1,6 +1,7 @@
 @import "base/colors";
 @import "base/sizes";
 @import "base/typography";
+@import "base/selectors";
 
 @import "helpers/mixins";
 
@@ -38,7 +39,7 @@ body > nav {
 			border-radius: $size-fontbase--larger;
 			background: $color-brand;
 			text-align: center;
-			&:active {
+			#{$tappable-and}:active {
 				background: $color-foreground;
 			}
 			& .logo {
