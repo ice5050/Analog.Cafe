@@ -21,6 +21,11 @@
 	window.addEventListener("touchstart", function(){
 		tapVerifying = true;
 		if (tapTimer != -1) clearTimeout(tapTimer);
-		tapTimer = window.setTimeout("if(!isScrolling)__q('body')[0].classList.remove('no-tap');tapVerifying=false;", tapVerifyDelay);
+		tapTimer = window.setTimeout("if(!isScrolling)__q('body')[0].classList.remove('no-tap');", tapVerifyDelay);
+	});
+	
+	// release :active for use only when finger has lifted (if the user has been scrolling)
+	window.addEventListener("touchend", function(){
+		tapVerifying = false;
 	});
 })();
