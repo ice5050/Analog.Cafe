@@ -5,6 +5,6 @@
 	.table-of-contents:first-child li:first-child {
 		padding-top: 12em;
 		.toc-cover div { top: -16.5em; }
-		& > a:active::after { top: 12em; }
+		body:not(.scrolling) & > a:active::after { top: 12em; }
 	}
 }
