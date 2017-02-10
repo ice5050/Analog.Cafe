@@ -1,3 +1,6 @@
+@import "base/selectors";
+
+
 .header-bleed {
 	position: absolute;
 	top: 0;
@@ -5,6 +8,6 @@
 	.table-of-contents:first-child li:first-child {
 		padding-top: 12em;
 		.toc-cover div { top: -16.5em; }
-		& > a:active::after { top: 12em; }
+		#{$tappable-and} > a:active::after { top: 12em; }
 	}
 }
