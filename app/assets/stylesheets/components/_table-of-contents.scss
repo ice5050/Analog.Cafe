@@ -56,7 +56,7 @@ $toc-summary-figure--height: 8em;
 				& .toc-summary { width: 100%; }
 				width: calc(100% - #{$size-column--safety});
 			}
-			&:active::after {
+			#{$tap-this}::after {
 				@include toc-cover-dimensions;
 				z-index: z('layer-up') + 1;
 				background: rgba($color-background--highlight, $opacity-most);
@@ -73,7 +73,7 @@ $toc-summary-figure--height: 8em;
 				pointer-events: none;
 				background: rgba($color-foreground, $opacity-least/2);
 			}
-			&:active::before { visibility: hidden; }
+			#{$tap-this}::before { visibility: hidden; }
 		}
 		& .toc-summary {
 			display: table-cell;
@@ -140,7 +140,7 @@ $toc-summary-figure--height: 8em;
 				z-index: z('layer-up') + 1;
 				position: relative;
 				width: 100%;
-				&:active {
+				#{$tap-this} {
 					& .toc-summary { background: $color-background--highlight; }
 					&::after { display: none; }
 				}
