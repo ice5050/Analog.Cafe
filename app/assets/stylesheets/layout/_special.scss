@@ -1,4 +1,4 @@
-@import "base/selectors";
+@import "helpers/mixins";
 
 
 .header-bleed {
@@ -8,6 +8,8 @@
 	.table-of-contents:first-child li:first-child {
 		padding-top: 12em;
 		.toc-cover div { top: -16.5em; }
-		#{$tappable-and} > a:active::after { top: 12em; }
+		 > a {
+			&:hover::after { top: 12em; }
+		}
 	}
 }
