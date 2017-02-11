@@ -2,9 +2,6 @@
 
 
 // REWRITE TOUCH AND CLICK ACTIVE STATES FOR ".-active" CSS class
-var trSuper_self;
-var trSuper_e = {};
-var trSuper_f;
 var touchRespond = function(){
 
 	// remove all other active states on the document
@@ -14,16 +11,20 @@ var touchRespond = function(){
 		});
 	};
 	
+	
 	// add events to all elements on page
 	__each(__q('a'), function(i){
 		
+		var el = __q('a')[i];
 		var pointerDown = false;
 		var activeAvailable = true;
 		var pointerLocFirst = {};
 		var pointerLocLast = {};
-		var touchTimer = -1;
+		var touchMoveTimer = -1;
+		var touchHoldTimer = -1;
 		
-		var touchDelay = 500;
+		var touchMoveDelay = 200;
+		var touchHoldDelay = 1500;
 		var slack = 35;
 		
 		// add/remove active classes
@@ -41,7 +42,7 @@ var touchRespond = function(){
 		}
 		
 		// activate down state
-		var downstate = trSuper_f = function(self, e){
+		var downstate = function(self, e){
 			activeAvailable = true;
 			activate(self);
 			pointerDown = true;
@@ -51,20 +52,24 @@ var touchRespond = function(){
 			if(pointerDown && activeAvailable) { init(); activate(self); }
 			pointerDown = false;
 		}
-		__q('a')[i].addEventListener("mousedown", function(e){ downstate(this, e); });
-		__q('a')[i].addEventListener("mouseup", function(){ upstate(this); });
-		__q('a')[i].addEventListener("touchstart", function(e){
+		el.addEventListener("mousedown", function(e){ downstate(this, e); });
+		el.addEventListener("mouseup", function(){ upstate(this); });
+		el.addEventListener("touchstart", function(e){ 
 			if (e.touches.length == 1){
-				trSuper_self = this;
-				trSuper_e = e.touches[0];
-				
-				if (touchTimer != -1) clearTimeout(touchTimer);
-				//touchTimer = window.setTimeout("trSuper_f(trSuper_self, trSuper_e);", touchDelay);
+				activeAvailable = true;
+				pointerDown = true;
+				var self = this;
+				if (touchMoveTimer != -1) clearTimeout(touchMoveTimer);
+				if(touchHoldTimer != -1) clearTimeout(touchHoldTimer);
+				touchMoveTimer = setTimeout(function(){ // timeout function that doesn't add the class until delay [touchMoveDelay] has passed
+					if(activeAvailable) downstate(self, e.touches[0]);
+				}, touchMoveDelay);
+				touchHoldTimer = setTimeout(function(){ // timeout function that cancels downstate if it's being held (i.e.: touch-hold)
+					if(pointerDown) deactivate(self);
+				}, touchHoldDelay);
 			}
 		});
-		__q('a')[i].addEventListener("touchend", function(){
-				upstate(this);
-		});
+		el.addEventListener("touchend", function(){ upstate(this); });
 		
 		
 		// deactivate down state
@@ -76,12 +81,10 @@ var touchRespond = function(){
 			}
 		}
 		var pointerout = function(self){ if(pointerDown && activeAvailable) deactivate(self); }
-		__q('a')[i].addEventListener("mousemove", function(e){ pointermove(this, e); });
-		__q('a')[i].addEventListener("mouseout", function(){ pointerout(this); });
-		__q('a')[i].addEventListener("touchmove", function(e){
-			pointermove(this, e.targetTouches[0]);
-		});
-		__q('a')[i].addEventListener("touchleave", function(){ pointerout(this); });
+		el.addEventListener("mousemove", function(e){ pointermove(this, e); });
+		el.addEventListener("mouseout", function(){ pointerout(this); });
+		el.addEventListener("touchmove", function(e){ pointermove(this, e.targetTouches[0]); });
+		el.addEventListener("touchleave", function(){ pointerout(this); });
 		
 
 	});	
