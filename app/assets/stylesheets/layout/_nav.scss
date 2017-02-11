@@ -39,7 +39,7 @@ body > nav {
 			border-radius: $size-fontbase--larger;
 			background: $color-brand;
 			text-align: center;
-			#{$tappable-and}:active {
+			#{$tap-this} {
 				background: $color-foreground;
 			}
 			& .logo {
