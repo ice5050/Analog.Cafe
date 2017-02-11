@@ -21,10 +21,8 @@ var touchRespond = function(){
 		var pointerLocFirst = {};
 		var pointerLocLast = {};
 		var touchMoveTimer = -1;
-		var touchHoldTimer = -1;
 		
 		var touchMoveDelay = 200;
-		var touchHoldDelay = 1500;
 		var slack = 35;
 		
 		// add/remove active classes
@@ -60,13 +58,9 @@ var touchRespond = function(){
 				pointerDown = true;
 				var self = this;
 				if (touchMoveTimer != -1) clearTimeout(touchMoveTimer);
-				if(touchHoldTimer != -1) clearTimeout(touchHoldTimer);
 				touchMoveTimer = setTimeout(function(){ // timeout function that doesn't add the class until delay [touchMoveDelay] has passed
 					if(activeAvailable) downstate(self, e.touches[0]);
 				}, touchMoveDelay);
-				touchHoldTimer = setTimeout(function(){ // timeout function that cancels downstate if it's being held (i.e.: touch-hold)
-					if(pointerDown) deactivate(self);
-				}, touchHoldDelay);
 			}
 		});
 		el.addEventListener("touchend", function(){ upstate(this); });
@@ -76,8 +70,10 @@ var touchRespond = function(){
 		var pointermove = function(self, e){
 			if(activeAvailable){
 				pointerLocLast = e;
-				if(pointerDown && outsideRange(pointerLocFirst, pointerLocLast))
+				if(pointerDown && outsideRange(pointerLocFirst, pointerLocLast)) {
 					deactivate(self);
+					pointerDown = false;
+				}
 			}
 		}
 		var pointerout = function(self){ if(pointerDown && activeAvailable) deactivate(self); }
@@ -85,6 +81,8 @@ var touchRespond = function(){
 		el.addEventListener("mouseout", function(){ pointerout(this); });
 		el.addEventListener("touchmove", function(e){ pointermove(this, e.targetTouches[0]); });
 		el.addEventListener("touchleave", function(){ pointerout(this); });
+		el.addEventListener("touchcancel", function(){ pointerout(this); });
+		// window.addEventListener("scroll", function(){ pointerDown = false; });
 		
 
 	});	
