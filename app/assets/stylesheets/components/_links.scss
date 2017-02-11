@@ -6,7 +6,7 @@
 a {
 	color: inherit;
 	text-decoration: underline;
-	&:hover {
+	#{$tappable-and}:active {
 		background: $color-background--highlight;
 		color: $color-foreground;
 	}

@@ -24,7 +24,7 @@
 	margin-top: $size-content-block-spacing;
 	margin-bottom: $size-content-block-spacing;
 	
-	&:hover {
+	#{$tappable-and}:active {
 		background: $color-foreground;
 		box-shadow: 0 1px 0 lighten($color-foreground, 20%) inset;
 		color: $color-background;
@@ -38,7 +38,7 @@
 		max-width: 100%;
 		margin: 0;
 		border-radius: 0;
-		&:hover {
+		#{$tappable-and}:active {
 			box-shadow: 0 -1px 0 $color-foreground;
 		}
 	}
@@ -58,7 +58,7 @@
 	top: 0;
 	right: 0;
 	padding: $size-content-block-spacing/4 $size-content-block-spacing/2 ;
-	&:hover {
+	#{$tappable-and}:active {
 		background: 0 0;
 		color: $color-brand;
 	}
@@ -69,14 +69,14 @@
 	height: $size-column--safety;
   margin: $size-column--safety auto 0;
 	background: inline_svg("components/button-favorite--empty.svg", ( fillcolor: #{$color-brand} )) center no-repeat;
-  &:hover {
+  #{$tappable-and}:active {
   	background: inline_svg("components/button-favorite--filled.svg", ( fillcolor: #{$color-brand} )) center no-repeat;
   }
 }
 .tools {
 	@extend .favorite;
 	background: inline_svg("components/button-more--empty.svg", ( fillcolor: #{$color-brand} )) center no-repeat;
-	&:hover {
+	#{$tappable-and}:active {
   	background: inline_svg("components/button-more--filled.svg", ( fillcolor: #{$color-brand} )) center no-repeat;
   }
 }
