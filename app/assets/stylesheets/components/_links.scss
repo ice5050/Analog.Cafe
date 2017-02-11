@@ -6,7 +6,7 @@
 a {
 	color: inherit;
 	text-decoration: underline;
-	&:hover {
+	#{$tap-this} {
 		background: $color-background--highlight;
 		color: $color-foreground;
 	}
