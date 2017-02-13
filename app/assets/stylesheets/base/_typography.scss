@@ -88,10 +88,11 @@ blockquote {
 	& p {
 		display: block;
 		font-size: $size-fontbase--smaller;
-		line-height: $font-content--line;
+		font-style: italic;
 		&::before, &::after, &:first-of-type::before { display: none !important; }
 		&:first-of-type::first-letter {
 			font-size: $size-fontbase--larger * 2;
+			font-style: normal;
 			font-weight: 700;
 			float: left;
 			margin: .3em .075em .075em 0;
