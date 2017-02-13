@@ -104,6 +104,7 @@ $toc-summary-figure--height: 8em;
 				@extend #{A(4)};
 				display: block;
 				margin: 0;
+				max-width: $size-column--maxwidth-l;
 				line-height: #{$font-content--line * strip-unit($size-fontbase--smaller)};
 				&::before { height: #{$size-fontbase--normal / strip-unit($size-fontbase--smaller)}; }
 				&::after { display: none; }
