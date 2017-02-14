@@ -5,13 +5,6 @@ function __q(q){
 	return document.querySelectorAll(q);
 };
 
-// Shortcut for iterating through arrays:
-function __each(el, f){
-	for (var i = 0; i < el.length; i++) {
-		f(i);
-	}
-};
-
 // Fire event shortcut:
 function __fire(e, data){
 	data = (typeof data !== 'undefined') ?  data : {};
