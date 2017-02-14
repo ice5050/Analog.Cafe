@@ -63,7 +63,7 @@
 .favorite {
 	display: block;
 	width: $size-column--safety;
-	height: $size-column--safety;
+	height: $size-column--safety * 1.1;
   margin: $size-column--safety auto 0;
 	background: inline_svg("components/button-favorite--empty.svg", ( fillcolor: #{$color-brand} )) center no-repeat;
   #{$tap-this} {
