@@ -1,6 +1,5 @@
 function typographyFormat(){
-	var bq = __q("blockquote p:first-child");
-	__each(bq, function(i){
-		(bq[i].innerHTML.length < 175 ) ? bq[i].parentElement.classList.add("short") : false;
+	__q("blockquote p:first-child").forEach(function(el) {
+		(el.innerHTML.length < 175 ) ? el.parentElement.classList.add("short") : false;
 	});
 };
