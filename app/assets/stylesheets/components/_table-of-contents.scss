@@ -147,6 +147,16 @@ $toc-summary-figure--height: 8em;
 				}
 				&::before { display: none; }
 			}
+			@include breakpoint($size-breakpoint-xxl) {
+				overflow: visible;
+				& > a {
+					border-radius: $size-corner-med;
+					overflow: hidden;
+					@include card-shadow;
+					margin: $size-content-block-spacing 0;
+				}
+			}
+				
 			& .toc-summary {
 				padding: 0 0 $size-column--safety;
 				border-bottom: 1px solid rgba($color-foreground, $opacity-least/2);
