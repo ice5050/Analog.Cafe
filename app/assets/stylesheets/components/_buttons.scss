@@ -20,13 +20,13 @@
 	display: block;
 	background: $color-background;
 	border-radius: $size-corner-small;
-	padding: $size-content-block-spacing/3 0;
+	padding: $size-content-block-spacing/2 0;
 	margin-top: $size-content-block-spacing;
 	margin-bottom: $size-content-block-spacing;
 	
 	#{$tap-this} {
 		background: $color-foreground;
-		box-shadow: 0 1px 0 lighten($color-foreground, 20%) inset;
+		box-shadow: 0 0 $color-foreground inset;
 		color: $color-background;
 	}
 	
@@ -41,9 +41,6 @@
 		#{$tap-this} {
 			box-shadow: 0 -1px 0 $color-foreground;
 		}
-	}
-	main article section & {
-		font-size: $size-fontbase--normal;
 	}
 }
 @include breakpoint($size-breakpoint-xs) {
@@ -66,7 +63,7 @@
 .favorite {
 	display: block;
 	width: $size-column--safety;
-	height: $size-column--safety;
+	height: $size-column--safety * 1.1;
   margin: $size-column--safety auto 0;
 	background: inline_svg("components/button-favorite--empty.svg", ( fillcolor: #{$color-brand} )) center no-repeat;
   #{$tap-this} {
