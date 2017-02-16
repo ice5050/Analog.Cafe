@@ -98,7 +98,7 @@ $toc-breakpoint: 0 $size-breakpoint-l;
 					margin-left: -50%;
 				}	
 				@include breakpoint(0 $size-minwidth * 2) {
-					margin-top: $size-content-block-spacing / 2;
+					margin-top: $size-content-block-spacing / 2 + .1em;
 					margin-bottom: $size-content-block-spacing;
 				}
 			}
