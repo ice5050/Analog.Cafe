@@ -99,7 +99,7 @@ $toc-breakpoint: 0 $size-breakpoint-l;
 				}	
 				@include breakpoint(0 $size-minwidth * 2) {
 					margin-top: $size-content-block-spacing / 2 + .1em;
-					margin-bottom: $size-content-block-spacing;
+					margin-bottom: 0;
 				}
 			}
 			& #{A(2)} {
@@ -123,10 +123,13 @@ $toc-breakpoint: 0 $size-breakpoint-l;
 				margin-bottom: 1.15em;
 				overflow: hidden;
 				max-width: $size-column--maxwidth-l;
+				text-align: justify;
 				&::after, &::before { display: none; }
 				@include breakpoint(0 $size-minwidth * 2) {
 					height: auto;
 					overflow: visible;
+					margin-top: .3em;
+					margin-bottom: 0;
 				}				
 			}
 			@include breakpoint(0 $size-minwidth * 2) {
@@ -170,6 +173,7 @@ $toc-breakpoint: 0 $size-breakpoint-l;
 				float: none;
 				clear: both;
 				text-align: center;
+				padding-top: $size-column--safety;
 			}
 			@include breakpoint(0 $size-minwidth) {
 				text-align: left;
