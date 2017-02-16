@@ -11,7 +11,8 @@ $toc-cover-width: 33%;
 $toc-cover-width--shim: calc(#{$toc-cover-width} - #{$size-content-block-spacing} - 5px);
 $toc-summary-figure--width: 5em;
 $toc-summary-figure--height: 9em;
-$toc-breakpoint: 0 $size-breakpoint-l;
+$toc-breakpoint-m: 0 $size-breakpoint-l;
+$toc-breakpoint-s: 0 $size-minwidth * 2;
 
 @mixin toc-fill-figure {
 	position: absolute;
@@ -26,7 +27,7 @@ $toc-breakpoint: 0 $size-breakpoint-l;
 	z-index: z('layer-up');
 	pointer-events: none;
 	@include toc-fill-figure;
-	@include breakpoint($toc-breakpoint){ display: none; }
+	@include breakpoint($toc-breakpoint-m){ display: none; }
 }
 
 
@@ -53,10 +54,10 @@ $toc-breakpoint: 0 $size-breakpoint-l;
 			width: 100%;
 			text-decoration: none;
 			padding: $size-column--safety * 3 0 $size-content-block-spacing $size-column--safety;
-			@include breakpoint($toc-breakpoint){
+			@include breakpoint($toc-breakpoint-m){
 				width: calc(100% - #{$size-column--safety});
 			}
-			@include breakpoint(0 $size-minwidth * 2) {
+			@include breakpoint($toc-breakpoint-s) {
 				padding-left: 0;
 				width: 100%;
 			}
@@ -98,7 +99,7 @@ $toc-breakpoint: 0 $size-breakpoint-l;
 					width: auto;
 					margin-left: -50%;
 				}	
-				@include breakpoint(0 $size-minwidth * 2) {
+				@include breakpoint($toc-breakpoint-s) {
 					margin-top: $size-content-block-spacing / 2 + .1em;
 					margin-bottom: 0;
 				}
@@ -109,7 +110,7 @@ $toc-breakpoint: 0 $size-breakpoint-l;
 				overflow: hidden;
 				white-space: nowrap;
 				text-overflow: ellipsis;
-				@include breakpoint(0 $size-minwidth * 2) {
+				@include breakpoint($toc-breakpoint-s) {
 					white-space: normal;
 				}
 			}
@@ -126,14 +127,14 @@ $toc-breakpoint: 0 $size-breakpoint-l;
 				max-width: $size-column--maxwidth-l;
 				text-align: justify;
 				&::after, &::before { display: none; }
-				@include breakpoint(0 $size-minwidth * 2) {
+				@include breakpoint($toc-breakpoint-s) {
 					height: auto;
 					overflow: visible;
 					margin-top: .3em;
 					margin-bottom: 0;
 				}				
 			}
-			@include breakpoint(0 $size-minwidth * 2) {
+			@include breakpoint($toc-breakpoint-s) {
 				display: block;
 				width: calc(100% - #{$size-column--safety * 2});
 				padding: 0 $size-column--safety;
@@ -141,7 +142,7 @@ $toc-breakpoint: 0 $size-breakpoint-l;
 		}
 		& .toc-cover {
 			display: table-cell;
-			@include breakpoint($toc-breakpoint){ display: none; }
+			@include breakpoint($toc-breakpoint-m){ display: none; }
 			width: $toc-cover-width;
 			position: relative;
 			div {
@@ -170,7 +171,7 @@ $toc-breakpoint: 0 $size-breakpoint-l;
 				display: block;
 				font-weight: $font-content--weight;
 			}
-			@include breakpoint(0 $size-minwidth * 2) {
+			@include breakpoint($toc-breakpoint-s) {
 				float: none;
 				clear: both;
 				text-align: center;
@@ -221,14 +222,16 @@ $toc-breakpoint: 0 $size-breakpoint-l;
 					}
 				}
 				& #{A(2)} { text-align: center; }
-				p {
+				& p {
 					@include figure-figcaption;
  					@include figure-figcaption--feature;
  					max-width: 100%;
+ 					@include breakpoint($toc-breakpoint-m) { margin-bottom: 0; }
 				}
 				.toc-info {
 					float: none;
 					text-align: center;
+					padding-top: $size-column--safety;
 				}
 			}
  			& .toc-cover { display: none; }
