@@ -86,6 +86,7 @@ $toc-breakpoint: 0 $size-breakpoint-l;
 			position: relative;
 			vertical-align: bottom;
 			padding: 0 $size-column--safety 0 0;
+			letter-spacing: initial;
 			& > figure {
 				float: left;
 				width: $toc-summary-figure--width;
