@@ -56,7 +56,6 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 // 				width: calc(100% - #{$size-column--safety});
 // 			}
 			@include breakpoint($toc-breakpoint-s) {
-				padding-left: 0;
 				width: 100%;
 			}
 			#{$tap-this} {
@@ -169,7 +168,8 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 				font-weight: $font-content--weight;
 			}
 			@include breakpoint($toc-breakpoint-s) {
- 				width: calc(100vw - 3em);
+ 				width: calc(100vw - #{ $size-column--safety * 2 });
+ 				min-width: auto;
 				float: none;
 				clear: both;
 				text-align: center;
