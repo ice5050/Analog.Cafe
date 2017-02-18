@@ -48,7 +48,10 @@ main {
 			@include breakpoint($size-breakpoint-m) {
 				margin-bottom: 0;
 			}
-
+			.controls {
+				margin: $size-column--safety auto 0;
+				width: $size-column--safety;
+			}
 		}
 		& section {
 			@include center-block--responsive;
