@@ -11,7 +11,7 @@
 	> span {
 		text-align: center;
 		display: block;
-		padding: $size-column--safety * 2 0 0;
+		padding: $size-column--safety * 2 0 $size-column--safety ;
 		font-size: $size-fontbase--smaller;
 	}
 	q {
@@ -23,4 +23,5 @@
 .tools {
 	position: relative;
 	z-index: z('layer-up') + 1;
+	margin: 0 auto;
 }
