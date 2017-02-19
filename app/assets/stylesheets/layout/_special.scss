@@ -7,7 +7,7 @@
 	width: 100%;
 	.table-of-contents:first-child li:first-child {
 		padding-top: 14em;
-		.toc-cover div { top: -18.5em; }
+		.toc-cover { margin-top: -18.5em; }
 		> a {
 			#{$tap-this}::after { top: 14em; }
 		}

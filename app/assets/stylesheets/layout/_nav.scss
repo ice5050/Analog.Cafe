@@ -39,6 +39,7 @@ body > nav {
 			border-radius: $size-fontbase--larger;
 			background: $color-brand;
 			text-align: center;
+			box-shadow: none;
 			#{$tap-this} {
 				background: $color-foreground;
 			}

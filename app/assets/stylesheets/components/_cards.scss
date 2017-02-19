@@ -18,6 +18,7 @@
 	@include breakpoint($size-breakpoint-xs){
 		border-radius: 0;
 	}
+	figure figcaption { text-align: left; }
 	& header {
 		padding: $size-content-block-spacing/4 $size-content-block-spacing;
 		padding-right: $size-content-block-spacing * 3;
