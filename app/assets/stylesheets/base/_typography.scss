@@ -9,12 +9,29 @@
 
 
 
-$font-content: Lora, serif;
-$font-content--weight: 400;
-$font-content--spacing: 0.025em;
-$font-content--line: 1.75em;
+// Dynamic font stack and line spacing - depending on whether it's web-safe or loaded
+@mixin font-content--stack {
+	font-family: Georgia, serif;
+	.fonts-loaded {
+		font-family: Lora, Georgia, serif;
+	}
+}
+@mixin font-content--spacing {
+	letter-spacing: 0.0525em;
+	.fonts-loaded {
+		letter-spacing: 0.025em;
+	}
+}
+@mixin font-header--stack {
+	font-family: Arial sans-serif;
+	.fonts-loaded {
+		font-family: 'Exo 2', Arial sans-serif;
+	}
+}
 
-$font-header: 'Exo 2', sans-serif;
+// constant font variables
+$font-content--weight: 400;
+$font-content--line: 1.75em;
 $font-header--weight: 600;
 
 
@@ -37,7 +54,7 @@ $typography-levels: (
 
 #{A(1)} {
 	@include text-block($size-fontbase--larger);
-	font-family: $font-header;
+	@include font-header--stack;
 	font-weight: $font-header--weight;
 	-webkit-hyphens: auto;
 	hyphens: auto;
@@ -54,7 +71,7 @@ $typography-levels: (
 	display: block;
 }
 #{A(4)} {
-	font-family: $font-content;
+	@include font-content--stack;
 	font-weight: $font-content--weight;
 	@extend #{A(6)};
 }
