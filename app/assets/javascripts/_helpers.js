@@ -21,23 +21,3 @@ function __fire(e, data){
 		scrollTimer = window.setTimeout("window.__fire('doneScrolling')", scrollStopTimer);
 	});
 })();
-
-
-
-
-
-/* 
-function __parent(el, selector, stopSelector) {
-  var retval = null;
-  while (el) {
-    if (el.matches(selector)) {
-      retval = el;
-      break
-    } else if (stopSelector && el.matches(stopSelector)) {
-      break
-    }
-    el = el.parentElement;
-  }
-  return retval;
-}
-*/

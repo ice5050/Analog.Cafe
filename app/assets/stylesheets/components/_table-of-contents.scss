@@ -159,7 +159,7 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 				margin: 0;
 				display: block;
 				color: $color-brand;
-				font-family: $font-header;
+				@include font-header--stack;
 				font-weight: $font-header--weight;
 			}
 			em {

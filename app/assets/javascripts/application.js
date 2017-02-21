@@ -10,7 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require utilities.js
-//= require_tree .
 //
+//
+//	Bower assets:
+//	--------------------
+//= require fontfaceobserver/fontfaceobserver
+//
+//
+//	Application assets:
+//	--------------------
+//= require _helpers.js
+//= require_tree .
 //

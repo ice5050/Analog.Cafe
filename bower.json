@@ -4,7 +4,7 @@
   "authors": [
     "dmitrizzle <d@analog.cafe>"
   ],
-  "description": "\"Opinionated\" CMS engine project",
+  "description": "Opinionated CMS engine project",
   "main": "index.html",
   "license": "MPL-2.0",
   "private": true,

@@ -11,7 +11,7 @@
 	
 	text-decoration: none;
 	text-align: center;
-	font-family: $font-header;
+	@include font-header--stack;
 	font-weight: $font-header--weight;
 	font-size: $size-fontbase--normal;
 	line-height: $font-content--line;

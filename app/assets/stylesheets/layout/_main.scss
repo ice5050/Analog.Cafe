@@ -13,8 +13,10 @@
 
 
 body {
+	@include font-content--stack;
+	@include font-content--spacing;
+	
 	color: $color-foreground;
-	font-family: $font-content;
 	font-size: $size-fontbase-m;
 	@include breakpoint($size-breakpoint-xxl) {
 		font-size: $size-fontbase-l;
@@ -26,7 +28,6 @@ body {
 		font-size: $size-fontbase-xs;
 	}
 	
-	letter-spacing: $font-content--spacing;
 	font-weight: $font-content--weight;
 	-webkit-text-size-adjust: 100%;
 	-webkit-font-smoothing: subpixel-antialiased;
