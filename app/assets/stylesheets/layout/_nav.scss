@@ -81,8 +81,8 @@ body > nav {
 			display: table-cell;
 			vertical-align: middle;
 			text-align: center;
-			width: $nav-logo-width + $size-content-block-spacing * 3;
-			&.nav-center { min-width: $nav-logo-width + $size-column--safety * 2; }
+			width: $nav-logo-width * 5;
+			&.nav-center { width: $nav-logo-width + $size-column--safety * 2; padding: $size-content-block-spacing; }
 			&:not(.nav-center) { width: 6em; height: $font-content--line; }
 			@include breakpoint($size-breakpoint-s){
 				text-align: left;
@@ -90,7 +90,7 @@ body > nav {
 			}
 			
 			& a {
-				@extend #{A(6)};
+				font-size: $size-fontbase--smaller;
 				background: $color-background; 
 				text-decoration: none;
 			}
