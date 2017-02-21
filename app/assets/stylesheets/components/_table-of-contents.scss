@@ -44,17 +44,12 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 	li {
 		display: block;
 		list-style: none;
-//		width: 100%;
  		overflow: hidden;
  		position: relative;
 		& > a {
 			display: flex;
 			width: 100%;
 			text-decoration: none;
-			//padding: $size-column--safety * 3 0 $size-content-block-spacing $size-column--safety;
-			// @include breakpoint($toc-breakpoint-m){
-// 				width: calc(100% - #{$size-column--safety});
-// 			}
 			@include breakpoint($toc-breakpoint-s) {
 				width: 100%;
 			}
@@ -80,10 +75,6 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 			#{$tap-this}::before { visibility: hidden; }
 		}
 		& .toc-summary {
-			//display: table-cell;
-			//position: relative;
-			//vertical-align: bottom;
-			//padding: 0 $size-column--safety 0 0;
 			padding: $size-column--safety * 3 $size-column--safety $size-content-block-spacing $size-column--safety;
 			letter-spacing: initial;
 			& > figure {
@@ -133,27 +124,16 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 					margin-bottom: 0;
 				}				
 			}
-// 			@include breakpoint($toc-breakpoint-s) {
-// 				display: block;
-// 				width: calc(100% - #{$size-column--safety * 2});
-// 				padding: 0 $size-column--safety;
-// 			}
 		}
 		& .toc-cover {
-			//display: table-cell;
 			@include breakpoint($toc-breakpoint-m){ display: none; }
 			min-width: $toc-cover-width;
 			background-size: cover;
 			background-position: center;
 			margin: 0 0 0 auto;
-// 			margin-top: -#{$size-column--safety * 3};
-// 			margin-bottom: -#{$size-content-block-spacing};
 		}
 		.toc-info {
 			line-height: $font-content--line * .7142857143;
-// 			z-index: z('layer-up') + 1;
-// 			margin: 0;
-// 			float: left;
  			min-width: 20em;
 			span {
 				margin: 0;

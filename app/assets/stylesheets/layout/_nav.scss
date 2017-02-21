@@ -26,9 +26,29 @@ body > nav {
 		backdrop-filter: blur(10px);	
 		
 		&.active {
-			box-shadow: 0 0 0 1px $color-foreground;
+			box-shadow: 0 0 0 1px $color-brand;
 		}
-		
+		h1 {
+			font-size: .35em;
+			position: absolute;
+			transform-origin: 4.275em 4.225em;
+			transform: rotate(80deg);
+			color: $color-brand;
+			span {
+				display: block;
+				position: absolute;
+				width: 1em;
+				height: 1em;
+				left: $nav-logo-width * 2;
+				top: $nav-logo-width * 5;
+				text-align: center;
+				transform-origin: 0.5em -5.5em;
+				@for $i from 0 to 11 {
+					&:nth-child(#{$i + 1}) { transform: rotate( #{-$i * 8.75}deg ); }
+				}    
+    
+			}
+		}
 		.button {
 			width: $nav-logo-width;
 			height: $nav-logo-width;
