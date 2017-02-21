@@ -11,6 +11,8 @@ var loadFonts = {
 		]).then(function () {
 			__q('html')[0].classList.add("fonts-loaded");
 			sessionStorage.fontsLoaded = true;
+		}).catch(function () {
+			sessionStorage.fontsLoaded = false;
 		});
 	}
 };
