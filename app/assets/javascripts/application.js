@@ -14,7 +14,8 @@
 //
 //	Bower assets:
 //	--------------------
-//= require fontfaceobserver/fontfaceobserver
+//= require fontfaceobserver
+//= require react
 //
 //
 //	Application assets:
