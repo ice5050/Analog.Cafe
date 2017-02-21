@@ -4,10 +4,12 @@
   	<meta charset="utf-8">
     <title>Analog.Cafe &#x2615; <%= @document_title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="<%= asset_path('lora-v10-latin-regular.woff2') %>" as="font" type="font/woff2" crossorigin>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'application', async: Rails.env.production? %>
     <%= render 'application/favicon' %>
   </head>
 
