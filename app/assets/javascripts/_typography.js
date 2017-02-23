@@ -24,5 +24,8 @@ function typographyFormat(){
 	__q(".subtitle").forEach(function(el) {
 		el.innerHTML = el.innerHTML.toTitleCase();
 	});
+	__q(".button").forEach(function(el) {
+		el.innerHTML = el.innerHTML.toTitleCase();
+	});
 };
 document.addEventListener('DOMContentLoaded', typographyFormat);
