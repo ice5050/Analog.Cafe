@@ -25,8 +25,7 @@
     "branch": "master",
     "commit": "c0513158f042b1b79e40e4b1b5084368bc6eea44"
   },
-  "_source": "https://github.com/dmitrizzle/__q.git",
+  "_source": "git@github.com:dmitrizzle/__q.git",
   "_target": "*",
-  "_originalSource": "dmitrizzle/__q",
-  "_direct": true
+  "_originalSource": "git@github.com:dmitrizzle/__q"
 }

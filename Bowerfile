@@ -2,3 +2,8 @@
 # Check out https://github.com/42dev/bower-rails#ruby-dsl-configuration for more options
 
 # asset 'bootstrap'
+
+asset 'fontfaceobserver'
+asset 'react'
+asset '__q', 'git@github.com:dmitrizzle/__q'
+asset 'active-touch', 'git@github.com:dmitrizzle/active-touch'

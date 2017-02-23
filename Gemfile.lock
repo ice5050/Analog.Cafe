@@ -179,7 +179,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bower-rails (~> 0.11.0)
+  bower-rails
   breakpoint (~> 2.7, >= 2.7.1)
   byebug
   coffee-rails (~> 4.2)

@@ -17,6 +17,7 @@
 //= require fontfaceobserver
 //= require react
 //= require __q
+//= require active-touch
 //
 //
 //	Application assets:
