@@ -16,10 +16,10 @@
 //	--------------------
 //= require fontfaceobserver
 //= require react
+//= require __q
 //
 //
 //	Application assets:
 //	--------------------
-//= require _helpers.js
 //= require_tree .
 //
