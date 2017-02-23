@@ -27,7 +27,6 @@
     "commit": "afc6bc6a2ac22ce37a999ac170b047702832cb3d"
   },
   "_source": "https://github.com/bramstein/fontfaceobserver.git",
-  "_target": "^2.0.8",
-  "_originalSource": "fontfaceobserver",
-  "_direct": true
+  "_target": "*",
+  "_originalSource": "fontfaceobserver"
 }

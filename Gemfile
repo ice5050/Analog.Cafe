@@ -70,4 +70,4 @@ group :development do
 end
 
 # Bower
-gem "bower-rails", "~> 0.11.0"
+gem 'bower-rails'

@@ -1,0 +1,9 @@
+{
+  "name": "dsl-generated-dependencies",
+  "dependencies": {
+    "fontfaceobserver": "latest",
+    "react": "latest",
+    "__q": "git@github.com:dmitrizzle/__q",
+    "active-touch": "git@github.com:dmitrizzle/active-touch"
+  }
+}
