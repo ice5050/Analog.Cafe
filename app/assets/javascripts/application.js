@@ -14,8 +14,10 @@
 //
 //	Bower assets:
 //	--------------------
-//= require fontfaceobserver
 //= require react
+//= require fontfaceobserver
+//= require to-title-case-gouch
+//
 //= require __q
 //= require active-touch
 //

@@ -10,5 +10,19 @@ function typographyFormat(){
 		el.innerHTML = (textLength >= trim) ? trimmed.substr(0, Math.min(trimmed.length, trimmed.lastIndexOf(" "))) + ellipsis : el.innerHTML;
 		el.innerHTML = (trimmed == '') ? '...' : el.innerHTML;
 	});
+	
+	// Title Case Capitalization (requires to-title-case-gouch)
+	__q("h1").forEach(function(el) {
+		el.innerHTML = el.innerHTML.toTitleCase();
+	});
+	__q("h2").forEach(function(el) {
+		el.innerHTML = el.innerHTML.toTitleCase();
+	});
+	__q("h3").forEach(function(el) {
+		el.innerHTML = el.innerHTML.toTitleCase();
+	});
+	__q(".subtitle").forEach(function(el) {
+		el.innerHTML = el.innerHTML.toTitleCase();
+	});
 };
 document.addEventListener('DOMContentLoaded', typographyFormat);
