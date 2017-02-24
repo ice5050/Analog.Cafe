@@ -13,7 +13,7 @@
     <%= render 'application/favicon' %>
   </head>
 
-  <body>
+  <body data-controller-action="<%= controller.action_name  %>">
 		<%= render "shared/nav" %>
   	<main>
     	<%= yield %>

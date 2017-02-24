@@ -28,4 +28,3 @@ function typographyFormat(){
 		el.innerHTML = el.innerHTML.toTitleCase();
 	});
 };
-document.addEventListener('DOMContentLoaded', typographyFormat);

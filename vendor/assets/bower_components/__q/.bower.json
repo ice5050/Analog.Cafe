@@ -19,11 +19,12 @@
     "test",
     "tests"
   ],
-  "_release": "c0513158f0",
+  "version": "1.2.0",
+  "_release": "1.2.0",
   "_resolution": {
-    "type": "branch",
-    "branch": "master",
-    "commit": "c0513158f042b1b79e40e4b1b5084368bc6eea44"
+    "type": "version",
+    "tag": "v1.2.0",
+    "commit": "c9252cca58e97d3a623510602e6847b36006ac14"
   },
   "_source": "git@github.com:dmitrizzle/__q.git",
   "_target": "*",

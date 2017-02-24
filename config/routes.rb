@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'template#index'
   
   get 'index' => 'template#index'
+  get 'favorites' => 'template#favorites'
+  
   get 'article' => 'template#article'
   get 'remarkable' => 'template#about'
 
