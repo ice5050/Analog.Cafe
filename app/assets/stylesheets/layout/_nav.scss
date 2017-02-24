@@ -72,9 +72,9 @@ body > nav {
 			}	
 		}
 		&.-view {
-			box-shadow: 0 0 0 1px $color-brand;
-			//.button {background: $color-brand;}
-			h1 { color: $color-brand; }
+			//box-shadow: 0 0 0 1px $color-brand;
+			.button {background: $color-brand;}
+			//h1 { color: $color-brand; }
 		}
 			
 			
