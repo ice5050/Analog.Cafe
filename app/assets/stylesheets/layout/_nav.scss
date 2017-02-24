@@ -96,7 +96,7 @@ body > nav {
 			&:not(.nav-center) { width: 6em; height: $font-content--line; }
 			@include breakpoint($size-breakpoint-s){
 				text-align: left;
-				& span, &:not(.badge-sticker) span.badge { display: none; }
+				//& span, &:not(.badge-sticker) span.badge { display: none; }
 			}
 			
 			& a {
@@ -117,18 +117,18 @@ body > nav {
 				}
 			}
 			
-			& .badge {
-				display: inline-block;
-				width: $size-corner-med;
-				height: $size-corner-med;
-				border-radius: $size-corner-med;
-				margin-bottom: $size-corner-med;
-				background: $color-brand;
-				@include breakpoint($size-breakpoint-s){
-					position: fixed;
-					margin-top: -#{$size-corner-med};
-				}
-			}
+// 			& .badge {
+// 				display: inline-block;
+// 				width: $size-corner-med;
+// 				height: $size-corner-med;
+// 				border-radius: $size-corner-med;
+// 				margin-bottom: $size-corner-med;
+// 				background: $color-brand;
+// 				@include breakpoint($size-breakpoint-s){
+// 					position: fixed;
+// 					margin-top: -#{$size-corner-med};
+// 				}
+// 			}
 
 		}
 	}

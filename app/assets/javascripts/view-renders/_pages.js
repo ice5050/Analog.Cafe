@@ -12,6 +12,15 @@ pageAction = new __List({
 			el.innerHTML += '<div class="toc-favorite"><a href="#" class="favorite -active"></a></div>';
 		});
 		__q(".button-favorites").forEach(function(el) { el.classList.add("-view"); });
+	},
+	"submit": function(){
+		__q(".button-submit").forEach(function(el) { el.classList.add("-view"); });
+	},
+	"articles": function(){
+		__q(".button-articles").forEach(function(el) { el.classList.add("-view"); });
+	},
+	"essays": function(){
+		__q(".button-essays").forEach(function(el) { el.classList.add("-view"); });
 	}
 });
 
