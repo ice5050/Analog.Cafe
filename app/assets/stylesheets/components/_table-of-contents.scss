@@ -74,6 +74,12 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 			}
 			#{$tap-this}::before { visibility: hidden; }
 		}
+		& > .toc-favorite {
+			position: absolute;
+			left: $size-content-block-spacing / 2;
+			bottom: $toc-summary-figure--height + $size-content-block-spacing / 2;
+			z-index: z('layer-up');
+		}
 		& .toc-summary {
 			padding: $size-column--safety * 3 $size-column--safety $size-content-block-spacing $size-column--safety;
 			letter-spacing: initial;

@@ -21,3 +21,24 @@ function __fire(e, data){
 		scrollTimer = window.setTimeout("window.__fire('doneScrolling')", scrollStopTimer);
 	});
 })();
+
+// List constructor to replace switch
+function __List(options) {
+	if (!(this instanceof __List))  return new __List(options); // scope-safe
+  Object.defineProperty(this, "select", {
+  	get: function() { 
+			return function(action){
+				return (
+					typeof options[action] ==  "undefined"
+						? typeof options["default"] == "undefined" 
+							? false 																	// no default
+							: options["default"]() 										// default
+						: options[action]()													// requested
+				); 
+			};
+		},
+		set: function(newOptions) {            
+			options = newOptions;     
+		}, 
+	}); 
+}
