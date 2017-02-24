@@ -68,3 +68,6 @@ gem 'sass_inline_svg'
 group :development do
   gem 'rails_real_favicon'
 end
+
+# Bower
+gem 'bower-rails'

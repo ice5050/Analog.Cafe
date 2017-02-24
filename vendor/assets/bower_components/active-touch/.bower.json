@@ -1,0 +1,36 @@
+{
+  "name": "active-touch",
+  "homepage": "https://github.com/dmitrizzle/active-touch",
+  "authors": [
+    "Dmitri <d@eurekaking.com>"
+  ],
+  "description": "Rewrite for browser :active touch and click states for links (to make your website feel like an app)",
+  "main": "_touch.js",
+  "dependencies": {
+    "__q": "git@github.com:dmitrizzle/__q"
+  },
+  "keywords": [
+    "touch",
+    "css",
+    "active state",
+    "events"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "version": "1.0.0",
+  "_release": "1.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.0",
+    "commit": "45541840abc633f21e27c78be91c707932038624"
+  },
+  "_source": "git@github.com:dmitrizzle/active-touch.git",
+  "_target": "*",
+  "_originalSource": "git@github.com:dmitrizzle/active-touch"
+}

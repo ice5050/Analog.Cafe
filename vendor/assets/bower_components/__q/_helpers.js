@@ -22,22 +22,23 @@ function __fire(e, data){
 	});
 })();
 
-
-
-
-
-/* 
-function __parent(el, selector, stopSelector) {
-  var retval = null;
-  while (el) {
-    if (el.matches(selector)) {
-      retval = el;
-      break
-    } else if (stopSelector && el.matches(stopSelector)) {
-      break
-    }
-    el = el.parentElement;
-  }
-  return retval;
+// List constructor to replace switch
+function __List(options) {
+	if (!(this instanceof __List))  return new __List(options); // scope-safe
+  Object.defineProperty(this, "select", {
+  	get: function() { 
+			return function(action){
+				return (
+					typeof options[action] ==  "undefined"
+						? typeof options["default"] == "undefined" 
+							? false 																	// no default
+							: options["default"]() 										// default
+						: options[action]()													// requested
+				); 
+			};
+		},
+		set: function(newOptions) {            
+			options = newOptions;     
+		}, 
+	}); 
 }
-*/

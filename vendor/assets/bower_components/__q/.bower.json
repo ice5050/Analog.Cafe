@@ -1,0 +1,32 @@
+{
+  "name": "__q",
+  "homepage": "https://github.com/dmitrizzle/__q",
+  "authors": [
+    "Dmitri <d@eurekaking.com>"
+  ],
+  "description": "A short list of JS shortcuts for ES5",
+  "main": "_helpers.js",
+  "keywords": [
+    "ES5",
+    "javaScript",
+    "shortcuts"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "version": "1.2.0",
+  "_release": "1.2.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.2.0",
+    "commit": "c9252cca58e97d3a623510602e6847b36006ac14"
+  },
+  "_source": "git@github.com:dmitrizzle/__q.git",
+  "_target": "*",
+  "_originalSource": "git@github.com:dmitrizzle/__q"
+}

@@ -31,10 +31,13 @@ figure {
 	}
 	article section > & {
 		@include figure-block;
-		&:not(.feature):first-of-type {
-			padding-top: $size-fontbase--normal;
-			@include breakpoint($size-breakpoint-s) {
-				padding-top: 0;
+		&:not(.feature) {
+			padding-top: $size-fontbase--normal / 2;
+			&:first-child {
+				padding-top: $size-fontbase--normal * 1.5;
+				@include breakpoint($size-breakpoint-s) {
+					padding-top: 0;
+				}
 			}
 		}
 		&.feature {

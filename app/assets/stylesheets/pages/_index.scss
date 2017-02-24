@@ -7,7 +7,7 @@
 
 
 .motto {
-	@include center-block($size-minwidth);
+	@include center-block($size-column--maxwidth-m);
 	> span {
 		text-align: center;
 		display: block;
