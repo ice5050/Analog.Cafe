@@ -1,7 +1,7 @@
 <nav>
 	<ul>
-		<li><a href="#"><span>Articles</span></a></li>
-		<li><a href="#"><span>Photo Essays</span></a></li>
+		<li><%= link_to articles_path, class: 'button-articles' do %><span>Articles</span><% end %></li>
+		<li><%= link_to essays_path, class: 'button-essays' do %><span>Photo Essays</span><% end %></li>
 		<li class="nav-center">
 			<div class="logo-container">
 				<h1 title="Analog.Cafe">
@@ -20,7 +20,7 @@
 				<%= link_to index_path, class: 'button' do inline_svg "branding/logo-crop.svg", class: "logo", desc: "Analog.Cafe logo" end %>
 			</div>
 		</li>
-		<li><%= link_to favorites_path, class: 'button-favorites' do %><span>My Favorites</span><% end %></li>
-		<li><a href="#"><span>Submit</span><span class="badge"></span></a></li>
+		<li><%= link_to favorites_path, class: 'button-favorites' do %><span class="badge">My Favorites</span><% end %></li>
+		<li><%= link_to submit_path, class: 'button-submit' do %><span class="badge">Submit</span><% end %></li>
 	</ul>
 </nav>

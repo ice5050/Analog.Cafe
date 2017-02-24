@@ -78,6 +78,7 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 			position: absolute;
 			left: $toc-summary-figure--width / 2 + $size-column--safety / 2;
 			bottom: $toc-summary-figure--height + $size-content-block-spacing * .25;
+			filter: drop-shadow(0 1px 0 rgba($color-foreground, $opacity-half));
 			z-index: z('layer-up');
 		}
 		& .toc-summary {
