@@ -76,8 +76,8 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 		}
 		& > .toc-favorite {
 			position: absolute;
-			left: $size-content-block-spacing / 2;
-			bottom: $toc-summary-figure--height + $size-content-block-spacing / 2;
+			left: $toc-summary-figure--width / 2 + $size-column--safety / 2;
+			bottom: $toc-summary-figure--height + $size-content-block-spacing * .25;
 			z-index: z('layer-up');
 		}
 		& .toc-summary {
