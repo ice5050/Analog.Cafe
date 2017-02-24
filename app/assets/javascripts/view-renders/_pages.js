@@ -5,12 +5,13 @@
 pageAction = new __List({
 	"index": 			function(){
 		var analogCoffee = document.querySelector('.logo-container');
-		analogCoffee.className += " active";
+		analogCoffee.classList.add("-view");
 	},
 	"favorites":	function(){
 		__q(".table-of-contents li").forEach(function(el) {
 			el.innerHTML += '<div class="toc-favorite"><a href="#" class="favorite -active"></a></div>';
 		});
+		__q(".button-favorites").forEach(function(el) { el.classList.add("-view"); });
 	}
 });
 
