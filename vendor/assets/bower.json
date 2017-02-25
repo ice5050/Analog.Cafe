@@ -4,6 +4,7 @@
     "react": "latest",
     "fontfaceobserver": "latest",
     "to-title-case-gouch": "latest",
+    "dcl": "git@github.com:WebReflection/DOMContentLoaded",
     "__q": "git@github.com:dmitrizzle/__q",
     "active-touch": "git@github.com:dmitrizzle/active-touch"
   }

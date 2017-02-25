@@ -3,32 +3,29 @@
 
 // list of special functions per page:
 pageAction = new __List({
-	"index": 			function(){
-		var analogCoffee = document.querySelector('.logo-container');
-		analogCoffee.classList.add("-view");
+	"index":			function(){
 	},
 	"favorites":	function(){
+		var heartButton = '<div class="toc-favorite"><a href="#" class="favorite -active"></a></div>';
 		__q(".table-of-contents li").forEach(function(el) {
+			el.innerHTML.includes(heartButton) ? false :
 			el.innerHTML += '<div class="toc-favorite"><a href="#" class="favorite -active"></a></div>';
 		});
-		__q(".button-favorites").forEach(function(el) { el.classList.add("-view"); });
 	},
-	"submit": function(){
-		__q(".button-submit").forEach(function(el) { el.classList.add("-view"); });
+	"submit":			function(){
 	},
-	"articles": function(){
-		__q(".button-articles").forEach(function(el) { el.classList.add("-view"); });
+	"articles":		function(){
 	},
-	"essays": function(){
-		__q(".button-essays").forEach(function(el) { el.classList.add("-view"); });
+	"essays":			function(){
 	}
 });
 
 
 
 
-// get page id and execute
+// get page id, display active state on all related buttons and execute special functions:
 function pageActionExecute(){
 	currentAction = __q("body")[0].getAttribute('data-controller-action');
+	__q(".button-" + currentAction).forEach(function(el) { el.classList.add("-view"); });
 	pageAction.select(currentAction);
 }
