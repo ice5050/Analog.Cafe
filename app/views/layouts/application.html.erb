@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <%= csrf_meta_tags %>
+    <%= inline_css 'fonts/loader' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= inline_js 'dcl/dcl' %>
     <%= javascript_include_tag 'application', async: Rails.env.production? %>
