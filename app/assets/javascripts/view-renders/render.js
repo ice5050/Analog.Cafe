@@ -11,5 +11,5 @@ function parseAllViews() {
 	parseThese.forEach(function(fn) { fn(); });
 }
 
-// auto execute
-parseAllViews();
+// auto execute on dom ready
+document.addEventListener('DOMContentLoaded', parseAllViews);
