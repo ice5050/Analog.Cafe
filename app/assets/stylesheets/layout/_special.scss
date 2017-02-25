@@ -1,15 +1,22 @@
 @import "base/selectors";
+@import "base/sizes";
 
 
+$header-bleed-padding: 14em;
 .header-bleed {
 	position: absolute;
 	top: 0;
 	width: 100%;
 	.table-of-contents:first-child li:first-child {
-		padding-top: 14em;
-		.toc-cover { margin-top: -18.5em; }
+		padding-top: $header-bleed-padding;
+		.toc-cover { margin-top: -#{ $header-bleed-padding + $size-column--safety * 3 }; }
 		> a {
-			#{$tap-this}::after { top: 14em; }
+			#{$tap-this}::after { top: $header-bleed-padding; }
+		}
+		& > .toc-favorite {
+			@include breakpoint(0 $size-minwidth * 2) {
+				top: $size-column--safety * 3 + $header-bleed-padding;
+			}
 		}
 	}
 }
