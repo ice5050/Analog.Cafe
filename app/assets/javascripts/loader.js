@@ -7,7 +7,8 @@
 		weight: 600
 	});
 	
-	critical.load().then(function(){
+	w.Promise.all([ critical.load() ]).then(function(){
+		console.log('critical fonts loaded');
 		w.Promise.all([
 			(new FontFaceObserver("Lora", {
 				weight: 400
@@ -23,6 +24,7 @@
 				style: "italic"
 			})).load(),
 		]).then(function(){
+			console.log('secondary fonts loaded');
 			doc.add("fonts-loaded");
 			__cookie.set('fontsLoaded', true);
 		});
