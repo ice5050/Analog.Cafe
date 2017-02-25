@@ -1,0 +1,12 @@
+# A sample Bowerfile
+# Check out https://github.com/42dev/bower-rails#ruby-dsl-configuration for more options
+
+
+# Components by others:
+asset 'react'
+asset 'fontfaceobserver'
+asset 'to-title-case-gouch'
+
+# Written for Analog.Cafe, turned into independent components:
+asset '__q', 'git@github.com:dmitrizzle/__q'
+asset 'active-touch', 'git@github.com:dmitrizzle/active-touch'
