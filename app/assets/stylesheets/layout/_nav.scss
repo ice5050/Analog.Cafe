@@ -27,6 +27,7 @@ body > nav {
 		box-shadow: 0 0 0 1px $color-foreground;
 		h1 {
 			font-size: .35em;
+			text-transform: uppercase;
 			position: absolute;
 			transform-origin: 4.275em 4.225em;
 			transform: rotate(80deg);
@@ -85,6 +86,8 @@ body > nav {
 		margin: 0 auto;
 		& li {
 			display: block;
+			@include font-header--stack;
+			font-weight: $font-header--weight;
 			text-align: center;
 			width: 7em;
 			span::before { content: attr(data-label--prepend); }
