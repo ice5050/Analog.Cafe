@@ -69,7 +69,7 @@
 // Dynamic font stack and line spacing - depending on whether it's web-safe or loaded
 @mixin font-content--stack {
 	font-family: Georgia, serif;
-	.fonts-loaded & {
+	@at-root .fonts-loaded & {
 		font-family: Lora, Georgia, serif;
 	}
 }
