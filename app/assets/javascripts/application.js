@@ -24,6 +24,6 @@
 //
 //	Application assets:
 //	--------------------
-//= require loaders
+//= require loader
 //= require_all view-renders
 //
