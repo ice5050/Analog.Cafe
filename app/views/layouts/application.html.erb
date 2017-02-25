@@ -7,8 +7,8 @@
     <link rel="preload" href="<%= asset_path('lora-v10-latin-regular.woff2') %>" as="font" type="font/woff2" crossorigin>
 
     <%= csrf_meta_tags %>
+    <%= inline_js 'inline/before-styles' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= inline_js 'inline' %>
     <%= inline_js 'dcl/dcl' %>
     <%= javascript_include_tag 'application', async: Rails.env.production? %>
     <%= render 'application/favicon' %>
