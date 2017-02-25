@@ -6,7 +6,7 @@
 asset 'react'
 asset 'fontfaceobserver'
 asset 'to-title-case-gouch'
-asset 'dcl', 'git@github.com:WebReflection/DOMContentLoaded'
+# asset 'dcl', 'git@github.com:WebReflection/DOMContentLoaded'
 
 # Written for Analog.Cafe, turned into independent components:
 asset '__q', 'git@github.com:dmitrizzle/__q'
