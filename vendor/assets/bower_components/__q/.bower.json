@@ -19,12 +19,12 @@
     "test",
     "tests"
   ],
-  "version": "1.2.0",
-  "_release": "1.2.0",
+  "version": "1.3.0",
+  "_release": "1.3.0",
   "_resolution": {
     "type": "version",
-    "tag": "v1.2.0",
-    "commit": "c9252cca58e97d3a623510602e6847b36006ac14"
+    "tag": "v1.3.0",
+    "commit": "ff8aaeeed30df4019615e5a73d277cf54cd4e308"
   },
   "_source": "git@github.com:dmitrizzle/__q.git",
   "_target": "*",
