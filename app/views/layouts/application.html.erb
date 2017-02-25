@@ -8,6 +8,7 @@
 
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= inline_js 'inline' %>
     <%= javascript_include_tag 'application', async: Rails.env.production? %>
     <%= render 'application/favicon' %>
   </head>
