@@ -17,5 +17,4 @@ var loadFonts = {
 	}
 };
 
-if		(sessionStorage.fontsLoaded) __q('html')[0].classList.add("fonts-loaded");
-else	loadFonts.init();
+if (!sessionStorage.fontsLoaded) loadFonts.init();
