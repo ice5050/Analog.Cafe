@@ -4,6 +4,6 @@
   font-style: normal;
   font-weight: 600;
   src: local('Exo 2 Semi Bold'), local('Exo2-SemiBold'),
-       url('exo-2-v3-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('exo-2-v3-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url(asset_path('exo-2-v3-latin-600.woff2')) format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url(asset_path('exo-2-v3-latin-600.woff')) format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }

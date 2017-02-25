@@ -42,3 +42,28 @@ function __List(options) {
 		}, 
 	}); 
 }
+
+
+// Cookies (based on https://www.w3schools.com/js/js_cookies.asp )
+var __cookie = {
+	set: function(name, value, days) {
+		value = (typeof value !== 'undefined') ?  value : true;															// default: {name: true}
+		maxAge = (typeof days !== 'undefined') ?  "max-age=" + days * 24*60*60*1000 : '';		// default: Session
+    document.cookie = name + "=" + value + ";" + maxAge + ";path=/";
+	},
+	get: function(name) {
+    var name = name + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+	}
+}

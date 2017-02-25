@@ -1,1 +1,0 @@
-if (sessionStorage.fontsLoaded) document.querySelectorAll('html')[0].classList.add("fonts-loaded");
