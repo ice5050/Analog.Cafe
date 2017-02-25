@@ -9,7 +9,7 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= inline_js 'dcl/dcl' %>
-    <%= javascript_include_tag 'application', async: true %>
+    <%= javascript_include_tag 'application', async: Rails.env.production? %>
     <%= render 'application/favicon' %>
   </head>
 
@@ -20,4 +20,3 @@
     </main>
   </body>
 </html>
-<!--  #Rails.env.production? -->
