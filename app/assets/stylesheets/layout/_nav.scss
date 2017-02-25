@@ -17,17 +17,14 @@ body > nav {
 	.logo-container {
 		position: fixed;
 		top: $size-column--safety/2;
-		z-index: 10;
 		padding: $size-content-block-spacing;
-		display: block;
+		left: calc(50% - #{$nav-logo-width + $size-content-block-spacing/2});
+		z-index: z('layer-up');
 		border-radius: $size-fontbase--larger;
-		-webkit-backdrop-filter: blur(10px);
-		backdrop-filter: blur(10px);
-		
+		-webkit-backdrop-filter: blur(5px);
+		backdrop-filter: blur(5px);
 		background: rgba($color-background, $opacity-half);
 		box-shadow: 0 0 0 1px $color-foreground;
-		
-		
 		h1 {
 			font-size: .35em;
 			position: absolute;
@@ -79,26 +76,33 @@ body > nav {
 			box-shadow: 0 0 0 1px $color-brand;
 			h1 { color: $color-brand; }
 		}
-			
-			
 	}
-	
 	& > ul {
 		padding: 0;
-		display: table;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		margin: 0 auto;
 		& li {
-			display: table-cell;
-			vertical-align: middle;
+			display: block;
 			text-align: center;
-			width: $nav-logo-width * 5;
-			&.nav-center { width: $nav-logo-width + $size-column--safety * 2; padding: $size-content-block-spacing; }
-			&:not(.nav-center) { width: 6em; height: $font-content--line; }
-			@include breakpoint($size-breakpoint-s){
-				text-align: left;
-				//& span, &:not(.badge-sticker) span.badge { display: none; }
+			width: 7em;
+			span::before { content: attr(data-label--prepend); }
+			@include breakpoint(0 $size-minwidth * 2){
+				span::before { content: '' }
+				$n: '&.nav-important';
+				&:not(.nav-center):not(#{$n}--left):not(#{$n}--right) { display: none; }
+				#{$n}--left {
+					order: 0;
+					text-align: right;
+				}
+				&.nav-center { order: 1; }
+				#{$n}--right {
+					order: 2;
+					text-align: left;
+				}
 			}
-			
+			@include breakpoint($size-breakpoint-xs){ &:not(.nav-center) { display: none; } }
 			& a {
 				font-size: $size-fontbase--smaller;
 				background: $color-background; 
