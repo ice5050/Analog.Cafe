@@ -10,11 +10,11 @@ var loadFonts = {
 			header.load()
 		]).then(function () {
 			__q('html')[0].classList.add("fonts-loaded");
-			sessionStorage.fontsLoaded = true;
+			__cookie.set('fontsLoaded', true)
 		}).catch(function () {
-			sessionStorage.fontsLoaded = false;
+			//
 		});
 	}
 };
 
-if (!sessionStorage.fontsLoaded) loadFonts.init();
+if (!__cookie.get('fontsLoaded')) loadFonts.init();
