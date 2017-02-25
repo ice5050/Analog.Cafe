@@ -1,11 +1,26 @@
 <nav>
 	<ul>
-		<li><a href="#"><span>Articles</span></a></li>
-		<li><a href="#"><span>Photo Essays</span></a></li>
+		<li><%= link_to articles_path, class: 'button-articles' do %><span>Articles</span><% end %></li>
+		<li><%= link_to essays_path, class: 'button-essays' do %><span>Photo Essays</span><% end %></li>
 		<li class="nav-center">
-			<div class="logo-container"><a href="/" class="button"><%= inline_svg "branding/logo-crop.svg", class: "logo", desc: "Analog.Cafe logo" %></a></div>
+			<div class="logo-container button-index">
+				<h1 title="Analog.Cafe">
+					<span>A</span>
+					<span>n</span>
+					<span>a</span>
+					<span>l</span>
+					<span>o</span>
+					<span>g</span>
+					<span>.</span>
+					<span>C</span>
+					<span>a</span>
+					<span>f</span>
+					<span>e</span>
+				</h1>
+				<%= link_to index_path, class: 'button' do inline_svg "branding/logo-crop.svg", class: "logo", desc: "Analog.Cafe logo" end %>
+			</div>
 		</li>
-		<li class="badge-sticker"><a href="#"><span>My Favorites</span><span class="badge"></span></a></li>
-		<li><a href="#"><span>Submit</span><span class="badge"></span></a></li>
+		<li class="nav-important--left"><%= link_to favorites_path, class: 'button-favorites' do %><span data-label--prepend="My ">Favorites</span><% end %></li>
+		<li class="nav-important--right"><%= link_to submit_path, class: 'button-submit' do %><span>Submit</span><% end %></li>
 	</ul>
 </nav>

@@ -1,14 +1,7 @@
-<% @document_title="Home" %>
-
-<section class="motto"><span><q><em>Film photography, the people and the stories that make it special</em> &#x2615;️</q></span></section>
+<section class="motto"><span><q><em>The <%= link_to 'remarkable', remarkable_path %> film photo blog</em></q> &#x1F60C;</span></section>
 <a href="#" class="tools"></a>
 
 <div class="header-bleed">
 	<%= render "shared/table-of-contents" %>
 	<a href="#" class="button">Load More...</a>
 </div>
-
-<script>
-	var analogCoffee = document.querySelector('.logo-container');
-	analogCoffee.className += " active";
-</script>

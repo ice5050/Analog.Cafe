@@ -1,0 +1,31 @@
+{
+  "name": "to-title-case-gouch",
+  "version": "2.1.0",
+  "homepage": "https://github.com/gouch/to-title-case",
+  "authors": [
+    "David Gouch <http://davidgouch.com> (script)",
+    "Sam Saint-Pettersen <s.stpettersen+github@gmail.com> (package)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stpettersens/to-title-case-gouch.git"
+  },
+  "description": "A JavaScript method for intelligently converting strings to title case",
+  "main": "to-title-case.js",
+  "keywords": [
+    "string",
+    "prototype",
+    "to",
+    "title",
+    "case",
+    "conversion"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

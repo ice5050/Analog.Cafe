@@ -66,9 +66,41 @@
 	box-shadow: 0 #{$size-content-block-spacing / 2} #{$size-content-block-spacing * 2} rgba($color-foreground, $opacity-half);
 }
 
-
-
-
+// @mixin zigzag-underline($zigzag-color) {
+// 	$amplitude: 12px;
+// 	$amplitude-half: ($amplitude/2) + 1px;
+// 	$thickness: 110%; // increase to make the line thicker
+// 	& {
+// 		margin: $amplitude + 1px 0;
+// 		position: relative;
+// 		height: $amplitude;
+// 		z-index: 1;
+// 	}
+// 	&:before,
+// 	&:after {
+// 		content: "";
+// 		display: block;
+// 		position: absolute;
+// 		left: 0;
+// 			right: 0;
+// 	}
+// 	&:before {
+// 		height: $amplitude;
+// 		top: $thickness;
+// 		background: linear-gradient(-135deg, $zigzag-color $amplitude-half, transparent 0) 0 $amplitude-half, linear-gradient( 135deg, $zigzag-color $amplitude-half, transparent 0) 0 $amplitude-half;
+// 		background-position: top left;
+// 		background-repeat: repeat-x;
+// 		background-size: $amplitude $amplitude;
+// 	}
+// 	&:after {
+// 		height: $amplitude;
+// 		top: 100%;
+// 		background: linear-gradient(-135deg, $color-background $amplitude-half, transparent 0) 0 $amplitude-half, linear-gradient( 135deg, $color-background $amplitude-half, transparent 0) 0 $amplitude-half;
+// 		background-position: top left;
+// 		background-repeat: repeat-x;
+// 		background-size: $amplitude $amplitude;
+// 	}
+// }
 
 
 

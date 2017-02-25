@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+	# Timestamps for precompiled assets
+  config.assets.digest = true
+  
   # Code is not reloaded between requests.
   config.cache_classes = true
 
