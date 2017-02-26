@@ -114,15 +114,8 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 				@extend #{A(4)};
 				display: block;
 				margin: 0;
-				//font-size: $size-fontbase--smaller;
-				//line-height: #{$toc-paragrah-line-height};
-				
-				
-				height: #{1.5em * 3 - 0.2em};
-				//height: $toc-paragrah-line-height * 3;
-				
-				
-				
+				height: #{1.5em * 3 + 0.1em};
+				.fonts-loaded & { height: #{1.5em * 3 - 0.2em}; }
 				margin-bottom: 1.15em;
 				overflow: hidden;
 				max-width: $size-column--maxwidth-m;
