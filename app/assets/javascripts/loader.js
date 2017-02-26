@@ -1,6 +1,6 @@
 // load web fonts
-(function(){
-	var doc = document.documentElement.classList;
+(function(w){
+	var doc = w.document.documentElement.classList;
 	if( doc.contains("fonts-loaded") ){ return; }
 	
 	(new FontFaceObserver("Exo 2", {
@@ -34,6 +34,4 @@
 			});
 		
 	});
-	
-	
 }( this ));

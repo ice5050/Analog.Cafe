@@ -41,10 +41,10 @@ $typography-levels: (
 	@include font-line-content;
 	.fonts-loaded & { font-family: Lora, Georgia, serif; letter-spacing: 0.025em; }
 }
-@mixin font-header--stack {
+@mixin font-header--stack ($ignore-line-height: null) {
 	font-family: Arial, sans-serif;
 	letter-spacing: 0.005em;
-	@include font-line-header;
+	@if($ignore-line-height == null) { @include font-line-header; }
 	.fonts-loaded &, .fonts-loaded-headers & {
 		font-family: 'Exo 2', Arial sans-serif;
 		letter-spacing: 0.025em;

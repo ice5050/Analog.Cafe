@@ -11,10 +11,8 @@
 	
 	text-decoration: none;
 	text-align: center;
-	@include font-header--stack;
+	@include font-header--stack('true');
 	font-weight: $font-header--weight;
-	font-size: $size-fontbase--normal;
-	//line-height: $font-content--line;
 	
 	@include button-shadow;
 	display: block;
@@ -62,7 +60,7 @@
 }
 .favorite {
 	display: block;
-	width: $size-column--safety * 1.02;
+	width: $size-column--safety * 1.015;
 	height: $size-column--safety * 1.1;
 	background: inline_svg("components/button-favorite--empty.svg", ( fillcolor: #{$color-brand} )) center no-repeat;
   #{$tap-this} {
