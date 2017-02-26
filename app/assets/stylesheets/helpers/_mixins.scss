@@ -66,27 +66,6 @@
 	box-shadow: 0 #{$size-content-block-spacing / 2} #{$size-content-block-spacing * 2} rgba($color-foreground, $opacity-half);
 }
 
-// Dynamic font stack and line spacing - depending on whether it's web-safe or loaded
-@mixin font-content--stack {
-	font-family: Georgia, serif;
-	.fonts-loaded & {
-		font-family: Lora, Georgia, serif;
-	}
-}
-@mixin font-content--spacing {
-	letter-spacing: 0.0525em;
-	.fonts-loaded &, .fonts-loaded-headers & {
-		letter-spacing: 0.025em;
-	}
-}
-@mixin font-header--stack {
-	font-family: Arial, sans-serif;
-	.fonts-loaded &, .fonts-loaded-headers & {
-		font-family: 'Exo 2', Arial sans-serif;
-	}
-}
-
-
 
 
 

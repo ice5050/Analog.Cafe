@@ -27,6 +27,8 @@
 		position: relative;
 		@include button-shadow;
 		& h3 {
+			@include font-header--stack('true');
+			@include font-line-content;
 			font-size: $size-fontbase--normal;
 			@include text-turnicate;
 		}

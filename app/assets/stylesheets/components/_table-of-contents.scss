@@ -38,7 +38,7 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 	&::after {
 		@include toc-cover-dimensions;
 		filter: drop-shadow(1px 0 0 rgba($color-foreground, $opacity-least));
-		background-image: inline_svg("components/mask-jagged-triangles.svg", ( fillcolor: #{$color-background} ));
+		background-image: inline_svg("components/mask-sawtooth.svg", ( fillcolor: #{$color-background} ));
 		background-size: 100%;
 	}
 	li {
@@ -54,7 +54,7 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 				width: 100%;
 			}
 			#{$tap-this} {
-				h2 { background: 0 0; }
+				#{A(2)} { background: 0 0; }
 				&::after {
 					@include toc-cover-dimensions;
 					z-index: z('layer-up') + 1;
@@ -74,18 +74,9 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 			}
 			#{$tap-this}::before { visibility: hidden; }
 		}
-		& > .toc-favorite {
-			position: absolute;
-			left: $toc-summary-figure--width / 2 + $size-column--safety / 2;
-			bottom: $toc-summary-figure--height + $size-content-block-spacing * .25;
-			filter: drop-shadow(0 1px 0 rgba($color-foreground, $opacity-half));
-			z-index: z('layer-up');
-			@include breakpoint($toc-breakpoint-s) {
-				bottom: initial;
-				top: $size-column--safety * 3;
-			}
-		}
 		& .toc-summary {
+			max-width: 61.5%;
+			@include breakpoint($toc-breakpoint-m){ max-width: 100%; overflow: hidden; }
 			padding: $size-column--safety * 3 $size-column--safety $size-content-block-spacing $size-column--safety;
 			letter-spacing: initial;
 			& > figure {
@@ -105,24 +96,26 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 				}
 			}
 			& #{A(2)} {
-				padding: 0;
-				margin-top: -0.3em;
+				display: inline-block;
+				padding: 0 0 .15em;
+				margin-top: -0.2em;
+				margin-bottom: -0.15em;
 				overflow: hidden;
 				white-space: nowrap;
 				text-overflow: ellipsis;
+				max-width: calc(100% - #{$size-column--safety * 2});
 				@include breakpoint($toc-breakpoint-s) {
+					display: block;
 					white-space: normal;
-					margin-top: 0;
+					margin-top: 0.15em;
 				}
 			}
 			& p {
-				$toc-paragrah-line-height: $font-content--line * strip-unit($size-fontbase--smaller);
 				@extend #{A(4)};
 				display: block;
 				margin: 0;
-				font-size: $size-fontbase--smaller;
-				line-height: #{$toc-paragrah-line-height};
-				height: $toc-paragrah-line-height * 3;
+				height: #{1.5em * 3 + 0.1em};
+				.fonts-loaded & { height: #{1.5em * 3 - 0.2em}; }
 				margin-bottom: 1.15em;
 				overflow: hidden;
 				max-width: $size-column--maxwidth-m;
@@ -144,7 +137,7 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 			margin: 0 0 0 auto;
 		}
 		.toc-info {
-			line-height: $font-content--line * .7142857143;
+			//line-height: $font-content--line * .7142857143;
  			min-width: 20em;
 			span {
 				margin: 0;
@@ -154,7 +147,7 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 				font-weight: $font-header--weight;
 			}
 			em {
-				font-size: $size-fontbase--smaller * .8235294118;
+				//font-size: $size-fontbase--smaller * .8235294118;
 				display: block;
 				font-weight: $font-content--weight;
 			}
@@ -169,6 +162,11 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 			@include breakpoint(0 $size-minwidth) {
 				text-align: left;
 			}
+		}
+		@include breakpoint($size-breakpoint-xxl) {
+		  &:not(.feature){
+		  	box-shadow: $size-fontbase--normal/2 0;
+		  }
 		}
 		&.feature {
 			& > a {
@@ -193,6 +191,7 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 				}
 			}
 			& .toc-summary {
+				max-width: 100%;
 				width: 100%;
 				padding: 0 0 $size-column--safety;
 				border-bottom: 1px solid rgba($color-foreground, $opacity-least/2);
@@ -210,7 +209,11 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 						margin: 0;
 					}
 				}
-				& #{A(2)} { text-align: center; }
+				& #{A(2)} {
+					text-align: center;
+					width: 100%;
+					max-width: 100%;
+				}
 				& p {
 					@include figure-figcaption;
  					@include figure-figcaption--feature;
