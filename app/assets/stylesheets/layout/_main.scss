@@ -14,7 +14,6 @@
 
 body {
 	@include font-content--stack;
-	@include font-content--spacing;
 	
 	color: $color-foreground;
 	font-size: $size-fontbase-m;

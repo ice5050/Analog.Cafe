@@ -105,24 +105,29 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 				}
 			}
 			& #{A(2)} {
-				padding: 0;
-				margin-top: -0.3em;
+				padding: 0 0 .25em;
+				margin-top: -0.2em;
 				overflow: hidden;
 				white-space: nowrap;
 				text-overflow: ellipsis;
 				@include breakpoint($toc-breakpoint-s) {
 					white-space: normal;
-					margin-top: 0;
+					margin-top: 0.15em;
 				}
 			}
 			& p {
-				$toc-paragrah-line-height: $font-content--line * strip-unit($size-fontbase--smaller);
 				@extend #{A(4)};
 				display: block;
 				margin: 0;
-				font-size: $size-fontbase--smaller;
-				line-height: #{$toc-paragrah-line-height};
-				height: $toc-paragrah-line-height * 3;
+				//font-size: $size-fontbase--smaller;
+				//line-height: #{$toc-paragrah-line-height};
+				
+				
+				height: #{1.5em * 3 - 0.2em};
+				//height: $toc-paragrah-line-height * 3;
+				
+				
+				
 				margin-bottom: 1.15em;
 				overflow: hidden;
 				max-width: $size-column--maxwidth-m;
@@ -144,7 +149,7 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 			margin: 0 0 0 auto;
 		}
 		.toc-info {
-			line-height: $font-content--line * .7142857143;
+			//line-height: $font-content--line * .7142857143;
  			min-width: 20em;
 			span {
 				margin: 0;
@@ -154,7 +159,7 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 				font-weight: $font-header--weight;
 			}
 			em {
-				font-size: $size-fontbase--smaller * .8235294118;
+				//font-size: $size-fontbase--smaller * .8235294118;
 				display: block;
 				font-weight: $font-content--weight;
 			}
@@ -169,6 +174,11 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 			@include breakpoint(0 $size-minwidth) {
 				text-align: left;
 			}
+		}
+		@include breakpoint($size-breakpoint-xxl) {
+		  &:not(.feature){
+		  	box-shadow: $size-fontbase--normal/2 0;
+		  }
 		}
 		&.feature {
 			& > a {

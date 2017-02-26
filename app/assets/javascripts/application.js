@@ -25,5 +25,7 @@
 //	Application assets:
 //	--------------------
 //= require loader
-//= require_all view-renders
+//= require view-renders/pages
+//= require view-renders/typography
+//= require view-renders/render
 //
