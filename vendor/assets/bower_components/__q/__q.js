@@ -5,6 +5,21 @@ function __q(q){
 	return document.querySelectorAll(q);
 };
 
+// Refactor for forEach:
+function __each(el, fn) { [].forEach.call(el, fn); }
+
+// Event polyfill for IE >= 9
+(function () {
+  function CustomEvent ( event, params ) {
+    params = params || { bubbles: false, cancelable: false, detail: undefined };
+    var evt = document.createEvent( 'CustomEvent' );
+    evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+    return evt;
+  }
+  CustomEvent.prototype = window.Event.prototype;
+  window.CustomEvent = CustomEvent;
+})();
+
 // Fire event shortcut:
 function __fire(e, data){
 	data = (typeof data !== 'undefined') ?  data : {};
@@ -42,7 +57,6 @@ function __List(options) {
 		}, 
 	}); 
 }
-
 
 // Cookies (based on https://www.w3schools.com/js/js_cookies.asp )
 var __cookie = {

@@ -4,8 +4,8 @@
   "authors": [
     "Dmitri <d@eurekaking.com>"
   ],
-  "description": "A short list of JS shortcuts for ES5",
-  "main": "_helpers.js",
+  "description": "A short list of JS shortcuts for ES5 scripting",
+  "main": "__q.js",
   "keywords": [
     "ES5",
     "javaScript",
@@ -19,12 +19,12 @@
     "test",
     "tests"
   ],
-  "version": "1.3.0",
-  "_release": "1.3.0",
+  "version": "1.4.0",
+  "_release": "1.4.0",
   "_resolution": {
     "type": "version",
-    "tag": "v1.3.0",
-    "commit": "ff8aaeeed30df4019615e5a73d277cf54cd4e308"
+    "tag": "v1.4.0",
+    "commit": "4003d447df255dae3719bf43954925affc0a8fce"
   },
   "_source": "git@github.com:dmitrizzle/__q.git",
   "_target": "*",
