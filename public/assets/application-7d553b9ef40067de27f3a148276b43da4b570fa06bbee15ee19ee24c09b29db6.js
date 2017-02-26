@@ -5046,14 +5046,14 @@ var touchRespond = {
 
 	// remove all other active states on the document
 	reset: function(){
-		__each(__q('a'), function(el) {
-			el.classList.remove("-active");
+		__each(__q("a"), function(el) {
+				el.classList.remove("-active");
 		});
 	},
 	
 	// add events to all elements on page
 	init: function(){
-		__each(__q('a'), function(el) {
+		__each(__q("a"), function(el) {
 		
 			var pointerDown = false;
 			var activeAvailable = true;
@@ -5134,7 +5134,7 @@ document.addEventListener('DOMContentLoaded', touchRespond.init);
 	
 	(new FontFaceObserver("Exo 2", {
 		weight: 600
-	})).load().then(function(){
+	})).load(null, 5000).then(function(){
 		console.log("Exo 2: 600");
 		doc.add("fonts-loaded-headers");
 		
@@ -5142,7 +5142,7 @@ document.addEventListener('DOMContentLoaded', touchRespond.init);
 				(new FontFaceObserver("Lora", {
 					style: "normal",
 					weight: 400
-				})).load(),
+				})).load(null, 5000),
 				(new FontFaceObserver("Lora", {
 					style: "italic",
 					weight: 400
@@ -5172,11 +5172,6 @@ pageAction = new __List({
 	"index":			function(){
 	},
 	"favorites":	function(){
-		var heartButton = '<div class="toc-favorite"><a href="#" class="favorite -active"></a></div>';
-		__each(__q(".table-of-contents li"), function(el) {
-			el.innerHTML.includes(heartButton) ? false :
-			el.innerHTML += '<div class="toc-favorite"><a href="#" class="favorite -active"></a></div>';
-		});
 	},
 	"submit":			function(){
 	},
