@@ -7,7 +7,6 @@
 
 // constant font variables
 $font-content--weight: 400;
-$font-content--line: 1.75em;
 $font-header--weight: 600;
 
 
@@ -26,6 +25,36 @@ $typography-levels: (
   @return nth($typography-levels, $level);
 }
 
+// Dynamic font stack and line spacing - depending on whether it's web-safe or loaded
+@mixin font-line-content { line-height: 1.75em; }
+@mixin font-line-header {
+	line-height: 0.99999999em;
+	.fonts-loaded &, .fonts-loaded-headers & { line-height: 1em; }
+}
+@mixin font-line-caption {
+	line-height: 1.631em; .fonts-loaded & { line-height: 1.5em; }
+}
+
+@mixin font-content--stack {
+	font-family: Georgia, serif;
+	letter-spacing: 0.05em;
+	@include font-line-content;
+	.fonts-loaded & { font-family: Lora, Georgia, serif; letter-spacing: 0.025em; }
+}
+@mixin font-header--stack ($ignore-line-height: null) {
+	font-family: Arial, sans-serif;
+	letter-spacing: 0.005em;
+	@if($ignore-line-height == null) { @include font-line-header; }
+	.fonts-loaded &, .fonts-loaded-headers & {
+		font-family: 'Exo 2', Arial sans-serif;
+		letter-spacing: 0.025em;
+	}
+}
+@mixin font-caption--stack {
+	font-size: #{$size-fontbase--smaller - 0.05em};
+	@include font-line-caption;
+	.fonts-loaded & { font-size: $size-fontbase--smaller; }
+}
 
 
 #{A(1)} {
@@ -47,13 +76,11 @@ $typography-levels: (
 	display: block;
 }
 #{A(4)} {
-	@include font-content--stack;
 	font-weight: $font-content--weight;
 	@extend #{A(6)};
 }
 #{A(5)} {
 	font-size: $size-fontbase--normal;
-	line-height: $font-content--line;
 	display: inline;
 	&::after, &:first-of-type::before {
 		display: block;
@@ -62,9 +89,14 @@ $typography-levels: (
 	}
 }
 #{A(6)} {
-	font-size: $size-fontbase--smaller;
+	@include font-caption--stack;
 	font-variant: small-caps;
 }
+
+
+
+
+
 
 blockquote {
 	position: relative;

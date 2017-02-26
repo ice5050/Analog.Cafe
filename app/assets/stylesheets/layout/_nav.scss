@@ -92,9 +92,10 @@ body > nav {
 			width: 7em;
 			span::before { content: attr(data-label--prepend); }
 			@include breakpoint(0 $size-minwidth * 2){
+				display: none;
 				span::before { content: '' }
 				$n: '&.nav-important';
-				&:not(.nav-center):not(#{$n}--left):not(#{$n}--right) { display: none; }
+				&.nav-center, #{$n}--left, #{$n}--right { display: block; }
 				#{$n}--left {
 					order: 0;
 					text-align: right;
@@ -107,7 +108,7 @@ body > nav {
 			}
 			@include breakpoint($size-breakpoint-xs){ &:not(.nav-center) { display: none; } }
 			& a {
-				font-size: $size-fontbase--smaller;
+				//font-size: $size-fontbase--smaller;
 				background: $color-background; 
 				text-decoration: none;
 				position: relative;

@@ -1,8 +1,8 @@
 function typographyFormat(){
-	__q("blockquote p:first-child").forEach(function(el) {
+	__each(__q("blockquote p:first-child"), function(el) {
 		(el.innerHTML.length < 175 ) ? el.parentElement.classList.add("short") : false;
 	});
-	__q(".toc-chartrim").forEach(function(el) {
+	__each(__q(".toc-chartrim"), function(el) {
 		trim = 220;
 		textLength = el.innerHTML.length;
 		ellipsis = (textLength >= trim) ? '...' : '';
@@ -12,19 +12,19 @@ function typographyFormat(){
 	});
 	
 	// Title Case Capitalization (requires to-title-case-gouch)
-	__q("h1").forEach(function(el) {
+	__each(__q("h1"), function(el) {
 		el.innerHTML = el.innerHTML.toTitleCase();
 	});
-	__q("h2").forEach(function(el) {
+	__each(__q("h2"), function(el) {
 		el.innerHTML = el.innerHTML.toTitleCase();
 	});
-	__q("h3").forEach(function(el) {
+	__each(__q("h3"), function(el) {
 		el.innerHTML = el.innerHTML.toTitleCase();
 	});
-	__q(".subtitle").forEach(function(el) {
+	__each(__q(".subtitle"), function(el) {
 		el.innerHTML = el.innerHTML.toTitleCase();
 	});
-	__q(".button").forEach(function(el) {
+	__each(__q(".button"), function(el) {
 		el.innerHTML = el.innerHTML.toTitleCase();
 	});
 };

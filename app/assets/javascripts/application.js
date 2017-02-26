@@ -14,6 +14,7 @@
 //
 //	Bower assets:
 //	--------------------
+//= require es6-promise/es6-promise.auto
 //= require react
 //= require fontfaceobserver
 //= require to-title-case-gouch
@@ -25,5 +26,7 @@
 //	Application assets:
 //	--------------------
 //= require loader
-//= require_all view-renders
+//= require view-renders/pages
+//= require view-renders/typography
+//= require view-renders/render
 //

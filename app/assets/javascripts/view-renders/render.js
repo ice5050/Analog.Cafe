@@ -8,7 +8,7 @@ var parseThese = [
 
 // run all functions within the array at once
 function parseAllViews() {
-	parseThese.forEach(function(fn) { fn(); });
+	__each(parseThese, function(fn) { fn(); });
 }
 
 // auto execute on dom ready
