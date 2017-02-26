@@ -5,7 +5,7 @@
     "Dmitri <d@eurekaking.com>"
   ],
   "description": "Rewrite for browser :active touch and click states for links (to make your website feel like an app)",
-  "main": "_touch.js",
+  "main": "touch.js",
   "dependencies": {
     "__q": "git@github.com:dmitrizzle/__q"
   },
@@ -23,12 +23,12 @@
     "test",
     "tests"
   ],
-  "version": "1.0.0",
-  "_release": "1.0.0",
+  "version": "1.1.0",
+  "_release": "1.1.0",
   "_resolution": {
     "type": "version",
-    "tag": "v1.0.0",
-    "commit": "45541840abc633f21e27c78be91c707932038624"
+    "tag": "v1.1.0",
+    "commit": "9eefb2f18f4d544ffb26a93f1b6bb79fa6607034"
   },
   "_source": "git@github.com:dmitrizzle/active-touch.git",
   "_target": "*",
