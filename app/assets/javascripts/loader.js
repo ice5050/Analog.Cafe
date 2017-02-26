@@ -5,7 +5,7 @@
 	
 	(new FontFaceObserver("Exo 2", {
 		weight: 600
-	})).load().then(function(){
+	})).load(null, 5000).then(function(){
 		console.log("Exo 2: 600");
 		doc.add("fonts-loaded-headers");
 		
@@ -13,7 +13,7 @@
 				(new FontFaceObserver("Lora", {
 					style: "normal",
 					weight: 400
-				})).load(),
+				})).load(null, 5000),
 				(new FontFaceObserver("Lora", {
 					style: "italic",
 					weight: 400

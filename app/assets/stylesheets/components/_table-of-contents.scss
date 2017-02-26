@@ -54,7 +54,7 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 				width: 100%;
 			}
 			#{$tap-this} {
-				h2 { background: 0 0; }
+				#{A(2)} { background: 0 0; }
 				&::after {
 					@include toc-cover-dimensions;
 					z-index: z('layer-up') + 1;
@@ -74,18 +74,9 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 			}
 			#{$tap-this}::before { visibility: hidden; }
 		}
-		& > .toc-favorite {
-			position: absolute;
-			left: $toc-summary-figure--width / 2 + $size-column--safety / 2;
-			bottom: $toc-summary-figure--height + $size-content-block-spacing * .25;
-			filter: drop-shadow(0 1px 0 rgba($color-foreground, $opacity-half));
-			z-index: z('layer-up');
-			@include breakpoint($toc-breakpoint-s) {
-				bottom: initial;
-				top: $size-column--safety * 3;
-			}
-		}
 		& .toc-summary {
+			max-width: 61.5%;
+			@include breakpoint($toc-breakpoint-m){ max-width: 100%; overflow: hidden; }
 			padding: $size-column--safety * 3 $size-column--safety $size-content-block-spacing $size-column--safety;
 			letter-spacing: initial;
 			& > figure {
@@ -105,12 +96,16 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 				}
 			}
 			& #{A(2)} {
-				padding: 0 0 .25em;
+				display: inline-block;
+				padding: 0 0 .15em;
 				margin-top: -0.2em;
+				margin-bottom: -0.15em;
 				overflow: hidden;
 				white-space: nowrap;
 				text-overflow: ellipsis;
+				max-width: calc(100% - #{$size-column--safety * 2});
 				@include breakpoint($toc-breakpoint-s) {
+					display: block;
 					white-space: normal;
 					margin-top: 0.15em;
 				}
@@ -203,6 +198,7 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 				}
 			}
 			& .toc-summary {
+				max-width: 100%;
 				width: 100%;
 				padding: 0 0 $size-column--safety;
 				border-bottom: 1px solid rgba($color-foreground, $opacity-least/2);

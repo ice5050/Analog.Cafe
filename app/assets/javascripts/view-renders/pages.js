@@ -6,11 +6,6 @@ pageAction = new __List({
 	"index":			function(){
 	},
 	"favorites":	function(){
-		var heartButton = '<div class="toc-favorite"><a href="#" class="favorite -active"></a></div>';
-		__each(__q(".table-of-contents li"), function(el) {
-			el.innerHTML.includes(heartButton) ? false :
-			el.innerHTML += '<div class="toc-favorite"><a href="#" class="favorite -active"></a></div>';
-		});
 	},
 	"submit":			function(){
 	},
