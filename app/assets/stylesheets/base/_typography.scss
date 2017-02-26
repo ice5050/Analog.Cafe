@@ -47,7 +47,6 @@ $typography-levels: (
 	display: block;
 }
 #{A(4)} {
-	@include font-content--stack;
 	font-weight: $font-content--weight;
 	@extend #{A(6)};
 }
