@@ -38,7 +38,7 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 	&::after {
 		@include toc-cover-dimensions;
 		filter: drop-shadow(1px 0 0 rgba($color-foreground, $opacity-least));
-		background-image: inline_svg("components/mask-jagged-triangles.svg", ( fillcolor: #{$color-background} ));
+		background-image: inline_svg("components/mask-sawtooth.svg", ( fillcolor: #{$color-background} ));
 		background-size: 100%;
 	}
 	li {
