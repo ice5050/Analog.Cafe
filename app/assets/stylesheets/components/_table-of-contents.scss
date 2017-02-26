@@ -216,7 +216,11 @@ $toc-breakpoint-s: 0 $size-minwidth * 2;
 						margin: 0;
 					}
 				}
-				& #{A(2)} { text-align: center; }
+				& #{A(2)} {
+					text-align: center;
+					width: 100%;
+					max-width: 100%;
+				}
 				& p {
 					@include figure-figcaption;
  					@include figure-figcaption--feature;
