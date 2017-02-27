@@ -14,7 +14,7 @@
 //
 //	Bower assets:
 //	--------------------
-//= require es6-promise/es6-promise.auto.min.js
+//= require es6-promise/es6-promise.auto
 //= require react
 //= require fontfaceobserver
 //= require to-title-case-gouch
