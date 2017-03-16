@@ -5,7 +5,7 @@
   "engines": {
   	"node": "7.x",
     "npm": "4.x"
-  }
+  },
   "repository": {
   	"type": "git",
   	"url": "https://github.com/dmitrizzle/Analog.Cafe"
