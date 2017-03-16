@@ -2,6 +2,10 @@
   "name": "analog-cafe-f",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+  	"type": "git",
+  	"url": "https://github.com/dmitrizzle/Analog.Cafe"
+  },
   "dependencies": {
     "color": "^1.0.3",
     "fontfaceobserver": "^2.0.9",
@@ -22,10 +26,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-  },
-  "repository": {
-  	"type" : "git",
-  	"url" : "https://github.com/dmitrizzle/Analog.Cafe",
+    "eject": "react-scripts eject"
   }
 }
