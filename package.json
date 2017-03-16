@@ -1,0 +1,27 @@
+{
+  "name": "analog-cafe-f",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "color": "^1.0.3",
+    "fontfaceobserver": "^2.0.9",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-router": "^3.0.2",
+    "sanitize.css": "^5.0.0",
+    "styled-components": "^2.0.0-7",
+    "titlecase": "^1.1.2",
+    "typeface-exo-2": "0.0.22",
+    "typeface-lora": "0.0.22"
+  },
+  "devDependencies": {
+    "babel-plugin-root-import": "^5.0.0",
+    "react-scripts": "0.9.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
