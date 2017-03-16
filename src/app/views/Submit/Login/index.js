@@ -10,9 +10,9 @@ export const Login = props => {
 	return(
 		<Article>
 			<Header 
-				pageTitle=		"Submit your shit" 
-				pageSubtitle=	"Because it'll be awesome" 
-				pageByline=		"Just Dowit" 
+				pageTitle="Submit your shit" 
+				pageSubtitle="Because it'll be awesome" 
+				pageByline="Just Dowit" 
 			/>
 			<Section>
 				<p><em>Analog.Cafe</em> is a collection of images, articles and photo essays. It is a fully curated and edited body of work that draws on the best and most interesting expressions from the film photography community and beyond. </p>
