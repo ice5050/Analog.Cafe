@@ -1,7 +1,11 @@
 {
   "name": "analog-cafe-f",
-  "version": "0.1.0",
+  "version": "0.0.13",
   "private": true,
+  "engines": {
+  	"node": "7.x",
+    "npm": "4.x"
+  }
   "repository": {
   	"type": "git",
   	"url": "https://github.com/dmitrizzle/Analog.Cafe"
