@@ -1,5 +1,6 @@
 // tools
 import React from "react"
+import Helmet from "react-helmet"
 
 // components
 import { Nav } from "../../components/Nav"
@@ -9,6 +10,7 @@ export class Submit extends React.Component {
 	render(){
 		return (
 			<div>
+				<Helmet title="Submit your shit" />
 				<Nav />
 				{ this.props.children }
 			</div>

@@ -3,19 +3,21 @@
   "version": "0.0.13",
   "private": true,
   "engines": {
-  	"node": "7.x",
+    "node": "7.x",
     "npm": "4.x"
   },
   "repository": {
-  	"type": "git",
-  	"url": "https://github.com/dmitrizzle/Analog.Cafe"
+    "type": "git",
+    "url": "https://github.com/dmitrizzle/Analog.Cafe"
   },
   "dependencies": {
     "color": "^1.0.3",
     "fontfaceobserver": "^2.0.9",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-helmet": "^4.0.0",
     "react-router": "^3.0.2",
+    "react-snapshot": "^1.0.4",
     "sanitize.css": "^5.0.0",
     "styled-components": "^2.0.0-7",
     "titlecase": "^1.1.2",
@@ -28,7 +30,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && react-snapshot",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
