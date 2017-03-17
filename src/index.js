@@ -1,7 +1,9 @@
 // tools
 import React from "react"
-import { render } from "react-dom"
+import { render } from "react-snapshot" // import { render } from "react-dom"
 import { Router, Route, browserHistory, IndexRoute } from "react-router"
+import Helmet from "react-helmet"
+
 
 // theme
 import { TheZine } from "./themes/TheZine"
@@ -20,22 +22,30 @@ import { Login } from "./app/views/Submit/Login"
 class App extends React.Component {
 	render() {
 		return (
-			<TheZine><Router history={ browserHistory } >
+			<TheZine>
+				
+				<Helmet
+					defaultTitle="Analog.Cafe ☕️"
+					titleTemplate="%s ☕️ Analog.Cafe"
+				/>
+				
+				<Router history={ browserHistory } >
 					
-				<Route path="/"			 					component={ Publication } >
-					<IndexRoute 								component={ ListPosts } />
-					<Route path="articles" 			component={ ListPosts } filter={ "articles" } />
-					<Route path="photo-essays" 	component={ ListPosts } filter={ "photoEssays" } />
-					<Route path="favorites" 		component={ ListPosts } filter={ "favorites" } />
-				</Route>
+					<Route path="/"			 					component={ Publication } >
+						<IndexRoute 								component={ ListPosts } />
+						<Route path="articles" 			component={ ListPosts } filter={ "articles" } />
+						<Route path="photo-essays" 	component={ ListPosts } filter={ "photoEssays" } />
+						<Route path="favorites" 		component={ ListPosts } filter={ "favorites" } />
+					</Route>
 				
-				<Route path="submit"					component={ Submit } >
-					<IndexRoute 								component={ Login } />
-				</Route>
+					<Route path="submit"					component={ Submit } >
+						<IndexRoute 								component={ Login } />
+					</Route>
 				
-				<Route path="*"								component={ NotFound } status={404} />
+					<Route path="*"								component={ NotFound } status={404} />
 				
-			</Router></TheZine>
+				</Router>
+			</TheZine>
 		)
 	}
 }
