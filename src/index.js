@@ -1,6 +1,6 @@
 // tools
 import React from "react"
-import { render } from "react-snapshot" // import { render } from "react-dom"
+import { render } from "react-dom"
 import { Router, Route, browserHistory, IndexRoute } from "react-router"
 import Helmet from "react-helmet"
 
