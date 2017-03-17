@@ -16,6 +16,7 @@ const ThemeGlobals = styled.div`
 			background: 	${ def.color.highlight };
 			color: 				${ def.color.foreground };
 		}
+		&, button { -webkit-tap-highlight-color: rgba(0,0,0,0); }
 	}
 	*::selection {
 		background: ${ def.color.highlight };
