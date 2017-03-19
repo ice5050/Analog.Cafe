@@ -11,12 +11,14 @@ import { loadFonts } from "./fonts"
 
 const ThemeGlobals = styled.div`
 	a {
-		color: 						inherit;
-		&:active {
+		color: inherit;
+		&, button {
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+		}
+		&.downstate {
 			background: 	${ def.color.highlight };
 			color: 				${ def.color.foreground };
 		}
-		&, button { -webkit-tap-highlight-color: rgba(0,0,0,0); }
 	}
 	*::selection {
 		background: ${ def.color.highlight };
