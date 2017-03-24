@@ -3,7 +3,8 @@ import React from "react"
 import { Editor, EditorState, RichUtils } from "draft-js"
 
 // components
-import { Section, Article } from "../../../components/Page"
+import { Header, Section, Article } from "../../../components/Page"
+import { Wrapper } from "./styles"
 
 
 // render
@@ -22,15 +23,27 @@ export class Composer extends React.Component {
     }
     return "not-handled"
   }
-  focus() {
-  	this.refs.editor.focus()
-  }
+  
+  makeBold() {
+		this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "BOLD"))
+	}
+	makeItalic() {
+		this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "ITALIC"))
+	}
   
 	render() {
 		return (
 			<Article>
+			<Header 
+				pageTitle="Submit your shit" 
+				pageSubtitle="Because it'll be awesome" 
+				pageByline="Just Dowit" 
+			/>
+
 				<Section>
-					<Editor
+					<span onClick={ this.makeBold.bind(this) }>[Bold]</span> <span onClick={ this.makeItalic.bind(this) }>[Italic]</span>
+
+					<Wrapper><Editor
 						editorState={ 			this.state.editorState } 
 						onChange={ 					this.onChange }
 						handleKeyCommand={	this.handleKeyCommand }
@@ -38,7 +51,8 @@ export class Composer extends React.Component {
 						placeholder="Start typing..."
 						spellCheck={ 				true }
 						ref="editor"
-					/>
+					/></Wrapper>
+					
 				</Section>
 			</Article>
 		)
