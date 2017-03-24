@@ -11,6 +11,7 @@
     "url": "https://github.com/dmitrizzle/Analog.Cafe"
   },
   "dependencies": {
+    "active-touch": "github:dmitrizzle/active-touch",
     "color": "^1.0.3",
     "fontfaceobserver": "^2.0.9",
     "react": "^15.4.2",

@@ -17,11 +17,12 @@ export const LogoOutline = styled.div`
 	backdrop-filter: 					blur(5px);
 	-webkit-backdrop-filter: 	blur(5px);
 	
-	a:active &{
-		background:		${ props => props.theme.color.highlight };
-	}
 	a.active & {
-    box-shadow: 0 0 0 1px, 0 0 0 0.95em inset;
+		color: 			${ props => props.theme.color.foreground };
+    box-shadow: 0 0 0 1px , 0 0 0 0.95em inset;
+  }
+  a.downstate & {
+  	 background: ${ props => props.theme.color.highlight }
   }
 `
 

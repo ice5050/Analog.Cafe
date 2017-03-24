@@ -23,7 +23,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<TheZine>
-				
+				<div>
 				<Helmet
 					defaultTitle="Analog.Cafe ☕️"
 					titleTemplate="%s ☕️ Analog.Cafe"
@@ -45,6 +45,7 @@ class App extends React.Component {
 					<Route path="*"								component={ NotFound } status={404} />
 				
 				</Router>
+				</div>
 			</TheZine>
 		)
 	}
