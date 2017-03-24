@@ -16,6 +16,7 @@ import { Submit } from "./app/views/Submit"
 import { NotFound } from "./app/views/Error"
 import { ListPosts } from "./app/views/Publication/ListPosts"
 import { Login } from "./app/views/Submit/Login"
+import { Composer } from "./app/views/Submit/Composer"
 
 
 // render & route
@@ -40,6 +41,7 @@ class App extends React.Component {
 				
 					<Route path="submit"					component={ Submit } >
 						<IndexRoute 								component={ Login } />
+						<Route path="compose" 			component={ Composer } />
 					</Route>
 				
 					<Route path="*"								component={ NotFound } status={404} />

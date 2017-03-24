@@ -10,6 +10,7 @@ import { def } from "./theme"
 import { loadFonts } from "./fonts"
 
 const ThemeGlobals = styled.div`
+	// general resets:
 	a {
 		color: inherit;
 		&, button {
@@ -23,6 +24,11 @@ const ThemeGlobals = styled.div`
 	*::selection {
 		background: ${ def.color.highlight };
 	}
+	
+	//Draft.js resets:
+	.public-DraftEditorPlaceholder-root { position: absolute; z-index: ${ def.layer.tuck }; }
+	.DraftEditorPlaceholder-hidden { display: none; }
+	.public-DraftEditor-content { height: 100vh; }
 `
 
 // fonts
