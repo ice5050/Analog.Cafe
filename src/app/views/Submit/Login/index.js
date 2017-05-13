@@ -15,6 +15,8 @@ export const Login = props => {
 				pageByline="Just Dowit" 
 			/>
 			<Section>
+				<p><Link to="/submit/compose">Compose submission</Link></p>
+				
 				<p><em>Analog.Cafe</em> is a collection of images, articles and photo essays. It is a fully curated and edited body of work that draws on the best and most interesting expressions from the film photography community and beyond. </p>
 				
 				<p><Link to="/asfasdf">broken link</Link></p>
