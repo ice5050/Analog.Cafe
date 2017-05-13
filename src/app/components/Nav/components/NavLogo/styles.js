@@ -2,6 +2,9 @@
 import styled from "styled-components"
 import Color from "color"
 
+// components
+import { Logo } from "../../../Logo"
+
 // css
 export const LogoOutline = styled.div`
 	${ props => props.theme.size.font.auto }
@@ -13,16 +16,11 @@ export const LogoOutline = styled.div`
 	padding: 									${ props => props.theme.size.block.spacing }em;
 	border-radius: 						${ props => props.theme.size.font.make.larger }em;
 	background: 							${ props => Color(props.theme.color.background).alpha(props.theme.opacity.half).string() };
-	box-shadow: 							0 0 0 1px ${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.half / 2).string() };
 	backdrop-filter: 					blur(5px);
 	-webkit-backdrop-filter: 	blur(5px);
 	
 	a.active & {
-		color: 			${ props => props.theme.color.foreground };
-    box-shadow: 0 0 0 1px , 0 0 0 0.95em inset;
-  }
-  a.downstate & {
-  	 background: ${ props => props.theme.color.highlight }
+  	box-shadow: 0 0 0 1px ${ props => props.theme.color.foreground };
   }
 `
 
@@ -32,9 +30,14 @@ export const LogoLettering = styled.div`
 	text-transform: 		uppercase;
 	position: 					absolute;
 	transform-origin: 	4.275em 4.225em;
-	transform: 					rotate(80deg);
-	color: 							${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.half * 1.33).string() };
+	transform: 					rotate(0deg);
+	color: 							${ props => props.theme.color.brand };
 	z-index: 						${ props => props.theme.layer.up };
+	
+	a.active & {
+		color: 						${ props => props.theme.color.foreground };
+		transform: 				rotate(80deg);
+	}
 	
 	span {
 		display: 						block;
@@ -47,7 +50,10 @@ export const LogoLettering = styled.div`
 		transform-origin: 	0.5em -5.5em;
 	}
 	
-	a.active & {
-    color:	${ props => props.theme.color.background };
+`
+
+export const LogoWithDownstate = styled(Logo)`
+	a.downstate & {
+  	background: ${ props => Color(props.theme.color.brand).darken(props.theme.opacity.least).string() };
   }
 `

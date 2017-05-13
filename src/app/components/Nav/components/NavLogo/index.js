@@ -2,10 +2,7 @@
 import React from "react"
 
 // styles
-import { LogoOutline, LogoLettering } from "./styles.js"
-
-// components
-import { Logo } from "../../../Logo"
+import { LogoOutline, LogoLettering, LogoWithDownstate } from "./styles.js"
 
 // render
 export const NavLogo = props => {
@@ -17,7 +14,7 @@ export const NavLogo = props => {
 	return(
 		<LogoOutline>
 			<LogoLettering title={appName}>{appNameSpan}</LogoLettering>
-			<Logo />
+			<LogoWithDownstate />
 		</LogoOutline>
 	)
 }
