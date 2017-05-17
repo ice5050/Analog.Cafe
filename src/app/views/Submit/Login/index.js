@@ -10,9 +10,9 @@ export const Login = props => {
 	return(
 		<Article>
 			<Header 
-				pageTitle="Submit your shit" 
-				pageSubtitle="Because it'll be awesome" 
-				pageByline="Just Dowit" 
+				pageTitle="Submit" 
+				pageSubtitle="Photos shot on film, photo essays, and stories" 
+				//pageByline="Just Dowit" 
 			/>
 			<Section>
 				<p><Link to="/submit/compose">Compose submission</Link></p>

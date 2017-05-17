@@ -20,7 +20,7 @@ export const LogoOutline = styled.div`
 	-webkit-backdrop-filter: 	blur(5px);
 	
 	a.active & {
-  	box-shadow: 0 0 0 1px ${ props => props.theme.color.foreground };
+  	// box-shadow: 0 0 0 1px ${ props => props.theme.color.foreground };
   }
 `
 
@@ -53,7 +53,11 @@ export const LogoLettering = styled.div`
 `
 
 export const LogoWithDownstate = styled(Logo)`
+	background: ${ props => props.theme.color.foreground };
 	a.downstate & {
-  	background: ${ props => Color(props.theme.color.brand).darken(props.theme.opacity.least).string() };
+  	background: ${ props => Color(props.theme.color.brand).darken(props.theme.opacity.half).string() };
+  }
+  a.active & {
+  	background: ${ props => props.theme.color.brand };
   }
 `
