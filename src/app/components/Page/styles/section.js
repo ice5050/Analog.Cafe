@@ -25,6 +25,13 @@ export const PageSection = styled.section`
 		display: 		block;
 	}
 	
-	p						{ ${ paragraph } }
+	p		{ ${ paragraph } }
+	ul 	{
+		margin: 0 ${ props => props.theme.size.block.column.safety }em 0;
+		li 	{
+			line-height:		${ props => props.theme.size.block.column.safety }em;
+			padding-bottom:	${ props => props.theme.size.block.spacing }em;
+		}
+	}
 `
 export const PageArticle = styled.article``

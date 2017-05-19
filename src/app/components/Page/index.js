@@ -22,8 +22,12 @@ export const Header = props => {
 export const Article = props => {
 	return <PageArticle>{ props.children }</PageArticle>
 }
+
 export const Section = props => {
 	return <PageSection>{ props.children }</PageSection>
+}
+export const SectionTitle = props => {
+	return <PageSubtitle>{ props.children }</PageSubtitle>
 }
 
 

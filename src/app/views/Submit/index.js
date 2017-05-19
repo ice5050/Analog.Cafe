@@ -10,7 +10,7 @@ export class Submit extends React.Component {
 	render(){
 		return (
 			<div>
-				<Helmet title="Submit your shit" />
+				<Helmet title="Submit to Editor" />
 				<Nav />
 				{ this.props.children }
 			</div>
