@@ -54,10 +54,11 @@ export const LogoLettering = styled.div`
 
 export const LogoWithDownstate = styled(Logo)`
 	background: ${ props => props.theme.color.foreground };
-	a.downstate & {
-  	background: ${ props => Color(props.theme.color.brand).darken(props.theme.opacity.half).string() };
-  }
   a.active & {
   	background: ${ props => props.theme.color.brand };
   }
+  a.downstate & {
+  	background: ${ props => Color(props.theme.color.brand).darken(props.theme.opacity.half).string() };
+  }
+
 `

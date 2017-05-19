@@ -18,7 +18,7 @@ export const PageTitle = styled.h1`
 	${ props => props.theme.typography.title.auto }
 	font-size: ${ props => props.theme.size.font.make.larger }em;
 `
-export const PageSubtitle = styled.span`
+export const PageSubtitle = styled.h2`
 	${ props => props.theme.typography.title.auto }
 	font-size: ${ props => props.theme.size.font.make.larger / 2 }em;
 `
