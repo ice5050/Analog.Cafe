@@ -1,6 +1,6 @@
 // styles
 import { css } from "styled-components"
-const breakpoints = {  // base: pixels
+export const breakpoints = {  // base: pixels
 	xxl:	[1601, 	160000000],
 	xl:		[1081,	1600],
 	l:		[781,		1080],
