@@ -1,6 +1,6 @@
 // style
 import { css } from "styled-components"
-import { exact, min, max } from "./media"
+import { exact, min, max, breakpoints } from "./media"
 
 // theme css defaults
 export const def = {
@@ -14,6 +14,12 @@ export const def = {
 		most: 	.85,
 		half: 	.5,
 		least: 	.125,
+	},
+	effects: {
+		borderRadius : { // base: multiplier
+			small: 	.25,
+			med:		.5,
+		}
 	},
 	typography: {
 		title: {
@@ -50,6 +56,10 @@ export const def = {
 			exact,
 			min,
 			max,
+			stops: {
+				min: 	breakpoints.xs[1],
+				max: 	breakpoints.xl[1]
+			},
 		},
 		font: { // base: pixels
 			l: 	23,

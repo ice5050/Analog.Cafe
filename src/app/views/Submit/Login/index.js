@@ -4,6 +4,7 @@ import { Link } from "react-router"
 
 // components
 import { Header, Section, Article, Quote, SectionTitle } from "../../../components/Page"
+import { PageButton } from "../../../components/Buttons"
 
 
 // render
@@ -16,7 +17,8 @@ export const Login = props => {
 				pageByline="(meet the Editorial Team 👋)"
 			/>
 			<Section>
-				<p><Link to="/submit/compose">Submit Now</Link> | <Link to="/submit/login">Submitted before? Log in.</Link></p>
+				<PageButton to="/submit/compose">Submit Now</PageButton>
+				<p><Link to="/submit/login">Submitted before? Log in.</Link></p>
 				
 				<p>Submitting your work is really easy. Simply drag and drop your scanned photograph(s) and/or write your story.</p>
 				<p>As you write and add images, what you see is exactly how your work will look on the website once published.  Double-check your spelling and image quality and click &ldquo;Finished&rdquo;.</p>
