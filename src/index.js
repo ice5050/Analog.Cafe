@@ -15,7 +15,7 @@ import { Submit } from "./app/views/Submit"
 // pages
 import { NotFound } from "./app/views/Error"
 import { ListPosts } from "./app/views/Publication/ListPosts"
-import { Login } from "./app/views/Submit/Login"
+import { Introduction } from "./app/views/Submit/Introduction"
 import { Composer } from "./app/views/Submit/Composer"
 
 
@@ -40,7 +40,7 @@ class App extends React.Component {
 					</Route>
 				
 					<Route path="submit"					component={ Submit } >
-						<IndexRoute 								component={ Login } />
+						<IndexRoute 								component={ Introduction } />
 						<Route path="compose" 			component={ Composer } />
 					</Route>
 				

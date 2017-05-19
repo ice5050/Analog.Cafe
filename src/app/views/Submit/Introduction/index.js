@@ -8,7 +8,7 @@ import { PageButton } from "../../../components/Buttons"
 
 
 // render
-export const Login = props => {
+export const Introduction = props => {
 	return(
 		<Article>
 			<Header 
