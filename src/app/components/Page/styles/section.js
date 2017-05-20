@@ -1,5 +1,6 @@
 // styles
 import styled, { css } from "styled-components"
+import Color from "color"
 
 // css
 const paragraph = css`
@@ -35,3 +36,9 @@ export const PageSection = styled.section`
 	}
 `
 export const PageArticle = styled.article``
+
+export const PageBreak = styled.div`
+	text-align: center;
+	padding:		${ props => props.theme.size.block.column.safety }em 0 ${ props => props.theme.size.block.spacing * 2 }em;
+	color:			${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.half).string() }
+`
