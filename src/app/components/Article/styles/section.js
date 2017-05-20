@@ -3,6 +3,8 @@ import styled, { css } from "styled-components"
 import Color from "color"
 
 // css
+export const PageArticle = styled.article``
+
 const paragraph = css`
 	display: 		inline;
 	&::after, &:first-of-type::before {
@@ -35,7 +37,6 @@ export const PageSection = styled.section`
 		}
 	}
 `
-export const PageArticle = styled.article``
 
 export const PageBreak = styled.div`
 	text-align: center;
