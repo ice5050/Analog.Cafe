@@ -15,7 +15,7 @@ export class Submit extends React.Component {
 	render(){
 		return (
 			<div onMouseUp={ activeTouch.reset() }>
-				<Helmet title="Submit to Editor" />
+				<Helmet title="Submit for Review" />
 				<Nav />
 				{ this.props.children }
 			</div>

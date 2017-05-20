@@ -17,7 +17,7 @@ export const Introduction = props => {
 				pageByline="(meet the Editorial Team 👋)"
 			/>
 			<Section>
-				<PageButton to="/submit/compose">Submit Now</PageButton>
+				<PageButton to="/submit/compose" red>Submit Now</PageButton>
 				<p><Link to="/submit/login">Submitted before? Log in.</Link></p>
 				
 				<p>Submitting your work is really easy. Simply drag and drop your scanned photograph(s) and/or write your story.</p>

@@ -2,11 +2,11 @@
 import React from "react";
 
 // styles
-import { PabeButtonLink } from "./styles";
+import { PageButtonStyles } from "./styles";
 
 // return
 export const PageButton = props => {
 	return (
-		<PabeButtonLink {...props} />
+		<PageButtonStyles {...props} />
 	);
 }
