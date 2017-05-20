@@ -1,6 +1,7 @@
 // tools
 import React from "react"
 import { Link } from "react-router"
+import { Picture } from "react-responsive-picture"
 
 // components
 import { Header, Section, Article, Quote, SectionTitle, SectionDivider } from "../../../components/Page"
@@ -17,6 +18,7 @@ export const Introduction = props => {
 				pageByline="(meet the Editorial Team 👋)"
 			/>
 			<Section>
+				
 				<PageButton to="/submit/compose" red>Submit Now</PageButton>
 				<p><Link to="/submit/login"><strong>Log in</strong></Link> to edit your profile and vew your existing submissions.</p>
 				
@@ -24,7 +26,9 @@ export const Introduction = props => {
 				
 				<p>Submitting your work is really easy. Simply drag and drop your scanned photograph(s) and/or write your story. Double-check your spelling and image quality and click &ldquo;Finished&rdquo;.</p>
 				<p><strong>Analog.Cafe editor will review your work and get back to you with the decision within a week.</strong></p>
-								
+				
+				<Picture src="images/poster.jpg" />
+				
 				<Quote cite="Analog.Cafe">The <strong>collaborative publication platform</strong> for the film photography community. Anyone can submit images, photo essays and articles through the beautiful, easy to use web app. No more complicated, ugly forms.</Quote>
 				
 				<SectionTitle>Featured Images Library</SectionTitle>
