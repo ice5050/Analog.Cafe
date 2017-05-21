@@ -1,6 +1,8 @@
 // styles
 import styled, { css } from "styled-components"
 import Color from "color"
+import { PageSubtitle } from "./header"
+
 
 // css
 export const PageArticle = styled.article``
@@ -13,6 +15,7 @@ const paragraph = css`
 		content: 		"";
 	}
 `
+
 export const PageSection = styled.section`
 	${ props => props.theme.size.font.auto }
 	${ props => props.theme.typography.text.auto }
@@ -30,12 +33,20 @@ export const PageSection = styled.section`
 	
 	p		{ ${ paragraph } }
 	ul 	{
-		margin: 0 ${ props => props.theme.size.block.column.safety }em 0;
+		margin: 		0 ${ props => props.theme.size.block.column.safety }em 0;
+		${ props => props.theme.size.breakpoint.max.s`
+			margin:		0;
+		` }
 		li 	{
 			line-height:		${ props => props.theme.size.block.column.safety }em;
 			padding-bottom:	${ props => props.theme.size.block.spacing }em;
 		}
 	}
+`
+
+export const PageHeading = styled(PageSubtitle)`
+	font-size: ${ props => props.theme.size.font.make.larger / 1.5 }em;
+	padding-top: 1em;
 `
 
 export const PageBreak = styled.div`

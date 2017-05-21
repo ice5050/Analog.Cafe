@@ -3,7 +3,7 @@ import React from "react"
 import { Link } from "react-router"
 
 // components
-import { Header, Section, Article, Quote, SectionTitle, SectionDivider } from "../../../components/Article"
+import { Header, Section, Article, Quote, SectionDivider, SectionHeading } from "../../../components/Article"
 import { PageButton } from "../../../components/Buttons"
 import { Figure } from "../../../components/Pictures"
 
@@ -26,14 +26,14 @@ export const Introduction = props => {
 				<p>Submitting your work is really easy. Simply drag and drop your scanned photograph(s) and/or write your story. Double-check your spelling and image quality and click &ldquo;Finished&rdquo;.</p>
 				<p><strong>Analog.Cafe editor will review your work and get back to you with the decision within a week.</strong></p>
 				
-				<Figure src="images/poster.jpg" feature>"This is not a pipe" is a famous play on reality by René Magritte. He was trying to say that the image he drew and most would refer to as a "pipe" isn't. It's just a drawing or a collection of color pigments on a piece of paper. Can't smoke that.</Figure>
+				<Figure src="images/poster.jpg" >"This is not a pipe" is a famous play on reality by René Magritte. He was trying to say that the image he drew and most would refer to as a "pipe" isn't. It's just a drawing or a collection of color pigments on a piece of paper. Can't smoke that.</Figure>
 								
-				<SectionTitle>Featured Images Library</SectionTitle>
+				<SectionHeading>Featured Images Library</SectionHeading>
 				<p>You can can re-publish any of the images from the &ldquo;Featured Images Library&rdquo; within your work. By doing this you are starting an <strong>instant collaboration</strong> with some of the best film photographers on Analog.Cafe.</p>
 				<p>You have the premission from the photographers to use their images within your submission here on Analog.Cafe.</p>
 				<p>The image(s) that you upload with your submission are reviewed and selectively given &ldquo;featured&rdquo; status (you can opt out). Your featured images are always re-published with a clear link to your Analog.Cafe portfolio.</p>
 				
-				<SectionTitle>Topics & Submission Types</SectionTitle>
+				<SectionHeading>Topics & Submission Types</SectionHeading>
 				<p>You can write or photograph pretty much anything you like, as long as it&rsquo;s not offensive or stolen. NSFW submissions aren&rsquo;t accepted (yet).</p>
 				<p>Submission types typically accepted:</p>
 				
