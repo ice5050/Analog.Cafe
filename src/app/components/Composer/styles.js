@@ -1,19 +1,23 @@
 // styles
 import styled, { css } from "styled-components"
 
+// tools
+import { InputTitle } from "./components/InputTitle"
+
 // css
 const input = css`
-	text-align: 			center;
-	width: 				100%;
-	border:						none;
-	outline:	rgba(0,0,0,0);
+	text-align: center;
+	width: 			100%;
+	border:			none;
+	outline:		rgba(0,0,0,0);
+	resize: 		none;
 `
-export const PageTitle = styled.input`
+export const PageTitle = styled(InputTitle)`
 	${ props => props.theme.typography.title.auto }
 	font-size: ${ props => props.theme.size.font.make.larger }em;
 	${ input }
 `
-export const PageSubtitle = styled.input`
+export const PageSubtitle = styled(InputTitle)`
 	${ props => props.theme.typography.title.auto }
 	font-size: ${ props => props.theme.size.font.make.larger / 2 }em;
 	${ input }
