@@ -83,7 +83,7 @@ export const def = {
 			column: {
 				maxwidth: { // base: pixels
 					m: 	750,
-					l: 	780,
+					l: 	820,
 				},
 				safety: 1.5, // base: multiplier
 			},

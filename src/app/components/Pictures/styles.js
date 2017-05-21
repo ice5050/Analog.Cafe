@@ -9,8 +9,8 @@ import styled from "styled-components"
 
 // css
 export const PictureImage = styled(Picture)`
-	width: 100%;
-  display: block;
+	width: 		100%;
+  display: 	block;
 `
 
 export const PictureFigure = styled.figure`
@@ -18,25 +18,33 @@ export const PictureFigure = styled.figure`
 	padding: 		0;	
 	overflow: 	hidden;
 	margin: 		0 0 ${ props => props.theme.size.block.spacing }em;
-	z-index:		${ props => props.theme.layer.overlay };
+	z-index:		${ props => props.theme.layer.up + 1 };
 	position: 	relative;
 
-// 	
-// 	@include breakpoint($size-breakpoint-s) {
-// 		@include figure-bleed;
-// 	}
-// 	@include breakpoint($size-breakpoint-l) {
-		width: 				77.5%; 
- 		margin-left: 	calc((${ props => props.theme.size.block.column.maxwidth.m }px - 100vw)/3.5);
- 		margin-right: ${ props => props.theme.size.block.spacing }em;
-		float: 				left;
-// 	}
-// 	@include breakpoint($size-breakpoint-xxl) {
-// 		width: 94%; 
-// 		margin-left: -$size-column--maxwidth-m/2.15;
-// 		margin-right: $size-content-block-spacing;
-// 		float: left;
-// 	}
+	width: 				65%; 
+	margin-left: 	calc((${ props => props.theme.size.block.column.maxwidth.m }px - 100vw)/3.5);
+	margin-right: ${ props => props.theme.size.block.spacing }em;
+	float: 				left;
+
+	${ props => props.theme.size.breakpoint.min.xl`
+		width: 				85%;
+		margin-left: 	-${ props => props.theme.size.block.column.maxwidth.m / 4 }px;
+		margin-right: ${ props => props.theme.size.block.spacing }em;
+	` }
+	
+	${ props => props.theme.size.breakpoint.min.xxl`
+		width: 				95%;
+		margin-left: 	-${ props => props.theme.size.block.column.maxwidth.l / 2 }px;
+		margin-right: ${ props => props.theme.size.block.spacing }em;
+	` }
+
+	${ props => props.theme.size.breakpoint.max.m`
+		margin-left: 		-${ props => props.theme.size.block.column.safety }em;
+		margin-right: 	-${ props => props.theme.size.block.column.safety }em;
+		width: 					100vw;
+		max-width: 			100vw;
+	` }
+
 `
 
 export const PictureCaption = styled(Caption)`
