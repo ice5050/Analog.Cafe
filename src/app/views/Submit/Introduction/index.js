@@ -14,7 +14,7 @@ export const Introduction = props => {
 			<Header 
 				pageTitle="Submit for Review" 
 				pageSubtitle="Photos shot on film, photo essays, and stories" 
-				pageByline="(meet the Editorial Team 👋)"
+				pageByline="Edited by dmitrizzle"
 			/>
 			<Section>
 				
@@ -26,7 +26,7 @@ export const Introduction = props => {
 				<p>Submitting your work is really easy. Simply drag and drop your scanned photograph(s) and/or write your story. Double-check your spelling and image quality and click &ldquo;Finished&rdquo;.</p>
 				<p><strong>Analog.Cafe editor will review your work and get back to you with the decision within a week.</strong></p>
 				
-				<Figure src="images/poster.jpg" >"This is not a pipe" is a famous play on reality by René Magritte. He was trying to say that the image he drew and most would refer to as a "pipe" isn't. It's just a drawing or a collection of color pigments on a piece of paper. Can't smoke that.</Figure>
+				<Figure src="images/poster.jpg">&ldquo;Midnight Jam,&rdquo; shot on Ilford Pan 400 with Canon QL25 and pushed to 1600ISO.</Figure>
 								
 				<SectionHeading>Featured Images Library</SectionHeading>
 				<p>You can can re-publish any of the images from the &ldquo;Featured Images Library&rdquo; within your work. By doing this you are starting an <strong>instant collaboration</strong> with some of the best film photographers on Analog.Cafe.</p>
