@@ -3,7 +3,7 @@ import React from "react"
 import { Link } from "react-router"
 
 // components
-import { Section, Article, Header } from "../../components/Page"
+import { Section, Article, Header } from "../../components/Article"
 import { Logo } from "../../components/Logo"
 
 // render

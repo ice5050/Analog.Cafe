@@ -1,5 +1,7 @@
 // tools
-import { Link, IndexLink } from "react-router"
+import { Link } from "react-router"
+import React from "react"
+
 
 // styles
 import styled from "styled-components"
@@ -7,7 +9,10 @@ import Color from "color"
 
 
 // css
-export const PabeButtonLink = styled(Link)`
+// below three lines filter out prop "red" that isn't recognized by Link component
+export const PageButtonStyles = styled(({ red, ...props }) =>
+  <Link {...props} />
+)`
 	max-width: 	${ props => props.theme.size.breakpoint.stops.min }px;
 
 	${ props => props.theme.size.font.auto }
@@ -17,7 +22,8 @@ export const PabeButtonLink = styled(Link)`
 	text-decoration: 	none;
  	text-align: 			center;
  	display: 					block;
- 	background: 			${ props => props.theme.color.backgorund };
+ 	background: 			${ props => props.red ? props => props.theme.color.brand : props => props.theme.color.background };
+	color: 						${ props => props.red ? props => props.theme.color.background : props => props.theme.color.foreground } !important;
  	border-radius: 		${ props => props.theme.effects.borderRadius.small }em;
 	padding: 					${ props => props.theme.size.block.spacing /1.25 }em 0;
 	margin-top: 			${ props => props.theme.size.block.spacing }em;
@@ -44,15 +50,9 @@ export const PabeButtonLink = styled(Link)`
 	`
 	}
 
-
-// 	.card & {
-// 		max-width: 100%;
-// 		margin: 0;
-// 		border-radius: 0;
-// 		#{$tap-this} {
-// 			box-shadow: 0 -1px 0 $color-foreground;
-// 		}
-// 	}
-// }
-
 `
+
+// declare
+// PageButtonStyles.propTypes = {
+//   red: PropTypes.bool,
+// }

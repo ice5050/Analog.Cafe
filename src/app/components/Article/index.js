@@ -5,7 +5,7 @@ import toTitleCase from "titlecase"
 
 // styles
 import { PageHeader, PageTitle, PageSubtitle, PageByline, PageTools } from "./styles/header"
-import { PageArticle, PageSection } from "./styles/section"
+import { PageArticle, PageSection, PageBreak, PageHeading } from "./styles/section"
 import { PageQuote } from "./styles/quote"
 
 // return
@@ -26,8 +26,11 @@ export const Article = props => {
 export const Section = props => {
 	return <PageSection>{ props.children }</PageSection>
 }
-export const SectionTitle = props => {
-	return <PageSubtitle>{ props.children }</PageSubtitle>
+export const SectionDivider = props => {
+	return <PageBreak>✽ ✽ ✽</PageBreak>
+}
+export const SectionHeading = props => {
+	return <PageHeading>{ props.children }</PageHeading>
 }
 
 
@@ -47,6 +50,9 @@ Header.propTypes = {
 	pageSubtitle: React.PropTypes.string,
 	pageByline: 	React.PropTypes.string,
 	children: 		React.PropTypes.element,
+}
+SectionHeading.propTypes = {
+	children: 		React.PropTypes.any.isRequired,
 }
 Section.propTypes = {
 	children: 		React.PropTypes.any.isRequired,

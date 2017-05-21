@@ -3,8 +3,8 @@ import { css } from "styled-components"
 export const breakpoints = {  // base: pixels
 	xxl:	[1601, 	160000000],
 	xl:		[1081,	1600],
-	l:		[781,		1080],
-	m:		[521,		780],
+	l:		[751,		1080],
+	m:		[521,		750],
 	s:		[321,		520],
 	xs:		[0,			320],
 }

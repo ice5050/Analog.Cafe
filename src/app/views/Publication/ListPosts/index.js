@@ -2,7 +2,7 @@
 import React from "react"
 
 // components
-import { Section, Article } from "../../../components/Page"
+import { Section, Article } from "../../../components/Article"
 
 // render
 export const ListPosts = props => {
