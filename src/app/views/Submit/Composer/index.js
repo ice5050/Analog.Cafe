@@ -3,7 +3,8 @@ import React from "react"
 import { Editor, EditorState, RichUtils } from "draft-js"
 
 // components
-import { Header, Section, Article } from "../../../components/Article"
+import { Header } from "../../../components/Composer"
+import { Section, Article } from "../../../components/Article"
 import { Wrapper } from "./styles"
 
 
