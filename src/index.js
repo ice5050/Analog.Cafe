@@ -30,24 +30,24 @@ class App extends React.Component {
 					defaultTitle="Analog.Cafe ☕️"
 					titleTemplate="%s ☕️ Analog.Cafe"
 				/>
-				
+
 				<Router history={ browserHistory } >
-					
+
 					<Route path="/"			 					component={ Publication } >
 						<IndexRoute 								component={ ListPosts } />
 						<Route path="articles" 			component={ ListPosts } filter={ "articles" } />
 						<Route path="photo-essays" 	component={ ListPosts } filter={ "photoEssays" } />
 						<Route path="favorites" 		component={ ListPosts } filter={ "favorites" } />
-						<Route path="button-test" 		component={ ButtonTest } />
+						<Route path="button-test" 		component={ ButtonTest } filter={ "buttonTest" }/>
 					</Route>
-				
+
 					<Route path="submit"					component={ Submit } >
 						<IndexRoute 								component={ Introduction } />
 						<Route path="compose" 			component={ Composer } />
 					</Route>
-				
+
 					<Route path="*"								component={ NotFound } status={404} />
-				
+
 				</Router>
 				</div>
 			</TheZine>

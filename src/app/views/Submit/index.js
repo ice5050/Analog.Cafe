@@ -1,7 +1,6 @@
 // tools
 import React from "react"
 import Helmet from "react-helmet"
-import { activeTouch } from "active-touch"
 
 
 // components
@@ -9,12 +8,9 @@ import { Nav } from "../../components/Nav"
 
 // render
 export class Submit extends React.Component {
-	componentDidUpdate() {
-	 		activeTouch.init({ cssclass: "downstate" })
-  }
 	render(){
 		return (
-			<div onMouseUp={ activeTouch.reset() }>
+			<div>
 				<Helmet title="Submit for Review" />
 				<Nav />
 				{ this.props.children }
