@@ -2,11 +2,6 @@
 import React from "react"
 import { Raw } from "slate"
 
-// nodes
-function CodeNode(props) {
-  return <pre {...props.attributes}><code>{props.children}</code></pre>
-}
-
 // composer initial state
 export const initialState = Raw.deserialize({
   nodes: [
@@ -26,6 +21,9 @@ export const initialState = Raw.deserialize({
 // state schema
 export const stateSchema = {
 	nodes: {
-		code: CodeNode
+		code: props => <pre {...props.attributes}><code>{props.children}</code></pre>
+	},
+	marks: {
+		bold: props => <strong>{props.children}</strong>
 	}
 }

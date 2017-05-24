@@ -36,22 +36,38 @@ export class Composer extends React.Component {
     return newState
     
 		 }*/
+	
+	
+	
 	onKeyDown = (event, data, state) => {
-	// Return with no changes if it's not the "`" key with cmd/ctrl pressed.
-	if (event.which !== 67 || !event.metaKey || !event.altKey) return
+    if (!event.metaKey) return
 
-	// Prevent the "`" from being inserted by default.
-	event.preventDefault()
-
-	// Determine whether any of the currently selected blocks are code blocks.
-  const isCode = state.blocks.some(block => block.type === 'code')
-    
-	// Toggle the block type depending on `isCode`.
-	return state
-		.transform()
-		.setBlock(isCode ? 'paragraph' : 'code')
-		.apply()
+    // Decide what to do based on the key code...
+    switch (event.which) {
+      // When "B" is pressed, add a "bold" mark to the text.
+      case 66: {
+        event.preventDefault()
+        return state
+          .transform()
+          .addMark('bold')
+          .apply()
+      }
+      // When "`" is pressed, keep our existing code block logic.
+      case 67: {
+        if (!event.altKey) return
+        const isCode = state.blocks.some(block => block.type === 'code')
+        event.preventDefault()
+        return state
+          .transform()
+          .setBlock(isCode ? 'paragraph' : 'code')
+          .apply()
+      }
+      default: {}
+    }
   }
+  
+  
+  
 	render() {
 		return (
 			<Article>
