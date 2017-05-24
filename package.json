@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "babel-plugin-root-import": "^5.0.0",
-    "react-scripts": "1.0.5"
+    "react-scripts": "^1.0.5"
   },
   "scripts": {
     "start": "react-scripts start",

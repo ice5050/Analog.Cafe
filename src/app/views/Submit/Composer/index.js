@@ -32,6 +32,6 @@ export class Composer extends React.Component {
 
 // declare
 Editor.propTypes = {
-	state: 				PropTypes.obj,
+	state: 				PropTypes.object,
 	onChange:			PropTypes.func,
 }
