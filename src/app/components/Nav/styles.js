@@ -25,11 +25,6 @@ const StyledLink = styled(Link)`
 	background: 			${ props => props.theme.color.background }; 
 	text-decoration: 	none;
 	position: 				relative;
-// 	opacity:					${ props => props.theme.opacity.half / 2 }; 
-// 	
-// 	&.active {
-// 		opacity:				1; 
-// 	}
 	&.active::before {
 		content: 			"";
 		width: 				110%;
