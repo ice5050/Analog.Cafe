@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "color": "^1.0.3",
-    "draft-js": "^0.10.0",
     "fontfaceobserver": "^2.0.9",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
