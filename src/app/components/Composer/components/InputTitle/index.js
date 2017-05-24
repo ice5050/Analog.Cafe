@@ -1,5 +1,6 @@
 // tools
 import React from "react"
+import PropTypes from "prop-types"
 import toTitleCase from "titlecase"
 import Textarea from "react-textarea-autosize"
 
@@ -24,4 +25,12 @@ export class InputTitle extends React.Component {
     	placeholder={	this.props.placeholder }
     />
   }
+}
+
+// declare
+Textarea.propTypes = {
+	value: 				PropTypes.string,
+	placeholder:	PropTypes.string,
+	onChange:		 	PropTypes.func,
+	className: 		PropTypes.any,
 }

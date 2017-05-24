@@ -1,5 +1,6 @@
 // tools
 import React from "react"
+import PropTypes from "prop-types"
 import { Editor } from "slate"
 import { initialState } from "./constants"
 
@@ -27,4 +28,10 @@ export class Composer extends React.Component {
 			</Article>
 		)
 	}
+}
+
+// declare
+Editor.propTypes = {
+	state: 				PropTypes.obj,
+	onChange:			PropTypes.func,
 }

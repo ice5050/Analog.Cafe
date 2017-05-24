@@ -1,5 +1,6 @@
 // tools
 import React from "react"
+import PropTypes from "prop-types"
 import toTitleCase from "titlecase"
 
 
@@ -46,21 +47,21 @@ export const Quote = props => {
 
 // declare
 Header.propTypes = {
-	pageTitle: 		React.PropTypes.string.isRequired,
-	pageSubtitle: React.PropTypes.string,
-	pageByline: 	React.PropTypes.string,
-	children: 		React.PropTypes.element,
+	pageTitle: 		PropTypes.string.isRequired,
+	pageSubtitle: PropTypes.string,
+	pageByline: 	PropTypes.string,
+	children: 		PropTypes.element,
 }
 SectionHeading.propTypes = {
-	children: 		React.PropTypes.any.isRequired,
+	children: 		PropTypes.any.isRequired,
 }
 Section.propTypes = {
-	children: 		React.PropTypes.any.isRequired,
+	children: 		PropTypes.any.isRequired,
 }
 Article.propTypes = {
-	children: 		React.PropTypes.any.isRequired,
+	children: 		PropTypes.any.isRequired,
 }
 Quote.propTypes = {
-	children: 		React.PropTypes.any.isRequired,
-	pageSubtitle: React.PropTypes.string,
+	children: 		PropTypes.any.isRequired,
+	pageSubtitle: PropTypes.string,
 }

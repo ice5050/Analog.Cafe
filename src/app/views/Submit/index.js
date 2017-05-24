@@ -1,5 +1,6 @@
 // tools
 import React from "react"
+import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 
 
@@ -21,6 +22,6 @@ export class Submit extends React.Component {
 
 // declare
 Submit.propTypes = {
-	children: React.PropTypes.element.isRequired,
-	pathname: React.PropTypes.string,
+	children: PropTypes.element.isRequired,
+	pathname: PropTypes.string,
 }

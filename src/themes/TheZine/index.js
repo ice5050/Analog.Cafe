@@ -1,5 +1,6 @@
 // tools
 import React from "react"
+import PropTypes from "prop-types"
 
 // styles
 import styled, { ThemeProvider } from "styled-components"
@@ -37,5 +38,5 @@ export const TheZine = (props) => {
 
 // declare
 TheZine.propTypes = {
-	children: React.PropTypes.element.isRequired,
+	children: PropTypes.array.isRequired,
 }

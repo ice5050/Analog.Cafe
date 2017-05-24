@@ -1,8 +1,9 @@
 // tools
-import React from "react";
+import React from "react"
+import PropTypes from "prop-types"
 
 // styles
-import { PictureImage, PictureFigure, PictureCaption } from "./styles";
+import { PictureImage, PictureFigure, PictureCaption } from "./styles"
 
 // return
 export const Figure = props => {
@@ -18,5 +19,5 @@ export const Figure = props => {
 
 // declare
 PictureCaption.propTypes = {
-	children: 		React.PropTypes.string,
+	children: 		PropTypes.string,
 }

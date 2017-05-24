@@ -51,8 +51,3 @@ export const PageButtonStyles = styled(({ red, ...props }) =>
 	}
 
 `
-
-// declare
-// PageButtonStyles.propTypes = {
-//   red: PropTypes.bool,
-// }
