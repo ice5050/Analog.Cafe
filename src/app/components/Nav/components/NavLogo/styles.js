@@ -57,7 +57,7 @@ export const LogoWithDownstate = styled(Logo)`
   a.active & {
   	background: ${ props => props.theme.color.brand };
   }
-  a.downstate & {
+  a:active & {
   	background: ${ props => Color(props.theme.color.brand).darken(props.theme.opacity.half).string() };
   }
 

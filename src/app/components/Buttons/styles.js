@@ -34,7 +34,7 @@ export const PageButtonStyles = styled(({ red, ...props }) =>
 										, 0 0 0 1px ${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string() };
 	
 	
-	&.downstate {
+	&:active {
 		background: 		${ props => props.theme.color.foreground } !important;
 		box-shadow: 		0 0 ${ props => props.theme.color.foreground } inset;
 		color: 					${ props => props.theme.color.background } !important;
