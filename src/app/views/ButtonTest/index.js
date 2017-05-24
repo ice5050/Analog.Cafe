@@ -4,6 +4,7 @@ import {
   Button,
   ButtonContainer,
   ButtonWrapper,
+  AnchorButton,
 } from './styles';
 
 const ButtonTest = () => {
@@ -39,6 +40,7 @@ const ButtonTest = () => {
         margin: '8em',
       }}>
         more content below...
+        <AnchorButton to="/">This is an <code>{"<a>"}</code> link.</AnchorButton>
       </div>
       <ButtonContainer>
         <ButtonWrapper>

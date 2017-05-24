@@ -15,7 +15,7 @@ const ThemeGlobals = styled.div`
 		&, button {
 			-webkit-tap-highlight-color: rgba(0,0,0,0);
 		}
-		&.downstate {
+		&:active {
 			background: 	${ def.color.highlight };
 			color: 				${ def.color.foreground };
 		}
