@@ -9,7 +9,7 @@ import { PageTitle, PageSubtitle } from "./styles"
 export const Header = props => {
 	return (
 		<PageHeader>
-			<PageTitle placeholder="Title (Required)"></PageTitle>
+			<PageTitle placeholder="Write Your Title Here ✍️"></PageTitle>
 			<PageSubtitle placeholder="Subtitle (Optional)"></PageSubtitle>
 			<PageByline>Your name & profile link will appear here.</PageByline>
 		</PageHeader>

@@ -20,16 +20,16 @@ export class Composer extends React.Component {
   }
   /*onKeyDown = (event, data, state) => {  
 
-    // Return with no changes if it's not the "7" key with shift pressed.
+    // Return with no changes if it"s not the "7" key with shift pressed.
     if (event.which != 55 || !event.shiftKey) return
 
     // Prevent the ampersand character from being inserted.
     event.preventDefault()
 
-    // Transform the state by inserting "and" at the cursor's position.
+    // Transform the state by inserting "and" at the cursor"s position.
     const newState = state
       .transform()
-      .insertText('and')
+      .insertText("and")
       .apply()
 
     // Return the new state, which will cause the editor to update it.
@@ -49,17 +49,17 @@ export class Composer extends React.Component {
         event.preventDefault()
         return state
           .transform()
-          .addMark('bold')
+          .addMark("bold")
           .apply()
       }
       // When "`" is pressed, keep our existing code block logic.
       case 67: {
         if (!event.altKey) return
-        const isCode = state.blocks.some(block => block.type === 'code')
+        const isCode = state.blocks.some(block => block.type === "code")
         event.preventDefault()
         return state
           .transform()
-          .setBlock(isCode ? 'paragraph' : 'code')
+          .setBlock(isCode ? "paragraph" : "code")
           .apply()
       }
       default: {}
