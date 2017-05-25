@@ -7,10 +7,25 @@ import { MarkHotkey } from "./plugins"
 
 
 // composer initial state
-export const headerPlaceholders = {
-	"titlePlaceholder": "Write Your Title Here ✍",
-	"subtitlePlaceholder": "Subtitle (Optional)"
+export const composerInputPlaceholders = {
+	"title": "Write Your Title Here ✍",
+	"subtitle": "Subtitle (Optional)",
+	"bodyTextRanges": [
+		{
+			kind: "range",
+			text: "🌠 You can drag-and-drop your image(s) here. Please add a caption to each (title, date, place, camera etc.) "
+		},
+		{
+			kind: "range",
+			text: "Make this a photo essay, image series, article or just a single photo submission.",
+			marks: [{
+				kind: "mark",
+				type: "bold"}
+			]
+		}
+	]
 }
+
 export const initialState = Raw.deserialize({
   nodes: [
     {
@@ -19,12 +34,7 @@ export const initialState = Raw.deserialize({
       nodes: [
         {
           kind: "text",
-          text: "🌠 You can drag-and-drop your image(s) here. Please add a caption to each (title, date, place, camera etc.) "
-        },
-        {
-          kind: "text",
-          text: "<strong>Make this a photo essay, image series, article or just a single photo submission.</strong>",
-          //mark: "bold"
+          ranges: composerInputPlaceholders.bodyTextRanges
         }
       ]
     }

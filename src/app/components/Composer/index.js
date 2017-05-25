@@ -1,8 +1,8 @@
 // tools
 import React from "react"
 import PropTypes from "prop-types"
-import { Editor } from "slate"
-import { initialState, headerPlaceholders, stateSchema, plugins } from "./constants"
+import { Editor, Raw } from "slate"
+import { initialState, composerInputPlaceholders, stateSchema, plugins } from "./constants"
 
 // styles
 import { PageHeader, PageByline } from "../Article/styles/header"
@@ -13,20 +13,25 @@ import { PageTitle, PageSubtitle } from "./styles"
 export const ComposerHead = props => {
 	return (
 		<PageHeader>
-			<PageTitle placeholder={ headerPlaceholders.titlePlaceholder }></PageTitle>
-			<PageSubtitle placeholder={ headerPlaceholders.subtitlePlaceholder }></PageSubtitle>
+			<PageTitle placeholder={ composerInputPlaceholders.title }></PageTitle>
+			<PageSubtitle placeholder={ composerInputPlaceholders.subtitle }></PageSubtitle>
 			<PageByline>Your name & profile link will appear here.</PageByline>
 		</PageHeader>
 	)
 }
 export class ComposerBody extends React.Component {
 	state = {
-		state: initialState,
+		state: 	localStorage.getItem("composer-state") ? Raw.deserialize(JSON.parse(localStorage.getItem("composer-state"))) : initialState,
 		schema: stateSchema,
 	}
   onChange = (state) => {
     this.setState({ state })
   }
+	onDocumentChange = (document, state) => {
+		// Save the state to Local Storage.
+		const composerState = JSON.stringify(Raw.serialize(state))
+		localStorage.setItem("composer-state", composerState)
+	}
   /*onKeyDown = (event, data, state) => {  
 
     // Return with no changes if it"s not the "7" key with shift pressed.
@@ -78,11 +83,12 @@ export class ComposerBody extends React.Component {
 	render() {
 		return (
 			<Editor
-				plugins={		plugins }
-				schema={		this.state.schema }
-				state={			this.state.state }
-				onChange={	this.onChange }
-				onKeyDown={	this.onKeyDown }
+				plugins={						plugins }
+				schema={						this.state.schema }
+				state={							this.state.state }
+				onChange={					this.onChange }
+				onDocumentChange={	this.onDocumentChange}
+				onKeyDown={					this.onKeyDown }
 			/>
 		)
 	}
