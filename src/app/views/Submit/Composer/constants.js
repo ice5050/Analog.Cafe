@@ -24,6 +24,10 @@ export const stateSchema = {
 		code: props => <pre {...props.attributes}><code>{props.children}</code></pre>
 	},
 	marks: {
-		bold: props => <strong>{props.children}</strong>
+		bold: props => <strong>{props.children}</strong>,
+		code: props => <code>{props.children}</code>,
+		italic: props => <em>{props.children}</em>,
+		strikethrough: props => <del>{props.children}</del>,
+		underline: props => <u>{props.children}</u>,
 	}
 }

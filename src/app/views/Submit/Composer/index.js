@@ -4,9 +4,27 @@ import PropTypes from "prop-types"
 import { Editor } from "slate"
 import { initialState, stateSchema } from "./constants"
 
+
 // components
 import { Header } from "../../../components/Composer"
 import { Section, Article } from "../../../components/Article"
+
+
+
+
+// plugin components
+import { MarkHotkey } from "./plugins"
+
+const plugins = [
+  MarkHotkey({ key: 'b', type: 'bold' }),
+  MarkHotkey({ key: 'c', type: 'code', isAltKey: true }),
+  MarkHotkey({ key: 'i', type: 'italic' }),
+  MarkHotkey({ key: 'd', type: 'strikethrough' }),
+  MarkHotkey({ key: 'u', type: 'underline' })
+]
+
+
+
 
 
 // render
@@ -39,34 +57,32 @@ export class Composer extends React.Component {
 	
 	
 	
-	onKeyDown = (event, data, state) => {
-    if (!event.metaKey) return
-
+// 	onKeyDown = (event, data, state) => {
+//     if (!event.metaKey) return
+// 
     // Decide what to do based on the key code...
-    switch (event.which) {
-      // When "B" is pressed, add a "bold" mark to the text.
-      case 66: {
-        event.preventDefault()
-        return state
-          .transform()
-          .addMark("bold")
-          .apply()
-      }
-      // When "`" is pressed, keep our existing code block logic.
-      case 67: {
-        if (!event.altKey) return
-        const isCode = state.blocks.some(block => block.type === "code")
-        event.preventDefault()
-        return state
-          .transform()
-          .setBlock(isCode ? "paragraph" : "code")
-          .apply()
-      }
-      default: {}
-    }
-  }
-  
-  
+    // switch (event.which) {
+//       // When "B" is pressed, add a "bold" mark to the text.
+//       case 66: {
+//         event.preventDefault()
+//         return state
+//           .transform()
+//           .addMark("bold")
+//           .apply()
+//       }
+//       // When "`" is pressed, keep our existing code block logic.
+//       case 67: {
+//         if (!event.altKey) return
+//         const isCode = state.blocks.some(block => block.type === "code")
+//         event.preventDefault()
+//         return state
+//           .transform()
+//           .setBlock(isCode ? "paragraph" : "code")
+//           .apply()
+//       }
+//       default: {}
+//     }
+//   }  
   
 	render() {
 		return (
@@ -74,6 +90,7 @@ export class Composer extends React.Component {
 				<Header />
 				<Section>
 					<Editor
+						plugins={plugins}
 						schema={this.state.schema}
 						state={this.state.state}
 						onChange={this.onChange}
