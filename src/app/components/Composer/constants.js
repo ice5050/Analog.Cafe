@@ -80,5 +80,5 @@ export const stateSchema = {
 export const composerInputPlaceholders = {
 	"title": "Write Your Title Here ✍",
 	"subtitle": "Subtitle (Optional)",
-	"body": "<p>🌠 You can drag-and-drop your image(s) here. Please add a caption to each (title, date, place, camera etc.) <strong>Make this a photo essay, image series, article or just a single photo submission.</strong></p>",
+	"body": "<p>Drag and drop your images here. Feel free to caption them with a title, location, time, camera, etc.</p><p><em>You can add more than one image and even write an article or a photo essay!</em></p>",
 }
