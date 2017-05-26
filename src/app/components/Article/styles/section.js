@@ -8,12 +8,13 @@ import { PageSubtitle } from "./header"
 export const PageArticle = styled.article``
 
 const paragraph = css`
-	display: 		inline;
-	&::after, &:first-of-type::before {
-		display: 		block;
-		height: 		${ props => props.theme.size.block.spacing }em;
-		content: 		"";
-	}
+// 	display: 		inline;
+// 	&::after, &:first-of-type::before {
+// 		display: 		block;
+// 		height: 		${ props => props.theme.size.block.spacing }em;
+// 		content: 		"";
+// 	}
+	margin: ${ props => props.theme.size.block.spacing }em 0;
 `
 
 export const PageSection = styled.section`
