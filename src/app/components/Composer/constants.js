@@ -1,65 +1,84 @@
 // tools
 import React from "react"
-import { Raw } from "slate"
+import { Html } from "slate"
 
 // plugins
 import { MarkHotkey } from "./plugins"
+
+// plugins list
+export const plugins = [
+  MarkHotkey({ key: "b", type: "bold" }),
+  MarkHotkey({ key: "i", type: "italic" }),
+]
+
+
+// composer rules
+const BLOCK_TAGS = {
+  p: 						"paragraph",
+  blockquote: 	"quote",
+}
+const MARK_TAGS = {
+  em: 					"italic",
+  strong: 			"bold",
+}
+const rules = [
+  {
+    // Switch deserialize to handle more blocks...
+    deserialize(el, next) {
+      const type = BLOCK_TAGS[el.tagName]
+      if (!type) return
+      return {
+        kind: "block",
+        type: type,
+        nodes: next(el.children)
+      }
+    },
+    // Switch serialize to handle more blocks...
+    serialize(object, children) {
+      if (object.kind !== "block") return
+      switch (object.type) {
+        case "paragraph": return <p>{children}</p>
+        case "quote": 		return <blockquote>{children}</blockquote>
+        default:					return {children}
+      }
+    }
+  },
+  {
+    deserialize(el, next) {
+      const type = MARK_TAGS[el.tagName]
+      if (!type) return
+      return {
+        kind: "mark",
+        type: type,
+        nodes: next(el.children)
+      }
+    },
+    serialize(object, children) {
+      if (object.kind !== "mark") return
+      switch (object.type) {
+        case "bold": 		return <strong>{children}</strong>
+        case "italic": 	return <em>{children}</em>
+        default: 				return {children}
+      }
+    }
+  }
+]
+export const html = new Html({ rules })
+export const stateSchema = {
+	nodes: {
+		paragraph: props => <p {...props.attributes}>{props.children}</p>,
+		quote: props => <blockquote {...props.attributes}>{props.children}</blockquote>,
+	},
+	marks: {
+		bold: props => <strong>{props.children}</strong>,
+		italic: props => <em>{props.children}</em>,
+	}
+}
 
 
 // composer initial state
 export const composerInputPlaceholders = {
 	"title": "Write Your Title Here ✍",
 	"subtitle": "Subtitle (Optional)",
-	"bodyTextRanges": [
-		{
-			kind: "range",
-			text: "🌠 You can drag-and-drop your image(s) here. Please add a caption to each (title, date, place, camera etc.) "
-		},
-		{
-			kind: "range",
-			text: "Make this a photo essay, image series, article or just a single photo submission.",
-			marks: [{
-				kind: "mark",
-				type: "bold"}
-			]
-		}
-	]
+	"body": "<p>🌠 You can drag-and-drop your image(s) here. Please add a caption to each (title, date, place, camera etc.) <strong>Make this a photo essay, image series, article or just a single photo submission.</strong></p>",
 }
-
-export const initialState = Raw.deserialize({
-  nodes: [
-    {
-      kind: "block",
-      type: "paragraph",
-      nodes: [
-        {
-          kind: "text",
-          ranges: composerInputPlaceholders.bodyTextRanges
-        }
-      ]
-    }
-  ]
-}, { terse: true })
-
-// state schema
-export const stateSchema = {
-	nodes: {
-		code: props => <pre {...props.attributes}><code>{props.children}</code></pre>
-	},
-	marks: {
-		bold: props => <strong>{props.children}</strong>,
-		code: props => <code>{props.children}</code>,
-		italic: props => <em>{props.children}</em>,
-		strikethrough: props => <del>{props.children}</del>,
-		underline: props => <u>{props.children}</u>,
-	}
-}
-
-// plugins list
-export const plugins = [
-  MarkHotkey({ key: 'b', type: 'bold' }),
-  MarkHotkey({ key: 'c', type: 'code', isAltKey: true }),
-  MarkHotkey({ key: 'i', type: 'italic' }),
-  MarkHotkey({ key: 'd', type: 'strikethrough' }),
-  MarkHotkey({ key: 'u', type: 'underline' })
-]

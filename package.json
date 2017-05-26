@@ -25,6 +25,7 @@
     "react-router": "3.0.2",
     "react-textarea-autosize": "^5.0.3",
     "sanitize.css": "^5.0.0",
+    "slate": "^0.20.1",
     "styled-components": "^2.0.0",
     "titlecase": "^1.1.2",
     "typeface-exo-2": "0.0.22",
