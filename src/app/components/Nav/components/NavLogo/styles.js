@@ -16,6 +16,7 @@ export const LogoOutline = styled.div`
 	padding: 									${ props => props.theme.size.block.spacing }em;
 	border-radius: 						${ props => props.theme.size.font.make.larger }em;
 	background: 							${ props => Color(props.theme.color.background).alpha(props.theme.opacity.half).string() };
+	box-shadow:								0 0 .5em ${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string() };
 	backdrop-filter: 					blur(5px);
 	-webkit-backdrop-filter: 	blur(5px);
 	
@@ -31,11 +32,10 @@ export const LogoLettering = styled.div`
 	position: 					absolute;
 	transform-origin: 	4.275em 4.225em;
 	transform: 					rotate(0deg);
-	color: 							${ props => props.theme.color.brand };
+	color: 							${ props => props.theme.color.foreground };
 	z-index: 						${ props => props.theme.layer.up };
 	
 	a.active & {
-		color: 						${ props => props.theme.color.foreground };
 		transform: 				rotate(80deg);
 	}
 	
