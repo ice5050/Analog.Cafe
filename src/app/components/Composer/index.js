@@ -9,6 +9,7 @@ import { PageHeader, PageByline } from "../Article/styles/header"
 import { PageTitle, PageSubtitle } from "./styles"
 
 
+
 // return
 export const ComposerHead = props => {
 	return (
@@ -26,10 +27,18 @@ export class ComposerBody extends React.Component {
 		schema: stateSchema
 	}
   onChange = (state) => this.setState({ state })
-	onDocumentChange = (document, state) => {
-		const composerState = html.serialize(state)
-		localStorage.setItem("composer-state", composerState)
-	}
+  onPaste = (e, data, state) => {
+    if (data.type !== "html") return
+    const { document } = html.deserialize(data.html)
+    return state
+      .transform()
+      .insertFragment(document)
+      .apply()
+  }
+// 	onDocumentChange = (document, state) => {
+// 		const composerState = html.serialize(state)
+// 		localStorage.setItem("composer-state", composerState)
+// 	}
 	render() {
 		return (
 			<Editor
@@ -37,6 +46,7 @@ export class ComposerBody extends React.Component {
 				schema={						this.state.schema }
 				state={							this.state.state }
 				onChange={					this.onChange }
+				onPaste={						this.onPaste }
 				onDocumentChange={	this.onDocumentChange}
 				onKeyDown={					this.onKeyDown }
 			/>

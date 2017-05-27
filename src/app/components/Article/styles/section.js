@@ -6,14 +6,13 @@ import { PageSubtitle } from "./header"
 
 // css
 export const PageArticle = styled.article``
-
-const paragraph = css`
 // 	display: 		inline;
 // 	&::after, &:first-of-type::before {
 // 		display: 		block;
 // 		height: 		${ props => props.theme.size.block.spacing }em;
 // 		content: 		"";
 // 	}
+const paragraph = css`
 	margin: ${ props => props.theme.size.block.spacing }em 0;
 `
 

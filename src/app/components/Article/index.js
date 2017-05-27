@@ -38,7 +38,7 @@ export const SectionHeading = props => {
 
 export const Quote = props => {
 	return (
-		<PageQuote cite={ props.cite } textLength={ props.children.toString().length }>
+		<PageQuote {...props} cite={ props.cite } textLength={ props.children.toString().length }>
 			<p>{ props.children }</p>
 			{ props.cite ? <cite>{ props.cite }</cite> : null }
 		</PageQuote>

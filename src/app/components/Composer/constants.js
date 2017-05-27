@@ -1,6 +1,7 @@
 // tools
 import React from "react"
 import { Html } from "slate"
+import { Quote } from "../Article"
 
 // plugins
 import { MarkHotkey } from "./plugins"
@@ -38,7 +39,7 @@ const rules = [
       if (object.kind !== "block") return
       switch (object.type) {
         case "paragraph": return <p>{children}</p>
-        case "quote": 		return <blockquote>{children}</blockquote>
+        case "quote": 		return <Quote>{children}</Quote>
         default:					return {children}
       }
     }
@@ -67,7 +68,7 @@ export const html = new Html({ rules })
 export const stateSchema = {
 	nodes: {
 		paragraph: props => <p {...props.attributes}>{props.children}</p>,
-		quote: props => <blockquote {...props.attributes}>{props.children}</blockquote>,
+		quote: props => <Quote {...props.attributes}>{props.children}</Quote>,
 	},
 	marks: {
 		bold: props => <strong>{props.children}</strong>,
