@@ -35,10 +35,10 @@ export class ComposerBody extends React.Component {
       .insertFragment(document)
       .apply()
   }
-// 	onDocumentChange = (document, state) => {
-// 		const composerState = html.serialize(state)
-// 		localStorage.setItem("composer-state", composerState)
-// 	}
+	onDocumentChange = (document, state) => {
+		const composerState = html.serialize(state)
+		localStorage.setItem("composer-state", composerState)
+	}
 	render() {
 		return (
 			<Editor
