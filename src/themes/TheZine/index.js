@@ -11,6 +11,7 @@ import { def } from "./theme"
 import { loadFonts } from "./fonts"
 
 const ThemeGlobals = styled.div`
+	color: ${ def.color.foreground };
 	a {
 		color: inherit;
 		&:active {

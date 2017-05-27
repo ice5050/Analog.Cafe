@@ -14,7 +14,7 @@ const input = css`
 `
 export const PageTitle = styled(InputTitle)`
 	${ props => props.theme.typography.title.auto }
-	font-size: ${ props => props.theme.size.font.make.larger }em;
+	font-size: 	${ props => props.theme.size.font.make.larger }em;
 	${ input }
 `
 export const PageSubtitle = styled(InputTitle)`

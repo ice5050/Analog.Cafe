@@ -35,8 +35,8 @@ export const PageSection = styled.section`
 	p		{ ${ paragraph } }
 	ul 	{
 		margin: 		0 ${ props => props.theme.size.block.column.safety }em 0;
-		${ props => props.theme.size.breakpoint.max.s`
-			margin:		0;
+		${ props => props.theme.size.breakpoint.max.xs`
+			margin:		0 !important;
 		` }
 		li 	{
 			line-height:		${ props => props.theme.size.block.column.safety }em;
