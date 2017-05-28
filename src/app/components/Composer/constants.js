@@ -3,13 +3,25 @@ import React from "react"
 import { Html } from "slate"
 
 // plugins
-import { MarkHotkey, BlockEscape } from "./plugins"
+import { MarkHotkey } from "./plugins"
+import AutoReplace from "slate-auto-replace"
+import EditBlockquote from "slate-edit-blockquote"
 
 // plugins list
 export const plugins = [
   MarkHotkey({ 	key: "b", 			type: "bold" }),
   MarkHotkey({ 	key: "i", 			type: "italic" }),
-  BlockEscape({ key: "Enter",		block: "quote" }),
+	EditBlockquote({
+		type: 				"quote",
+		typeDefault: 	"paragraph",
+	}),
+  AutoReplace({
+    trigger: 		"space",
+    before: 		/^(>)$/,
+    transform: 	(transform, e, data, matches) => {
+      return transform.setBlock({ type: 'quote' })
+    }
+  })
 ]
 
 

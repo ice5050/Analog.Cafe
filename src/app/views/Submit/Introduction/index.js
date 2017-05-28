@@ -46,7 +46,6 @@ export const Introduction = props => {
 				
 				<blockquote className="columns">
 					<span className="first-letter">T</span>he <strong>collaborative publication platform</strong> for the film photography community. Anyone can submit images, photo essays and articles through the beautiful, easy to use web app. No more complicated, ugly forms.
-					<cite>Analog.Cafe</cite>
 				</blockquote>
 
 				
