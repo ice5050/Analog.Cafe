@@ -1,5 +1,7 @@
 // styles
 import { css } from "styled-components"
+import Color from "color"
+
 
 // css
 const base = css`
@@ -32,6 +34,9 @@ const content = css`
 			`
 		}
 	}
+	&.focus {
+		background:		${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least / 4).string() };
+	}
 	p { margin: 0 }
 `
 const marks = css`
@@ -56,9 +61,6 @@ const marks = css`
   &.focus::before {
   	content:		"Edit Quote:";
   	font-size: 	${ props => props.theme.size.font.make.larger }em;
-  }
-  &.focus::after {
-  	content:		"";
   }
 `
 export const Quote = css`

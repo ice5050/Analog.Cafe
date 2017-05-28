@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import { Editor, Html } from "slate"
 
 import { plugins } from "./plugins"
-import { schema } from "./schema"
+import { schema, defaultBlock } from "./schema"
 
 // styles
 import { PageHeader, PageByline } from "../Article/styles/header"
