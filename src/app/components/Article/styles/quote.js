@@ -27,7 +27,14 @@ const content = css`
 		::selection {
 			background: ${ props => props.theme.color.highlight };
 		}
-	}		
+	}
+	&.columns {
+		${	props => props.theme.size.breakpoint.min.l`
+				column-count: 2;
+				column-gap: ${ props => props.theme.size.block.column.safety * 2 }em;
+			`
+		}
+	}
 `
 const cite = css`
 	font-size: 			${ props => props.theme.size.font.make.smaller }em;

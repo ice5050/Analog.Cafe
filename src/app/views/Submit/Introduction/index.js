@@ -44,8 +44,8 @@ export const Introduction = props => {
 					<li><strong>Beyond the grain</strong> &mdash; Analog.Cafe focuses on film photography as creative medium. &ldquo;Beyond the grain&rdquo; is <em>everything but film photography</em> that&rsquo;s related to art, creativity or something the editor may find fitting here.</li>
 				</ul>
 				
-				<blockquote>
-					The <strong>collaborative publication platform</strong> for the film photography community. Anyone can submit images, photo essays and articles through the beautiful, easy to use web app. No more complicated, ugly forms.
+				<blockquote className="columns">
+					<span className="first-letter">T</span>he <strong>collaborative publication platform</strong> for the film photography community. Anyone can submit images, photo essays and articles through the beautiful, easy to use web app. No more complicated, ugly forms.
 					<cite>Analog.Cafe</cite>
 				</blockquote>
 

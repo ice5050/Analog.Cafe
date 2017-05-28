@@ -22,40 +22,12 @@ export const Header = props => {
 export const Article = props => {
 	return <PageArticle>{ props.children }</PageArticle>
 }
-// export class Article extends React.Component {
-//   onChange = () => {
-//   	console.log("article change")
-//   }
-// 	render() {
-// 		return (
-// 			<PageArticle onChange={ this.onChange }>{ this.props.children }</PageArticle>
-// 		)
-// 	}
-// }
-
-
-
-
 export const Section = props => {
 	return <PageSection>{ props.children }</PageSection>
 }
 
 
-// ${ props => props.textLength > 150 ? css`
-// ${	props => props.theme.size.breakpoint.min.l`
-// 		column-count: 2;
-// 		column-gap: ${ props => props.theme.size.block.column.safety * 2 }em;
-// ` }` : null }
 
-
-// export const Quote = props => {
-// 	return (
-// 		<PageQuote {...props} cite={ props.cite } textLength={ props.children.toString().length }>
-// 			<p>{ props.children }</p>
-// 			{ props.cite ? <cite>{ props.cite }</cite> : null }
-// 		</PageQuote>
-// 	)
-// }
 
 
 //vvv needs restyling

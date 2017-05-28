@@ -2,8 +2,8 @@
 
 // components
 import { PluginMarkHotkey } from "./mark-hotkey"
-import { PluginFormatQuote } from	"./format-quote"
+import { PluginBlockEscape } from	"./block-escape"
 
 // return
 export const MarkHotkey = PluginMarkHotkey
-export const FormatQuote = PluginFormatQuote
+export const BlockEscape = PluginBlockEscape

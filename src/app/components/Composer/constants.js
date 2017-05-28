@@ -3,13 +3,13 @@ import React from "react"
 import { Html } from "slate"
 
 // plugins
-import { MarkHotkey, FormatQuote } from "./plugins"
+import { MarkHotkey, BlockEscape } from "./plugins"
 
 // plugins list
 export const plugins = [
   MarkHotkey({ 	key: "b", 			type: "bold" }),
   MarkHotkey({ 	key: "i", 			type: "italic" }),
-  FormatQuote({ key: "Enter",		block: "quote" }),
+  BlockEscape({ key: "Enter",		block: "quote" }),
 ]
 
 
