@@ -3,7 +3,7 @@ import keycode from "keycode"
 
 // return
 // *first plugin* (hotkeys)
-export function PluginMarkHotkey(options) {
+export function MarkHotkey(options) {
   const { type, key } = options
 
   // Return our "plugin" object, containing the `onKeyDown` handler.
