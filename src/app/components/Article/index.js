@@ -1,12 +1,12 @@
 // tools
 import React from "react"
+import PropTypes from "prop-types"
 import toTitleCase from "titlecase"
 
 
 // styles
 import { PageHeader, PageTitle, PageSubtitle, PageByline, PageTools } from "./styles/header"
-import { PageArticle, PageSection, PageBreak, PageHeading } from "./styles/section"
-import { PageQuote } from "./styles/quote"
+import { PageArticle, PageSection, SectionBreak } from "./styles/section"
 
 // return
 export const Header = props => {
@@ -22,45 +22,20 @@ export const Header = props => {
 export const Article = props => {
 	return <PageArticle>{ props.children }</PageArticle>
 }
-
 export const Section = props => {
 	return <PageSection>{ props.children }</PageSection>
-}
-export const SectionDivider = props => {
-	return <PageBreak>✽ ✽ ✽</PageBreak>
-}
-export const SectionHeading = props => {
-	return <PageHeading>{ props.children }</PageHeading>
-}
-
-
-
-export const Quote = props => {
-	return (
-		<PageQuote cite={ props.cite } textLength={ props.children.toString().length }>
-			<p>{ props.children }</p>
-			{ props.cite ? <cite>{ props.cite }</cite> : null }
-		</PageQuote>
-	)
 }
 
 // declare
 Header.propTypes = {
-	pageTitle: 		React.PropTypes.string.isRequired,
-	pageSubtitle: React.PropTypes.string,
-	pageByline: 	React.PropTypes.string,
-	children: 		React.PropTypes.element,
-}
-SectionHeading.propTypes = {
-	children: 		React.PropTypes.any.isRequired,
+	pageTitle: 		PropTypes.string.isRequired,
+	pageSubtitle: PropTypes.string,
+	pageByline: 	PropTypes.string,
+	children: 		PropTypes.element,
 }
 Section.propTypes = {
-	children: 		React.PropTypes.any.isRequired,
+	children: 		PropTypes.any.isRequired,
 }
 Article.propTypes = {
-	children: 		React.PropTypes.any.isRequired,
-}
-Quote.propTypes = {
-	children: 		React.PropTypes.any.isRequired,
-	pageSubtitle: React.PropTypes.string,
+	children: 		PropTypes.any.isRequired,
 }

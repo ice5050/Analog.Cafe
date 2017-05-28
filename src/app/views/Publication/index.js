@@ -1,5 +1,6 @@
 // tools
 import React from "react"
+import PropTypes from "prop-types"
 
 // components
 import { Nav } from "../../components/Nav"
@@ -18,6 +19,6 @@ export class Publication extends React.Component {
 
 // declare
 Publication.propTypes = {
-	children: React.PropTypes.element.isRequired,
-	pathname: React.PropTypes.string,
+	children: PropTypes.element.isRequired,
+	pathname: PropTypes.string,
 }

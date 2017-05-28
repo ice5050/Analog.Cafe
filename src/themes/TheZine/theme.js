@@ -1,9 +1,9 @@
 // style
 import { css } from "styled-components"
-import { exact, min, max, breakpoints } from "./media"
+import { exact, min, max, breakpoints } from "./helpers/breakpoint-generator"
 
-// theme css defaults
-export const def = {
+// theme css schema
+export const TheZineTheme = {
 	color: {
   	brand: 				"#ed236e",
 		foreground:		"#2c2c2c",
@@ -30,7 +30,7 @@ export const def = {
 				font-weight: 			700;
 				margin: 0;
 			
-				.fonts-loaded & {
+				.fonts-loaded-headers && {
 					font-family: 			"Exo 2", Arial sans-serif;
 					letter-spacing: 	0.025em;
 					line-height: 			1.15em;
@@ -73,10 +73,10 @@ export const def = {
 			},
 			// automatically set font size based on screen size; should be at the top of most components' css
 			auto: css`
-					${ min.m`font-size: 	${ () => def.size.font.m 	}px;` }
-					${ max.s`font-size: 	${ () => def.size.font.s 	}px;` }
-					${ max.xs`font-size: 	${ () => def.size.font.xs }px;` }
-					${ min.xxl`font-size:	${ () => def.size.font.l 	}px;` }
+					${ min.m`font-size: 	${ () => TheZineTheme.size.font.m 	}px;` }
+					${ max.s`font-size: 	${ () => TheZineTheme.size.font.s 	}px;` }
+					${ max.xs`font-size: 	${ () => TheZineTheme.size.font.xs }px;` }
+					${ min.xxl`font-size:	${ () => TheZineTheme.size.font.l 	}px;` }
 				`
 		},
 		block: {
@@ -98,6 +98,6 @@ export const def = {
 		tuck:				-1
 	},
 	elements: {
-		thickBorder: () => "8px solid " + def.color.foreground,
+		thickBorder: () => "8px solid " + TheZineTheme.color.foreground,
 	}
 }

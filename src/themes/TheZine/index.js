@@ -1,27 +1,15 @@
 // tools
 import React from "react"
+import PropTypes from "prop-types"
 
 // styles
-import styled, { ThemeProvider } from "styled-components"
+import { ThemeProvider } from "styled-components"
+import { ThemeGlobals } from "./styles"
 import "sanitize.css/sanitize.css"
 
 // theme
-import { def } from "./theme"
-import { loadFonts } from "./fonts"
-
-const ThemeGlobals = styled.div`
-	a {
-		color: inherit;
-		&:active {
-			background: 	${ def.color.highlight };
-			color: 				${ def.color.foreground };
-		}
-	}
-	*::selection {
-		background: ${ def.color.highlight };
-	}
-	a, button, textarea { -webkit-tap-highlight-color: rgba(0,0,0,0); }
-`
+import { TheZineTheme } from "./theme"
+import { loadFonts } from "./helpers/font-loader"
 
 // fonts
 loadFonts()
@@ -29,7 +17,7 @@ loadFonts()
 // render
 export const TheZine = (props) => {
 	return (
-			<ThemeProvider theme={ def } >
+			<ThemeProvider theme={ TheZineTheme } >
 				<ThemeGlobals>{ props.children }</ThemeGlobals>
 			</ThemeProvider>
 	)
@@ -37,5 +25,5 @@ export const TheZine = (props) => {
 
 // declare
 TheZine.propTypes = {
-	children: React.PropTypes.element.isRequired,
+	children: PropTypes.array.isRequired,
 }
