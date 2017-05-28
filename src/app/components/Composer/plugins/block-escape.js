@@ -27,10 +27,7 @@ export function PluginBlockEscape(options) {
 				.apply()
 		}
 	}
-}
-
-{
-  	
+}  	
 		
 		
 		
