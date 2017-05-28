@@ -25,15 +25,14 @@ const StyledLink = styled(Link)`
 	background: 			${ props => props.theme.color.background }; 
 	text-decoration: 	none;
 	position: 				relative;
-	
 	&.active::before {
-		content: "";
-		width: 110%;
-		left: -5%;
-		height: 2px;
-		bottom: -5px;
-		background: ${ props => props.theme.color.foreground };
-		position: absolute;
+		content: 			"";
+		width: 				110%;
+		left: 				-5%;
+		height: 			2px;
+		bottom: 			-5px;
+		background: 	${ props => props.theme.color.foreground };
+		position: 		absolute;
 	}
 `
 export const NavLink = props => {

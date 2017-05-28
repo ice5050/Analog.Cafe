@@ -1,6 +1,8 @@
 // tools
 import React from "react"
+import PropTypes from "prop-types"
 import Helmet from "react-helmet"
+
 
 // components
 import { Nav } from "../../components/Nav"
@@ -10,7 +12,7 @@ export class Submit extends React.Component {
 	render(){
 		return (
 			<div>
-				<Helmet title="Submit your shit" />
+				<Helmet title="Submit for Review" />
 				<Nav />
 				{ this.props.children }
 			</div>
@@ -20,6 +22,6 @@ export class Submit extends React.Component {
 
 // declare
 Submit.propTypes = {
-	children: React.PropTypes.element.isRequired,
-	pathname: React.PropTypes.string,
+	children: PropTypes.element.isRequired,
+	pathname: PropTypes.string,
 }
