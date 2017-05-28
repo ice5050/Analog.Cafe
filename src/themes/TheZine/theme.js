@@ -30,7 +30,7 @@ export const def = {
 				font-weight: 			700;
 				margin: 0;
 			
-				.fonts-loaded & {
+				.fonts-loaded-headers && {
 					font-family: 			"Exo 2", Arial sans-serif;
 					letter-spacing: 	0.025em;
 					line-height: 			1.15em;

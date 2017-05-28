@@ -1,13 +1,29 @@
 // styles
 import styled, { css } from "styled-components"
 import Color from "color"
-import { PageSubtitle } from "./header"
+import { Quote } from "./quote"
 
 
 // css
-export const PageArticle = styled.article``
+const heading = css`
+	${ props => props.theme.typography.title.auto }
+	font-size: ${ props => props.theme.size.font.make.larger / 1.5 }em;
+	padding-top: 1em;
+`
 const paragraph = css`
 	margin: ${ props => props.theme.size.block.spacing }em 0;
+`
+const sectionBreak = css`
+	text-align: 	center;
+	padding:			${ props => props.theme.size.block.column.safety }em 0 ${ props => props.theme.size.block.spacing * 2 }em;
+	color:				${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.half).string() };
+	border:				0;
+	margin:				0;
+	&:before {
+		content: 			"✽ ✽ ✽";
+		line-height: 	1em;
+		display: 			block;
+	}
 `
 
 export const PageSection = styled.section`
@@ -36,15 +52,9 @@ export const PageSection = styled.section`
 			padding-bottom:	${ props => props.theme.size.block.spacing }em;
 		}
 	}
+	
+	blockquote 	{ ${ Quote } }
+	h2, h3, h4 	{ ${ heading } }
+	hr 					{ ${ sectionBreak } }
 `
-
-export const PageHeading = styled(PageSubtitle)`
-	font-size: ${ props => props.theme.size.font.make.larger / 1.5 }em;
-	padding-top: 1em;
-`
-
-export const PageBreak = styled.div`
-	text-align: center;
-	padding:		${ props => props.theme.size.block.column.safety }em 0 ${ props => props.theme.size.block.spacing * 2 }em;
-	color:			${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.half).string() }
-`
+export const PageArticle = styled.article``

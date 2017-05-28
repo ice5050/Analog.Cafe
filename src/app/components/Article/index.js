@@ -6,8 +6,7 @@ import toTitleCase from "titlecase"
 
 // styles
 import { PageHeader, PageTitle, PageSubtitle, PageByline, PageTools } from "./styles/header"
-import { PageArticle, PageSection, PageBreak, PageHeading } from "./styles/section"
-import { PageQuote } from "./styles/quote"
+import { PageArticle, PageSection } from "./styles/section"
 
 // return
 export const Header = props => {
@@ -23,27 +22,47 @@ export const Header = props => {
 export const Article = props => {
 	return <PageArticle>{ props.children }</PageArticle>
 }
+// export class Article extends React.Component {
+//   onChange = () => {
+//   	console.log("article change")
+//   }
+// 	render() {
+// 		return (
+// 			<PageArticle onChange={ this.onChange }>{ this.props.children }</PageArticle>
+// 		)
+// 	}
+// }
+
+
+
 
 export const Section = props => {
 	return <PageSection>{ props.children }</PageSection>
 }
-export const SectionDivider = props => {
-	return <PageBreak>✽ ✽ ✽</PageBreak>
-}
-export const SectionHeading = props => {
-	return <PageHeading>{ props.children }</PageHeading>
-}
 
 
+// ${ props => props.textLength > 150 ? css`
+// ${	props => props.theme.size.breakpoint.min.l`
+// 		column-count: 2;
+// 		column-gap: ${ props => props.theme.size.block.column.safety * 2 }em;
+// ` }` : null }
 
-export const Quote = props => {
-	return (
-		<PageQuote {...props} cite={ props.cite } textLength={ props.children.toString().length }>
-			<p>{ props.children }</p>
-			{ props.cite ? <cite>{ props.cite }</cite> : null }
-		</PageQuote>
-	)
-}
+
+// export const Quote = props => {
+// 	return (
+// 		<PageQuote {...props} cite={ props.cite } textLength={ props.children.toString().length }>
+// 			<p>{ props.children }</p>
+// 			{ props.cite ? <cite>{ props.cite }</cite> : null }
+// 		</PageQuote>
+// 	)
+// }
+
+
+//vvv needs restyling
+// export const SectionDivider = props => {
+// 	return <PageBreak>✽ ✽ ✽</PageBreak>
+// }
+
 
 // declare
 Header.propTypes = {
@@ -52,16 +71,9 @@ Header.propTypes = {
 	pageByline: 	PropTypes.string,
 	children: 		PropTypes.element,
 }
-SectionHeading.propTypes = {
-	children: 		PropTypes.any.isRequired,
-}
 Section.propTypes = {
 	children: 		PropTypes.any.isRequired,
 }
 Article.propTypes = {
 	children: 		PropTypes.any.isRequired,
-}
-Quote.propTypes = {
-	children: 		PropTypes.any.isRequired,
-	pageSubtitle: PropTypes.string,
 }

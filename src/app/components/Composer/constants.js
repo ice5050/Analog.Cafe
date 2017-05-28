@@ -1,15 +1,15 @@
 // tools
 import React from "react"
 import { Html } from "slate"
-import { Quote } from "../Article"
 
 // plugins
-import { MarkHotkey } from "./plugins"
+import { MarkHotkey, FormatQuote } from "./plugins"
 
 // plugins list
 export const plugins = [
-  MarkHotkey({ key: "b", type: "bold" }),
-  MarkHotkey({ key: "i", type: "italic" }),
+  MarkHotkey({ 	key: "b", 			type: "bold" }),
+  MarkHotkey({ 	key: "i", 			type: "italic" }),
+  FormatQuote({ key: "Enter",		block: "quote" }),
 ]
 
 
@@ -39,7 +39,7 @@ const rules = [
       if (object.kind !== "block") return
       switch (object.type) {
         case "paragraph": return <p>{children}</p>
-        case "quote": 		return <Quote>{children}</Quote>
+        case "quote": 		return <blockquote>{children}</blockquote>
         default:					return {children}
       }
     }
@@ -67,12 +67,12 @@ const rules = [
 export const html = new Html({ rules })
 export const stateSchema = {
 	nodes: {
-		paragraph: props => <p {...props.attributes}>{props.children}</p>,
-		quote: props => <Quote {...props.attributes}>{props.children}</Quote>,
+		paragraph: 		props => <p {...props.attributes}>{props.children}</p>,
+		quote: 				props => <blockquote {...props.attributes}>{props.children}</blockquote>,
 	},
 	marks: {
-		bold: props => <strong>{props.children}</strong>,
-		italic: props => <em>{props.children}</em>,
+		bold: 			props => <strong>{props.children}</strong>,
+		italic: 		props => <em>{props.children}</em>,
 	}
 }
 
