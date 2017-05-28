@@ -29,6 +29,43 @@ export function PluginBlockEscape(options) {
 	}
 }
 
+{
+  	
+		
+		
+		
+			
+// 		const { document } = state
+// 
+// 		const getTopMostParent = (document, node) => {
+// 			if (document.getParent(node.key).kind === "document") {
+// 				return node
+// 			} else {
+// 				return getTopMostParent(document, document.getParent(node.key))
+// 			}
+// 		}
+// 		let selected = getTopMostParent(document, state.focusBlock)
+// 		
+// 		if(selected.type === "quote"){console.log(selected.type)
+// 			return state
+// 				.transform()
+// 				.setNodeByKey(selected.key, {data:{ className: "focus" }})
+// 				.setBlock({data:{ className: "focus" }})
+// 		    .apply()
+// 		} 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
 // export function PluginFormatQuote() {
 // 	return {
 // 		onChange(state) {

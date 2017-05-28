@@ -26,7 +26,7 @@ export class ComposerBody extends React.Component {
 		state: html.deserialize(localStorage.getItem("composer-state") || composerInputPlaceholders.body),
 		schema: stateSchema
 	}
-  onChange = (state) => this.setState({ state })
+  onChange = state => this.setState({ state })
   onPaste = (e, data, state) => {
     if (data.type !== "html") return
     const { document } = html.deserialize(data.html)

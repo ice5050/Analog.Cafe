@@ -79,8 +79,17 @@ const rules = [
 export const html = new Html({ rules })
 export const stateSchema = {
 	nodes: {
-		paragraph: 		props => <p {...props.attributes}>{props.children}</p>,
-		quote: 				props => <blockquote {...props.attributes}>{props.children}</blockquote>,
+		paragraph: 		props => <p>{props.children}</p>,
+		quote: 				(props) => {
+										const { node, state } = props
+										const focus = state.isFocused && state.selection.hasEdgeIn(node)
+										const className = focus ? "focus" : "nofocus"
+										return <blockquote {...props.attributes} className={className}>{props.children}</blockquote>
+									},
+    
+    
+    
+    
 	},
 	marks: {
 		bold: 			props => <strong>{props.children}</strong>,
