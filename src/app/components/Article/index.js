@@ -6,7 +6,7 @@ import toTitleCase from "titlecase"
 
 // styles
 import { PageHeader, PageTitle, PageSubtitle, PageByline, PageTools } from "./styles/header"
-import { PageArticle, PageSection } from "./styles/section"
+import { PageArticle, PageSection, SectionBreak } from "./styles/section"
 
 // return
 export const Header = props => {
@@ -25,16 +25,6 @@ export const Article = props => {
 export const Section = props => {
 	return <PageSection>{ props.children }</PageSection>
 }
-
-
-
-
-
-//vvv needs restyling
-// export const SectionDivider = props => {
-// 	return <PageBreak>✽ ✽ ✽</PageBreak>
-// }
-
 
 // declare
 Header.propTypes = {

@@ -9,6 +9,7 @@ import { Figure } from "../Pictures"
 const BLOCK_TAGS = {
   p: 						"paragraph",
   blockquote: 	"quote",
+  hr:						"divider",
 }
 const MARK_TAGS = {
   em: 					"italic",
@@ -19,6 +20,7 @@ const MARK_TAGS = {
 export const schema = {
 	nodes: {
 		paragraph: 		props => <p>{props.children}</p>,
+		divider:			props => <hr />,
 		quote: 				props => {
 										const { node, state } = props
 										const focus = state.isFocused && state.selection.hasEdgeIn(node)
@@ -51,6 +53,7 @@ export const schema = {
 				switch (object.type) {
 					case BLOCK_TAGS.p: 						return <p>{children}</p>
 					case BLOCK_TAGS.blockquote: 	return <blockquote>{children}</blockquote>
+					case BLOCK_TAGS.hr:						return <hr />
 					default:											return {children}
 				}
 			}
@@ -78,7 +81,7 @@ export const schema = {
 		// Rule to insert a paragraph below a void node (the image) if that node is the last one in the document.
     {
       match: (node) => {
-        return node.kind == "document"
+        return node.kind === "document"
       },
       validate: (document) => {
         const lastNode = document.nodes.last()

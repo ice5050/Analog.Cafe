@@ -15,7 +15,7 @@ export const plugins = [
     trigger: 		"space",
     before: 		/^(>)$/,
     transform: 	(transform, e, data, matches) => {
-      return transform.setBlock({ type: 'quote' })
+      return transform.setBlock({ type: "quote" })
     }
   })
 ]
