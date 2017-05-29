@@ -1,6 +1,8 @@
 // tools
 import React from "react"
 import { Block } from "slate"
+import toTitleCase from "titlecase"
+
 
 // components
 import { Figure } from "../Pictures"
@@ -10,6 +12,10 @@ const BLOCK_TAGS = {
   p: 						"paragraph",
   blockquote: 	"quote",
   hr:						"divider",
+  h1:						"heading",
+  h2:						"heading",
+  h3:						"heading",
+  h4:						"heading",
 }
 const MARK_TAGS = {
   em: 					"italic",
@@ -20,7 +26,14 @@ const MARK_TAGS = {
 export const schema = {
 	nodes: {
 		paragraph: 		props => <p>{props.children}</p>,
-		divider:			props => <hr />,
+		heading:			props => <h3>{props.children}</h3>,
+		},
+		divider:			props => {
+										const { node, state } = props
+										const focus = state.isFocused && state.selection.hasEdgeIn(node)
+										const className = focus ? "focus" : "nofocus"
+										return <hr className={className} />
+		},
 		quote: 				props => {
 										const { node, state } = props
 										const focus = state.isFocused && state.selection.hasEdgeIn(node)
@@ -43,15 +56,17 @@ export const schema = {
 				const type = BLOCK_TAGS[el.tagName]
 				if (!type) return
 				return {
-					kind: "block",
-					type: type,
-					nodes: next(el.children)
+					kind: 		"block",
+					type: 		type,
+					nodes: 		next(el.children),
+					isVoid:		type === "divider" ? true : false
 				}
 			},
 			serialize(object, children) {
 				if (object.kind !== "block") return
 				switch (object.type) {
 					case BLOCK_TAGS.p: 						return <p>{children}</p>
+					case BLOCK_TAGS.h3: 					return <h3>{children}</h3>
 					case BLOCK_TAGS.blockquote: 	return <blockquote>{children}</blockquote>
 					case BLOCK_TAGS.hr:						return <hr />
 					default:											return {children}
@@ -91,7 +106,7 @@ export const schema = {
         const block = Block.create(defaultBlock)
         transform.insertNodeByKey(document.key, document.nodes.size, block)
       }
-    }
+    },
     //
     
 	],
