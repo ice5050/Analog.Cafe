@@ -2,7 +2,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Editor, Html } from "slate"
-import isUrl from "is-url"
 
 import { plugins } from "./plugins"
 import { schema } from "./schema"
@@ -44,46 +43,7 @@ export class ComposerBody extends React.Component {
       .insertFragment(document)
       .apply()
   }
-  
-  
-  
-  
-  
-  
-  
-  hasLinks = () => {
-    const { state } = this.state
-    return state.inlines.some(inline => inline.type == "link")
-  }
-  onPaste = (e, data, state) => {
-    if (state.isCollapsed) return
-    if (data.type != "text" && data.type != "html") return
-    if (!isUrl(data.text)) return
-
-    const transform = state.transform()
-
-    if (this.hasLinks()) {
-      transform.unwrapInline("link")
-    }
-
-    return transform
-      .wrapInline({
-        type: "link",
-        data: {
-          href: data.text
-        }
-      })
-      .collapseToEnd()
-      .apply()
-  }
-  
-  
-  
-  
-  
-  
-  
-	onDocumentChange = (document, state) => {
+  onDocumentChange = (document, state) => {
 		const composerState = html.serialize(state)
 		localStorage.setItem("composer-state", composerState)
 	}
