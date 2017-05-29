@@ -25,7 +25,7 @@ export const plugins = [
   }),
   AutoReplace({
     trigger: 		"space",
-    before: 		/^(\#)$/,
+    before: 		/^(#)$/,
     transform: 	(transform, e, data, matches) => {
       return transform.setBlock({ type: "heading" })
     }

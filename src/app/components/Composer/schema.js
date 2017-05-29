@@ -1,7 +1,6 @@
 // tools
 import React from "react"
 import { Block } from "slate"
-import toTitleCase from "titlecase"
 
 
 // components
@@ -27,7 +26,6 @@ export const schema = {
 	nodes: {
 		paragraph: 		props => <p>{props.children}</p>,
 		heading:			props => <h3>{props.children}</h3>,
-		},
 		divider:			props => {
 										const { node, state } = props
 										const focus = state.isFocused && state.selection.hasEdgeIn(node)
