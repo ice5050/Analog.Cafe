@@ -15,6 +15,7 @@ const BLOCK_TAGS = {
   h2:						"heading",
   h3:						"heading",
   h4:						"heading",
+  a:						"link",
 }
 const MARK_TAGS = {
   em: 					"italic",
@@ -47,6 +48,11 @@ export const schema = {
 											<Figure src={src} className={className} {...props.attributes} >Image caption</Figure>
 										)
     },
+    link: 				props => {
+										const { data } = props.node
+										const href = data.get("href")
+										return <a {...props.attributes} href={href}>{props.children}</a>
+    },
 	},
 	rules: [
 		{
@@ -54,19 +60,23 @@ export const schema = {
 				const type = BLOCK_TAGS[el.tagName]
 				if (!type) return
 				return {
-					kind: 		"block",
+					kind: 		type !== BLOCK_TAGS.a ? "block" : "inline",
+					data: 		type === BLOCK_TAGS.a ? { href: el.attribs.href } : {},
 					type: 		type,
 					nodes: 		next(el.children),
-					isVoid:		type === "divider" ? true : false
+					isVoid:		type === BLOCK_TAGS.hr ? true : false
 				}
 			},
 			serialize(object, children) {
-				if (object.kind !== "block") return
+				if (object.kind !== "block" && object.kind !== "inline") return
 				switch (object.type) {
 					case BLOCK_TAGS.p: 						return <p>{children}</p>
 					case BLOCK_TAGS.h3: 					return <h3>{children}</h3>
 					case BLOCK_TAGS.blockquote: 	return <blockquote>{children}</blockquote>
 					case BLOCK_TAGS.hr:						return <hr />
+					case BLOCK_TAGS.a:						return <a
+																									href={object.data.get("href")}
+																									data-key={object.data.get("key")}>{children}</a>
 					default:											return {children}
 				}
 			}
