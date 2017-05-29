@@ -2,7 +2,7 @@
 import isUrl from "is-url"
 
 // return
-export function Linkify() {
+export function Linkify(options) {
   return {
   	onPaste(event, data, state){
 			if (state.isCollapsed) return

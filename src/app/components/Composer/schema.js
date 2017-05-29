@@ -1,6 +1,6 @@
 // tools
 import React from "react"
-import { Block } from "slate"
+import { Block, Html } from "slate"
 
 
 // components
@@ -128,3 +128,5 @@ export const defaultBlock = {
   isVoid: false,
   data: {}
 }
+const rules = schema.rules
+export const html = new Html({ rules })

@@ -1,10 +1,10 @@
 // tools
 import React from "react"
 import PropTypes from "prop-types"
-import { Editor, Html } from "slate"
+import { Editor } from "slate"
 
 import { plugins } from "./plugins"
-import { schema } from "./schema"
+import { schema, html } from "./schema"
 
 // styles
 import { PageHeader, PageByline } from "../Article/styles/header"
@@ -12,10 +12,6 @@ import { PageTitle, PageSubtitle } from "./styles"
 
 // state
 import initialState from "./state.json"
-
-// constants
-const rules = schema.rules
-const html = new Html({ rules })
 
 
 
@@ -35,18 +31,6 @@ export class ComposerBody extends React.Component {
 		schema
 	}
   onChange = state => this.setState({ state })
-  onPaste = (e, data, state) => {
-    if (data.type !== "html") return
-    const { document } = html.deserialize(data.html)
-    return state
-      .transform()
-      .insertFragment(document)
-      .apply()
-  }
-  onDocumentChange = (document, state) => {
-		const composerState = html.serialize(state)
-		localStorage.setItem("composer-state", composerState)
-	}
 	render() {
 		return (
 			<Editor
@@ -55,7 +39,7 @@ export class ComposerBody extends React.Component {
 				state={							this.state.state }
 				onChange={					this.onChange }
 				onPaste={						this.onPaste }
-				onDocumentChange={	this.onDocumentChange}
+				onDocumentChange={	this.onDocumentChange }
 				onKeyDown={					this.onKeyDown }
 			/>
 		)
@@ -68,6 +52,7 @@ Editor.propTypes = {
 	schema:						PropTypes.object,
 	state: 						PropTypes.object,
 	onChange:					PropTypes.func,
+	onPaste:					PropTypes.func,
 	onDocumentChange:	PropTypes.func,
 	onKeyDown:				PropTypes.func,
 }

@@ -1,13 +1,20 @@
+// tools
+import { html } from "../schema.js"
+
 // components
 import { MarkHotkey } from "./mark-hotkey"
 import { Linkify } from "./linkify"
+import { Paste } from "./paste-html"
+import { Save } from "./save"
 import AutoReplace from "slate-auto-replace"
 import EditBlockquote from "slate-edit-blockquote"
 
 // export
 export const plugins = [
-	// tools to insert links into text
-	Linkify,
+	// tools
+	Linkify({}),
+	Paste({ html }),
+	Save({ html }),
 	// hot keys
   MarkHotkey({ 	key: "b", 			type: "bold" }),
   MarkHotkey({ 	key: "i", 			type: "italic" }),
