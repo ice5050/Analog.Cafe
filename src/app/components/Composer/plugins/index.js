@@ -17,5 +17,12 @@ export const plugins = [
     transform: 	(transform, e, data, matches) => {
       return transform.setBlock({ type: "quote" })
     }
+  }),
+  AutoReplace({
+    trigger: 		"enter",
+    before: 		/^(\*\*\*)$/,
+    transform: 	(transform, e, data, matches) => {
+      return transform.setBlock({ type: "divider" })
+    }
   })
 ]
