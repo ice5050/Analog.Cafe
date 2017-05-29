@@ -8,7 +8,7 @@ export const plugins = [
 	// hot keys
   MarkHotkey({ 	key: "b", 			type: "bold" }),
   MarkHotkey({ 	key: "i", 			type: "italic" }),
-  // convert markers to html
+  // markdown shortcuts
   AutoReplace({
     trigger: 		"space",
     before: 		/^(>)$/,
@@ -20,14 +20,27 @@ export const plugins = [
     trigger: 		"enter",
     before: 		/^(\*\*\*)$/,
     transform: 	(transform, e, data, matches) => {
-      return transform.setBlock({ type: "divider" })
+      return transform
+      	.setBlock({ type: "divider", isVoid: true })
+      	.collapseToEndOfNextBlock()
+      	.collapseToEndOfNextBlock()
     }
   }),
   AutoReplace({
-    trigger: 		"space",
+    trigger: 		"#",
     before: 		/^(#)$/,
     transform: 	(transform, e, data, matches) => {
       return transform.setBlock({ type: "heading" })
+    }
+  }),
+  AutoReplace({
+    trigger: 		"enter",
+    before: 		/./,
+    onlyIn:			"heading",
+    transform: 	(transform, e, data, matches) => {
+      return transform
+      	.splitBlock()
+      	.setBlock({ type: "paragraph" })
     }
   }),
   // special editor menu for quote

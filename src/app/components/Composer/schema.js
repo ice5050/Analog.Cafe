@@ -91,7 +91,7 @@ export const schema = {
 			}
 		},
 		
-		// Rule to insert a paragraph below a void node (the image) if that node is the last one in the document.
+		// Rule to insert a paragraph below a void node if that node is the last one in the document.
     {
       match: (node) => {
         return node.kind === "document"
