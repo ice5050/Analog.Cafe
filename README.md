@@ -5,9 +5,11 @@
 
 ### Built with:
 * [Node.js](https://github.com/nodejs/node)
+    * Express.js
 * [React.js](https://github.com/facebook/react)
     * [Create React App](https://github.com/facebookincubator/create-react-app)
     * [Styled Components](https://github.com/styled-components/styled-components)
+    * [Slate.js](https://github.com/ianstormtaylor/slate)
     * (and more)
 
 ### Why it's awesome:
