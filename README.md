@@ -1,5 +1,5 @@
 # Analog.Cafe 
-## An open-source project for the "Remarkable Film Photography Blog"
+## An open-source project for the "Community Film Photography Publication (blog)."
 > You are free to use any code in this repository for your personal or business projects.
 > But please do not clone the design and content.
 
