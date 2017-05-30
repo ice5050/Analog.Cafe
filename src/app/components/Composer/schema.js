@@ -1,6 +1,7 @@
 // tools
 import React from "react"
-import { Block } from "slate"
+import { Block, Html } from "slate"
+
 
 // components
 import { Figure } from "../Pictures"
@@ -10,6 +11,11 @@ const BLOCK_TAGS = {
   p: 						"paragraph",
   blockquote: 	"quote",
   hr:						"divider",
+  h1:						"heading",
+  h2:						"heading",
+  h3:						"heading",
+  h4:						"heading",
+  a:						"link",
 }
 const MARK_TAGS = {
   em: 					"italic",
@@ -20,7 +26,13 @@ const MARK_TAGS = {
 export const schema = {
 	nodes: {
 		paragraph: 		props => <p>{props.children}</p>,
-		divider:			props => <hr />,
+		heading:			props => <h3>{props.children}</h3>,
+		divider:			props => {
+										const { node, state } = props
+										const focus = state.isFocused && state.selection.hasEdgeIn(node)
+										const className = focus ? "focus" : "nofocus"
+										return <hr className={className} />
+		},
 		quote: 				props => {
 										const { node, state } = props
 										const focus = state.isFocused && state.selection.hasEdgeIn(node)
@@ -36,6 +48,11 @@ export const schema = {
 											<Figure src={src} className={className} {...props.attributes} >Image caption</Figure>
 										)
     },
+    link: 				props => {
+										const { data } = props.node
+										const href = data.get("href")
+										return <a {...props.attributes} href={href}>{props.children}</a>
+    },
 	},
 	rules: [
 		{
@@ -43,17 +60,23 @@ export const schema = {
 				const type = BLOCK_TAGS[el.tagName]
 				if (!type) return
 				return {
-					kind: "block",
-					type: type,
-					nodes: next(el.children)
+					kind: 		type !== BLOCK_TAGS.a ? "block" : "inline",
+					data: 		type === BLOCK_TAGS.a ? { href: el.attribs.href } : {},
+					type: 		type,
+					nodes: 		next(el.children),
+					isVoid:		type === BLOCK_TAGS.hr ? true : false
 				}
 			},
 			serialize(object, children) {
-				if (object.kind !== "block") return
+				if (object.kind !== "block" && object.kind !== "inline") return
 				switch (object.type) {
 					case BLOCK_TAGS.p: 						return <p>{children}</p>
+					case BLOCK_TAGS.h3: 					return <h3>{children}</h3>
 					case BLOCK_TAGS.blockquote: 	return <blockquote>{children}</blockquote>
 					case BLOCK_TAGS.hr:						return <hr />
+					case BLOCK_TAGS.a:						return <a
+																									href={object.data.get("href")}
+																									data-key={object.data.get("key")}>{children}</a>
 					default:											return {children}
 				}
 			}
@@ -78,7 +101,7 @@ export const schema = {
 			}
 		},
 		
-		// Rule to insert a paragraph below a void node (the image) if that node is the last one in the document.
+		// Rule to insert a paragraph below a void node if that node is the last one in the document.
     {
       match: (node) => {
         return node.kind === "document"
@@ -91,7 +114,7 @@ export const schema = {
         const block = Block.create(defaultBlock)
         transform.insertNodeByKey(document.key, document.nodes.size, block)
       }
-    }
+    },
     //
     
 	],
@@ -105,3 +128,5 @@ export const defaultBlock = {
   isVoid: false,
   data: {}
 }
+const rules = schema.rules
+export const html = new Html({ rules })
