@@ -34,7 +34,14 @@ const content = css`
 		}
 	}
 	&.focus { }
-	p { margin: 0 }
+	p {
+		margin: 	0;
+		${	props => props.theme.size.breakpoint.min.l`
+			&:first-of-type {
+				min-height: ${ props => props.theme.size.font.make.larger * 4 }em;
+			}
+		`}
+	}
 `
 const marks = css`
   &::before,
