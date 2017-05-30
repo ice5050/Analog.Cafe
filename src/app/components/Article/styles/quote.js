@@ -33,15 +33,16 @@ const content = css`
 			`
 		}
 	}
-	&.focus { }
-	p {
-		margin: 	0;
-		${	props => props.theme.size.breakpoint.min.l`
-			&:first-of-type {
-				min-height: ${ props => props.theme.size.font.make.larger * 4 }em;
-			}
-		`}
+	&.focus {
+		box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight },
+								0 ${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
 	}
+	p { margin: 0; }
+	${	props => props.theme.size.breakpoint.min.l`
+		&:not(.focus) p:first-of-type {
+			min-height: ${ props => props.theme.size.font.make.larger * 4 }em;
+		}
+	`}
 `
 const marks = css`
   &::before,

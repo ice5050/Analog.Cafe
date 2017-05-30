@@ -3,9 +3,8 @@ import React from "react"
 import { Image } from "./components/Pictures"
 import { Block, Html } from "slate"
 
-
 // components
-import { Figure } from "../Pictures"
+
 
 // dictionary
 const BLOCK_TAGS = {
