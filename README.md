@@ -25,6 +25,7 @@ If you are interested in contributing to this project - awesome! But first (if y
 1. [Get GIT](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) working on your machine
 1. [Get Node.js](https://nodejs.org/en/download/package-manager/) on your machine
 1. [Clone](https://help.github.com/articles/cloning-a-repository/) this repo onto your machine
+1. Run `git submodule init` and `git submodule update` - we are on some parallel open-source projects from within Analog.Cafe, those commands download all that goodness to make sure it's usable by the main app. Learn more about [GIT Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 1. Run `node install`
 1. Run `yarn start`
 
