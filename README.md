@@ -5,12 +5,14 @@
 
 ### Built with:
 * [Node.js](https://github.com/nodejs/node)
-    * Express.js
+    * [Express.js](https://expressjs.com)
 * [React.js](https://github.com/facebook/react)
     * [Create React App](https://github.com/facebookincubator/create-react-app)
     * [Styled Components](https://github.com/styled-components/styled-components)
     * [Slate.js](https://github.com/ianstormtaylor/slate)
     * (and more)
+* [ES6](https://github.com/lukehoban/es6features)
+    * [Babel](https://github.com/babel/babel)
 
 ### Why it's awesome:
 * Images can be re-published by contributing authors, natively. Those images share all the functions and features of original image, while giving appropriate credit to the author. Without having to save, re-upload or embed stuff.
