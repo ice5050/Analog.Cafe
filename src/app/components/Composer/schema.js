@@ -1,5 +1,6 @@
 // tools
 import React from "react"
+import { Image } from "./components/Pictures"
 import { Block, Html } from "slate"
 
 
@@ -16,6 +17,7 @@ const BLOCK_TAGS = {
   h3:						"heading",
   h4:						"heading",
   a:						"link",
+  figure:       "image",
 }
 const MARK_TAGS = {
   em: 					"italic",
@@ -39,15 +41,7 @@ export const schema = {
 										const className = focus ? "focus" : "nofocus"
 										return <blockquote {...props.attributes} className={className}>{props.children}</blockquote>
 		},
-		image: 				props => {
-										const { node, state } = props
-										const focus = state.isFocused && state.selection.hasEdgeIn(node)
-										const src = node.data.get("src")
-										const className = focus ? "focus" : null
-										return (
-											<Figure src={src} className={className} {...props.attributes} >Image caption</Figure>
-										)
-    },
+		image: 				Image,
     link: 				props => {
 										const { data } = props.node
 										const href = data.get("href")
@@ -77,6 +71,9 @@ export const schema = {
 					case BLOCK_TAGS.a:						return <a
 																									href={object.data.get("href")}
 																									data-key={object.data.get("key")}>{children}</a>
+					case BLOCK_TAGS.figure:       return <figure
+																									src={object.data.get("src")}
+																									data-key={object.data.get("key")}>{children}</figure>
 					default:											return {children}
 				}
 			}

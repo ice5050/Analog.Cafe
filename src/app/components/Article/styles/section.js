@@ -19,6 +19,7 @@ const sectionBreak = css`
 	color:				${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.half).string() };
 	border:				0;
 	margin:				0;
+	clear:				both;
 	&:before {
 		content: 			"✽ ✽ ✽";
 		line-height: 	1em;
