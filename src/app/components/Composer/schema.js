@@ -43,7 +43,7 @@ export const schema = {
 										const { node, state } = props
 										const focus = state.isFocused && state.selection.hasEdgeIn(node)
 										const src = node.data.get("src")
-										const className = focus ? "active" : null
+										const className = focus ? "focus" : null
 										return (
 											<Figure src={src} className={className} {...props.attributes} >Image caption</Figure>
 										)

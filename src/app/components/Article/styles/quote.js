@@ -1,6 +1,5 @@
 // styles
 import { css } from "styled-components"
-import Color from "color"
 
 
 // css
@@ -34,9 +33,7 @@ const content = css`
 			`
 		}
 	}
-	&.focus {
-		background:		${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least / 4).string() };
-	}
+	&.focus { }
 	p { margin: 0 }
 `
 const marks = css`

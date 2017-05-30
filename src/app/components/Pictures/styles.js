@@ -55,6 +55,11 @@ export const PictureFigure = styled.figure`
 	` }
 	
 	${ props => props.feature ? bleed : props => props.theme.size.breakpoint.max.m` ${ bleed } ` }	
+	
+	&.focus {
+		box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight },
+								0 ${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
+	}
 `
 
 const captionBlock = css`
