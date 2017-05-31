@@ -11,6 +11,7 @@ import { Save } from "./save"
 import AutoReplace from "slate-auto-replace"
 import EditBlockquote from "slate-edit-blockquote"
 import InsertImages from "slate-drop-or-paste-images"
+import TrailingBlock from 'slate-trailing-block'
 
 // export
 export const plugins = [
@@ -59,6 +60,14 @@ export const plugins = [
       	.setBlock({ type: "paragraph" })
     }
   }),
+  AutoReplace({
+    trigger: 		"backspace",
+    after: 		/./,
+    onlyIn:			"heading",
+    transform: 	(transform, e, data, matches) => {
+      return transform.setBlock({ type: "paragraph" })
+    }
+  }),
   
   // special editor menu for quote
 	EditBlockquote({
@@ -76,5 +85,9 @@ export const plugins = [
         data: { file }
       })
     }
-  })
+  }),
+  
+  // trailing paragraph
+  TrailingBlock({ type: 'paragraph' }),
+  
 ]

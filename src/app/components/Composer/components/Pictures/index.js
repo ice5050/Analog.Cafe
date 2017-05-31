@@ -12,6 +12,7 @@ import { Figure } from "../../../Pictures"
 export class Image extends React.Component {
   state = {};
   componentDidMount() {
+  	console.log("Image component mounted.")
     const { node } = this.props
     const { data } = node
     this.load(data)
@@ -23,11 +24,7 @@ export class Image extends React.Component {
 			reader.addEventListener("load", () => this.setState({ src: reader.result }))
 			reader.readAsDataURL(file)
 		}
-		else {
-			
-  	console.log(data.get("src"))
-			this.setState({ src: data.get("src") })
-		}
+		else this.setState({ src: data.get("src") })
   }
   render() {
     const { attributes, state, node } = this.props

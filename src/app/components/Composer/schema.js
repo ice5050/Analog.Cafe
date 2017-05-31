@@ -1,11 +1,13 @@
 // tools
 import React from "react"
+import ReactDOMServer from 'react-dom/server'
 import { Image } from "./components/Pictures"
 
 
 
 import { Figure } from "../Pictures"
 import { Picture } from "react-responsive-picture"
+
 
 
 import { Block, Html } from "slate"
@@ -79,8 +81,10 @@ export const schema = {
 																									data-key={object.data.get("key")}>{children}</a>
 					//case BLOCK_TAGS.figure:       return 	<Figure src="/images/poster.jpg">Text</Figure>
 					//case BLOCK_TAGS.figure:       return 	<Figure src={{...this.props}}>text</Figure>
-					case BLOCK_TAGS.figure:       {
-																					return <figure src="/images/poster.jpg" data-key={object.data.get("key")}></figure>
+					case BLOCK_TAGS.figure:        {
+					
+																					console.log(1)
+																					return <figure>{children}</figure>
 																				}
 					default:											return 	{children}
 					//<Figure {...attributes} src={src} className={className}>Add caption to your image.</Figure>
