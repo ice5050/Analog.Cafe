@@ -18,7 +18,7 @@ export const plugins = [
 	// general tools
 	Linkify({}),
 	Paste({ html }),
-	//Save({ html }),
+	Save({ html }),
 	
 	// hot keys
   MarkHotkey({ 	key: "b", 			type: "bold" }),

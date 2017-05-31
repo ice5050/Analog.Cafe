@@ -4,13 +4,16 @@ import throttle from "lodash/throttle"
 // return
 export function Save(options) {
 	const { html } = options
-	let throttledSave = throttle((state) => {
-		const composerState = html.serialize(state)
-		localStorage.setItem("composer-state", composerState)
+	let throttledSave = throttle((state, prevState) => {
+		if(prevState && state.document !== prevState.document){
+			const composerState = html.serialize(state)
+			localStorage.setItem("composer-state", composerState)
+			console.log("saved.")
+		}
 	}, 5000);
   return {
-  	onChange(state) {
-  		throttledSave(state)
+  	onChange(state, prevState) {
+  		throttledSave(state, prevState)
 		}
   }
 }
