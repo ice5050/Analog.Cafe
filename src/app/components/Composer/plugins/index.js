@@ -6,11 +6,11 @@ import { MarkHotkey } from "./mark-hotkey"
 import { Linkify } from "./linkify"
 import { Paste } from "./paste-html"
 import { Save } from "./save"
-import InsertImages from "./slate-drop-or-paste-images/lib"
 
 // plugins by others
 import AutoReplace from "slate-auto-replace"
 import EditBlockquote from "slate-edit-blockquote"
+import InsertImages from "slate-drop-or-paste-images"
 
 // export
 export const plugins = [
