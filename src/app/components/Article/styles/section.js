@@ -25,7 +25,7 @@ const sectionBreak = css`
 		line-height: 	1em;
 		display: 			block;
 	}
-	&.focus {
+	&.focus:before {
 		background-color: ${ props => props.theme.color.highlight };
 	}
 `
