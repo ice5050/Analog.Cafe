@@ -1,5 +1,10 @@
 // tools
 import React from "react"
+import isDataUri from 'is-data-uri'
+import isImage from 'is-image'
+
+
+// styles
 import { Figure } from "../../../Pictures"
 
 
@@ -9,13 +14,20 @@ export class Image extends React.Component {
   componentDidMount() {
     const { node } = this.props
     const { data } = node
-    const file = data.get("file")
-    this.load(file)
+    this.load(data)
   }
-  load(file) {
-    const reader = new FileReader()
-    reader.addEventListener("load", () => this.setState({ src: reader.result }))
-    reader.readAsDataURL(file)
+  load(data) {
+  	const file = data.get("file")
+  	if(typeof file === "object"){
+			const reader = new FileReader()
+			reader.addEventListener("load", () => this.setState({ src: reader.result }))
+			reader.readAsDataURL(file)
+		}
+		else {
+			
+  	console.log(data.get("src"))
+			this.setState({ src: data.get("src") })
+		}
   }
   render() {
     const { attributes, state, node } = this.props

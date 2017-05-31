@@ -1,6 +1,13 @@
 // tools
 import React from "react"
 import { Image } from "./components/Pictures"
+
+
+
+import { Figure } from "../Pictures"
+import { Picture } from "react-responsive-picture"
+
+
 import { Block, Html } from "slate"
 
 // components
@@ -38,7 +45,7 @@ export const schema = {
 										const { node, state } = props
 										const focus = state.isFocused && state.selection.hasEdgeIn(node)
 										const className = focus ? "focus" : "nofocus"
-										return <blockquote {...props.attributes} className={className}>{props.children}</blockquote>
+										return <blockquote {...props.attributes} className={className}>Add caption to your image.</blockquote>
 		},
 		image: 				Image,
     link: 				props => {
@@ -63,17 +70,28 @@ export const schema = {
 			serialize(object, children) {
 				if (object.kind !== "block" && object.kind !== "inline") return
 				switch (object.type) {
-					case BLOCK_TAGS.p: 						return <p>{children}</p>
-					case BLOCK_TAGS.h3: 					return <h3>{children}</h3>
-					case BLOCK_TAGS.blockquote: 	return <blockquote>{children}</blockquote>
-					case BLOCK_TAGS.hr:						return <hr />
-					case BLOCK_TAGS.a:						return <a
+					case BLOCK_TAGS.p: 						return 	<p>{children}</p>
+					case BLOCK_TAGS.h3: 					return 	<h3>{children}</h3>
+					case BLOCK_TAGS.blockquote: 	return 	<blockquote>{children}</blockquote>
+					case BLOCK_TAGS.hr:						return 	<hr />
+					case BLOCK_TAGS.a:						return 	<a
 																									href={object.data.get("href")}
 																									data-key={object.data.get("key")}>{children}</a>
-					case BLOCK_TAGS.figure:       return <figure
-																									src={object.data.get("src")}
-																									data-key={object.data.get("key")}>{children}</figure>
-					default:											return {children}
+					//case BLOCK_TAGS.figure:       return 	<Figure src="/images/poster.jpg">Text</Figure>
+					//case BLOCK_TAGS.figure:       return 	<Figure src={{...this.props}}>text</Figure>
+					case BLOCK_TAGS.figure:       {
+																					return <figure src="/images/poster.jpg" data-key={object.data.get("key")}></figure>
+																				}
+					default:											return 	{children}
+					//<Figure {...attributes} src={src} className={className}>Add caption to your image.</Figure>
+					
+					
+					
+					// const { attributes, state, node } = this.props
+//     			const { src } = this.state
+    
+    
+    
 				}
 			}
 		},

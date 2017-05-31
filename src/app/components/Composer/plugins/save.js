@@ -8,7 +8,6 @@ export function Save(options) {
 		if(prevState && state.document !== prevState.document){
 			const composerState = html.serialize(state)
 			localStorage.setItem("composer-state", composerState)
-			console.log("saved.")
 		}
 	}, 5000);
   return {
