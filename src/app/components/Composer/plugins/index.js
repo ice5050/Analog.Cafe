@@ -1,5 +1,4 @@
 // tools
-import { html } from "../schema.js"
 
 // Analog.Cafe plugins
 import { MarkHotkey } from "./mark-hotkey"
@@ -18,8 +17,8 @@ export const plugins = [
 
 	// general tools
 	Linkify({}),
-	Paste({ html }),
-	Save({ html }),
+	//Paste({ html }),
+	Save({}),
 	
 	// hot keys
   MarkHotkey({ 	key: "b", 			type: "bold" }),
@@ -75,7 +74,6 @@ export const plugins = [
 		typeDefault: 	"paragraph",
 	}),
 	
-	// images
 	InsertImages({
     extensions: ["png", "jpeg"],
     applyTransform: (transform, file) => {

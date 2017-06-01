@@ -1,8 +1,6 @@
 // tools
 import React from "react"
-import isDataUri from 'is-data-uri'
-import isImage from 'is-image'
-
+import ReactDOMServer from 'react-dom/server'
 
 // styles
 import { Figure } from "../../../Pictures"
@@ -10,29 +8,40 @@ import { Figure } from "../../../Pictures"
 
 // export
 export class Image extends React.Component {
+
   state = {};
+
   componentDidMount() {
-  	console.log("Image component mounted.")
     const { node } = this.props
     const { data } = node
-    this.load(data)
+    const file = data.get('file')
+    this.load(file)
   }
-  load(data) {
-  	const file = data.get("file")
-  	if(typeof file === "object"){
-			const reader = new FileReader()
-			reader.addEventListener("load", () => this.setState({ src: reader.result }))
-			reader.readAsDataURL(file)
-		}
-		else this.setState({ src: data.get("src") })
+
+  load(file) {
+    const reader = new FileReader()
+    reader.addEventListener('load', () => this.setState({ src: reader.result }))
+    reader.readAsDataURL(file)
   }
+
   render() {
-    const { attributes, state, node } = this.props
+    const { attributes, node } = this.props
+    const { data } = node
     const { src } = this.state
-    const focus = state.isFocused && state.selection.hasEdgeIn(node)
-		const className = focus ? "focus" : "nofocus"
     return src
-      ? <Figure {...attributes} src={src} className={className}>Add caption to your image.</Figure>
-      : <Figure {...attributes} src="" className={className}>Loading your image...</Figure>
+      ? <img {...attributes} src={src} />
+      : <span>Loading...</span>
   }
+
+  
+//   render() {
+//     const { attributes, state, node, data } = this.props
+//     const { src } = this.state
+//     console.log(this.node)
+//     const focus = state.isFocused && state.selection.hasEdgeIn(node)
+// 		const className = focus ? "focus" : "nofocus"
+//     return src
+//       ? <Figure {...this.props} src={src} className={className}>Add caption to your image.</Figure>
+//       : <Figure {...attributes} src="" className={className}>Loading your image...</Figure>
+//   }
 }

@@ -1,13 +1,14 @@
 // tools
+import { Raw } from "slate"
 import throttle from "lodash/throttle"
 
 // return
 export function Save(options) {
-	const { html } = options
 	let throttledSave = throttle((state, prevState) => {
 		if(prevState && state.document !== prevState.document){
-			const composerState = html.serialize(state)
-			localStorage.setItem("composer-state", composerState)
+			const composerState = JSON.stringify(Raw.serialize(state))
+			//localStorage.setItem("composer-state", composerState)
+			console.log(state);
 		}
 	}, 5000);
   return {
