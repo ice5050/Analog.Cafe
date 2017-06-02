@@ -8,7 +8,7 @@ export function Save(options) {
 		if(prevState && state.document !== prevState.document){
 			const composerState = JSON.stringify(Raw.serialize(state))
 			//localStorage.setItem("composer-state", composerState)
-			console.log(state);
+			console.log(composerState);
 		}
 	}, 5000);
   return {

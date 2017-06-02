@@ -1,6 +1,7 @@
 // tools
 import React from "react"
 import ReactDOMServer from 'react-dom/server'
+import { Transform } from 'slate'
 
 // styles
 import { Figure } from "../../../Pictures"
@@ -15,6 +16,8 @@ export class Image extends React.Component {
     const { node } = this.props
     const { data } = node
     const file = data.get('file')
+    
+    //this.setState({ srcName: "x" })
     this.load(file)
   }
 
@@ -25,9 +28,10 @@ export class Image extends React.Component {
   }
 
   render() {
-    const { attributes, node } = this.props
+    const { attributes, node, state } = this.props
     const { data } = node
     const { src } = this.state
+
     return src
       ? <img {...attributes} src={src} />
       : <span>Loading...</span>
