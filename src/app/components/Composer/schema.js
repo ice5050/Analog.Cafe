@@ -1,7 +1,7 @@
 // tools
 import React from "react"
 import { Image } from "./components/Pictures"
-import { Html } from "slate"
+import { Html, Text } from "slate"
 
 // components
 
@@ -25,11 +25,19 @@ const MARK_TAGS = {
   b:						"bold",
 }
 
+// get text from all node children
+const textify = (el) => {
+	let textNode = el.children.filter(function(node) {
+		return node.type === "text"
+	})[0]
+	return textNode ? textNode.data : false
+}
+
 // exports
 export const schema = {
 	nodes: {
 		paragraph: 		props => <p>{props.children}</p>,
-		heading:			props => <h3>{props.children}</h3>,
+		heading:			props => <h3>{props.children}</h3>, // no links or style should be allowed in headings
 		divider:			props => {
 										const { node, state } = props
 										const focus = state.isFocused && state.selection.hasEdgeIn(node)
@@ -55,11 +63,40 @@ export const schema = {
 		{
 			deserialize(el, next) {
 				const block = BLOCK_TAGS[el.tagName]
-				if (!block || block==="image") return
-				return {
-					kind: "block",
-					type: block,
-					nodes: next(el.children)
+				switch (block) {
+					case "paragraph" :
+					case "quote": {
+						return {
+							kind: "block",
+							type: block,
+							nodes: next(el.children)
+						}
+					}
+					case "heading" : {
+						return {
+							kind: "block",
+							type: block,
+							nodes: textify(el) ? [ Text.createFromString(textify(el)) ] : next(el.children)
+						}
+					}
+					case "image" : {
+						return {
+							kind: "block",
+							type: "image",
+							isVoid: true,
+							data: { src: el.attribs.src || el.attribs.srcset }, // this image needs to be uploaded
+						}
+					}
+					case "link" : {
+						return {
+							kind: "inline",
+							type: "link",
+							data: {
+								href: el.attribs.href
+							},
+							nodes: textify(el) ? [ Text.createFromString(textify(el)) ] : next(el.children)
+						}
+					}
 				}
 			}
 		},
@@ -71,32 +108,6 @@ export const schema = {
 					kind: "mark",
 					type: mark,
 					nodes: next(el.children)
-				}
-			}
-		},
-		{
-			deserialize(el, next) {
-				console.log(el.tagName)
-				if (el.tagName !== "a") return
-				return {
-					kind: "inline",
-					type: "link",
-					nodes: next(el.children),
-					data: {
-						href: el.attribs.href
-					}
-				}
-			}
-		},
-		{
-			deserialize(el, next) {
-				const block = BLOCK_TAGS[el.tagName]
-				if (block !== "image") return
-				return {
-					kind: "block",
-					type: "image",
-					isVoid: true,
-					data: { src: "/images/poster.jpg" },
 				}
 			}
 		},

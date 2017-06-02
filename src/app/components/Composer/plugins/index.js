@@ -1,5 +1,6 @@
 // tools
 import { html } from "../schema"
+import { Text } from "slate"
 
 // Analog.Cafe plugins
 import { MarkHotkey } from "./mark-hotkey"
@@ -79,10 +80,6 @@ export const plugins = [
     extensions: ["png", "jpeg"],
     applyTransform: (transform, file) => {
       return transform.insertBlock({
-				type: "paragraph",
-      	kind: "block",
-				text: "youoyoyo",
-      }).wrapBlock({
         type: "image",
         isVoid: true,
         data: { file, src: "/images/poster.jpg" },
