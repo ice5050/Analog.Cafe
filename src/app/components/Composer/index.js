@@ -1,10 +1,10 @@
 // tools
 import React from "react"
 import PropTypes from "prop-types"
-import { Editor } from "slate"
+import { Editor, Raw } from "slate"
 
 import { plugins } from "./plugins"
-import { schema, html } from "./schema"
+import { schema, initialContent } from "./schema"
 
 // styles
 import { PageHeader, PageByline } from "../Article/styles/header"
@@ -27,7 +27,7 @@ export const ComposerHead = props => {
 }
 export class ComposerBody extends React.Component {
 	state = {
-		state: html.deserialize(localStorage.getItem("composer-state") || initialState.body),
+		state: Raw.deserialize((JSON.parse(localStorage.getItem("composer-state")) || initialContent), {terse: true}),
 		schema
 	}
   onChange = state => this.setState({ state })

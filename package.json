@@ -29,6 +29,7 @@
     "sanitize.css": "^5.0.0",
     "slate": "^0.20.1",
     "slate-auto-replace": "^0.5.0",
+    "slate-drop-or-paste-images": "^0.5.0",
     "slate-edit-blockquote": "^0.2.0",
     "styled-components": "^2.0.0",
     "titlecase": "^1.1.2",

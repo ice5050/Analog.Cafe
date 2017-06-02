@@ -26,29 +26,30 @@ export const TheZineTheme = {
 			auto: css`
 				font-family: 			Arial, sans-serif;
 				letter-spacing: 	0.005em;
-				line-height: 			1.15em;
+				line-height: 			${ () => TheZineTheme.typography.title.lineHeight }em;
 				font-weight: 			700;
 				margin: 0;
 			
 				.fonts-loaded-headers && {
 					font-family: 			"Exo 2", Arial sans-serif;
 					letter-spacing: 	0.025em;
-					line-height: 			1.15em;
 					font-weight: 			600;
 				}
 			`,
+			lineHeight: 1.15 // base: multiplier
 		},
 		text: {
 			auto: css`
 				font-family: 			Georgia, serif;
 				letter-spacing: 	0.05em;
-				line-height: 			1.75em;
+				line-height: 			${ () => TheZineTheme.typography.text.lineHeight }em;
 				
 				.fonts-loaded & {
 					font-family: 			Lora, Georgia, serif;
 					letter-spacing: 	0.025em;
 				}			
 			`,
+			lineHeight: 1.75 // base: multiplier
 		},
 	},
 	size: {
@@ -75,7 +76,7 @@ export const TheZineTheme = {
 			auto: css`
 					${ min.m`font-size: 	${ () => TheZineTheme.size.font.m 	}px;` }
 					${ max.s`font-size: 	${ () => TheZineTheme.size.font.s 	}px;` }
-					${ max.xs`font-size: 	${ () => TheZineTheme.size.font.xs }px;` }
+					${ max.xs`font-size: 	${ () => TheZineTheme.size.font.xs 	}px;` }
 					${ min.xxl`font-size:	${ () => TheZineTheme.size.font.l 	}px;` }
 				`
 		},
@@ -87,7 +88,8 @@ export const TheZineTheme = {
 				},
 				safety: 1.5, // base: multiplier
 			},
-			spacing: 1, // base: multiplier
+			spacing: 	1, // base: multiplier
+			border:		8, // base: pixels
 		},
 	},
 	layer: {
@@ -98,6 +100,6 @@ export const TheZineTheme = {
 		tuck:				-1
 	},
 	elements: {
-		thickBorder: () => "8px solid " + TheZineTheme.color.foreground,
+		thickBorder: () => TheZineTheme.size.block.border + "px solid " + TheZineTheme.color.foreground,
 	}
 }

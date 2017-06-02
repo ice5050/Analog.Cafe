@@ -1,6 +1,5 @@
 // styles
 import { css } from "styled-components"
-import Color from "color"
 
 
 // css
@@ -35,9 +34,15 @@ const content = css`
 		}
 	}
 	&.focus {
-		background:		${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least / 4).string() };
+		box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight },
+								0 ${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
 	}
-	p { margin: 0 }
+	p { margin: 0; }
+	${	props => props.theme.size.breakpoint.min.l`
+		&:not(.focus) p:first-of-type {
+			min-height: ${ props => props.theme.size.font.make.larger * 4 }em;
+		}
+	`}
 `
 const marks = css`
   &::before,
