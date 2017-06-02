@@ -86,7 +86,7 @@ export const plugins = [
         type: "image",
         isVoid: true,
         data: { file, src: "/images/poster.jpg" },
-      })
+      }).apply()
     }
   }),
   

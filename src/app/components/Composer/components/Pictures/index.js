@@ -7,15 +7,12 @@ import { Figure } from "../../../Pictures"
 
 // export
 export class Image extends React.Component {
-
   state = {};
-
   componentDidMount() {
     const { node } = this.props
     const { data } = node
     this.load(data.get("file"), data.get("src"))
   }
-
   load(file, src) {
   	if(!file || !file.name) this.setState({ src })
   	else {
@@ -24,7 +21,6 @@ export class Image extends React.Component {
 			reader.readAsDataURL(file)
 		}
   }
-
   render() {
     const { attributes, state, node } = this.props
     const { src } = this.state
@@ -33,9 +29,5 @@ export class Image extends React.Component {
     return src
       ? <Figure {...this.props} src={src} className={className}>Add caption to your image.</Figure>
       : <Figure {...attributes} src="" className={className}>Loading your image...</Figure>      
-      
-      
-      
-      
   }
 }

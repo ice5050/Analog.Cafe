@@ -16,11 +16,13 @@ const BLOCK_TAGS = {
   h3:						"heading",
   h4:						"heading",
   a:						"link",
-  image: 	      "image",
+  img: 	 		    "image",
 }
 const MARK_TAGS = {
   em: 					"italic",
+  i:						"italic",
   strong: 			"bold",
+  b:						"bold",
 }
 
 // exports
@@ -53,7 +55,7 @@ export const schema = {
 		{
 			deserialize(el, next) {
 				const block = BLOCK_TAGS[el.tagName]
-				if (!block) return
+				if (!block || block==="image") return
 				return {
 					kind: "block",
 					type: block,
@@ -74,6 +76,7 @@ export const schema = {
 		},
 		{
 			deserialize(el, next) {
+				console.log(el.tagName)
 				if (el.tagName !== "a") return
 				return {
 					kind: "inline",
@@ -103,20 +106,17 @@ export const schema = {
 		italic: 		props => <em>{props.children}</em>,
 	},
 }
-// export const defaultBlock = {
-//   type: BLOCK_TAGS.p,
-//   isVoid: false,
-//   data: {}
-// }
 const rules = schema.rules
 export const html = new Html({ rules })
 
+
+// this needs to be pulled form state.json
 export const initialContent =
-  {
-    nodes: [
-      {
-        kind: "block",
-        type: "paragraph"
-      }
-    ]
-  }
+{
+	nodes: [
+		{
+			kind: "block",
+			type: "paragraph"
+		}
+	]
+}
