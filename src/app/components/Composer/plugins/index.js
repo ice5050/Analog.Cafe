@@ -1,4 +1,5 @@
 // tools
+import { html } from "../schema"
 
 // Analog.Cafe plugins
 import { MarkHotkey } from "./mark-hotkey"
@@ -17,7 +18,7 @@ export const plugins = [
 
 	// general tools
 	Linkify({}),
-	//Paste({ html }),
+	Paste({ html }),
 	Save({}),
 	
 	// hot keys
@@ -80,7 +81,7 @@ export const plugins = [
       return transform.insertBlock({
         type: "image",
         isVoid: true,
-        data: { file }
+        data: { file, src: "images/poster.jpg" }
       })
     }
   }),

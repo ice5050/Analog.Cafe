@@ -15,20 +15,22 @@ export class Image extends React.Component {
   componentDidMount() {
     const { node } = this.props
     const { data } = node
-    const file = data.get('file')
-    
-    //this.setState({ srcName: "x" })
-    this.load(file)
+    this.load(data.get('file'), data.get("src"))
   }
 
-  load(file) {
-    const reader = new FileReader()
-    reader.addEventListener('load', () => this.setState({ src: reader.result }))
-    reader.readAsDataURL(file)
+  load(file, src) {
+  	if(file){
+			const reader = new FileReader()
+			reader.addEventListener('load', () => this.setState({ src: reader.result }))
+			reader.readAsDataURL(file)
+		}
+		else{
+			this.setState({ src })
+		}
   }
 
   render() {
-    const { attributes, node, state } = this.props
+    const { attributes, node } = this.props
     const { data } = node
     const { src } = this.state
 

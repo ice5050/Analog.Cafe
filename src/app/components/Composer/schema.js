@@ -18,21 +18,21 @@ import { Block, Html } from "slate"
 
 
 // dictionary
-// const BLOCK_TAGS = {
-//   p: 						"paragraph",
-//   blockquote: 	"quote",
-//   hr:						"divider",
-//   h1:						"heading",
-//   h2:						"heading",
-//   h3:						"heading",
-//   h4:						"heading",
-//   a:						"link",
-//   image:        "image",
-// }
-// const MARK_TAGS = {
-//   em: 					"italic",
-//   strong: 			"bold",
-// }
+const BLOCK_TAGS = {
+  p: 						"paragraph",
+  blockquote: 	"quote",
+  hr:						"divider",
+  h1:						"heading",
+  h2:						"heading",
+  h3:						"heading",
+  h4:						"heading",
+  a:						"link",
+  image:        "image",
+}
+const MARK_TAGS = {
+  em: 					"italic",
+  strong: 			"bold",
+}
 
 // exports
 export const schema = {
@@ -58,8 +58,8 @@ export const schema = {
 										return <a {...props.attributes} href={href}>{props.children}</a>
     },
 	},
-	// rules: [		
-// 		// Rule to insert a paragraph below a void node if that node is the last one in the document.
+	rules: [		
+		// Rule to insert a paragraph below a void node if that node is the last one in the document.
 //     {
 //       match: (node) => {
 //         return node.kind === "document"
@@ -73,9 +73,62 @@ export const schema = {
 //         transform.insertNodeByKey(document.key, document.nodes.size, block)
 //       }
 //     },
-//     //
-//     
-// 	],
+    //
+    
+		{
+			deserialize(el, next) {
+				const block = BLOCK_TAGS[el.tagName]
+				if (!block) return
+				return {
+					kind: 'block',
+					type: block,
+					nodes: next(el.children)
+				}
+			}
+		},
+		{
+			deserialize(el, next) {
+				const mark = MARK_TAGS[el.tagName]
+				if (!mark) return
+				return {
+					kind: 'mark',
+					type: mark,
+					nodes: next(el.children)
+				}
+			}
+		},
+		{
+			// Special case for code blocks, which need to grab the nested children.
+			deserialize(el, next) {
+				if (el.tagName != 'pre') return
+				const code = el.children[0]
+				const children = code && code.tagName == 'code'
+					? code.children
+					: el.children
+
+				return {
+					kind: 'block',
+					type: 'code',
+					nodes: next(children)
+				}
+			}
+		},
+		{
+			// Special case for links, to grab their href.
+			deserialize(el, next) {
+				if (el.tagName != 'a') return
+				return {
+					kind: 'inline',
+					type: 'link',
+					nodes: next(el.children),
+					data: {
+						href: el.attribs.href
+					}
+				}
+			}
+		},
+    
+	],
 	marks: {
 		bold: 			props => <strong>{props.children}</strong>,
 		italic: 		props => <em>{props.children}</em>,
@@ -86,8 +139,8 @@ export const schema = {
 //   isVoid: false,
 //   data: {}
 // }
-// const rules = schema.rules
-// export const html = new Html({ rules })
+const rules = schema.rules
+export const html = new Html({ rules })
 
 export const initialContent =
   {
