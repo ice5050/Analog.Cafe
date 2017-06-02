@@ -1,7 +1,7 @@
 // tools
 import React from "react"
-import ReactDOMServer from 'react-dom/server'
-import { Transform } from 'slate'
+import ReactDOMServer from "react-dom/server"
+import { Transform } from "slate"
 
 // styles
 import { Figure } from "../../../Pictures"
@@ -15,39 +15,30 @@ export class Image extends React.Component {
   componentDidMount() {
     const { node } = this.props
     const { data } = node
-    this.load(data.get('file'), data.get("src"))
+    this.load(data.get("file"), data.get("src"))
   }
 
   load(file, src) {
-  	if(file){
+  	console.log(file.name)
+  	if(!file.name) this.setState({ src })
+  	else {
 			const reader = new FileReader()
-			reader.addEventListener('load', () => this.setState({ src: reader.result }))
+			reader.addEventListener("load", () => this.setState({ src: reader.result }))
 			reader.readAsDataURL(file)
-		}
-		else{
-			this.setState({ src })
 		}
   }
 
   render() {
-    const { attributes, node } = this.props
-    const { data } = node
+    const { attributes, state, node } = this.props
     const { src } = this.state
-
+    const focus = state.isFocused && state.selection.hasEdgeIn(node)
+		const className = focus ? "focus" : "nofocus"
     return src
-      ? <img {...attributes} src={src} />
-      : <span>Loading...</span>
+      ? <Figure {...this.props} src={src} className={className}>Add caption to your image.</Figure>
+      : <Figure {...attributes} src="" className={className}>Loading your image...</Figure>      
+      
+      
+      
+      
   }
-
-  
-//   render() {
-//     const { attributes, state, node, data } = this.props
-//     const { src } = this.state
-//     console.log(this.node)
-//     const focus = state.isFocused && state.selection.hasEdgeIn(node)
-// 		const className = focus ? "focus" : "nofocus"
-//     return src
-//       ? <Figure {...this.props} src={src} className={className}>Add caption to your image.</Figure>
-//       : <Figure {...attributes} src="" className={className}>Loading your image...</Figure>
-//   }
 }

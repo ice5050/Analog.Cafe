@@ -1,15 +1,7 @@
 // tools
 import React from "react"
-import ReactDOMServer from 'react-dom/server'
-
-
+import ReactDOMServer from "react-dom/server"
 import { Image } from "./components/Pictures"
-
-
-
-import { Figure } from "../Pictures"
-import { Picture } from "react-responsive-picture"
-
 
 
 import { Block, Html } from "slate"
@@ -27,7 +19,7 @@ const BLOCK_TAGS = {
   h3:						"heading",
   h4:						"heading",
   a:						"link",
-  image:        "image",
+  image: 	      "image",
 }
 const MARK_TAGS = {
   em: 					"italic",
@@ -51,7 +43,7 @@ export const schema = {
 										const className = focus ? "focus" : "nofocus"
 										return <blockquote {...props.attributes} className={className}>{props.children}</blockquote>
 		},
-		image: 				Image,
+		image:	 			Image,
     link: 				props => {
 										const { data } = props.node
 										const href = data.get("href")
@@ -80,7 +72,7 @@ export const schema = {
 				const block = BLOCK_TAGS[el.tagName]
 				if (!block) return
 				return {
-					kind: 'block',
+					kind: "block",
 					type: block,
 					nodes: next(el.children)
 				}
@@ -91,35 +83,19 @@ export const schema = {
 				const mark = MARK_TAGS[el.tagName]
 				if (!mark) return
 				return {
-					kind: 'mark',
+					kind: "mark",
 					type: mark,
 					nodes: next(el.children)
 				}
 			}
 		},
 		{
-			// Special case for code blocks, which need to grab the nested children.
-			deserialize(el, next) {
-				if (el.tagName != 'pre') return
-				const code = el.children[0]
-				const children = code && code.tagName == 'code'
-					? code.children
-					: el.children
-
-				return {
-					kind: 'block',
-					type: 'code',
-					nodes: next(children)
-				}
-			}
-		},
-		{
 			// Special case for links, to grab their href.
 			deserialize(el, next) {
-				if (el.tagName != 'a') return
+				if (el.tagName != "a") return
 				return {
-					kind: 'inline',
-					type: 'link',
+					kind: "inline",
+					type: "link",
 					nodes: next(el.children),
 					data: {
 						href: el.attribs.href
@@ -146,8 +122,8 @@ export const initialContent =
   {
     nodes: [
       {
-        kind: 'block',
-        type: 'paragraph'
+        kind: "block",
+        type: "paragraph"
       }
     ]
   }

@@ -11,7 +11,7 @@ import { Save } from "./save"
 import AutoReplace from "slate-auto-replace"
 import EditBlockquote from "slate-edit-blockquote"
 import InsertImages from "slate-drop-or-paste-images"
-import TrailingBlock from 'slate-trailing-block'
+import TrailingBlock from "slate-trailing-block"
 
 // export
 export const plugins = [
@@ -79,14 +79,18 @@ export const plugins = [
     extensions: ["png", "jpeg"],
     applyTransform: (transform, file) => {
       return transform.insertBlock({
+      	kind: "block",
+				type: "paragraph",
+				text: "youoyoyo",
+      }).wrapBlock({
         type: "image",
         isVoid: true,
-        data: { file, src: "images/poster.jpg" }
+        data: { file, src: "/images/poster.jpg" },
       })
     }
   }),
   
   // trailing paragraph
-  TrailingBlock({ type: 'paragraph' }),
+  TrailingBlock({ type: "paragraph" }),
   
 ]
