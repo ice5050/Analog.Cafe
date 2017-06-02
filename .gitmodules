@@ -1,3 +1,0 @@
-[submodule "src/app/components/Composer/plugins/slate-drop-or-paste-images"]
-	path = src/app/components/Composer/plugins/slate-drop-or-paste-images
-	url = https://github.com/dmitrizzle/slate-drop-or-paste-images
