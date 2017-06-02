@@ -1,7 +1,5 @@
 // tools
 import React from "react"
-import ReactDOMServer from "react-dom/server"
-import { Transform } from "slate"
 
 // styles
 import { Figure } from "../../../Pictures"
@@ -19,8 +17,7 @@ export class Image extends React.Component {
   }
 
   load(file, src) {
-  	console.log(file.name)
-  	if(!file.name) this.setState({ src })
+  	if(!file || !file.name) this.setState({ src })
   	else {
 			const reader = new FileReader()
 			reader.addEventListener("load", () => this.setState({ src: reader.result }))

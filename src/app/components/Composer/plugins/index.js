@@ -79,8 +79,8 @@ export const plugins = [
     extensions: ["png", "jpeg"],
     applyTransform: (transform, file) => {
       return transform.insertBlock({
-      	kind: "block",
 				type: "paragraph",
+      	kind: "block",
 				text: "youoyoyo",
       }).wrapBlock({
         type: "image",

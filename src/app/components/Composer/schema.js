@@ -1,10 +1,7 @@
 // tools
 import React from "react"
-import ReactDOMServer from "react-dom/server"
 import { Image } from "./components/Pictures"
-
-
-import { Block, Html } from "slate"
+import { Html } from "slate"
 
 // components
 
@@ -50,23 +47,9 @@ export const schema = {
 										return <a {...props.attributes} href={href}>{props.children}</a>
     },
 	},
-	rules: [		
-		// Rule to insert a paragraph below a void node if that node is the last one in the document.
-//     {
-//       match: (node) => {
-//         return node.kind === "document"
-//       },
-//       validate: (document) => {
-//         const lastNode = document.nodes.last()
-//         return lastNode && lastNode.isVoid ? true : null
-//       },
-//       normalize: (transform, document) => {
-//         const block = Block.create(defaultBlock)
-//         transform.insertNodeByKey(document.key, document.nodes.size, block)
-//       }
-//     },
-    //
-    
+	
+	// rules to deserialize content on HTML paste
+	rules: [
 		{
 			deserialize(el, next) {
 				const block = BLOCK_TAGS[el.tagName]
@@ -90,9 +73,8 @@ export const schema = {
 			}
 		},
 		{
-			// Special case for links, to grab their href.
 			deserialize(el, next) {
-				if (el.tagName != "a") return
+				if (el.tagName !== "a") return
 				return {
 					kind: "inline",
 					type: "link",
@@ -103,7 +85,18 @@ export const schema = {
 				}
 			}
 		},
-    
+		{
+			deserialize(el, next) {
+				const block = BLOCK_TAGS[el.tagName]
+				if (block !== "image") return
+				return {
+					kind: "block",
+					type: "image",
+					isVoid: true,
+					data: { src: "/images/poster.jpg" },
+				}
+			}
+		},
 	],
 	marks: {
 		bold: 			props => <strong>{props.children}</strong>,
