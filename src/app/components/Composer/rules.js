@@ -1,5 +1,6 @@
 // tools
 import { Html, Text } from "slate"
+import isUrl from "is-url"
 
 // components
 
@@ -39,24 +40,25 @@ const rules = [
 		deserialize(el, next) {
 			const block = BLOCK_TAGS[el.tagName]
 			if (!block) return
-			console.log(el.tagName)
 			switch (block) {
 				case "paragraph" :
-				case "quote": { console.log("p")
+				case "quote": {
 					return {
 						kind: "block",
 						type: block,
 						nodes: next(el.children)
 					}
 				}
-				case "heading" : { console.log("h")
+				case "heading" : {
 					return {
 						kind: "block",
 						type: block,
 						nodes: textify(el) ? [ Text.createFromString(textify(el)) ] : next(el.children)
 					}
 				}
-				case "image" : { console.log("img")
+				case "image" : {
+					let imageSrc = el.attribs.src || el.attribs.srcset
+					if(!isUrl(imageSrc)) return
 					return {
 						kind: "block",
 						type: "image",
@@ -64,7 +66,7 @@ const rules = [
 						data: { src: el.attribs.src || el.attribs.srcset }, // this image needs to be uploaded
 					}
 				}
-				case "link" : { console.log("a")
+				case "link" : {
 					return {
 						kind: "inline",
 						type: "link",
