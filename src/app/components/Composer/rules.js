@@ -46,7 +46,7 @@ const rules = [
 					return {
 						kind: "block",
 						type: block,
-						nodes: next(el.children)
+						nodes: textify(el) ? [ Text.createFromString(textify(el)) ] : next(el.children)
 					}
 				}
 				case "heading" : {
