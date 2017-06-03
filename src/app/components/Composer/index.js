@@ -30,18 +30,16 @@ export class ComposerBody extends React.Component {
   onChange = state => this.setState({ state })
 	render() {
 		return (
-			<div>
-				<Editor
-					placeholder="Placeholder"
-					plugins={						plugins }
-					schema={						this.state.schema }
-					state={							this.state.state }
-					onChange={					this.onChange }
-					onPaste={						this.onPaste }
-					onDocumentChange={	this.onDocumentChange }
-					onKeyDown={					this.onKeyDown }
-				/>
-			</div>
+			<Editor
+				// placeholder={"Placeholder"}
+				plugins={						plugins }
+				schema={						this.state.schema }
+				state={							this.state.state }
+				onChange={					this.onChange }
+				onPaste={						this.onPaste }
+				onDocumentChange={	this.onDocumentChange }
+				onKeyDown={					this.onKeyDown }
+			/>
 		)
 	}
 }
