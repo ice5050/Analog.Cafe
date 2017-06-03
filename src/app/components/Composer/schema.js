@@ -97,6 +97,7 @@ export const schema = {
 							nodes: textify(el) ? [ Text.createFromString(textify(el)) ] : next(el.children)
 						}
 					}
+					default : return null
 				}
 			}
 		},
@@ -119,15 +120,3 @@ export const schema = {
 }
 const rules = schema.rules
 export const html = new Html({ rules })
-
-
-// this needs to be pulled form state.json
-export const initialContent =
-{
-	nodes: [
-		{
-			kind: "block",
-			type: "paragraph"
-		}
-	]
-}
