@@ -81,7 +81,7 @@ export const plugins = [
       return transform.insertBlock({
         type: "image",
         isVoid: true,
-        data: { file, src: "/images/poster.jpg" },
+        data: { file, src: "/images/status-image_processing.png" },
       }).apply()
     }
   }),
