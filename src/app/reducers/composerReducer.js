@@ -1,4 +1,4 @@
-const userReducer = (state = {
+const composer = (state = {
 		title: 		"",
 		subtitle: "",
 	}, action) =>  {
@@ -6,17 +6,17 @@ const userReducer = (state = {
 		case "CHANGE_TITLE":
 			state = {
 				...state,
-				name: action.payload
+				title: action.payload
 			}
 			break
 		case "CHANGE_SUBTITLE":
 			state = {
 				...state,
-				age: action.payload
+				subtitle: action.payload
 			}
 			break
 		default: break
 	}
 	return state
 }
-export default userReducer
+export default composer

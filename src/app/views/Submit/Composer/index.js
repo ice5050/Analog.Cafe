@@ -10,10 +10,10 @@ import { PageButton } from "../../../components/Buttons"
 
 // render
 
-export const Composer = props => { 
+export const Composer = props => {
 	return(
 		<Article>
-			<ComposerHeader />
+			<ComposerHeader  />
 			<Section>
 				<ComposerBody />
 			</Section>
