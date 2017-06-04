@@ -1,6 +1,5 @@
 // tools
 import React from "react"
-import { Link } from "react-router"
 
 // components
 import { Header, Section, Article } from "../../components/Article"

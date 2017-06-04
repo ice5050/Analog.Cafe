@@ -16,7 +16,7 @@ export const Composer = props => {
 			<Section>
 				<ComposerBody />
 			</Section>
-			<PageButton to="/submit/send" red>Send Submission 🚀</PageButton>
+			<PageButton to="/submit/send" red>Send Submission <span role="img" aria-label="Rocket">🚀</span></PageButton>
 		</Article>
 	)
 }
