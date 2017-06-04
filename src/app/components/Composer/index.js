@@ -2,6 +2,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Editor, Raw } from "slate"
+import throttle from "lodash/throttle"
+
 
 
 import { plugins } from "./plugins"
@@ -16,6 +18,13 @@ export class ComposerBody extends React.Component {
 		schema
 	}
   onChange = state => this.setState({ state })
+  onDocumentChange = throttle(
+  	(state, prevState) => {
+			const composerState = JSON.stringify(Raw.serialize(state))
+			localStorage.setItem("composer-state", composerState)
+		},
+	3000)
+
 	render() {
 		return (
 			<Editor
