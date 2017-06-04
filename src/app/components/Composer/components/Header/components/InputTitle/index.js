@@ -16,6 +16,7 @@ export class InputTitle extends React.Component {
   }
   handleChange(event) {
     this.setState({ value: toTitleCase(event.target.value) })
+    this.props.onChange(event.target.value)
   }
   render() {
     return <Textarea

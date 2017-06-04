@@ -1,11 +1,16 @@
+// tools
+//import { createStore, combineReducers, applyMiddleware } from "redux"
+import { createStore, combineReducers } from "redux"
 
-import { createStore, combineReducers, applyMiddleware } from "redux"
 
-import math from "./reducers/mathReducer"
-import user from "./reducers/userReducer"
+// reducers
+import composer from "./reducers/composerReducer"
+//import user from "./reducers/userReducer"
 
+// store
 export default createStore(
-	combineReducers({ math, user }), 
+	combineReducers({ composer }), 
+	//combineReducers({ composer, user }), 
 	{}, 
 	//applyMiddleware(logger(), thunk, promise())
 )

@@ -2,7 +2,7 @@
 import styled, { css } from "styled-components"
 
 // tools
-import { InputTitle } from "./InputTitle"
+import { InputTitle } from "./"
 
 // css
 const input = css`

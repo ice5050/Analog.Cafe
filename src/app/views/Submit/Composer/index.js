@@ -2,7 +2,8 @@
 import React from "react"
 
 // components
-import { ComposerBody, ComposerHead } from "../../../components/Composer"
+import ComposerHeader from "../../../components/Composer/components/Header"
+import { ComposerBody } from "../../../components/Composer"
 import { Section, Article } from "../../../components/Article"
 import { PageButton } from "../../../components/Buttons"
 
@@ -12,7 +13,7 @@ import { PageButton } from "../../../components/Buttons"
 export const Composer = props => { 
 	return(
 		<Article>
-			<ComposerHead />
+			<ComposerHeader />
 			<Section>
 				<ComposerBody />
 			</Section>

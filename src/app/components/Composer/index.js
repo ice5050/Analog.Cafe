@@ -3,25 +3,13 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Editor, Raw } from "slate"
 
+
 import { plugins } from "./plugins"
 import { schema } from "./schema"
 import { content } from "./loader"
 
-// styles
-import { PageHeader, PageByline } from "../Article/styles/header"
-import { PageTitle, PageSubtitle } from "./styles"
-
 
 // return
-export const ComposerHead = props => {
-	return (
-		<PageHeader>
-			<PageTitle placeholder=				"Write Your Title Here"	></PageTitle>
-			<PageSubtitle placeholder=	 	"Subtitle (Optional)"		></PageSubtitle>
-			<PageByline>Your name & profile link will appear here.</PageByline>
-		</PageHeader>
-	)
-}
 export class ComposerBody extends React.Component {
 	state = {
 		state: Raw.deserialize(content(), {terse: true}),
