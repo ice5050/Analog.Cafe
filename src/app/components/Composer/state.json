@@ -1,6 +1,269 @@
-{
-	"nodes": [{
-		"kind": "block",
-		"type": "paragraph"
-	}]
+{  
+  "nodes":[  
+    {  
+      "data":{  
+
+      },
+      "kind":"block",
+      "isVoid":false,
+      "type":"paragraph",
+      "nodes":[  
+        {  
+          "kind":"text",
+          "ranges":[  
+            {  
+              "kind":"range",
+              "text":"Your submission content goes here.",
+              "marks":[  
+
+              ]
+            },
+            {  
+              "kind":"range",
+              "text":" ",
+              "marks":[  
+                {  
+                  "data":{  
+
+                  },
+                  "kind":"mark",
+                  "type":"bold"
+                }
+              ]
+            },
+            {  
+              "kind":"range",
+              "text":"This is just a sample text, feel free to delete it all.",
+              "marks":[  
+                {  
+                  "data":{  
+
+                  },
+                  "kind":"mark",
+                  "type":"italic"
+                },
+                {  
+                  "data":{  
+
+                  },
+                  "kind":"mark",
+                  "type":"bold"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "data":{  
+
+      },
+      "kind":"block",
+      "isVoid":true,
+      "type":"divider",
+      "nodes":[  
+        {  
+          "kind":"text",
+          "ranges":[  
+            {  
+              "kind":"range",
+              "text":" ",
+              "marks":[  
+
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "data":{  
+
+      },
+      "kind":"block",
+      "isVoid":false,
+      "type":"paragraph",
+      "nodes":[  
+        {  
+          "kind":"text",
+          "ranges":[  
+            {  
+              "kind":"range",
+              "text":"Drag & drop your images here. Add captions. Create a story. Go nuts!",
+              "marks":[  
+
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "data":{  
+
+      },
+      "kind":"block",
+      "isVoid":false,
+      "type":"quote",
+      "nodes":[  
+        {  
+          "data":{  
+
+          },
+          "kind":"block",
+          "isVoid":false,
+          "type":"paragraph",
+          "nodes":[  
+            {  
+              "kind":"text",
+              "ranges":[  
+                {  
+                  "kind":"range",
+                  "text":"Did you know that you can add fancy styles to your stories, like this quote? Analog.Cafe submission editor automatically formats your text and images to create a clean & beautiful post. ",
+                  "marks":[  
+
+                  ]
+                },
+                {  
+                  "kind":"range",
+                  "text":"You can now spend more time creating and less time formatting.",
+                  "marks":[  
+                    {  
+                      "data":{  
+
+                      },
+                      "kind":"mark",
+                      "type":"bold"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "data":{  
+
+      },
+      "kind":"block",
+      "isVoid":false,
+      "type":"heading",
+      "nodes":[  
+        {  
+          "kind":"text",
+          "ranges":[  
+            {  
+              "kind":"range",
+              "text":"When Ready,",
+              "marks":[  
+
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "data":{  
+
+      },
+      "kind":"block",
+      "isVoid":false,
+      "type":"paragraph",
+      "nodes":[  
+        {  
+          "kind":"text",
+          "ranges":[  
+            {  
+              "kind":"range",
+              "text":"Once you feel that your submission is complete, click the ",
+              "marks":[  
+
+              ]
+            },
+            {  
+              "kind":"range",
+              "text":"Send Submission",
+              "marks":[  
+                {  
+                  "data":{  
+
+                  },
+                  "kind":"mark",
+                  "type":"italic"
+                }
+              ]
+            },
+            {  
+              "kind":"range",
+              "text":" button below. Remember that an editor will go through your post and will get back to you within a week.",
+              "marks":[  
+
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "data":{  
+
+      },
+      "kind":"block",
+      "isVoid":false,
+      "type":"paragraph",
+      "nodes":[  
+        {  
+          "kind":"text",
+          "ranges":[  
+            {  
+              "kind":"range",
+              "text":"Analog.Cafe posts are judged by quality, not quantity.",
+              "marks":[  
+                {  
+                  "data":{  
+
+                  },
+                  "kind":"mark",
+                  "type":"bold"
+                }
+              ]
+            },
+            {  
+              "kind":"range",
+              "text":" Just one film photograph with a caption can (and usually is) enough.",
+              "marks":[  
+
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "data":{  
+
+      },
+      "kind":"block",
+      "isVoid":false,
+      "type":"paragraph",
+      "nodes":[  
+        {  
+          "kind":"text",
+          "ranges":[  
+            {  
+              "kind":"range",
+              "text":"",
+              "marks":[  
+
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
