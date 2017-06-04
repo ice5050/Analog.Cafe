@@ -2,29 +2,23 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Editor, Raw } from "slate"
-import throttle from "lodash/throttle"
 
 
 
 import { plugins } from "./plugins"
 import { schema } from "./schema"
-import { content } from "./loader"
+import { loadContent } from "./helpers/loader"
+import { saveContent } from "./helpers/saver"
 
 
 // return
-export class ComposerBody extends React.Component {
+export class ComposerContent extends React.Component {
 	state = {
-		state: Raw.deserialize(content(), {terse: true}),
+		state: Raw.deserialize(loadContent(), {terse: true}),
 		schema
 	}
   onChange = state => this.setState({ state })
-  onDocumentChange = throttle(
-  	(state, prevState) => {
-			const composerState = JSON.stringify(Raw.serialize(state))
-			localStorage.setItem("composer-state", composerState)
-		},
-	3000)
-
+  onDocumentChange = saveContent
 	render() {
 		return (
 			<Editor
