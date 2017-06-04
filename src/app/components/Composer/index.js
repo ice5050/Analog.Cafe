@@ -31,7 +31,6 @@ export class ComposerBody extends React.Component {
 	render() {
 		return (
 			<Editor
-				// placeholder={"Placeholder"}
 				plugins={						plugins }
 				schema={						this.state.schema }
 				state={							this.state.state }
