@@ -6,6 +6,7 @@ import Helmet from "react-helmet"
 
 // components
 import { Nav } from "../../components/Nav"
+import { ComposerNav } from "../../components/Composer/components/Nav"
 
 // render
 export class Submit extends React.Component {
@@ -13,7 +14,7 @@ export class Submit extends React.Component {
 		return (
 			<div>
 				<Helmet title="Submit for Review" />
-				<Nav />
+				{ this.props.location.pathname.includes("submit/compose") ? 	<ComposerNav /> : <Nav /> }
 				{ this.props.children }
 			</div>
 		)

@@ -17,6 +17,7 @@ import { NotFound } from "./app/views/Error"
 import { ListPosts } from "./app/views/Publication/ListPosts"
 import { Introduction } from "./app/views/Submit/Introduction"
 import { Composer } from "./app/views/Submit/Composer"
+import { About } from "./app/views/About"
 
 
 // render & route
@@ -33,9 +34,9 @@ class App extends React.Component {
 
 					<Route path="/"			 					component={ Publication } >
 						<IndexRoute 								component={ ListPosts } />
-						<Route path="articles" 			component={ ListPosts } filter={ "articles" } />
-						<Route path="photo-essays" 	component={ ListPosts } filter={ "photoEssays" } />
-						<Route path="favorites" 		component={ ListPosts } filter={ "favorites" } />
+						<Route path="photography"		component={ ListPosts } filter={ "photography" } />
+						<Route path="essays"			 	component={ ListPosts } filter={ "essays" } />
+						<Route path="about"			 		component={ About } filter={ "about" } />
 					</Route>
 
 					<Route path="submit"					component={ Submit } >

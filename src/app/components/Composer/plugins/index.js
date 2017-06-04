@@ -1,6 +1,5 @@
 // tools
-import { html } from "../schema"
-import { Text } from "slate"
+import { html } from "../rules"
 
 // Analog.Cafe plugins
 import { MarkHotkey } from "./mark-hotkey"

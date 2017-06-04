@@ -1,5 +1,6 @@
 {
-	"title": "Write Your Title Here ✍",
-	"subtitle": "Subtitle (Optional)",
-	"body": "<p>Drag and drop your images here. Feel free to caption them with a title, location, time, camera, etc.</p><p><em>You can add more than one image and even write an article or a photo essay!</em></p>"
+	"nodes": [{
+		"kind": "block",
+		"type": "paragraph"
+	}]
 }

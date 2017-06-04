@@ -23,7 +23,7 @@ export const Introduction = props => {
 				
 				<hr />
 				
-				<p>Submitting your work is really easy. Simply drag and drop your scanned photograph(s) and/or write your story. Double-check your spelling and image quality and click &ldquo;Finished&rdquo;.</p>
+				<p>Submitting your work is really easy. Simply drag and drop your scanned photograph(s) and/or write your story. Double-check your spelling and image quality and click &ldquo;Send Submission <span role="img" aria-label="Rocket">🚀</span>&rdquo;.</p>
 				<p><strong>Analog.Cafe editor will review your work and get back to you with the decision within a week.</strong></p>
 				
 				<Figure src="images/poster.jpg">&ldquo;Midnight Jam,&rdquo; shot on Ilford Pan 400 with Canon QL25 and pushed to 1600ISO.</Figure>
