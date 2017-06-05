@@ -20,33 +20,31 @@ import { About } from "./About"
 
 
 // render & route
-export default class App extends React.Component {
-	render() {
-		return (
-			<TheZine>
-				<Helmet
-					defaultTitle="Analog.Cafe ☕️"
-					titleTemplate="%s ☕️ Analog.Cafe"
-				/>
+export const App = props => {
+	return (
+		<TheZine>
+			<Helmet
+				defaultTitle="Analog.Cafe ☕️"
+				titleTemplate="%s ☕️ Analog.Cafe"
+			/>
 
-				<Router history={ browserHistory } >
+			<Router history={ browserHistory } >
 
-					<Route path="/"			 					component={ Publication } >
-						<IndexRoute 								component={ ListPosts } />
-						<Route path="photography"		component={ ListPosts } filter={ "photography" } />
-						<Route path="essays"			 	component={ ListPosts } filter={ "essays" } />
-						<Route path="about"			 		component={ About } filter={ "about" } />
-					</Route>
+				<Route path="/"			 					component={ Publication } >
+					<IndexRoute 								component={ ListPosts } />
+					<Route path="photography"		component={ ListPosts } filter={ "photography" } />
+					<Route path="essays"			 	component={ ListPosts } filter={ "essays" } />
+					<Route path="about"			 		component={ About } filter={ "about" } />
+				</Route>
 
-					<Route path="submit"					component={ Submit } >
-						<IndexRoute 								component={ Introduction } />
-						<Route path="compose" 			component={ Compose } />
-					</Route>
+				<Route path="submit"					component={ Submit } >
+					<IndexRoute 								component={ Introduction } />
+					<Route path="compose" 			component={ Compose } />
+				</Route>
 
-					<Route path="*"								component={ NotFound } status={404} />
+				<Route path="*"								component={ NotFound } status={404} />
 
-				</Router>
-			</TheZine>
-		)
-	}
+			</Router>
+		</TheZine>
+	)
 }
