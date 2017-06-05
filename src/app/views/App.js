@@ -15,7 +15,7 @@ import { Submit } from "./Submit"
 import { NotFound } from "./Error"
 import { ListPosts } from "./Publication/ListPosts"
 import { Introduction } from "./Submit/Introduction"
-import { Composer } from "./Submit/Composer"
+import { Compose } from "./Submit/Compose"
 import { About } from "./About"
 
 
@@ -40,7 +40,7 @@ export default class App extends React.Component {
 
 					<Route path="submit"					component={ Submit } >
 						<IndexRoute 								component={ Introduction } />
-						<Route path="compose" 			component={ Composer } />
+						<Route path="compose" 			component={ Compose } />
 					</Route>
 
 					<Route path="*"								component={ NotFound } status={404} />

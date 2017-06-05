@@ -1,8 +1,8 @@
 // tools
 
 // state
-import defaultContentState from "../state.json"
-const defaultHeaderState = { title: "", subtitle: "" }
+import defaultContentState from "../components/ContentEditor/state.json"
+import defaultHeaderState from "../components/HeaderEditor/state.json"
 
 // return
 export const loadContent = () => {

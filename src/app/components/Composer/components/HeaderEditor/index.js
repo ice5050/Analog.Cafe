@@ -2,13 +2,9 @@
 import React from "react"
 import { saveHeader } from "../../helpers/saver"
 import { loadHeader } from "../../helpers/loader"
-import { connect } from "react-redux"
 
 // components
 import { PageTitle, PageSubtitle } from "./components/InputTitle/styles"
-
-// actions
-import { changeTitle, changeSubtitle } from "../../../../actions/composerActions"
 
 // styles
 import { PageHeader, PageByline } from "../../../Article/styles/header"
@@ -16,8 +12,8 @@ import { PageHeader, PageByline } from "../../../Article/styles/header"
 
 
 // return
-let headerData = {}
-export default class ComposerHeader extends React.Component {
+let headerData = loadHeader()
+export class HeaderEditor extends React.Component {
 	constructor(props) {
     super(props)
     this.handleTitleChange = this.handleTitleChange.bind(this)
@@ -26,12 +22,10 @@ export default class ComposerHeader extends React.Component {
   handleTitleChange(event) {
   	headerData.title = event
   	saveHeader(headerData)
-    //this.props.changeTitle(event)
   }
   handleSubtitleChange(event) {
   	headerData.subtitle = event
   	saveHeader(headerData)
-    //this.props.changeSubtitle(event)
   }
   render() {
 		return (
@@ -51,20 +45,3 @@ export default class ComposerHeader extends React.Component {
 		)
 	}
 }
-// const mapStateToProps = (state) => {
-// 	return {
-// 		title: state.title,
-// 		subtitle: state.subtitle
-// 	}
-// }
-// const mapDispatchToProps = (dispatch) => {
-// 	return {
-// 		changeTitle: (text) => {
-// 			dispatch(changeTitle(text))
-// 		},
-// 		changeSubtitle: (text) => {
-// 			dispatch(changeSubtitle(text))
-// 		}
-// 	}
-// }
-// export default connect(mapStateToProps, mapDispatchToProps)(ComposerHeader)
