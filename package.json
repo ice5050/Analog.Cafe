@@ -1,6 +1,6 @@
 {
   "name": "analog-cafe",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "(Loosely) Collaborative Blogging App by Analog.Cafe",
   "license": "MPL-2.0",
   "private": true,
@@ -14,28 +14,35 @@
   },
   "dependencies": {
     "color": "^1.0.3",
-    "fontfaceobserver": "^2.0.9",
+    "fontfaceobserver": "^2.0.13",
     "history": "^4.6.1",
+    "is-url": "^1.2.2",
     "keycode": "^2.1.9",
+    "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-helmet": "^5.1.3",
+    "react-redux": "^5.0.5",
     "react-responsive-picture": "^1.0.3",
     "react-router": "3.0.2",
     "react-textarea-autosize": "^5.0.3",
+    "redux": "^3.6.0",
     "sanitize.css": "^5.0.0",
     "slate": "^0.20.1",
     "slate-auto-replace": "^0.5.0",
+    "slate-drop-or-paste-images": "^0.5.0",
     "slate-edit-blockquote": "^0.2.0",
+    "slate-trailing-block": "^0.2.4",
     "styled-components": "^2.0.0",
     "titlecase": "^1.1.2",
     "typeface-exo-2": "0.0.22",
-    "typeface-lora": "0.0.22"
+    "typeface-lora": "0.0.22",
+    "webpack": "^2.6.1"
   },
   "devDependencies": {
     "babel-plugin-root-import": "^5.0.0",
-    "react-scripts": "1.0.6"
+    "react-scripts": "^1.0.7"
   },
   "scripts": {
     "start": "react-scripts start",

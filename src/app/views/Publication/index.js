@@ -6,15 +6,13 @@ import PropTypes from "prop-types"
 import { Nav } from "../../components/Nav"
 
 // render
-export class Publication extends React.Component {
-	render(){
-		return (
-			<div>
-				<Nav />
-				{ this.props.children }
-			</div>
-		)
-	}
+export const Publication = props => {
+	return (
+		<div>
+			<Nav />
+			{ props.children }
+		</div>
+	)
 }
 
 // declare

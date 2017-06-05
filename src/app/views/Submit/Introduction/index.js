@@ -23,17 +23,17 @@ export const Introduction = props => {
 				
 				<hr />
 				
-				<p>Submitting your work is really easy. Simply drag and drop your scanned photograph(s) and/or write your story. Double-check your spelling and image quality and click &ldquo;Finished&rdquo;.</p>
+				<p>Submitting your work is really easy. Simply drag and drop your scanned photograph(s) and/or write your story. Double-check your spelling and image quality and click &ldquo;Send Submission <span role="img" aria-label="Rocket">🚀</span>&rdquo;.</p>
 				<p><strong>Analog.Cafe editor will review your work and get back to you with the decision within a week.</strong></p>
 				
 				<Figure src="images/poster.jpg">&ldquo;Midnight Jam,&rdquo; shot on Ilford Pan 400 with Canon QL25 and pushed to 1600ISO.</Figure>
 								
-				<h2>Featured Images Library</h2>
+				<h3>Featured Images Library</h3>
 				<p>You can can re-publish any of the images from the &ldquo;Featured Images Library&rdquo; within your work. By doing this you are starting an <strong>instant collaboration</strong> with some of the best film photographers on Analog.Cafe.</p>
 				<p>You have the premission from the photographers to use their images within your submission here on Analog.Cafe.</p>
 				<p>The image(s) that you upload with your submission are reviewed and selectively given &ldquo;featured&rdquo; status (you can opt out). Your featured images are always re-published with a clear link to your Analog.Cafe portfolio.</p>
 				
-				<h2>Topics & Submission Types</h2>
+				<h3>Topics & Submission Types</h3>
 				<p>You can write or photograph pretty much anything you like, as long as it&rsquo;s not offensive or stolen. NSFW submissions aren&rsquo;t accepted (yet).</p>
 				<p>Submission types typically accepted:</p>
 				

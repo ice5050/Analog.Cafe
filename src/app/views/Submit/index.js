@@ -6,18 +6,17 @@ import Helmet from "react-helmet"
 
 // components
 import { Nav } from "../../components/Nav"
+import { ComposerNav } from "../../components/Composer/components/Nav"
 
 // render
-export class Submit extends React.Component {
-	render(){
-		return (
-			<div>
-				<Helmet title="Submit for Review" />
-				<Nav />
-				{ this.props.children }
-			</div>
-		)
-	}
+export const Submit = props => {
+	return (
+		<div>
+			<Helmet title="Submit for Review" />
+			{ props.location.pathname.includes("submit/compose") ? 	<ComposerNav /> : <Nav /> }
+			{ props.children }
+		</div>
+	)
 }
 
 // declare

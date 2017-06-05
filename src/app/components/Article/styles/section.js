@@ -5,7 +5,7 @@ import { Quote } from "./quote"
 
 
 // css
-const heading = css`
+const sectionHeading = css`
 	${ props => props.theme.typography.title.auto }
 	font-size: ${ props => props.theme.size.font.make.larger / 1.5 }em;
 	padding-top: 1em;
@@ -19,10 +19,14 @@ const sectionBreak = css`
 	color:				${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.half).string() };
 	border:				0;
 	margin:				0;
+	clear:				both;
 	&:before {
 		content: 			"✽ ✽ ✽";
 		line-height: 	1em;
 		display: 			block;
+	}
+	&.focus:before {
+		background-color: ${ props => props.theme.color.highlight };
 	}
 `
 
@@ -54,7 +58,7 @@ export const PageSection = styled.section`
 	}
 	
 	blockquote 	{ ${ Quote } }
-	h2, h3, h4 	{ ${ heading } }
+	h2, h3, h4 	{ ${ sectionHeading } }
 	hr 					{ ${ sectionBreak } }
 `
 export const PageArticle = styled.article``

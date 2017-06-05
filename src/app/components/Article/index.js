@@ -6,7 +6,7 @@ import toTitleCase from "titlecase"
 
 // styles
 import { PageHeader, PageTitle, PageSubtitle, PageByline, PageTools } from "./styles/header"
-import { PageArticle, PageSection, SectionBreak } from "./styles/section"
+import { PageArticle, PageSection } from "./styles/section"
 
 // return
 export const Header = props => {
