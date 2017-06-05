@@ -12,20 +12,22 @@ import { PageHeader, PageByline } from "../../../Article/styles/header"
 
 
 // return
-let headerData = loadHeader()
 export class HeaderEditor extends React.Component {
 	constructor(props) {
     super(props)
     this.handleTitleChange = this.handleTitleChange.bind(this)
     this.handleSubtitleChange = this.handleSubtitleChange.bind(this)
   }
+  componentDidMount() {
+		this.headerData = loadHeader()
+	}
   handleTitleChange(event) {
-  	headerData.title = event
-  	saveHeader(headerData)
+  	this.headerData.title = event
+  	saveHeader(this.headerData)
   }
   handleSubtitleChange(event) {
-  	headerData.subtitle = event
-  	saveHeader(headerData)
+  	this.headerData.subtitle = event
+  	saveHeader(this.headerData)
   }
   render() {
 		return (
