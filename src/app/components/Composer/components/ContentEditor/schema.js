@@ -2,7 +2,7 @@
 import React from "react"
 
 // components
-import { Image } from "./components/Pictures"
+import { Image } from "../Pictures"
 
 
 // return

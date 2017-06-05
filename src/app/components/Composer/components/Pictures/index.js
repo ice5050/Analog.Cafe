@@ -27,7 +27,7 @@ export class Image extends React.Component {
     const focus = state.isFocused && state.selection.hasEdgeIn(node)
 		const className = focus ? "focus" : "nofocus"
     return src
-      ? <Figure {...this.props} src={src} className={className} >Add caption to your image.</Figure>
+      ? <Figure {...attributes} src={src} className={className} >Add caption to your image.</Figure>
       : <Figure {...attributes} src="" className={className}>Loading your image...</Figure>      
   }
 }

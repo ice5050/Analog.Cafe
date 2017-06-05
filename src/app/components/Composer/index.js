@@ -1,56 +1,22 @@
 // tools
 import React from "react"
-import PropTypes from "prop-types"
-import { Editor, Raw } from "slate"
 
-import { plugins } from "./plugins"
-import { schema } from "./schema"
-import { content } from "./loader"
-
-// styles
-import { PageHeader, PageByline } from "../Article/styles/header"
-import { PageTitle, PageSubtitle } from "./styles"
+// components
+import { Section, Article } from "../Article"
+import { HeaderEditor } from "./components/HeaderEditor"
+import { ContentEditor } from "./components/ContentEditor"
+import { PageButton } from "../Buttons"
 
 
-// return
-export const ComposerHead = props => {
-	return (
-		<PageHeader>
-			<PageTitle placeholder=				"Write Your Title Here"	></PageTitle>
-			<PageSubtitle placeholder=	 	"Subtitle (Optional)"		></PageSubtitle>
-			<PageByline>Your name & profile link will appear here.</PageByline>
-		</PageHeader>
+// render
+export const Composer = props => {
+	return(
+		<Article>
+			<HeaderEditor  />
+			<Section>
+				<ContentEditor />
+			</Section>
+			<PageButton to="/submit/send" red>Send Submission <span role="img" aria-label="Rocket">🚀</span></PageButton>
+		</Article>
 	)
-}
-export class ComposerBody extends React.Component {
-	state = {
-		state: Raw.deserialize(content(), {terse: true}),
-		schema
-	}
-  onChange = state => this.setState({ state })
-	render() {
-		return (
-			<Editor
-				// placeholder={"Placeholder"}
-				plugins={						plugins }
-				schema={						this.state.schema }
-				state={							this.state.state }
-				onChange={					this.onChange }
-				onPaste={						this.onPaste }
-				onDocumentChange={	this.onDocumentChange }
-				onKeyDown={					this.onKeyDown }
-			/>
-		)
-	}
-}
-
-// declare
-Editor.propTypes = {
-	plugins:					PropTypes.array,
-	schema:						PropTypes.object,
-	state: 						PropTypes.object,
-	onChange:					PropTypes.func,
-	onPaste:					PropTypes.func,
-	onDocumentChange:	PropTypes.func,
-	onKeyDown:				PropTypes.func,
 }
