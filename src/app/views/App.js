@@ -32,9 +32,9 @@ export const App = props => {
 
 				<Route path="/"			 					component={ Publication } >
 					<IndexRoute 								component={ ListPosts } />
-					<Route path="photography"		component={ ListPosts } filter={ "photography" } />
-					<Route path="essays"			 	component={ ListPosts } filter={ "essays" } />
-					<Route path="about"			 		component={ About } filter={ "about" } />
+					<Route path="photography"		component={ ListPosts } />
+					<Route path="essays"			 	component={ ListPosts } />
+					<Route path="about"			 		component={ About } />
 				</Route>
 
 				<Route path="submit"					component={ Submit } >
