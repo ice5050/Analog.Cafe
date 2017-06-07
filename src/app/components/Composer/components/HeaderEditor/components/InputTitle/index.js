@@ -14,7 +14,7 @@ export class InputTitle extends React.Component {
     this.state = {value: props.value || ""}
     this.handleChange = this.handleChange.bind(this)
   }
-  handleChange(event) {
+  handleChange = event => {
     this.setState({ value: toTitleCase(event.target.value) })
     this.props.onChange(event.target.value)    
   }

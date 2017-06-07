@@ -1,0 +1,13 @@
+{  
+  "status": "ok",
+  "items": [
+  	{
+  		"title" : "Title 1",
+  		"type" : "essay"
+  	},
+  	{
+  		"title" : "Title 2",
+  		"type" : "photography"
+  	}
+  ]
+}

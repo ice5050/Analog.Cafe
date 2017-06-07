@@ -13,6 +13,7 @@
     "url": "https://github.com/dmitrizzle/Analog.Cafe"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "color": "^1.0.3",
     "fontfaceobserver": "^2.0.13",
     "history": "^4.6.1",

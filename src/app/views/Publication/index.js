@@ -18,5 +18,4 @@ export const Publication = props => {
 // declare
 Publication.propTypes = {
 	children: PropTypes.element.isRequired,
-	pathname: PropTypes.string,
 }
