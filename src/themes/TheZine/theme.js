@@ -44,7 +44,7 @@ export const TheZineTheme = {
 				letter-spacing: 	0.05em;
 				line-height: 			${ () => TheZineTheme.typography.text.lineHeight }em;
 				
-				.fonts-loaded & {
+				.fonts-loaded && {
 					font-family: 			Lora, Georgia, serif;
 					letter-spacing: 	0.025em;
 				}			
@@ -94,8 +94,8 @@ export const TheZineTheme = {
 	},
 	layer: {
 		overlay:		40,
-		menu:				30,
-		card:				20,
+		card:				30,
+		nav:				20,
 		up:					10,
 		tuck:				-1
 	},

@@ -10,7 +10,7 @@ export const NavContainer = styled.nav`
 	${ props => props.theme.size.font.auto }
 	${ props => props.theme.typography.title.auto }
 	position: 				relative;
-	z-index: 					${ props => props.theme.layer.up };
+	z-index: 					${ props => props.theme.layer.nav };
 	padding-top: 			${ containerVerticalSpacing }em;
 	padding-bottom: 	${ containerVerticalSpacing }em;
 	
