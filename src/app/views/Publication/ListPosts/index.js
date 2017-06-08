@@ -1,6 +1,8 @@
 // tools
 import React from "react"
 import axios from "axios"
+import { Link } from "react-router"
+
 
 // components
 import { Section, Article } from "../../../components/Article"
@@ -21,30 +23,19 @@ export class ListPosts extends React.Component {
   	if(this.state.filter === filter) return
   	axios.get(API_ROUTE_LIST + filter + ".json")
 			.then(response => {
-				console.log(response)
+				let data = response.data
+// 				try { data = JSON.parse(response.data) }
+// 				catch (error) { return console.log(error) }
+				console.log(data)
 				this.setState({
 					filter,
-					items: response.data.items
+					items: data.items
 				})
 			})
 			.catch(error => console.log(error))
   }
   componentDidMount = () => this._fetch()
   componentDidUpdate = () => this._fetch()
-  
-//   componentDidUpdate = () => {
-//   	const filter = this.props.location.pathname === "/" ? "/index" : this.props.location.pathname
-//   	if(this.state.filter === filter) return
-//   	axios.get(API_ROUTE_LIST + filter + ".json")
-// 			.then(response => {
-// 				console.log(response)
-// 				this.setState({
-// 					filter,
-// 					items: response.data.items
-// 				})
-// 			})
-// 			.catch(error => console.log(error))
-//   }
 
 //   
 //   componentWillUnmount = function() {
@@ -56,21 +47,35 @@ export class ListPosts extends React.Component {
 			<Article>
 				<Section>
 					<p>{ API_ROUTE_LIST + this.state.filter }</p>
+					<ul>
 					{
-						this.state.items.map(function(items) {
+						this.state.items.map(function(item) {
 							return (
-								<div key={items.type}>
-									<h2>{ items.title }</h2>
-									<p>{ items.type }</p>
-								</div>
+								<li key={ item.id }>
+									<Link to={ item.url }>
+										<section>
+											<figure>
+												<img src={ item.images.poster } alt={ item.title + " poster image" } />
+											</figure>
+											<h2>{ item.title }</h2>
+											<p>{ item.summary }</p>
+											<div>
+												<span>{ item["category-name"] } | { item.category === "essay" ? item.stats.words / 200 + "-minute read" : item.stats.images + " Images" }</span>
+												<em>{ item.author.name } · {  } 12, 2017</em></div>
+										</section>
+										<figure ></figure>
+									</Link>
+								</li>
 							)
 						})
 					}
+					</ul>
 				</Section>
 			</Article>
 		)
 	}
 }
 
-
+//Date(item["post-date"]).getMonth()
+//style={"background-image" : "url({ item.images.poster })"}
 					
