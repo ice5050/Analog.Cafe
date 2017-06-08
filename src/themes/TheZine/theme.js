@@ -44,7 +44,7 @@ export const TheZineTheme = {
 				letter-spacing: 	0.05em;
 				line-height: 			${ () => TheZineTheme.typography.text.lineHeight }em;
 				
-				.fonts-loaded & {
+				.fonts-loaded && {
 					font-family: 			Lora, Georgia, serif;
 					letter-spacing: 	0.025em;
 				}			

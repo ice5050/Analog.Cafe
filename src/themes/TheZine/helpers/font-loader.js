@@ -7,6 +7,7 @@ export const loadFonts = () => {
 	if( doc.contains("fonts-loaded") ){ return }
 	
 	(new FontFaceObserver("Exo 2", {
+		style: "normal",
 		weight: 600
 	})).load(null, 5000).then(function(){
 		doc.add("fonts-loaded-headers")
