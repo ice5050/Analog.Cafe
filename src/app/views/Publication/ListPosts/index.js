@@ -5,8 +5,8 @@ import { Link } from "react-router"
 
 
 // components
-import { Bleed, List, Stats } from "../../../components/List"
-import { Caption } from "../../../components/Caption"
+import { Bleed, List, Stats, Caption, ZigzagPicture } from "../../../components/List"
+import { Description } from "../../../components/List/components/Description"
 
 
 // dictionary
@@ -37,32 +37,35 @@ export class ListPosts extends React.Component {
 
 	render() {
 		return(
-			<Bleed>
-				<List>
-				{
-					this.state.items.map(function(item) {
-						return (
-							<li key={ item.id }>
-								<Link to={ item.url }>
-									<section>
-										<figure>
-											<img src={ item.poster.medium } alt={ item.title + " poster image" } />
-										</figure>
-										<h2>{ item.title }</h2>
-										<Caption>{ item.summary }</Caption>
-										<div>
-											<Stats>{ item["category-name"] } | { item.category === "essay" ? Math.round(item.stats.words / 200) + "-minute read" : item.stats.images + " Images" }</Stats>
-											<em>{ item.author.name } · {  } 12, 2017</em>
-										</div>
-									</section>
-									<figure ></figure>
-								</Link>
-							</li>
-						)
-					})
-				}
-				</List>
-			</Bleed>
+			<div>
+				<Description emoji="🎑">Curated photo essays and film photography</Description>
+				<Bleed>
+					<List>
+					{
+						this.state.items.map(function(item) {
+							return (
+								<li key={ item.id }>
+									<Link to={ item.url }>
+										<section>
+											<figure>
+												<img src={ item.poster.medium } alt={ item.title + " poster image" } />
+											</figure>
+											<h2>{ item.title }</h2>
+											<Caption>{ item.summary }</Caption>
+											<div>
+												<Stats>{ item["category-name"] } | { item.category === "essay" ? Math.round(item.stats.words / 200) + "-minute read" : item.stats.images + " Images" }</Stats>
+												<em>{ item.author.name } · {  } 12, 2017</em>
+											</div>
+										</section>
+										<ZigzagPicture style={{ backgroundImage: `url("/images/uploads/poster.jpg")` }} />
+									</Link>
+								</li>
+							)
+						})
+					}
+					</List>
+				</Bleed>
+			</div>
 		)
 	}
 }

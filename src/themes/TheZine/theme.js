@@ -94,8 +94,8 @@ export const TheZineTheme = {
 	},
 	layer: {
 		overlay:		40,
-		menu:				30,
-		card:				20,
+		card:				30,
+		nav:				20,
 		up:					10,
 		tuck:				-1
 	},

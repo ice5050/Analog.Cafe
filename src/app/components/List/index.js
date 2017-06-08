@@ -6,6 +6,8 @@ import PropTypes from "prop-types"
 import { ListBleed } from "./styles/bleed"
 import { ListUl } from "./styles/ul"
 import { ListStats } from "./styles/stats"
+import { ListCaption } from "./styles/caption"
+import { ListZigzagPicture } from "./styles/zigzag-picture"
 
 
 // return
@@ -18,6 +20,12 @@ export const List = props => {
 export const Stats = props => {
 	return <ListStats>{ props.children }</ListStats>
 }
+export const Caption = props => {
+	return <ListCaption>{ props.children }</ListCaption>
+}
+export const ZigzagPicture = props => {
+	return <ListZigzagPicture { ...props } >{ props.children }</ListZigzagPicture>
+}
 
 // declare
 Bleed.propTypes = {
@@ -28,4 +36,10 @@ List.propTypes = {
 }
 Stats.propTypes = {
 	children: 		PropTypes.array,
+}
+Caption.propTypes = {
+	children: 		PropTypes.string,
+}
+ListZigzagPicture.propTypes = {
+	children: 		PropTypes.string,
 }
