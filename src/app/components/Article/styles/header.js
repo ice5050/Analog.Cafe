@@ -2,15 +2,15 @@
 import styled from "styled-components"
 
 // css
-const columnSafety = props => props.theme.size.block.column.safety;
+const blockSafety = props => props.theme.size.block.column.safety
 export const PageHeader = styled.header`
 	${ props => props.theme.size.font.auto }
 	
 	text-align: 		center;
-	margin: 				${ columnSafety }em auto;
+	margin: 				${ blockSafety }em auto;
 	max-width: 			${ props => props.theme.size.block.column.maxwidth.m }px;
 	border-bottom:	${ props => props.theme.elements.thickBorder };
-	padding: 				0 ${ columnSafety }em ${ columnSafety }em;
+	padding: 				0 ${ blockSafety }em ${ blockSafety }em;
 
 	
 `

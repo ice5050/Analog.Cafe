@@ -36,7 +36,7 @@ export const PictureFigure = styled.figure`
 	padding: 									0;	
 	overflow: 								hidden;
 	margin: 									0 0 ${ props => props.theme.size.block.spacing }em;
-	z-index:									${ props => props.theme.layer.up + 1 };
+	z-index:									${ props => props.theme.layer.nav + 1 };
 	position: 								relative;
 
 	width: 										65%; 

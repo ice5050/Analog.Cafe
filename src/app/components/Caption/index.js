@@ -1,8 +1,8 @@
 // tools
-import React from "react";
+import React from "react"
 
 // styles
-import { StyledCaption } from "./styles";
+import { StyledCaption } from "./styles"
 
 // return
 export const Caption = props => {
