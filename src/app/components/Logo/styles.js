@@ -1,6 +1,5 @@
 // styles
 import styled from "styled-components"
-import Color from "color"
 
 
 // css
