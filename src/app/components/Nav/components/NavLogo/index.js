@@ -12,9 +12,9 @@ export const NavLogo = props => {
 		<span style={{ transform: "rotate(-" + (i * 8.75) + "deg)" }} key={i}>{letter}</span>)
 	//jsx
 	return(
-		<LogoOutline>
+		<LogoOutline {...props} >
 			<LogoLettering title={appName}>{appNameSpan}</LogoLettering>
-			<LogoWithDownstate />
+			<LogoWithDownstate {...props} />
 		</LogoOutline>
 	)
 }

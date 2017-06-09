@@ -5,7 +5,7 @@ import { Link } from "react-router"
 
 // components
 import { Section, Article, Header } from "../../components/Article"
-import { Logo } from "../../components/Logo"
+import { NavLogo } from "../../components/Nav/components/NavLogo"
 
 // render
 export const NotFound = props => {
@@ -18,7 +18,7 @@ export const NotFound = props => {
 			/>
 			<Section>
 				<p>Click below to go to homepage...</p>
-				<Link to="/"><Logo flat /></Link>
+				<Link to="/"><NavLogo stamp /></Link>
 			</Section>
 		</Article>
 	)

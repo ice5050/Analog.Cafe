@@ -12,6 +12,7 @@
   		"category-name" : "Photo Essay",
   		"url" : "/why-shoot-film/",
   		"title" : "Why Shoot Film?",
+  		"subtitle" : "Subtitle",
   		"id" : "0000000",
   		"post-date" : "1484179200",
   		"stats" : {
@@ -34,6 +35,7 @@
   		"category-name" : "Photo Essay",
   		"url" : "/why-shoot-film/",
   		"title" : "Why Shoot Film?",
+  		"subtitle" : "Subtitle 2",
   		"id" : "0000001",
   		"post-date" : "1484179200",
   		"stats" : {
@@ -56,6 +58,7 @@
   		"category-name" : "Photo Essay",
   		"url" : "/why-shoot-film/",
   		"title" : "Why Shoot Film?",
+  		"subtitle" : "",
   		"id" : "0000002",
   		"post-date" : "1484179200",
   		"stats" : {
