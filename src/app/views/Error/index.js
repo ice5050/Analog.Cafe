@@ -17,8 +17,7 @@ export const NotFound = props => {
 				pageByline="Sorry about that." 
 			/>
 			<Section>
-				<p>Click below to go to homepage...</p>
-				<Link to="/"><NavLogo stamp /></Link>
+				<p style={{textAlign: "center"}}>Click <Link to="/">here</Link> to go to homepage.</p>
 			</Section>
 		</Article>
 	)
