@@ -61,12 +61,20 @@ export const ListUl = styled.ul`
 			width: 						100%;
 			text-decoration: 	none;
 			&:active {
+				background: 0 0;
+				figure {
+					box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight },
+						0 ${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
+
+				}
+/* 
 				h2 { background: 0 0; }
 				&::after {
 					${ zigzagDimensions }
 					z-index: ${ props => props.theme.layer.up + 1};
 					background: ${ transparentHighlight };
 				}
+ */
 			}
 			&::before {
 				${ zigzagFill }
@@ -89,12 +97,12 @@ export const ListUl = styled.ul`
 				overflow: 	hidden;
 			`}
 			& > figure {
-				${ posterDimensions };
+				${ posterDimensions }
 				float: 			left;
 				margin: 		0 ${ blockSpacing }em 0 0;
 				overflow:		hidden;
 				& > img {
-					height:				140%;
+					height:				150%;
 					width: 				auto;
 					margin-left:	-50%;
 				}
