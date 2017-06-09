@@ -9,7 +9,7 @@ import { Logo } from "../../../Logo"
 export const LogoOutline = styled.div`
 	${ props => props.theme.size.font.auto }
 	${ props => props.theme.typography.title.auto }
-	position: 								fixed;
+	position: 								${ props => props.stamp ? "relative" : "fixed" };
 	top: 											${ props => (props.theme.size.block.column.safety) / 2 }em;
 	left: 										calc(50% - ${ props => props.theme.size.font.make.larger - (props.theme.size.block.spacing / 2) }em);
 	z-index: 									${ props => props.theme.layer.up };
@@ -19,6 +19,8 @@ export const LogoOutline = styled.div`
 	box-shadow:								0 0 .5em ${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string() };
 	backdrop-filter: 					blur(5px);
 	-webkit-backdrop-filter: 	blur(5px);
+	
+	width:										5em;
 	
 	a.active & {
   	// box-shadow: 0 0 0 1px ${ props => props.theme.color.foreground };
@@ -53,7 +55,7 @@ export const LogoLettering = styled.div`
 `
 
 export const LogoWithDownstate = styled(Logo)`
-	background: ${ props => props.theme.color.foreground };
+	background: ${ props => props.stamp ? props.theme.color.brand : props => props.theme.color.foreground };
   a.active & {
   	background: ${ props => props.theme.color.brand };
   }
