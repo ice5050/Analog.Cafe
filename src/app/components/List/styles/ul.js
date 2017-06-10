@@ -107,7 +107,7 @@ export const ListUl = styled.ul`
 					margin-left:	-50%;
 				}
 				${ props => props.theme.size.breakpoint.max.m`{
-					margin-top: ${ blockSpacing / 2 + 0.1 }em;
+					margin-top: calc(${ blockSpacing }em / 2 + 0.1em);
 					margin-bottom: 0;
 				}` }
 			}

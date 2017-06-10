@@ -1,5 +1,4 @@
 import FontFaceObserver from "fontfaceobserver"
-require("typeface-exo-2")
 require("typeface-lora")
 
 export const loadFonts = () => {
