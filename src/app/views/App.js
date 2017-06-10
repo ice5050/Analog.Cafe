@@ -2,7 +2,7 @@
 import React from "react"
 import { Router, Route, browserHistory, IndexRoute } from "react-router"
 import Helmet from "react-helmet"
-
+import ReactGA from "react-ga"
 
 // theme
 import { TheZine } from "../../themes/TheZine"
@@ -11,6 +11,7 @@ import { TheZine } from "../../themes/TheZine"
 // sections
 import { Publication } from "./Publication"
 import { Submit } from "./Submit"
+
 // pages
 import { NotFound } from "./Error"
 import { ListPosts } from "./Publication/ListPosts"
@@ -19,8 +20,15 @@ import { Compose } from "./Submit/Compose"
 import { About } from "./About"
 
 
+// init GA tracking
+ReactGA.initialize("UA-91374353-3")
+
 // render & route
 export const App = props => {
+	const logPageView = () => {
+		ReactGA.set({ page: window.location.pathname + window.location.search })
+		ReactGA.pageview(window.location.pathname + window.location.search)
+	}
 	return (
 		<TheZine>
 			<Helmet
@@ -28,7 +36,7 @@ export const App = props => {
 				titleTemplate="%s ☕️ Analog.Cafe"
 			/>
 
-			<Router history={ browserHistory } >
+			<Router history={ browserHistory } onUpdate={logPageView} >
 
 				<Route path="/"			 					component={ Publication } >
 					<IndexRoute 								component={ ListPosts } />
