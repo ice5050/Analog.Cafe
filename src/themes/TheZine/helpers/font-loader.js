@@ -1,5 +1,4 @@
 import FontFaceObserver from "fontfaceobserver"
-require("typeface-lora")
 
 export const loadFonts = () => {
 	const doc = document.documentElement.classList

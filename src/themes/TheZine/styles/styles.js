@@ -4,6 +4,7 @@ import { TheZineTheme } from "../theme"
 
 // fonts
 import { Exo2Latin600 } from "./typeface-exo-2"
+import { LoraLatin400 } from "typeface-lora"
 
 
 
@@ -23,4 +24,5 @@ export const ThemeGlobals = styled.div`
 	a, button, textarea { -webkit-tap-highlight-color: rgba(0,0,0,0); }
 	
 	${ Exo2Latin600 }
+	${ LoraLatin400 }
 `
