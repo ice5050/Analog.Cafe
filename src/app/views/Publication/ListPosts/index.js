@@ -3,33 +3,20 @@ import React from "react"
 import axios from "axios"
 import { Link } from "react-router"
 
-
 // components
 import { Bleed, List, Stats, Caption, ZigzagPicture } from "../../../components/List"
 import { Description } from "../../../components/List/components/Description"
 
+// state
+import defaultListState from "./state.json"
+
 
 // dictionary
-const API_ROUTE_LIST = "/api/list/1"
+const API_ROUTE_LIST = "/api/list"
 
 // render
 export class ListPosts extends React.Component {
-	state = {
-		"status": "loading",
-		"filter" : "",
-		"items" : [
-			{
-				"type" : "placeholder",
-				"category-name" : "████████",
-				"title" : "█████",
-				"id" : "0000000",
-				"author" : {
-					"name" : "██████",
-				},
-				"summary" : "█████████ █████ █████████ ██████████████ ███████████ ████████ █████ ██"
-			},
-		]
-	}
+	state = defaultListState
   _fetch = () => {
     const filter = this.props.location.pathname === "/" ? "/index" : this.props.location.pathname
   	if(this.state.filter === filter) return
