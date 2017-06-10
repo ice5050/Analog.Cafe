@@ -68,6 +68,23 @@ export const plugins = [
   }),
   
   // auto format rules
+  AutoReplace({
+    trigger: 		/(")/,
+    before: 		/[^ ”]$/,
+    transform: 	(transform, e, data, matches) => {
+    	console.log(matches)
+      return transform.insertText("”")
+    }
+  }),
+  AutoReplace({
+    trigger: 		/(")/,
+    before: 		/(^)|[ ]$/,
+    transform: 	(transform, e, data, matches) => {
+    	console.log(matches)
+      return transform.insertText("“")
+    }
+  }),
+  
 //   AutoReplace({
 //     trigger: 		/./,
 //     onlyIn:			"heading",
