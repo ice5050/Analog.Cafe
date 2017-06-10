@@ -2,7 +2,7 @@ import FontFaceObserver from "fontfaceobserver"
 
 export const loadFonts = () => {
 	const doc = document.documentElement.classList
-	if( doc.contains("fonts-loaded") ){ return }
+	if( doc.contains("fonts-loaded") ){ return }	
 	
 	(new FontFaceObserver("Exo 2", {
 		style: "normal",

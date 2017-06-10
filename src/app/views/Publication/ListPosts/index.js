@@ -10,7 +10,7 @@ import { Description } from "../../../components/List/components/Description"
 
 
 // dictionary
-const API_ROUTE_LIST = "/api/list"
+const API_ROUTE_LIST = "/api/list/1"
 
 // render
 export class ListPosts extends React.Component {
@@ -26,7 +26,7 @@ export class ListPosts extends React.Component {
 				"author" : {
 					"name" : "██████",
 				},
-				"summary" : "█████████ ███████████ ██████ ███████████ ███████████ ████████ █████████████ █████ █████████ ██████████ ███"
+				"summary" : "█████████ █████ █████████ ██████████████ ███████████ ████████ █████ ██"
 			},
 		]
 	}

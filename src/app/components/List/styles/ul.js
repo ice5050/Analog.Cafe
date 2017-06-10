@@ -130,6 +130,9 @@ export const ListUl = styled.ul`
 				${ props => props.listStatus === "loading" ? `letter-spacing: 0 !important; font-size: 1.35em;` : null }
 			}
 			
+			/* placeholder style */	
+			${ props => props.listStatus === "loading" ? `& > span { word-break: break-all }` : null }
+			
 			& > div {
 				max-width: 30em;
 				${ props => props.theme.size.breakpoint.max.m`{
@@ -157,5 +160,6 @@ export const ListUl = styled.ul`
 	}
 	&:first-child li:first-child {
 		padding-top: ${ zigzagTopShim }em;
+		:before { display: none; }
 	}
 `
