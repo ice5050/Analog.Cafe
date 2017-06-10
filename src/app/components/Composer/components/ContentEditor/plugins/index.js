@@ -60,12 +60,21 @@ export const plugins = [
   }),
   AutoReplace({
     trigger: 		"backspace",
-    after: 		/./,
+    after: 			/./,
     onlyIn:			"heading",
     transform: 	(transform, e, data, matches) => {
       return transform.setBlock({ type: "paragraph" })
     }
   }),
+  
+  // auto format rules
+//   AutoReplace({
+//     trigger: 		/./,
+//     onlyIn:			"heading",
+//     transform: 	(transform, e, data, matches) => {
+//       return console.log(1)
+//     }
+//   }),
   
   // special editor menu for quote
 	EditBlockquote({
