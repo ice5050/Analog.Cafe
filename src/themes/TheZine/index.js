@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 
 // styles
 import { ThemeProvider } from "styled-components"
-import { ThemeGlobals } from "./styles"
+import { ThemeGlobals } from "./styles/styles"
 import "sanitize.css/sanitize.css"
 
 // theme

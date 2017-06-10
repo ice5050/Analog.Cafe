@@ -5,7 +5,6 @@ import { Link } from "react-router"
 
 // components
 import { Section, Article, Header } from "../../components/Article"
-import { NavLogo } from "../../components/Nav/components/NavLogo"
 
 // render
 export const NotFound = props => {
@@ -17,7 +16,7 @@ export const NotFound = props => {
 				pageByline="Sorry about that." 
 			/>
 			<Section>
-				<p style={{textAlign: "center"}}>Click <Link to="/">here</Link> to go to homepage.</p>
+				<p style={{textAlign: "center"}}>Click <strong><Link to="/">here</Link></strong> to go to homepage.</p>
 			</Section>
 		</Article>
 	)

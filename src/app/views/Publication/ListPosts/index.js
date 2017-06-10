@@ -3,10 +3,12 @@ import React from "react"
 import axios from "axios"
 import { Link } from "react-router"
 
-
 // components
 import { Bleed, List, Stats, Caption, ZigzagPicture } from "../../../components/List"
 import { Description } from "../../../components/List/components/Description"
+
+// state
+import defaultListState from "./state.json"
 
 
 // dictionary
@@ -14,10 +16,7 @@ const API_ROUTE_LIST = "/api/list"
 
 // render
 export class ListPosts extends React.Component {
-	state = {
-		"filter" : "",
-		"items" : [ ]
-	}
+	state = defaultListState
   _fetch = () => {
     const filter = this.props.location.pathname === "/" ? "/index" : this.props.location.pathname
   	if(this.state.filter === filter) return
@@ -25,6 +24,7 @@ export class ListPosts extends React.Component {
 			.then(response => {
 				let data = response.data
 				this.setState({
+					status: data.status,
 					filter,
 					items: data.items
 				})
@@ -40,7 +40,7 @@ export class ListPosts extends React.Component {
 			<div>
 				<Description emoji="🎑">Curated photo essays and film photography</Description>
 				<Bleed>
-					<List>
+					<List listStatus={ this.state.status }>
 					{
 						this.state.items.map(function(item) {
 							return (
@@ -48,16 +48,25 @@ export class ListPosts extends React.Component {
 									<Link to={ item.url }>
 										<section>
 											<figure>
-												<img src={ item.poster.medium } alt={ item.title + " poster image" } />
+												{ item.type !== "placeholder" ? <img src={ item.poster.medium } alt={ item.title + " poster image" } /> : null }
 											</figure>
 											<h2>{ item.title }</h2>
 											<Caption>{ item.summary }</Caption>
 											<div>
-												<Stats>{ item["category-name"] } | { item.category === "essay" ? Math.round(item.stats.words / 200) + "-minute read" : item.stats.images + " Images" }</Stats>
-												<em>{ item.author.name } · {  } 12, 2017</em>
+												<Stats>{ item["category-name"] }{
+													item.type !== "placeholder" ?
+														item.category === "essay" ? 
+														" | " 
+															+ Math.round(item.stats.words / 200) 
+															+ "-minute read" :
+														" | " 
+															+ item.stats.images + " Images" 
+													: null
+												}</Stats>
+												<em>{ item.author.name }{ item.type !== "placeholder" ? " · " + "12, 2017" : null }</em>
 											</div>
 										</section>
-										<ZigzagPicture style={{ backgroundImage: `url("/images/uploads/poster.jpg")` }} />
+										<ZigzagPicture style={ item.type !== "placeholder" ? { backgroundImage: `url(${ item.poster.medium })` } : null } />
 									</Link>
 								</li>
 							)
