@@ -2,7 +2,7 @@
 import React from "react"
 
 // components
-import { NavLogo } from "../../../Nav/components/NavLogo"
+import { NavLogo } from "../../../Logo/components/Nav"
 
 // styles
 import { NavContainer, NavLink, NavIndexLink, NavItem } from "../../../Nav/styles"

@@ -7,7 +7,7 @@ import { loadHeader } from "../../helpers/loader"
 import { PageTitle, PageSubtitle } from "./components/InputTitle/styles"
 
 // styles
-import { PageHeader, PageByline } from "../../../Article/styles/header"
+import { PageHeader, PageByline } from "../../../../../components/Article/styles/header"
 
 
 

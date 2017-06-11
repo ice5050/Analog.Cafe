@@ -6,7 +6,7 @@ import Helmet from "react-helmet"
 
 // components
 import { Nav } from "../../components/Nav"
-import { ComposerNav } from "../../components/Composer/components/Nav"
+import { ComposerNav } from "../../components/Nav/components/Composer"
 
 // render
 export const Submit = props => {

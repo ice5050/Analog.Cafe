@@ -1,8 +1,9 @@
 // tools
 import React from "react"
 
+
 // components
-import { Image } from "../Pictures"
+import { Image } from "../../../../../components/Pictures/components/Composer"
 
 
 // return

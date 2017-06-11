@@ -14,10 +14,11 @@ import { Submit } from "./Submit"
 
 // pages
 import { NotFound } from "./Error"
-import { ListPosts } from "./Publication/ListPosts"
 import { Introduction } from "./Submit/Introduction"
-import { Compose } from "./Submit/Compose"
+import { Composer } from "./Submit/Composer"
 import { About } from "./About"
+import { ListPosts } from "./Publication/List"
+import { Post } from "./Publication/Post"
 
 
 // init GA tracking
@@ -40,14 +41,15 @@ export const App = props => {
 
 				<Route path="/"			 					component={ Publication } >
 					<IndexRoute 								component={ ListPosts } />
-					<Route path="photography"		component={ ListPosts } />
-					<Route path="essays"			 	component={ ListPosts } />
+					<Route path="photo-essays"	component={ ListPosts } />
+					<Route path="articles"			component={ ListPosts } />
 					<Route path="about"			 		component={ About } />
+					<Route path="zine/*"				component={ Post } />
 				</Route>
 
 				<Route path="submit"					component={ Submit } >
 					<IndexRoute 								component={ Introduction } />
-					<Route path="compose" 			component={ Compose } />
+					<Route path="compose" 			component={ Composer } />
 				</Route>
 
 				<Route path="*"								component={ NotFound } status={404} />

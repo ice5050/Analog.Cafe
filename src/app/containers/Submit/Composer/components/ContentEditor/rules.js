@@ -1,6 +1,8 @@
 // tools
 import { Html, Text } from "slate"
 import isUrl from "is-url"
+import toTitleCase from "titlecase"
+
 
 // components
 
@@ -26,12 +28,24 @@ const MARK_TAGS = {
   b:						"bold",
 }
 
-// get text from all node children
-const textify = (el) => {
-	let textNode = el.children.filter(function(node) {
-		return node.type === "text"
-	})[0]
-	return textNode ? textNode.data : false
+// extract just the text from node:
+const plainText = (el) => {
+	let children = el.children
+	let plainText = ""
+	const aseemble = element => element.data ? plainText += element.data : null
+	
+	// 0-level deep (no nested elements)
+	if(children[0] && children[0].data) children.forEach(aseemble)
+	
+	// 1+ levels deep (get text from nested elements)
+	else
+	for(var property in children) {
+		if(children.hasOwnProperty(property)) {
+			if(children[property].children) children[property].children.forEach(aseemble)
+		}
+	}
+	
+	return plainText !== "" ? plainText : false
 }
 
 // deserialize copy-paste html content
@@ -41,19 +55,25 @@ const rules = [
 			const block = BLOCK_TAGS[el.tagName]
 			if (!block) return
 			switch (block) {
-				case "paragraph" :
-				case "quote": {
+				case "paragraph" : {
 					return {
 						kind: "block",
 						type: block,
-						nodes: textify(el) ? [ Text.createFromString(textify(el)) ] : next(el.children)
+						nodes: next(el.children)
+					}
+				}
+				case "quote" : {
+					return {
+						kind: "block",
+						type: block,
+						nodes: plainText(el) ? [ Text.createFromString(plainText(el)) ] : next(el.children)
 					}
 				}
 				case "heading" : {
 					return {
 						kind: "block",
 						type: block,
-						nodes: textify(el) ? [ Text.createFromString(textify(el)) ] : next(el.children)
+						nodes: plainText(el) ? [ Text.createFromString(toTitleCase(plainText(el))) ] : next(el.children)
 					}
 				}
 				case "image" : {
@@ -73,7 +93,7 @@ const rules = [
 						data: {
 							href: el.attribs.href
 						},
-						nodes: textify(el) ? [ Text.createFromString(textify(el)) ] : next(el.children)
+						nodes: plainText(el) ? [ Text.createFromString(plainText(el)) ] : next(el.children)
 					}
 				}
 				default : return null

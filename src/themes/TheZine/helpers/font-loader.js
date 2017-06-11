@@ -32,16 +32,10 @@ export const loadFonts = () => {
 				style: "italic",
 				weight: 700
 			})).load(),
-			])
-		.then(
+			]).then(
 			function(){
 				doc.add("fonts-loaded")
 				//__cookie.set('fontsLoaded', true)
-			},
-			function(){
-				console.log("Lora FAILED")
-			}
-		)
-		console.log("Exo 2 FAILED")
-	})
+			}, function(){ console.log("Lora FAILED") }
+		)}, function(){ console.log("Exo 2 FAILED") })
 }

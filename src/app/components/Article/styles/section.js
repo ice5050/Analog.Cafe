@@ -58,7 +58,10 @@ export const PageSection = styled.section`
 	}
 	
 	blockquote 	{ ${ Quote } }
-	h2, h3, h4 	{ ${ sectionHeading } }
+	h2, h3, h4	 	{ ${ sectionHeading } }
+	.fonts-loaded-headers & h2,
+	.fonts-loaded-headers & h3,
+	.fonts-loaded-headers & h4 { ${ props => props.theme.typography.title.fontsLoaded } }
 	hr 					{ ${ sectionBreak } }
 `
 export const PageArticle = styled.article``

@@ -2,10 +2,10 @@
 import React from "react"
 
 // components
-import { Section, Article } from "../Article"
+import { Section, Article } from "../../../components/Article"
+import { PageButton } from "../../../components/Buttons"
 import { HeaderEditor } from "./components/HeaderEditor"
 import { ContentEditor } from "./components/ContentEditor"
-import { PageButton } from "../Buttons"
 
 
 // render
