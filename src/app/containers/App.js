@@ -14,10 +14,11 @@ import { Submit } from "./Submit"
 
 // pages
 import { NotFound } from "./Error"
-import { ListArticles } from "./Publication/List"
 import { Introduction } from "./Submit/Introduction"
 import { Composer } from "./Submit/Composer"
 import { About } from "./About"
+import { ListPosts } from "./Publication/List"
+import { Post } from "./Publication/Post"
 
 
 // init GA tracking
@@ -39,10 +40,11 @@ export const App = props => {
 			<Router history={ browserHistory } onUpdate={logPageView} >
 
 				<Route path="/"			 					component={ Publication } >
-					<IndexRoute 								component={ ListArticles } />
-					<Route path="photo-essays"	component={ ListArticles } />
-					<Route path="articles"			component={ ListArticles } />
+					<IndexRoute 								component={ ListPosts } />
+					<Route path="photo-essays"	component={ ListPosts } />
+					<Route path="articles"			component={ ListPosts } />
 					<Route path="about"			 		component={ About } />
+					<Route path="zine/*"				component={ Post } />
 				</Route>
 
 				<Route path="submit"					component={ Submit } >

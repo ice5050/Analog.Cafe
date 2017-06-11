@@ -5,7 +5,8 @@
 // state
 
 // dictionary
-export const API_LOCATION = "/api/list"
+export const ROUTE_ARTICLE_DIR = "/zine"
+export const ROUTE_LIST_API = "/api/list"
 export const ROUTE_FILTERS = {
 	"/photo-essays"	: "photo-essay",
 	"/articles"			:	"theory-and-practice_opinion_off-topic",

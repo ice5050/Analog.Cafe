@@ -11,12 +11,12 @@ import { Description } from "../../../components/List/components/Description"
 import defaultListState from "./state.json"
 
 // routes
-import { API_LOCATION, ROUTE_FILTERS, ROUTE_DESCRIPTIONS } from "./routes"
+import { ROUTE_LIST_API, ROUTE_FILTERS, ROUTE_DESCRIPTIONS, ROUTE_ARTICLE_DIR } from "./routes"
 
 
 
 // render
-export class ListArticles extends React.Component {
+export class ListPosts extends React.Component {
 	state = defaultListState
   
   _fetch = () => {
@@ -27,7 +27,7 @@ export class ListArticles extends React.Component {
     
     // fetch & update state
   	if(this.state.filter === filter) return
-  	axios.get(API_LOCATION + filter + ".json")
+  	axios.get(ROUTE_LIST_API + filter + ".json")
 			.then(response => {
 				let data = response.data
 				this.setState({
@@ -65,7 +65,7 @@ export class ListArticles extends React.Component {
 						this.state.items.map(function(item) {
 							return (
 								<li key={ item.id }>
-									<Link to={ item.url }>
+									<Link to={ ROUTE_ARTICLE_DIR + "/" + item.slug }>
 										<section>
 											<figure>
 												{ item.type !== "placeholder" ? <img src={ item.poster.medium } alt={ item.title + " poster image" } /> : null }
@@ -101,7 +101,3 @@ export class ListArticles extends React.Component {
 		)
 	}
 }
-
-//Date(item["post-date"]).getMonth()
-//style={"background-image" : "url({ item.images.poster })"}
-					

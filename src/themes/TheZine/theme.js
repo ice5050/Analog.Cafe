@@ -28,13 +28,14 @@ export const TheZineTheme = {
 				letter-spacing: 	0.005em;
 				line-height: 			${ () => TheZineTheme.typography.title.lineHeight }em;
 				font-weight: 			700;
-				margin: 0;
-			
-				.fonts-loaded-headers && {
-					font-family: 			"Exo 2", Arial sans-serif;
-					letter-spacing: 	0.025em;
-					font-weight: 			600;
-				}
+				margin: 					0;
+				/* in some cases this vv doesn't work and causes garbage CSS */
+				.fonts-loaded-headers & { ${ () => TheZineTheme.typography.title.fontsLoaded } }
+			`,
+			fontsLoaded: css`
+				font-family: 			"Exo 2", Arial sans-serif;
+				letter-spacing: 	0.025em;
+				font-weight: 			600;
 			`,
 			lineHeight: 1.15 // base: multiplier
 		},
@@ -43,11 +44,11 @@ export const TheZineTheme = {
 				font-family: 			Georgia, serif;
 				letter-spacing: 	0.05em;
 				line-height: 			${ () => TheZineTheme.typography.text.lineHeight }em;
-				
-				.fonts-loaded && {
-					font-family: 			Lora, Georgia, serif;
-					letter-spacing: 	0.025em;
-				}			
+				.fonts-loaded & { ${ () => TheZineTheme.typography.text.fontsLoaded } }
+			`,
+			fontsLoaded: css`
+				font-family: 			Lora, Georgia, serif;
+				letter-spacing: 	0.025em;
 			`,
 			lineHeight: 1.75 // base: multiplier
 		},
