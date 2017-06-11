@@ -2,7 +2,7 @@
 import React from "react"
 
 // components
-import { NavLogo } from "./components/NavLogo"
+import { NavLogo } from "../Logo/components/Nav"
 
 // styles
 import { NavContainer, NavLink, NavIndexLink, NavItem } from "./styles"
@@ -12,8 +12,8 @@ export const Nav = props => {
 	return(
 		<NavContainer>
 			<ul>
-				<NavItem><NavLink 										to={ "/photo-essays" 			}><span>Photo Essays</span></NavLink></NavItem>
 				<NavItem><NavLink											to={ "/articles"					}><span>Articles</span></NavLink></NavItem>
+				<NavItem><NavLink 										to={ "/photo-essays" 			}><span>Photo Essays</span></NavLink></NavItem>
 
 				<NavItem prime center	><NavIndexLink	to={ "/"									}><NavLogo /></NavIndexLink></NavItem>
 
