@@ -9,17 +9,12 @@ import { Logo } from "../../../Logo"
 export const LogoOutline = styled.div`
 	${ props => props.theme.size.font.auto }
 	${ props => props.theme.typography.title.auto }
-	position: 								${ props => props.stamp ? "relative" : "fixed" };
+	position: 								${ props => props.stamp ? "relative" : "absolute" };
 	top: 											${ props => (props.theme.size.block.column.safety) / 2 }em;
 	left: 										calc(50% - ${ props => props.theme.size.font.make.larger - (props.theme.size.block.spacing / 2) }em);
 	z-index: 									${ props => props.theme.layer.up };
 	padding: 									${ props => props.theme.size.block.spacing }em;
-	border-radius: 						${ props => props.theme.size.font.make.larger }em;
-	background: 							${ props => Color(props.theme.color.background).alpha(props.theme.opacity.half).string() };
-	box-shadow:								0 0 .5em ${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string() };
-	backdrop-filter: 					blur(5px);
-	-webkit-backdrop-filter: 	blur(5px);
-	
+	/* border-radius: 						${ props => props.theme.size.font.make.larger }em; */
 	width:										5em;
 	
 	a.active & {
@@ -27,18 +22,23 @@ export const LogoOutline = styled.div`
   }
 `
 
+const mutedForeground = props => Color(props.theme.color.foregrond).alpha(props.theme.opacity.half / 2).string()
+const mutedBrand = props => Color(props.theme.color.brand).alpha(props.theme.opacity.most / 2).string()
 export const LogoLettering = styled.div`
 	${ props => props.theme.typography.title.auto }
 	font-size: 					0.35em;
 	text-transform: 		uppercase;
 	position: 					absolute;
-	transform-origin: 	4.275em 4.225em;
-	transform: 					rotate(0deg);
-	color: 							${ props => props.theme.color.foreground };
+	transform-origin: 	4.35em 4.5em;
+	transform: 					rotate(-105deg);
+	color: 							${ mutedForeground };
 	z-index: 						${ props => props.theme.layer.up };
 	
+	
 	a.active & {
-		transform: 				rotate(80deg);
+		transform: 				rotate(75deg);
+		transform-origin: 4.5em 4.25em;
+		color: 						${ mutedBrand };
 	}
 	
 	span {

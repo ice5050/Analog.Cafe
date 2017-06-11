@@ -54,7 +54,4 @@ export const NavItem = styled.li`
 	${ props => props.right ? 	props => props.theme.size.breakpoint.max.m`order: 2;` : false }
 	${ props => props.prime ? 	false : props => props.theme.size.breakpoint.max.m`display:none;` }
 	
-	& span {
-		color: ${ props => props.indicator ?  props => Color(props.theme.color.foreground).alpha(props.theme.opacity.half).string() : props => props.theme.color.foreground }
-	}
 `
