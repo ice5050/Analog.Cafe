@@ -20,7 +20,7 @@
   		},
   		"author" : {
   			"name" : "Kayla Medica",
-  			"url" : "/talent/kyla-medica/"
+  			"id" : "kyla-medica"
   		},
   		"poster" : {
 				"small" : "/images/uploads/poster.jpg",

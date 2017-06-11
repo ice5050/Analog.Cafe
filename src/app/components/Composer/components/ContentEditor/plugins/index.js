@@ -1,5 +1,6 @@
 // tools
 import { html } from "../rules"
+import toTitleCase from "titlecase"
 
 // Analog.Cafe plugins
 import { MarkHotkey } from "./mark-hotkey"
@@ -28,7 +29,7 @@ export const plugins = [
     trigger: 		"space",
     before: 		/^(>)$/,
     transform: 	(transform, e, data, matches) => {
-      return transform.setBlock({ type: "quote" })
+      return transform.setBlock({ type: "quote" }) // quote
     }
   }),
   AutoReplace({
@@ -38,24 +39,25 @@ export const plugins = [
       return transform
       	.setBlock({ type: "divider", isVoid: true })
       	.collapseToEndOfNextBlock()
-      	.collapseToEndOfNextBlock()
+      	.collapseToEndOfNextBlock() // page break
     }
   }),
   AutoReplace({
     trigger: 		"space",
     before: 		/^(#)$/,
     transform: 	(transform, e, data, matches) => {
-      return transform.setBlock({ type: "heading" })
+      return transform.setBlock({ type: "heading" }) // title
     }
   }),
   AutoReplace({
     trigger: 		"enter",
-    before: 		/./,
+    before: 		/.+/,
     onlyIn:			"heading",
     transform: 	(transform, e, data, matches) => {
-      return transform
+    	let title = toTitleCase(matches.before[0])
+      return transform.deleteBackward(title.length).insertText(title)
       	.splitBlock()
-      	.setBlock({ type: "paragraph" })
+      	.setBlock({ type: "paragraph" }) // Title Case Header the After Next Line Key
     }
   }),
   AutoReplace({
@@ -63,7 +65,7 @@ export const plugins = [
     after: 			/./,
     onlyIn:			"heading",
     transform: 	(transform, e, data, matches) => {
-      return transform.setBlock({ type: "paragraph" })
+      return transform.setBlock({ type: "paragraph" }) // cancel title
     }
   }),
   
@@ -72,27 +74,53 @@ export const plugins = [
     trigger: 		/(")/,
     before: 		/[^ ”]$/,
     transform: 	(transform, e, data, matches) => {
-    	console.log(matches)
-      return transform.insertText("”")
+      return transform.insertText("”") // smart double quote
     }
   }),
   AutoReplace({
     trigger: 		/(")/,
     before: 		/(^)|[ ]$/,
     transform: 	(transform, e, data, matches) => {
-    	console.log(matches)
-      return transform.insertText("“")
+      return transform.insertText("“") // smart double quote
+    }
+  }),
+  AutoReplace({
+    trigger: 		/(')/,
+    before: 		/[^ ”]$/,
+    transform: 	(transform, e, data, matches) => {
+      return transform.insertText("’") // smart single quote
+    }
+  }),
+  AutoReplace({
+    trigger: 		/(')/,
+    before: 		/(^)|[ ]$/,
+    transform: 	(transform, e, data, matches) => {
+      return transform.insertText("‘") // smart single quote
+    }
+  }),
+  AutoReplace({
+    trigger: 		"space",
+    before: 		/[ ]$/,
+    transform: 	(transform, e, data, matches) => {
+      return // no double-space
+    }
+  }),
+  AutoReplace({
+    trigger: 		"space",
+    before: 		/( -)$/,
+    transform: 	(transform, e, data, matches) => {
+      return transform.insertText(" — ") // mdash
+    }
+  }),
+  AutoReplace({
+    trigger: 		"space",
+    before: 		/(\.\.\.)$/,
+    transform: 	(transform, e, data, matches) => {
+      return transform.insertText("… ") // mdash
     }
   }),
   
-//   AutoReplace({
-//     trigger: 		/./,
-//     onlyIn:			"heading",
-//     transform: 	(transform, e, data, matches) => {
-//       return console.log(1)
-//     }
-//   }),
-  
+    
   // special editor menu for quote
 	EditBlockquote({
 		type: 				"quote",
