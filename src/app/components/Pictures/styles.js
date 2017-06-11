@@ -36,18 +36,14 @@ export const PictureFigure = styled.figure`
 	padding: 									0;	
 	overflow: 								hidden;
 	margin: 									0 0 ${ props => props.theme.size.block.spacing }em;
-	z-index:									${ props => props.theme.layer.nav + 1 };
-	position: 								relative;
 
 	width: 										65%; 
 	margin-left: 							calc((${ props => props.theme.size.block.column.maxwidth.m }px - 100vw)/3.5);
 	margin-right: 						${ props => props.theme.size.block.spacing }em;
 	float: 										left;
 	
-	background:								${ props => Color(props.theme.color.background).alpha(props.theme.opacity.most).string() };
+	background:								${ props => props.theme.color.background };
 	box-shadow:								0 0 .5em ${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string() };
-	backdrop-filter: 					blur(5px);
-	-webkit-backdrop-filter: 	blur(5px);
 
 	${ props => props.theme.size.breakpoint.min.xl`
 		width: 				85%;
