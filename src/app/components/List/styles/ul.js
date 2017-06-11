@@ -121,9 +121,10 @@ export const ListUl = styled.ul`
 				text-overflow: 		ellipsis;
 				max-width: 				calc(100% - ${ blockSafety}em * 2);
 				${ props => props.theme.size.breakpoint.max.m`{
-					display: block;
-					white-space: normal;
-					line-height: 1.185em;
+					display: 			block;
+					white-space: 	normal;
+					line-height: 	1.185em;
+					margin-top: 	0.04em;
 				}` }
 				
 				/* placeholder style */	
