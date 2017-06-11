@@ -36,6 +36,16 @@ export class ListPosts extends React.Component {
 	// need condition for componentWillUnmount()
 
 	render() {
+	
+		const datestamp = (unix) => {
+			const m = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+			let date = new Date(unix * 1000)
+			let year = date.getFullYear()
+			let month = m[date.getMonth()]
+			let day = date.getDate()
+			return month + " " + day + ", " + year
+		}
+		
 		return(
 			<div>
 				<Description emoji="🎑">Curated photo essays and film photography</Description>
@@ -63,7 +73,7 @@ export class ListPosts extends React.Component {
 															+ item.stats.images + " Images" 
 													: null
 												}</Stats>
-												<em>{ item.author.name }{ item.type !== "placeholder" ? " · " + "12, 2017" : null }</em>
+												<em>{ item.author.name }{ item.type !== "placeholder" ? " · " + datestamp(item["post-date"]) : null }</em>
 											</div>
 										</section>
 										<ZigzagPicture style={ item.type !== "placeholder" ? { backgroundImage: `url(${ item.poster.medium })` } : null } />

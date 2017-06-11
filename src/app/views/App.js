@@ -14,7 +14,7 @@ import { Submit } from "./Submit"
 
 // pages
 import { NotFound } from "./Error"
-import { ListPosts } from "./Publication/ListPosts"
+import { ListArticles } from "./Publication/List"
 import { Introduction } from "./Submit/Introduction"
 import { Compose } from "./Submit/Compose"
 import { About } from "./About"
@@ -39,9 +39,9 @@ export const App = props => {
 			<Router history={ browserHistory } onUpdate={logPageView} >
 
 				<Route path="/"			 					component={ Publication } >
-					<IndexRoute 								component={ ListPosts } />
-					<Route path="photography"		component={ ListPosts } />
-					<Route path="essays"			 	component={ ListPosts } />
+					<IndexRoute 								component={ ListArticles } />
+					<Route path="photography"		component={ ListArticles } />
+					<Route path="essays"			 	component={ ListArticles } />
 					<Route path="about"			 		component={ About } />
 				</Route>
 
