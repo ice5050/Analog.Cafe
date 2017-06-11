@@ -12,8 +12,8 @@ export const Nav = props => {
 	return(
 		<NavContainer>
 			<ul>
-				<NavItem><NavLink 										to={ "/photography" 			}><span>Photography</span></NavLink></NavItem>
-				<NavItem><NavLink											to={ "/essays"						}><span>Essays</span></NavLink></NavItem>
+				<NavItem><NavLink 										to={ "/photo-essays" 			}><span>Photo Essays</span></NavLink></NavItem>
+				<NavItem><NavLink											to={ "/articles"					}><span>Articles</span></NavLink></NavItem>
 
 				<NavItem prime center	><NavIndexLink	to={ "/"									}><NavLogo /></NavIndexLink></NavItem>
 

@@ -40,8 +40,8 @@ export const App = props => {
 
 				<Route path="/"			 					component={ Publication } >
 					<IndexRoute 								component={ ListArticles } />
-					<Route path="photography"		component={ ListArticles } />
-					<Route path="essays"			 	component={ ListArticles } />
+					<Route path="photo-essays"	component={ ListArticles } />
+					<Route path="articles"			component={ ListArticles } />
 					<Route path="about"			 		component={ About } />
 				</Route>
 

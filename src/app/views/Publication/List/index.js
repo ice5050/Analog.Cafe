@@ -10,17 +10,24 @@ import { Description } from "../../../components/List/components/Description"
 // state
 import defaultListState from "./state.json"
 
+// routes
+import { API_LOCATION, ROUTE_FILTERS, ROUTE_DESCRIPTIONS } from "./routes"
 
-// dictionary
-const API_ROUTE_LIST = "/api/list"
+
 
 // render
 export class ListArticles extends React.Component {
 	state = defaultListState
+  
   _fetch = () => {
-    const filter = this.props.location.pathname === "/" ? "/index" : this.props.location.pathname
+    
+    // convert route to api tag search
+    let filter = ROUTE_FILTERS[this.props.location.pathname]
+    filter = filter ? "/filter-" + filter : "/index"
+    
+    // fetch & update state
   	if(this.state.filter === filter) return
-  	axios.get(API_ROUTE_LIST + filter + ".json")
+  	axios.get(API_LOCATION + filter + ".json")
 			.then(response => {
 				let data = response.data
 				this.setState({
@@ -31,6 +38,7 @@ export class ListArticles extends React.Component {
 			})
 			.catch(error => console.log(error))
   }
+  
   componentDidMount = () => this._fetch()
   componentDidUpdate = () => this._fetch()
 	// need condition for componentWillUnmount()
@@ -48,7 +56,9 @@ export class ListArticles extends React.Component {
 		
 		return(
 			<div>
-				<Description emoji="🎑">Curated photo essays and film photography</Description>
+				<Description emoji={ ROUTE_DESCRIPTIONS[this.props.location.pathname].emoji }>
+					{ ROUTE_DESCRIPTIONS[this.props.location.pathname].description }
+				</Description>
 				<Bleed>
 					<List listStatus={ this.state.status }>
 					{
