@@ -9,7 +9,6 @@ import zigzagImage from "./zigzag-mask.svg";
 // css
 const blockSafety = props => props.theme.size.block.column.safety
 const blockSpacing = props => props.theme.size.block.spacing
-const transparentHighlight = props => Color(props.theme.color.highlight).alpha(props.theme.opacity.most).string()
 const greyLine = props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string()
 
 const posterDimensions = css`
@@ -37,6 +36,10 @@ const zigzagDimensions = css`
 `
 
 export const ListUl = styled.ul`
+	
+	/* placeholder style */	
+	${ props => props.listStatus === "loading" ? `opacity: ` + props.theme.opacity.least + `;` : null }
+
 	${ props => props.theme.typography.text.auto };
 	position: 			relative;
 	max-width: 			${ props => props.theme.size.breakpoint.stops.max }px;
@@ -61,11 +64,11 @@ export const ListUl = styled.ul`
 			width: 						100%;
 			text-decoration: 	none;
 			&:active {
-				h2 { background: 0 0; }
-				&::after {
-					${ zigzagDimensions }
-					z-index: ${ props => props.theme.layer.up + 1};
-					background: ${ transparentHighlight };
+				background: 0 0;
+				figure {
+					box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight },
+						0 ${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
+
 				}
 			}
 			&::before {
@@ -89,23 +92,26 @@ export const ListUl = styled.ul`
 				overflow: 	hidden;
 			`}
 			& > figure {
-				${ posterDimensions };
+				${ posterDimensions }
 				float: 			left;
 				margin: 		0 ${ blockSpacing }em 0 0;
 				overflow:		hidden;
 				& > img {
-					height:				140%;
+					height:				150%;
 					width: 				auto;
 					margin-left:	-50%;
 				}
 				${ props => props.theme.size.breakpoint.max.m`{
-					margin-top: ${ blockSpacing / 2 + 0.1 }em;
+					margin-top: calc(${ blockSpacing }em / 2 + 0.1em);
 					margin-bottom: 0;
 				}` }
+				
+				/* placeholder style */	
+				background-color: ${ props => props.listStatus === "loading" ? props.theme.color.foreground : greyLine };
 			}
 			h2 {
 				${ props => props.theme.typography.title.auto }
-				font-size: 				${ props => props.theme.size.font.make.larger / 1.5 }em;
+				font-size:        ${ props => props.theme.size.font.make.larger / 1.5 }em;
 				display: 					inline-block;
 				padding: 					0 0 .15em;
 				margin-top: 			-0.275em;
@@ -113,39 +119,49 @@ export const ListUl = styled.ul`
 				overflow: 				hidden;
 				white-space: 			nowrap;
 				text-overflow: 		ellipsis;
-				max-width: 				calc(100% - ${ blockSafety * 2 });
+				max-width: 				calc(100% - ${ blockSafety}em * 2);
 				${ props => props.theme.size.breakpoint.max.m`{
 					display: block;
 					white-space: normal;
-					margin-top: 0.025em;
 					line-height: 1.185em;
 				}` }
+				
+				/* placeholder style */	
+				${ props => props.listStatus === "loading" ? `letter-spacing: 0 !important; font-size: 1.35em;` : null }
 			}
+
+			
+			/* placeholder style */	
+			${ props => props.listStatus === "loading" ? `& > span { word-break: break-all }` : null }
 			
 			& > div {
 				max-width: 30em;
 				${ props => props.theme.size.breakpoint.max.m`{
-					width: 				calc(100vw - ${ blockSafety * 2 });
+					width: 				calc(100vw - ${ blockSafety }em * 2);
 					min-width: 		auto;
-					padding-top:	${ blockSafety }
+					padding-top:	${ blockSafety }em;
 					float:				none;
 					clear:				both;
 				}` }
 				${ props => props.theme.size.breakpoint.max.xs`{
 					text-align: left;
 				}`}
+				
+				& > span {
+					/* placeholder style */	
+					${ props => props.listStatus === "loading" ? `letter-spacing: 0 !important;` : null }
+				}
+				& > em {
+					/* placeholder style */	
+					${ props => props.listStatus === "loading" ? `font-style: normal;` : null }
+				}
 			}
 			
 		}
-		
-		
-		/* toc-cover */
-		/* toc-feature */
 	}
-	
-	
 	&:first-child li:first-child {
 		padding-top: ${ zigzagTopShim }em;
+		:before { display: none; }
 	}
-	
+	.fonts-loaded-headers & h2 { ${ props => props.theme.typography.title.fontsLoaded } }
 `

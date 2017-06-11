@@ -15,7 +15,7 @@ export const Bleed = props => {
 	return <ListBleed>{ props.children }</ListBleed>
 }
 export const List = props => {
-	return <ListUl>{ props.children }</ListUl>
+	return <ListUl { ...props } >{ props.children }</ListUl>
 }
 export const Stats = props => {
 	return <ListStats>{ props.children }</ListStats>

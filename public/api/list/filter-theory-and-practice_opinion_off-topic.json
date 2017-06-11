@@ -9,7 +9,7 @@
   "items": [
   	{
   		"category" : "opinion",
-  		"slug" : "why-shoot-film-8945",
+  		"url" : "/why-shoot-film/",
   		"title" : "Why Shoot Film?",
   		"subtitle" : "Subtitle",
   		"id" : "0000000",
@@ -31,7 +31,7 @@
   	},
   	{
   		"category" : "photo-essay",
-  		"slug" : "why-shoot-film-8945",
+  		"url" : "/why-shoot-film/",
   		"title" : "Why Shoot Film?",
   		"subtitle" : "Subtitle 2",
   		"id" : "0000001",
@@ -53,7 +53,7 @@
   	},
   	{
   		"category" : "theory-and-practice",
-  		"slug" : "why-shoot-film-8945",
+  		"url" : "/why-shoot-film/",
   		"title" : "Why Shoot Film?",
   		"subtitle" : "",
   		"id" : "0000002",
@@ -75,7 +75,7 @@
   	},
   	{
   		"category" : "photo-essay",
-  		"slug" : "why-shoot-film-8945",
+  		"url" : "/why-shoot-film/",
   		"title" : "Why Shoot Film 2",
   		"subtitle" : "",
   		"id" : "0000003",
