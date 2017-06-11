@@ -36,8 +36,6 @@ export const PictureFigure = styled.figure`
 	padding: 									0;	
 	overflow: 								hidden;
 	margin: 									0 0 ${ props => props.theme.size.block.spacing }em;
-	z-index:									${ props => props.theme.layer.nav + 1 };
-	position: 								relative;
 
 	width: 										65%; 
 	margin-left: 							calc((${ props => props.theme.size.block.column.maxwidth.m }px - 100vw)/3.5);
