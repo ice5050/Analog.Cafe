@@ -1,14 +1,18 @@
 # Analog.Cafe 
-## An open-source project for the "Remarkable Film Photography Blog"
+## An open-source project for the "Community Film Photography Publication (blog)."
 > You are free to use any code in this repository for your personal or business projects.
 > But please do not clone the design and content.
 
 ### Built with:
 * [Node.js](https://github.com/nodejs/node)
+    * [Express.js](https://expressjs.com)
 * [React.js](https://github.com/facebook/react)
     * [Create React App](https://github.com/facebookincubator/create-react-app)
     * [Styled Components](https://github.com/styled-components/styled-components)
+    * [Slate.js](https://github.com/ianstormtaylor/slate)
     * (and more)
+* [ES6](https://github.com/lukehoban/es6features)
+    * [Babel](https://github.com/babel/babel)
 
 ### Why it's awesome:
 * Images can be re-published by contributing authors, natively. Those images share all the functions and features of original image, while giving appropriate credit to the author. Without having to save, re-upload or embed stuff.
@@ -21,6 +25,7 @@ If you are interested in contributing to this project - awesome! But first (if y
 1. [Get GIT](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) working on your machine
 1. [Get Node.js](https://nodejs.org/en/download/package-manager/) on your machine
 1. [Clone](https://help.github.com/articles/cloning-a-repository/) this repo onto your machine
+1. Run `git submodule init` and `git submodule update` - we are on some parallel open-source projects from within Analog.Cafe, those commands download all that goodness to make sure it's usable by the main app. Learn more about [GIT Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 1. Run `node install`
 1. Run `yarn start`
 

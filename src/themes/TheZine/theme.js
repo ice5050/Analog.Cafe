@@ -1,9 +1,9 @@
 // style
 import { css } from "styled-components"
-import { exact, min, max } from "./media"
+import { exact, min, max, breakpoints } from "./helpers/breakpoint-generator"
 
-// theme css defaults
-export const def = {
+// theme css schema
+export const TheZineTheme = {
 	color: {
   	brand: 				"#ed236e",
 		foreground:		"#2c2c2c",
@@ -15,34 +15,42 @@ export const def = {
 		half: 	.5,
 		least: 	.125,
 	},
+	effects: {
+		borderRadius : { // base: multiplier
+			small: 	.25,
+			med:		.5,
+		}
+	},
 	typography: {
 		title: {
 			auto: css`
 				font-family: 			Arial, sans-serif;
 				letter-spacing: 	0.005em;
-				line-height: 			1.15em;
+				line-height: 			${ () => TheZineTheme.typography.title.lineHeight }em;
 				font-weight: 			700;
-				margin: 0;
-			
-				.fonts-loaded & {
-					font-family: 			"Exo 2", Arial sans-serif;
-					letter-spacing: 	0.025em;
-					line-height: 			1.15em;
-					font-weight: 			600;
-				}
+				margin: 					0;
+				/* in some cases this vv doesn't work and causes garbage CSS */
+				.fonts-loaded-headers & { ${ () => TheZineTheme.typography.title.fontsLoaded } }
 			`,
+			fontsLoaded: css`
+				font-family: 			"Exo 2", Arial sans-serif;
+				letter-spacing: 	0.025em;
+				font-weight: 			600;
+			`,
+			lineHeight: 1.15 // base: multiplier
 		},
 		text: {
 			auto: css`
 				font-family: 			Georgia, serif;
 				letter-spacing: 	0.05em;
-				line-height: 			1.75em;
-				
-				.fonts-loaded & {
-					font-family: 			Lora, Georgia, serif;
-					letter-spacing: 	0.025em;
-				}			
+				line-height: 			${ () => TheZineTheme.typography.text.lineHeight }em;
+				.fonts-loaded & { ${ () => TheZineTheme.typography.text.fontsLoaded } }
 			`,
+			fontsLoaded: css`
+				font-family: 			Lora, Georgia, serif;
+				letter-spacing: 	0.025em;
+			`,
+			lineHeight: 1.75 // base: multiplier
 		},
 	},
 	size: {
@@ -50,6 +58,10 @@ export const def = {
 			exact,
 			min,
 			max,
+			stops: {
+				min: 	breakpoints.xs[1],
+				max: 	breakpoints.xl[1]
+			},
 		},
 		font: { // base: pixels
 			l: 	23,
@@ -63,31 +75,32 @@ export const def = {
 			},
 			// automatically set font size based on screen size; should be at the top of most components' css
 			auto: css`
-					${ min.m`font-size: 	${ () => def.size.font.m 	}px;` }
-					${ max.s`font-size: 	${ () => def.size.font.s 	}px;` }
-					${ max.xs`font-size: 	${ () => def.size.font.xs }px;` }
-					${ min.xxl`font-size:	${ () => def.size.font.l 	}px;` }
+					${ min.m`font-size: 	${ () => TheZineTheme.size.font.m 	}px;` }
+					${ max.s`font-size: 	${ () => TheZineTheme.size.font.s 	}px;` }
+					${ max.xs`font-size: 	${ () => TheZineTheme.size.font.xs 	}px;` }
+					${ min.xxl`font-size:	${ () => TheZineTheme.size.font.l 	}px;` }
 				`
 		},
 		block: {
 			column: {
 				maxwidth: { // base: pixels
 					m: 	750,
-					l: 	780,
+					l: 	820,
 				},
 				safety: 1.5, // base: multiplier
 			},
-			spacing: 1, // base: multiplier
+			spacing: 	1, // base: multiplier
+			border:		8, // base: pixels
 		},
 	},
 	layer: {
 		overlay:		40,
-		menu:				30,
-		card:				20,
+		card:				30,
+		nav:				20,
 		up:					10,
 		tuck:				-1
 	},
 	elements: {
-		thickBorder: () => "8px solid " + def.color.foreground,
+		thickBorder: () => TheZineTheme.size.block.border + "px solid " + TheZineTheme.color.foreground,
 	}
 }
