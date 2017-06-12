@@ -24,5 +24,6 @@ export const ROUTE_DESCRIPTIONS = {
 	"/"							:	{
 											"description" : "Film photography, art, stories & more.",
 											"emoji"				: "☕️",
+											"designation" : "homepage",
 	},
 }
