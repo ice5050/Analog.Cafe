@@ -3,6 +3,7 @@ import React from "react"
 import { Router, Route, browserHistory, IndexRoute } from "react-router"
 import Helmet from "react-helmet"
 import ReactGA from "react-ga"
+import { animateScroll } from "react-scroll"
 
 // theme
 import { TheZine } from "../../themes/TheZine"
@@ -26,9 +27,11 @@ ReactGA.initialize("UA-91374353-3")
 
 // render & route
 export const App = props => {
-	const logPageView = () => {
+	const updateView = () => {
 		ReactGA.set({ page: window.location.pathname + window.location.search })
 		ReactGA.pageview(window.location.pathname + window.location.search)
+		
+		animateScroll.scrollToTop({duration: 250})
 	}
 	return (
 		<TheZine>
@@ -37,7 +40,7 @@ export const App = props => {
 				titleTemplate="%s ☕️ Analog.Cafe"
 			/>
 
-			<Router history={ browserHistory } onUpdate={logPageView} >
+			<Router history={ browserHistory } onUpdate={ updateView } >
 
 				<Route path="/"			 					component={ Publication } >
 					<IndexRoute 								component={ ListPosts } />
