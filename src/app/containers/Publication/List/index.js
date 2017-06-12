@@ -6,6 +6,8 @@ import { Link } from "react-router"
 // components
 import { Bleed, List, Stats, Caption, ZigzagPicture } from "../../../components/List"
 import { Description } from "../../../components/List/components/Description"
+import { Section, Article } from "../../../components/Article"
+
 
 // state
 import defaultListState from "./state.json"
@@ -14,6 +16,15 @@ import defaultListState from "./state.json"
 import { ROUTE_LIST_API, ROUTE_FILTERS, ROUTE_DESCRIPTIONS, ROUTE_ARTICLE_DIR } from "./routes"
 
 
+// helper
+const datestamp = (unix) => {
+	const m = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+	let date = new Date(unix * 1000)
+	let year = date.getFullYear()
+	let month = m[date.getMonth()]
+	let day = date.getDate()
+	return month + " " + day + ", " + year
+}
 
 // render
 export class ListPosts extends React.Component {
@@ -44,15 +55,6 @@ export class ListPosts extends React.Component {
 	// need condition for componentWillUnmount()
 
 	render() {
-	
-		const datestamp = (unix) => {
-			const m = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
-			let date = new Date(unix * 1000)
-			let year = date.getFullYear()
-			let month = m[date.getMonth()]
-			let day = date.getDate()
-			return month + " " + day + ", " + year
-		}
 		
 		return(
 			<div>
@@ -97,6 +99,7 @@ export class ListPosts extends React.Component {
 					}
 					</List>
 				</Bleed>
+				<Article><Section /></Article>
 			</div>
 		)
 	}

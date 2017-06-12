@@ -65,7 +65,7 @@ export class Post extends React.Component {
 					pageSubtitle={ this.state.subtitle } 
 					pageByline={ "by " + this.state.author.name } 
 				/>
-				<Section>
+				<Section postStatus={ this.state.status }>
 					<Editor
 						readOnly={					true }
 						state={							this.state.content.raw }

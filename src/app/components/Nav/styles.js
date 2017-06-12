@@ -1,7 +1,6 @@
 // tools
 import React from "react"
 import styled from "styled-components"
-import Color from "color"
 import { Link, IndexLink } from "react-router"
 
 // css
@@ -36,6 +35,7 @@ const StyledLink = styled(Link)`
 		background: 	${ props => props.theme.color.foreground };
 		position: 		absolute;
 	}
+	
 `
 export const NavLink = props => {
 	return <StyledLink {...props} activeClassName="active"/>
@@ -53,5 +53,6 @@ export const NavItem = styled.li`
 	${ props => props.left ? 		props => props.theme.size.breakpoint.max.m`order: 0;` : false }
 	${ props => props.right ? 	props => props.theme.size.breakpoint.max.m`order: 2;` : false }
 	${ props => props.prime ? 	false : props => props.theme.size.breakpoint.max.m`display:none;` }
+	${ props => props.indicator ? `opacity: ` + props.theme.opacity.half : null }
 	
 `
