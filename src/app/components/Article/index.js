@@ -34,7 +34,7 @@ Header.propTypes = {
 	children: 		PropTypes.element,
 }
 Section.propTypes = {
-	children: 		PropTypes.any.isRequired,
+	children: 		PropTypes.any,
 }
 Article.propTypes = {
 	children: 		PropTypes.any.isRequired,
