@@ -15,6 +15,7 @@ export const Submit = props => {
 			<Helmet title="Submit for Review" />
 			{ props.location.pathname.includes("submit/compose") ? 	<ComposerNav /> : <Nav /> }
 			{ props.children }
+			{ props.location.pathname.includes("submit/compose") ? 	null : <Nav /> }
 		</div>
 	)
 }

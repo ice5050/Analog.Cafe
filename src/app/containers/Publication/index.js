@@ -11,6 +11,7 @@ export const Publication = props => {
 		<div>
 			<Nav />
 			{ props.children }
+			<Nav />
 		</div>
 	)
 }
