@@ -6,17 +6,18 @@ import styled from "styled-components"
 const logoSize = props => props.theme.size.font.make.larger
 const logoPadding = props => props.theme.size.block.spacing / 2
 export const LogoContainer = styled.div`
-	${ props => props.theme.size.font.auto }
 	width:					${ logoSize }em;
 	height:					${ logoSize }em;
 	overflow: 			hidden;
 	margin: 				0 auto;
 	padding: 				${ logoPadding }em;
-	border-radius: 	${ logoSize }em;
+ 	border-radius: 	${ props => props.theme.effects.borderRadius.med }em;
+ 	transform: 			rotate(45deg);
 	
 	svg {
-		height: 100%;
-		width: 	100%;
+		transform: 	rotate(-45deg);
+		height: 		100%;
+		width: 			100%;
 		path {
 			fill: #fff;
 		}
