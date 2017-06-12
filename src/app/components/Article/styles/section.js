@@ -34,6 +34,9 @@ export const PageSection = styled.section`
 	${ props => props.theme.size.font.auto }
 	${ props => props.theme.typography.text.auto }
 	
+	/* placeholder style */	
+	${ props => props.postStatus === "loading" ? `opacity: ` + props.theme.opacity.least + `; letter-spacing: 0 !important;`: null }
+	
 	margin: 		0 auto;
 	max-width: 	${ props => props.theme.size.block.column.maxwidth.m }px;
 	${ props => props.theme.size.breakpoint.min.xxl`max-width: ${ props => props.theme.size.block.column.maxwidth.l }px;` };
