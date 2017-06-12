@@ -13,7 +13,6 @@ export const NavLogo = props => {
 	//jsx
 	return(
 		<LogoOutline {...props} title={"Analog.Cafe"} >
-			<LogoLettering>{appNameSpan}</LogoLettering>
 			<LogoWithDownstate {...props} />
 		</LogoOutline>
 	)
