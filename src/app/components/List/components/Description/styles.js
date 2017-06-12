@@ -8,6 +8,7 @@ export const ListDescription = styled.section`
 	${ props => props.theme.typography.text.auto }
 	${ props => props.theme.size.font.auto }
 	
+
 	margin: 		0 auto;
 	max-width: 	${ props => props.theme.size.block.column.maxwidth.m };
 	position: 	relative;

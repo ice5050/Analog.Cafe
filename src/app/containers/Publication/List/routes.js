@@ -8,7 +8,7 @@
 export const ROUTE_ARTICLE_DIR = "/zine"
 export const ROUTE_LIST_API = "/api/list"
 export const ROUTE_FILTERS = {
-	"/photo-essays"	: "photo-essay",
+	"/photo-essays"	: "photo-essay111",
 	"/articles"			:	"theory-and-practice_opinion_off-topic",
 	"/"							:	"",
 }

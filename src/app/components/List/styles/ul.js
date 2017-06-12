@@ -63,6 +63,7 @@ export const ListUl = styled.ul`
 			display: 					flex;
 			width: 						100%;
 			text-decoration: 	none;
+
 			&:active {
 				background: 0 0;
 				figure {
@@ -71,7 +72,7 @@ export const ListUl = styled.ul`
 
 				}
 			}
-			&::before {
+			&::after {
 				${ zigzagFill }
 				display: 					block;
 				content: 					"";
@@ -108,6 +109,7 @@ export const ListUl = styled.ul`
 				
 				/* placeholder style */	
 				background-color: ${ props => props.listStatus === "loading" ? props.theme.color.foreground : greyLine };
+
 			}
 			h2 {
 				${ props => props.theme.typography.title.auto }

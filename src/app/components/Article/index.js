@@ -23,7 +23,7 @@ export const Article = props => {
 	return <PageArticle>{ props.children }</PageArticle>
 }
 export const Section = props => {
-	return <PageSection>{ props.children }</PageSection>
+	return <PageSection {...props}>{ props.children }</PageSection>
 }
 
 // declare

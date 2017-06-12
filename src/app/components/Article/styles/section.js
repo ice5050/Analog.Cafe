@@ -12,6 +12,9 @@ const sectionHeading = css`
 `
 const paragraph = css`
 	margin: ${ props => props.theme.size.block.spacing }em 0;
+	
+	/* placeholder style */	
+	${ props => props.postStatus === "loading" ? `opacity: ` + props.theme.opacity.least + `; letter-spacing: 0 !important;`: null }
 `
 const sectionBreak = css`
 	text-align: 	center;
@@ -63,5 +66,7 @@ export const PageSection = styled.section`
 	.fonts-loaded-headers & h3,
 	.fonts-loaded-headers & h4 { ${ props => props.theme.typography.title.fontsLoaded } }
 	hr 					{ ${ sectionBreak } }
+	
+	border-bottom:	${ props => props.theme.elements.thickBorder };
 `
 export const PageArticle = styled.article``
