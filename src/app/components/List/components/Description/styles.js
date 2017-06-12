@@ -23,7 +23,9 @@ export const ListDescription = styled.section`
 `
 export const BrandName = styled.strong`
 	${ props => props.theme.typography.title.auto }
-	text-align: 	center;
-	display: 			block;
-	font-size: 		${ props => props.theme.size.font.make.smaller }em;
+	text-align: 		center;
+	display: 				block;
+	font-size: 			${ props => props.theme.size.font.make.smaller }em;
+	margin-top: 		-.5em;
+	margin-bottom:	.5em;
 `
