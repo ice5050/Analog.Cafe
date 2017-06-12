@@ -9,7 +9,7 @@
   "items": [
   	{
   		"category" : "photo-essay",
-  		"url" : "/why-shoot-film/",
+  		"slug" : "why-shoot-film-8945",
   		"title" : "Why Shoot Film?",
   		"subtitle" : "Subtitle 2",
   		"id" : "0000001",
@@ -31,7 +31,7 @@
   	},
   	{
   		"category" : "photo-essay",
-  		"url" : "/why-shoot-film/",
+  		"slug" : "why-shoot-film-8945",
   		"title" : "Why Shoot Film 2",
   		"subtitle" : "",
   		"id" : "0000003",
