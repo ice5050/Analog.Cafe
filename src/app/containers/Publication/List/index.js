@@ -58,7 +58,9 @@ export class ListPosts extends React.Component {
 		
 		return(
 			<div>
-				<Description emoji={ ROUTE_DESCRIPTIONS[this.props.location.pathname].emoji }>
+				<Description
+					emoji={ ROUTE_DESCRIPTIONS[this.props.location.pathname].emoji }
+				>
 					{ ROUTE_DESCRIPTIONS[this.props.location.pathname].description }
 				</Description>
 				<Bleed>
@@ -67,7 +69,7 @@ export class ListPosts extends React.Component {
 						this.state.items.map(function(item) {
 							return (
 								<li key={ item.id }>
-									<Link to={ ROUTE_ARTICLE_DIR + "/" + item.slug }>
+									<Link to={ item.slug ? ROUTE_ARTICLE_DIR + "/" + item.slug : null }>
 										<section>
 											<figure>
 												{ item.type !== "placeholder" ? <img src={ item.poster.medium } alt={ item.title + " poster image" } /> : null }

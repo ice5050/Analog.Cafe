@@ -127,6 +127,9 @@ export const ListUl = styled.ul`
 					white-space: 	normal;
 					line-height: 	1.185em;
 					margin-top: 	0.04em;
+					
+					/* placeholder style */	
+					${ props => props.listStatus === "loading" ? `margin-top: .35em` : null }
 				}` }
 				
 				/* placeholder style */	

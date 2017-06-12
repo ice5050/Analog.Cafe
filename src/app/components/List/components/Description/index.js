@@ -9,7 +9,7 @@ import { ListDescription, BrandName } from "./styles"
 // return
 export const Description = props => {
 	return (
-		<ListDescription { ...props.emoji } >
+		<ListDescription { ...props } >
 			<BrandName>Analog.Cafe</BrandName>
 			<span><q><em>{ props.children }</em></q> { props.emoji }</span>
 		</ListDescription>
@@ -18,6 +18,6 @@ export const Description = props => {
 
 // declare
 ListDescription.propTypes = {
-	children: 		PropTypes.element,
+	children: 		PropTypes.array,
 	emoji: 				PropTypes.string,
 }
