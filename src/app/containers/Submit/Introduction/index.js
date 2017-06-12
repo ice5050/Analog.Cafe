@@ -3,7 +3,7 @@ import React from "react"
 import { Link } from "react-router"
 
 // components
-import { Header, Section, Article } from "../../../components/Article"
+import { Header, Section, Article, Byline } from "../../../components/Article"
 import { PageButton } from "../../../components/Buttons"
 import { Figure } from "../../../components/Pictures"
 
@@ -14,7 +14,6 @@ export const Introduction = props => {
 			<Header 
 				pageTitle="Submit 🎞" 
 				pageSubtitle="Get your work featured on Analog.Cafe" 
-				pageByline="Edited by dmitrizzle"
 			/>
 			<Section>
 				

@@ -14,7 +14,6 @@ export const About = props => {
 			<Header 
 				pageTitle="Analog.Cafe ☕️" 
 				pageSubtitle="Film Photography Publication" 
-				pageByline="Edited by dmitrizzle"
 			/>
 			<Section>
 				

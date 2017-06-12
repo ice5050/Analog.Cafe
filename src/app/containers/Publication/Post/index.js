@@ -5,7 +5,7 @@ import { Editor, Raw } from "slate"
 
 
 // components
-import { Header, Section, Article } from "../../../components/Article"
+import { Header, Section, Article, Byline } from "../../../components/Article"
 
 // state
 import defaultPostState from "./state.json"
@@ -16,7 +16,11 @@ import { schema } from "../../Submit/Composer/components/ContentEditor/schema"
 const ROUTE_POST_API = "/api/post"
 const ROUTE_ARTICLE_DIR = "/zine"
 
-
+// card
+const card = (event) => {
+	event.preventDefault()
+	alert(1)
+}
 // render
 export class Post extends React.Component {
 	state = {
@@ -62,9 +66,10 @@ export class Post extends React.Component {
 			<Article>
 				<Header 
 					pageTitle={ this.state.title } 
-					pageSubtitle={ this.state.subtitle } 
-					pageByline={ "by " + this.state.author.name } 
-				/>
+					pageSubtitle={ this.state.subtitle }
+				>
+					<Byline>by <a href="#author" onClick={ card }>{ this.state.author.name }</a></Byline>
+				</Header>
 				<Section postStatus={ this.state.status }>
 					<Editor
 						readOnly={					true }

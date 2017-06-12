@@ -24,9 +24,10 @@ export const PageSubtitle = styled.h2`
 `
 export const PageByline = styled.span`
 	${ props => props.theme.typography.text.auto }
-	font-size: ${ props => props.theme.size.font.make.smaller }em;
-	font-variant: small-caps;
-	display: block;
+	font-size: 			${ props => props.theme.size.font.make.smaller }em;
+	font-variant: 	small-caps;
+	display: 				block;
+	cursor: 				pointer;
 `
 export const PageTools = styled.div`
 	
