@@ -1,7 +1,7 @@
 // styles
 import styled from "styled-components"
 
-import { zigzagWidth, zigzagTopShim } from "./ul"
+import { zigzagTopShim } from "./ul"
 
 // css
 export const ListBleed = styled.div`
@@ -10,6 +10,6 @@ export const ListBleed = styled.div`
 	
 	clear: 					both;
 	position: 			relative;
-	margin-top: 		-${ zigzagTopShim + 2 }em;
+	margin-top: 		calc(-${ zigzagTopShim }em - ${ props => props.theme.size.block.column.safety }em);
 	margin-bottom:	${ props => props.theme.size.block.column.safety }em;
 `

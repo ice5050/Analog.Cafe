@@ -1,7 +1,6 @@
 // tools
 import React from "react"
 import styled from "styled-components"
-import Color from "color"
 import { Link, IndexLink } from "react-router"
 
 // css

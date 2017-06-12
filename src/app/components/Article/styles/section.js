@@ -12,6 +12,9 @@ const sectionHeading = css`
 `
 const paragraph = css`
 	margin: ${ props => props.theme.size.block.spacing }em 0;
+	
+	/* placeholder style */	
+	${ props => props.postStatus === "loading" ? `opacity: ` + props.theme.opacity.least + `; letter-spacing: 0 !important;`: null }
 `
 const sectionBreak = css`
 	text-align: 	center;
@@ -33,9 +36,6 @@ const sectionBreak = css`
 export const PageSection = styled.section`
 	${ props => props.theme.size.font.auto }
 	${ props => props.theme.typography.text.auto }
-	
-	/* placeholder style */	
-	${ props => props.postStatus === "loading" ? `opacity: ` + props.theme.opacity.least + `; letter-spacing: 0 !important;`: null }
 	
 	margin: 		0 auto;
 	max-width: 	${ props => props.theme.size.block.column.maxwidth.m }px;
