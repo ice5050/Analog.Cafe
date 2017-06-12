@@ -6,6 +6,8 @@ import { Link } from "react-router"
 // components
 import { Bleed, List, Stats, Caption, ZigzagPicture } from "../../../components/List"
 import { Description } from "../../../components/List/components/Description"
+import { Section, Article } from "../../../components/Article"
+
 
 // state
 import defaultListState from "./state.json"
@@ -97,6 +99,7 @@ export class ListPosts extends React.Component {
 					}
 					</List>
 				</Bleed>
+				<Article><Section /></Article>
 			</div>
 		)
 	}

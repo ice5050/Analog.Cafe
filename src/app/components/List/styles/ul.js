@@ -71,7 +71,7 @@ export const ListUl = styled.ul`
 
 				}
 			}
-			&::before {
+			&::after {
 				${ zigzagFill }
 				display: 					block;
 				content: 					"";

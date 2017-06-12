@@ -63,5 +63,7 @@ export const PageSection = styled.section`
 	.fonts-loaded-headers & h3,
 	.fonts-loaded-headers & h4 { ${ props => props.theme.typography.title.fontsLoaded } }
 	hr 					{ ${ sectionBreak } }
+	
+	border-bottom:	${ props => props.theme.elements.thickBorder };
 `
 export const PageArticle = styled.article``
