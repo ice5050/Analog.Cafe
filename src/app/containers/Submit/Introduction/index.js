@@ -20,6 +20,7 @@ export const Introduction = props => {
 				
 				<PageButton to="/submit/compose" red>Submit Now</PageButton>
 				<p><Link to="/submit/login"><strong>Log in</strong></Link> to edit your profile and view your existing submissions.</p>
+				<p><em>You can create your account once you submit your work. It&rsquo;ll take 10 seconds.</em></p>
 				
 				<hr />
 				
@@ -31,11 +32,11 @@ export const Introduction = props => {
 				<p>You can write, photograph and submit pretty much anything you like, as long as you own the copyright for your work. NSFW submissions aren&rsquo;t accepted (yet).</p>
 				<p>Every submission gets reviewed for style, quality, spelling etc. <strong>This is a curated publication with an aim to have a character of its own, which means not every work gets accepted.</strong> Even if it&rsquo;s really good.</p>
 				<p>Once you send your submission you will be able to review its status using an account created for you. It takes about a week on average to review, edit and schedule works on Analog.Cafe. You&rsquo;ll get an email notification should the status of your submission change.</p>
-				<p><strong>You will also be able to control how your work gets distributed.</strong> We ask that you grant your permission to exhibit it here on Analog.Cafe as well as other online outlets, such as Twitter of Facebook. Additionally, you may choose to have your photographs to be &ldquo;repostable&rdquo; by other authors and photographers within their submissions here on Analog.Cafe. You&rsquo;ll get a link to your profile with each one of your images which have been reposted.</p>
+				<p><strong>You will also be able to control how your work gets distributed.</strong> We ask that you grant your permission to exhibit it here on Analog.Cafe as well as other online outlets, such as Twitter or Facebook. Additionally, you may choose to allow your photographs to be used by other authors and photographers within their submissions here on Analog.Cafe. You&rsquo;ll get a link to your profile with each image.</p>
 				<p>Rest assured that every post, including the one that uses your work, is reviewed for quality and appropriateness.</p>
 				
 				<blockquote>
-					<p>You may choose to have your photographs to be &ldquo;repostable&rdquo; by other authors and photographers within their submissions here on Analog.Cafe. You&rsquo;ll get a link to your profile with each one of your images which have been reposted.</p>
+					<p>Additionally, you may choose to allow your photographs to be used by other authors and photographers within their submissions. You&rsquo;ll get a link to your profile with each image.</p>
 				</blockquote>
 				
 				<h3>Get Your Work Accepted & Published</h3>
