@@ -12,42 +12,52 @@ export const Introduction = props => {
 	return(
 		<Article>
 			<Header 
-				pageTitle="Submit for Review" 
-				pageSubtitle="Photos shot on film, photo essays, and stories" 
+				pageTitle="Submit 🎞" 
+				pageSubtitle="Get your work featured on Analog.Cafe" 
 				pageByline="Edited by dmitrizzle"
 			/>
 			<Section>
 				
 				<PageButton to="/submit/compose" red>Submit Now</PageButton>
-				<p><Link to="/submit/login"><strong>Log in</strong></Link> to edit your profile and vew your existing submissions.</p>
+				<p><Link to="/submit/login"><strong>Log in</strong></Link> to edit your profile and view your existing submissions.</p>
 				
 				<hr />
 				
-				<p>Submitting your work is really easy. Simply drag and drop your scanned photograph(s) and/or write your story. Double-check your spelling and image quality and click &ldquo;Send Submission <span role="img" aria-label="Rocket">🚀</span>&rdquo;.</p>
-				<p><strong>Analog.Cafe editor will review your work and get back to you with the decision within a week.</strong></p>
+				<h3>&ldquo;Compose&rdquo; Your Submission</h3>
+				<p>Upload your image(s) and submit. Use Analog.Cafe <Link to="/submit/compose"><em>Composer</em></Link> to type up your story; it&rsquo;ll automatically format and save everything for you.</p>
 				
-				<Figure src="images/uploads/poster.jpg">&ldquo;Midnight Jam,&rdquo; shot on Ilford Pan 400 with Canon QL25 and pushed to 1600ISO.</Figure>
-								
-				<h3>Featured Images Library</h3>
-				<p>You can can re-publish any of the images from the &ldquo;Featured Images Library&rdquo; within your work. By doing this you are starting an <strong>instant collaboration</strong> with some of the best film photographers on Analog.Cafe.</p>
-				<p>You have the premission from the photographers to use their images within your submission here on Analog.Cafe.</p>
-				<p>The image(s) that you upload with your submission are reviewed and selectively given &ldquo;featured&rdquo; status (you can opt out). Your featured images are always re-published with a clear link to your Analog.Cafe portfolio.</p>
+				<Figure src="images/app/demo-composer.jpg">When you edit your submission you see it exactly how it would appear when published.</Figure>
 				
-				<h3>Topics & Submission Types</h3>
-				<p>You can write or photograph pretty much anything you like, as long as it&rsquo;s not offensive or stolen. NSFW submissions aren&rsquo;t accepted (yet).</p>
-				<p>Submission types typically accepted:</p>
-				
-				<ul>
-					<li><strong>Just the photo</strong> &mdash; one image, a title and perhaps a caption for the photo.</li>
-					<li><strong>Photo essay</strong> &mdash; you can have one image with a story, or a few images that make up a story. Your story could be a written word or you could tell it with images only.</li>
-					<li><strong>Article</strong> &mdash; while photo essays are considered <em>storytelling through art</em>, articles could be technical, newsworthy or simply fun to read anecdoes.</li>
-					<li><strong>Beyond the grain</strong> &mdash; Analog.Cafe focuses on film photography as creative medium. &ldquo;Beyond the grain&rdquo; is <em>everything but film photography</em> that&rsquo;s related to art, creativity or something the editor may find fitting here.</li>
-				</ul>
+				<p>You can write, photograph and submit pretty much anything you like, as long as you own the copyright for your work. NSFW submissions aren&rsquo;t accepted (yet).</p>
+				<p>Every submission gets reviewed for style, quality, spelling etc. <strong>This is a curated publication with an aim to have a character of its own, which means not every work gets accepted.</strong> Even if it&rsquo;s really good.</p>
+				<p>Once you send your submission you will be able to review its status using an account created for you. It takes about a week on average to review, edit and schedule works on Analog.Cafe. You&rsquo;ll get an email notification should the status of your submission change.</p>
+				<p><strong>You will also be able to control how your work gets distributed.</strong> We ask that you grant your permission to exhibit it here on Analog.Cafe as well as other online outlets, such as Twitter of Facebook. Additionally, you may choose to have your photographs to be &ldquo;repostable&rdquo; by other authors and photographers within their submissions here on Analog.Cafe. You&rsquo;ll get a link to your profile with each one of your images which have been reposted.</p>
+				<p>Rest assured that every post, including the one that uses your work, is reviewed for quality and appropriateness.</p>
 				
 				<blockquote>
-					<p>The <strong>collaborative publication platform</strong> for the film photography community. Anyone can submit images, photo essays and articles through the beautiful, easy to use web app. No more complicated, ugly forms.</p>
+					<p>You may choose to have your photographs to be &ldquo;repostable&rdquo; by other authors and photographers within their submissions here on Analog.Cafe. You&rsquo;ll get a link to your profile with each one of your images which have been reposted.</p>
 				</blockquote>
-
+				
+				<h3>Get Your Work Accepted & Published</h3>
+				
+				<p><strong>Analog.Cafe focuses heavily on film photography as the subject of every submission.</strong> That being said, if your work suits the general style of the publication but doesn&rsquo;t use photographs shot on film it can still be accepted.</p>
+				
+				<p>Here is a list of formats submissions are typically accepted in:</p>
+				<ul>
+					<li><strong>A Photo</strong> &mdash; one image, a title and perhaps a caption for the photograph.</li>
+					<li><strong>Photo Essay</strong> &mdash; you can have one image with text or a few images that make up a story.</li>
+					<li><strong>Opinion</strong> or <strong>&ldquo;Theory and Practice&rdquo;</strong> article &mdash; your thoughts, advice, and opinions on film photography and art in general.</li>
+				</ul>
+				
+				<p>For images, JPG and PNG formats are accepted, maximum 5MB per file. Please make sure the quality is good enough to display on large screens.</p>
+				
+				<Figure src="images/app/film_photo-computer_code.jpg">This is one of the first images of Analog.Cafe web app. It didn&rsquo;t look much at first. Shot on Kodak Ektar 100.</Figure>
+				<h3>A Few Fine Details</h3>
+				<p>Your submission does not have to be exclusive to Analog.Cafe. Please limit the number of links and promotional phrases in your work to minimum. Oh and your email and account information will not be shared with or sold to anyone 👍</p>
+				
+				<hr />
+				
+				<PageButton to="/submit/compose" red>Submit Now</PageButton>
 				
 			</Section>
 		</Article>
