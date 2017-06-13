@@ -3,7 +3,6 @@ import React from "react"
 import { Router, Route, browserHistory, IndexRoute } from "react-router"
 import Helmet from "react-helmet"
 import ReactGA from "react-ga"
-import { animateScroll } from "react-scroll"
 
 // theme
 import { TheZine } from "../../themes/TheZine"
@@ -31,7 +30,7 @@ export const App = props => {
 		ReactGA.set({ page: window.location.pathname + window.location.search })
 		ReactGA.pageview(window.location.pathname + window.location.search)
 		
-		animateScroll.scrollToTop({duration: 250})
+		window.scrollTo(0,0)
 	}
 	return (
 		<TheZine>
