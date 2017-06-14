@@ -2,6 +2,8 @@
 import React from "react"
 import axios from "axios"
 import { Link } from "react-router"
+import { ModalFetch } from "../../ModalFetch"
+
 
 // components
 import { Bleed, List, Stats, Caption, ZigzagPicture } from "../../../components/List"
@@ -12,46 +14,14 @@ import { Section, Article } from "../../../components/Article"
 // state
 import defaultListState from "./state.json"
 
-// routes
-import { ROUTE_LIST_API, ROUTE_FILTERS, ROUTE_DESCRIPTIONS, ROUTE_ARTICLE_DIR } from "./routes"
-
-
 // helper
-const datestamp = unix => {
-	const m = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
-	let date = new Date(unix * 1000)
-	let year = date.getFullYear()
-	let month = m[date.getMonth()]
-	let day = date.getDate()
-	return month + " " + day + ", " + year
-}
-const compleFilterString = url => {
-	url = url ? url : "/"
-	let filters
-	let routeDescription
-	
-	// filter by author name
-	if(url.includes("/author/")){
-		let authorId = url.match(/\/author\/(.*)/)[1]
-		authorId = authorId ? "/author-" + authorId : "/index"
-		
-		filters = { author: { id: authorId } }
-		routeDescription = {
-			description: ROUTE_DESCRIPTIONS["/author/*"].description,
-			emoji: ROUTE_DESCRIPTIONS["/author/*"].emoji
-		}
-	}
-	
-	// filter by tags
-	else {
-		let tags
-		tags = ROUTE_FILTERS[url]
-    tags = tags ? "/tags-" + tags : "/index"
-    filters = { tags }
-    routeDescription =  ROUTE_DESCRIPTIONS[url]
-	}
-	return { filters, routeDescription }
-}
+import { datestamp, compleFilterString } from "./helpers"
+
+// routes
+import { ROUTE_LIST_API, ROUTE_ARTICLE_DIR } from "./routes"
+
+
+
 
 // render
 export class ListPosts extends React.Component {
@@ -66,6 +36,8 @@ export class ListPosts extends React.Component {
   	axios.get(ROUTE_LIST_API + compiledFilters + ".json")
 			.then(response => {
 				let data = response.data
+				
+				// save state
 				this.setState({
 					status: 		data.status,
 					items: 			data.items,
@@ -88,7 +60,7 @@ export class ListPosts extends React.Component {
 					emoji={ compleFilterString(this.props.location.pathname).routeDescription.emoji }
 				>
 					{ compleFilterString(this.props.location.pathname).routeDescription.description }
-						<Link to="/">{ this.state.filters.author.name || "" }</Link>.
+						<a href="#author">{ this.state.filters.author.name || "" }</a>.
 				</Description>
 				<Bleed>
 					<List listStatus={ this.state.status }>
@@ -129,6 +101,10 @@ export class ListPosts extends React.Component {
 					</List>
 				</Bleed>
 				<Article><Section /></Article>
+				<ModalFetch
+					title={ this.state.filters.author.name }
+					fetch={ "/api/author/" + this.state.filters.author.id }
+				/>
 			</div>
 		)
 	}
