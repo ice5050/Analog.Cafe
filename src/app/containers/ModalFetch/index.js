@@ -25,10 +25,10 @@ export class ModalFetch extends React.Component {
 			.then(response => {
 				let data = response.data
 				this.setState({
-					status: 	data.status,
-					name:			data.name,
-					image:		data.image,
-					text:			data.text,
+					status: 			data.status,
+					name:					data.name,
+					image:				data.image,
+					shortBio:			data["bio-short"],
 					slug,
 					buttons: 	data.buttons,
 				})
@@ -45,7 +45,7 @@ export class ModalFetch extends React.Component {
 			<Modal
 				title={ this.state.name  }
 				image={ this.state.image }
-				text={ this.state.text }
+				text={ this.state.shortBio }
 				buttons={ this.state.buttons }
 			/>
 		)

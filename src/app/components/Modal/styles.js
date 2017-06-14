@@ -7,17 +7,18 @@ import { Caption } from "../Caption"
 
 // css
 export const Overlay = styled.div`
-	position: absolute;
+	position: fixed;
+	overflow:	scroll;
 	top: 			0;
 	bottom: 	0;
 	left: 		0;
 	right: 		0;
 	z-index: 	${ props => props.theme.layer.card };
+	padding:  5vh 0;
 `
 export const Card = styled.aside`
 	position: 			relative;
 	display: 				block;
-	top: 						10vh;
 	background: 		${ props => props.theme.color.background };
 	overflow: 			hidden;
 	margin: 				0 auto;

@@ -101,11 +101,17 @@ export class ListPosts extends React.Component {
 					</List>
 				</Bleed>
 				<Article><Section /></Article>
-				<ModalFetch
+				
+				<ModalConductor
 					title={ this.state.filters.author.name }
 					fetch={ "/api/author/" + this.state.filters.author.id }
 				/>
+				
 			</div>
 		)
 	}
+}
+const ModalConductor = props => {
+	console.log(props)
+	return props.title ? <ModalFetch {...props} /> : null
 }
