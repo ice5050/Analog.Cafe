@@ -25,25 +25,32 @@ const datestamp = unix => {
 	let day = date.getDate()
 	return month + " " + day + ", " + year
 }
-const filter = url => {
+const compleFilterString = url => {
 	url = url ? url : "/"
-	let filter
+	let filters
 	let routeDescription
+	
+	// filter by author name
 	if(url.includes("/author/")){
-		let author = url.match(/\/author\/(.*)/)[1]
-		filter = author ? "/filter-author_" + author : "/index"
+		let authorId = url.match(/\/author\/(.*)/)[1]
+		authorId = authorId ? "/author-" + authorId : "/index"
+		
+		filters = { author: { id: authorId } }
 		routeDescription = {
-			description: "You are browsing selected author’s submissions on Analog.Cafe.",
+			description: ROUTE_DESCRIPTIONS["/author/*"].description,
 			emoji: ROUTE_DESCRIPTIONS["/author/*"].emoji
 		}
-		console.log(routeDescription)
 	}
+	
+	// filter by tags
 	else {
-		filter = ROUTE_FILTERS[url]
-    filter = filter ? "/filter-" + filter : "/index"
+		let tags
+		tags = ROUTE_FILTERS[url]
+    tags = tags ? "/tags-" + tags : "/index"
+    filters = { tags }
     routeDescription =  ROUTE_DESCRIPTIONS[url]
 	}
-	return { filter, routeDescription }
+	return { filters, routeDescription }
 }
 
 // render
@@ -51,17 +58,19 @@ export class ListPosts extends React.Component {
 	state = defaultListState
   
   _fetch = () => {
-  	let filterString = filter(this.props.location.pathname).filter
-  	console.log(filterString)
+  	let url = this.props.location.pathname
+  	let compiledFilters = compleFilterString(url).filters.tags || compleFilterString(url).filters.author.id
+
     // fetch & update state
-  	if(this.state.filter === filterString) return
-  	axios.get(ROUTE_LIST_API + filterString + ".json")
+  	if(this.state.compiledFilters === compiledFilters) return
+  	axios.get(ROUTE_LIST_API + compiledFilters + ".json")
 			.then(response => {
 				let data = response.data
 				this.setState({
-					status: data.status,
-					filter: filterString,
-					items: data.items
+					status: 		data.status,
+					items: 			data.items,
+					filters:		data.filters,
+					compiledFilters,
 				})
 			})
 			.catch(error => console.log(error))
@@ -76,9 +85,10 @@ export class ListPosts extends React.Component {
 		return(
 			<div>
 				<Description
-					emoji={ filter(this.props.location.pathname).routeDescription.emoji }
+					emoji={ compleFilterString(this.props.location.pathname).routeDescription.emoji }
 				>
-					{ filter(this.props.location.pathname).routeDescription.description }
+					{ compleFilterString(this.props.location.pathname).routeDescription.description }
+						<Link to="/">{ this.state.filters.author.name || "" }</Link>.
 				</Description>
 				<Bleed>
 					<List listStatus={ this.state.status }>

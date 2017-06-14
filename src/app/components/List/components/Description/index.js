@@ -18,6 +18,6 @@ export const Description = props => {
 
 // declare
 ListDescription.propTypes = {
-	children: 		PropTypes.array,
+	children: 		PropTypes.any,
 	emoji: 				PropTypes.string,
 }
