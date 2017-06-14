@@ -26,4 +26,9 @@ export const ROUTE_DESCRIPTIONS = {
 											"emoji"				: "☕️",
 											"designation" : "homepage",
 	},
+	"/author/*"			:	{
+											"description" : "Submissions by ...",
+											"emoji"				: "👤",
+	},
+							
 }

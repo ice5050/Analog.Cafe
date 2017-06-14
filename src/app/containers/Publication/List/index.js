@@ -17,7 +17,7 @@ import { ROUTE_LIST_API, ROUTE_FILTERS, ROUTE_DESCRIPTIONS, ROUTE_ARTICLE_DIR } 
 
 
 // helper
-const datestamp = (unix) => {
+const datestamp = unix => {
 	const m = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
 	let date = new Date(unix * 1000)
 	let year = date.getFullYear()
@@ -25,25 +25,42 @@ const datestamp = (unix) => {
 	let day = date.getDate()
 	return month + " " + day + ", " + year
 }
+const filter = url => {
+	url = url ? url : "/"
+	let filter
+	let routeDescription
+	if(url.includes("/author/")){
+		let author = url.match(/\/author\/(.*)/)[1]
+		filter = author ? "/filter-author_" + author : "/index"
+		routeDescription = {
+			description: "You are browsing selected author’s submissions on Analog.Cafe.",
+			emoji: ROUTE_DESCRIPTIONS["/author/*"].emoji
+		}
+		console.log(routeDescription)
+	}
+	else {
+		filter = ROUTE_FILTERS[url]
+    filter = filter ? "/filter-" + filter : "/index"
+    routeDescription =  ROUTE_DESCRIPTIONS[url]
+	}
+	return { filter, routeDescription }
+}
 
 // render
 export class ListPosts extends React.Component {
 	state = defaultListState
   
   _fetch = () => {
-    
-    // convert route to api tag search
-    let filter = ROUTE_FILTERS[this.props.location.pathname]
-    filter = filter ? "/filter-" + filter : "/index"
-    
+  	let filterString = filter(this.props.location.pathname).filter
+  	console.log(filterString)
     // fetch & update state
-  	if(this.state.filter === filter) return
-  	axios.get(ROUTE_LIST_API + filter + ".json")
+  	if(this.state.filter === filterString) return
+  	axios.get(ROUTE_LIST_API + filterString + ".json")
 			.then(response => {
 				let data = response.data
 				this.setState({
 					status: data.status,
-					filter,
+					filter: filterString,
 					items: data.items
 				})
 			})
@@ -59,9 +76,9 @@ export class ListPosts extends React.Component {
 		return(
 			<div>
 				<Description
-					emoji={ ROUTE_DESCRIPTIONS[this.props.location.pathname].emoji }
+					emoji={ filter(this.props.location.pathname).routeDescription.emoji }
 				>
-					{ ROUTE_DESCRIPTIONS[this.props.location.pathname].description }
+					{ filter(this.props.location.pathname).routeDescription.description }
 				</Description>
 				<Bleed>
 					<List listStatus={ this.state.status }>
