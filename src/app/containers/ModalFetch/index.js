@@ -11,14 +11,11 @@ import defaultPostState from "./state.json"
 
 // return
 export class ModalFetch extends React.Component {
-	state = {
-		status: defaultPostState.status,
-		name: defaultPostState.name,
-		slug: this.props.fetch,
-	}
+	state = defaultPostState
   
   _fetch = () => {
   	let slug = this.props.fetch
+  	console.log(slug)
 		// fetch & update state
 		if(this.state.slug === slug) return
   	axios.get(slug + ".json")

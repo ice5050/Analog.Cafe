@@ -112,6 +112,5 @@ export class ListPosts extends React.Component {
 	}
 }
 const ModalConductor = props => {
-	console.log(props)
 	return props.title ? <ModalFetch {...props} /> : null
 }
