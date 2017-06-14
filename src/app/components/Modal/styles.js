@@ -6,8 +6,6 @@ import { Caption } from "../Caption"
 
 
 // css
-const blockSafety = props => props.theme.size.block.column.safety
-
 export const Overlay = styled.div`
 	position: absolute;
 	top: 			0;

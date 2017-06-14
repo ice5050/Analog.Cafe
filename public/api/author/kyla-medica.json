@@ -1,0 +1,18 @@
+{  
+  "status": "ok",
+	"id" : "kyla-medica",
+	"name" : "Kyla Medica",
+	"image" : "/images/app/film_photo-portrait_of_dmitri_by_betty.jpg",
+	"bio-short" : "Short author bio.",
+	"buttons" : [
+		{
+			"to": "/author/kyla-medica",
+			"text": "All Submissions"
+		},
+		{
+			"to": "https://www.artsocket.com",
+			"text": "Website",
+			"red": true
+		}
+	]
+}

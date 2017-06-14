@@ -6,7 +6,7 @@ import { Editor, Raw } from "slate"
 
 // components
 import { Header, Section, Article, Byline } from "../../../components/Article"// other components
-import { Modal } from "../../../components/Modal"
+import { ModalFetch } from "../../ModalFetch"
 
 // state
 import defaultPostState from "./state.json"
@@ -78,7 +78,10 @@ export class Post extends React.Component {
 						schema={						this.state.content.schema }
 					/>
 				</Section>
-				<Modal />
+				<ModalFetch
+					title={ this.state.author.name }
+					fetch={ "/api/author/" + this.state.author.id }
+				/>
 			</Article>
 		)
 	}

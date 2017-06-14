@@ -1,9 +1,5 @@
 // tools
 import React from "react"
-import PropTypes from "prop-types"
-
-// components
-import { Figure } from "../Pictures"
 
 // styles
 import { Card, Overlay, CardButton, CardCaption } from "./styles"
@@ -15,14 +11,27 @@ export const Modal = props => {
 		<Overlay>
 			<Card>
 				<header>
-					<h3>{ "Title" }</h3>
+					<h3>{ props.title || "Hello!" }</h3>
 					<a href="#close">✕</a>
 				</header>
-				<figure>
-					<img src="/images/uploads/poster.jpg" />
-					<CardCaption>Figcaption</CardCaption>
+				<figure style={{ height: props.image ? "inherit" : "0" }}>
+					<img src={ props.image || "/images/app/placeholder.gif" } style={{ height: props.image ? "inherit" : "0" }} alt="Author profile" />
+					<figcaption>
+						<CardCaption style={{ padding: props.text ? "" : "0" }} >{ props.text || "" }</CardCaption>
+					</figcaption>
 				</figure>
-				<CardButton to="/submit/compose">Submit Now</CardButton>
+				{
+					props.buttons ?
+					props.buttons.map(function(button, i) {
+						return (
+							<CardButton 
+								to={ button.to || "/" } 
+								key={ button.to }
+								red={ button.red ? true : null }
+							>{ button.text || "Analog.Cafe" }</CardButton>
+						)
+					}) : null
+				}
 			</Card>
 		</Overlay>
 	)

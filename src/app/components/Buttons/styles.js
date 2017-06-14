@@ -10,8 +10,12 @@ import Color from "color"
 
 // css
 // below three lines filter out prop "red" that isn't recognized by Link component
+const SmartLink = props => {
+	return props.to.includes("http") ? <a href={props.to} target="_blank" rel="nofollow noopener noreferrer" {...props} />
+	: <Link {...props}>{props.children}</Link>
+}
 export const PageButtonStyles = styled(({ red, ...props }) =>
-  <Link {...props} />
+  <SmartLink {...props} />
 )`
 	max-width: 	${ props => props.theme.size.breakpoint.stops.min }px;
 
