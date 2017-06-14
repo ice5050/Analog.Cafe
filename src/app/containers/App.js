@@ -20,9 +20,6 @@ import { About } from "./About"
 import { ListPosts } from "./Publication/List"
 import { Post } from "./Publication/Post"
 
-// other components
-import { Modal } from "../components/Modal"
-
 
 // init GA tracking
 ReactGA.initialize("UA-91374353-3")
@@ -60,8 +57,6 @@ export const App = props => {
 				<Route path="*"								component={ NotFound } status={404} />
 
 			</Router>
-			
-			<Modal />
 
 		</TheZine>
 	)

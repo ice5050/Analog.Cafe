@@ -5,7 +5,8 @@ import { Editor, Raw } from "slate"
 
 
 // components
-import { Header, Section, Article, Byline } from "../../../components/Article"
+import { Header, Section, Article, Byline } from "../../../components/Article"// other components
+import { Modal } from "../../../components/Modal"
 
 // state
 import defaultPostState from "./state.json"
@@ -77,6 +78,7 @@ export class Post extends React.Component {
 						schema={						this.state.content.schema }
 					/>
 				</Section>
+				<Modal />
 			</Article>
 		)
 	}
