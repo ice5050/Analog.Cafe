@@ -10,8 +10,7 @@ import { ListDescription, BrandName } from "./styles"
 export const Description = props => {
 	return (
 		<ListDescription { ...props } >
-			<BrandName>Analog.Cafe</BrandName>
-			<span><q><em>{ props.children }</em></q> { props.emoji }</span>
+			<BrandName>Analog.Cafe</BrandName>{ props.children }
 		</ListDescription>
 	)
 }

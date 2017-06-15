@@ -13,6 +13,11 @@ const A = styled.a`
 		background:			${ props => props.theme.color.highlight };
 	}
 `
+const Wrapper = styled.div`
+	display: 					inline;
+	position:					relative;
+	z-index: 					${ props => props.theme.layer.card };
+`
 export class ModalLink extends React.Component {
   state = { load: false }
   onClick(e){
@@ -22,10 +27,10 @@ export class ModalLink extends React.Component {
   }
 	render() {
     return (
-    	<div>
+    	<Wrapper>
 				<A href="#card" onClick={ this.onClick.bind(this)} >{ this.props.children }</A>
 				{ this.state.load && <ModalFetch {...this.props} /> }
-      </div>
+      </Wrapper>
     )
   }
 }

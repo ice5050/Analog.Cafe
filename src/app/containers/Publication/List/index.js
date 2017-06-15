@@ -58,23 +58,26 @@ export class ListPosts extends React.Component {
 		
 		return(
 			<div>
-				
-				{ this.state.filters.author ?
-					<ModalLink
-						title={ this.state.filters.author.name }
-						fetch={ "/api/author/" + this.state.filters.author.id }
-					>
-						<Description emoji={ compleFilterString(this.props.location.pathname).routeDescription.emoji }>
-							{ compleFilterString(this.props.location.pathname).routeDescription.description }
-							<u>{ this.state.filters.author.name || "" }</u>
-						</Description>.
-					</ModalLink>
-					:
-					<Description emoji={ compleFilterString(this.props.location.pathname).routeDescription.emoji }>
-							{ compleFilterString(this.props.location.pathname).routeDescription.description }
-							{ this.state.filters.author.name || "" }
-						</Description>
-				}
+			
+			
+				<Description>
+					<div>
+							{
+								this.state.filters.author
+								? <ModalLink
+									title={ this.state.filters.author.name }
+									fetch={ "/api/author/" + this.state.filters.author.id }
+								>
+									<q><em>
+										{ compleFilterString(this.props.location.pathname).routeDescription.description } 
+										<u>{ this.state.filters.author.name || "" }</u>
+									</em></q> 
+								</ModalLink>
+								: <q><em>{ compleFilterString(this.props.location.pathname).routeDescription.description }</em></q> 
+							}
+						{ compleFilterString(this.props.location.pathname).routeDescription.emoji }
+					</div>
+				</Description>
 				
 				
 				<Bleed>
