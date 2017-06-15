@@ -1,24 +1,25 @@
 // tools
 import React from "react"
 import axios from "axios"
-import { Link } from "react-router"
 import { ModalLink } from "../../Modal"
 
 
 // components
-import { Bleed, List, Stats, Caption, ZigzagPicture } from "../../../components/List"
+import { Bleed } from "../../../components/List"
 import { Description } from "../../../components/List/components/Description"
 import { Section, Article } from "../../../components/Article"
+import { PageButton } from "../../../components/Buttons"
+import { ListBlock } from "./components/ListBlock"
 
 
 // state
 import defaultListState from "./state.json"
 
 // helper
-import { datestamp, compleFilterString } from "./helpers"
+import { getListHeaders } from "./helpers"
 
 // routes
-import { ROUTE_LIST_API, ROUTE_ARTICLE_DIR } from "./routes"
+import { ROUTE_LIST_API } from "./routes"
 
 
 
@@ -27,39 +28,67 @@ import { ROUTE_LIST_API, ROUTE_ARTICLE_DIR } from "./routes"
 export class ListPosts extends React.Component {
 	state = defaultListState
   
-  _fetch = () => {
-  	let url = this.props.location.pathname
-  	let compiledFilters = compleFilterString(url).filters.tags || compleFilterString(url).filters.author.id
+  _fetch = (page=1) => {
+  
+  	//
+  	// this function, as well as getListHeaders() heavily relies on URL
+  	//
+  	
+  	// filter either by author or tags (but not both)
+  	console.log(page)
+  	let pathname = this.props.location.pathname
+  	let uriParams = getListHeaders(pathname, page).search
 
-    // fetch & update state
-  	if(this.state.compiledFilters === compiledFilters) return
-  	axios.get(ROUTE_LIST_API + compiledFilters + ".json")
+    
+    // proceed only if the search parameters are different from already loaded page
+  	if(this.state.page.loaded === uriParams) return
+  	
+		
+		// fetch & update state
+		axios.get(ROUTE_LIST_API + uriParams + ".json")
 			.then(response => {
 				let data = response.data
+				let items = data.items
+				
+				// grow list only if...
+				if(
+					// it's not a placeholder
+					this.state.items[0].type !== "placeholder"
+					// second (or later) page received
+					&& parseInt(data.page.current, 0) > 1
+				)
+				items = [...this.state.items, ...data.items]
 				
 				// save state
 				this.setState({
-					status: 		data.status,
-					items: 			data.items,
-					filters:		data.filters,
-					
-					compiledFilters,
-					
+					status: 			data.status,
+					filters:			data.filters,
+
+					page:					{...data.page, loaded: uriParams},
+					pathname,
+					items,
 				})
+				console.log("loaded this", this.state.page.loaded)
 			})
 			.catch(error => console.log(error))
   }
   
+  handleMore = e => {
+  	e.preventDefault()
+  	this._fetch(parseInt(this.state.page.current, 0) + 1)
+  }
+  
+  // load on mount
   componentDidMount = () => this._fetch()
-  componentDidUpdate = () => this._fetch()
-	// need condition for componentWillUnmount()
+  
+  // load on url change (reset the state)
+  componentDidUpdate = () => {
+  	if(this.props.location.pathname !== this.state.pathname) this._fetch()
+  }
 
 	render() {
-		
 		return(
 			<div>
-			
-			
 				<Description>
 					<div>
 							{
@@ -69,55 +98,24 @@ export class ListPosts extends React.Component {
 									fetch={ "/api/author/" + this.state.filters.author.id }
 								>
 									<q><em>
-										{ compleFilterString(this.props.location.pathname).routeDescription.description } 
+										{ getListHeaders(this.props.location.pathname).meta.text } 
 										<u>{ this.state.filters.author.name || "" }</u>
 									</em></q> 
 								</ModalLink>
-								: <q><em>{ compleFilterString(this.props.location.pathname).routeDescription.description }</em></q> 
+								: <q><em>{ getListHeaders(this.props.location.pathname).meta.text }</em></q> 
 							}
-						&nbsp;{ compleFilterString(this.props.location.pathname).routeDescription.emoji }
+						&nbsp;{ getListHeaders(this.props.location.pathname).meta.emoji }
 					</div>
 				</Description>
 				
 				
 				<Bleed>
-					<List listStatus={ this.state.status }>
-					{
-						this.state.items.map(function(item) {
-							return (
-								<li key={ item.id }>
-									<Link to={ item.slug ? ROUTE_ARTICLE_DIR + "/" + item.slug : null }>
-										<section>
-											<figure>
-												{ item.type !== "placeholder" ? <img src={ item.poster.medium } alt={ item.title + " poster image" } /> : null }
-											</figure>
-											<h2>{ item.title }</h2>
-											<Caption>{ item.summary }</Caption>
-											<div>
-												<Stats>{
-													( item.category === "photo-essay" && item.stats.images === "1" ) ? "Photograph" :
-													(item.category + "").replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())
-												}{
-													item.type !== "placeholder" ?
-														( item.category !== "photo-essay" ) ? 
-														" | " 
-															+ Math.round(item.stats.words / 200) 
-															+ "-minute read" :
-														" | " 
-															+ item.stats.images + " Image" + (item.stats.images > 1 ? "s" : "")
-													: null
-												}</Stats>
-												<em>{ item.author.name }{ item.type !== "placeholder" ? " · " + datestamp(item["post-date"]) : null }</em>
-											</div>
-										</section>
-										<ZigzagPicture style={ item.type !== "placeholder" ? { backgroundImage: `url(${ item.poster.medium })` } : null } />
-									</Link>
-								</li>
-							)
-						})
-					}
-					</List>
+					<ListBlock  status={ this.state.status } items={ this.state.items } />
 				</Bleed>
+				
+				{ parseInt(this.state.page.total, 0) > 1 && parseInt(this.state.page.total, 0) > parseInt(this.state.page.current, 0) ? <PageButton to="#more" red onClick={ this.handleMore.bind(this)} >Load More</PageButton> : null }
+
+
 				<Article><Section /></Article>
 			</div>
 		)

@@ -1,8 +1,12 @@
 {
 	"status": "loading",
 	"filters": {
-		"tags": "",
+		"tags": [],
 		"author": {}
+  },
+  "page" : {
+  	"current" : "1",
+  	"total" : "1"
   },
 	"items" : [
 		{

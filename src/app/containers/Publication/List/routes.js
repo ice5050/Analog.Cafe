@@ -12,22 +12,22 @@ export const ROUTE_FILTERS = {
 	"/articles"			:	"theory-and-practice_opinion_off-topic",
 	"/"							:	"",
 }
-export const ROUTE_DESCRIPTIONS = {
+export const ROUTE_META = {
 	"/photo-essays"	: {
-											"description"	: "Photo essays & graphic stories",
+											"text"	: "Photo essays & graphic stories",
 											"emoji"				: "🌅",
 	},
 	"/articles"			:	{
-											"description" : "Articles on film photography & beyond",
+											"text" : "Articles on film photography & beyond",
 											"emoji"				: "🖋",
 	},
 	"/"							:	{
-											"description" : "Film photography, art, stories & more",
+											"text" : "Film photography, art, stories & more",
 											"emoji"				: "☕️",
 											"designation" : "homepage",
 	},
 	"/author/*"			:	{
-											"description" : "Submissions by ",
+											"text" : "Submissions by ",
 											"emoji"				: "👤",
 	},
 							

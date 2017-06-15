@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 `
 export class ModalLink extends React.Component {
   state = { load: false }
-  onClick(e){
+  onClick = e => {
     e.preventDefault()
     this.setState({ load: false })
     setTimeout(() => this.setState({ load: true }), 20)

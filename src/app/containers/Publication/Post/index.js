@@ -54,7 +54,7 @@ export class Post extends React.Component {
   }
   
   componentDidMount = () => this._fetch()
-  componentDidUpdate = () => this._fetch()
+  // componentDidUpdate = () => this._fetch()
 	// need condition for componentWillUnmount()
   
   render() {

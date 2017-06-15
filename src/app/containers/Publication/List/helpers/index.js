@@ -1,4 +1,4 @@
-import { ROUTE_FILTERS, ROUTE_DESCRIPTIONS } from "../routes"
+import { ROUTE_FILTERS, ROUTE_META } from "../routes"
 
 export const datestamp = unix => {
 	const m = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
@@ -8,30 +8,29 @@ export const datestamp = unix => {
 	let day = date.getDate()
 	return month + " " + day + ", " + year
 }
-export const compleFilterString = url => {
-	url = url ? url : "/"
-	let filters
-	let routeDescription
+
+export const getListHeaders = (pathname = "/", page=1) => {
+	let search
+	let meta
+	page = parseInt(page, 0)
 	
 	// filter by author name
-	if(url.includes("/author/")){
-		let authorId = url.match(/\/author\/(.*)/)[1]
-		authorId = authorId ? "/author-" + authorId : "/index"
-		
-		filters = { author: { id: authorId } }
-		routeDescription = {
-			description: ROUTE_DESCRIPTIONS["/author/*"].description,
-			emoji: ROUTE_DESCRIPTIONS["/author/*"].emoji
+	if(pathname.includes("/author/")){
+		let id = pathname.match(/\/author\/(.*)/)[1]
+		search = id ? "/author-" + id : "/index" 
+		meta = {
+			text: ROUTE_META["/author/*"].text,
+			emoji: ROUTE_META["/author/*"].emoji
 		}
 	}
 	
 	// filter by tags
 	else {
-		let tags
-		tags = ROUTE_FILTERS[url]
-    tags = tags ? "/tags-" + tags : "/index"
-    filters = { tags }
-    routeDescription =  ROUTE_DESCRIPTIONS[url]
+		search = ROUTE_FILTERS[pathname] ? "/tags-" + ROUTE_FILTERS[pathname] : "/index"
+    meta =  ROUTE_META[pathname]
 	}
-	return { filters, routeDescription }
+	
+	// add pagination
+	search += page > 1 ? "-page-" + page : ""
+	return { search, meta }
 }
