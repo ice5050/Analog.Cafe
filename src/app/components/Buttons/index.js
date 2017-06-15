@@ -1,5 +1,5 @@
 // tools
-import React from "react";
+import React from "react"
 
 // styles
 import { PageButtonStyles } from "./styles";
@@ -8,5 +8,5 @@ import { PageButtonStyles } from "./styles";
 export const PageButton = props => {
 	return (
 		<PageButtonStyles {...props} />
-	);
+	)
 }

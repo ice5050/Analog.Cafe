@@ -44,9 +44,11 @@ export const App = props => {
 				<Route path="/"			 					component={ Publication } >
 					<IndexRoute 								component={ ListPosts } />
 					<Route path="photo-essays"	component={ ListPosts } />
-					<Route path="articles"			component={ ListPosts } />
+					<Route path="articles"			component={ ListPosts } />					
 					<Route path="about"			 		component={ About } />
+					
 					<Route path="zine/*"				component={ Post } />
+					<Route path="author/*"			component={ ListPosts } />
 				</Route>
 
 				<Route path="submit"					component={ Submit } >
@@ -57,6 +59,7 @@ export const App = props => {
 				<Route path="*"								component={ NotFound } status={404} />
 
 			</Router>
+
 		</TheZine>
 	)
 }

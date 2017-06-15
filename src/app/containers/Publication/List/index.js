@@ -2,6 +2,8 @@
 import React from "react"
 import axios from "axios"
 import { Link } from "react-router"
+import { ModalLink } from "../../Modal"
+
 
 // components
 import { Bleed, List, Stats, Caption, ZigzagPicture } from "../../../components/List"
@@ -12,39 +14,37 @@ import { Section, Article } from "../../../components/Article"
 // state
 import defaultListState from "./state.json"
 
-// routes
-import { ROUTE_LIST_API, ROUTE_FILTERS, ROUTE_DESCRIPTIONS, ROUTE_ARTICLE_DIR } from "./routes"
-
-
 // helper
-const datestamp = (unix) => {
-	const m = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
-	let date = new Date(unix * 1000)
-	let year = date.getFullYear()
-	let month = m[date.getMonth()]
-	let day = date.getDate()
-	return month + " " + day + ", " + year
-}
+import { datestamp, compleFilterString } from "./helpers"
+
+// routes
+import { ROUTE_LIST_API, ROUTE_ARTICLE_DIR } from "./routes"
+
+
+
 
 // render
 export class ListPosts extends React.Component {
 	state = defaultListState
   
   _fetch = () => {
-    
-    // convert route to api tag search
-    let filter = ROUTE_FILTERS[this.props.location.pathname]
-    filter = filter ? "/filter-" + filter : "/index"
-    
+  	let url = this.props.location.pathname
+  	let compiledFilters = compleFilterString(url).filters.tags || compleFilterString(url).filters.author.id
+
     // fetch & update state
-  	if(this.state.filter === filter) return
-  	axios.get(ROUTE_LIST_API + filter + ".json")
+  	if(this.state.compiledFilters === compiledFilters) return
+  	axios.get(ROUTE_LIST_API + compiledFilters + ".json")
 			.then(response => {
 				let data = response.data
+				
+				// save state
 				this.setState({
-					status: data.status,
-					filter,
-					items: data.items
+					status: 		data.status,
+					items: 			data.items,
+					filters:		data.filters,
+					
+					compiledFilters,
+					
 				})
 			})
 			.catch(error => console.log(error))
@@ -58,11 +58,28 @@ export class ListPosts extends React.Component {
 		
 		return(
 			<div>
-				<Description
-					emoji={ ROUTE_DESCRIPTIONS[this.props.location.pathname].emoji }
-				>
-					{ ROUTE_DESCRIPTIONS[this.props.location.pathname].description }
+			
+			
+				<Description>
+					<div>
+							{
+								this.state.filters.author
+								? <ModalLink
+									title={ this.state.filters.author.name }
+									fetch={ "/api/author/" + this.state.filters.author.id }
+								>
+									<q><em>
+										{ compleFilterString(this.props.location.pathname).routeDescription.description } 
+										<u>{ this.state.filters.author.name || "" }</u>
+									</em></q> 
+								</ModalLink>
+								: <q><em>{ compleFilterString(this.props.location.pathname).routeDescription.description }</em></q> 
+							}
+						&nbsp;{ compleFilterString(this.props.location.pathname).routeDescription.emoji }
+					</div>
 				</Description>
+				
+				
 				<Bleed>
 					<List listStatus={ this.state.status }>
 					{

@@ -1,6 +1,9 @@
 {
 	"status": "loading",
-	"filter" : "",
+	"filters": {
+		"tags": "",
+		"author": {}
+  },
 	"items" : [
 		{
 			"type" : "placeholder",

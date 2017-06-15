@@ -1,6 +1,12 @@
 {  
   "status": "ok",
-  "filter": "",
+  "filters": {
+		"tags": "",
+		"author": {
+			"name" : "Kyla Medica",
+			"id": "kyla-medica"
+		}
+  },
   "page": {
   	"current" : "1",
   	"total" : "2",
@@ -8,7 +14,7 @@
   },
   "items": [
   	{
-  		"category" : "photo-essay",
+  		"tag" : "photo-essay",
   		"slug" : "why-shoot-film-8945",
   		"title" : "Why Shoot Film?",
   		"subtitle" : "Subtitle 2",
@@ -30,7 +36,7 @@
   		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
   	},
   	{
-  		"category" : "photo-essay",
+  		"tag" : "photo-essay",
   		"slug" : "why-shoot-film-8945",
   		"title" : "Why Shoot Film 2",
   		"subtitle" : "",

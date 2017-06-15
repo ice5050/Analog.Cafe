@@ -14,16 +14,21 @@ export const ROUTE_FILTERS = {
 }
 export const ROUTE_DESCRIPTIONS = {
 	"/photo-essays"	: {
-											"description"	: "Photo essays & graphic stories.",
+											"description"	: "Photo essays & graphic stories",
 											"emoji"				: "🌅",
 	},
 	"/articles"			:	{
-											"description" : "Articles on film photography & beyond.",
+											"description" : "Articles on film photography & beyond",
 											"emoji"				: "🖋",
 	},
 	"/"							:	{
-											"description" : "Film photography, art, stories & more.",
+											"description" : "Film photography, art, stories & more",
 											"emoji"				: "☕️",
 											"designation" : "homepage",
 	},
+	"/author/*"			:	{
+											"description" : "Submissions by ",
+											"emoji"				: "👤",
+	},
+							
 }

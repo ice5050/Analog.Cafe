@@ -1,7 +1,8 @@
 // tools
-import { Link } from "react-router"
 import React from "react"
 
+// components
+import { SmartLink } from "./components/SmartLink"
 
 // styles
 import styled from "styled-components"
@@ -11,7 +12,7 @@ import Color from "color"
 // css
 // below three lines filter out prop "red" that isn't recognized by Link component
 export const PageButtonStyles = styled(({ red, ...props }) =>
-  <Link {...props} />
+  <SmartLink {...props} />
 )`
 	max-width: 	${ props => props.theme.size.breakpoint.stops.min }px;
 

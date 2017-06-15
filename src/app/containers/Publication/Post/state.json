@@ -1,8 +1,8 @@
 {
 	"status": "loading",
-	"title": "loading...",
+	"title": "Loading Article...",
 	"subtitle": "",
-	"author": "...",
+	"author": { "name" : "Fetching Author Name..." },
 	"content" : {
 		"raw" : {
 			"nodes":[{  

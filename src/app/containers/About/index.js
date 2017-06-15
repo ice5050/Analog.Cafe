@@ -14,7 +14,6 @@ export const About = props => {
 			<Header 
 				pageTitle="Analog.Cafe ☕️" 
 				pageSubtitle="Film Photography Publication" 
-				pageByline="Edited by dmitrizzle"
 			/>
 			<Section>
 				
@@ -22,11 +21,11 @@ export const About = props => {
 				
 				<p>Analog.Cafe aims to unite the film photography medium&rsquo;s creative community through photo essays, written prose and articles.</p>
 				
-				<p>This project began as a Kickstarter <a href="https://www.kickstarter.com/projects/dmitrizzle/analogcafe-the-remarkable-film-photography-blog" rel="nofollow" target="_blank">campaign</a> on April 12, 2017. It got 100% funded within the first three weeks. Fifty-one person has pledged their contributions to help this publication become a reality.</p>
+				<p>This project began as a Kickstarter <a href="https://www.kickstarter.com/projects/dmitrizzle/analogcafe-the-remarkable-film-photography-blog" rel="nofollow noopener noreferrer" target="_blank">campaign</a> on April 12, 2017. It got 100% funded within the first three weeks. Fifty-one person has pledged their contributions to help this publication become a reality.</p>
 				
 				<Figure src="images/app/film_photo-portrait_of_dmitri_by_betty.jpg">dmitrizzle&rsquo;s portrait, double-exposed with a photograph of a street dog. Shot on Instax Mini Monochrome by Betty.</Figure>
 				
-				<p>Analog.Cafe is a community-based, open-source (find us on GitHub!) project. There&rsquo;s an open conversation on <a href="https://twitter.com/analog_cafe" rel="nofollow" target="_blank">Twitter</a> and a private one amongst the contributors on Slack. What you see here is a product of a group effort by passionate creative individuals.</p>
+				<p>Analog.Cafe is a community-based, open-source (find us on GitHub!) project. There&rsquo;s an open conversation on <a href="https://twitter.com/analog_cafe" rel="nofollow noopener noreferrer" target="_blank">Twitter</a> and a private one amongst the contributors on Slack. What you see here is a product of a group effort by passionate creative individuals.</p>
 				
 				<p>This project might not be for everyone. It is a curated collection of creative works based on certain tastes and styles that may not please all. Which is OK. As long as you are enjoying yourself, you are always welcome here.</p>
 				

@@ -5,7 +5,7 @@ import toTitleCase from "titlecase"
 
 
 // styles
-import { PageHeader, PageTitle, PageSubtitle, PageByline, PageTools } from "./styles/header"
+import { PageHeader, PageTitle, PageSubtitle, PageByline } from "./styles/header"
 import { PageArticle, PageSection } from "./styles/section"
 
 // return
@@ -13,18 +13,15 @@ export const Header = props => {
 	return (
 		<PageHeader>
 			<PageTitle>{ 															toTitleCase( props.pageTitle )		}</PageTitle>
-			{props.pageSubtitle ? 	<PageSubtitle>{ 	toTitleCase( props.pageSubtitle )	}</PageSubtitle> : null }
-			{props.pageByline ? 		<PageByline>{ 		props.pageByline 									}</PageByline> : null }
-			{props.pageTools ? 			<PageTools>{ 			props.children 										}</PageTools> : null }
+			{ props.pageSubtitle ? 	<PageSubtitle>{ 	toTitleCase( props.pageSubtitle )	}</PageSubtitle> : null }
+			{ props.children }
 		</PageHeader>
 	)
 }
-export const Article = props => {
-	return <PageArticle>{ props.children }</PageArticle>
-}
-export const Section = props => {
-	return <PageSection {...props}>{ props.children }</PageSection>
-}
+export const Byline = props => <PageByline>{ props.children }</PageByline>
+
+export const Article = props => <PageArticle>{ props.children }</PageArticle>
+export const Section = props => <PageSection {...props}>{ props.children }</PageSection>
 
 // declare
 Header.propTypes = {
