@@ -7,11 +7,11 @@
 	"buttons" : [
 		{
 			"to": "/author/kyla-medica",
-			"text": "All Submissions"
+			"text": "More on Analog.Cafe"
 		},
 		{
 			"to": "https://www.artsocket.com",
-			"text": "Website",
+			"text": "Author’s Website",
 			"red": true
 		}
 	]

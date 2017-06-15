@@ -29,17 +29,20 @@ export class ListPosts extends React.Component {
 	state = defaultListState
   
   _fetch = (page=1) => {
+  
+  	//
+  	// this function, as well as getListHeaders() heavily relies on URL
+  	//
   	
   	// filter either by author or tags (but not both)
-  	let uri = this.props.location.pathname
-  	let uriParams = getListHeaders(uri, page).search
+  	console.log(page)
+  	let pathname = this.props.location.pathname
+  	let uriParams = getListHeaders(pathname, page).search
 
     
-    // do not load same page...
-    console.log(this.state.page.loaded === uriParams)
+    // proceed only if the search parameters are different from already loaded page
   	if(this.state.page.loaded === uriParams) return
   	
-		
 		
 		// fetch & update state
 		axios.get(ROUTE_LIST_API + uriParams + ".json")
@@ -47,10 +50,14 @@ export class ListPosts extends React.Component {
 				let data = response.data
 				let items = data.items
 				
-				// grow list if only the page number has changed (url hasn't changed)
-				console.log(this.state.page.loaded)
-				if(this.state.items[0].type !== "placeholder") 
-					items = [...this.state.items, ...data.items]
+				// grow list only if...
+				if(
+					// it's not a placeholder
+					this.state.items[0].type !== "placeholder"
+					// second (or later) page received
+					&& parseInt(data.page.current, 0) > 1
+				)
+				items = [...this.state.items, ...data.items]
 				
 				// save state
 				this.setState({
@@ -58,21 +65,26 @@ export class ListPosts extends React.Component {
 					filters:			data.filters,
 
 					page:					{...data.page, loaded: uriParams},
+					pathname,
 					items,
 				})
+				console.log("loaded this", this.state.page.loaded)
 			})
 			.catch(error => console.log(error))
   }
   
   handleMore = e => {
   	e.preventDefault()
-  	console.log(parseInt(this.state.page.current, 0) + 1)
   	this._fetch(parseInt(this.state.page.current, 0) + 1)
   }
   
+  // load on mount
   componentDidMount = () => this._fetch()
-  //componentDidUpdate = () => this._fetch()
-	// need condition for componentWillUnmount()
+  
+  // load on url change (reset the state)
+  componentDidUpdate = () => {
+  	if(this.props.location.pathname !== this.state.pathname) this._fetch()
+  }
 
 	render() {
 		return(

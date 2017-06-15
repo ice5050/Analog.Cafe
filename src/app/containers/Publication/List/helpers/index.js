@@ -9,14 +9,14 @@ export const datestamp = unix => {
 	return month + " " + day + ", " + year
 }
 
-export const getListHeaders = (uri = "/", page=1) => {
+export const getListHeaders = (pathname = "/", page=1) => {
 	let search
 	let meta
 	page = parseInt(page, 0)
 	
 	// filter by author name
-	if(uri.includes("/author/")){
-		let id = uri.match(/\/author\/(.*)/)[1]
+	if(pathname.includes("/author/")){
+		let id = pathname.match(/\/author\/(.*)/)[1]
 		search = id ? "/author-" + id : "/index" 
 		meta = {
 			text: ROUTE_META["/author/*"].text,
@@ -26,8 +26,8 @@ export const getListHeaders = (uri = "/", page=1) => {
 	
 	// filter by tags
 	else {
-		search = ROUTE_FILTERS[uri] ? "/tags-" + ROUTE_FILTERS[uri] : "/index"
-    meta =  ROUTE_META[uri]
+		search = ROUTE_FILTERS[pathname] ? "/tags-" + ROUTE_FILTERS[pathname] : "/index"
+    meta =  ROUTE_META[pathname]
 	}
 	
 	// add pagination
