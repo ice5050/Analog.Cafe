@@ -1,8 +1,8 @@
 {  
   "status": "ok",
   "filters": {
-		"tags": "",
-		"author": ""
+		"tags": [],
+		"author": {}
   },
   "page": {
   	"current" : "1",

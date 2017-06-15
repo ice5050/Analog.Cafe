@@ -16,7 +16,7 @@ import { ListBlock } from "./components/ListBlock"
 import defaultListState from "./state.json"
 
 // helper
-import { datestamp, compleFilterString } from "./helpers"
+import { getListHeaders } from "./helpers"
 
 // routes
 import { ROUTE_LIST_API } from "./routes"
@@ -29,12 +29,14 @@ export class ListPosts extends React.Component {
 	state = defaultListState
   
   _fetch = () => {
+  	
+  	// filter either by author or tags (but not both)
   	let url = this.props.location.pathname
-  	let compiledFilters = compleFilterString(url).filters.tags || compleFilterString(url).filters.author.id
+  	let uriParams = getListHeaders(url, 2).search 
 
     // fetch & update state
-  	if(this.state.compiledFilters === compiledFilters) return
-  	axios.get(ROUTE_LIST_API + compiledFilters + ".json")
+  	if(this.state.uriParams === uriParams) return
+  	axios.get(ROUTE_LIST_API + uriParams + ".json")
 			.then(response => {
 				let data = response.data
 				
@@ -45,7 +47,7 @@ export class ListPosts extends React.Component {
 					filters:		data.filters,
 					page:				data.page,
 					
-					compiledFilters,
+					uriParams,
 					
 				})
 			})
@@ -73,13 +75,13 @@ export class ListPosts extends React.Component {
 									fetch={ "/api/author/" + this.state.filters.author.id }
 								>
 									<q><em>
-										{ compleFilterString(this.props.location.pathname).routeDescription.description } 
+										{ getListHeaders(this.props.location.pathname).meta.text } 
 										<u>{ this.state.filters.author.name || "" }</u>
 									</em></q> 
 								</ModalLink>
-								: <q><em>{ compleFilterString(this.props.location.pathname).routeDescription.description }</em></q> 
+								: <q><em>{ getListHeaders(this.props.location.pathname).meta.text }</em></q> 
 							}
-						&nbsp;{ compleFilterString(this.props.location.pathname).routeDescription.emoji }
+						&nbsp;{ getListHeaders(this.props.location.pathname).meta.emoji }
 					</div>
 				</Description>
 				

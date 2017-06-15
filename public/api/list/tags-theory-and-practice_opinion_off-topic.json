@@ -1,8 +1,12 @@
 {  
   "status": "ok",
   "filters": {
-		"tags": "",
-		"author": ""
+		"tags": [
+			"theory-and-practice",
+			"opinion",
+			"off-topic"
+		],
+		"author": {}
   },
   "page": {
   	"current" : "1",

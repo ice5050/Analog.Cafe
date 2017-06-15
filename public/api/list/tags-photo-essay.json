@@ -1,8 +1,10 @@
 {  
   "status": "ok",
   "filters": {
-		"tags": "",
-		"author": ""
+		"tags": [
+			"photo-essay"
+		],
+		"author": {}
   },
 	"page": {
   	"current" : "1",

@@ -1,7 +1,7 @@
 {  
   "status": "ok",
   "filters": {
-		"tags": "",
+		"tags": [],
 		"author": {
 			"name" : "Kyla Medica",
 			"id": "kyla-medica"
