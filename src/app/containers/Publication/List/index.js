@@ -28,27 +28,37 @@ import { ROUTE_LIST_API } from "./routes"
 export class ListPosts extends React.Component {
 	state = defaultListState
   
-  _fetch = () => {
+  _fetch = (page=1) => {
   	
   	// filter either by author or tags (but not both)
-  	let url = this.props.location.pathname
-  	let uriParams = getListHeaders(url, 2).search 
+  	let uri = this.props.location.pathname
+  	let uriParams = getListHeaders(uri, page).search
 
-    // fetch & update state
-  	if(this.state.uriParams === uriParams) return
-  	axios.get(ROUTE_LIST_API + uriParams + ".json")
+    
+    // do not load same page...
+    console.log(this.state.page.loaded === uriParams)
+  	if(this.state.page.loaded === uriParams) return
+  	
+		
+		
+		// fetch & update state
+		axios.get(ROUTE_LIST_API + uriParams + ".json")
 			.then(response => {
 				let data = response.data
+				let items = data.items
+				
+				// grow list if only the page number has changed (url hasn't changed)
+				console.log(this.state.page.loaded)
+				if(this.state.items[0].type !== "placeholder") 
+					items = [...this.state.items, ...data.items]
 				
 				// save state
 				this.setState({
-					status: 		data.status,
-					items: 			data.items,
-					filters:		data.filters,
-					page:				data.page,
-					
-					uriParams,
-					
+					status: 			data.status,
+					filters:			data.filters,
+
+					page:					{...data.page, loaded: uriParams},
+					items,
 				})
 			})
 			.catch(error => console.log(error))
@@ -56,11 +66,12 @@ export class ListPosts extends React.Component {
   
   handleMore = e => {
   	e.preventDefault()
-  	alert(1)
+  	console.log(parseInt(this.state.page.current, 0) + 1)
+  	this._fetch(parseInt(this.state.page.current, 0) + 1)
   }
   
   componentDidMount = () => this._fetch()
-  componentDidUpdate = () => this._fetch()
+  //componentDidUpdate = () => this._fetch()
 	// need condition for componentWillUnmount()
 
 	render() {
@@ -90,7 +101,7 @@ export class ListPosts extends React.Component {
 					<ListBlock  status={ this.state.status } items={ this.state.items } />
 				</Bleed>
 				
-				<PageButton to="#more" red onClick={ this.handleMore.bind(this)} >Load More</PageButton>
+				{ parseInt(this.state.page.total, 0) > 1 && parseInt(this.state.page.total, 0) > parseInt(this.state.page.current, 0) ? <PageButton to="#more" red onClick={ this.handleMore.bind(this)} >Load More</PageButton> : null }
 
 
 				<Article><Section /></Article>

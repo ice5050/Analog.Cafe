@@ -6,7 +6,7 @@
   },
   "page": {
   	"current" : "3",
-  	"page-total" : "3",
+  	"total" : "3",
   	"items-total": "23",
   	"items-per-page" : "10"
   },
@@ -16,7 +16,7 @@
   		"slug" : "why-shoot-film-8945",
   		"title" : "Title 21",
   		"subtitle" : "Subtitle",
-  		"id" : "0000000",
+  		"id" : "00000002",
   		"post-date" : "1497155353",
   		"stats" : {
   			"images" : "3",
@@ -38,7 +38,7 @@
   		"slug" : "why-shoot-film-8945",
   		"title" : "Title 22",
   		"subtitle" : "Subtitle 2",
-  		"id" : "0000001",
+  		"id" : "000000122",
   		"post-date" : "1484179200",
   		"stats" : {
   			"images" : "3",
@@ -60,7 +60,7 @@
   		"slug" : "why-shoot-film-8945",
   		"title" : "Title 23",
   		"subtitle" : "",
-  		"id" : "0000002",
+  		"id" : "00000022",
   		"post-date" : "1484179200",
   		"stats" : {
   			"images" : "3",

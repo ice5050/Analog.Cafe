@@ -10,7 +10,7 @@
   },
   "page": {
   	"current" : "1",
-  	"page-total" : "1",
+  	"total" : "1",
   	"items-total": "4",
   	"items-per-page" : "10"
   },
