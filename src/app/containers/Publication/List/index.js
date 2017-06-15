@@ -75,7 +75,7 @@ export class ListPosts extends React.Component {
 								</ModalLink>
 								: <q><em>{ compleFilterString(this.props.location.pathname).routeDescription.description }</em></q> 
 							}
-						{ compleFilterString(this.props.location.pathname).routeDescription.emoji }
+						&nbsp;{ compleFilterString(this.props.location.pathname).routeDescription.emoji }
 					</div>
 				</Description>
 				
