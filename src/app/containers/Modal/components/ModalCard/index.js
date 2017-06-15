@@ -7,10 +7,10 @@ import { Card, Overlay, CardButton, CardCaption } from "../../../../components/M
 
 // return
 export class ModalCard extends React.Component {
+
 	state = { show: true }
-  handleClose(e){
-    this.setState({ show: false })
-  }
+  handleClose = e => this.setState({ show: false })
+
 	render() {
     return (
 			<Overlay show={ this.state.show } onClick={ this.handleClose.bind(this)} >

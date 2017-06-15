@@ -38,7 +38,7 @@ const zigzagDimensions = css`
 export const ListUl = styled.ul`
 	
 	/* placeholder style */	
-	${ props => props.listStatus === "loading" ? `opacity: ` + props.theme.opacity.least + `;` : null }
+	${ props => props.status === "loading" ? `opacity: ` + props.theme.opacity.least + `;` : null }
 
 	${ props => props.theme.typography.text.auto };
 	position: 			relative;
@@ -108,7 +108,7 @@ export const ListUl = styled.ul`
 				}` }
 				
 				/* placeholder style */	
-				background-color: ${ props => props.listStatus === "loading" ? props.theme.color.foreground : greyLine };
+				background-color: ${ props => props.status === "loading" ? props.theme.color.foreground : greyLine };
 
 			}
 			h2 {
@@ -129,16 +129,16 @@ export const ListUl = styled.ul`
 					margin-top: 	0.04em;
 					
 					/* placeholder style */	
-					${ props => props.listStatus === "loading" ? `margin-top: .35em` : null }
+					${ props => props.status === "loading" ? `margin-top: .35em` : null }
 				}` }
 				
 				/* placeholder style */	
-				${ props => props.listStatus === "loading" ? `letter-spacing: 0 !important; font-size: 1.35em;` : null }
+				${ props => props.status === "loading" ? `letter-spacing: 0 !important; font-size: 1.35em;` : null }
 			}
 
 			
 			/* placeholder style */	
-			${ props => props.listStatus === "loading" ? `& > span { word-break: break-all }` : null }
+			${ props => props.status === "loading" ? `& > span { word-break: break-all }` : null }
 			
 			& > div {
 				max-width: 30em;
@@ -155,11 +155,11 @@ export const ListUl = styled.ul`
 				
 				& > span {
 					/* placeholder style */	
-					${ props => props.listStatus === "loading" ? `letter-spacing: 0 !important;` : null }
+					${ props => props.status === "loading" ? `letter-spacing: 0 !important;` : null }
 				}
 				& > em {
 					/* placeholder style */	
-					${ props => props.listStatus === "loading" ? `font-style: normal;` : null }
+					${ props => props.status === "loading" ? `font-style: normal;` : null }
 				}
 			}
 			

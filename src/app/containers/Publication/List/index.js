@@ -1,14 +1,15 @@
 // tools
 import React from "react"
 import axios from "axios"
-import { Link } from "react-router"
 import { ModalLink } from "../../Modal"
 
 
 // components
-import { Bleed, List, Stats, Caption, ZigzagPicture } from "../../../components/List"
+import { Bleed } from "../../../components/List"
 import { Description } from "../../../components/List/components/Description"
 import { Section, Article } from "../../../components/Article"
+import { PageButton } from "../../../components/Buttons"
+import { ListBlock } from "./components/ListBlock"
 
 
 // state
@@ -18,7 +19,7 @@ import defaultListState from "./state.json"
 import { datestamp, compleFilterString } from "./helpers"
 
 // routes
-import { ROUTE_LIST_API, ROUTE_ARTICLE_DIR } from "./routes"
+import { ROUTE_LIST_API } from "./routes"
 
 
 
@@ -42,6 +43,7 @@ export class ListPosts extends React.Component {
 					status: 		data.status,
 					items: 			data.items,
 					filters:		data.filters,
+					page:				data.page,
 					
 					compiledFilters,
 					
@@ -50,16 +52,18 @@ export class ListPosts extends React.Component {
 			.catch(error => console.log(error))
   }
   
+  handleMore = e => {
+  	e.preventDefault()
+  	alert(1)
+  }
+  
   componentDidMount = () => this._fetch()
   componentDidUpdate = () => this._fetch()
 	// need condition for componentWillUnmount()
 
 	render() {
-		
 		return(
 			<div>
-			
-			
 				<Description>
 					<div>
 							{
@@ -81,43 +85,12 @@ export class ListPosts extends React.Component {
 				
 				
 				<Bleed>
-					<List listStatus={ this.state.status }>
-					{
-						this.state.items.map(function(item) {
-							return (
-								<li key={ item.id }>
-									<Link to={ item.slug ? ROUTE_ARTICLE_DIR + "/" + item.slug : null }>
-										<section>
-											<figure>
-												{ item.type !== "placeholder" ? <img src={ item.poster.medium } alt={ item.title + " poster image" } /> : null }
-											</figure>
-											<h2>{ item.title }</h2>
-											<Caption>{ item.summary }</Caption>
-											<div>
-												<Stats>{
-													( item.category === "photo-essay" && item.stats.images === "1" ) ? "Photograph" :
-													(item.category + "").replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())
-												}{
-													item.type !== "placeholder" ?
-														( item.category !== "photo-essay" ) ? 
-														" | " 
-															+ Math.round(item.stats.words / 200) 
-															+ "-minute read" :
-														" | " 
-															+ item.stats.images + " Image" + (item.stats.images > 1 ? "s" : "")
-													: null
-												}</Stats>
-												<em>{ item.author.name }{ item.type !== "placeholder" ? " · " + datestamp(item["post-date"]) : null }</em>
-											</div>
-										</section>
-										<ZigzagPicture style={ item.type !== "placeholder" ? { backgroundImage: `url(${ item.poster.medium })` } : null } />
-									</Link>
-								</li>
-							)
-						})
-					}
-					</List>
+					<ListBlock  status={ this.state.status } items={ this.state.items } />
 				</Bleed>
+				
+				<PageButton to="#more" red onClick={ this.handleMore.bind(this)} >Load More</PageButton>
+
+
 				<Article><Section /></Article>
 			</div>
 		)
