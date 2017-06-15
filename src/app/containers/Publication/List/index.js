@@ -35,7 +35,6 @@ export class ListPosts extends React.Component {
   	//
   	
   	// filter either by author or tags (but not both)
-  	console.log(page)
   	let pathname = this.props.location.pathname
   	let uriParams = getListHeaders(pathname, page).search
 
@@ -68,7 +67,6 @@ export class ListPosts extends React.Component {
 					pathname,
 					items,
 				})
-				console.log("loaded this", this.state.page.loaded)
 			})
 			.catch(error => console.log(error))
   }

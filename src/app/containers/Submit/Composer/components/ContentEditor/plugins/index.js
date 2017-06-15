@@ -116,9 +116,22 @@ export const plugins = [
     trigger: 		"space",
     before: 		/(\.\.\.)$/,
     transform: 	(transform, e, data, matches) => {
-      return transform.insertText("… ") // mdash
+      return transform.insertText("… ") // elipsis
     }
   }),
+  
+  
+  
+  
+  AutoReplace({
+    trigger: 		"x",
+    onlyIn:			"image",
+    transform: 	(transform, e, data, matches) => {
+      return transform.insertText("… ")
+    }
+  }),
+  
+  
   
     
   // special editor menu for quote
