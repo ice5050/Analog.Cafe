@@ -2,7 +2,7 @@
 import React from "react"
 import axios from "axios"
 import { Link } from "react-router"
-import { ModalConductor } from "../../ModalFetch"
+import { ModalLink } from "../../Modal"
 
 
 // components
@@ -58,12 +58,25 @@ export class ListPosts extends React.Component {
 		
 		return(
 			<div>
-				<Description
-					emoji={ compleFilterString(this.props.location.pathname).routeDescription.emoji }
-				>
-					{ compleFilterString(this.props.location.pathname).routeDescription.description }
-						<a href="#author">{ this.state.filters.author.name || "" }</a>.
-				</Description>
+				
+				{ this.state.filters.author ?
+					<ModalLink
+						title={ this.state.filters.author.name }
+						fetch={ "/api/author/" + this.state.filters.author.id }
+					>
+						<Description emoji={ compleFilterString(this.props.location.pathname).routeDescription.emoji }>
+							{ compleFilterString(this.props.location.pathname).routeDescription.description }
+							<u>{ this.state.filters.author.name || "" }</u>
+						</Description>.
+					</ModalLink>
+					:
+					<Description emoji={ compleFilterString(this.props.location.pathname).routeDescription.emoji }>
+							{ compleFilterString(this.props.location.pathname).routeDescription.description }
+							{ this.state.filters.author.name || "" }
+						</Description>
+				}
+				
+				
 				<Bleed>
 					<List listStatus={ this.state.status }>
 					{
@@ -103,13 +116,6 @@ export class ListPosts extends React.Component {
 					</List>
 				</Bleed>
 				<Article><Section /></Article>
-				
-				<ModalConductor
-					load={ false }
-					title={ this.state.filters.author.name }
-					fetch={ "/api/author/" + this.state.filters.author.id }
-				/>
-				
 			</div>
 		)
 	}

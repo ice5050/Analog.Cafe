@@ -3,7 +3,7 @@ import React from "react"
 import axios from "axios"
 
 // components
-import { Modal } from "../../components/Modal"
+import { ModalCard } from "../ModalCard"
 
 // state
 import defaultPostState from "./state.json"
@@ -15,7 +15,6 @@ export class ModalFetch extends React.Component {
   
   _fetch = () => {
   	let slug = this.props.fetch
-  	console.log(slug)
 		// fetch & update state
 		if(this.state.slug === slug) return
   	axios.get(slug + ".json")
@@ -39,29 +38,13 @@ export class ModalFetch extends React.Component {
   
   render() {
 		return(
-			<Modal
+			<ModalCard
 				title={ this.state.name  }
 				image={ this.state.image }
 				text={ this.state.shortBio }
 				buttons={ this.state.buttons }
+				show={ this.props.show }
 			/>
 		)
 	}
 }
-
-export const ModalConductor = props => {
-	return props.load ? <ModalFetch {...props} /> : null
-}
-
-
-
-
-
-
-// declare
-// Header.propTypes = {
-// 	pageTitle: 		PropTypes.string.isRequired,
-// 	pageSubtitle: PropTypes.string,
-// 	pageByline: 	PropTypes.string,
-// 	children: 		PropTypes.element,
-// }

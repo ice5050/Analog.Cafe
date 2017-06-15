@@ -6,7 +6,7 @@ import { Editor, Raw } from "slate"
 
 // components
 import { Header, Section, Article, Byline } from "../../../components/Article"// other components
-import { ModalConductor } from "../../ModalFetch"
+import { ModalLink } from "../../Modal"
 
 // state
 import defaultPostState from "./state.json"
@@ -17,20 +17,15 @@ import { schema } from "../../Submit/Composer/components/ContentEditor/schema"
 const ROUTE_POST_API = "/api/post"
 const ROUTE_ARTICLE_DIR = "/zine"
 
-// card
-const card = (event) => {
-	event.preventDefault()
-	alert(1)
-}
 // render
 export class Post extends React.Component {
 	state = {
-		status: defaultPostState.status,
-		title: defaultPostState.title,
-		subtitle: defaultPostState.subtitle,
-		author: defaultPostState.author,
+		status: 		defaultPostState.status,
+		title: 			defaultPostState.title,
+		subtitle: 	defaultPostState.subtitle,
+		author: 		defaultPostState.author,
 		content: {
-			raw: Raw.deserialize(defaultPostState.content.raw, {terse: true}),
+			raw: 			Raw.deserialize(defaultPostState.content.raw, {terse: true}),
 			schema
 		}
 	}
@@ -69,7 +64,10 @@ export class Post extends React.Component {
 					pageTitle={ this.state.title } 
 					pageSubtitle={ this.state.subtitle }
 				>
-					<Byline>by <a href="#author" onClick={ card }>{ this.state.author.name }</a></Byline>
+				<ModalLink
+					title={ this.state.author.name }
+					fetch={ "/api/author/" + this.state.author.id }
+				><Byline>by <u>{ this.state.author.name }</u></Byline></ModalLink>
 				</Header>
 				<Section postStatus={ this.state.status }>
 					<Editor
@@ -78,11 +76,6 @@ export class Post extends React.Component {
 						schema={						this.state.content.schema }
 					/>
 				</Section>
-				<ModalConductor
-					load={ true }
-					title={ this.state.author.name }
-					fetch={ "/api/author/" + this.state.author.id }
-				/>
 			</Article>
 		)
 	}

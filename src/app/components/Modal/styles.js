@@ -15,6 +15,7 @@ export const Overlay = styled.div`
 	right: 		0;
 	z-index: 	${ props => props.theme.layer.card };
 	padding:  5vh 0;
+	display:	${ props => props.show ? `block` : `none` };
 `
 export const Card = styled.aside`
 	position: 			relative;
@@ -57,16 +58,18 @@ export const Card = styled.aside`
 			white-space: 		nowrap;
 			overflow: 			hidden;
 			text-overflow: 	ellipsis;
+			text-align:			left;
 		}
 		a {
-			text-decoration: none;
-			position: 		absolute;
-			top: 					0;
-			right: 				0;
-			padding: 			${ props => props.theme.size.block.spacing / 2.25 }em ${ props => props.theme.size.block.spacing /2 }em;
+			text-decoration:none;
+			line-height: 		1em;
+			position: 			absolute;
+			top: 						0;
+			right: 					0;
+			padding: 				${ props => props.theme.size.block.spacing / 2.25 }em ${ props => props.theme.size.block.spacing /2 }em;
 			&:active {
-				background: 0 0;
-				color: 			${ props => props.theme.color.brand };
+				background: 	0 0;
+				color: 				${ props => props.theme.color.brand };
 			}
 		}
 	}

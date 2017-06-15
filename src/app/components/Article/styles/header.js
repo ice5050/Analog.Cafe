@@ -22,12 +22,13 @@ export const PageSubtitle = styled.h2`
 	${ props => props.theme.typography.title.auto }
 	font-size: ${ props => props.theme.size.font.make.larger / 2 }em;
 `
-export const PageByline = styled.span`
+export const PageByline = styled.div`
 	${ props => props.theme.typography.text.auto }
 	font-size: 			${ props => props.theme.size.font.make.smaller }em;
 	font-variant: 	small-caps;
 	display: 				block;
 	cursor: 				pointer;
+	display: 				inline;
 `
 export const PageTools = styled.div`
 	
