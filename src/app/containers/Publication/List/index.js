@@ -2,7 +2,7 @@
 import React from "react"
 import axios from "axios"
 import { Link } from "react-router"
-import { ModalFetch } from "../../ModalFetch"
+import { ModalConductor } from "../../ModalFetch"
 
 
 // components
@@ -42,7 +42,9 @@ export class ListPosts extends React.Component {
 					status: 		data.status,
 					items: 			data.items,
 					filters:		data.filters,
+					
 					compiledFilters,
+					
 				})
 			})
 			.catch(error => console.log(error))
@@ -103,6 +105,7 @@ export class ListPosts extends React.Component {
 				<Article><Section /></Article>
 				
 				<ModalConductor
+					load={ false }
 					title={ this.state.filters.author.name }
 					fetch={ "/api/author/" + this.state.filters.author.id }
 				/>
@@ -110,7 +113,4 @@ export class ListPosts extends React.Component {
 			</div>
 		)
 	}
-}
-const ModalConductor = props => {
-	return props.title ? <ModalFetch {...props} /> : null
 }

@@ -49,6 +49,10 @@ export class ModalFetch extends React.Component {
 	}
 }
 
+export const ModalConductor = props => {
+	return props.load ? <ModalFetch {...props} /> : null
+}
+
 
 
 
