@@ -5,6 +5,8 @@ import { loadHeader } from "../../helpers/loader"
 
 // components
 import { PageTitle, PageSubtitle } from "./components/InputTitle/styles"
+import { ModalLink } from "../../../../Modal"
+
 
 // styles
 import { PageHeader, PageByline } from "../../../../../components/Article/styles/header"
@@ -42,7 +44,13 @@ export class HeaderEditor extends React.Component {
 					onChange={ this.handleSubtitleChange }
 					value={ loadHeader().subtitle }
 				></PageSubtitle>
-				<PageByline>Your name & profile link will appear here.</PageByline>
+				
+				<ModalLink
+					title={ "Your Name Goes Here" }
+					fetch={ "/api/author/example" }
+				><PageByline>by <u>You</u></PageByline></ModalLink>
+				
+				
 			</PageHeader>
 		)
 	}
