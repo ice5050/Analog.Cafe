@@ -46,9 +46,9 @@ export class HeaderEditor extends React.Component {
 				></PageSubtitle>
 				
 				<ModalLink
-					title={ "Your Name Goes Here" }
-					fetch={ "/api/author/example" }
-				><PageByline>by <u>You</u></PageByline></ModalLink>
+					title={ "Your Name" }
+					fetch={ "/api/author/sample" }
+				><PageByline>by <u>Your Name</u></PageByline></ModalLink>
 				
 				
 			</PageHeader>

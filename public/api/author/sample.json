@@ -1,0 +1,14 @@
+{  
+  "status": "ok",
+	"id" : "sample",
+	"name" : "Your Name",
+	"image" : "/images/app/sample-profile.jpg",
+	"bio-short" : "Your bio in 150 words.",
+	"buttons" : [
+		{
+			"to": "/",
+			"text": "Link to Your Website",
+			"red": true
+		}
+	]
+}
