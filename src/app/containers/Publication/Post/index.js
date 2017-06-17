@@ -5,27 +5,26 @@ import { Editor, Raw } from "slate"
 
 
 // components
-import { Header, Section, Article } from "../../../components/Article"
+import { Header, Section, Article, Byline } from "../../../components/Article"
+import { ModalLink } from "../../Modal"
 
 // state
 import defaultPostState from "./state.json"
 import { schema } from "../../Submit/Composer/components/ContentEditor/schema"
 
-
-// dictionary
-const ROUTE_POST_API = "/api/post"
-const ROUTE_ARTICLE_DIR = "/zine"
+// routes
+import { ROUTE_POST_API, ROUTE_ARTICLE_DIR } from "./routes"
 
 
 // render
 export class Post extends React.Component {
 	state = {
-		status: defaultPostState.status,
-		title: defaultPostState.title,
-		subtitle: defaultPostState.subtitle,
-		author: defaultPostState.author,
+		status: 		defaultPostState.status,
+		title: 			defaultPostState.title,
+		subtitle: 	defaultPostState.subtitle,
+		author: 		defaultPostState.author,
 		content: {
-			raw: Raw.deserialize(defaultPostState.content.raw, {terse: true}),
+			raw: 			Raw.deserialize(defaultPostState.content.raw, {terse: true}),
 			schema
 		}
 	}
@@ -54,7 +53,7 @@ export class Post extends React.Component {
   }
   
   componentDidMount = () => this._fetch()
-  componentDidUpdate = () => this._fetch()
+  // componentDidUpdate = () => this._fetch()
 	// need condition for componentWillUnmount()
   
   render() {
@@ -62,9 +61,13 @@ export class Post extends React.Component {
 			<Article>
 				<Header 
 					pageTitle={ this.state.title } 
-					pageSubtitle={ this.state.subtitle } 
-					pageByline={ "by " + this.state.author.name } 
-				/>
+					pageSubtitle={ this.state.subtitle }
+				>
+				<ModalLink
+					title={ this.state.author.name }
+					fetch={ "/api/author/" + this.state.author.id }
+				><Byline>by <u>{ this.state.author.name }</u></Byline></ModalLink>
+				</Header>
 				<Section postStatus={ this.state.status }>
 					<Editor
 						readOnly={					true }

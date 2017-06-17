@@ -1,12 +1,17 @@
 // styles
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 
 // css
-export const StyledCaption = styled.span`
+export const CaptionStyles = css`
+	${ props => props.theme.typography.text.auto }
+	${ props => props.theme.size.font.auto }
+
 	display: 			block;
 	font-size: 		${ props => props.theme.size.font.make.smaller }em;
 	line-height: 	${ props => props.theme.size.font.make.smaller * 1.8 }em;
 	font-variant: small-caps;
-	text-align: justify;
+	text-align: 	justify;
+	padding:			0;
 `
+export const StyledCaption = styled.div`${ CaptionStyles }`

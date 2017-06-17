@@ -15,7 +15,8 @@ import { saveContent } from "../../helpers/saver"
 export class ContentEditor extends React.Component {
 	state = {
 		state: Raw.deserialize(loadContent(), {terse: true}),
-		schema
+		schema,
+		author: this.props.author,
 	}
   onChange = state => this.setState({ state })
   onDocumentChange = saveContent
@@ -29,6 +30,7 @@ export class ContentEditor extends React.Component {
 				onPaste={						this.onPaste }
 				onDocumentChange={	this.onDocumentChange }
 				onKeyDown={					this.onKeyDown }
+				author={						this.state.author	}
 			/>
 		)
 	}

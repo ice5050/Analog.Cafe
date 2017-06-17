@@ -1,6 +1,13 @@
 {
 	"status": "loading",
-	"filter" : "",
+	"filters": {
+		"tags": [],
+		"author": {}
+  },
+  "page" : {
+  	"current" : "1",
+  	"total" : "1"
+  },
 	"items" : [
 		{
 			"type" : "placeholder",

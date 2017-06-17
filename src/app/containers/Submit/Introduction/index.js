@@ -5,16 +5,15 @@ import { Link } from "react-router"
 // components
 import { Header, Section, Article } from "../../../components/Article"
 import { PageButton } from "../../../components/Buttons"
-import { Figure } from "../../../components/Pictures"
+import { Figure } from "../../../components/Picture"
 
 // render
 export const Introduction = props => {
 	return(
 		<Article>
 			<Header 
-				pageTitle="Submit 🎞" 
+				pageTitle={"Submit 🎞"} 
 				pageSubtitle="Get your work featured on Analog.Cafe" 
-				pageByline="Edited by dmitrizzle"
 			/>
 			<Section>
 				
@@ -54,7 +53,7 @@ export const Introduction = props => {
 				
 				<Figure src="images/app/film_photo-computer_code.jpg">This is one of the first images of Analog.Cafe web app. It didn&rsquo;t look much at first. Shot on Kodak Ektar 100.</Figure>
 				<h3>A Few Fine Details</h3>
-				<p>Your submission does not have to be exclusive to Analog.Cafe. Please limit the number of links and promotional phrases in your work to minimum. Oh and your email and account information will not be shared with or sold to anyone 👍</p>
+				<p>Your submission does not have to be exclusive to Analog.Cafe. Please limit the number of links and promotional phrases in your work to minimum. Oh and your email and account information will not be shared with or sold to anyone <span role="img" aria-label="Thumb Up">👍</span></p>
 				
 				<hr />
 				

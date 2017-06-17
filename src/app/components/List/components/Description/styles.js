@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 
 // css
-export const ListDescription = styled.section`
+export const ListDescription = styled.div`
 	
 	${ props => props.theme.typography.text.auto }
 	${ props => props.theme.size.font.auto }
@@ -12,11 +12,10 @@ export const ListDescription = styled.section`
 	margin: 		0 auto;
 	max-width: 	${ props => props.theme.size.block.column.maxwidth.m };
 	position: 	relative;
-	z-index: 		${ props => props.theme.layer.up + 1 };
+	z-index: 		${ props => props.theme.layer.card };
 	
-	span {
+	> div {
 		text-align: 	center;
-    display: 			block;
     font-size: 		${ props => props.theme.size.font.make.smaller }em;
     padding: 			${ props => props.theme.size.block.column.safety }em;
     q { background: ${ props => props.theme.color.background }; }

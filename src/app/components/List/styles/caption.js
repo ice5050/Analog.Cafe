@@ -9,7 +9,7 @@ import { StyledCaption } from "../../Caption/styles"
 export const ListCaption = styled(StyledCaption)`
 	overflow: 			hidden;
 	margin: 				0;
-	margin-bottom: 	1.15em;
+	margin-bottom: 	.7em;
 	height: 				${1.5 * 3 + 0.1}em;
 	max-width: 			${ props => props.theme.size.block.column.maxwidth.m }px;
 		
