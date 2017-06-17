@@ -12,10 +12,9 @@ import { ModalLink } from "../../Modal"
 import defaultPostState from "./state.json"
 import { schema } from "../../Submit/Composer/components/ContentEditor/schema"
 
+// routes
+import { ROUTE_POST_API, ROUTE_ARTICLE_DIR } from "./routes"
 
-// dictionary
-const ROUTE_POST_API = "/api/post"
-const ROUTE_ARTICLE_DIR = "/zine"
 
 // render
 export class Post extends React.Component {

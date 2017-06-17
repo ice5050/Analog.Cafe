@@ -6,7 +6,7 @@ import axios from "axios"
 import { Figure } from "../../components/Picture"
 
 // dictionary
-const ROUTE_IMAGE_API = "/api/image"
+import { ROUTE_IMAGE_API } from "./routes"
 
 // export
 export class Image extends React.Component {
