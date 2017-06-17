@@ -8,11 +8,24 @@ import { HeaderEditor } from "./components/HeaderEditor"
 import { ContentEditor } from "./components/ContentEditor"
 
 
+// placeholders
+const authorPlaceholder = {
+	name: "Your Name",
+	id:		"sample",
+}
+const titlePlaceholder = {
+	title: "Write Your Title Here",
+	subtitle: "Subtitle (Optional)",
+}
 // render
 export const Composer = props => {
 	return(
 		<Article>
-			<HeaderEditor  />
+			<HeaderEditor
+				author={ authorPlaceholder }
+				pageTitle={ titlePlaceholder.title } 
+				pageSubtitle={ titlePlaceholder.subtitle }
+			/>
 			<Section>
 				<ContentEditor />
 			</Section>

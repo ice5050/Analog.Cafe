@@ -5,7 +5,7 @@ import { Editor, Raw } from "slate"
 
 
 // components
-import { Header, Section, Article, Byline } from "../../../components/Article"// other components
+import { Header, Section, Article, Byline } from "../../../components/Article"
 import { ModalLink } from "../../Modal"
 
 // state

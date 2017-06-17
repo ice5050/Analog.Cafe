@@ -2,7 +2,7 @@
 import React from "react"
 
 // styles
-import { Figure } from "../../../Pictures"
+import { Figure } from "../../components/Picture"
 
 
 // export
@@ -22,12 +22,20 @@ export class Image extends React.Component {
 		}
   }
   render() {
+  	const author = this.props.editor.props.author // get author name from props for components that provide it
+  																								// such as the Composer
+  																								
     const { attributes, state, node } = this.props
     const { src } = this.state
     const focus = state.isFocused && state.selection.hasEdgeIn(node)
 		const className = focus ? "focus" : "nofocus"
     return src
-      ? <Figure {...attributes} src={src} className={className} >Add caption to your image.</Figure>
-      : <Figure {...attributes} src="" className={className}>Loading your image...</Figure>      
+      ? <Figure
+      		{ ...attributes } 
+      		src={ src } 
+      		className={ className }
+      		author={ author }
+      	>Image subtitle.</Figure>
+      : <Figure { ...attributes } src="" className={ className }>Loading your image...</Figure>      
   }
 }
