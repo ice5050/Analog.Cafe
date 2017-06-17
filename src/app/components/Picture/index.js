@@ -22,7 +22,7 @@ export const Figure = props => {
 				>
 					<PictureCaption { ...props } >
 						{ props.children }
-						&nbsp;Image by <u>{ props.author.name }</u>.
+						Image by <u>{ props.author.name }</u>.
 					</PictureCaption>
 				</ModalLink>
 				: <PictureCaption { ...props } >{ props.children }</PictureCaption>
@@ -30,7 +30,7 @@ export const Figure = props => {
 			
 			</figcaption>
 		</PictureFigure>
-	);
+	)
 }
 
 // declare

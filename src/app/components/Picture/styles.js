@@ -1,11 +1,12 @@
 // tools
 import { Picture } from "react-responsive-picture"
-import { Caption } from "../Caption"
 
 
 // styles
 import styled, { css } from "styled-components"
 import Color from "color"
+import { Caption } from "../Caption"
+import { CaptionStyles } from "../Caption/styles"
 
 
 
@@ -62,6 +63,10 @@ export const PictureFigure = styled.figure`
 	&.focus {
 		box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight },
 								0 ${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
+	}
+	
+	textarea {
+		${ CaptionStyles }
 	}
 `
 
