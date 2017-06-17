@@ -27,7 +27,7 @@ export const Composer = props => {
 				pageSubtitle={ titlePlaceholder.subtitle }
 			/>
 			<Section>
-				<ContentEditor />
+				<ContentEditor author={ authorPlaceholder } />
 			</Section>
 			<PageButton to="/submit/send" red>Send Submission <span role="img" aria-label="Rocket">🚀</span></PageButton>
 		</Article>
