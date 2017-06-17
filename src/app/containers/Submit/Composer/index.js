@@ -17,6 +17,7 @@ const titlePlaceholder = {
 	title: "Write Your Title Here",
 	subtitle: "Subtitle (Optional)",
 }
+
 // render
 export const Composer = props => {
 	return(

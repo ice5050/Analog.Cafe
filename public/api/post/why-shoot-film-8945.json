@@ -30,7 +30,8 @@
     "nodes":[
       {
         "data":{
-          "src":"https://pbs.twimg.com/profile_banners/116278808/1495290140/1500x500"
+          "src":"https://pbs.twimg.com/profile_banners/116278808/1495290140/1500x500",
+          "caption": "Image caption example."
         },
         "kind":"block",
         "isVoid":true,

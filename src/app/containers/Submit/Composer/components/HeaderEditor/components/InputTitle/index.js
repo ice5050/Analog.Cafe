@@ -2,7 +2,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import toTitleCase from "titlecase"
-import Textarea from "react-textarea-autosize"
+
+// components
+import { TextArea } from "../../../../../../../components/TextArea"
 
 
 
@@ -11,7 +13,7 @@ import Textarea from "react-textarea-autosize"
 export class InputTitle extends React.Component {
 	constructor(props) {
     super(props)
-    this.state = {value: props.value || ""}
+    this.state = { value: props.value || "" }
     this.handleChange = this.handleChange.bind(this)
   }
   handleChange = event => {
@@ -19,7 +21,7 @@ export class InputTitle extends React.Component {
     this.props.onChange(event.target.value)    
   }
   render() {
-    return <Textarea
+    return <TextArea
     	value={				this.state.value }
     	onChange={		this.handleChange }
     	className={ 	this.props.className }
@@ -29,7 +31,7 @@ export class InputTitle extends React.Component {
 }
 
 // declare
-Textarea.propTypes = {
+TextArea.propTypes = {
 	value: 				PropTypes.string,
 	placeholder:	PropTypes.string,
 	onChange:		 	PropTypes.func,
