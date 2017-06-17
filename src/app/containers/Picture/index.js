@@ -4,7 +4,6 @@ import axios from "axios"
 
 // components
 import { Figure } from "../../components/Picture"
-import { Caption } from "../../components/Caption"
 import { TextArea } from "../../components/TextArea"
 
 
@@ -18,11 +17,7 @@ export class Image extends React.Component {
 	// vv STATE FOR CAPTION
 	constructor(props) {
     super(props)
-
-    this.state = {
-      caption: props.node.data.get("caption")
-    }
-
+    this.state = { caption: props.node.data.get("caption") }
     this.onChange = this.onChange.bind(this)
     this.onClick = this.onClick.bind(this)
   }
@@ -51,9 +46,10 @@ export class Image extends React.Component {
   }
 
   onClick(e) {
+  	e.preventDefault()
     e.stopPropagation()
   }
-  // ^^ END STATE FOR CAPTION
+  // ^^ STATE FOR CAPTION
   
   
     
@@ -99,6 +95,7 @@ export class Image extends React.Component {
     const { src } = this.state
     const focus = state.isFocused && state.selection.hasEdgeIn(node)
 		const className = focus ? "focus" : "nofocus"
+		
     return src
       ? <Figure
       		{ ...attributes } 
@@ -106,14 +103,15 @@ export class Image extends React.Component {
       		className={ className }
       		author={ this.state.author }
       	>
-      		<Caption>
-						<TextArea
+      		{ !this.props.readOnly
+						? <TextArea
 							value={ this.state.caption }
 							placeholder="Add a caption (optional)"
 							onChange={ this.onChange }
 							onClick={ this.onClick }
 						/>
-					</Caption>
+						: <div>{ this.state.caption }</div>
+					}
       	</Figure>
       : <Figure { ...attributes } src="" className={ className }>Loading your image...</Figure>      
   }
