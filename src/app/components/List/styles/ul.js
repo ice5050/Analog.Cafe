@@ -38,7 +38,7 @@ const zigzagDimensions = css`
 export const ListUl = styled.ul`
 	
 	/* placeholder style */	
-	${ props => props.status === "loading" ? `opacity: ` + props.theme.opacity.least + `;` : null }
+	${ props => props.status === "loading" && `opacity: ` + props.theme.opacity.least + `;` }
 
 	${ props => props.theme.typography.text.auto };
 	position: 			relative;
@@ -86,7 +86,6 @@ export const ListUl = styled.ul`
 		}
 		section {
 			max-width: 				61.5%;
-			letter-spacing: 	initial;		
 			padding: 					calc(${ blockSafety }em * 3) ${ blockSafety }em ${ props => props.theme.size.block.spacing }em ${ blockSafety }em;
 			${	props => props.theme.size.breakpoint.max.l`
 				max-width: 	100% !important;
@@ -129,16 +128,20 @@ export const ListUl = styled.ul`
 					margin-top: 	0.04em;
 					
 					/* placeholder style */	
-					${ props => props.status === "loading" ? `margin-top: .35em` : null }
-				}` }
+					${ props => props.status === "loading" && `margin-top: .2em;`}
+				}`}		
 				
 				/* placeholder style */	
-				${ props => props.status === "loading" ? `letter-spacing: 0 !important; font-size: 1.35em;` : null }
+				${ props => props.status === "loading" && `
+					margin-top: -.1em;
+					letter-spacing: 0 !important;
+				`}
+		
 			}
 
 			
 			/* placeholder style */	
-			${ props => props.status === "loading" ? `& > span { word-break: break-all }` : null }
+			${ props => props.status === "loading" && `word-break: break-all;` }
 			
 			& > div {
 				max-width: 30em;
@@ -147,21 +150,20 @@ export const ListUl = styled.ul`
 					min-width: 		auto;
 					padding-top:	${ blockSafety }em;
 					float:				none;
-					clear:				both;
+					/* clear:				both; */
 					display:			inline;
 				}` }
 				${ props => props.theme.size.breakpoint.max.xs`{
 					text-align: left;
 				}`}
 				
-				& > span {
-					/* placeholder style */	
-					${ props => props.status === "loading" ? `letter-spacing: 0 !important;` : null }
+				/* placeholder style */	
+				${ props => props.status === "loading" && `
+					& > em { font-style: normal; }
+					letter-spacing: 0 !important;
+				`}
 				}
-				& > em {
-					/* placeholder style */	
-					${ props => props.status === "loading" ? `font-style: normal;` : null }
-				}
+				
 			}
 			
 		}
