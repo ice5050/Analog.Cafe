@@ -16,7 +16,7 @@ const posterDimensions = css`
 	height: 9.33em;
 `
 export const zigzagWidth = "33%"
-export const zigzagTopShim = 10
+export const zigzagTopShim = 12
 const zigzagWidthShim = css`width: calc( ${ zigzagWidth } + 5px);`
 const zigzagFill = css`
 	position: absolute;
@@ -148,6 +148,7 @@ export const ListUl = styled.ul`
 					padding-top:	${ blockSafety }em;
 					float:				none;
 					clear:				both;
+					display:			inline;
 				}` }
 				${ props => props.theme.size.breakpoint.max.xs`{
 					text-align: left;
