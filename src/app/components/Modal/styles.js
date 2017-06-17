@@ -59,6 +59,7 @@ export const Card = styled.aside`
 			overflow: 			hidden;
 			text-overflow: 	ellipsis;
 			text-align:			left;
+			padding:				0;
 		}
 		a {
 			text-decoration:none;

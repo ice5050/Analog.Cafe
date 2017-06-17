@@ -35,20 +35,20 @@ export class HeaderEditor extends React.Component {
 		return (
 			<PageHeader>
 				<PageTitle
-					placeholder="Write Your Title Here"
+					placeholder={ this.props.pageTitle }
 					onChange={ this.handleTitleChange }
 					value={ loadHeader().title }
 				></PageTitle>
 				<PageSubtitle
-					placeholder="Subtitle (Optional)"
+					placeholder={ this.props.pageSubtitle }
 					onChange={ this.handleSubtitleChange }
 					value={ loadHeader().subtitle }
 				></PageSubtitle>
 				
 				<ModalLink
-					title={ "Your Name" }
-					fetch={ "/api/author/sample" }
-				><PageByline>by <u>Your Name</u></PageByline></ModalLink>
+					title={ this.props.author.name }
+					fetch={ "/api/author/" + this.props.author.id }
+				><PageByline>by <u>{ this.props.author.name }</u></PageByline></ModalLink>
 				
 				
 			</PageHeader>

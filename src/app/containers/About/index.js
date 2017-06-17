@@ -3,7 +3,7 @@ import React from "react"
 
 // components
 import { Header, Section, Article } from "../../components/Article"
-import { Figure } from "../../components/Pictures"
+import { Figure } from "../../components/Picture"
 import { Link } from "react-router"
 
 
@@ -23,7 +23,7 @@ export const About = props => {
 				
 				<p>This project began as a Kickstarter <a href="https://www.kickstarter.com/projects/dmitrizzle/analogcafe-the-remarkable-film-photography-blog" rel="nofollow noopener noreferrer" target="_blank">campaign</a> on April 12, 2017. It got 100% funded within the first three weeks. Fifty-one person has pledged their contributions to help this publication become a reality.</p>
 				
-				<Figure src="images/app/film_photo-portrait_of_dmitri_by_betty.jpg">dmitrizzle&rsquo;s portrait, double-exposed with a photograph of a street dog. Shot on Instax Mini Monochrome by Betty.</Figure>
+				<Figure src="images/app/film_photo-portrait_of_dmitri_by_betty.jpg">dmitrizzle&rsquo;s portrait, double-exposed with a photograph of a street dog. Shot on Instax Mini Monochrome.</Figure>
 				
 				<p>Analog.Cafe is a community-based, open-source (find us on GitHub!) project. There&rsquo;s an open conversation on <a href="https://twitter.com/analog_cafe" rel="nofollow noopener noreferrer" target="_blank">Twitter</a> and a private one amongst the contributors on Slack. What you see here is a product of a group effort by passionate creative individuals.</p>
 				

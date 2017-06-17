@@ -5,7 +5,7 @@ import { Link } from "react-router"
 // components
 import { Header, Section, Article } from "../../../components/Article"
 import { PageButton } from "../../../components/Buttons"
-import { Figure } from "../../../components/Pictures"
+import { Figure } from "../../../components/Picture"
 
 // render
 export const Introduction = props => {

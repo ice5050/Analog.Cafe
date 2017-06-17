@@ -3,7 +3,7 @@ import React from "react"
 
 
 // components
-import { Image } from "../../../../../components/Pictures/components/Composer"
+import { Image } from "../../../../Picture"
 
 
 // return
