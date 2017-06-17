@@ -102,6 +102,7 @@ export class Image extends React.Component {
       		src={ src } 
       		className={ className }
       		author={ this.state.author }
+      		composer={ !this.props.readOnly }
       	>
       		{ !this.props.readOnly
 						? <TextArea

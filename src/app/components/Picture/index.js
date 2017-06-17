@@ -6,7 +6,7 @@ import PropTypes from "prop-types"
 import { ModalLink } from "../../containers/Modal"
 
 // styles
-import { PictureImage, PictureFigure, PictureCaption } from "./styles"
+import { PictureImage, PictureFigure, PictureCaption, PictureByline } from "./styles"
 
 // return
 export const Figure = props => {
@@ -22,7 +22,7 @@ export const Figure = props => {
 				>
 					<PictureCaption { ...props } >
 						{ props.children }
-						Image by <u>{ props.author.name }</u>.
+						<PictureByline { ...props } >Image by <u>{ props.author.name }</u>.</PictureByline>
 					</PictureCaption>
 				</ModalLink>
 				: <PictureCaption { ...props } >{ props.children }</PictureCaption>

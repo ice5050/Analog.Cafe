@@ -33,7 +33,6 @@ const bleed = css`
 	: null }
 `
 export const PictureFigure = styled.figure`
-
 	padding: 									0;	
 	overflow: 								hidden;
 	margin: 									0 0 ${ props => props.theme.size.block.spacing }em;
@@ -50,7 +49,7 @@ export const PictureFigure = styled.figure`
 		width: 				85%;
 		margin-left: 	-${ props => props.theme.size.block.column.maxwidth.m / 4 }px;
 		margin-right: ${ props => props.theme.size.block.spacing }em;
-	` }
+	`}
 	
 	${ props => props.theme.size.breakpoint.min.xxl`
 		width: 				95%;
@@ -59,6 +58,17 @@ export const PictureFigure = styled.figure`
 	` }
 	
 	${ props => props.feature ? bleed : props => props.theme.size.breakpoint.max.m` ${ bleed } ` }	
+	
+	/* featured images and smaller screens should have the first image pulled up */
+	/*
+	&:first-of-type {
+		${ props => props.feature && `margin-top: -1.5em;`}
+		${ props => props.theme.size.breakpoint.max.m`
+			margin-top: -1.5em;
+		`}
+	}
+	*/
+	
 	
 	&.focus {
 		box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight },
@@ -85,5 +95,8 @@ export const PictureCaption = styled(Caption)`
 	padding:				${ props => props.theme.size.block.column.safety / props.theme.size.font.make.smaller }em;
 	border-bottom:	${ props => props.theme.elements.thickBorder };
 	
-	${ props => props.feature ? captionBlock : null }
+	${ props => props.feature && captionBlock }
+`
+export const PictureByline = styled.div`
+	${ props => props.composer && `opacity: .5;` }
 `
