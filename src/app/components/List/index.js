@@ -18,7 +18,7 @@ export const List = props => {
 	return <ListUl { ...props } >{ props.children }</ListUl>
 }
 export const Stats = props => {
-	return <ListStats>{ props.children }</ListStats>
+	return <ListStats { ...props } >{ props.children }</ListStats>
 }
 export const Caption = props => {
 	return <ListCaption>{ props.children }</ListCaption>

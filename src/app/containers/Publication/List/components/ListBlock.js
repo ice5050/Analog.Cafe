@@ -26,9 +26,9 @@ export const ListBlock = props => {
 								<h2>{ item.title }</h2>
 								<Caption>{ item.summary }</Caption>
 								<div>
-									<Stats>{
-										( item.category === "photo-essay" && item.stats.images === "1" ) ? "Photograph" :
-										(item.category + "").replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())
+									<Stats { ...props }>{
+										( item.tag === "photo-essay" && item.stats.images === "1" ) ? "Photograph" :
+										(item.tag + "").replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())
 									}{
 										item.type !== "placeholder" ?
 											( item.category !== "photo-essay" ) ? 

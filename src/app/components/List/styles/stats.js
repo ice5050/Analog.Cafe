@@ -7,4 +7,7 @@ export const ListStats = styled.span`
 	margin: 			0;
 	display: 			block;
 	color: 				${ props => props.theme.color.brand };
+	
+	/* placeholder style */	
+	${ props => props.status === "loading" && `letter-spacing: 0 !important;`}
 `
