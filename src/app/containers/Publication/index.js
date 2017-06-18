@@ -3,15 +3,15 @@ import React from "react"
 import PropTypes from "prop-types"
 
 // components
-import { Nav } from "../../components/Nav"
+import { VisitorNav } from "../../components/NavTypes"
 
 // render
 export const Publication = props => {
 	return (
 		<div>
-			<Nav />
+			<VisitorNav />
 			{ props.children }
-			<Nav />
+			<VisitorNav />
 		</div>
 	)
 }

@@ -5,17 +5,16 @@ import Helmet from "react-helmet"
 
 
 // components
-import { Nav } from "../../components/Nav"
-import { ComposerNav } from "../../components/Nav/components/Composer"
+import { VisitorNav, ComposerNav } from "../../components/NavTypes"
 
 // render
 export const Submit = props => {
 	return (
 		<div>
 			<Helmet title="Submit for Review" />
-			{ props.location.pathname.includes("submit/compose") ? 	<ComposerNav /> : <Nav /> }
+			{ props.location.pathname.includes("submit/compose") ? 	<ComposerNav /> : <VisitorNav /> }
 			{ props.children }
-			{ props.location.pathname.includes("submit/compose") ? 	null : <Nav /> }
+			{ props.location.pathname.includes("submit/compose") ? 	null : <VisitorNav /> }
 		</div>
 	)
 }
