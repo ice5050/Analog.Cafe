@@ -68,21 +68,10 @@ const marks = css`
   	font-size: 	${ props => props.theme.size.font.make.larger }em;
   }
 `
+
+// return
 export const Quote = css`
 	${ base }
 	${ content }
 	${ marks }
 `
-
-
-// const cite = css`
-// 	font-size: 			${ props => props.theme.size.font.make.smaller }em;
-// 	font-style: 		normal;
-// 	font-variant: 	small-caps;
-// 	position: 			absolute;
-// 	bottom: 				0;
-// 	right:					${ props => props.theme.size.block.column.safety * 2 }em;
-// 	&::before {
-// 		content: "— ";
-// 	}
-// `

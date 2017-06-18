@@ -2,8 +2,9 @@
 import React from "react"
 
 // components
-import { Heading, Section, Article } from "../../../components/ArticleStyles"
+import Heading from "../../../components/ArticleHeading"
 import Button from "../../../components/Button"
+import { Section, Article } from "../../../components/ArticleStyles"
 import { Figure } from "../../../components/Picture"
 import { SmartLink } from "../../../components/SmartLink"
 

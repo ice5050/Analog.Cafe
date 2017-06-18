@@ -3,6 +3,8 @@ import styled from "styled-components"
 
 // css
 const blockSafety = props => props.theme.size.block.column.safety
+
+// return
 export const Header = styled.header`
 	${ props => props.theme.size.font.auto }
 	text-align: 		center;
