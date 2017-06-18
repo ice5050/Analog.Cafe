@@ -5,7 +5,7 @@ import { Editor, Raw } from "slate"
 
 
 // components
-import { Header, Section, Article, Byline } from "../../../components/Article"
+import { Heading, Section, Article, Byline } from "../../../components/ArticleStyles"
 import { ModalLink } from "../../Modal"
 
 // state
@@ -28,7 +28,7 @@ export class Post extends React.Component {
 			schema
 		}
 	}
-  
+
   _fetch = () => {
     // convert route to api search
 		let slug = (this.props.location.pathname).replace(ROUTE_ARTICLE_DIR,"")
@@ -51,23 +51,23 @@ export class Post extends React.Component {
 			})
 			.catch(error => console.log(error))
   }
-  
+
   componentDidMount = () => this._fetch()
   // componentDidUpdate = () => this._fetch()
 	// need condition for componentWillUnmount()
-  
+
   render() {
 		return(
 			<Article>
-				<Header 
-					pageTitle={ this.state.title } 
+				<Heading
+					pageTitle={ this.state.title }
 					pageSubtitle={ this.state.subtitle }
 				>
 				<ModalLink
 					title={ this.state.author.name }
 					fetch={ "/api/author/" + this.state.author.id }
 				><Byline>by <u>{ this.state.author.name }</u></Byline></ModalLink>
-				</Header>
+				</Heading>
 				<Section postStatus={ this.state.status }>
 					<Editor
 						readOnly={					true }

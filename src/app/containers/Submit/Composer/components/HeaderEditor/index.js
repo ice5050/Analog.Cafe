@@ -4,12 +4,12 @@ import { saveHeader } from "../../helpers/saver"
 import { loadHeader } from "../../helpers/loader"
 
 // components
-import { PageTitle, PageSubtitle } from "./components/InputTitle/styles"
+import { Title, Subtitle } from "./components/InputTitle/styles"
 import { ModalLink } from "../../../../Modal"
 
 
 // styles
-import { PageHeader, PageByline } from "../../../../../components/Article/styles/header"
+import { Header, Byline } from "../../../../../components/ArticleStyles"
 
 
 
@@ -33,25 +33,25 @@ export class HeaderEditor extends React.Component {
   }
   render() {
 		return (
-			<PageHeader>
-				<PageTitle
+			<Header>
+				<Title
 					placeholder={ this.props.pageTitle }
 					onChange={ this.handleTitleChange }
 					value={ loadHeader().title }
-				></PageTitle>
-				<PageSubtitle
+				></Title>
+				<Subtitle
 					placeholder={ this.props.pageSubtitle }
 					onChange={ this.handleSubtitleChange }
 					value={ loadHeader().subtitle }
-				></PageSubtitle>
-				
+				></Subtitle>
+
 				<ModalLink
 					title={ this.props.author.name }
 					fetch={ "/api/author/" + this.props.author.id }
-				><PageByline>by <u>{ this.props.author.name }</u></PageByline></ModalLink>
-				
-				
-			</PageHeader>
+				><Byline>by <u>{ this.props.author.name }</u></Byline></ModalLink>
+
+
+			</Header>
 		)
 	}
 }

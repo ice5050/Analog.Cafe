@@ -4,10 +4,10 @@ import { css } from "styled-components"
 
 // css
 const base = css`
-	font-size: 		${ props => props.theme.size.font.make.smaller }em;
-	font-style: 	italic;
+	font-size: 			${ props => props.theme.size.font.make.smaller }em;
+	font-style: 		italic;
 	position: 			relative;
-	margin: 				${ props => props.theme.size.block.spacing }em 
+	margin: 				${ props => props.theme.size.block.spacing }em
 										-${ props => props.theme.size.block.column.safety * 1.16666666666666666 }em;
 	overflow: 			hidden;
   clear: 					both;

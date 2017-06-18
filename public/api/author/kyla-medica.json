@@ -1,8 +1,8 @@
-{  
+{
   "status": "ok",
 	"id" : "kyla-medica",
 	"name" : "Kyla Medica",
-	"image" : "/images/app/illustration-dmitri.jpg",
+	"image" : "/images/app/placeholder-profile.jpg",
 	"bio-short" : "Short author bio.",
 	"buttons" : [
 		{

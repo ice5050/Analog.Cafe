@@ -2,7 +2,7 @@
 import React from "react"
 
 // components
-import { Section, Article } from "../../../components/Article"
+import { Section, Article } from "../../../components/ArticleStyles"
 import { PageButton } from "../../../components/Button"
 import { HeaderEditor } from "./components/HeaderEditor"
 import { ContentEditor } from "./components/ContentEditor"
@@ -24,7 +24,7 @@ export const Composer = props => {
 		<Article>
 			<HeaderEditor
 				author={ authorPlaceholder }
-				pageTitle={ titlePlaceholder.title } 
+				pageTitle={ titlePlaceholder.title }
 				pageSubtitle={ titlePlaceholder.subtitle }
 			/>
 			<Section>

@@ -12,8 +12,8 @@ const sectionHeading = css`
 `
 const paragraph = css`
 	margin: ${ props => props.theme.size.block.spacing }em 0;
-	
-	/* placeholder style */	
+
+	/* placeholder style */
 	${ props => props.postStatus === "loading" ? `opacity: ` + props.theme.opacity.least + `; letter-spacing: 0 !important;`: null }
 `
 const sectionBreak = css`
@@ -33,21 +33,21 @@ const sectionBreak = css`
 	}
 `
 
-export const PageSection = styled.section`
+export const Section = styled.section`
 	${ props => props.theme.size.font.auto }
 	${ props => props.theme.typography.text.auto }
-	
+
 	margin: 		0 auto;
 	max-width: 	${ props => props.theme.size.block.column.maxwidth.m }px;
 	${ props => props.theme.size.breakpoint.min.xxl`max-width: ${ props => props.theme.size.block.column.maxwidth.l }px;` };
 	padding: 		0 ${ props => props.theme.size.block.column.safety }em;
-	
+
 	&::after {
 		content: 		"";
 		clear: 			both;
 		display: 		block;
 	}
-	
+
 	p		{ ${ paragraph } }
 	ul 	{
 		margin: 		0 ${ props => props.theme.size.block.column.safety }em 0;
@@ -59,14 +59,14 @@ export const PageSection = styled.section`
 			padding-bottom:	${ props => props.theme.size.block.spacing }em;
 		}
 	}
-	
+
 	blockquote 	{ ${ Quote } }
 	h2, h3, h4	 	{ ${ sectionHeading } }
 	.fonts-loaded-headers & h2,
 	.fonts-loaded-headers & h3,
 	.fonts-loaded-headers & h4 { ${ props => props.theme.typography.title.fontsLoaded } }
 	hr 					{ ${ sectionBreak } }
-	
+
 	border-bottom:	${ props => props.theme.elements.thickBorder };
 `
-export const PageArticle = styled.article``
+export const Article = styled.article``

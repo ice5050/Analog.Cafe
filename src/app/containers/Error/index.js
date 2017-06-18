@@ -4,14 +4,14 @@ import { SmartLink } from "../../components/SmartLink"
 
 
 // components
-import { Section, Article, Header } from "../../components/Article"
+import { Section, Article, Header } from "../../components/ArticleStyles"
 
 // render
 export const NotFound = props => {
 	return(
 		<Article>
-			<Header 
-				pageTitle="😨" 
+			<Header
+				pageTitle="😨"
 				pageSubtitle="Page not found..."
 			/>
 			<Section>
