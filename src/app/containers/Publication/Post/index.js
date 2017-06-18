@@ -6,8 +6,8 @@ import { Editor, Raw } from "slate"
 
 // components
 import Heading from "../../../components/ArticleHeading"
+import ModalLink from "../../Modal"
 import { Section, Article, Byline } from "../../../components/ArticleStyles"
-import { ModalLink } from "../../Modal"
 
 // state
 import defaultPostState from "./state.json"

@@ -1,7 +1,7 @@
 // tools
 import React from "react"
 import axios from "axios"
-import { ModalLink } from "../../Modal"
+import ModalLink from "../../Modal"
 
 
 // components

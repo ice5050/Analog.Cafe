@@ -1,24 +1,14 @@
 // tools
 import React from "react"
-import styled from "styled-components"
 
 // components
-import { ModalFetch } from "./components/ModalFetch"
+import Fetch from "./Fetch"
 
+// styles
+import { Anchor, Wrapper } from "./styles"
 
 // return
-const A = styled.a`
-	text-decoration: 	none;
-	&:active u {
-		background:			${ props => props.theme.color.highlight };
-	}
-`
-const Wrapper = styled.div`
-	display: 					inline;
-	position:					relative;
-	z-index: 					${ props => props.theme.layer.card };
-`
-export class ModalLink extends React.Component {
+export default class extends React.Component {
   state = { load: false }
   onClick = e => {
     e.preventDefault()
@@ -28,8 +18,8 @@ export class ModalLink extends React.Component {
 	render() {
     return (
     	<Wrapper>
-				<A href="#card" onClick={ this.onClick.bind(this)} >{ this.props.children }</A>
-				{ this.state.load && <ModalFetch {...this.props} /> }
+				<Anchor href="#card" onClick={ this.onClick.bind(this)} >{ this.props.children }</Anchor>
+				{ this.state.load && <Fetch {...this.props} /> }
       </Wrapper>
     )
   }

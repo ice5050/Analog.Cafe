@@ -5,7 +5,7 @@ import { loadHeader } from "../../helpers/loader"
 
 // components
 import { Title, Subtitle } from "./components/InputTitle/styles"
-import { ModalLink } from "../../../../Modal"
+import ModalLink from "../../../../Modal"
 
 
 // styles
