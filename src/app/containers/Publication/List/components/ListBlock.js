@@ -1,6 +1,6 @@
 // tools
 import React from "react"
-import { SmartLink } from "../../../../components/Button/components/SmartLink"
+import { SmartLink } from "../../../../components/SmartLink"
 import { List, Stats, Caption, ZigzagPicture } from "../../../../components/List"
 
 // helper

@@ -6,7 +6,7 @@ import styled from "styled-components"
 import Color from "color"
 
 // components
-import { SmartLink } from "./components/SmartLink"
+import { SmartLink } from "../SmartLink"
 
 
 // css

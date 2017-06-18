@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { IndexLink } from "react-router"
 
 // components
-import { SmartLink } from "../Button/components/SmartLink"
+import { SmartLink } from "../SmartLink"
 
 // css
 const containerVerticalSpacing = props => props.theme.size.font.make.larger / 1.2

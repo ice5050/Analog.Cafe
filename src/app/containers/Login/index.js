@@ -1,13 +1,14 @@
 // tools
 import React from "react"
-import { browserHistory } from "react-router"
 
 // components
+import { Article, Header, Section } from "../../components/Article"
 import { PageButton } from "../../components/Button"
 
 
-// components
-import { Section, Article, Header } from "../../components/Article"
+// styles
+import { TwitterButton, FacebookButton } from "./styles"
+
 
 // render
 export const Login = props => {
@@ -15,13 +16,17 @@ export const Login = props => {
 		<Article>
 			<Header pageTitle="Log In" />
 			<Section>
-				<PageButton to="/">Login with Twitter</PageButton>
+				
+				<TwitterButton to="/">Login with Twitter</TwitterButton>
+				
 				<p style={{textAlign: "center"}}><em>- or -</em></p>
-				<PageButton to="/">Login with Facebook</PageButton>
+				
+				<FacebookButton to="/">Login with Facebook</FacebookButton>
+				
 				<p style={{textAlign: "center"}}><em>- or -</em></p>
 				<h3>Login with Email</h3>
 				
-				<PageButton to="/" onClick={ browserHistory.goBack }>Cancel</PageButton>
+				<PageButton to="/">Cancel</PageButton>
 			</Section>
 		</Article>
 	)

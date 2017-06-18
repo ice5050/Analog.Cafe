@@ -3,7 +3,7 @@ import React from "react"
 
 // components
 import { Image } from "../../../../Picture"
-import { SmartLink } from "../../../../../components/Button/components/SmartLink"
+import { SmartLink } from "../../../../../components/SmartLink"
 
 
 // return
