@@ -4,7 +4,7 @@ import axios from "axios"
 
 // components
 import Figure from "../../components/Figure"
-import { TextArea } from "../../components/TextArea"
+import TextArea from "../../components/TextArea"
 
 
 // dictionary

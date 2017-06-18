@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import toTitleCase from "titlecase"
 
 // components
-import { TextArea } from "../../../../../../../components/TextArea"
+import TextArea from "../../../../../../../components/TextArea"
 
 
 
@@ -18,7 +18,7 @@ export class InputTitle extends React.Component {
   }
   handleChange = event => {
     this.setState({ value: toTitleCase(event.target.value) })
-    this.props.onChange(event.target.value)    
+    this.props.onChange(event.target.value)
   }
   render() {
     return <TextArea
