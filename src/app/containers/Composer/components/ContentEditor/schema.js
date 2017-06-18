@@ -2,7 +2,7 @@
 import React from "react"
 
 // components
-import { Image } from "../../../Picture"
+import Picture from "../../../Picture"
 import Link from "../../../../components/Link"
 
 
@@ -23,7 +23,7 @@ export const schema = {
 										const className = focus ? "focus" : "nofocus"
 										return <blockquote { ...props.attributes } className={ className }>{ props.children }</blockquote>
 		},
-		image:	 			Image,
+		image:	 			Picture,
     link: 				props => {
 										const { data } = props.node
 										const href = data.get("href")

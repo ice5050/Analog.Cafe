@@ -11,7 +11,7 @@ import TextArea from "../../components/TextArea"
 import { ROUTE_IMAGE_API } from "./routes"
 
 // export
-export class Image extends React.Component {
+export default class extends React.Component {
 
 
 	// vv STATE FOR CAPTION

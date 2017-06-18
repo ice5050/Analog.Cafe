@@ -2,8 +2,8 @@
 import React from "react"
 
 // components
-import { Article, Section } from "../../../../../ArticleStyles"
-import Button from "../../../../../Button"
+import { Article, Section } from "../../../ArticleStyles"
+import Button from "../../../Button"
 
 
 // render
