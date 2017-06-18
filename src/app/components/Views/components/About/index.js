@@ -2,17 +2,17 @@
 import React from "react"
 
 // components
-import Heading from "../../components/ArticleHeading"
-import Figure from "../../components/Figure"
-import Link from "../../components/Link"
+import Heading from "../../../ArticleHeading"
+import Figure from "../../../Figure"
+import Link from "../../../Link"
 
 // styles
-import { Section, Article } from "../../components/ArticleStyles"
+import { Section, Article } from "../../../ArticleStyles"
 import illustrationDmitri from "./images/illustration-dmitri.jpg"
 
 
 // render
-export const About = props => {
+export default props => {
 	return(
 		<Article>
 			<Heading

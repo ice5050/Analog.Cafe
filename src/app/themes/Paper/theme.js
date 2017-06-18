@@ -3,7 +3,7 @@ import { css } from "styled-components"
 import { exact, min, max, breakpoints } from "./helpers/breakpoint-generator"
 
 // theme css schema
-export const TheZineTheme = {
+export const Paper = {
 	color: {
   	brand: 				"#ed236e",
 		foreground:		"#2c2c2c",
@@ -26,11 +26,11 @@ export const TheZineTheme = {
 			auto: css`
 				font-family: 			Arial, sans-serif;
 				letter-spacing: 	0.005em;
-				line-height: 			${ () => TheZineTheme.typography.title.lineHeight }em;
+				line-height: 			${ () => Paper.typography.title.lineHeight }em;
 				font-weight: 			700;
 				margin: 					0;
 				/* in some cases this vv doesn't work and causes garbage CSS */
-				.fonts-loaded-headers & { ${ () => TheZineTheme.typography.title.fontsLoaded } }
+				.fonts-loaded-headers & { ${ () => Paper.typography.title.fontsLoaded } }
 			`,
 			fontsLoaded: css`
 				font-family: 			"Exo 2", Arial sans-serif;
@@ -43,8 +43,8 @@ export const TheZineTheme = {
 			auto: css`
 				font-family: 			Georgia, serif;
 				letter-spacing: 	0.05em;
-				line-height: 			${ () => TheZineTheme.typography.text.lineHeight }em;
-				.fonts-loaded & { ${ () => TheZineTheme.typography.text.fontsLoaded } }
+				line-height: 			${ () => Paper.typography.text.lineHeight }em;
+				.fonts-loaded & { ${ () => Paper.typography.text.fontsLoaded } }
 			`,
 			fontsLoaded: css`
 				font-family: 			Lora, Georgia, serif;
@@ -75,10 +75,10 @@ export const TheZineTheme = {
 			},
 			// automatically set font size based on screen size; should be at the top of most components' css
 			auto: css`
-					${ min.m`font-size: 	${ () => TheZineTheme.size.font.m 	}px;` }
-					${ max.s`font-size: 	${ () => TheZineTheme.size.font.s 	}px;` }
-					${ max.xs`font-size: 	${ () => TheZineTheme.size.font.xs 	}px;` }
-					${ min.xxl`font-size:	${ () => TheZineTheme.size.font.l 	}px;` }
+					${ min.m`font-size: 	${ () => Paper.size.font.m 	}px;` }
+					${ max.s`font-size: 	${ () => Paper.size.font.s 	}px;` }
+					${ max.xs`font-size: 	${ () => Paper.size.font.xs 	}px;` }
+					${ min.xxl`font-size:	${ () => Paper.size.font.l 	}px;` }
 				`
 		},
 		block: {
@@ -101,6 +101,6 @@ export const TheZineTheme = {
 		tuck:				-1
 	},
 	elements: {
-		thickBorder: () => TheZineTheme.size.block.border + "px solid " + TheZineTheme.color.foreground,
+		thickBorder: () => Paper.size.block.border + "px solid " + Paper.color.foreground,
 	}
 }

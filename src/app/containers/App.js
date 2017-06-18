@@ -5,7 +5,7 @@ import Helmet from "react-helmet"
 import ReactGA from "react-ga"
 
 // theme
-import { TheZine } from "../../themes/TheZine"
+import Paper from "../themes/Paper"
 
 
 // sections
@@ -13,10 +13,12 @@ import { Publication } from "./Publication"
 import { Submit } from "./Submit"
 
 // pages
+import { About } from "../components/Views"
+
+
 import { NotFound } from "./Error"
 import { Introduction } from "./Submit/Introduction"
 import { Composer } from "./Submit/Composer"
-import { About } from "./About"
 import { ListPosts } from "./Publication/List"
 import { Post } from "./Publication/Post"
 import { Login } from "./Login"
@@ -31,11 +33,11 @@ export const App = props => {
 	const updateView = () => {
 		ReactGA.set({ page: window.location.pathname + window.location.search })
 		ReactGA.pageview(window.location.pathname + window.location.search)
-		
+
 		window.scrollTo(0,0)
 	}
 	return (
-		<TheZine>
+		<Paper>
 			<Helmet
 				defaultTitle="Analog.Cafe ☕️"
 				titleTemplate="%s ☕️ Analog.Cafe"
@@ -46,9 +48,9 @@ export const App = props => {
 				<Route path="/"			 					component={ Publication } >
 					<IndexRoute 								component={ ListPosts } />
 					<Route path="photo-essays"	component={ ListPosts } />
-					<Route path="articles"			component={ ListPosts } />					
+					<Route path="articles"			component={ ListPosts } />
 					<Route path="about"			 		component={ About } />
-					
+
 					<Route path="zine/*"				component={ Post } />
 					<Route path="author/*"			component={ ListPosts } />
 				</Route>
@@ -57,12 +59,12 @@ export const App = props => {
 					<IndexRoute 								component={ Introduction } />
 					<Route path="compose" 			component={ Composer } />
 				</Route>
-				
+
 				<Route path="login"						component={ Login } />
 				<Route path="*"								component={ NotFound } status={404} />
 
 			</Router>
 
-		</TheZine>
+		</Paper>
 	)
 }
