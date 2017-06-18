@@ -3,17 +3,17 @@ import React from "react"
 import axios from "axios"
 
 // components
-import { Figure } from "../../components/Picture"
-import { TextArea } from "../../components/TextArea"
+import Figure from "../../components/Figure"
+import TextArea from "../../components/TextArea"
 
 
 // dictionary
 import { ROUTE_IMAGE_API } from "./routes"
 
 // export
-export class Image extends React.Component {
-	
-	
+export default class extends React.Component {
+
+
 	// vv STATE FOR CAPTION
 	constructor(props) {
     super(props)
@@ -21,14 +21,14 @@ export class Image extends React.Component {
     this.onChange = this.onChange.bind(this)
     this.onClick = this.onClick.bind(this)
   }
-  
+
   componentWillReceiveProps(nextProps) {
     const caption = nextProps.node.data.get("caption");
     if (caption !== this.state.caption) {
       this.setState({ caption })
     }
   }
-  
+
   onChange(e) {
     const caption = e.target.value
     const { node, editor } = this.props
@@ -50,9 +50,9 @@ export class Image extends React.Component {
     e.stopPropagation()
   }
   // ^^ STATE FOR CAPTION
-  
-  
-    
+
+
+
   componentDidMount() {
     const { node } = this.props
     const { data } = node
@@ -63,17 +63,17 @@ export class Image extends React.Component {
   		this.setState({ src })
 
 			// if the same one author passed as a prop to entire Editor, do not fetch each author for each image:
-  		if(this.props.editor.props.author){ 
-  			this.setState({ author:	this.props.editor.props.author }) 
+  		if(this.props.editor.props.author){
+  			this.setState({ author:	this.props.editor.props.author })
   			return
   		}
-  		
+
   		// convert file path to just file name:
   		let imageName = src.split('\\').pop().split('/').pop() 	// get rid of domain and pathname
   		imageName 		= imageName.replace(/\.[^/.]+$/, "") 			// get rid of extension
   		// get image info from DB:
   		this._fetch(imageName)
-  		  		
+
   	}
   	else {
 			const reader = new FileReader()
@@ -95,11 +95,11 @@ export class Image extends React.Component {
     const { src } = this.state
     const focus = state.isFocused && state.selection.hasEdgeIn(node)
 		const className = focus ? "focus" : "nofocus"
-		
+
     return src
       ? <Figure
-      		{ ...attributes } 
-      		src={ src } 
+      		{ ...attributes }
+      		src={ src }
       		className={ className }
       		author={ this.state.author }
       		composer={ !this.props.readOnly }
@@ -114,6 +114,6 @@ export class Image extends React.Component {
 						: <div>{ this.state.caption }</div>
 					}
       	</Figure>
-      : <Figure { ...attributes } src="" className={ className }>Loading your image...</Figure>      
+      : <Figure { ...attributes } src="" className={ className }>Loading your image...</Figure>
   }
 }

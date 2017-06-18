@@ -5,37 +5,30 @@ import Helmet from "react-helmet"
 import ReactGA from "react-ga"
 
 // theme
-import { TheZine } from "../../themes/TheZine"
+import Paper from "../themes/Paper"
 
 
-// sections
-import { Publication } from "./Publication"
-import { Submit } from "./Submit"
-
-// pages
-import { NotFound } from "./Error"
-import { Introduction } from "./Submit/Introduction"
-import { Composer } from "./Submit/Composer"
-import { About } from "./About"
-import { ListPosts } from "./Publication/List"
-import { Post } from "./Publication/Post"
-import { Login } from "./Login"
-
+// views and components
+import { About, NotFound, Login, Publication } from "../components/Views"
+import { Intro, Submit } from "../components/Views/Submit"
+import Composer from "./Composer"
+import List from "./List"
+import Post from "./Post"
 
 
 // init GA tracking
 ReactGA.initialize("UA-91374353-3")
 
 // render & route
-export const App = props => {
+export default props => {
 	const updateView = () => {
 		ReactGA.set({ page: window.location.pathname + window.location.search })
 		ReactGA.pageview(window.location.pathname + window.location.search)
-		
+
 		window.scrollTo(0,0)
 	}
 	return (
-		<TheZine>
+		<Paper>
 			<Helmet
 				defaultTitle="Analog.Cafe ☕️"
 				titleTemplate="%s ☕️ Analog.Cafe"
@@ -44,25 +37,25 @@ export const App = props => {
 			<Router history={ browserHistory } onUpdate={ updateView } >
 
 				<Route path="/"			 					component={ Publication } >
-					<IndexRoute 								component={ ListPosts } />
-					<Route path="photo-essays"	component={ ListPosts } />
-					<Route path="articles"			component={ ListPosts } />					
+					<IndexRoute 								component={ List } />
+					<Route path="photo-essays"	component={ List } />
+					<Route path="articles"			component={ List } />
 					<Route path="about"			 		component={ About } />
-					
+
 					<Route path="zine/*"				component={ Post } />
-					<Route path="author/*"			component={ ListPosts } />
+					<Route path="author/*"			component={ List } />
 				</Route>
 
 				<Route path="submit"					component={ Submit } >
-					<IndexRoute 								component={ Introduction } />
+					<IndexRoute 								component={ Intro } />
 					<Route path="compose" 			component={ Composer } />
 				</Route>
-				
+
 				<Route path="login"						component={ Login } />
 				<Route path="*"								component={ NotFound } status={404} />
 
 			</Router>
 
-		</TheZine>
+		</Paper>
 	)
 }
