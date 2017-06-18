@@ -23,7 +23,7 @@ export const About = props => {
 				
 				<p>This project began as a Kickstarter <SmartLink to="https://www.kickstarter.com/projects/dmitrizzle/analogcafe-the-remarkable-film-photography-blog">campaign</SmartLink> on April 12, 2017. It got 100% funded within the first three weeks. Fifty-one person has pledged their contributions to help this publication become a reality.</p>
 				
-				<Figure src="images/app/film_photo-portrait_of_dmitri_by_betty.jpg">dmitrizzle&rsquo;s portrait, double-exposed with a photograph of a street dog. Shot on Instax Mini Monochrome.</Figure>
+				<Figure src="images/app/illustration-dmitri.jpg">dmitrizzle&rsquo;s portrait, double-exposed with a photograph of a street dog. Shot on Instax Mini Monochrome.</Figure>
 				
 				<p>Analog.Cafe is a community-based, open-source (find us on GitHub!) project. There&rsquo;s an open conversation on <SmartLink to="https://twitter.com/analog_cafe">Twitter</SmartLink> and a private one amongst the contributors on Slack. What you see here is a product of a group effort by passionate creative individuals.</p>
 				

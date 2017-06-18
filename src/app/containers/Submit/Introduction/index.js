@@ -18,7 +18,7 @@ export const Introduction = props => {
 			<Section>
 				
 				<PageButton to="/submit/compose" red>Submit Now</PageButton>
-				<p><SmartLink to="/submit/login"><strong>Log in</strong></SmartLink> to edit your profile and view your existing submissions.</p>
+				<p><SmartLink to="/login"><strong>Log in</strong></SmartLink> to edit your profile and view your existing submissions.</p>
 				<p><em>You can create your account once you submit your work. It&rsquo;ll take 10 seconds.</em></p>
 				
 				<hr />
@@ -26,7 +26,7 @@ export const Introduction = props => {
 				<h3>&ldquo;Compose&rdquo; Your Submission</h3>
 				<p>Upload your image(s) and submit. Use Analog.Cafe <SmartLink to="/submit/compose"><em>Composer</em></SmartLink> to type up your story; it&rsquo;ll automatically format and save everything for you.</p>
 				
-				<Figure src="images/app/demo-composer.jpg">When you edit your submission you see it exactly how it would appear when published.</Figure>
+				<Figure src="images/app/illustration-composer.jpg">When you edit your submission you see it exactly how it would appear when published.</Figure>
 				
 				<p>You can write, photograph and submit pretty much anything you like, as long as you own the copyright for your work. NSFW submissions aren&rsquo;t accepted (yet).</p>
 				<p>Every submission gets reviewed for style, quality, spelling etc. <strong>This is a curated publication with an aim to have a character of its own, which means not every work gets accepted.</strong> Even if it&rsquo;s really good.</p>
@@ -51,7 +51,7 @@ export const Introduction = props => {
 				
 				<p>For images, JPG and PNG formats are accepted, maximum 5MB per file. Please make sure the quality is good enough to display on large screens.</p>
 				
-				<Figure src="images/app/film_photo-computer_code.jpg">This is one of the first images of Analog.Cafe web app. It didn&rsquo;t look much at first. Shot on Kodak Ektar 100.</Figure>
+				<Figure src="images/app/illustration-computer_code.jpg">This is one of the first images of Analog.Cafe web app. It didn&rsquo;t look much at first. Shot on Kodak Ektar 100.</Figure>
 				<h3>A Few Fine Details</h3>
 				<p>Your submission does not have to be exclusive to Analog.Cafe. Please limit the number of links and promotional phrases in your work to minimum. Oh and your email and account information will not be shared with or sold to anyone <span role="img" aria-label="Thumb Up">👍</span></p>
 				

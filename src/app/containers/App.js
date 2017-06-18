@@ -19,6 +19,8 @@ import { Composer } from "./Submit/Composer"
 import { About } from "./About"
 import { ListPosts } from "./Publication/List"
 import { Post } from "./Publication/Post"
+import { Login } from "./Login"
+
 
 
 // init GA tracking
@@ -55,7 +57,8 @@ export const App = props => {
 					<IndexRoute 								component={ Introduction } />
 					<Route path="compose" 			component={ Composer } />
 				</Route>
-
+				
+				<Route path="login"						component={ Login } />
 				<Route path="*"								component={ NotFound } status={404} />
 
 			</Router>
