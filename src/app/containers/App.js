@@ -13,14 +13,13 @@ import { Publication } from "./Publication"
 import { Submit } from "./Submit"
 
 // pages
-import { About, NotFound } from "../components/Views"
+import { About, NotFound, Login } from "../components/Views"
 
 
 import { Introduction } from "./Submit/Introduction"
 import { Composer } from "./Submit/Composer"
 import { ListPosts } from "./Publication/List"
 import { Post } from "./Publication/Post"
-import { Login } from "./Login"
 
 
 
