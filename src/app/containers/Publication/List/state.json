@@ -11,7 +11,7 @@
 	"items" : [
 		{
 			"type" : "placeholder",
-			"category" : "████████",
+			"tag" : "████████",
 			"title" : "█████",
 			"id" : "0000000",
 			"author" : {
@@ -21,7 +21,7 @@
 		},
 		{
 			"type" : "placeholder",
-			"category" : "████",
+			"tag" : "████",
 			"title" : "████████",
 			"id" : "0000001",
 			"author" : {
@@ -31,7 +31,7 @@
 		},
 		{
 			"type" : "placeholder",
-			"category" : "█████████",
+			"tag" : "█████████",
 			"title" : "███████",
 			"id" : "0000002",
 			"author" : {
