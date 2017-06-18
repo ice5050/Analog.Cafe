@@ -128,7 +128,10 @@ export const ListUl = styled.ul`
 					margin-top: 	0.04em;
 					
 					/* placeholder style */	
-					${ props => props.status === "loading" && `margin-top: .2em;`}
+					${ props => props.status === "loading" && `
+						margin-top: 	0;
+						line-height: 	1.65em;
+					`}
 				}`}		
 				
 				/* placeholder style */	
