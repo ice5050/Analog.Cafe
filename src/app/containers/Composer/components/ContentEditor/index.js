@@ -1,6 +1,5 @@
 // tools
 import React from "react"
-import PropTypes from "prop-types"
 import { Editor, Raw } from "slate"
 
 
@@ -12,7 +11,7 @@ import { saveContent } from "../../helpers/saver"
 
 
 // return
-export class ContentEditor extends React.Component {
+export default class extends React.Component {
 	state = {
 		state: Raw.deserialize(loadContent(), {terse: true}),
 		schema,
@@ -34,15 +33,4 @@ export class ContentEditor extends React.Component {
 			/>
 		)
 	}
-}
-
-// declare
-Editor.propTypes = {
-	plugins:					PropTypes.array,
-	schema:						PropTypes.object,
-	state: 						PropTypes.object,
-	onChange:					PropTypes.func,
-	onPaste:					PropTypes.func,
-	onDocumentChange:	PropTypes.func,
-	onKeyDown:				PropTypes.func,
 }

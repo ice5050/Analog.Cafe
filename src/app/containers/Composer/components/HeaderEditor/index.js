@@ -14,7 +14,7 @@ import { Header, Byline } from "../../../../components/ArticleStyles"
 
 
 // return
-export class HeaderEditor extends React.Component {
+export default class extends React.Component {
 	constructor(props) {
     super(props)
     this.handleTitleChange = this.handleTitleChange.bind(this)
@@ -49,7 +49,6 @@ export class HeaderEditor extends React.Component {
 					title={ this.props.author.name }
 					fetch={ "/api/author/" + this.props.author.id }
 				><Byline>by <u>{ this.props.author.name }</u></Byline></ModalLink>
-
 
 			</Header>
 		)

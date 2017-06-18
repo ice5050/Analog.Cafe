@@ -19,4 +19,4 @@ export const Submit = props => {
 }
 
 export { default as Intro } from "./components/Intro"
-export { default as ComposerWrap } from "./components/ComposerWrap"
+export { default as Composer } from "./components/Composer"

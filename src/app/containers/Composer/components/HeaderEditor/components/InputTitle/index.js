@@ -1,6 +1,5 @@
 // tools
 import React from "react"
-import PropTypes from "prop-types"
 import toTitleCase from "titlecase"
 
 // components
@@ -28,12 +27,4 @@ export class InputTitle extends React.Component {
     	placeholder={	this.props.placeholder }
     />
   }
-}
-
-// declare
-TextArea.propTypes = {
-	value: 				PropTypes.string,
-	placeholder:	PropTypes.string,
-	onChange:		 	PropTypes.func,
-	className: 		PropTypes.any,
 }

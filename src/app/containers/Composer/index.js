@@ -2,10 +2,9 @@
 import React from "react"
 
 // components
-import { Section } from "../../components/ArticleStyles"
-import { ComposerWrap } from "../../components/Views/components/Submit"
-import { HeaderEditor } from "./components/HeaderEditor"
-import { ContentEditor } from "./components/ContentEditor"
+import HeaderEditor from "./components/HeaderEditor"
+import ContentEditor from "./components/ContentEditor"
+import { Composer } from "../../components/Views/components/Submit"
 
 
 // placeholders
@@ -18,18 +17,19 @@ const titlePlaceholder = {
 	subtitle: "Subtitle (Optional)",
 }
 
-// render
+// return
 export default props => {
 	return(
-		<ComposerWrap>
-			<HeaderEditor
-				author={ authorPlaceholder }
-				pageTitle={ titlePlaceholder.title }
-				pageSubtitle={ titlePlaceholder.subtitle }
-			/>
-			<Section>
-				<ContentEditor author={ authorPlaceholder } />
-			</Section>
-		</ComposerWrap>
+		<Composer
+      header={
+        <HeaderEditor
+  				author={ authorPlaceholder }
+  				pageTitle={ titlePlaceholder.title }
+  				pageSubtitle={ titlePlaceholder.subtitle }
+  			/>
+      }
+    >
+			<ContentEditor author={ authorPlaceholder } />
+		</Composer>
 	)
 }

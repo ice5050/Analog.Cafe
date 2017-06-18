@@ -2,7 +2,7 @@
 import React from "react"
 
 // components
-import { Article } from "../../../../../ArticleStyles"
+import { Article, Section } from "../../../../../ArticleStyles"
 import Button from "../../../../../Button"
 
 
@@ -10,7 +10,8 @@ import Button from "../../../../../Button"
 export default props => {
 	return(
 		<Article>
-			{ props.children }
+			{ props.header }
+			<Section>{ props.children }</Section>
 			<Button to="/submit/send" red>Send Submission <span role="img" aria-label="Rocket">🚀</span></Button>
 		</Article>
 	)
