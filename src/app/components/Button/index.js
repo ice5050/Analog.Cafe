@@ -5,8 +5,4 @@ import React from "react"
 import { PageButtonStyles } from "./styles";
 
 // return
-export const PageButton = props => {
-	return (
-		<PageButtonStyles {...props} />
-	)
-}
+export const PageButton = props => <PageButtonStyles {...props} />

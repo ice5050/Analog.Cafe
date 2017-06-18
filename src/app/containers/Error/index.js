@@ -1,6 +1,6 @@
 // tools
 import React from "react"
-import { SmartLink } from "../../components/Button/components/SmartLink"
+import { SmartLink } from "../../components/SmartLink"
 
 
 // components
@@ -12,8 +12,7 @@ export const NotFound = props => {
 		<Article>
 			<Header 
 				pageTitle="😨" 
-				pageSubtitle="Page not found..." 
-				pageByline="Sorry about that." 
+				pageSubtitle="Page not found..."
 			/>
 			<Section>
 				<p style={{textAlign: "center"}}>Click <strong><SmartLink to="/">here</SmartLink></strong> to go to homepage.</p>
