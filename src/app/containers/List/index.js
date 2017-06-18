@@ -1,16 +1,14 @@
 // tools
 import React from "react"
 import axios from "axios"
-import ModalLink from "../../Modal"
+import ModalLink from "../Modal"
 
 
 // components
-import ListDescription from "../../../components/ListDescription"
-import Button from "../../../components/Button"
-import { default as ListBlock } from "../../../components/List"
-import { Section, Article } from "../../../components/ArticleStyles"
-
-
+import ListDescription from "../../components/ListDescription"
+import Button from "../../components/Button"
+import { default as ListBlock } from "../../components/List"
+import { Section, Article } from "../../components/ArticleStyles"
 
 // state
 import defaultListState from "./state.json"
@@ -22,10 +20,8 @@ import { getListHeaders } from "./helpers"
 import { ROUTE_LIST_API } from "./routes"
 
 
-
-
 // render
-export class ListPosts extends React.Component {
+export default class extends React.Component {
 	state = defaultListState
 
   _fetch = (page=1) => {

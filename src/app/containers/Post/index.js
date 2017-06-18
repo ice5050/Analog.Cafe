@@ -5,20 +5,20 @@ import { Editor, Raw } from "slate"
 
 
 // components
-import Heading from "../../../components/ArticleHeading"
-import ModalLink from "../../Modal"
-import { Section, Article, Byline } from "../../../components/ArticleStyles"
+import Heading from "../../components/ArticleHeading"
+import ModalLink from "../Modal"
+import { Section, Article, Byline } from "../../components/ArticleStyles"
 
 // state
 import defaultPostState from "./state.json"
-import { schema } from "../../Composer/components/ContentEditor/schema"
+import { schema } from "../Composer/components/ContentEditor/schema"
 
 // routes
 import { ROUTE_POST_API, ROUTE_ARTICLE_DIR } from "./routes"
 
 
 // render
-export class Post extends React.Component {
+export default class extends React.Component {
 	state = {
 		status: 		defaultPostState.status,
 		title: 			defaultPostState.title,

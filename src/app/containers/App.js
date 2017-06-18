@@ -8,28 +8,19 @@ import ReactGA from "react-ga"
 import Paper from "../themes/Paper"
 
 
-// sections
-import { Publication } from "./Publication"
-
-// pages
-import { About, NotFound, Login } from "../components/Views"
-
-
+// views and components
+import { About, NotFound, Login, Publication } from "../components/Views"
 import { Intro, Submit } from "../components/Views/Submit"
 import Composer from "./Composer"
-
-
-
-import { ListPosts } from "./Publication/List"
-import { Post } from "./Publication/Post"
-
+import List from "./List"
+import Post from "./Post"
 
 
 // init GA tracking
 ReactGA.initialize("UA-91374353-3")
 
 // render & route
-export const App = props => {
+export default props => {
 	const updateView = () => {
 		ReactGA.set({ page: window.location.pathname + window.location.search })
 		ReactGA.pageview(window.location.pathname + window.location.search)
@@ -46,13 +37,13 @@ export const App = props => {
 			<Router history={ browserHistory } onUpdate={ updateView } >
 
 				<Route path="/"			 					component={ Publication } >
-					<IndexRoute 								component={ ListPosts } />
-					<Route path="photo-essays"	component={ ListPosts } />
-					<Route path="articles"			component={ ListPosts } />
+					<IndexRoute 								component={ List } />
+					<Route path="photo-essays"	component={ List } />
+					<Route path="articles"			component={ List } />
 					<Route path="about"			 		component={ About } />
 
 					<Route path="zine/*"				component={ Post } />
-					<Route path="author/*"			component={ ListPosts } />
+					<Route path="author/*"			component={ List } />
 				</Route>
 
 				<Route path="submit"					component={ Submit } >
