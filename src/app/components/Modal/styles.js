@@ -1,7 +1,7 @@
 // styles
 import styled from "styled-components"
 import Color from "color"
-import { PageButton } from "../Buttons"
+import { PageButton } from "../Button"
 import { Caption } from "../Caption"
 
 

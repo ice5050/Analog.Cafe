@@ -1,6 +1,6 @@
 // tools
 import React from "react"
-import { Link } from "react-router"
+import { SmartLink } from "../../../../components/Button/components/SmartLink"
 import { List, Stats, Caption, ZigzagPicture } from "../../../../components/List"
 
 // helper
@@ -18,7 +18,7 @@ export const ListBlock = props => {
 			props.items.map(function(item) {
 				return (
 					<li key={ item.id }>
-						<Link to={ item.slug && ROUTE_ARTICLE_DIR + "/" + item.slug }>
+						<SmartLink to={ item.slug && ROUTE_ARTICLE_DIR + "/" + item.slug }>
 							<section>
 								<figure>
 									{ item.type !== "placeholder" && <img src={ item.poster.medium } alt={ item.title + " poster image" } /> }
@@ -43,7 +43,7 @@ export const ListBlock = props => {
 								</div>
 							</section>
 							<ZigzagPicture style={ item.type !== "placeholder" ? { backgroundImage: `url(${ item.poster.medium })`} : null } />
-						</Link>
+						</SmartLink>
 					</li>
 				)
 			})

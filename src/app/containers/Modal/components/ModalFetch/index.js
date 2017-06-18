@@ -26,7 +26,7 @@ export class ModalFetch extends React.Component {
 					image:				data.image,
 					shortBio:			data["bio-short"],
 					slug,
-					buttons: 	data.buttons,
+					buttons: 			data.buttons,
 				})
 			})
 			.catch(error => console.log(error))
