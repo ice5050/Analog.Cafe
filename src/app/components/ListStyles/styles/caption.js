@@ -2,11 +2,11 @@
 import styled from "styled-components"
 
 // components
-import { Caption } from "../../CaptionStyles"
+import { Caption as ListCaption } from "../../CaptionStyles"
 
 
 // css
-export const ListCaption = styled(Caption)`
+export const Caption = styled(ListCaption)`
 	overflow: 			hidden;
 	margin: 				0;
 	margin-bottom: 	.7em;

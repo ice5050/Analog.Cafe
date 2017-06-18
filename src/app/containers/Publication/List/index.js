@@ -5,10 +5,10 @@ import { ModalLink } from "../../Modal"
 
 
 // components
-import { Bleed } from "../../../components/List"
-import { Description } from "../../../components/List/components/Description"
-import { Section, Article } from "../../../components/ArticleStyles"
+import ListDescription from "../../../components/ListDescription"
 import Button from "../../../components/Button"
+import { Bleed } from "../../../components/ListStyles"
+import { Section, Article } from "../../../components/ArticleStyles"
 import { ListBlock } from "./components/ListBlock"
 
 
@@ -87,7 +87,7 @@ export class ListPosts extends React.Component {
 	render() {
 		return(
 			<div>
-				<Description>
+				<ListDescription>
 					<div>
 							{
 								this.state.filters.author
@@ -104,7 +104,7 @@ export class ListPosts extends React.Component {
 							}
 						&nbsp;{ getListHeaders(this.props.location.pathname).meta.emoji }
 					</div>
-				</Description>
+				</ListDescription>
 
 
 				<Bleed>

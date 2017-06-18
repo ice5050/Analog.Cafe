@@ -1,7 +1,7 @@
 // tools
 import React from "react"
 import { SmartLink } from "../../../../components/SmartLink"
-import { List, Stats, Caption, ZigzagPicture } from "../../../../components/List"
+import { Ul, Stats, Caption, ZigzagPicture } from "../../../../components/ListStyles"
 
 // helper
 import { datestamp } from "../helpers"
@@ -13,7 +13,7 @@ import { ROUTE_ARTICLE_DIR } from "../routes"
 // return
 export const ListBlock = props => {
 	return (
-		<List status={ props.status }>
+		<Ul status={ props.status }>
 		{
 			props.items.map(function(item) {
 				return (
@@ -31,11 +31,11 @@ export const ListBlock = props => {
 										(item.tag + "").replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())
 									}{
 										item.type !== "placeholder" && (
-											( item.category !== "photo-essay" ) ? 
-											" | " 
-												+ Math.round(item.stats.words / 200) 
+											( item.category !== "photo-essay" ) ?
+											" | "
+												+ Math.round(item.stats.words / 200)
 												+ "-minute read" :
-											" | " 
+											" | "
 												+ item.stats.images + " Image" + (item.stats.images > 1 ? "s" : "")
 										)
 									}</Stats>
@@ -48,6 +48,6 @@ export const ListBlock = props => {
 				)
 			})
 		}
-		</List>
+	</Ul>
 	)
 }
