@@ -8,7 +8,7 @@ import twitterLogo from "./images/logo-twitter.svg"
 
 
 // components
-import Button from "../../../Button"
+import Button from "../../Button"
 
 // css
 const brandButtonStyles = css`

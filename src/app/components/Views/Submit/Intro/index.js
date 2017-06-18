@@ -2,11 +2,11 @@
 import React from "react"
 
 // components
-import Heading from "../../../../ArticleHeading"
-import Button from "../../../../Button"
-import Figure from "../../../../Figure"
-import Link from "../../../../Link"
-import { Section, Article } from "../../../../ArticleStyles"
+import Heading from "../../../ArticleHeading"
+import Button from "../../../Button"
+import Figure from "../../../Figure"
+import Link from "../../../Link"
+import { Section, Article } from "../../../ArticleStyles"
 
 // images
 import illustrationComposer from "./images/illustration-composer.jpg"

@@ -15,7 +15,7 @@ import { Publication } from "./Publication"
 import { About, NotFound, Login } from "../components/Views"
 
 
-import { Intro, Submit } from "../components/Views/components/Submit"
+import { Intro, Submit } from "../components/Views/Submit"
 import Composer from "./Composer"
 
 

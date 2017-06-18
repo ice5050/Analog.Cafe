@@ -2,12 +2,12 @@
 import React from "react"
 
 // components
-import Heading from "../../../ArticleHeading"
-import Figure from "../../../Figure"
-import Link from "../../../Link"
+import Heading from "../../ArticleHeading"
+import Figure from "../../Figure"
+import Link from "../../Link"
 
 // styles
-import { Section, Article } from "../../../ArticleStyles"
+import { Section, Article } from "../../ArticleStyles"
 import illustrationDmitri from "./images/illustration-dmitri.jpg"
 
 

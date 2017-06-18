@@ -2,9 +2,9 @@
 import React from "react"
 
 // components
-import Heading from "../../../ArticleHeading"
-import Button from "../../../Button"
-import { Article, Section } from "../../../ArticleStyles"
+import Heading from "../../ArticleHeading"
+import Button from "../../Button"
+import { Article, Section } from "../../ArticleStyles"
 
 
 // styles
