@@ -6,7 +6,10 @@ import Color from "color"
 import zigzagImage from "./zigzag-mask.svg";
 
 
-// css
+// css & constants
+export const zigzagWidth = "33%"
+export const zigzagTopShim = 12
+
 const blockSafety = props => props.theme.size.block.column.safety
 const blockSpacing = props => props.theme.size.block.spacing
 const greyLine = props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string()
@@ -15,8 +18,6 @@ const posterDimensions = css`
 	width: 	5.5em;
 	height: 9.33em;
 `
-export const zigzagWidth = "33%"
-export const zigzagTopShim = 12
 const zigzagWidthShim = css`width: calc( ${ zigzagWidth } + 5px);`
 const zigzagFill = css`
 	position: absolute;
@@ -35,6 +36,9 @@ const zigzagDimensions = css`
 	${ props => props.theme.size.breakpoint.max.l`{ display: none !important; }` }
 `
 
+
+
+// return
 export const Ul = styled.ul`
 
 	/* placeholder style */

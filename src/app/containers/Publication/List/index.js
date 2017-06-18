@@ -7,9 +7,9 @@ import { ModalLink } from "../../Modal"
 // components
 import ListDescription from "../../../components/ListDescription"
 import Button from "../../../components/Button"
-import { Bleed } from "../../../components/ListStyles"
+import { default as ListBlock } from "../../../components/List"
 import { Section, Article } from "../../../components/ArticleStyles"
-import { ListBlock } from "./components/ListBlock"
+
 
 
 // state
@@ -105,14 +105,9 @@ export class ListPosts extends React.Component {
 						&nbsp;{ getListHeaders(this.props.location.pathname).meta.emoji }
 					</div>
 				</ListDescription>
-
-
-				<Bleed>
-					<ListBlock  status={ this.state.status } items={ this.state.items } />
-				</Bleed>
+				<ListBlock  status={ this.state.status } items={ this.state.items } />
 
 				{ parseInt(this.state.page.total, 0) > 1 && parseInt(this.state.page.total, 0) > parseInt(this.state.page.current, 0) ? <Button to="#more" red onClick={ this.handleMore.bind(this)} >Load More</Button> : null }
-
 
 				<Article><Section /></Article>
 			</div>
