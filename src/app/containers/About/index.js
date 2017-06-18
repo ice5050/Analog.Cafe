@@ -4,10 +4,10 @@ import React from "react"
 // components
 import Heading from "../../components/ArticleHeading"
 import Figure from "../../components/Figure"
-import { Section, Article } from "../../components/ArticleStyles"
-import { SmartLink } from "../../components/SmartLink"
+import Link from "../../components/Link"
 
 // styles
+import { Section, Article } from "../../components/ArticleStyles"
 import illustrationDmitri from "./images/illustration-dmitri.jpg"
 
 
@@ -25,15 +25,15 @@ export const About = props => {
 
 				<p>Analog.Cafe aims to unite the film photography medium&rsquo;s creative community through photo essays, written prose and articles.</p>
 
-				<p>This project began as a Kickstarter <SmartLink to="https://www.kickstarter.com/projects/dmitrizzle/analogcafe-the-remarkable-film-photography-blog">campaign</SmartLink> on April 12, 2017. It got 100% funded within the first three weeks. Fifty-one person has pledged their contributions to help this publication become a reality.</p>
+				<p>This project began as a Kickstarter <Link to="https://www.kickstarter.com/projects/dmitrizzle/analogcafe-the-remarkable-film-photography-blog">campaign</Link> on April 12, 2017. It got 100% funded within the first three weeks. Fifty-one person has pledged their contributions to help this publication become a reality.</p>
 
 				<Figure src={ illustrationDmitri }>dmitrizzle&rsquo;s portrait, double-exposed with a photograph of a street dog. Shot on Instax Mini Monochrome.</Figure>
 
-				<p>Analog.Cafe is a community-based, open-source (find us on GitHub!) project. There&rsquo;s an open conversation on <SmartLink to="https://twitter.com/analog_cafe">Twitter</SmartLink> and a private one amongst the contributors on Slack. What you see here is a product of a group effort by passionate creative individuals.</p>
+				<p>Analog.Cafe is a community-based, open-source (find us on GitHub!) project. There&rsquo;s an open conversation on <Link to="https://twitter.com/analog_cafe">Twitter</Link> and a private one amongst the contributors on Slack. What you see here is a product of a group effort by passionate creative individuals.</p>
 
 				<p>This project might not be for everyone. It is a curated collection of creative works based on certain tastes and styles that may not please all. Which is OK. As long as you are enjoying yourself, you are always welcome here.</p>
 
-				<p>And if you&rsquo;d like to <SmartLink to="/submit">participate</SmartLink> we&rsquo;d be lucky to have you on-board. 🙌</p>
+				<p>And if you&rsquo;d like to <Link to="/submit">participate</Link> we&rsquo;d be lucky to have you on-board. 🙌</p>
 
 				<hr />
 

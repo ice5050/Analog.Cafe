@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { IndexLink } from "react-router"
 
 // components
-import { SmartLink } from "../SmartLink"
+import Link from "../Link"
 
 // css
 const containerVerticalSpacing = props => props.theme.size.font.make.larger / 1.2
@@ -25,7 +25,7 @@ export const Wrapper = styled.nav`
 	}
 
 `
-const StyledLink = styled(SmartLink)`
+const StyledLink = styled(Link)`
 	background: 			${ props => props.theme.color.background };
 	text-decoration: 	none;
 	position: 				relative;

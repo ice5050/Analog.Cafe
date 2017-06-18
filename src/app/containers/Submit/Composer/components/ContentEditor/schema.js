@@ -3,7 +3,7 @@ import React from "react"
 
 // components
 import { Image } from "../../../../Picture"
-import { SmartLink } from "../../../../../components/SmartLink"
+import Link from "../../../../../components/Link"
 
 
 // return
@@ -27,7 +27,7 @@ export const schema = {
     link: 				props => {
 										const { data } = props.node
 										const href = data.get("href")
-										return <SmartLink { ...props.attributes } to={ href }>{ props.children }</SmartLink>
+										return <Link { ...props.attributes } to={ href }>{ props.children }</Link>
     },
 	},
 	marks: {

@@ -6,13 +6,13 @@ import styled from "styled-components"
 import Color from "color"
 
 // components
-import { SmartLink } from "../SmartLink"
+import Link from "../Link"
 
 
 // css
 // below three lines filter out prop "red" that isn't recognized by Link component
 export default styled(({ red, ...props }) =>
-  <SmartLink { ...props } />
+  <Link { ...props } />
 )`
 
 

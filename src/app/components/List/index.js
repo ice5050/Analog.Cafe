@@ -1,6 +1,6 @@
 // tools
 import React from "react"
-import { SmartLink } from "../SmartLink"
+import Link from "../Link"
 
 // styles
 import { Bleed } from "./styles/bleed"
@@ -25,7 +25,7 @@ export default props => {
 				props.items.map(function(item) {
 					return (
 						<li key={ item.id }>
-							<SmartLink to={ item.slug && ROUTE_ARTICLE_DIR + "/" + item.slug }>
+							<Link to={ item.slug && ROUTE_ARTICLE_DIR + "/" + item.slug }>
 								<section>
 									<figure>
 										{ item.type !== "placeholder" && <img src={ item.poster.medium } alt={ item.title + " poster image" } /> }
@@ -50,7 +50,7 @@ export default props => {
 									</div>
 								</section>
 								<ZigzagPicture style={ item.type !== "placeholder" ? { backgroundImage: `url(${ item.poster.medium })`} : null } />
-							</SmartLink>
+							</Link>
 						</li>
 					)
 				})

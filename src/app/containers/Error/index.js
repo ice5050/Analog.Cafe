@@ -1,21 +1,22 @@
 // tools
 import React from "react"
-import { SmartLink } from "../../components/SmartLink"
+import Link from "../../components/Link"
 
 
 // components
-import { Section, Article, Header } from "../../components/ArticleStyles"
+import Heading from "../../components/ArticleHeading"
+import { Section, Article } from "../../components/ArticleStyles"
 
 // render
 export const NotFound = props => {
 	return(
 		<Article>
-			<Header
+			<Heading
 				pageTitle="😨"
 				pageSubtitle="Page not found..."
 			/>
 			<Section>
-				<p style={{textAlign: "center"}}>Click <strong><SmartLink to="/">here</SmartLink></strong> to go to homepage.</p>
+				<p style={{textAlign: "center"}}>Click <strong><Link to="/">here</Link></strong> to go to homepage.</p>
 			</Section>
 		</Article>
 	)
