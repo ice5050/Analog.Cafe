@@ -1,6 +1,7 @@
+// tools
+
 // styles
 import styled, { css } from "styled-components"
-
 
 // css
 export const CaptionStyles = css`
@@ -14,4 +15,4 @@ export const CaptionStyles = css`
 	text-align: 	justify;
 	padding:			0;
 `
-export const StyledCaption = styled.div`${ CaptionStyles }`
+export const Caption = styled.div`${ CaptionStyles }`

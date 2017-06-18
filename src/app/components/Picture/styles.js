@@ -5,8 +5,7 @@ import { Picture } from "react-responsive-picture"
 // styles
 import styled, { css } from "styled-components"
 import Color from "color"
-import { Caption } from "../Caption"
-import { CaptionStyles } from "../Caption/styles"
+import { Caption, CaptionStyles } from "../CaptionStyles"
 
 
 
@@ -22,7 +21,7 @@ const bleed = css`
 	margin-right: 	-${ props => props.theme.size.block.column.safety }em;
 	width: 					100vw;
 	max-width: 			100vw;
-	
+
 	${ props => props.feature ? props => props.theme.size.breakpoint.min.l`
 		margin-left:	calc(( -100vw + ${ props => props.theme.size.block.column.maxwidth.m }px )/2 - ${ props => props.theme.size.block.column.safety }em );
 	`
@@ -33,15 +32,15 @@ const bleed = css`
 	: null }
 `
 export const PictureFigure = styled.figure`
-	padding: 									0;	
+	padding: 									0;
 	overflow: 								hidden;
 	margin: 									0 0 ${ props => props.theme.size.block.spacing }em;
 
-	width: 										65%; 
+	width: 										65%;
 	margin-left: 							calc((${ props => props.theme.size.block.column.maxwidth.m }px - 100vw)/3.5);
 	margin-right: 						${ props => props.theme.size.block.spacing }em;
 	float: 										left;
-	
+
 	background:								${ props => props.theme.color.background };
 	box-shadow:								0 0 .5em ${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string() };
 
@@ -50,15 +49,15 @@ export const PictureFigure = styled.figure`
 		margin-left: 	-${ props => props.theme.size.block.column.maxwidth.m / 4 }px;
 		margin-right: ${ props => props.theme.size.block.spacing }em;
 	`}
-	
+
 	${ props => props.theme.size.breakpoint.min.xxl`
 		width: 				95%;
 		margin-left: 	-${ props => props.theme.size.block.column.maxwidth.l / 2 }px;
 		margin-right: ${ props => props.theme.size.block.spacing }em;
 	` }
-	
-	${ props => props.feature ? bleed : props => props.theme.size.breakpoint.max.m` ${ bleed } ` }	
-	
+
+	${ props => props.feature ? bleed : props => props.theme.size.breakpoint.max.m` ${ bleed } ` }
+
 	/* featured images and smaller screens should have the first image pulled up */
 	/*
 	&:first-of-type {
@@ -68,13 +67,13 @@ export const PictureFigure = styled.figure`
 		`}
 	}
 	*/
-	
-	
+
+
 	&.focus {
 		box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight },
 								0 ${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
 	}
-	
+
 	textarea {
 		${ CaptionStyles }
 	}
@@ -94,7 +93,7 @@ const captionBlock = css`
 export const PictureCaption = styled(Caption)`
 	padding:				${ props => props.theme.size.block.column.safety / props.theme.size.font.make.smaller }em;
 	border-bottom:	${ props => props.theme.elements.thickBorder };
-	
+
 	${ props => props.feature && captionBlock }
 `
 export const PictureByline = styled.div`

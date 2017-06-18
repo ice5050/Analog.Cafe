@@ -2,7 +2,7 @@
 import styled from "styled-components"
 import Color from "color"
 import Button from "../Button"
-import { Caption } from "../Caption"
+import { Caption } from "../CaptionStyles"
 
 
 // css
