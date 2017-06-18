@@ -1,14 +1,14 @@
 // tools
 import React from "react"
-import Link from "../../components/Link"
+import Link from "../../../Link"
 
 
 // components
-import Heading from "../../components/ArticleHeading"
-import { Section, Article } from "../../components/ArticleStyles"
+import Heading from "../../../ArticleHeading"
+import { Section, Article } from "../../../ArticleStyles"
 
 // render
-export const NotFound = props => {
+export default props => {
 	return(
 		<Article>
 			<Heading

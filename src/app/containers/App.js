@@ -13,10 +13,9 @@ import { Publication } from "./Publication"
 import { Submit } from "./Submit"
 
 // pages
-import { About } from "../components/Views"
+import { About, NotFound } from "../components/Views"
 
 
-import { NotFound } from "./Error"
 import { Introduction } from "./Submit/Introduction"
 import { Composer } from "./Submit/Composer"
 import { ListPosts } from "./Publication/List"
