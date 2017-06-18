@@ -4,8 +4,8 @@ import React from "react"
 // components
 import Heading from "../../../components/ArticleHeading"
 import Button from "../../../components/Button"
+import Figure from "../../../components/Figure"
 import { Section, Article } from "../../../components/ArticleStyles"
-import { Figure } from "../../../components/Picture"
 import { SmartLink } from "../../../components/SmartLink"
 
 // styles

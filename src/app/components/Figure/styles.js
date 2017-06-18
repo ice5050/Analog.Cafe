@@ -1,16 +1,14 @@
 // tools
 import { Picture } from "react-responsive-picture"
 
-
 // styles
 import styled, { css } from "styled-components"
 import Color from "color"
-import { Caption, CaptionStyles } from "../CaptionStyles"
-
+import { Caption as PictureCaption, CaptionStyles } from "../CaptionStyles"
 
 
 // css
-export const PictureImage = styled(Picture)`
+export const Image = styled(Picture)`
 	width: 		100%;
   display: 	block;
 `
@@ -31,7 +29,7 @@ const bleed = css`
 	`
 	: null }
 `
-export const PictureFigure = styled.figure`
+export const Figure = styled.figure`
 	padding: 									0;
 	overflow: 								hidden;
 	margin: 									0 0 ${ props => props.theme.size.block.spacing }em;
@@ -90,12 +88,12 @@ const captionBlock = css`
 		` }
 	` }
 `
-export const PictureCaption = styled(Caption)`
+export const Caption = styled(PictureCaption)`
 	padding:				${ props => props.theme.size.block.column.safety / props.theme.size.font.make.smaller }em;
 	border-bottom:	${ props => props.theme.elements.thickBorder };
 
 	${ props => props.feature && captionBlock }
 `
-export const PictureByline = styled.div`
+export const Byline = styled.div`
 	${ props => props.composer && `opacity: .5;` }
 `
