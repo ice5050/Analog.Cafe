@@ -10,14 +10,16 @@ import Paper from "../themes/Paper"
 
 // sections
 import { Publication } from "./Publication"
-import { Submit } from "./Submit"
 
 // pages
 import { About, NotFound, Login } from "../components/Views"
 
 
-import { Introduction } from "./Submit/Introduction"
-import { Composer } from "./Submit/Composer"
+import { Intro, Submit } from "../components/Views/components/Submit"
+import Composer from "./Composer"
+
+
+
 import { ListPosts } from "./Publication/List"
 import { Post } from "./Publication/Post"
 
@@ -54,7 +56,7 @@ export const App = props => {
 				</Route>
 
 				<Route path="submit"					component={ Submit } >
-					<IndexRoute 								component={ Introduction } />
+					<IndexRoute 								component={ Intro } />
 					<Route path="compose" 			component={ Composer } />
 				</Route>
 

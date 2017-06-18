@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import toTitleCase from "titlecase"
 
 // components
-import TextArea from "../../../../../../../components/TextArea"
+import TextArea from "../../../../../../components/TextArea"
 
 
 

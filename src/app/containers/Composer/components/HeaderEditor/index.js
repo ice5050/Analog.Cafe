@@ -5,11 +5,11 @@ import { loadHeader } from "../../helpers/loader"
 
 // components
 import { Title, Subtitle } from "./components/InputTitle/styles"
-import ModalLink from "../../../../Modal"
+import ModalLink from "../../../Modal"
 
 
 // styles
-import { Header, Byline } from "../../../../../components/ArticleStyles"
+import { Header, Byline } from "../../../../components/ArticleStyles"
 
 
 

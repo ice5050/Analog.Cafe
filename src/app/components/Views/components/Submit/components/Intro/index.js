@@ -2,18 +2,18 @@
 import React from "react"
 
 // components
-import Heading from "../../../components/ArticleHeading"
-import Button from "../../../components/Button"
-import Figure from "../../../components/Figure"
-import { Section, Article } from "../../../components/ArticleStyles"
-import Link from "../../../components/Link"
+import Heading from "../../../../../ArticleHeading"
+import Button from "../../../../../Button"
+import Figure from "../../../../../Figure"
+import Link from "../../../../../Link"
+import { Section, Article } from "../../../../../ArticleStyles"
 
-// styles
+// images
 import illustrationComposer from "./images/illustration-composer.jpg"
 import illustrationCode from "./images/illustration-computer_code.jpg"
 
 // render
-export const Introduction = props => {
+export default props => {
 	return(
 		<Article>
 			<Heading

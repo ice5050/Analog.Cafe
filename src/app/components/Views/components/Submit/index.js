@@ -1,11 +1,10 @@
 // tools
 import React from "react"
-import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 
 
 // components
-import { VisitorNav, ComposerNav } from "../../components/NavTypes"
+import { VisitorNav, ComposerNav } from "../../../NavTypes"
 
 // render
 export const Submit = props => {
@@ -19,8 +18,5 @@ export const Submit = props => {
 	)
 }
 
-// declare
-Submit.propTypes = {
-	children: PropTypes.element.isRequired,
-	pathname: PropTypes.string,
-}
+export { default as Intro } from "./components/Intro"
+export { default as ComposerWrap } from "./components/ComposerWrap"

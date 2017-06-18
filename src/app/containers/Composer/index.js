@@ -2,8 +2,8 @@
 import React from "react"
 
 // components
-import { Section, Article } from "../../../components/ArticleStyles"
-import Button from "../../../components/Button"
+import { Section } from "../../components/ArticleStyles"
+import { ComposerWrap } from "../../components/Views/components/Submit"
 import { HeaderEditor } from "./components/HeaderEditor"
 import { ContentEditor } from "./components/ContentEditor"
 
@@ -19,9 +19,9 @@ const titlePlaceholder = {
 }
 
 // render
-export const Composer = props => {
+export default props => {
 	return(
-		<Article>
+		<ComposerWrap>
 			<HeaderEditor
 				author={ authorPlaceholder }
 				pageTitle={ titlePlaceholder.title }
@@ -30,7 +30,6 @@ export const Composer = props => {
 			<Section>
 				<ContentEditor author={ authorPlaceholder } />
 			</Section>
-			<Button to="/submit/send" red>Send Submission <span role="img" aria-label="Rocket">🚀</span></Button>
-		</Article>
+		</ComposerWrap>
 	)
 }

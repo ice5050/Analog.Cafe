@@ -2,8 +2,8 @@
 import React from "react"
 
 // components
-import { Image } from "../../../../Picture"
-import Link from "../../../../../components/Link"
+import { Image } from "../../../Picture"
+import Link from "../../../../components/Link"
 
 
 // return
