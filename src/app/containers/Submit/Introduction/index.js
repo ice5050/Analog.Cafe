@@ -1,11 +1,11 @@
 // tools
 import React from "react"
-import { Link } from "react-router"
 
 // components
 import { Header, Section, Article } from "../../../components/Article"
-import { PageButton } from "../../../components/Buttons"
+import { PageButton } from "../../../components/Button"
 import { Figure } from "../../../components/Picture"
+import { SmartLink } from "../../../components/Button/components/SmartLink"
 
 // render
 export const Introduction = props => {
@@ -18,13 +18,13 @@ export const Introduction = props => {
 			<Section>
 				
 				<PageButton to="/submit/compose" red>Submit Now</PageButton>
-				<p><Link to="/submit/login"><strong>Log in</strong></Link> to edit your profile and view your existing submissions.</p>
+				<p><SmartLink to="/submit/login"><strong>Log in</strong></SmartLink> to edit your profile and view your existing submissions.</p>
 				<p><em>You can create your account once you submit your work. It&rsquo;ll take 10 seconds.</em></p>
 				
 				<hr />
 				
 				<h3>&ldquo;Compose&rdquo; Your Submission</h3>
-				<p>Upload your image(s) and submit. Use Analog.Cafe <Link to="/submit/compose"><em>Composer</em></Link> to type up your story; it&rsquo;ll automatically format and save everything for you.</p>
+				<p>Upload your image(s) and submit. Use Analog.Cafe <SmartLink to="/submit/compose"><em>Composer</em></SmartLink> to type up your story; it&rsquo;ll automatically format and save everything for you.</p>
 				
 				<Figure src="images/app/demo-composer.jpg">When you edit your submission you see it exactly how it would appear when published.</Figure>
 				

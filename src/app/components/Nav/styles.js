@@ -1,7 +1,10 @@
 // tools
 import React from "react"
 import styled from "styled-components"
-import { Link, IndexLink } from "react-router"
+import { IndexLink } from "react-router"
+
+// components
+import { SmartLink } from "../Button/components/SmartLink"
 
 // css
 const containerVerticalSpacing = props => props.theme.size.font.make.larger / 1.2
@@ -22,26 +25,26 @@ export const NavContainer = styled.nav`
 	}
 	
 `
-const StyledLink = styled(Link)`
+const StyledLink = styled(SmartLink)`
 	background: 			${ props => props.theme.color.background };
 	text-decoration: 	none;
 	position: 				relative;
 	&.active::before {
-		content: 			"";
-		width: 				110%;
-		left: 				-5%;
-		height: 			2px;
-		bottom: 			-5px;
-		background: 	${ props => props.theme.color.foreground };
-		position: 		absolute;
+		content: 				"";
+		width: 					110%;
+		left: 					-5%;
+		height: 				2px;
+		bottom: 				-5px;
+		background: 		${ props => props.theme.color.foreground };
+		position: 			absolute;
 	}
 	
 `
 export const NavLink = props => {
-	return <StyledLink {...props} activeClassName="active"/>
+	return <StyledLink { ...props } activeClassName="active"/>
 }
 export const NavIndexLink = props => {
-	return <IndexLink {...props} activeClassName="active"/>
+	return <IndexLink { ...props } activeClassName="active"/>
 }
 
 export const NavItem = styled.li`

@@ -3,7 +3,7 @@ import React from "react"
 
 // components
 import { Section, Article } from "../../../components/Article"
-import { PageButton } from "../../../components/Buttons"
+import { PageButton } from "../../../components/Button"
 import { HeaderEditor } from "./components/HeaderEditor"
 import { ContentEditor } from "./components/ContentEditor"
 

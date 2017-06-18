@@ -8,7 +8,7 @@ import { ModalLink } from "../../Modal"
 import { Bleed } from "../../../components/List"
 import { Description } from "../../../components/List/components/Description"
 import { Section, Article } from "../../../components/Article"
-import { PageButton } from "../../../components/Buttons"
+import { PageButton } from "../../../components/Button"
 import { ListBlock } from "./components/ListBlock"
 
 

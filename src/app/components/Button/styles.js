@@ -1,12 +1,12 @@
 // tools
 import React from "react"
 
-// components
-import { SmartLink } from "./components/SmartLink"
-
 // styles
 import styled from "styled-components"
 import Color from "color"
+
+// components
+import { SmartLink } from "./components/SmartLink"
 
 
 // css
