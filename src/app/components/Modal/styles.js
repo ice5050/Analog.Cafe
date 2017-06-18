@@ -1,7 +1,7 @@
 // styles
 import styled from "styled-components"
 import Color from "color"
-import { PageButton } from "../Button"
+import Button from "../Button"
 import { Caption } from "../Caption"
 
 
@@ -25,16 +25,16 @@ export const Card = styled.aside`
 	overflow: 			hidden;
 	margin: 				0 auto;
 	max-width: 			${ props => props.theme.size.breakpoint.stops.min }px;
-	
+
 	border-radius: 	${ props => props.theme.effects.borderRadius.med }em;
-	box-shadow: 		0 ${ props => props.theme.size.block.spacing /2 }em ${ props => props.theme.size.block.spacing * 2 }em 
-									${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.half).string() };
-	
+	box-shadow: 		0 ${ props => props.theme.size.block.spacing /2 }em ${ props => props.theme.size.block.spacing * 2 }em
+									 ${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.half).string() };
+
 	${ props => props.theme.size.breakpoint.max.xs`
 		border-radius: 0;
 	`
 	}
-	
+
  	figure {
  		margin: 				0;
  		border-bottom:	${ props => props.theme.elements.thickBorder };
@@ -52,7 +52,7 @@ export const Card = styled.aside`
 		position: 			relative;
 		box-shadow: 		0 1px 1px ${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least * 2).string() }
 										, 0 0 0 1px ${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string() };
-		
+
 		h3 {
 			${ props => props.theme.size.font.auto }
 			${ props => props.theme.typography.title.auto }
@@ -75,11 +75,11 @@ export const Card = styled.aside`
 			}
 		}
 	}
-	
+
 	.fonts-loaded-headers & h3 { ${ props => props.theme.typography.title.fontsLoaded } }
 `
 
-export const CardButton = styled(PageButton)`
+export const CardButton = styled(Button)`
 	max-width: 			100%;
 	margin: 				0;
 	border-radius: 	0;

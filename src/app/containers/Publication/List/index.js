@@ -8,7 +8,7 @@ import { ModalLink } from "../../Modal"
 import { Bleed } from "../../../components/List"
 import { Description } from "../../../components/List/components/Description"
 import { Section, Article } from "../../../components/ArticleStyles"
-import { PageButton } from "../../../components/Button"
+import Button from "../../../components/Button"
 import { ListBlock } from "./components/ListBlock"
 
 
@@ -111,7 +111,7 @@ export class ListPosts extends React.Component {
 					<ListBlock  status={ this.state.status } items={ this.state.items } />
 				</Bleed>
 
-				{ parseInt(this.state.page.total, 0) > 1 && parseInt(this.state.page.total, 0) > parseInt(this.state.page.current, 0) ? <PageButton to="#more" red onClick={ this.handleMore.bind(this)} >Load More</PageButton> : null }
+				{ parseInt(this.state.page.total, 0) > 1 && parseInt(this.state.page.total, 0) > parseInt(this.state.page.current, 0) ? <Button to="#more" red onClick={ this.handleMore.bind(this)} >Load More</Button> : null }
 
 
 				<Article><Section /></Article>

@@ -3,7 +3,7 @@ import React from "react"
 
 // components
 import { Article, Heading, Section } from "../../components/ArticleStyles"
-import { PageButton } from "../../components/Button"
+import Button from "../../components/Button"
 
 
 // styles
@@ -26,7 +26,7 @@ export const Login = props => {
 				<p style={{textAlign: "center"}}><em>- or -</em></p>
 				<h3>Login with Email</h3>
 
-				<PageButton to="/">Cancel</PageButton>
+				<Button to="/">Cancel</Button>
 			</Section>
 		</Article>
 	)

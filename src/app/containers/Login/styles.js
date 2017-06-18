@@ -8,7 +8,7 @@ import twitterLogo from "./images/logo-twitter.svg"
 
 
 // components
-import { PageButton } from "../../components/Button"
+import Button from "../../components/Button"
 
 // css
 const brandButtonStyles = css`
@@ -17,7 +17,7 @@ const brandButtonStyles = css`
 		height: 2em;
 	}
 `
-const StyledTwitterButton = styled(PageButton)`
+const StyledTwitterButton = styled(Button)`
 	background-color:	#1da1f2;
 	${ brandButtonStyles }
 	img {
@@ -25,7 +25,7 @@ const StyledTwitterButton = styled(PageButton)`
 	}
 `
 
-const StyledFacebookButton = styled(PageButton)`
+const StyledFacebookButton = styled(Button)`
 	background-color:	#3c5a99;
 	${ brandButtonStyles }
 	img {

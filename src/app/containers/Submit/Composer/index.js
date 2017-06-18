@@ -3,7 +3,7 @@ import React from "react"
 
 // components
 import { Section, Article } from "../../../components/ArticleStyles"
-import { PageButton } from "../../../components/Button"
+import Button from "../../../components/Button"
 import { HeaderEditor } from "./components/HeaderEditor"
 import { ContentEditor } from "./components/ContentEditor"
 
@@ -30,7 +30,7 @@ export const Composer = props => {
 			<Section>
 				<ContentEditor author={ authorPlaceholder } />
 			</Section>
-			<PageButton to="/submit/send" red>Send Submission <span role="img" aria-label="Rocket">🚀</span></PageButton>
+			<Button to="/submit/send" red>Send Submission <span role="img" aria-label="Rocket">🚀</span></Button>
 		</Article>
 	)
 }

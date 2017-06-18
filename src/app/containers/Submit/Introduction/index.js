@@ -3,7 +3,7 @@ import React from "react"
 
 // components
 import { Heading, Section, Article } from "../../../components/ArticleStyles"
-import { PageButton } from "../../../components/Button"
+import Button from "../../../components/Button"
 import { Figure } from "../../../components/Picture"
 import { SmartLink } from "../../../components/SmartLink"
 
@@ -21,7 +21,7 @@ export const Introduction = props => {
 			/>
 			<Section>
 
-				<PageButton to="/submit/compose" red>Submit Now</PageButton>
+				<Button to="/submit/compose" red>Submit Now</Button>
 				<p><SmartLink to="/login"><strong>Log in</strong></SmartLink> to edit your profile and view your existing submissions.</p>
 				<p><em>You can create your account once you submit your work. It&rsquo;ll take 10 seconds.</em></p>
 
@@ -61,7 +61,7 @@ export const Introduction = props => {
 
 				<hr />
 
-				<PageButton to="/submit/compose" red>Submit Now</PageButton>
+				<Button to="/submit/compose" red>Submit Now</Button>
 
 			</Section>
 		</Article>
