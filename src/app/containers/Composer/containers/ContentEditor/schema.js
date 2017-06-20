@@ -4,12 +4,23 @@ import React from "react"
 // components
 import Picture from "../../../Picture"
 import Link from "../../../../components/Link"
+import Placeholder from "./containers/Placeholder"
 
 
 // return
 export const schema = {
 	nodes: {
-		paragraph: 		props => <p>{ props.children }</p>,
+		paragraph: 		props => <p
+										{ ...props.attributes }
+										style={{ position: "relative" }}
+									>
+										<Placeholder
+											{ ...props }
+											style={{ position: "relative" }}
+											placeholderText="Upload an image or tell a story..."
+										/>
+										{ props.children }
+									</p>,
 		heading:			props => <h3>{ props.children }</h3>, // no links or style should be allowed in headings
 		divider:			props => {
 										const { node, state } = props
