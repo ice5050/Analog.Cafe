@@ -2,7 +2,7 @@
 import React from "react"
 
 // components
-import Fetch from "./Fetch"
+import Fetch from "./containers/Fetch"
 
 // styles
 import { Anchor, Wrapper } from "./styles"

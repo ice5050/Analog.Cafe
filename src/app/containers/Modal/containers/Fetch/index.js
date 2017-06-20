@@ -3,7 +3,7 @@ import React from "react"
 import axios from "axios"
 
 // components
-import Card from "./Card"
+import Card from "../Card"
 
 // state
 import defaultPostState from "./state.json"
