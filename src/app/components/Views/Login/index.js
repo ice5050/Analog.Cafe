@@ -1,14 +1,16 @@
 // tools
 import React from "react"
+import { browserHistory } from "react-router"
 
 // components
 import Heading from "../../ArticleHeading"
 import Button from "../../Button"
 import { Article, Section } from "../../ArticleStyles"
+import { SubtitleInput } from "../../InputText"
 
 
 // styles
-import { TwitterButton, FacebookButton } from "./styles"
+import { TwitterButton } from "./styles"
 
 
 // render
@@ -18,16 +20,18 @@ export default props => {
 			<Heading pageTitle="Log In" />
 			<Section>
 
-				<TwitterButton to="/">Login with Twitter</TwitterButton>
+				<TwitterButton to="/submit/send">Login with Twitter</TwitterButton>
 
-				<p style={{textAlign: "center"}}><em>- or -</em></p>
+				<p style={{ textAlign: "center" }}><em>- or -</em></p>
 
-				<FacebookButton to="/">Login with Facebook</FacebookButton>
+				<SubtitleInput
+					style={{ textAlign: "center", padding: 0 }}
+					placeholder="type@your.email"
+				></SubtitleInput>
+				<Button to="/submit/send" red>Login with Email</Button>
 
-				<p style={{textAlign: "center"}}><em>- or -</em></p>
-				<h3>Login with Email</h3>
-
-				<Button to="/">Cancel</Button>
+				<p style={{ textAlign: "center" }}><em>- or -</em></p>
+				<Button to="/" onClick={ browserHistory.goBack }>Go Back</Button>
 			</Section>
 		</Article>
 	)
