@@ -7,7 +7,7 @@ import ThemeGlobals from "./styles/globals"
 import "sanitize.css/sanitize.css"
 
 // theme
-import { Paper } from "./theme"
+import { Paper } from "./Paper"
 import { loadFonts } from "./helpers/font-loader"
 
 // fonts

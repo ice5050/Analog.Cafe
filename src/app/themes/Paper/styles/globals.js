@@ -1,6 +1,6 @@
 // styles
 import styled from "styled-components"
-import { Paper } from "../theme"
+import { Paper } from "../Paper"
 
 // fonts
 import { Exo2Latin600 } from "./fonts"
