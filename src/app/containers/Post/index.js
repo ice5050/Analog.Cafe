@@ -11,7 +11,7 @@ import { Section, Article, Byline } from "../../components/ArticleStyles"
 
 // state
 import defaultPostState from "./state.json"
-import { schema } from "../Composer/components/ContentEditor/schema"
+import { schema } from "../Composer/containers/ContentEditor/schema"
 
 // routes
 import { ROUTE_POST_API, ROUTE_ARTICLE_DIR } from "./routes"

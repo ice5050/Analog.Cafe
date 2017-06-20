@@ -2,8 +2,8 @@
 import React from "react"
 
 // components
-import HeaderEditor from "./components/HeaderEditor"
-import ContentEditor from "./components/ContentEditor"
+import HeaderEditor from "./containers/HeaderEditor"
+import ContentEditor from "./containers/ContentEditor"
 import { Composer } from "../../components/views/Submit"
 
 
