@@ -38,13 +38,13 @@ export default class extends React.Component {
 					placeholder={ this.props.pageTitle }
 					onChange={ this.handleTitleChange }
 					value={ loadHeader().title }
-					title
+					inputDesignation="title"
 				></TitleCase>
 				<TitleCase
 					placeholder={ this.props.pageSubtitle }
 					onChange={ this.handleSubtitleChange }
 					value={ loadHeader().subtitle }
-					subtitle
+					inputDesignation="subtitle"
 				></TitleCase>
 
 				<ModalLink

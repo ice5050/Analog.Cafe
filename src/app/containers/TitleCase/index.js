@@ -3,10 +3,14 @@ import React from "react"
 import toTitleCase from "titlecase"
 
 // components
-import { TitleTextarea as Title, SubtitleTextarea as Subtitle } from "../../components/InputText"
+import { TitleTextarea, SubtitleTextarea } from "../../components/InputText"
 
 // return
-// (auto-capitalize titles)
+const components = {
+    title: TitleTextarea,
+    subtitle: SubtitleTextarea
+}
+
 export class TitleCase extends React.Component {
 	constructor(props) {
     super(props)
@@ -18,23 +22,14 @@ export class TitleCase extends React.Component {
     this.props.onChange(event.target.value)
   }
   render() {
+		const InputElement = components[this.props.inputDesignation]
     return (
-			<div>
-				{ this.props.title
-					? <Title
+			<InputElement
 			    	value={				this.state.value }
 			    	onChange={		this.handleChange }
 			    	className={ 	this.props.className }
 			    	placeholder={	this.props.placeholder }
-			    />
-					: <Subtitle
-			    	value={				this.state.value }
-			    	onChange={		this.handleChange }
-			    	className={ 	this.props.className }
-			    	placeholder={	this.props.placeholder }
-			    />
-				}
-			</div>
+			/>
 		)
   }
 }
