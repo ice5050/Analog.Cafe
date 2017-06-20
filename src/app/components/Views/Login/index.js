@@ -8,7 +8,7 @@ import { Article, Section } from "../../ArticleStyles"
 
 
 // styles
-import { TwitterButton, FacebookButton } from "./styles"
+import { TwitterButton } from "./styles"
 
 
 // render
@@ -22,11 +22,10 @@ export default props => {
 
 				<p style={{textAlign: "center"}}><em>- or -</em></p>
 
-				<FacebookButton to="/">Login with Facebook</FacebookButton>
+				<h3 style={{textAlign: "center", padding: 0}}>type@your.email</h3>
+				<Button to="/" red>Login with Email</Button>
 
 				<p style={{textAlign: "center"}}><em>- or -</em></p>
-				<h3>Login with Email</h3>
-
 				<Button to="/">Cancel</Button>
 			</Section>
 		</Article>

@@ -4,7 +4,7 @@ import { saveHeader } from "../../helpers/saver"
 import { loadHeader } from "../../helpers/loader"
 
 // components
-import { Title, Subtitle } from "./components/InputTitle/styles"
+import { TitleCase } from "../../../TitleCase"
 import ModalLink from "../../../Modal"
 
 
@@ -34,16 +34,18 @@ export default class extends React.Component {
   render() {
 		return (
 			<Header>
-				<Title
+				<TitleCase
 					placeholder={ this.props.pageTitle }
 					onChange={ this.handleTitleChange }
 					value={ loadHeader().title }
-				></Title>
-				<Subtitle
+					title
+				></TitleCase>
+				<TitleCase
 					placeholder={ this.props.pageSubtitle }
 					onChange={ this.handleSubtitleChange }
 					value={ loadHeader().subtitle }
-				></Subtitle>
+					subtitle
+				></TitleCase>
 
 				<ModalLink
 					title={ this.props.author.name }
