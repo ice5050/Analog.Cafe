@@ -4,7 +4,7 @@ import axios from "axios"
 
 // components
 import Figure from "../../components/Figure"
-import TextArea from "../../components/TextArea"
+import { PlainTextarea } from "../../components/InputText"
 
 
 // dictionary
@@ -105,7 +105,7 @@ export default class extends React.Component {
       		composer={ !this.props.readOnly }
       	>
       		{ !this.props.readOnly
-						? <TextArea
+						? <PlainTextarea
 							value={ this.state.caption }
 							placeholder="Add a caption (optional)"
 							onChange={ this.onChange }
