@@ -5,7 +5,7 @@ import styled from "styled-components"
 import { zigzagWidth, zigzagTopShim } from "./ul"
 
 // css
-export const ListZigzagPicture = styled.figure`
+export const ZigzagPicture = styled.figure`
 	min-width: 						${ zigzagWidth };
 	background-size: 			cover;
 	background-position: 	center;
