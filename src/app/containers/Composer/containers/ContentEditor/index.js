@@ -17,6 +17,9 @@ export default class extends React.Component {
 		author: this.props.author,
 	}
   onChange = state => this.setState({ state })
+	uploadRequest = file => {
+		console.log(file.name)
+	}
   onDocumentChange = saveContent
 	render() {
 		return (
@@ -29,7 +32,6 @@ export default class extends React.Component {
 				onDocumentChange={	this.onDocumentChange }
 				onKeyDown={					this.onKeyDown }
 				author={						this.state.author	}
-				{ 									...this.props }
 			/>
 		)
 	}

@@ -23,17 +23,19 @@ const titlePlaceholder = {
 
 // return
 export default class extends React.Component {
-  focusEditor = e => {
-		console.log("Focus on editor should occur now.")
-	}
-	onClickImage = e => {
+	handleUploadButton = e => {
 		e.preventDefault()
 		e.stopPropagation()
 		console.log("Upload image button clicked.")
+		this.fileInput.click()
+	}
+	handleFileUpload = e => {
+		const file = e.target.files[0]
+		this.contentEditor.uploadRequest(file)
 	}
 	render() {
 		return(
-			<div onClick={ this.focusEditor.bind(this) }>
+			<div>
 				<Composer
 		      header={
 		        <HeaderEditor
@@ -46,13 +48,20 @@ export default class extends React.Component {
 					<ContentEditor
 						author={ authorPlaceholder }
 						className="composerDomElement"
+						ref={ input => { this.contentEditor = input } }
 					/>
 					<ButtonSection>
 						<div>
-							<Button onClick={ this.onClickImage }>
-								<span role="img" aria-label="Point upwards">☝️</span>
-								&nbsp;Upload Image
+							<Button onClick={ this.handleUploadButton }>
+								Upload Image <span role="img" aria-label="Point upwards">☝️</span>
 							</Button>
+							<input
+								type="file"
+								accept="image/x-png,image/jpeg"
+								style={{ display: "none" }}
+								ref={ input => { this.fileInput = input } }
+								onChange={ this.handleFileUpload }
+							/>
 						</div>
 					</ButtonSection>
 				</Composer>
