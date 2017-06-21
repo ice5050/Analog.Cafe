@@ -6,6 +6,8 @@ import HeaderEditor from "./containers/HeaderEditor"
 import ContentEditor from "./containers/ContentEditor"
 import { Composer } from "../../components/views/Submit"
 
+import Button from "../../components/Button"
+
 
 // placeholders
 const authorPlaceholder = {
@@ -30,6 +32,10 @@ export default props => {
       }
     >
 			<ContentEditor author={ authorPlaceholder }/>
+			<Button style={{ clear: "both" }}>
+				<span role="img" aria-label="Camera icon">📷</span>
+				&nbsp;Add an Image
+			</Button>
 		</Composer>
 	)
 }
