@@ -26,7 +26,6 @@ export default class extends React.Component {
 	handleUploadButton = e => {
 		e.preventDefault()
 		e.stopPropagation()
-		console.log("Upload image button clicked.")
 		this.fileInput.click()
 	}
 	handleFileUpload = e => {

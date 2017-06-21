@@ -123,20 +123,6 @@ export const plugins = [
     }
   }),
 
-
-
-
-  AutoReplace({
-    trigger: 		"x",
-    onlyIn:			"image",
-    transform: 	(transform, e, data, matches) => {
-      return transform.insertText("… ")
-    }
-  }),
-
-
-
-
   // special editor menu for quote
 	EditBlockquote({
 		type: 				"quote",
@@ -144,6 +130,8 @@ export const plugins = [
 	}),
 
 	// image inserter
+	// see uploadRequest() in ../index for the other image insert option...
+	// ...that will also need an upload tool connected.
 	InsertImages({
     extensions: ["png", "jpeg"],
     applyTransform: (transform, file) => {
@@ -154,6 +142,7 @@ export const plugins = [
       }).apply()
     }
   }),
+
 
   // trailing paragraph
   TrailingBlock({ type: "paragraph" }),
