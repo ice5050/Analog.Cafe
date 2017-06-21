@@ -1,38 +1,39 @@
 // tools
 import React from "react"
-import { browserHistory } from "react-router"
 
 // components
 import Heading from "../../ArticleHeading"
 import Button from "../../Button"
 import { Article, Section } from "../../ArticleStyles"
 import { SubtitleInput } from "../../InputText"
+import { VisitorNav } from "../../NavTypes"
 
 
 // styles
-import { TwitterButton } from "./styles"
-
+import { TwitterButton, InputButtonPair, SubWindow } from "./styles"
 
 // render
 export default props => {
 	return(
-		<Article>
-			<Heading pageTitle="Log In" />
-			<Section>
+		<div>
+			<Article>
+				<Heading pageTitle="Log In" />
+				<Section>
 
-				<TwitterButton to="/submit/send">Login with Twitter</TwitterButton>
+					<SubWindow>
+						<TwitterButton to="/submit/send">Log In with Twitter</TwitterButton>
 
-				<p style={{ textAlign: "center" }}><em>- or -</em></p>
+						<p style={{ textAlign: "center" }}><em>- or -</em></p>
 
-				<SubtitleInput
-					style={{ textAlign: "center", padding: 0 }}
-					placeholder="type@your.email"
-				></SubtitleInput>
-				<Button to="/submit/send" red>Login with Email</Button>
+						<InputButtonPair>
+							<SubtitleInput placeholder="Type Your Email" required />
+							<Button to="/submit/send" red>Log In</Button>
+						</InputButtonPair>
+					</SubWindow>
 
-				<p style={{ textAlign: "center" }}><em>- or -</em></p>
-				<Button to="/submit">Cancel</Button>
-			</Section>
-		</Article>
+				</Section>
+			</Article>
+			<VisitorNav />
+		</div>
 	)
 }

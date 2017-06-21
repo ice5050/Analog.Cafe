@@ -1,6 +1,8 @@
 // tools
 import React from "react"
 import styled, { css } from "styled-components"
+import Color from "color"
+
 
 // images
 // import facebookLogo from "./images/logo-facebook.svg"
@@ -35,3 +37,26 @@ const StyledTwitterButton = styled(Button)`
 
 export const TwitterButton = props => <StyledTwitterButton><img src={ twitterLogo } alt="Twitter logo"/> { props.children }</StyledTwitterButton>
 // export const FacebookButton = props => <StyledFacebookButton><img src={ facebookLogo } alt="Facebook logo"/> { props.children }</StyledFacebookButton>
+
+const shadowGrey = props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string()
+const shadowGrey2 = props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least * 2).string()
+export const InputButtonPair = styled.div`
+	max-width: 			${ props => props.theme.size.breakpoint.stops.min }px;
+	margin: 				0 auto;
+	border-radius: 	${ props => props.theme.effects.borderRadius.small }em;
+	background: 		${ shadowGrey };
+	overflow: 			hidden;
+	box-shadow: 		0 1px 1px ${ shadowGrey2 }, 0 0 0 1px ${ shadowGrey };
+	input {
+		text-align: center;
+		padding: 0;
+		line-height: ${ props => props.theme.size.block.spacing * 2 }em;
+	}
+	a {
+		margin: 0;
+	border-radius: 0;
+	}
+`
+export const SubWindow = styled.div`
+	padding: ${ props => props.theme.size.block.column.safety }em 0 ${ props => props.theme.size.block.spacing * 4 }em;
+`
