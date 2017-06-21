@@ -9,16 +9,26 @@ import { loadContent } from "../../helpers/loader"
 import { saveContent } from "../../helpers/saver"
 
 
+
 // return
 export default class extends React.Component {
 	state = {
-		state: Raw.deserialize(loadContent(), {terse: true}),
+		state: Raw.deserialize(loadContent(), { terse: true }),
 		schema,
 		author: this.props.author,
 	}
-  onChange = state => this.setState({ state })
+  onChange = state => this.setState({ state: state })
 	uploadRequest = file => {
-		console.log(file.name)
+		this.setState({
+			state: this.state.state
+				      .transform()
+				      .insertBlock({
+				        type: "image",
+				        isVoid: true,
+				        data: { file }
+				      })
+				      .apply()
+		})
 	}
   onDocumentChange = saveContent
 	render() {

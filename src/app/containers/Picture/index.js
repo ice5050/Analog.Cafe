@@ -18,8 +18,8 @@ export default class extends React.Component {
 	constructor(props) {
     super(props)
     this.state = { caption: props.node.data.get("caption") }
-    this.onChange = this.onChange.bind(this)
-    this.onClick = this.onClick.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -29,7 +29,7 @@ export default class extends React.Component {
     }
   }
 
-  onChange(e) {
+  handleChange(e) {
     const caption = e.target.value
     const { node, editor } = this.props
     const src = node.data.get("src")
@@ -42,10 +42,10 @@ export default class extends React.Component {
       .setNodeByKey(node.key, properties)
       .apply()
 
-    editor.onChange(next)
+    editor.handleChange(next)
   }
 
-  onClick(e) {
+  handleClick(e) {
   	e.preventDefault()
     e.stopPropagation()
   }
@@ -108,8 +108,8 @@ export default class extends React.Component {
 						? <PlainTextarea
 							value={ this.state.caption }
 							placeholder="Add a caption (optional)"
-							onChange={ this.onChange }
-							onClick={ this.onClick }
+							onChange={ this.handleChange }
+							onClick={ this.handleClick }
 						/>
 						: <div>{ this.state.caption }</div>
 					}
