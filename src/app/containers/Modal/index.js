@@ -18,7 +18,7 @@ export default class extends React.Component {
 	render() {
     return (
     	<Wrapper>
-				<Anchor href="#card" onClick={ this.onClick.bind(this)} >{ this.props.children }</Anchor>
+				<Anchor href="#card" onClick={ this.onClick.bind(this) } >{ this.props.children }</Anchor>
 				{ this.state.load && <Fetch {...this.props} /> }
       </Wrapper>
     )

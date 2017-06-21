@@ -5,8 +5,10 @@ import React from "react"
 import HeaderEditor from "./containers/HeaderEditor"
 import ContentEditor from "./containers/ContentEditor"
 import { Composer } from "../../components/views/Submit"
-
 import Button from "../../components/Button"
+
+// styles
+import { ButtonSection } from "./styles"
 
 
 // placeholders
@@ -20,22 +22,41 @@ const titlePlaceholder = {
 }
 
 // return
-export default props => {
-	return(
-		<Composer
-      header={
-        <HeaderEditor
-  				author={ authorPlaceholder }
-  				pageTitle={ titlePlaceholder.title }
-  				pageSubtitle={ titlePlaceholder.subtitle }
-  			/>
-      }
-    >
-			<ContentEditor author={ authorPlaceholder }/>
-			<Button style={{ clear: "both" }}>
-				<span role="img" aria-label="Camera icon">📷</span>
-				&nbsp;Add an Image
-			</Button>
-		</Composer>
-	)
+export default class extends React.Component {
+  focusEditor = e => {
+		console.log("Focus on editor should occur now.")
+	}
+	onClickImage = e => {
+		e.preventDefault()
+		e.stopPropagation()
+		console.log("Upload image button clicked.")
+	}
+	render() {
+		return(
+			<div onClick={ this.focusEditor.bind(this) }>
+				<Composer
+		      header={
+		        <HeaderEditor
+		  				author={ authorPlaceholder }
+		  				pageTitle={ titlePlaceholder.title }
+		  				pageSubtitle={ titlePlaceholder.subtitle }
+		  			/>
+		      }
+		    >
+					<ContentEditor
+						author={ authorPlaceholder }
+						className="composerDomElement"
+					/>
+					<ButtonSection>
+						<div>
+							<Button onClick={ this.onClickImage }>
+								<span role="img" aria-label="Point upwards">☝️</span>
+								&nbsp;Upload Image
+							</Button>
+						</div>
+					</ButtonSection>
+				</Composer>
+			</div>
+		)
+	}
 }

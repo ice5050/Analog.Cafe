@@ -49,7 +49,7 @@ export default styled(({ red, ...props }) =>
 		max-width: 100vw;
 		border-radius: 0;
 		section & {
-			margin-left: -${ props => props.theme.size.block.column.safety }em;em;
+			margin-left: -${ props => props.theme.size.block.column.safety }em;
 		}
 	`
 	}
