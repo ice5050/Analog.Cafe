@@ -15,7 +15,7 @@ export const schema = {
 										style={{ position: "relative" }}
 									>
 										<Placeholder { ...props }>
-											Add your images, write your story...
+											Add your images & write your story...
 										</Placeholder>
 										{ props.children }
 									</p>,
