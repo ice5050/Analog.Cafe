@@ -2,7 +2,7 @@
   "status": "ok",
 	"id" : "sample",
 	"name" : "Your Name",
-	"image" : "/images/app/sample-profile.jpg",
+	"image" : "/images/app/placeholder-profile.jpg",
 	"bio-short" : "Your bio in 150 words.",
 	"buttons" : [
 		{

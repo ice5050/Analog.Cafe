@@ -6,7 +6,10 @@ import Color from "color"
 import zigzagImage from "./zigzag-mask.svg";
 
 
-// css
+// css & constants
+export const zigzagWidth = "33%"
+export const zigzagTopShim = 12
+
 const blockSafety = props => props.theme.size.block.column.safety
 const blockSpacing = props => props.theme.size.block.spacing
 const greyLine = props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string()
@@ -15,8 +18,6 @@ const posterDimensions = css`
 	width: 	5.5em;
 	height: 9.33em;
 `
-export const zigzagWidth = "33%"
-export const zigzagTopShim = 12
 const zigzagWidthShim = css`width: calc( ${ zigzagWidth } + 5px);`
 const zigzagFill = css`
 	position: absolute;
@@ -35,9 +36,12 @@ const zigzagDimensions = css`
 	${ props => props.theme.size.breakpoint.max.l`{ display: none !important; }` }
 `
 
-export const ListUl = styled.ul`
-	
-	/* placeholder style */	
+
+
+// return
+export const Ul = styled.ul`
+
+	/* placeholder style */
 	${ props => props.status === "loading" && `opacity: ` + props.theme.opacity.least + `;` }
 
 	${ props => props.theme.typography.text.auto };
@@ -58,7 +62,7 @@ export const ListUl = styled.ul`
 		list-style: 	none;
 		overflow: 		hidden;
 		position: 		relative;
-		
+
 		& > a {
 			display: 					flex;
 			width: 						100%;
@@ -105,8 +109,8 @@ export const ListUl = styled.ul`
 					margin-top: calc(${ blockSpacing }em / 2 + 0.1em);
 					margin-bottom: 0;
 				}` }
-				
-				/* placeholder style */	
+
+				/* placeholder style */
 				background-color: ${ props => props.status === "loading" ? props.theme.color.foreground : greyLine };
 
 			}
@@ -126,23 +130,26 @@ export const ListUl = styled.ul`
 					white-space: 	normal;
 					line-height: 	1.185em;
 					margin-top: 	0.04em;
-					
-					/* placeholder style */	
-					${ props => props.status === "loading" && `margin-top: .2em;`}
-				}`}		
-				
-				/* placeholder style */	
+
+					/* placeholder style */
+					${ props => props.status === "loading" && `
+						margin-top: 	0;
+						line-height: 	1.65em;
+					`}
+				}`}
+
+				/* placeholder style */
 				${ props => props.status === "loading" && `
 					margin-top: -.1em;
 					letter-spacing: 0 !important;
 				`}
-		
+
 			}
 
-			
-			/* placeholder style */	
+
+			/* placeholder style */
 			${ props => props.status === "loading" && `word-break: break-all;` }
-			
+
 			& > div {
 				max-width: 30em;
 				${ props => props.theme.size.breakpoint.max.m`{
@@ -156,16 +163,16 @@ export const ListUl = styled.ul`
 				${ props => props.theme.size.breakpoint.max.xs`{
 					text-align: left;
 				}`}
-				
-				/* placeholder style */	
+
+				/* placeholder style */
 				${ props => props.status === "loading" && `
 					& > em { font-style: normal; }
 					letter-spacing: 0 !important;
 				`}
 				}
-				
+
 			}
-			
+
 		}
 	}
 	&:first-child li:first-child {

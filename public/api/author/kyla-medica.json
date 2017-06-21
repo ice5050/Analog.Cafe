@@ -1,8 +1,8 @@
-{  
+{
   "status": "ok",
 	"id" : "kyla-medica",
 	"name" : "Kyla Medica",
-	"image" : "/images/app/film_photo-portrait_of_dmitri_by_betty.jpg",
+	"image" : "/images/app/placeholder-profile.jpg",
 	"bio-short" : "Short author bio.",
 	"buttons" : [
 		{

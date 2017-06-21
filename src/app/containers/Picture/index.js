@@ -3,33 +3,33 @@ import React from "react"
 import axios from "axios"
 
 // components
-import { Figure } from "../../components/Picture"
-import { TextArea } from "../../components/TextArea"
+import Figure from "../../components/Figure"
+import { PlainTextarea } from "../../components/InputText"
 
 
 // dictionary
 import { ROUTE_IMAGE_API } from "./routes"
 
 // export
-export class Image extends React.Component {
-	
-	
+export default class extends React.Component {
+
+
 	// vv STATE FOR CAPTION
 	constructor(props) {
     super(props)
     this.state = { caption: props.node.data.get("caption") }
-    this.onChange = this.onChange.bind(this)
-    this.onClick = this.onClick.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
-  
+
   componentWillReceiveProps(nextProps) {
     const caption = nextProps.node.data.get("caption");
     if (caption !== this.state.caption) {
       this.setState({ caption })
     }
   }
-  
-  onChange(e) {
+
+  handleChange(e) {
     const caption = e.target.value
     const { node, editor } = this.props
     const src = node.data.get("src")
@@ -42,17 +42,17 @@ export class Image extends React.Component {
       .setNodeByKey(node.key, properties)
       .apply()
 
-    editor.onChange(next)
+    editor.handleChange(next)
   }
 
-  onClick(e) {
+  handleClick(e) {
   	e.preventDefault()
     e.stopPropagation()
   }
   // ^^ STATE FOR CAPTION
-  
-  
-    
+
+
+
   componentDidMount() {
     const { node } = this.props
     const { data } = node
@@ -63,17 +63,17 @@ export class Image extends React.Component {
   		this.setState({ src })
 
 			// if the same one author passed as a prop to entire Editor, do not fetch each author for each image:
-  		if(this.props.editor.props.author){ 
-  			this.setState({ author:	this.props.editor.props.author }) 
+  		if(this.props.editor.props.author){
+  			this.setState({ author:	this.props.editor.props.author })
   			return
   		}
-  		
+
   		// convert file path to just file name:
   		let imageName = src.split('\\').pop().split('/').pop() 	// get rid of domain and pathname
   		imageName 		= imageName.replace(/\.[^/.]+$/, "") 			// get rid of extension
   		// get image info from DB:
   		this._fetch(imageName)
-  		  		
+
   	}
   	else {
 			const reader = new FileReader()
@@ -95,25 +95,25 @@ export class Image extends React.Component {
     const { src } = this.state
     const focus = state.isFocused && state.selection.hasEdgeIn(node)
 		const className = focus ? "focus" : "nofocus"
-		
+
     return src
       ? <Figure
-      		{ ...attributes } 
-      		src={ src } 
+      		{ ...attributes }
+      		src={ src }
       		className={ className }
       		author={ this.state.author }
       		composer={ !this.props.readOnly }
       	>
       		{ !this.props.readOnly
-						? <TextArea
+						? <PlainTextarea
 							value={ this.state.caption }
 							placeholder="Add a caption (optional)"
-							onChange={ this.onChange }
-							onClick={ this.onClick }
+							onChange={ this.handleChange }
+							onClick={ this.handleClick }
 						/>
 						: <div>{ this.state.caption }</div>
 					}
       	</Figure>
-      : <Figure { ...attributes } src="" className={ className }>Loading your image...</Figure>      
+      : <Figure { ...attributes } src="" className={ className }>Loading your image...</Figure>
   }
 }
