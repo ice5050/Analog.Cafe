@@ -4,13 +4,7 @@
       "data":{ },
       "kind":"block",
       "isVoid":false,
-      "type":"paragraph",
-      "nodes":[
-        {
-          "kind":"text",
-          "ranges":[{ "kind":"range", "text":"" }]
-        }
-      ]
+      "type":"paragraph"
     }
   ]
 }

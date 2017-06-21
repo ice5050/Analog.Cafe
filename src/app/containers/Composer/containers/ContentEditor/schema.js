@@ -14,11 +14,9 @@ export const schema = {
 										{ ...props.attributes }
 										style={{ position: "relative" }}
 									>
-										<Placeholder
-											{ ...props }
-											style={{ position: "relative" }}
-											placeholderText="Upload an image or tell a story..."
-										/>
+										<Placeholder { ...props }>
+											Add your images, write your story...
+										</Placeholder>
 										{ props.children }
 									</p>,
 		heading:			props => <h3>{ props.children }</h3>, // no links or style should be allowed in headings
