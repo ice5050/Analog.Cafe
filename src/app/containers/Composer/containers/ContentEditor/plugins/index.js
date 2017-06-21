@@ -22,11 +22,11 @@ export const plugins = [
 	// general tools
 	Linkify({}),
 	Paste({ html }),
-	
+
 	// hot keys
   MarkHotkey({ 	key: "b", 			type: "bold" }),
   MarkHotkey({ 	key: "i", 			type: "italic" }),
-  
+
   // markdown shortcuts
   AutoReplace({
     trigger: 		"space",
@@ -71,7 +71,7 @@ export const plugins = [
       return transform.setBlock({ type: "paragraph" }) // cancel title
     }
   }),
-  
+
   // auto format rules
   AutoReplace({
     trigger: 		/(")/,
@@ -122,10 +122,10 @@ export const plugins = [
       return transform.insertText("… ") // elipsis
     }
   }),
-  
-  
-  
-  
+
+
+
+
   AutoReplace({
     trigger: 		"x",
     onlyIn:			"image",
@@ -133,16 +133,17 @@ export const plugins = [
       return transform.insertText("… ")
     }
   }),
-  
-  
-  
-    
+
+
+
+
   // special editor menu for quote
 	EditBlockquote({
 		type: 				"quote",
 		typeDefault: 	"paragraph",
 	}),
-	
+
+	// image inserter
 	InsertImages({
     extensions: ["png", "jpeg"],
     applyTransform: (transform, file) => {
@@ -153,8 +154,8 @@ export const plugins = [
       }).apply()
     }
   }),
-  
+
   // trailing paragraph
   TrailingBlock({ type: "paragraph" }),
-  
+
 ]

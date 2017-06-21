@@ -50,7 +50,7 @@ export default class extends React.Component {
 				<ModalLink
 					title={ this.props.author.name }
 					fetch={ "/api/author/" + this.props.author.id }
-				><Byline>by <u>{ this.props.author.name }</u></Byline></ModalLink>
+				><Byline>Link to <u>Your Profile</u> will appear here.</Byline></ModalLink>
 
 			</Header>
 		)

@@ -31,7 +31,7 @@ export default props => {
 				<Button to="/submit/send" red>Login with Email</Button>
 
 				<p style={{ textAlign: "center" }}><em>- or -</em></p>
-				<Button to="/" onClick={ browserHistory.goBack }>Go Back</Button>
+				<Button to="/submit">Cancel</Button>
 			</Section>
 		</Article>
 	)

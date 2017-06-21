@@ -9,11 +9,11 @@ import { Composer } from "../../components/views/Submit"
 
 // placeholders
 const authorPlaceholder = {
-	name: "Your Name",
+	name: "You",
 	id:		"sample",
 }
 const titlePlaceholder = {
-	title: "Write Your Title Here",
+	title: "Title",
 	subtitle: "Subtitle (Optional)",
 }
 
@@ -29,7 +29,7 @@ export default props => {
   			/>
       }
     >
-			<ContentEditor author={ authorPlaceholder } />
+			<ContentEditor author={ authorPlaceholder }/>
 		</Composer>
 	)
 }
