@@ -27,7 +27,7 @@ export default props => {
 
 						<InputButtonPair>
 							<SubtitleInput placeholder="Type Your Email" required />
-							<Button to="/submit/send" red>Log In</Button>
+							<Button to="/submit/send">Log In</Button>
 						</InputButtonPair>
 					</SubWindow>
 

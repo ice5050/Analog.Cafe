@@ -8,15 +8,32 @@ import { schema } from "./schema"
 import { loadContent } from "../../helpers/loader"
 import { saveContent } from "../../helpers/saver"
 
+// styles
+import imageProcessing from "./images/placeholder-image_processing.png"
+
+
 
 // return
 export default class extends React.Component {
 	state = {
-		state: Raw.deserialize(loadContent(), {terse: true}),
+		state: Raw.deserialize(loadContent(), { terse: true }),
 		schema,
 		author: this.props.author,
 	}
-  onChange = state => this.setState({ state })
+  onChange = state => this.setState({ state: state })
+	uploadRequest = file => {
+		this.setState({
+			state:
+			this.state.state
+	      .transform()
+	      .insertBlock({
+	        type: "image",
+	        isVoid: true,
+	        data: { file, src: imageProcessing }
+	      })
+	      .apply()
+		})
+	}
   onDocumentChange = saveContent
 	render() {
 		return (
@@ -29,7 +46,6 @@ export default class extends React.Component {
 				onDocumentChange={	this.onDocumentChange }
 				onKeyDown={					this.onKeyDown }
 				author={						this.state.author	}
-				style={							{minHeight:"15em"} }
 			/>
 		)
 	}

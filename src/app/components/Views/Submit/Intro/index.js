@@ -23,7 +23,7 @@ export default props => {
 			<Section>
 
 				<Button to="/submit/compose" red>Submit Now</Button>
-				<p><Link to="/login"><strong>Log in</strong></Link> to edit your profile and view your existing submissions.</p>
+				<p><Link to="/log-in"><strong>Log in</strong></Link> to edit your profile and view your existing submissions.</p>
 				<p><em>You can create your account once you submit your work. It&rsquo;ll take 10 seconds.</em></p>
 
 				<hr />

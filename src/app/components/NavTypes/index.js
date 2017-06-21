@@ -31,7 +31,7 @@ export const ComposerNav = props => {
 				<NavItem indicator prime left><span>Saved</span></NavItem>
 				<NavItem prime center	><NavIndexLink	to={ "/"						}><Logo /></NavIndexLink></NavItem>
 
-				<NavItem prime right><NavLink 				to={ "/Login"	}><span>Send <span role="img" aria-label="Rocket">🚀</span></span></NavLink></NavItem>
+				<NavItem prime right><NavLink 				to={ "/log-in"	}><span>Send <span role="img" aria-label="Rocket">🚀</span></span></NavLink></NavItem>
 			</ul>
 		</Wrapper>
 	)
