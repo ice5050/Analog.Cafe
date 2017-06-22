@@ -9,7 +9,7 @@ import { loadContent } from "../../helpers/loader"
 import { saveContent } from "../../helpers/saver"
 
 // styles
-import imageProcessing from "./images/placeholder-image_processing.png"
+import imageProcessing from "./images/image_processing.png"
 
 
 

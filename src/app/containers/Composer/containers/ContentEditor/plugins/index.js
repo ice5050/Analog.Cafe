@@ -3,7 +3,7 @@ import { html } from "../rules"
 import toTitleCase from "titlecase"
 
 // styles
-import imageProcessing from "../images/placeholder-image_processing.png"
+import imageProcessing from "../images/image_processing.png"
 
 // Analog.Cafe plugins
 import { MarkHotkey } from "./mark-hotkey"
