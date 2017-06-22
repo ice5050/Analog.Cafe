@@ -1,4 +1,4 @@
-{  
+{
   "status": "ok",
   "filters": {
 		"tags": [],
@@ -16,7 +16,7 @@
   		"slug" : "why-shoot-film-8945",
   		"title" : "Title 1",
   		"subtitle" : "Subtitle",
-  		"id" : "0000000",
+  		"id" : "8945",
   		"post-date" : "1497155353",
   		"stats" : {
   			"images" : "3",

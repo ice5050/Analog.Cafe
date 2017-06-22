@@ -3,7 +3,7 @@ import React from "react"
 import axios from "axios"
 
 // components
-import Figure from "../../components/Figure"
+import Figure from "../../components/Picture"
 import { PlainTextarea } from "../../components/InputText"
 
 
