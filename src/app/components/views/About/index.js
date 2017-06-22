@@ -3,7 +3,7 @@ import React from "react"
 
 // components
 import Heading from "../../ArticleHeading"
-import Figure from "../../Figure"
+import Figure from "../../Picture"
 import Link from "../../Link"
 
 // styles
