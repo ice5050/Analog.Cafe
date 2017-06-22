@@ -4,7 +4,7 @@ import React from "react"
 // components
 import Heading from "../../../ArticleHeading"
 import Button from "../../../Button"
-import Figure from "../../../Figure"
+import Figure from "../../../Picture"
 import Link from "../../../Link"
 import { Section, Article } from "../../../ArticleStyles"
 
