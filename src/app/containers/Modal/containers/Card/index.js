@@ -23,7 +23,11 @@ export default class extends React.Component {
 						<a href="#close" onClick={ this.handleClose.bind(this)} >✕</a>
 					</header>
 					<figure style={{ height: this.props.image ? "inherit" : "0" }}>
-						<img src={ this.props.image || "/images/app/placeholder.gif" } style={{ height: this.props.image ? "inherit" : "0" }} alt="Author profile" />
+						<img
+							src={ this.props.image || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" }
+							style={{ height: this.props.image ? "inherit" : "0" }}
+							alt="Author profile"
+						/>
 						<figcaption>
 							<CardCaption style={{ padding: this.props.text ? "" : "0" }} >{ this.props.text || "" }</CardCaption>
 						</figcaption>

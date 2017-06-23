@@ -12,6 +12,7 @@ export default class extends React.Component {
         parent={ parent }
         node={ node }
         state={ state }
+        style={{ opacity: "0.65" }}
       >
         { this.props.children }
       </Placeholder>

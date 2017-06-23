@@ -44,6 +44,7 @@ export default class extends React.Component {
 				onDocumentChange={	this.onDocumentChange }
 				onKeyDown={					this.onKeyDown }
 				author={						this.state.author	}
+				style={							{ minHeight: "28em" }}
 			/>
 		)
 	}

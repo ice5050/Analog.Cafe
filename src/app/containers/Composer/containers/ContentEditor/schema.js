@@ -15,7 +15,12 @@ export const schema = {
 										style={{ position: "relative" }}
 									>
 										<Placeholder { ...props }>
-											The story behind your image or series goes here...
+											Write your story; add your photos <em>below</em>
+											<span
+												role="img"
+												aria-label="Arrow pointing down"
+												style={{ verticalAlign: "sub" }}
+											>⤵</span>
 										</Placeholder>
 										{ props.children }
 									</p>,

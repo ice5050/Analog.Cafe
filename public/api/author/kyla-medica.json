@@ -6,12 +6,12 @@
 	"bio-short" : "Short author bio.",
 	"buttons" : [
 		{
-			"to": "/author/kyla-medica",
-			"text": "More on Analog.Cafe"
+			"to": "https://www.artsocket.com",
+			"text": "Author’s Website"
 		},
 		{
-			"to": "https://www.artsocket.com",
-			"text": "Author’s Website",
+			"to": "/author/kyla-medica",
+			"text": "More on Analog.Cafe",
 			"red": true
 		}
 	]
