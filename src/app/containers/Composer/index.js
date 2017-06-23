@@ -1,14 +1,12 @@
 // tools
 import React from "react"
+import styled from "styled-components"
 
 // components
 import HeaderEditor from "./containers/HeaderEditor"
 import ContentEditor from "./containers/ContentEditor"
 import { Composer } from "../../components/views/Submit"
 import Button from "../../components/Button"
-
-// styles
-import { ButtonSection } from "./styles"
 
 
 // placeholders
@@ -20,6 +18,12 @@ const titlePlaceholder = {
 	title: "Title",
 	subtitle: "Subtitle (Optional)",
 }
+
+// styles
+const ImageControls = styled.div`
+	border-top:	${ props => props.theme.elements.thickBorder };
+	margin: 0 -${ props => props.theme.size.block.column.safety }em
+`
 
 // return
 export default class extends React.Component {
@@ -46,13 +50,11 @@ export default class extends React.Component {
 		    >
 					<ContentEditor
 						author={ authorPlaceholder }
-						className="composerDomElement"
 						ref={ input => { this.contentEditor = input } }
 					/>
-					<ButtonSection>
-						<div>
+					<ImageControls>
 							<Button onClick={ this.handleUploadButton }>
-								Upload Image <span role="img" aria-label="Point upwards">☝️</span>
+								Upload Your Image <span role="img" aria-label="Point upwards">🌅</span>
 							</Button>
 							<input
 								type="file"
@@ -61,8 +63,8 @@ export default class extends React.Component {
 								ref={ input => { this.fileInput = input } }
 								onChange={ this.handleFileUpload }
 							/>
-						</div>
-					</ButtonSection>
+							<Button>Editor&rsquo;s Choice Photos <span role="img" aria-label="Winnder's cup">🏆</span></Button>
+					</ImageControls>
 				</Composer>
 			</div>
 		)
