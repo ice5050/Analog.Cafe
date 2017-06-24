@@ -11,7 +11,7 @@ export default props => {
 	return(
 		<Article>
 			{ props.header }
-			<Section>{ props.children }</Section>
+			<Section endsign>{ props.children }</Section>
 			<Button to="/log-in" red>Send Submission <span role="img" aria-label="Rocket">🚀</span></Button>
 		</Article>
 	)
