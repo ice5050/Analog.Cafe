@@ -31,6 +31,7 @@ export default class extends React.Component {
 			})
 			.apply()
 	  this.setState({ state: resolvedState })
+		saveContent(this.state.state.document, resolvedState)
 	}
   onDocumentChange = saveContent
 	render() {

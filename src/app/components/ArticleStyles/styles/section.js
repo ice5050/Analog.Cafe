@@ -45,9 +45,11 @@ export const Section = styled.section`
 	padding: 		0 ${ props => props.theme.size.block.column.safety }em;
 
 	&::after {
-		content: 		"";
+		content: 		"❦";
 		clear: 			both;
 		display: 		block;
+		padding:		${ props => props.theme.size.block.spacing }em 0 ${ props => props.theme.size.block.column.safety * 4 }em 0;
+		text-align: center;
 	}
 
 	p		{ ${ paragraph } }
