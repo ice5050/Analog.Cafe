@@ -1,12 +1,12 @@
 // tools
 import React from "react"
-import styled from "styled-components"
+// import styled from "styled-components"
 
 // components
 import HeaderEditor from "./containers/HeaderEditor"
 import ContentEditor from "./containers/ContentEditor"
 import { Composer } from "../../components/views/Submit"
-import Button from "../../components/Button"
+// import Button from "../../components/Button"
 
 
 // placeholders
@@ -20,10 +20,10 @@ const titlePlaceholder = {
 }
 
 // styles
-const ImageControls = styled.div`
-	border-top:	${ props => props.theme.elements.thickBorder };
-	margin: 0 -${ props => props.theme.size.block.column.safety }em
-`
+// const ImageControls = styled.div`
+// 	border-top:	${ props => props.theme.elements.thickBorder };
+// 	margin: 0 -${ props => props.theme.size.block.column.safety }em
+// `
 
 // return
 export default class extends React.Component {
