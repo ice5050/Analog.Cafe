@@ -52,7 +52,7 @@ export default class extends React.Component {
 						author={ authorPlaceholder }
 						ref={ input => { this.contentEditor = input } }
 					/>
-					<ImageControls>
+					{/* <ImageControls>
 							<Button onClick={ this.handleUploadButton }>
 								Upload Your Image <span role="img" aria-label="Point upwards">🌅</span>
 							</Button>
@@ -64,7 +64,7 @@ export default class extends React.Component {
 								onChange={ this.handleFileUpload }
 							/>
 							<Button>Editor&rsquo;s Choice Photos <span role="img" aria-label="Winnder's cup">🏆</span></Button>
-					</ImageControls>
+					</ImageControls> */}
 				</Composer>
 			</div>
 		)
