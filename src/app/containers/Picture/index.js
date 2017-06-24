@@ -18,8 +18,10 @@ export default class extends React.Component {
 	constructor(props) {
     super(props)
     this.state = { caption: props.node.data.get("caption") }
-    this.handleChange = this.handleChange.bind(this)
+
+		this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -42,7 +44,8 @@ export default class extends React.Component {
       .setNodeByKey(node.key, properties)
       .apply()
 
-    editor.handleChange(next)
+		// have to use native onChange in editor (rather than handleChange):
+		editor.onChange(next)
   }
 
   handleClick(e) {
