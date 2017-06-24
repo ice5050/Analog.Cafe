@@ -39,7 +39,7 @@
     "titlecase": "^1.1.2",
     "typeface-exo-2": "0.0.29",
     "typeface-lora": "^0.0.22",
-    "webpack": "^2.6.1"
+    "webpack": "^3.0.0"
   },
   "devDependencies": {
     "babel-plugin-root-import": "^5.0.0",
