@@ -1,5 +1,4 @@
 // tools
-import React from "react"
 import { html } from "../rules"
 import toTitleCase from "titlecase"
 
