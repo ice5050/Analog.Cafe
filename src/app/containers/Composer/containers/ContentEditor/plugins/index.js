@@ -16,6 +16,9 @@ import EditBlockquote from "slate-edit-blockquote"
 import InsertImages from "slate-drop-or-paste-images"
 import TrailingBlock from "slate-trailing-block"
 
+// components
+
+
 // export
 export const plugins = [
 
@@ -144,7 +147,7 @@ export const plugins = [
   }),
 
 
-  // trailing paragraph
+  // convenience plugins
   TrailingBlock({ type: "paragraph" }),
 
 ]
