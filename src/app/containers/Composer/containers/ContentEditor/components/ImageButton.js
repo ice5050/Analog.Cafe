@@ -11,9 +11,16 @@ const ImageButton = styled(Button)`
   z-index: ${ props => props.theme.layer.up - 1 };
   padding: ${ props => props.theme.size.block.spacing / 5 }em ${ props => props.theme.size.block.spacing / 2 }em;
   margin-top: 0;
-  right: -${ props => props.theme.size.block.column.safety }em;
   width: 8em;
   border-radius: ${ props => props.theme.effects.borderRadius.small }em;
+
+  right: -${ props => props.theme.size.block.column.safety }em;
+  ${ props => props.theme.size.breakpoint.max.m`
+		right: 0;
+	`}
+  ${ props => props.theme.size.breakpoint.max.s`
+		right: -${ props => props.theme.size.block.spacing }em;
+	`}
 `
 
 // return
