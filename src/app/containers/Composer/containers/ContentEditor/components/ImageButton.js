@@ -10,7 +10,7 @@ const ImageButton = styled(Button)`
   position: absolute;
   z-index: ${ props => props.theme.layer.up - 1 };
   padding: ${ props => props.theme.size.block.spacing / 5 }em ${ props => props.theme.size.block.spacing / 2 }em;
-  margin-top: 0;
+  margin-top: 2px;
   width: 8em;
   border-radius: ${ props => props.theme.effects.borderRadius.small }em;
 
