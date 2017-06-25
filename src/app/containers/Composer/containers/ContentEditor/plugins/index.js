@@ -9,7 +9,6 @@ import imageProcessing from "../images/image_processing.png"
 import { MarkHotkey } from "./mark-hotkey"
 import { Linkify } from "./linkify"
 import { Paste } from "./paste-html"
-import { CursorPosition } from "./newline-cursor-position"
 
 // plugins by others
 import AutoReplace from "slate-auto-replace"
@@ -22,7 +21,6 @@ export const plugins = [
 
 	// general tools
 	Linkify({}),
-	CursorPosition({}),
 	Paste({ html }),
 
 	// hot keys

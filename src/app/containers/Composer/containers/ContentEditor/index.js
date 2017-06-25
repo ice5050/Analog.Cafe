@@ -1,6 +1,7 @@
 // tools
 import React from "react"
-import { Editor, Raw } from "slate"
+import { Editor, Raw, findDOMNode } from "slate"
+import getOffsets from "positions"
 
 // components
 import Button from "../../../../components/Button"
@@ -27,10 +28,24 @@ export default class extends React.Component {
 		schema,
 		author: this.props.author,
 	}
-  onChange = state => this.setState({ state: state })
+	handleChange = state => {
+		this.setState({ state: state })
+
+		// add information about cursor positions
+		setTimeout((function(){
+			const block = findDOMNode(state.document.getDescendant(state.focusBlock.key))
+			const cursorContext = {
+				newLine:  						state.focusBlock.isEmpty,
+				parentBlockOffsets:   getOffsets(block, "top left", block, "top left"),
+			}
+			this.setState({ cursorContext })
+		}).bind(this), 100)
+
+	}
 
 	// content saver
-  onDocumentChange = saveContent
+  handleDocumentChange = saveContent
+
 
 	// image upload button handlers:
 	handleUploadButton = e => {
@@ -55,11 +70,19 @@ export default class extends React.Component {
 		saveContent(this.state.state.document, resolvedState)
 	}
 
+
 	// render
 	render() {
 		return (
 			<div>
-        <Button onClick={ 		this.handleUploadButton }>
+        <Button
+					onClick={ 		this.handleUploadButton }
+					style={{
+						position: "absolute",
+						top: this.state.cursorContext ? this.state.cursorContext.parentBlockOffsets.top + "px" : 0,
+						// left: this.state.cursorContext.parentBlockOffsets.left,
+					}}
+				>
           Add an Image
           &nbsp;<span
 						role=							"img"
@@ -77,10 +100,10 @@ export default class extends React.Component {
 					plugins={						plugins }
 					schema={						this.state.schema }
 					state={							this.state.state }
-					onChange={					this.onChange }
-					onPaste={						this.onPaste }
-					onDocumentChange={	this.onDocumentChange }
-					onKeyDown={					this.onKeyDown }
+
+					onChange={					this.handleChange }
+					onDocumentChange={	this.handleDocumentChange }
+
 					author={						this.state.author	}
 					style={							{ minHeight: "28em" }}
 				/>
