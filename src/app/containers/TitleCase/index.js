@@ -11,7 +11,7 @@ const components = {
     subtitle: SubtitleTextarea
 }
 
-export class TitleCase extends React.Component {
+export default class extends React.Component {
 	constructor(props) {
     super(props)
     this.state = { value: props.value || "" }

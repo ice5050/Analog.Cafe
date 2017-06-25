@@ -14,45 +14,35 @@ import { ROUTE_IMAGE_API } from "./routes"
 export default class extends React.Component {
 
 
-	// vv STATE FOR CAPTION
+	// state for caption
 	constructor(props) {
     super(props)
     this.state = { caption: props.node.data.get("caption") }
-
 		this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
-
   }
-
   componentWillReceiveProps(nextProps) {
     const caption = nextProps.node.data.get("caption");
     if (caption !== this.state.caption) {
       this.setState({ caption })
     }
   }
-
   handleChange(e) {
     const caption = e.target.value
     const { node, editor } = this.props
     const src = node.data.get("src")
-
     const properties = {data: { caption, src }}
-
     const next = editor
       .getState()
       .transform()
       .setNodeByKey(node.key, properties)
       .apply()
-
-		// have to use native onChange in editor (rather than handleChange):
-		editor.onChange(next)
+		editor.onChange(next) // have to use native onChange in editor (rather than handleChange)
   }
-
   handleClick(e) {
   	e.preventDefault()
     e.stopPropagation()
   }
-  // ^^ STATE FOR CAPTION
 
 
 
@@ -110,7 +100,7 @@ export default class extends React.Component {
       		{ !this.props.readOnly
 						? <PlainTextarea
 							value={ this.state.caption }
-							placeholder="Add a caption (optional)"
+							placeholder="Add image caption..."
 							onChange={ this.handleChange }
 							onClick={ this.handleClick }
 						/>

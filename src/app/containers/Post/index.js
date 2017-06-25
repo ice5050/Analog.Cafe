@@ -69,7 +69,7 @@ export default class extends React.Component {
 					fetch={ "/api/author/" + this.state.author.id }
 				><Byline>by <u>{ this.state.author.name }</u></Byline></ModalLink>
 				</Heading>
-				<Section postStatus={ this.state.status }>
+				<Section postStatus={ this.state.status } endsign>
 					<Editor
 						readOnly={					true }
 						state={							this.state.content.raw }
