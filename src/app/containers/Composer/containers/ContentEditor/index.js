@@ -4,7 +4,7 @@ import { Editor, Raw, findDOMNode } from "slate"
 import getOffsets from "positions"
 
 // components
-import Button from "../../../../components/Button"
+import ImageButton from "./components/ImageButton"
 
 // helpers, plugins & schema
 import { plugins } from "./plugins"
@@ -27,6 +27,10 @@ export default class extends React.Component {
 		state: Raw.deserialize(loadContent(), { terse: true }),
 		schema,
 		author: this.props.author,
+		cursorContext: {
+			newLine: false,
+			parentBlockOffsets: { top: 0, left: 0 }
+		}
 	}
 	handleChange = state => {
 		this.setState({ state: state })
@@ -75,20 +79,10 @@ export default class extends React.Component {
 	render() {
 		return (
 			<div>
-        <Button
-					onClick={ 		this.handleUploadButton }
-					style={{
-						position: "absolute",
-						top: this.state.cursorContext ? this.state.cursorContext.parentBlockOffsets.top + "px" : 0,
-						// left: this.state.cursorContext.parentBlockOffsets.left,
-					}}
-				>
-          Add an Image
-          &nbsp;<span
-						role=							"img"
-						aria-label=				"Image icon"
-					>🌅</span>
-        </Button>
+        <ImageButton
+					cursorContext={ 		this.state.cursorContext }
+					onClick={ 					this.handleUploadButton }
+        />
         <input
           type=								"file"
           accept=							"image/x-png,image/jpeg"
