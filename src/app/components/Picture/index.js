@@ -5,6 +5,7 @@ import React from "react"
 import ModalLink from "../../containers/Modal"
 
 // styles
+import AuthorLink from "../AuthorLink"
 import { Image, Figure, Caption, Byline } from "./styles"
 
 // return
@@ -21,7 +22,7 @@ export default props => {
 				>
 					<Caption { ...props } >
 						{ props.children }
-						<Byline { ...props } >Image by <u>{ props.author.name }</u>.</Byline>
+						<Byline { ...props } >Image by <AuthorLink>{ props.author.name }</AuthorLink>.</Byline>
 					</Caption>
 				</ModalLink>
 				: <Caption { ...props } >{ props.children }</Caption>

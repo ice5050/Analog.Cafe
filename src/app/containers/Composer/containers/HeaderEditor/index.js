@@ -10,6 +10,7 @@ import ModalLink from "../../../Modal"
 
 // styles
 import { Header, Byline } from "../../../../components/ArticleStyles"
+import AuthorLink from "../../../../components/AuthorLink"
 
 
 
@@ -50,7 +51,7 @@ export default class extends React.Component {
 				<ModalLink
 					title={ this.props.author.name }
 					fetch={ "/api/author/" + this.props.author.id }
-				><Byline>Link to <u>Your Profile</u> will appear here.</Byline></ModalLink>
+				><Byline>Link to <AuthorLink>Your Profile</AuthorLink> will appear here.</Byline></ModalLink>
 
 			</Header>
 		)

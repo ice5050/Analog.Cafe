@@ -8,6 +8,7 @@ import { Editor, Raw } from "slate"
 import Heading from "../../components/ArticleHeading"
 import ModalLink from "../Modal"
 import { Section, Article, Byline } from "../../components/ArticleStyles"
+import AuthorLink from "../../components/AuthorLink"
 
 // state
 import defaultPostState from "./state.json"
@@ -67,7 +68,7 @@ export default class extends React.Component {
 				<ModalLink
 					title={ this.state.author.name }
 					fetch={ "/api/author/" + this.state.author.id }
-				><Byline>by <u>{ this.state.author.name }</u></Byline></ModalLink>
+				><Byline>by <AuthorLink>{ this.state.author.name }</AuthorLink></Byline></ModalLink>
 				</Heading>
 				<Section postStatus={ this.state.status } endsign>
 					<Editor
