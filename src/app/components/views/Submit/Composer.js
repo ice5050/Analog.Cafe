@@ -8,7 +8,7 @@ import Button from "../../Button"
 
 // render
 export default props => {
-	return(
+	return (
 		<Article>
 			{ props.header }
 			<Section endsign>{ props.children }</Section>

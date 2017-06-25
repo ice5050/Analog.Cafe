@@ -4,7 +4,7 @@ import { saveHeader } from "../../helpers/saver"
 import { loadHeader } from "../../helpers/loader"
 
 // components
-import { TitleCase } from "../../../TitleCase"
+import TitleCase from "../../../TitleCase"
 import ModalLink from "../../../Modal"
 
 
