@@ -28,6 +28,7 @@ export default class extends React.Component {
 		schema,
 		author: this.props.author,
 		cursorContext: {
+			isFocused: false,
 			newLine: false,
 			parentBlockOffsets: { top: 0, left: 0 }
 		}
@@ -39,12 +40,13 @@ export default class extends React.Component {
 		setTimeout((function(){
 			const block = findDOMNode(state.document.getDescendant(state.focusBlock.key))
 			const cursorContext = {
+				firstEmptyLine:				state.document.isEmpty && state.document.nodes.size === 1,
 				newLine:  						state.focusBlock.isEmpty,
 				parentBlockOffsets:   getOffsets(block, "top left", block, "top left"),
+				isFocused: 						this.state.cursorContext.isFocused,
 			}
 			this.setState({ cursorContext })
-		}).bind(this), 100)
-
+		}).bind(this), 300)
 	}
 
 	// content saver
@@ -52,7 +54,7 @@ export default class extends React.Component {
 
 
 	// image upload button handlers:
-	handleUploadButton = e => {
+	handleImageButton = e => {
     e.preventDefault()
     e.stopPropagation()
     this.fileInput.click()
@@ -78,10 +80,10 @@ export default class extends React.Component {
 	// render
 	render() {
 		return (
-			<div>
+			<div style={						{ position: "relative" }}>
         <ImageButton
 					cursorContext={ 		this.state.cursorContext }
-					onClick={ 					this.handleUploadButton }
+					onClick={ 					this.handleImageButton }
         />
         <input
           type=								"file"

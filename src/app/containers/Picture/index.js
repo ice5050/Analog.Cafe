@@ -100,7 +100,7 @@ export default class extends React.Component {
       		{ !this.props.readOnly
 						? <PlainTextarea
 							value={ this.state.caption }
-							placeholder="Add a caption (optional)"
+							placeholder="Add image caption..."
 							onChange={ this.handleChange }
 							onClick={ this.handleClick }
 						/>
