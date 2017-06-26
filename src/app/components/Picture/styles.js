@@ -32,7 +32,7 @@ const bleed = css`
 export const Figure = styled.figure`
 	padding: 									0;
 	overflow: 								hidden;
-	margin: 									0 0 ${ props => props.theme.size.block.spacing }em;
+	margin: 									0;
 	position: 								relative;
 	z-index: 									${ props => props.theme.layer.up };
 

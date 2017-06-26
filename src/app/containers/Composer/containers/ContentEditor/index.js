@@ -1,6 +1,6 @@
 // tools
 import React from "react"
-import { Editor, Raw, findDOMNode } from "slate"
+import { Editor, Raw } from "slate"
 import getOffsets from "positions"
 
 // components
@@ -38,7 +38,12 @@ export default class extends React.Component {
 
 		// add information about cursor positions
 		setTimeout((function(){
-			const block = findDOMNode(state.document.getDescendant(state.focusBlock.key))
+			// const block = findDOMNode(state.document.getDescendant(state.focusBlock.key))
+			// findDOMNode returns error every time; instead we just need it to exit the function vv
+			const nodeKey = state.focusBlock.key
+			const block = window.document.querySelector(`[data-key="${nodeKey}"]`)
+			if(!block) return
+
 			const cursorContext = {
 				firstEmptyLine:				state.document.isEmpty && state.document.nodes.size === 1,
 				newLine:  						state.focusBlock.isEmpty,
