@@ -18,7 +18,7 @@ const paragraph = css`
 `
 const sectionBreak = css`
 	text-align: 	center;
-	padding:			${ props => props.theme.size.block.column.safety }em 0 ${ props => props.theme.size.block.spacing * 2 }em;
+	padding:			${ props => props.theme.size.block.column.safety * 2 }em 0 ${ props => props.theme.size.block.spacing * 4 }em;
 	color:				${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.half).string() };
 	border:				0;
 	margin:				0;
