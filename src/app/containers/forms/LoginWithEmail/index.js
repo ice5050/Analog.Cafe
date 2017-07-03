@@ -47,7 +47,7 @@ export default class extends React.Component {
             title="Login with Email"
             image={ banner }
             fetch={ "/api/auth/email" }
-            method="post"
+            // method="post"
             data={{ email: this.state.email }}
           >
             <Button onClick={ this.handleSubmit }>Log In</Button>
