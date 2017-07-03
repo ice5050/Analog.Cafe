@@ -2,17 +2,14 @@
 import React from "react"
 
 // components
+import LoginWithEmail from "../../../containers/forms/LoginWithEmail"
 import Heading from "../../ArticleHeading"
-import { Button } from "../../Button"
-import ModalLink from "../../../containers/Modal"
 import { Article, Section } from "../../ArticleStyles"
-import { SubtitleInput } from "../../InputText"
 import { VisitorNav } from "../../NavTypes"
 
 
 // styles
-import { TwitterButton, InputButtonPair, SubWindow } from "./styles"
-import banner from "../../icons/images/banner-email.jpg"
+import { TwitterButton, SubWindow } from "./styles"
 
 // render
 export default props => {
@@ -24,21 +21,8 @@ export default props => {
 
 					<SubWindow>
 						<TwitterButton to="/submit/send">Log In with Twitter</TwitterButton>
-
 						<p style={{ textAlign: "center" }}><em>- or -</em></p>
-
-						<InputButtonPair>
-							<SubtitleInput placeholder="Type Your Email" required />
-							<ModalLink
-									title="Login with Email"
-									image={ banner }
-									fetch={ "/api/auth/email" }
-									// method="post"
-									data={{ email: "d@analog.cafe" }}
-								>
-									<Button>Log In</Button>
-								</ModalLink>
-						</InputButtonPair>
+						<LoginWithEmail />
 					</SubWindow>
 
 				</Section>
