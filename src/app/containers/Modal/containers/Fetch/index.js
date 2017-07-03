@@ -22,9 +22,9 @@ export default class extends React.Component {
 				let data = response.data
 				this.setState({
 					status: 			data.status,
-					name:					data.name,
+					title:				data.title,
 					image:				data.image,
-					shortBio:			data["bio-short"],
+					text:					data.text,
 					slug,
 					buttons: 			data.buttons,
 				})
@@ -39,9 +39,9 @@ export default class extends React.Component {
   render() {
 		return(
 			<Card
-				title={ this.state.name  }
+				title={ this.state.title  }
 				image={ this.state.image }
-				text={ this.state.shortBio }
+				text={ this.state.text }
 				buttons={ this.state.buttons }
 				show={ this.props.show }
 			/>

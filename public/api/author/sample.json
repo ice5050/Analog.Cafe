@@ -1,9 +1,9 @@
 {
   "status": "ok",
 	"id" : "sample",
-	"name" : "Your Name",
+	"title" : "Your Name",
 	"image" : "/images/app/placeholder-profile.jpg",
-	"bio-short" : "Short author bio would go here.",
+	"text" : "Short author bio would go here.",
 	"buttons" : [
 		{
 			"to": "/",

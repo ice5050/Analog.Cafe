@@ -1,9 +1,9 @@
 {
   "status": "ok",
 	"id" : "kyla-medica",
-	"name" : "Kyla Medica",
+	"title" : "Kyla Medica",
 	"image" : "/images/app/placeholder-profile.jpg",
-	"bio-short" : "Short author bio.",
+	"text" : "Short author bio.",
 	"buttons" : [
 		{
 			"to": "https://www.artsocket.com",
