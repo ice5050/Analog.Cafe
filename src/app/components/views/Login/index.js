@@ -28,17 +28,12 @@ export default props => {
 
 						<InputButtonPair>
 							<SubtitleInput placeholder="Type Your Email" required />
-
-
-
 							<ModalLink
 									title="Login with Email"
 									fetch={ "/api/auth/email" }
 								>
 									<Button>Log In</Button>
 								</ModalLink>
-
-
 						</InputButtonPair>
 					</SubWindow>
 
