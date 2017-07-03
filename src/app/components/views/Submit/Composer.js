@@ -3,7 +3,7 @@ import React from "react"
 
 // components
 import { Article, Section } from "../../ArticleStyles"
-import Button from "../../Button"
+import { LinkButton } from "../../Button"
 
 
 // render
@@ -12,7 +12,7 @@ export default props => {
 		<Article>
 			{ props.header }
 			<Section endsign>{ props.children }</Section>
-			<Button to="/log-in" red>Send Submission <span role="img" aria-label="Rocket">🚀</span></Button>
+			<LinkButton to="/log-in" red>Send Submission <span role="img" aria-label="Rocket">🚀</span></LinkButton>
 		</Article>
 	)
 }

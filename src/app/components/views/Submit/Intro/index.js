@@ -3,7 +3,7 @@ import React from "react"
 
 // components
 import Heading from "../../../ArticleHeading"
-import Button from "../../../Button"
+import { LinkButton } from "../../../Button"
 import Figure from "../../../Picture"
 import Link from "../../../Link"
 import { Section, Article } from "../../../ArticleStyles"
@@ -22,7 +22,7 @@ export default props => {
 			/>
 			<Section>
 
-				<Button to="/submit/compose" red>Submit Now</Button>
+				<LinkButton to="/submit/compose" red>Submit Now</LinkButton>
 				<p><Link to="/log-in"><strong>Log in</strong></Link> to edit your profile and view your existing submissions.</p>
 				<p><em>You can create your account once you submit your work. It&rsquo;ll take 10 seconds.</em></p>
 
@@ -62,7 +62,7 @@ export default props => {
 
 				<hr />
 
-				<Button to="/submit/compose" red>Submit Now</Button>
+				<LinkButton to="/submit/compose" red>Submit Now</LinkButton>
 
 			</Section>
 		</Article>

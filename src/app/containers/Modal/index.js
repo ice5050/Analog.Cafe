@@ -19,7 +19,7 @@ export default class extends React.Component {
     return (
     	<Wrapper>
 				<Anchor href="#card" onClick={ this.handleClick.bind(this) } >{ this.props.children }</Anchor>
-				{ this.state.load && <Fetch {...this.props} /> }
+				{ this.state.load && <Fetch { ...this.props } /> }
       </Wrapper>
     )
   }

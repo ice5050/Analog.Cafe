@@ -3,10 +3,10 @@ import React from "react"
 import styled from "styled-components"
 
 // components
-import Button from "../../../../../components/Button"
+import { LinkButton } from "../../../../../components/Button"
 
 // styles
-const ImageButton = styled(Button)`
+const ImageButton = styled(LinkButton)`
   position: absolute;
   z-index: ${ props => props.theme.layer.up - 1 };
   padding: ${ props => props.theme.size.block.spacing / 5 }em ${ props => props.theme.size.block.spacing / 2 }em;

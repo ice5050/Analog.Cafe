@@ -3,7 +3,7 @@ import { html } from "../rules"
 import toTitleCase from "titlecase"
 
 // styles
-import imageProcessing from "../images/image_processing.png"
+import placeholder from "../../../../../components/icons/images/placeholder-figure.jpg"
 
 // Analog.Cafe plugins
 import { MarkHotkey } from "./mark-hotkey"
@@ -141,7 +141,7 @@ export const plugins = [
       return transform.insertBlock({
         type: "image",
         isVoid: true,
-        data: { file, src: imageProcessing },
+        data: { file, src: placeholder },
       }).apply()
     }
   }),

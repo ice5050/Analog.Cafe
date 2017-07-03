@@ -13,18 +13,22 @@ import defaultPostState from "./state.json"
 export default class extends React.Component {
 	state = defaultPostState
 
-  _fetch = () => {
+  _fetch = () => { console.log(this.props)
   	let slug = this.props.fetch
 		// fetch & update state
 		if(this.state.slug === slug) return
-  	axios.get(slug + ".json")
+		axios({
+		  method: 			this.props.method || "get",
+		  url: 					slug + ".json",
+		  data:					this.props.data || "",
+		})
 			.then(response => {
 				let data = response.data
 				this.setState({
 					status: 			data.status,
-					name:					data.name,
-					image:				data.image,
-					shortBio:			data["bio-short"],
+					title:				data.title,
+					image:				data.image || this.props.image,
+					text:					data.text,
 					slug,
 					buttons: 			data.buttons,
 				})
@@ -39,9 +43,9 @@ export default class extends React.Component {
   render() {
 		return(
 			<Card
-				title={ this.state.name  }
+				title={ this.state.title  }
 				image={ this.state.image }
-				text={ this.state.shortBio }
+				text={ this.state.text }
 				buttons={ this.state.buttons }
 				show={ this.props.show }
 			/>

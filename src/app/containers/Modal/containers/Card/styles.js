@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Color from "color"
 
 // components
-import Button from "../../../../components/Button"
+import { LinkButton } from "../../../../components/Button"
 
 // styles
 import { Caption } from "../../../../components/CaptionStyles"
@@ -82,7 +82,7 @@ export const Card = styled.aside`
 	.fonts-loaded-headers & h3 { ${ props => props.theme.typography.title.fontsLoaded } }
 `
 
-export const CardButton = styled(Button)`
+export const CardButton = styled(LinkButton)`
 	max-width: 			100%;
 	margin: 				0;
 	border-radius: 	0;

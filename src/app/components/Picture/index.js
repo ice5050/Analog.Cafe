@@ -7,6 +7,7 @@ import ModalLink from "../../containers/Modal"
 // styles
 import AuthorLink from "../AuthorLink"
 import { Image, Figure, Caption, Byline } from "./styles"
+import placeholder from "../icons/images/placeholder-profile.jpg"
 
 // return
 export default props => {
@@ -18,6 +19,7 @@ export default props => {
 			{ props.author
 				? <ModalLink
 					title={ props.author.name }
+					image={ placeholder }
 					fetch={ "/api/author/" + props.author.id }
 				>
 					<Caption { ...props } >

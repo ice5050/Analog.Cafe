@@ -1,13 +1,6 @@
 {
   "status": "ok",
 	"id" : "sample",
-	"name" : "Your Name",
-	"image" : "/images/app/placeholder-profile.jpg",
-	"bio-short" : "Short author bio would go here.",
-	"buttons" : [
-		{
-			"to": "/",
-			"text": "Link to Your Website"
-		}
-	]
+	"title" : "Your Profile",
+	"text" : "Short author bio hasn’t been added yet."
 }
