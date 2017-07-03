@@ -4,6 +4,7 @@ import React from "react"
 // components
 import Heading from "../../ArticleHeading"
 import Button from "../../Button"
+import ModalLink from "../../../containers/Modal"
 import { Article, Section } from "../../ArticleStyles"
 import { SubtitleInput } from "../../InputText"
 import { VisitorNav } from "../../NavTypes"
@@ -27,7 +28,17 @@ export default props => {
 
 						<InputButtonPair>
 							<SubtitleInput placeholder="Type Your Email" required />
-							<Button to="/submit/send">Log In</Button>
+
+
+
+							<ModalLink
+									title="Login with Email"
+									fetch={ "/api/author/" }
+								>
+									<Button>Log In</Button>
+								</ModalLink>
+
+
 						</InputButtonPair>
 					</SubWindow>
 

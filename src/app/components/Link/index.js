@@ -9,7 +9,7 @@ import { DOMAIN_NAME } from "./domain"
 export default props => {
 
 	// all links within analog.cafe domain should become relative
-	let to = props.to || "/" // <-- with fallback to domain root
+	let to = props.to || "#" // <-- with fallback to domain root
 	to = to.replace("http://" + DOMAIN_NAME,"")
 		.replace("https://" + DOMAIN_NAME,"")
 		.replace("http://www." + DOMAIN_NAME,"")
