@@ -33,6 +33,8 @@ export default props => {
 									title="Login with Email"
 									image={ banner }
 									fetch={ "/api/auth/email" }
+									// method="post"
+									data={{ email: "d@analog.cafe" }}
 								>
 									<Button>Log In</Button>
 								</ModalLink>

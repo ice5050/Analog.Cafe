@@ -13,11 +13,15 @@ import defaultPostState from "./state.json"
 export default class extends React.Component {
 	state = defaultPostState
 
-  _fetch = () => {
+  _fetch = () => { console.log(this.props)
   	let slug = this.props.fetch
 		// fetch & update state
 		if(this.state.slug === slug) return
-  	axios.get(slug + ".json")
+		axios({
+		  method: 			this.props.method || "get",
+		  url: 					slug + ".json",
+		  data:					this.props.data || "",
+		})
 			.then(response => {
 				let data = response.data
 				this.setState({
