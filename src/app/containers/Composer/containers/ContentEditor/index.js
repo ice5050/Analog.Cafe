@@ -13,7 +13,7 @@ import { loadContent } from "../../helpers/loader"
 import { saveContent } from "../../helpers/saver"
 
 // styles
-import imageProcessing from "./images/image_processing.png"
+import placeholder from "../../../../components/icons/images/placeholder-figure.jpg"
 
 
 
@@ -74,7 +74,7 @@ export default class extends React.Component {
 			.insertBlock({
 				type: "image",
 				isVoid: true,
-				data: { file, src: imageProcessing }
+				data: { file, src: placeholder }
 			})
 			.apply()
 	  this.setState({ state: resolvedState })

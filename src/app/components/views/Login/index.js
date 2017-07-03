@@ -12,6 +12,7 @@ import { VisitorNav } from "../../NavTypes"
 
 // styles
 import { TwitterButton, InputButtonPair, SubWindow } from "./styles"
+import banner from "../../icons/images/banner-email.jpg"
 
 // render
 export default props => {
@@ -30,6 +31,7 @@ export default props => {
 							<SubtitleInput placeholder="Type Your Email" required />
 							<ModalLink
 									title="Login with Email"
+									image={ banner }
 									fetch={ "/api/auth/email" }
 								>
 									<Button>Log In</Button>

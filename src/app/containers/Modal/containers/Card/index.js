@@ -26,7 +26,7 @@ export default class extends React.Component {
 						<img
 							src={ this.props.image || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" }
 							style={{ height: this.props.image ? "inherit" : "0" }}
-							alt="Author profile"
+							alt="Card"
 						/>
 						<figcaption>
 							<CardCaption style={{ padding: this.props.text ? "" : "0" }} >{ this.props.text || "" }</CardCaption>

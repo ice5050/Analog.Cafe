@@ -5,7 +5,7 @@ import Color from "color"
 
 // components
 import { LinkButton } from "../../Button"
-import Twitter from "../../icons/Twitter"
+import Twitter from "../../icons/components/Twitter"
 
 
 // css

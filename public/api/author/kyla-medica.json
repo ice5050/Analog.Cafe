@@ -2,7 +2,7 @@
   "status": "ok",
 	"id" : "kyla-medica",
 	"title" : "Kyla Medica",
-	"image" : "/images/app/placeholder-profile.jpg",
+	"image" : "/images/profiles/kyla-medica.jpg",
 	"text" : "Short author bio.",
 	"buttons" : [
 		{

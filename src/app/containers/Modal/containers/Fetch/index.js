@@ -23,7 +23,7 @@ export default class extends React.Component {
 				this.setState({
 					status: 			data.status,
 					title:				data.title,
-					image:				data.image,
+					image:				data.image || this.props.image,
 					text:					data.text,
 					slug,
 					buttons: 			data.buttons,
