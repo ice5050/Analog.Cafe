@@ -22,7 +22,7 @@ export default class extends React.Component {
 						<h3>{ this.props.title || "Hello!" }</h3>
 						<a href="#close" onClick={ this.handleClose.bind(this)} >✕</a>
 					</header>
-					<figure style={{ height: this.props.image ? "inherit" : "0" }}>
+					<figure>
 						<img
 							src={ this.props.image || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" }
 							style={{ height: this.props.image ? "inherit" : "0" }}
@@ -33,7 +33,7 @@ export default class extends React.Component {
 						</figcaption>
 					</figure>
 					{
-						this.props.buttons ?
+						this.props.buttons &&
 						this.props.buttons.map(function(button, i) {
 							return (
 								<CardButton
@@ -42,7 +42,7 @@ export default class extends React.Component {
 									red={ button.red ? true : null }
 								>{ button.text || "Analog.Cafe" }</CardButton>
 							)
-						}) : null
+						})
 					}
 				</Card>
 			</Overlay>

@@ -35,7 +35,7 @@ const shadowGrey = props => Color(props.theme.color.foreground).alpha(props.them
 const shadowGrey2 = props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least * 2).string()
 export const InputButtonPair = styled.div`
 	max-width: 			${ props => props.theme.size.breakpoint.stops.min }px;
-	margin: 				0 auto !important;
+	margin:					0 auto !important;
 	border-radius: 	${ props => props.theme.effects.borderRadius.small }em !important;
 	background: 		${ shadowGrey };
 	overflow: 			hidden;
@@ -45,9 +45,9 @@ export const InputButtonPair = styled.div`
 		padding: 0;
 		line-height: ${ props => props.theme.size.block.spacing * 2 }em;
 	}
-	a {
+	button {
 		margin: 0;
-	border-radius: 0;
+		border-radius: 0;
 	}
 `
 export const SubWindow = styled.div`

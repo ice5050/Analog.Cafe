@@ -33,7 +33,7 @@ export default props => {
 
 							<ModalLink
 									title="Login with Email"
-									fetch={ "/api/author/" }
+									fetch={ "/api/auth/email" }
 								>
 									<Button>Log In</Button>
 								</ModalLink>

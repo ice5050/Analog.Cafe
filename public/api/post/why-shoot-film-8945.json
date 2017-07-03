@@ -22,69 +22,25 @@
 	"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens.",
 	"content" : {
 		"raw" : {
-  "document":{
-    "data":{
-
-    },
-    "kind":"document",
-    "nodes":[
-      {
-        "data":{
-          "src":"https://pbs.twimg.com/profile_banners/116278808/1495290140/1500x500",
-          "caption": "Image caption example."
-        },
-        "kind":"block",
-        "isVoid":true,
-        "type":"image",
+      "document":{
+        "data":{ },
+        "kind":"document",
         "nodes":[
-          {
-            "kind":"text",
-            "ranges":[
-              {
-                "kind":"range",
-                "text":" ",
-                "marks":[
-
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "data":{
-
-        },
-        "kind":"block",
-        "isVoid":false,
-        "type":"paragraph",
-        "nodes":[
-          {
-            "kind":"text",
-            "ranges":[
-              {
-                "kind":"range",
-                "text":"Rock climbing is a popular sport now that it’s part of the ",
-                "marks":[
-
-                ]
-              }
-            ]
-          },
           {
             "data":{
-              "href":"https://www.analog.cafe/"
+              "src":"https://pbs.twimg.com/profile_banners/116278808/1495290140/1500x500",
+              "caption": "Image caption example."
             },
-            "kind":"inline",
-            "isVoid":false,
-            "type":"link",
+            "kind":"block",
+            "isVoid":true,
+            "type":"image",
             "nodes":[
               {
                 "kind":"text",
                 "ranges":[
                   {
                     "kind":"range",
-                    "text":"Olympics",
+                    "text":" ",
                     "marks":[
 
                     ]
@@ -94,328 +50,53 @@
             ]
           },
           {
-            "kind":"text",
-            "ranges":[
-              {
-                "kind":"range",
-                "text":". Yet it’s still a niche, compared to soccer (football🇬🇧) or weight-lifting. I discovered it for myself about five years ago and stuck with it. The movements, the action, and the primeval urge to “go up” got me sweating my ass off at the wall three times a week unless I’m on the road. The movements, the action, and the primeval urge to “go up” got me sweating my ass off at the wall three times a week unless I’m on the road.",
-                "marks":[
-
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "data":{
-
-        },
-        "kind":"block",
-        "isVoid":false,
-        "type":"quote",
-        "nodes":[
-          {
-            "kind":"text",
-            "ranges":[
-              {
-                "kind":"range",
-                "text":"The sport is romanticized by the association with the “great outdoors” and the immense heights that some outstanding men and women scale with nothing but their chalk bag. The way I see it is a bit different.",
-                "marks":[
-
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "data":{
-
-        },
-        "kind":"block",
-        "isVoid":false,
-        "type":"heading",
-        "nodes":[
-          {
-            "kind":"text",
-            "ranges":[
-              {
-                "kind":"range",
-                "text":"For Me, Rock Climbing Is a Few Plastic Holds I Get to Play With on My Own.",
-                "marks":[
-
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "data":{
-
-        },
-        "kind":"block",
-        "isVoid":false,
-        "type":"paragraph",
-        "nodes":[
-          {
-            "kind":"text",
-            "ranges":[
-              {
-                "kind":"range",
-                "text":"",
-                "marks":[
-
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "data":{
-          "src":"https://cdn-images-1.medium.com/max/2000/1*5nYZqhhj3gnL_Cc1Nb9lpA.jpeg"
-        },
-        "kind":"block",
-        "isVoid":true,
-        "type":"image",
-        "nodes":[
-          {
-            "kind":"text",
-            "ranges":[
-              {
-                "kind":"range",
-                "text":" ",
-                "marks":[
-
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "data":{
-
-        },
-        "kind":"block",
-        "isVoid":false,
-        "type":"paragraph",
-        "nodes":[
-          {
-            "kind":"text",
-            "ranges":[
-              {
-                "kind":"range",
-                "text":"Finger board; scary but fun. Shot on Canon QL25 (on Fujicolor 200 film).",
-                "marks":[
-
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "data":{
-
-        },
-        "kind":"block",
-        "isVoid":false,
-        "type":"paragraph",
-        "nodes":[
-          {
-            "kind":"text",
-            "ranges":[
-              {
-                "kind":"range",
-                "text":"There are climbers who think of gyms as “the practice” before going outdoors to the real rocks. Others, like me, love the idea of grabbing tiny plastic holds and pulling ourselves up with one hand while having a foot in some crazy position. For us, ",
-                "marks":[
-
-                ]
-              },
-              {
-                "kind":"range",
-                "text":"climbing doesn’t have to be a trip or a social thing",
-                "marks":[
-                  {
-                    "data":{
-
-                    },
-                    "kind":"mark",
-                    "type":"bold"
-                  }
-                ]
-              },
-              {
-                "kind":"range",
-                "text":". Beating the route setters’ challenges while indoors is enough.",
-                "marks":[
-
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "data":{
-
-        },
-        "kind":"block",
-        "isVoid":false,
-        "type":"paragraph",
-        "nodes":[
-          {
-            "kind":"text",
-            "ranges":[
-              {
-                "kind":"range",
-                "text":"Bouldering",
-                "marks":[
-                  {
-                    "data":{
-
-                    },
-                    "kind":"mark",
-                    "type":"italic"
-                  }
-                ]
-              },
-              {
-                "kind":"range",
-                "text":" is a sub-genre of rock climbing that involves ascending very short distances with no safety ropes. An excellent discipline for those who like to go solo, without a threat of death upon making the slightest mistake. There’s no need to put your life into your belay partner’s hands either, wait for your turn to climb or arrange dates and locations. Bouldering means having a spot and a crash pad, nothing else.",
-                "marks":[
-
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "data":{
-
-        },
-        "kind":"block",
-        "isVoid":false,
-        "type":"paragraph",
-        "nodes":[
-          {
-            "kind":"text",
-            "ranges":[
-              {
-                "kind":"range",
-                "text":"I am not a professional athlete, nor do I have any aspirations of becoming one. What I do at the gym is just for me. It feels good to be strong, it feels good to do things that looked humanly impossible just a couple of years ago.",
-                "marks":[
-
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "data":{
-
-        },
-        "kind":"block",
-        "isVoid":false,
-        "type":"paragraph",
-        "nodes":[
-          {
-            "kind":"text",
-            "ranges":[
-              {
-                "kind":"range",
-                "text":"Outdoors are fun, the rock feels more “solid,” more adventurous, more “real.” But it doesn’t make that much difference on the kinds of strains one needs to put on his or her body to make a move. The plastic bumps at a local hole-in-the-wall are perfect, in my case, they’re 15 minutes drive from my home with zero planning required.",
-                "marks":[
-
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "data":{
-          "src":"https://cdn-images-1.medium.com/max/1200/1*kVlQck8gdLl9isE4KfIhpA.jpeg"
-        },
-        "kind":"block",
-        "isVoid":true,
-        "type":"image",
-        "nodes":[
-          {
-            "kind":"text",
-            "ranges":[
-              {
-                "kind":"range",
-                "text":" ",
-                "marks":[
-
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "data":{
-
-        },
-        "kind":"block",
-        "isVoid":false,
-        "type":"paragraph",
-        "nodes":[
-          {
-            "kind":"text",
-            "ranges":[
-              {
-                "kind":"range",
-                "text":"A tiny kitten visits the gym once in a while. Shot on Canon QL25 (on Kodak UltraMax 400 film).",
-                "marks":[
-
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "data":{
-
-        },
-        "kind":"block",
-        "isVoid":false,
-        "type":"paragraph",
-        "nodes":[
-          {
-            "kind":"text",
-            "ranges":[
-              {
-                "kind":"range",
-                "text":"Being able to practice anytime is important. Today I am the CTO of an artificial intelligence & analytics software ",
-                "marks":[
-
-                ]
-              }
-            ]
-          },
-          {
             "data":{
-              "href":"https://www.archie.ai/"
+
             },
-            "kind":"inline",
+            "kind":"block",
             "isVoid":false,
-            "type":"link",
+            "type":"paragraph",
             "nodes":[
               {
                 "kind":"text",
                 "ranges":[
                   {
                     "kind":"range",
-                    "text":"company",
+                    "text":"Rock climbing is a popular sport now that it’s part of the ",
+                    "marks":[
+
+                    ]
+                  }
+                ]
+              },
+              {
+                "data":{
+                  "href":"https://www.analog.cafe/"
+                },
+                "kind":"inline",
+                "isVoid":false,
+                "type":"link",
+                "nodes":[
+                  {
+                    "kind":"text",
+                    "ranges":[
+                      {
+                        "kind":"range",
+                        "text":"Olympics",
+                        "marks":[
+
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind":"text",
+                "ranges":[
+                  {
+                    "kind":"range",
+                    "text":". Yet it’s still a niche, compared to soccer (football🇬🇧) or weight-lifting. I discovered it for myself about five years ago and stuck with it. The movements, the action, and the primeval urge to “go up” got me sweating my ass off at the wall three times a week unless I’m on the road. The movements, the action, and the primeval urge to “go up” got me sweating my ass off at the wall three times a week unless I’m on the road.",
                     "marks":[
 
                     ]
@@ -425,72 +106,389 @@
             ]
           },
           {
-            "kind":"text",
-            "ranges":[
+            "data":{
+
+            },
+            "kind":"block",
+            "isVoid":false,
+            "type":"quote",
+            "nodes":[
               {
-                "kind":"range",
-                "text":". I am also working on a community publishing platform for writers and film photographers as a designer, developer, photographer, writer, manager and promoter. I live with my wife whom I love spending time with in a foreign country. I like to get tipsy and spend time with friends too. Time is finite and valuable.",
-                "marks":[
-
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "data":{
-
-        },
-        "kind":"block",
-        "isVoid":false,
-        "type":"paragraph",
-        "nodes":[
-          {
-            "kind":"text",
-            "ranges":[
-              {
-                "kind":"range",
-                "text":"The gym lets me do all those things. When I’m at the gym everything else fades.",
-                "marks":[
-
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "data":{
-
-        },
-        "kind":"block",
-        "isVoid":false,
-        "type":"paragraph",
-        "nodes":[
-          {
-            "kind":"text",
-            "ranges":[
-              {
-                "kind":"range",
-                "text":"It’s just me and the wall.",
-                "marks":[
+                "kind":"text",
+                "ranges":[
                   {
-                    "data":{
+                    "kind":"range",
+                    "text":"The sport is romanticized by the association with the “great outdoors” and the immense heights that some outstanding men and women scale with nothing but their chalk bag. The way I see it is a bit different.",
+                    "marks":[
 
-                    },
-                    "kind":"mark",
-                    "type":"bold"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data":{
+
+            },
+            "kind":"block",
+            "isVoid":false,
+            "type":"heading",
+            "nodes":[
+              {
+                "kind":"text",
+                "ranges":[
+                  {
+                    "kind":"range",
+                    "text":"For Me, Rock Climbing Is a Few Plastic Holds I Get to Play With on My Own.",
+                    "marks":[
+
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data":{
+
+            },
+            "kind":"block",
+            "isVoid":false,
+            "type":"paragraph",
+            "nodes":[
+              {
+                "kind":"text",
+                "ranges":[
+                  {
+                    "kind":"range",
+                    "text":"",
+                    "marks":[
+
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data":{
+              "src":"https://cdn-images-1.medium.com/max/2000/1*5nYZqhhj3gnL_Cc1Nb9lpA.jpeg"
+            },
+            "kind":"block",
+            "isVoid":true,
+            "type":"image",
+            "nodes":[
+              {
+                "kind":"text",
+                "ranges":[
+                  {
+                    "kind":"range",
+                    "text":" ",
+                    "marks":[
+
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data":{
+
+            },
+            "kind":"block",
+            "isVoid":false,
+            "type":"paragraph",
+            "nodes":[
+              {
+                "kind":"text",
+                "ranges":[
+                  {
+                    "kind":"range",
+                    "text":"Finger board; scary but fun. Shot on Canon QL25 (on Fujicolor 200 film).",
+                    "marks":[
+
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data":{
+
+            },
+            "kind":"block",
+            "isVoid":false,
+            "type":"paragraph",
+            "nodes":[
+              {
+                "kind":"text",
+                "ranges":[
+                  {
+                    "kind":"range",
+                    "text":"There are climbers who think of gyms as “the practice” before going outdoors to the real rocks. Others, like me, love the idea of grabbing tiny plastic holds and pulling ourselves up with one hand while having a foot in some crazy position. For us, ",
+                    "marks":[
+
+                    ]
+                  },
+                  {
+                    "kind":"range",
+                    "text":"climbing doesn’t have to be a trip or a social thing",
+                    "marks":[
+                      {
+                        "data":{
+
+                        },
+                        "kind":"mark",
+                        "type":"bold"
+                      }
+                    ]
+                  },
+                  {
+                    "kind":"range",
+                    "text":". Beating the route setters’ challenges while indoors is enough.",
+                    "marks":[
+
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data":{
+
+            },
+            "kind":"block",
+            "isVoid":false,
+            "type":"paragraph",
+            "nodes":[
+              {
+                "kind":"text",
+                "ranges":[
+                  {
+                    "kind":"range",
+                    "text":"Bouldering",
+                    "marks":[
+                      {
+                        "data":{
+
+                        },
+                        "kind":"mark",
+                        "type":"italic"
+                      }
+                    ]
+                  },
+                  {
+                    "kind":"range",
+                    "text":" is a sub-genre of rock climbing that involves ascending very short distances with no safety ropes. An excellent discipline for those who like to go solo, without a threat of death upon making the slightest mistake. There’s no need to put your life into your belay partner’s hands either, wait for your turn to climb or arrange dates and locations. Bouldering means having a spot and a crash pad, nothing else.",
+                    "marks":[
+
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data":{
+
+            },
+            "kind":"block",
+            "isVoid":false,
+            "type":"paragraph",
+            "nodes":[
+              {
+                "kind":"text",
+                "ranges":[
+                  {
+                    "kind":"range",
+                    "text":"I am not a professional athlete, nor do I have any aspirations of becoming one. What I do at the gym is just for me. It feels good to be strong, it feels good to do things that looked humanly impossible just a couple of years ago.",
+                    "marks":[
+
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data":{
+
+            },
+            "kind":"block",
+            "isVoid":false,
+            "type":"paragraph",
+            "nodes":[
+              {
+                "kind":"text",
+                "ranges":[
+                  {
+                    "kind":"range",
+                    "text":"Outdoors are fun, the rock feels more “solid,” more adventurous, more “real.” But it doesn’t make that much difference on the kinds of strains one needs to put on his or her body to make a move. The plastic bumps at a local hole-in-the-wall are perfect, in my case, they’re 15 minutes drive from my home with zero planning required.",
+                    "marks":[
+
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data":{
+              "src":"https://cdn-images-1.medium.com/max/1200/1*kVlQck8gdLl9isE4KfIhpA.jpeg"
+            },
+            "kind":"block",
+            "isVoid":true,
+            "type":"image",
+            "nodes":[
+              {
+                "kind":"text",
+                "ranges":[
+                  {
+                    "kind":"range",
+                    "text":" ",
+                    "marks":[
+
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data":{
+
+            },
+            "kind":"block",
+            "isVoid":false,
+            "type":"paragraph",
+            "nodes":[
+              {
+                "kind":"text",
+                "ranges":[
+                  {
+                    "kind":"range",
+                    "text":"A tiny kitten visits the gym once in a while. Shot on Canon QL25 (on Kodak UltraMax 400 film).",
+                    "marks":[
+
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data":{
+
+            },
+            "kind":"block",
+            "isVoid":false,
+            "type":"paragraph",
+            "nodes":[
+              {
+                "kind":"text",
+                "ranges":[
+                  {
+                    "kind":"range",
+                    "text":"Being able to practice anytime is important. Today I am the CTO of an artificial intelligence & analytics software ",
+                    "marks":[
+
+                    ]
+                  }
+                ]
+              },
+              {
+                "data":{
+                  "href":"https://www.archie.ai/"
+                },
+                "kind":"inline",
+                "isVoid":false,
+                "type":"link",
+                "nodes":[
+                  {
+                    "kind":"text",
+                    "ranges":[
+                      {
+                        "kind":"range",
+                        "text":"company",
+                        "marks":[
+
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind":"text",
+                "ranges":[
+                  {
+                    "kind":"range",
+                    "text":". I am also working on a community publishing platform for writers and film photographers as a designer, developer, photographer, writer, manager and promoter. I live with my wife whom I love spending time with in a foreign country. I like to get tipsy and spend time with friends too. Time is finite and valuable.",
+                    "marks":[
+
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data":{
+
+            },
+            "kind":"block",
+            "isVoid":false,
+            "type":"paragraph",
+            "nodes":[
+              {
+                "kind":"text",
+                "ranges":[
+                  {
+                    "kind":"range",
+                    "text":"The gym lets me do all those things. When I’m at the gym everything else fades.",
+                    "marks":[
+
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data":{
+
+            },
+            "kind":"block",
+            "isVoid":false,
+            "type":"paragraph",
+            "nodes":[
+              {
+                "kind":"text",
+                "ranges":[
+                  {
+                    "kind":"range",
+                    "text":"It’s just me and the wall.",
+                    "marks":[
+                      {
+                        "data":{
+
+                        },
+                        "kind":"mark",
+                        "type":"bold"
+                      }
+                    ]
                   }
                 ]
               }
             ]
           }
         ]
-      }
-    ]
-  },
-  "kind":"state"
-}
+      },
+      "kind": "state"
+    }
 	}
 }
