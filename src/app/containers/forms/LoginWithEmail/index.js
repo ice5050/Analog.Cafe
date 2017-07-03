@@ -1,5 +1,5 @@
 // tools
-import React, { findDOMNode } from "react"
+import React from "react"
 
 // components
 import ModalLink from "../../Modal"
@@ -34,7 +34,6 @@ export default class extends React.Component {
     event.stopPropagation()
     event.preventDefault()
     this.setState({ warning: true })
-    React.findDOMNode(this.refs.emailInput).focus()
   }
   render() {
 		return(
@@ -42,7 +41,6 @@ export default class extends React.Component {
         <SubtitleInput
           placeholder="Type Your Email"
           onChange={ this.handleEmailChange }
-          ref={ input => { this.emailInput = input } }
           required
         />
         <ModalLink
