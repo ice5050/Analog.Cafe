@@ -1,6 +1,5 @@
 // tools
-import React from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import Color from "color"
 
 
@@ -19,6 +18,7 @@ export const Form = styled.form`
 		text-align: center;
 		padding: 0;
 		line-height: ${ props => props.theme.size.block.spacing * 2 }em;
+		color: ${ props => props.warning ? `red` : `inherit`};
 	}
 	button {
 		margin: 0;
