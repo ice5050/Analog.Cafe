@@ -1,5 +1,6 @@
 {
   "status": "ok",
 	"title" : "Login with Email",
-	"text" : "Please check d@analog.cafe inbox."
+  "image" : "/images/app/placeholder-profile.jpg",
+	"text" : "Please check your d@analog.cafe email account to complete your login process."
 }

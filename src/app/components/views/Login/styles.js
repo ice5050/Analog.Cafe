@@ -33,7 +33,7 @@ export const TwitterButton = props => {
 
 const shadowGrey = props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string()
 const shadowGrey2 = props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least * 2).string()
-export const InputButtonPair = styled.div`
+export const InputButtonPair = styled.form`
 	max-width: 			${ props => props.theme.size.breakpoint.stops.min }px;
 	margin:					0 auto !important;
 	border-radius: 	${ props => props.theme.effects.borderRadius.small }em !important;
