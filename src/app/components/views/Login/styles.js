@@ -4,7 +4,7 @@ import styled, { css } from "styled-components"
 import Color from "color"
 
 // components
-import Button from "../../Button"
+import { LinkButton } from "../../Button"
 import Twitter from "../../icons/Twitter"
 
 
@@ -15,7 +15,7 @@ const brandButtonStyles = css`
 		height: 2em;
 	}
 `
-const StyledTwitterButton = styled(Button)`
+const StyledTwitterButton = styled(LinkButton)`
 	background-color:	#1da1f2;
 	${ brandButtonStyles }
 	svg {
@@ -35,8 +35,8 @@ const shadowGrey = props => Color(props.theme.color.foreground).alpha(props.them
 const shadowGrey2 = props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least * 2).string()
 export const InputButtonPair = styled.div`
 	max-width: 			${ props => props.theme.size.breakpoint.stops.min }px;
-	margin: 				0 auto;
-	border-radius: 	${ props => props.theme.effects.borderRadius.small }em;
+	margin: 				0 auto !important;
+	border-radius: 	${ props => props.theme.effects.borderRadius.small }em !important;
 	background: 		${ shadowGrey };
 	overflow: 			hidden;
 	box-shadow: 		0 1px 1px ${ shadowGrey2 }, 0 0 0 1px ${ shadowGrey };

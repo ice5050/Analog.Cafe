@@ -6,7 +6,7 @@ import ModalLink from "../Modal"
 
 // components
 import ListDescription from "../../components/ListDescription"
-import Button from "../../components/Button"
+import { LinkButton } from "../../components/Button"
 import { default as ListBlock } from "../../components/List"
 import { Section, Article } from "../../components/ArticleStyles"
 
@@ -103,7 +103,7 @@ export default class extends React.Component {
 				</ListDescription>
 				<ListBlock  status={ this.state.status } items={ this.state.items } />
 
-				{ parseInt(this.state.page.total, 0) > 1 && parseInt(this.state.page.total, 0) > parseInt(this.state.page.current, 0) ? <Button to="#more" red onClick={ this.handleMore.bind(this)} >Load More</Button> : null }
+				{ parseInt(this.state.page.total, 0) > 1 && parseInt(this.state.page.total, 0) > parseInt(this.state.page.current, 0) ? <LinkButton to="#more" red onClick={ this.handleMore.bind(this)} >Load More</LinkButton> : null }
 
 				<Article><Section /></Article>
 			</div>

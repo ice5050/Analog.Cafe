@@ -3,7 +3,7 @@ import React from "react"
 
 // components
 import Heading from "../../ArticleHeading"
-import Button from "../../Button"
+import { Button } from "../../Button"
 import ModalLink from "../../../containers/Modal"
 import { Article, Section } from "../../ArticleStyles"
 import { SubtitleInput } from "../../InputText"
