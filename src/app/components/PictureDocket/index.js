@@ -6,6 +6,8 @@ import React from "react"
 // styles
 import styled, { css } from "styled-components"
 import Color from "color"
+import { CardHeader } from "../CardStyles"
+
 
 const ScreenSlicer = styled.div`
   background: ${ props => props.theme.color.foreground };
@@ -34,10 +36,10 @@ export default props => {
 	return (
 		<ScreenSlicer>
       <aside>
-        <header>
+        <CardHeader>
           <h3>Add Image</h3>
           <a href="#close">✕</a>
-        </header>
+        </CardHeader>
         { props.children }
       </aside>
     </ScreenSlicer>

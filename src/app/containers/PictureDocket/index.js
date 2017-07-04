@@ -5,6 +5,7 @@ import React from "react"
 // components
 import PictureDocket from "../../components/PictureDocket"
 
+
 // dictionary
 // import { ROUTE_IMAGE_API } from "./routes"
 
