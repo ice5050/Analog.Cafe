@@ -19,6 +19,7 @@ export default class extends React.Component {
 		const { node, editor } = this.props
     const resolvedState = editor.getState()
       .transform()
+			.insertBlock({ type: "paragraph" })
       .removeNodeByKey(node.key)
       .apply()
 
