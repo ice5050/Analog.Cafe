@@ -28,6 +28,11 @@ const ScreenSlicer = styled.div`
       max-width: ${ props => props.theme.size.block.column.maxwidth.l }px
     }
   `}
+
+  & aside > header {
+    padding-left: ${ props => props.theme.size.block.column.safety }em;
+    & > a { right:  ${ props => props.theme.size.block.column.safety }em; }
+  }
 `
 
 // return

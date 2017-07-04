@@ -16,20 +16,22 @@ export default class extends React.Component {
 	handleClose = event => {
 		event.preventDefault()
 		const { node, editor } = this.props
-    const next = editor.getState()
+    const resolvedState = editor.getState()
       .transform()
       .removeNodeByKey(node.key)
       .apply()
-		editor.onChange(next)
+		// editor.setState({ state: resolvedState })
+		editor.onChange(resolvedState)
+
 	}
 
   render() {
-    const { attributes, state, node } = this.props
+    // const { attributes, state, node } = this.props
     // const focus = state.isFocused && state.selection.hasEdgeIn(node)
     return (
-			<PictureDocket { ...attributes }>
+			<PictureDocket>
 				<CardHeader>
-					<h3>Add Image 🌅</h3>
+					<h3>Add Image <span role="img" aria-label="Film strip">🎞</span></h3>
 					<a href="#close" onClick={ this.handleClose.bind(this) } >✕</a>
 				</CardHeader>
 				image panel
