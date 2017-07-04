@@ -26,6 +26,12 @@ const SquareButton = styled(Square)`
 	&:active {
 		background-color: ${ props => props.theme.color.foreground };
 	}
+
+	${ props => props.theme.size.breakpoint.max.m`
+		h3 {
+			font-size: 1.5em;
+		}
+	`}
 `
 
 // export

@@ -14,21 +14,6 @@ const ScreenSlicer = styled.div`
   margin:         ${ props=> props.theme.size.block.spacing }em 0;
   clear:          both;
 
-  ${ props => props.theme.size.breakpoint.min.l`
-    margin-left:	calc(( -100vw + ${ props => props.theme.size.block.column.maxwidth.m }px )/2 - ${ props => props.theme.size.block.column.safety }em );
-    & > aside {
-      margin: 0 auto;
-      max-width: ${ props => props.theme.size.block.column.maxwidth.m }px
-    }
-  `}
-  ${ props => props.theme.size.breakpoint.min.xxl`
-    margin-left:	calc(( -100vw + ${ props => props.theme.size.block.column.maxwidth.l }px )/2 - ${ props => props.theme.size.block.column.safety }em );
-    & > aside {
-      margin: 0 auto;
-      max-width: ${ props => props.theme.size.block.column.maxwidth.l }px
-    }
-  `}
-
   & aside > header {
     padding: ${ props => props.theme.size.block.spacing }em 0 ${ props => props.theme.size.block.column.safety }em 0;
     & > a {
@@ -40,6 +25,32 @@ const ScreenSlicer = styled.div`
       overflow: visible;
     }
   }
+
+
+  ${ props => props.theme.size.breakpoint.max.m`
+    margin-left:  -${ props => props.theme.size.block.column.safety }em;
+    & aside > header {
+      padding: ${ props => props.theme.size.block.spacing }em ${ props => props.theme.size.block.column.safety }em ${ props => props.theme.size.block.column.safety }em;
+      & > a {
+        right: ${ props => props.theme.size.block.spacing }em;
+      }
+    }
+  `}
+  ${ props => props.theme.size.breakpoint.min.l`
+    margin-left:	calc(( -100vw + ${ props => props.theme.size.block.column.maxwidth.m }px )/2 - ${ props => props.theme.size.block.column.safety }em );
+    & > aside {
+      margin: 0 auto;
+      max-width: ${ props => props.theme.size.block.column.maxwidth.m }px;
+    }
+  `}
+  ${ props => props.theme.size.breakpoint.min.xxl`
+    margin-left:	calc(( -100vw + ${ props => props.theme.size.block.column.maxwidth.l }px )/2 - ${ props => props.theme.size.block.column.safety }em );
+    & > aside {
+      margin: 0 auto;
+      max-width: ${ props => props.theme.size.block.column.maxwidth.l }px;
+    }
+  `}
+
 `
 
 // return
