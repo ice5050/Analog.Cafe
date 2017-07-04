@@ -3,7 +3,7 @@ import React from "react"
 import axios from "axios"
 
 // components
-import Figure from "../../components/Picture"
+import Picture from "../../components/Picture"
 import { PlainTextarea } from "../../components/InputText"
 
 
@@ -90,7 +90,7 @@ export default class extends React.Component {
 		const className = focus ? "focus" : "nofocus"
 
     return src
-      ? <Figure
+      ? <Picture
       		{ ...attributes }
       		src={ src }
       		className={ className }
@@ -106,7 +106,7 @@ export default class extends React.Component {
 						/>
 						: <div>{ this.state.caption }</div>
 					}
-      	</Figure>
-      : <Figure { ...attributes } src="" className={ className }>Loading your image...</Figure>
+      	</Picture>
+      : <Picture { ...attributes } src="" className={ className }>Loading your image...</Picture>
   }
 }
