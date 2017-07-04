@@ -2,7 +2,8 @@
 import React from "react"
 
 // styles
-import { Card, Overlay, CardButton, CardCaption } from "./styles"
+import { Card, CardButton, CardCaption, CardHeader } from "../../../../components/CardStyles"
+import { Overlay } from "./styles"
 
 
 // return
@@ -18,10 +19,10 @@ export default class extends React.Component {
     return (
 			<Overlay show={ this.state.show } onClick={ this.handleClose.bind(this)} >
 				<Card>
-					<header>
+					<CardHeader>
 						<h3>{ this.props.title || "Hello!" }</h3>
 						<a href="#close" onClick={ this.handleClose.bind(this)} >✕</a>
-					</header>
+					</CardHeader>
 					<figure>
 						<img
 							src={ this.props.image || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" }
