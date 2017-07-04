@@ -5,7 +5,7 @@ import React from "react"
 // components
 import PictureDocket from "../../components/PictureDocket"
 import { CardHeader } from "../../components/CardStyles"
-import { GridRow, Square } from "../../components/GridStyles"
+import { GridRow, Square, AspectRatio } from "../../components/GridStyles"
 import { Caption } from "../../components/CaptionStyles"
 
 // styles
@@ -103,19 +103,19 @@ export default class extends React.Component {
 				</CardHeader>
 				<div>
 					<GridRow>
-						<Square><img src="/images/thumbnails/square.jpg"/></Square>
+						<Square><AspectRatio><img src="/images/thumbnails/square.jpg"/></AspectRatio></Square>
 						<Square><img src="/images/thumbnails/square.jpg"/></Square>
 						<SquareButton onClick={ this.initFileUpload }>
 							<h3>Upload<br />New</h3>
 						</SquareButton>
 					</GridRow>
 					<GridRow>
-						<Square><img src="/images/thumbnails/square.jpg"/></Square>
+						<Square><AspectRatio><img src="/images/thumbnails/square.jpg"/></AspectRatio></Square>
 						<Square><img src="/images/thumbnails/square.jpg"/></Square>
 						<Square><img src="/images/thumbnails/square.jpg"/></Square>
 					</GridRow>
 					<GridRow>
-						<Square><img src="/images/thumbnails/square.jpg"/></Square>
+						<Square><AspectRatio><img src="/images/thumbnails/square.jpg"/></AspectRatio></Square>
 						<Square><img src="/images/thumbnails/square.jpg"/></Square>
 						<Square><img src="/images/thumbnails/square.jpg"/></Square>
 					</GridRow>
