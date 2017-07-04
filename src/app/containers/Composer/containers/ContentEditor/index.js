@@ -58,11 +58,15 @@ export default class extends React.Component {
   handleDocumentChange = saveContent
 
 
+
+
+
+
 	// image upload button handlers:
 	handleImageButton = e => {
     e.preventDefault()
     e.stopPropagation()
-    // this.fileInput.click()
+    //------------------>>> this.fileInput.click()
 
 		const resolvedState = this.state.state
 			.transform()
@@ -71,10 +75,20 @@ export default class extends React.Component {
 				isVoid: true
 			})
 			.apply()
-	  this.setState({ state: resolvedState })
+	  this.setState({
+			state: resolvedState,
+			cursorContext: { ...this.state.cursorContext, newLine: false	}
+		})
 		saveContent(this.state.state.document, resolvedState)
 
   }
+
+
+
+
+
+
+
   handleFileUpload = e => {
     const file = e.target.files[0]
     this.uploadRequest(file)

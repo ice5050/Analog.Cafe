@@ -6,7 +6,6 @@ import React from "react"
 // styles
 import styled, { css } from "styled-components"
 import Color from "color"
-import { CardHeader } from "../CardStyles"
 
 
 const ScreenSlicer = styled.div`
@@ -35,13 +34,7 @@ const ScreenSlicer = styled.div`
 export default props => {
 	return (
 		<ScreenSlicer>
-      <aside>
-        <CardHeader>
-          <h3>Add Image</h3>
-          <a href="#close">✕</a>
-        </CardHeader>
-        { props.children }
-      </aside>
+      <aside>{ props.children }</aside>
     </ScreenSlicer>
 	)
 }
