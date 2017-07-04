@@ -58,20 +58,11 @@ export const Figure = styled.figure`
 
 	${ props => props.feature ? bleed : props => props.theme.size.breakpoint.max.m` ${ bleed } ` }
 
-	/* featured images and smaller screens should have the first image pulled up */
-	/*
-	&:first-of-type {
-		${ props => props.feature && `margin-top: -1.5em;`}
-		${ props => props.theme.size.breakpoint.max.m`
-			margin-top: -1.5em;
-		`}
-	}
-	*/
-
 
 	&.focus {
 		box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight },
 								0 ${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
+		z-index: 		${ props => props.theme.layer.up + 1 };
 	}
 
 	textarea {

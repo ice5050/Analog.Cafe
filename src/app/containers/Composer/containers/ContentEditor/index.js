@@ -12,17 +12,9 @@ import { schema } from "./schema"
 import { loadContent } from "../../helpers/loader"
 import { saveContent } from "../../helpers/saver"
 
-// styles
-import placeholder from "../../../../components/icons/images/placeholder-figure.jpg"
-
-
 
 // return
 export default class extends React.Component {
-	constructor(props) {
-		super(props)
-		this.uploadRequest = this.uploadRequest.bind(this)
-	}
 	state = {
 		state: Raw.deserialize(loadContent(), { terse: true }),
 		schema,
@@ -57,30 +49,24 @@ export default class extends React.Component {
 	// content saver
   handleDocumentChange = saveContent
 
-
-	// image upload button handlers:
+	// image button handler:
 	handleImageButton = e => {
     e.preventDefault()
     e.stopPropagation()
-    this.fileInput.click()
-  }
-  handleFileUpload = e => {
-    const file = e.target.files[0]
-    this.uploadRequest(file)
-  }
-	uploadRequest = file => {
+
 		const resolvedState = this.state.state
 			.transform()
 			.insertBlock({
-				type: "image",
-				isVoid: true,
-				data: { file, src: placeholder }
+				type: "docket",
+				isVoid: true
 			})
 			.apply()
-	  this.setState({ state: resolvedState })
+	  this.setState({
+			state: resolvedState,
+			cursorContext: { ...this.state.cursorContext, newLine: false	}
+		})
 		saveContent(this.state.state.document, resolvedState)
-	}
-
+  }
 
 	// render
 	render() {
@@ -89,13 +75,6 @@ export default class extends React.Component {
         <ImageButton
 					cursorContext={ 		this.state.cursorContext }
 					onClick={ 					this.handleImageButton }
-        />
-        <input
-          type=								"file"
-          accept=							"image/x-png,image/jpeg"
-          style={{ 						display: "none" }}
-          ref={ input => { 		this.fileInput = input } }
-          onChange={ 					this.handleFileUpload }
         />
 				<Editor
 					plugins={						plugins }

@@ -3,6 +3,7 @@ import React from "react"
 
 // components
 import Picture from "../../../Picture"
+import PictureDocket from "../../../PictureDocket"
 import Link from "../../../../components/Link"
 import Placeholder from "./containers/Placeholder"
 
@@ -33,6 +34,7 @@ export const schema = {
 										return <blockquote { ...props.attributes } className={ className }>{ props.children }</blockquote>
 		},
 		image:	 			Picture,
+		docket:				PictureDocket,
     link: 				props => {
 										const { data } = props.node
 										const href = data.get("href")
