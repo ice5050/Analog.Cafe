@@ -12,6 +12,7 @@ const ScreenSlicer = styled.div`
   width: 					100vw;
   max-width: 			100vw;
   margin:         ${ props=> props.theme.size.block.spacing }em 0;
+  clear:          both;
 
   ${ props => props.theme.size.breakpoint.min.l`
     margin-left:	calc(( -100vw + ${ props => props.theme.size.block.column.maxwidth.m }px )/2 - ${ props => props.theme.size.block.column.safety }em );

@@ -37,16 +37,23 @@ export default class extends React.Component {
 	}
 
 	handleClose = event => {
+		const { node, editor } = this.props
+		let resolvedState
 		if(event){
 			event.preventDefault()
 			event.stopPropagation()
+			resolvedState = editor.getState()
+				.transform()
+				.insertBlock({ type: "paragraph" })
+				.removeNodeByKey(node.key)
+				.apply()
 		}
-		const { node, editor } = this.props
-    const resolvedState = editor.getState()
-      .transform()
-			.insertBlock({ type: "paragraph" })
-      .removeNodeByKey(node.key)
-      .apply()
+		else{ // handleClose without event means auto close on image insert:
+			resolvedState = editor.getState()
+				.transform()
+				.removeNodeByKey(node.key)
+				.apply()
+		}
 
 		// console.log(editor.getState(), resolvedState)
 		editor.onChange(resolvedState)

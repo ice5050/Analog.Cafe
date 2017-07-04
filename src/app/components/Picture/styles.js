@@ -72,6 +72,7 @@ export const Figure = styled.figure`
 	&.focus {
 		box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight },
 								0 ${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
+		z-index: 		${ props => props.theme.layer.up + 1 };
 	}
 
 	textarea {
