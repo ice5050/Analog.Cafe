@@ -5,10 +5,25 @@ import React from "react"
 // components
 import PictureDocket from "../../components/PictureDocket"
 import { CardHeader } from "../../components/CardStyles"
+import { GridRow, Square } from "../../components/GridStyles"
 
 
 // dictionary
 // import { ROUTE_IMAGE_API } from "./routes"
+import styled from "styled-components"
+const SquareButton = styled(Square)`
+	cursor: pointer;
+	display: flex;
+  justify-content: center;
+  text-align: center;
+	align-items: center;
+	background-color: ${ props => props.theme.color.brand };
+	h3 { padding: 0; }
+
+	&:active {
+		background-color: ${ props => props.theme.color.foreground };
+	}
+`
 
 // export
 export default class extends React.Component {
@@ -38,7 +53,25 @@ export default class extends React.Component {
 					<h3>Add Image <span role="img" aria-label="Film strip">🎞</span></h3>
 					<a href="#close" onClick={ this.handleClose.bind(this) } >✕</a>
 				</CardHeader>
-				image panel
+				<div>
+					<GridRow>
+						<Square><img src="/images/thumbnails/square.jpg"/></Square>
+						<Square><img src="/images/thumbnails/square.jpg"/></Square>
+						<SquareButton>
+							<h3>Upload<br />New</h3>
+						</SquareButton>
+					</GridRow>
+					<GridRow>
+						<Square><img src="/images/thumbnails/square.jpg"/></Square>
+						<Square><img src="/images/thumbnails/square.jpg"/></Square>
+						<Square><img src="/images/thumbnails/square.jpg"/></Square>
+					</GridRow>
+					<GridRow>
+						<Square><img src="/images/thumbnails/square.jpg"/></Square>
+						<Square><img src="/images/thumbnails/square.jpg"/></Square>
+						<Square><img src="/images/thumbnails/square.jpg"/></Square>
+					</GridRow>
+			</div>
 			</PictureDocket>
 		)
   }

@@ -29,8 +29,15 @@ const ScreenSlicer = styled.div`
   `}
 
   & aside > header {
-    padding-left: ${ props => props.theme.size.block.column.safety }em;
-    & > a { right:  ${ props => props.theme.size.block.column.safety }em; }
+    padding: ${ props => props.theme.size.block.spacing }em 0 ${ props => props.theme.size.block.column.safety }em 0;
+    & > a {
+      top:  ${ props => props.theme.size.block.spacing }em;
+      right: -${ props => props.theme.size.block.spacing /2 }em;
+    }
+    & > h3 {
+      font-size: ${ props => props.theme.size.font.make.larger / 2 }em;
+      overflow: visible;
+    }
   }
 `
 

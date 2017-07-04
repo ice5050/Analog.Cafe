@@ -1,6 +1,4 @@
 // tools
-
-// styles
 import styled, { css } from "styled-components"
 
 // css
