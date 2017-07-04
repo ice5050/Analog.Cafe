@@ -15,13 +15,16 @@ export default class extends React.Component {
 
 	handleClose = event => {
 		event.preventDefault()
+		event.stopPropagation()
 		const { node, editor } = this.props
     const resolvedState = editor.getState()
       .transform()
       .removeNodeByKey(node.key)
       .apply()
-		// editor.setState({ state: resolvedState })
+
+		// console.log(editor.getState(), resolvedState)
 		editor.onChange(resolvedState)
+		// editor.setState({ state: resolvedState })
 
 	}
 

@@ -27,8 +27,8 @@ export default class extends React.Component {
       this.setState({ caption })
     }
   }
-  handleChange(e) {
-    const caption = e.target.value
+  handleChange(event) {
+    const caption = event.target.value
     const { node, editor } = this.props
     const src = node.data.get("src")
     const properties = {data: { caption, src }}
@@ -39,9 +39,9 @@ export default class extends React.Component {
       .apply()
 		editor.onChange(next) // have to use native onChange in editor (rather than handleChange)
   }
-  handleClick(e) {
-  	e.preventDefault()
-    e.stopPropagation()
+  handleClick(event) {
+  	event.preventDefault()
+    event.stopPropagation()
   }
 
 
