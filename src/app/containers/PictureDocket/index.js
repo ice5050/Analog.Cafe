@@ -6,7 +6,7 @@ import React from "react"
 import PictureDocket from "../../components/PictureDocket"
 import { CardHeader } from "../../components/CardStyles"
 import { GridRow, Square, AspectRatio } from "../../components/GridStyles"
-import { Caption } from "../../components/CaptionStyles"
+import Link from "../../components/Link"
 
 // styles
 import placeholder from "../../components/icons/images/placeholder-figure.jpg"
@@ -32,6 +32,12 @@ const SquareButton = styled(Square)`
 			font-size: 1.5em;
 		}
 	`}
+`
+const Hint = styled.div`
+	font-style: italic;
+	font-size: ${ props => props.theme.size.font.make.smaller }em;
+	display: block;
+	text-align: center;
 `
 
 // export
@@ -88,7 +94,7 @@ export default class extends React.Component {
 		editor.onChange(resolvedState)
 		setTimeout((function(){
 			this.handleClose()
-		}).bind(this), 100)
+		}).bind(this), 10)
 		// saveContent(this.state.state.document, resolvedState)
 	}
 
@@ -120,7 +126,7 @@ export default class extends React.Component {
 						<Square><img src="/images/thumbnails/square.jpg"/></Square>
 					</GridRow>
 				</div>
-				<Caption>About image suggestions</Caption>
+				<Hint><Link>About image suggestions</Link></Hint>
         <input
           type=								"file"
           accept=							"image/x-png,image/jpeg"
