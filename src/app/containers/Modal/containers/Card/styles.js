@@ -35,8 +35,7 @@ export const Card = styled.aside`
 
 	${ props => props.theme.size.breakpoint.max.xs`
 		border-radius: 0;
-	`
-	}
+	`}
 
  	figure {
  		margin: 				0;
@@ -47,7 +46,6 @@ export const Card = styled.aside`
  	}
 
 	& header {
-		padding: 				$size-content-block-spacing/4 $size-content-block-spacing;
 		padding: 				${ props => props.theme.size.block.spacing /4 }em ${ props => props.theme.size.block.spacing /2 }em;
 		padding-right: 	${ props => props.theme.size.block.spacing *3 }em;
 		z-index: 				${ props => props.theme.layer.up };
