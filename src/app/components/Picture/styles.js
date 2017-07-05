@@ -88,5 +88,5 @@ export const Caption = styled(PictureCaption)`
 	${ props => props.feature && captionBlock }
 `
 export const Byline = styled.div`
-	${ props => props.composer && `opacity: .5;` }
+	${'' /* ${ props => props.composer && `opacity: .5;` } */}
 `

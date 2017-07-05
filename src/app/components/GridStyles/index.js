@@ -1,5 +1,6 @@
 // tools
 import styled from "styled-components"
+import Color from "color"
 
 // css
 export const GridRow = styled.div`
@@ -13,6 +14,7 @@ export const Square = styled.div`
   margin:         0 ${ props => props.theme.size.block.border }px ${ props => props.theme.size.block.border }px 0;
   &:last-child {  margin-right: 0; }
   img {           width: 100%; }
+  background:     ${ props => Color(props.theme.color.background).alpha(props.theme.opacity.least / 2).string() };
 `
 
 export const AspectRatio = styled.div`
