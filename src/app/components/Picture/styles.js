@@ -17,8 +17,10 @@ const bleed = css`
 	float:					none;
 	margin-left: 		-${ props => props.theme.size.block.column.safety }em;
 	margin-right: 	-${ props => props.theme.size.block.column.safety }em;
-	width: 					100vw;
-	max-width: 			100vw;
+	margin-top: 		${ props => props.theme.size.block.spacing }em;
+	width: 					100vw !important;
+	max-width: 			100vw !important;
+	box-shadow: 		none;
 
 	${ props => props.feature ? props => props.theme.size.breakpoint.min.l`
 		margin-left:	calc(( -100vw + ${ props => props.theme.size.block.column.maxwidth.m }px )/2 - ${ props => props.theme.size.block.column.safety }em );
