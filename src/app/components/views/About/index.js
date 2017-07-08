@@ -18,20 +18,12 @@ export default props => {
 				pageTitle="Analog.Cafe ☕️"
 				pageSubtitle="Film Photography Publication"
 			/>
-			<Section>
+			<Section endsign>
 				<Figure src="/images/figures/banner.jpg" feature></Figure>
 
-				<p><strong>Analog.Cafe is a curated film photography publication that encourages and supports collaboration.</strong></p>
-
-				<p>Analog.Cafe aims to unite the film photography medium&rsquo;s creative community through photo essays, written prose and articles.</p>
-
-				<p>This project began as a Kickstarter <Link to="https://www.kickstarter.com/projects/dmitrizzle/analogcafe-the-remarkable-film-photography-blog">campaign</Link> on April 12, 2017. It got 100% funded within the first three weeks. Fifty-one person has pledged their contributions to help this publication become a reality.</p>
-
-				<p>Analog.Cafe is a community-based, open-source (find us on GitHub!) project. There&rsquo;s an open conversation on <Link to="https://twitter.com/analog_cafe">Twitter</Link> and a private one amongst the contributors on Slack. What you see here is a product of a group effort by passionate creative individuals.</p>
-
-				<p>This project might not be for everyone. It is a curated collection of creative works based on certain tastes and styles that may not please all. Which is OK. As long as you are enjoying yourself, you are always welcome here.</p>
-
-				<p>And if you&rsquo;d like to <Link to="/submit">participate</Link> we&rsquo;d be lucky to have you on-board. 🙌</p>
+				<blockquote><strong>Analog.Cafe</strong> exists because of the people who contribute their art and the editors who curate it. Because of the developers and designers who contribute their time and skill to build this platform. And because of the 51 people who have graciously funded the initial stages of this project.</blockquote>
+				<p><strong>Analog.Cafe</strong> is a curated film photography publication that encourages and supports collaboration.</p>
+				<p>This project might is a selection of creative works and articles based tastes and styles that may not please all. Instead, it aims to </p>
 
 				<hr />
 
