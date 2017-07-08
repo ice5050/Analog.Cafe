@@ -17,8 +17,11 @@ const bleed = css`
 	float:					none;
 	margin-left: 		-${ props => props.theme.size.block.column.safety }em;
 	margin-right: 	-${ props => props.theme.size.block.column.safety }em;
-	width: 					100vw;
-	max-width: 			100vw;
+	width: 					100vw !important;
+	max-width: 			100vw !important;
+	box-shadow: 		none;
+
+	${ props => props.theme.size.breakpoint.min.l`padding-top: ${ props => props.theme.size.block.spacing }em;`}
 
 	${ props => props.feature ? props => props.theme.size.breakpoint.min.l`
 		margin-left:	calc(( -100vw + ${ props => props.theme.size.block.column.maxwidth.m }px )/2 - ${ props => props.theme.size.block.column.safety }em );
@@ -71,7 +74,7 @@ export const Figure = styled.figure`
 `
 
 const captionBlock = css`
-	${ props => props.theme.size.breakpoint.min.xl`
+	${ props => props.theme.size.breakpoint.min.l`
 		margin: 0 auto;
 		${ props => props.theme.size.breakpoint.min.s`
 			max-width:	 ${ props => props.theme.size.block.column.maxwidth.m }px;

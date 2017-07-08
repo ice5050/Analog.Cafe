@@ -9,7 +9,8 @@ import { VisitorNav } from "../../NavTypes"
 
 
 // styles
-import { TwitterButton, SubWindow } from "./styles"
+import { ButtonGroup } from "../../Button"
+import { TwitterButton } from "./styles"
 
 // render
 export default props => {
@@ -19,11 +20,11 @@ export default props => {
 				<Heading pageTitle="Log In" />
 				<Section>
 
-					<SubWindow>
+					<ButtonGroup>
 						<TwitterButton to="/submit/send">Log In with Twitter</TwitterButton>
-						<p style={{ textAlign: "center" }}><em>- or -</em></p>
+						<p><em>- or -</em></p>
 						<LoginWithEmail />
-					</SubWindow>
+					</ButtonGroup>
 
 				</Section>
 			</Article>
