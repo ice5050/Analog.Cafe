@@ -29,7 +29,3 @@ export const TwitterButton = props => {
 		</StyledTwitterButton>
 	)
 }
-
-export const SubWindow = styled.div`
-	padding: ${ props => props.theme.size.block.column.safety }em 0 ${ props => props.theme.size.block.spacing * 4 }em;
-`
