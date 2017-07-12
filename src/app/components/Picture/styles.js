@@ -13,6 +13,9 @@ export const Image = styled(Picture)`
   display: 	block;
 `
 
+const shadow = css`
+	box-shadow: 0 0 .5em ${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string() };
+`
 const bleed = css`
 	float:					none;
 	margin-left: 		-${ props => props.theme.size.block.column.safety }em;
@@ -20,6 +23,7 @@ const bleed = css`
 	width: 					100vw !important;
 	max-width: 			100vw !important;
 	box-shadow: 		none;
+	border-radius: 	0;
 
 	${ props => props.theme.size.breakpoint.min.l`padding-top: ${ props => props.theme.size.block.spacing }em;`}
 
@@ -33,33 +37,44 @@ const bleed = css`
 	: null }
 `
 export const Figure = styled.figure`
-	padding: 									0;
-	overflow: 								hidden;
-	margin: 									0;
-	position: 								relative;
-	z-index: 									${ props => props.theme.layer.up };
+	padding: 				0;
+	overflow: 			hidden;
+	margin: 				0;
+	position: 			relative;
+	z-index: 				${ props => props.theme.layer.up };
+	width: 					85%;
+	margin-left: 		-${ props => props.theme.size.block.column.maxwidth.m / 4 }px;
+	margin-right: 	${ props => props.theme.size.block.spacing }em;
+	float: 					left;
+	background:			${ props => props.theme.color.background };
+	${'' /* border-radius:	${ props => props.theme.effects.borderRadius.small }em; */}
 
-	width: 										65%;
-	margin-left: 							calc((${ props => props.theme.size.block.column.maxwidth.m }px - 100vw)/3.5);
-	margin-right: 						${ props => props.theme.size.block.spacing }em;
-	float: 										left;
-
-	background:								${ props => props.theme.color.background };
-	box-shadow:								0 0 .5em ${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string() };
-
-	${ props => props.theme.size.breakpoint.min.xl`
-		width: 				85%;
-		margin-left: 	-${ props => props.theme.size.block.column.maxwidth.m / 4 }px;
-		margin-right: ${ props => props.theme.size.block.spacing }em;
-	`}
+	${ shadow }
 
 	${ props => props.theme.size.breakpoint.min.xxl`
 		width: 				95%;
-		margin-left: 	-${ props => props.theme.size.block.column.maxwidth.l / 2 }px;
+		margin-left: 	-${ props => props.theme.size.block.column.maxwidth.l / 2.75 }px;
 		margin-right: ${ props => props.theme.size.block.spacing }em;
 	` }
 
-	${ props => props.feature ? bleed : props => props.theme.size.breakpoint.max.m` ${ bleed } ` }
+	${ props => !props.feature && props.theme.size.breakpoint.max.l`
+		//--> Larger figure borders (for figures that aren't featured and are on mobile screens)
+		float: none;
+		margin: ${ props=> props.theme.size.block.column.safety }em 0 0 !important;
+		width: 75% !important;
+		max-width: 66vw !important;
+		min-width: ${ props => props.theme.size.block.minFigureWIdth }px;
+	`}
+
+	${ props => props.feature ? bleed : props => props.theme.size.breakpoint.max.s`
+		${ bleed }
+		//--> Non-featured figures on small screens are not edge-to-edge:
+		width: 100% !important;
+		max-width: 100vw !important;
+		min-width: 0;
+		${ shadow }
+	`}
+
 
 
 	&.focus {

@@ -91,6 +91,7 @@ export const Paper = {
 			},
 			spacing: 	1, // base: multiplier
 			border:		8, // base: pixels
+			minFigureWIdth: 450, // base: pixels
 		},
 	},
 	layer: {
