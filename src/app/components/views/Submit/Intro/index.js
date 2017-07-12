@@ -16,21 +16,21 @@ export default props => {
 		<Article>
 			<Heading
 				pageTitle="Submit"
-				pageSubtitle="Get featured on Analog.Cafe"
+				pageSubtitle="Film Photography & Essays"
 			/>
 			<Section>
 
-				<ButtonGroup>
+				<div style={{ textAlign: "center" }}>
 					<LinkButton to="/submit/compose" red>Submit Now</LinkButton>
 					<p><em>- or -</em></p>
-					<p><Link to="/log-in"><strong>Log in</strong></Link> to edit your profile and view your existing submissions.</p>
-				</ButtonGroup>
+					<p><Link to="/log-in"><strong>Sign in</strong></Link> if you already have an account.</p>
+				</div>
 
-				<Figure src="/images/figures/submit-camera.jpg" feature>A double-exposed Instax Mini Monochrome.</Figure>
+				<Figure src="/images/figures/submit-camera.jpg" feature>&ldquo;We accept film photography submissions.&rdquo;</Figure>
 
 
 				<h3>How to Submit</h3>
-				<p>It&rsquo;s very easy to use <em>Analog.Cafe Composer</em>. You can copy-paste your story and photos, or comfortably write and edit everything right here. The Composer tool will do all the formatting and beautification for you.</p>
+				<p>It&rsquo;s very easy to use <em>Analog.Cafe Composer</em>. You can insert your images and edit text with ease. The Composer tool will do all the formatting and beautification for you.</p>
 				<Figure src="/images/figures/submit-screen.jpg">Analog.Cafe Composer in action.</Figure>
 				<p><strong>Image Suggestions</strong> &mdash; when you upload your images, you will see <em>Image Suggestions</em>. They are hand-picked selections by the editor that you can freely use here on Analog.Cafe website. A credit to the original photographer will appear automatically.</p>
 				<p>You will also have a chance to participate or opt out from the <em>Image Suggestions</em> program.</p>
@@ -63,7 +63,7 @@ export default props => {
 				<ButtonGroup>
 					<LinkButton to="/submit/compose" red>Submit Now</LinkButton>
 					<p><em>- or -</em></p>
-					<p><Link to="/log-in"><strong>Log in</strong></Link> to edit your profile and view your existing submissions.</p>
+					<p><Link to="/log-in"><strong>Sign in</strong></Link> if you already have an account.</p>
 				</ButtonGroup>
 
 			</Section>
