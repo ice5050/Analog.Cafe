@@ -23,6 +23,7 @@ const bleed = css`
 	width: 					100vw !important;
 	max-width: 			100vw !important;
 	box-shadow: 		none;
+	border-radius: 	0;
 
 	${ props => props.theme.size.breakpoint.min.l`padding-top: ${ props => props.theme.size.block.spacing }em;`}
 
@@ -36,16 +37,18 @@ const bleed = css`
 	: null }
 `
 export const Figure = styled.figure`
-	padding: 									0;
-	overflow: 								hidden;
-	margin: 									0;
-	position: 								relative;
-	z-index: 									${ props => props.theme.layer.up };
-	width: 				85%;
-	margin-left: 	-${ props => props.theme.size.block.column.maxwidth.m / 4 }px;
-	margin-right: ${ props => props.theme.size.block.spacing }em;
-	float: 										left;
-	background:								${ props => props.theme.color.background };
+	padding: 				0;
+	overflow: 			hidden;
+	margin: 				0;
+	position: 			relative;
+	z-index: 				${ props => props.theme.layer.up };
+	width: 					85%;
+	margin-left: 		-${ props => props.theme.size.block.column.maxwidth.m / 4 }px;
+	margin-right: 	${ props => props.theme.size.block.spacing }em;
+	float: 					left;
+	background:			${ props => props.theme.color.background };
+	${'' /* border-radius:	${ props => props.theme.effects.borderRadius.small }em; */}
+
 	${ shadow }
 
 	${ props => props.theme.size.breakpoint.min.xxl`
@@ -55,19 +58,20 @@ export const Figure = styled.figure`
 	` }
 
 	${ props => !props.feature && props.theme.size.breakpoint.max.l`
-		// Larger figure borders (for figures that aren't featured and are on mobile screens)
+		//--> Larger figure borders (for figures that aren't featured and are on mobile screens)
 		float: none;
 		margin: ${ props=> props.theme.size.block.column.safety }em 0 0 !important;
-		width: 100% !important;
+		width: 75% !important;
 		max-width: 66vw !important;
+		min-width: ${ props => props.theme.size.block.minFigureWIdth }px;
 	`}
-	
+
 	${ props => props.feature ? bleed : props => props.theme.size.breakpoint.max.s`
 		${ bleed }
-		// Non-featured figures on small screens are not edge-to-edge:
-		margin: ${ props=> props.theme.size.block.spacing / 2 }em ${ props=> props.theme.size.block.spacing }em 0 -${ props=> props.theme.size.block.spacing  }em !important;
-		width: calc(100% + ${ props=> props.theme.size.block.spacing * 2 }em) !important;
+		//--> Non-featured figures on small screens are not edge-to-edge:
+		width: 100% !important;
 		max-width: 100vw !important;
+		min-width: 0;
 		${ shadow }
 	`}
 
