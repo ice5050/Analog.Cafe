@@ -44,13 +44,13 @@ export default class extends React.Component {
           required
         />
         <ModalLink
-            title="Login with Email"
+            title="Sign in with Email"
             image={ banner }
             fetch={ "/api/auth/email" }
             // method="post"
             data={{ email: this.state.email }}
           >
-            <Button onClick={ this.handleSubmit }>Log In</Button>
+            <Button onClick={ this.handleSubmit }>Sign In</Button>
           </ModalLink>
       </Form>
 		)
