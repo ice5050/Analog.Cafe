@@ -2,7 +2,7 @@
 import React from "react"
 
 // components
-import LoginWithEmail from "../../../containers/forms/LoginWithEmail"
+import SignInWithEmail from "../../../containers/forms/SignInWithEmail"
 import Heading from "../../ArticleHeading"
 import { Article, Section } from "../../ArticleStyles"
 import { VisitorNav } from "../../NavTypes"
@@ -17,13 +17,13 @@ export default props => {
 	return(
 		<div>
 			<Article>
-				<Heading pageTitle="Log In" />
+				<Heading pageTitle="Sign In" />
 				<Section>
 
 					<ButtonGroup>
-						<TwitterButton to="/submit/send">Log In with Twitter</TwitterButton>
+						<TwitterButton to="/submit/send">Sign In with Twitter</TwitterButton>
 						<p><em>- or -</em></p>
-						<LoginWithEmail />
+						<SignInWithEmail />
 					</ButtonGroup>
 
 				</Section>

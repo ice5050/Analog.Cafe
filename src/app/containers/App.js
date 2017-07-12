@@ -9,7 +9,7 @@ import Paper from "../themes/Paper"
 
 
 // views and components
-import { About, NotFound, Login, Publication } from "../components/views"
+import { About, NotFound, SignIn, Publication } from "../components/views"
 import { Intro, Submit } from "../components/views/Submit"
 import Composer from "./Composer"
 import List from "./List"
@@ -51,7 +51,7 @@ export default props => {
 					<Route path="compose" 			component={ Composer } />
 				</Route>
 
-				<Route path="log-in"						component={ Login } />
+				<Route path="log-in"						component={ SignIn } />
 				<Route path="*"								component={ NotFound } status={404} />
 
 			</Router>
