@@ -30,7 +30,7 @@ export default props => {
 				pageSubtitle="Film Photography Publication"
 			/>
 			<Section endsign>
-				<Figure src="/images/figures/banner.jpg" feature>A lamp that lights the work table with the laptop, notebook and camera used to build this website. Shot on Ilford PAN 400, pushed to 1600.</Figure>
+				<Figure src="/images/figures/about-chiangmai-8.jpg" feature>A lamp that lights the work table with the laptop, notebook and camera used to build this website. Shot on Ilford PAN 400, pushed to 1600.</Figure>
 
 				<blockquote><strong>Analog.Cafe</strong> exists because of the people who contribute their art and the editors who curate it. Because of the developers and designers who contribute their time and skill to build this platform. And because of the 51 people who have graciously <Link to="https://www.kickstarter.com/projects/dmitrizzle/analogcafe-the-remarkable-film-photography-blog">funded</Link> the initial stages of this project.</blockquote>
 				<p><strong>Analog.Cafe</strong> is a curated film photography publication that encourages and supports collaboration.</p>
