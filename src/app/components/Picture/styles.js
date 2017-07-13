@@ -20,6 +20,7 @@ const bleed = css`
 	float:					none;
 	margin-left: 		-${ props => props.theme.size.block.column.safety }em;
 	margin-right: 	-${ props => props.theme.size.block.column.safety }em;
+	margin-bottom: 0;
 	width: 					100vw !important;
 	max-width: 			100vw !important;
 	box-shadow: 		none;
@@ -37,14 +38,12 @@ const bleed = css`
 	: null }
 `
 export const Figure = styled.figure`
+	overflow: hidden;
 	padding: 				0;
-	overflow: 			hidden;
-	margin: 				0;
+	margin: 				${ props => props.theme.size.block.spacing / 2 }em  ${ props => props.theme.size.block.spacing }em ${ props => props.theme.size.block.spacing }em -${ props => props.theme.size.block.column.maxwidth.m / 4 }px;
 	position: 			relative;
 	z-index: 				${ props => props.theme.layer.up };
 	width: 					85%;
-	margin-left: 		-${ props => props.theme.size.block.column.maxwidth.m / 4 }px;
-	margin-right: 	${ props => props.theme.size.block.spacing }em;
 	float: 					left;
 	background:			${ props => props.theme.color.background };
 
@@ -59,19 +58,24 @@ export const Figure = styled.figure`
 	${ props => !props.feature && props.theme.size.breakpoint.max.l`
 		//--> Larger figure borders (for figures that aren't featured and are on mobile screens)
 		float: none;
-		margin: ${ props=> props.theme.size.block.column.safety }em 0 0 !important;
+		margin: ${ props => props.theme.size.block.spacing /2 }em 0 ${ props=> props.theme.size.block.column.safety }em  -${ props=> props.theme.size.block.column.safety }em !important;
 		width: 75% !important;
 		max-width: 66vw !important;
 		min-width: ${ props => props.theme.size.block.minFigureWIdth }px;
 	`}
 
+	${ props => props.feature ? bleed : props => props.theme.size.breakpoint.max.m`
+		margin-left: 0 !important;
+		border-radius:	${ props => props.theme.effects.borderRadius.small }em;
+	`}
+
 	${ props => props.feature ? bleed : props => props.theme.size.breakpoint.max.s`
 		${ bleed }
 		//--> Non-featured figures on small screens are not edge-to-edge:
-		border-radius:	${ props => props.theme.effects.borderRadius.small }em;
 		width: 100% !important;
 		max-width: 100vw !important;
 		min-width: 0;
+		border-radius:	${ props => props.theme.effects.borderRadius.small }em;
 		${ shadow }
 	`}
 
@@ -100,9 +104,15 @@ const captionBlock = css`
 	` }
 `
 export const Caption = styled(PictureCaption)`
-	padding:				${ props => props.theme.size.block.column.safety / props.theme.size.font.make.smaller }em;
 	border-bottom:	${ props => props.theme.elements.thickBorder };
+	color: ${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.half).string() };
+	padding: ${ props => props.theme.size.block.spacing / 4 }em ${ props => props.theme.size.block.column.safety / props.theme.size.font.make.smaller }em ${ props => props.theme.size.block.column.safety / props.theme.size.font.make.smaller  + props.theme.size.block.spacing / 4 }em;
+	text-align: center;
 
+	div, textarea {
+		display: inline;
+	}
+	textarea { font-size: 1em !important; }
 	${ props => props.feature && captionBlock }
 `
 export const Byline = styled.div`

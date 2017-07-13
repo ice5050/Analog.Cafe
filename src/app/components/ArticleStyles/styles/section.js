@@ -8,7 +8,9 @@ import { Quote } from "./quote"
 const sectionHeading = css`
 	${ props => props.theme.typography.title.auto }
 	font-size: ${ props => props.theme.size.font.make.larger / 1.5 }em;
-	padding-top: 1em;
+	padding-top: ${ props => props.theme.size.block.spacing }em;
+	margin-bottom: ${ props => props.theme.size.block.spacing /4 }em;
+	clear: both;
 `
 const paragraph = css`
 	margin: ${ props => props.theme.size.block.spacing }em 0;

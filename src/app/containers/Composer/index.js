@@ -9,7 +9,7 @@ import { Composer } from "../../components/views/Submit"
 
 // placeholders
 const authorPlaceholder = {
-	name: "You",
+	name: "",
 	id:		"sample",
 }
 const titlePlaceholder = {

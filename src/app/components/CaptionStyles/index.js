@@ -7,7 +7,7 @@ export const CaptionStyles = css`
 	${ props => props.theme.size.font.auto }
 
 	display: 			block;
-	font-size: 		${ props => props.theme.size.font.make.smaller }em;
+	font-size: 		${ props => props.theme.size.font.make.smaller }em !important;
 	line-height: 	${ props => props.theme.size.font.make.smaller * 1.8 }em;
 	font-variant: small-caps;
 	text-align: 	justify;
