@@ -24,7 +24,7 @@ export default props => {
 				>
 					<Caption { ...props } >
 						{ props.children }
-						<Byline { ...props } >Image by <AuthorLink>{ props.author.name }</AuthorLink>.</Byline>
+						<Byline { ...props } style={ props.author.name === "" ? { display: "none" } : null } > Image by <AuthorLink>{ props.author.name }</AuthorLink>.</Byline>
 					</Caption>
 				</ModalLink>
 				: <Caption { ...props } >{ props.children }</Caption>
