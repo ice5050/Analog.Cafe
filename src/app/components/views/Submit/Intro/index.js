@@ -30,15 +30,13 @@ export default props => {
 
 
 				<h3>How to Submit</h3>
-				<p>It&rsquo;s very easy to use <em>Analog.Cafe Composer</em>. You can insert your images and edit text with ease. The Composer tool will do all the formatting and beautification for you.</p>
-				<Figure src="/images/figures/submit-screen.jpg">Analog.Cafe Composer in action.</Figure>
-				<p><strong>Image Suggestions</strong> &mdash; when you upload your images, you will see <em>Image Suggestions</em>. They are hand-picked selections by the editor that you can freely use here on Analog.Cafe website. A credit to the original photographer will appear automatically.</p>
-				<p>You will also have a chance to participate or opt out from the <em>Image Suggestions</em> program.</p>
+				<p>It&rsquo;s very easy to use <strong>Analog.Cafe Composer</strong>. You can insert your images and edit text with ease. The Composer tool will do all the formatting and beautification for you.</p>
+				<Figure src="/images/figures/submit.gif" nocaption></Figure>
+				<p><strong>Image Suggestions</strong> &mdash; when you upload your images, you will see Image Suggestions. They are hand-picked selections by the editor that you can freely use here on Analog.Cafe website. A credit to the original photographer will appear automatically.</p>
+				<p>You will also have a chance to participate or opt out from the Image Suggestions program.</p>
 
 				<h3>How to Get Accepted</h3>
-
 				<p>Analog.Cafe focuses heavily on film photography as the subject of every submission. That being said, if your work suits the general style of the publication but doesn&rsquo;t use photographs shot on film it can still be accepted.</p>
-
 				<p>Here is a list of formats submissions are typically accepted in:</p>
 				<ul>
 					<li><strong>A Photo</strong> &mdash; one image, a title and perhaps a caption for the photograph.</li>

@@ -14,7 +14,7 @@ export default props => {
 	return (
 		<Figure { ...props } >
 			<Image { ...props } />
-			<figcaption>
+			<figcaption style={ props.nocaption && { borderBottom: "8px solid #2c2c2c", height: 0, overflow: "hidden" } }>
 
 			{ props.author
 				? <ModalLink
