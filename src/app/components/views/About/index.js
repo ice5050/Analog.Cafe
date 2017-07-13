@@ -30,7 +30,7 @@ export default props => {
 				pageSubtitle="Film Photography Publication"
 			/>
 			<Section endsign>
-				<Figure src="/images/figures/about-forest.jpg" feature>A short ride up a twisty mountain road from downtown Chiang Mai (where Analog.Cafe is built) is a tropical forest.</Figure>
+				<Figure src="/images/figures/about-forest.jpg" feature>A short ride up a twisty mountain road from downtown Chiang Mai<br />&mdash; where Analog.Cafe is built &mdash;<br />is a tropical forest.</Figure>
 				<blockquote><strong>Analog.Cafe</strong> exists because of the people who contribute their art and the editors who curate it. Because of the developers and designers who contribute their time and skill to build this platform. And because of the 51 people who have graciously <Link to="https://www.kickstarter.com/projects/dmitrizzle/analogcafe-the-remarkable-film-photography-blog">funded</Link> the initial stages of this project.</blockquote>
 				<p><strong>Analog.Cafe</strong> is a curated film photography publication that encourages and supports collaboration.</p>
 				<p><strong>Analog.Cafe</strong> favours creative & informative works based on quality, creativity and diversity.</p>

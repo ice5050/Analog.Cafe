@@ -106,13 +106,13 @@ const captionBlock = css`
 export const Caption = styled(PictureCaption)`
 	border-bottom:	${ props => props.theme.elements.thickBorder };
 	color: ${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.half).string() };
-	padding: ${ props => props.theme.size.block.spacing / 4 }em ${ props => props.theme.size.block.column.safety / props.theme.size.font.make.smaller }em ${ props => props.theme.size.block.column.safety / props.theme.size.font.make.smaller  + props.theme.size.block.spacing / 4 }em;
+	padding: ${ props => props.theme.size.block.column.safety / 2 }em ${ props => props.theme.size.block.column.safety / props.theme.size.font.make.smaller }em ${ props => props.theme.size.block.column.safety * 1.25 }em;
 	text-align: center;
 
 	div, textarea {
 		display: inline;
 	}
-	textarea { font-size: 1em !important; }
+	textarea { font-size: 1em !important; text-align: center; overflow: hidden; }
 	${ props => props.feature && captionBlock }
 `
 export const Byline = styled.div`
