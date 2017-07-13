@@ -47,7 +47,6 @@ export const Figure = styled.figure`
 	margin-right: 	${ props => props.theme.size.block.spacing }em;
 	float: 					left;
 	background:			${ props => props.theme.color.background };
-	${'' /* border-radius:	${ props => props.theme.effects.borderRadius.small }em; */}
 
 	${ shadow }
 
@@ -69,6 +68,7 @@ export const Figure = styled.figure`
 	${ props => props.feature ? bleed : props => props.theme.size.breakpoint.max.s`
 		${ bleed }
 		//--> Non-featured figures on small screens are not edge-to-edge:
+		border-radius:	${ props => props.theme.effects.borderRadius.small }em;
 		width: 100% !important;
 		max-width: 100vw !important;
 		min-width: 0;
