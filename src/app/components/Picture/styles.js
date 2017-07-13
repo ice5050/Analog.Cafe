@@ -20,7 +20,8 @@ const bleed = css`
 	float:					none;
 	margin-left: 		-${ props => props.theme.size.block.column.safety }em;
 	margin-right: 	-${ props => props.theme.size.block.column.safety }em;
-	margin-bottom: 0;
+	margin-bottom: 	0;
+	margin-top: 		0;
 	width: 					100vw !important;
 	max-width: 			100vw !important;
 	box-shadow: 		none;
