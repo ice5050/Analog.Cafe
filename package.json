@@ -38,8 +38,8 @@
     "slate-trailing-block": "^0.2.4",
     "styled-components": "^2.1.1",
     "titlecase": "^1.1.2",
-    "typeface-exo-2": "0.0.29",
-    "typeface-lora": "^0.0.22",
+    "typeface-exo-2": "0.0.31",
+    "typeface-lora": "0.0.31",
     "webpack": "^3.2.0"
   },
   "devDependencies": {
