@@ -21,7 +21,7 @@
 Production release is coming to [Analog.Cafe](http://analog.cafe) soon. For now please request private demo link from [@dmitrizzle](https://twitter.com/dmitrizzle) or run the app on your local machine (see "[How do I contribute](#how-do-i-contribute)?")
 
 ### How can I use this?
-Currently there is no easy way to install, configure and use the system on your website out of the box. The first phase of this project is planned as a pre-release on August 2017 at [Analog.Cafe](http://analog.cafe) only, followed by 1.0 around September 2017. There are two organizations waiting to try this system with their content, which will probably happen by early 2018. Once that's confirmed working there will be a package for general usage.
+Currently there is no easy way to install, configure and use the system on your website out of the box. The first phase of this project is planned as a pre-release on August 2017 at [Analog.Cafe](http://analog.cafe) only, followed by 1.0 around September 2017. There are two organizations waiting to try this system with their content, which will probably happen by early 2018. Once that's confirmed working and tested, there will be a package for general usage.
 
 You can, however see and try all the code (see "[How do I contribute](#how-do-i-contribute)?")
 
