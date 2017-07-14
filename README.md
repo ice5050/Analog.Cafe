@@ -28,7 +28,7 @@ Currently there is no easy way to install, configure and use the system on other
 You can, however see and try all the code (see "[How do I contribute](#how-do-i-contribute)?")
 
 ### How do I contribute?
-If you are interested in contributing to this project - awesome! Have a look at [Issues](https://github.com/dmitrizzle/Analog.Cafe/issues) and submit a PR if you have a fix or create a new one if you notice a bug.
+If you are interested in contributing to this project - awesome! Have a look at [issues](https://github.com/dmitrizzle/Analog.Cafe/issues) and submit a PR if you have a fix or create a new one if you notice a bug.
 
 To get the code working on your machine:
 1. [Get GIT](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
@@ -51,7 +51,7 @@ To get the code working on your machine:
 
 ### Resources.
 * [Wiki](https://github.com/dmitrizzle/Analog.Cafe/wiki) - developer-friendly info about this project.
-* [Website](http://analog.cafe) - the reason this project started in the first place.
+* [Analog.Cafe website](http://analog.cafe) - the reason this project started in the first place.
 
 If you got a general suggestion (code or no code), please feel free to contact [@dmitrizzle](https://twitter.com/dmitrizzle), [submit an issue](https://github.com/dmitrizzle/Analog.Cafe/issues) or [submit a PR](https://help.github.com/articles/about-pull-requests/) (use "develop" branch as a base).
 
