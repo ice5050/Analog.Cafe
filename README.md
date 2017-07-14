@@ -17,6 +17,8 @@
 * Quality rich media editor. By default browsers provide [terrible experience](https://medium.engineering/why-contenteditable-is-terrible-122d8a40e480), Analog.Cafe attempts to fix that (on desktop and mobile).
 * React.js web application that's incredibly fast, has pro-grade image processing and storage, has pro-grade account management and, of course, has content scheduling.
 
+If you're interested in the story behind this project, check out [Wiki page](https://github.com/dmitrizzle/Analog.Cafe/wiki).
+
 ### Demo.
 Production release is coming to [Analog.Cafe](http://analog.cafe) soon. For now please request private demo link from [@dmitrizzle](https://twitter.com/dmitrizzle) or run the app on your local machine (see "[How do I contribute](#how-do-i-contribute)?")
 
@@ -48,7 +50,7 @@ To get the code working on your machine:
 * [More...](https://github.com/dmitrizzle/Analog.Cafe/blob/develop/package.json)
 
 ### Resources.
-* [Wiki](https://github.com/dmitrizzle/Analog.Cafe/wiki) - developer-friendly info about this project.
+* [Wiki](https://github.com/dmitrizzle/Analog.Cafe/wiki) - story of the project, release guide and design guide.
 * [Analog.Cafe website](http://analog.cafe) - the reason this project started in the first place.
 
 If you got a general suggestion (code or no code), please feel free to contact [@dmitrizzle](https://twitter.com/dmitrizzle), [submit an issue](https://github.com/dmitrizzle/Analog.Cafe/issues) or [submit a PR](https://help.github.com/articles/about-pull-requests/) (use "develop" branch as a base).
