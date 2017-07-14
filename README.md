@@ -13,11 +13,11 @@
 
 ### Why?
 **This is indeed another CMS, with a unique combination of features and build quality not found anywhere else.**
-* Open submissions. Users do not have to log in or have any access priveledges to contribute content. They sign up with Email or Twitter once they are ready to send in their work.
+* Open submissions. Users do not have to log in or have any access priveledges to contribute content. They sign up with email or Twitter once they are ready to send in their work.
 * Quality rich media editor. By default browsers provide [terrible experience](https://medium.engineering/why-contenteditable-is-terrible-122d8a40e480), Analog.Cafe attempts to fix that (on desktop and mobile).
 * React.js web application that's incredibly fast, has pro-grade image processing and storage, has pro-grade account management and, of course, has content scheduling.
 
-If you're interested in the story behind this project, check out [Wiki page](https://github.com/dmitrizzle/Analog.Cafe/wiki).
+If you're interested in the story behind this project, check out this [Wiki](https://github.com/dmitrizzle/Analog.Cafe/wiki).
 
 ### Demo.
 Production release is coming to [Analog.Cafe](http://analog.cafe) soon. For now please request private demo link from [@dmitrizzle](https://twitter.com/dmitrizzle) or run the app on your local machine (see "[How do I contribute](#how-do-i-contribute)?")
