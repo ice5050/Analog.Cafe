@@ -12,7 +12,7 @@ export default props => {
 		<Article>
 			{ props.header }
 			<Section endsign>{ props.children }</Section>
-			<LinkButton to="/log-in" red>Send Submission <span role="img" aria-label="Rocket">🚀</span></LinkButton>
+			<LinkButton to="/sign-in" red>Send Submission <span role="img" aria-label="Rocket">🚀</span></LinkButton>
 		</Article>
 	)
 }

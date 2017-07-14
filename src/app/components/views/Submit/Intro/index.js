@@ -23,7 +23,7 @@ export default props => {
 				<div style={{ textAlign: "center" }}>
 					<LinkButton to="/submit/compose" red>Submit Now</LinkButton>
 					<p><em>- or -</em></p>
-					<p><Link to="/log-in"><strong>Sign in</strong></Link> if you already have an account.</p>
+					<p><Link to="/sign-in"><strong>Sign in</strong></Link> if you already have an account.</p>
 				</div>
 
 				<Figure src="/images/figures/submit-camera.jpg" feature>&ldquo;We accept film photography submissions.&rdquo; 🎞</Figure>
@@ -62,7 +62,7 @@ export default props => {
 				<ButtonGroup>
 					<LinkButton to="/submit/compose" red>Submit Now</LinkButton>
 					<p><em>- or -</em></p>
-					<p><Link to="/log-in"><strong>Sign in</strong></Link> if you already have an account.</p>
+					<p><Link to="/sign-in"><strong>Sign in</strong></Link> if you already have an account.</p>
 				</ButtonGroup>
 
 			</Section>

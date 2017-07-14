@@ -51,7 +51,7 @@ export default props => {
 					<Route path="compose" 			component={ Composer } />
 				</Route>
 
-				<Route path="log-in"						component={ SignIn } />
+				<Route path="sign-in"						component={ SignIn } />
 				<Route path="*"								component={ NotFound } status={404} />
 
 			</Router>
