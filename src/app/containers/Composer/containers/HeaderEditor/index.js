@@ -11,7 +11,7 @@ import ModalLink from "../../../Modal"
 // styles
 import { Header, Byline } from "../../../../components/ArticleStyles"
 import AuthorLink from "../../../../components/AuthorLink"
-import placeholder from "../../../../components/icons/images/placeholder-profile.jpg"
+import placeholder from "../../../../components/icons/images/placeholder-profile.png"
 
 
 

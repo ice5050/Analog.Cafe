@@ -7,7 +7,7 @@ import ModalLink from "../../containers/Modal"
 // styles
 import AuthorLink from "../AuthorLink"
 import { Image, Figure, Caption, Byline } from "./styles"
-import placeholder from "../icons/images/placeholder-profile.jpg"
+import placeholder from "../icons/images/placeholder-profile.png"
 
 // return
 export default props => {
