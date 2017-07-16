@@ -5,7 +5,6 @@ import throttle from "lodash/throttle"
 
 // return
 export const saveContent = throttle((document, state) => {
-	console.log(document)
 	const contentState = JSON.stringify(Raw.serialize(state))
 	localStorage.setItem("composer-content-state", contentState)
 	localStorage.setItem("composer-content-text", document.text)
