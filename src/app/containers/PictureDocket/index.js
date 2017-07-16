@@ -9,7 +9,7 @@ import { GridRow, Square, AspectRatio } from "../../components/GridStyles"
 import Link from "../../components/Link"
 
 // styles
-import placeholder from "../../components/icons/images/placeholder-figure.jpg"
+import placeholder from "../../components/icons/images/placeholder-figure.png"
 
 
 // dictionary
