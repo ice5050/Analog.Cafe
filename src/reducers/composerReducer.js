@@ -1,11 +1,11 @@
 const composerReducer = (state = {
-		status: "Draft",
+		saveStatus: "Draft",
 	}, action) =>  {
 	switch (action.type) {
-		case "UPDATE_STATUS":
+		case "SAVE_STATUS":
 			state = {
 				...state,
-				status: action.payload
+				saveStatus: action.payload
 			}
 			break
 		default:

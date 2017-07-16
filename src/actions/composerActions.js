@@ -1,6 +1,6 @@
-export function updateStatus(status) {
+export function updateSaveStatus(status) {
 	return {
-		type: "UPDATE_STATUS",
+		type: "SAVE_STATUS",
 		payload: status
 	}
 }
