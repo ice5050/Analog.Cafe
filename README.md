@@ -1,5 +1,5 @@
-# Analog.Cafe 
-> Built, used and maintained by [Analog.Cafe](http://analog.cafe) Film Photography Publication team.
+# Analog.Cafe
+> Simple React-based CMS with fantastic public rich text submission processor. Built, used and maintained by [Analog.Cafe](http://analog.cafe) Film Photography Publication.
 
 <img src="https://github.com/dmitrizzle/Analog.Cafe/blob/develop/public/images/figures/submit.gif?raw=true" width="373" alt="Screenshot" />
 
@@ -43,6 +43,7 @@ To get the code working on your machine:
     * [Express.js](https://expressjs.com)
 * [React.js](https://github.com/facebook/react)
     * [Create React App](https://github.com/facebookincubator/create-react-app)
+    * [Redux](https://github.com/reactjs/redux)
     * [Styled Components](https://github.com/styled-components/styled-components)
     * [Slate.js](https://github.com/ianstormtaylor/slate)
 * [ES6](https://github.com/lukehoban/es6features)
@@ -54,4 +55,3 @@ To get the code working on your machine:
 * [Analog.Cafe website](http://analog.cafe) - the reason this project started in the first place.
 
 If you got a general suggestion (code or no code), please feel free to contact [@dmitrizzle](https://twitter.com/dmitrizzle), [submit an issue](https://github.com/dmitrizzle/Analog.Cafe/issues) or [submit a PR](https://help.github.com/articles/about-pull-requests/) (use "develop" branch as a base).
-
