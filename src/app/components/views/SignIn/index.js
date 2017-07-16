@@ -2,10 +2,10 @@
 import React from "react"
 
 // components
+import Nav from "../../../containers/Nav"
 import SignInWithEmail from "../../../containers/forms/SignInWithEmail"
 import Heading from "../../ArticleHeading"
 import { Article, Section } from "../../ArticleStyles"
-import { VisitorNav } from "../../NavTypes"
 
 
 // styles
@@ -15,7 +15,7 @@ import { TwitterButton } from "./styles"
 // render
 export default props => {
 	return(
-		<div>
+		<Nav>
 			<Article>
 				<Heading pageTitle="Sign In" />
 				<Section>
@@ -28,7 +28,6 @@ export default props => {
 
 				</Section>
 			</Article>
-			<VisitorNav />
-		</div>
+		</Nav>
 	)
 }

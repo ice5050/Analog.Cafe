@@ -1,6 +1,9 @@
-const composerReducer = (state = {
-		saveStatus: "Draft",
-	}, action) =>  {
+const composerReducer = (
+		state = {
+			saveStatus: "Draft",
+		},
+		action
+	) =>  {
 	switch (action.type) {
 		case "SAVE_STATUS":
 			state = {
@@ -9,10 +12,8 @@ const composerReducer = (state = {
 			}
 			break
 		default:
-			state = { ...state }
+			return state
 	}
-	console.log(state)
 	return state
-};
-
+}
 export default composerReducer

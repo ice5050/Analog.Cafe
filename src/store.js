@@ -4,12 +4,11 @@ import { createStore, combineReducers, applyMiddleware } from "redux"
 // import thunk from "redux-thunk"
 // import promise from "redux-promise-middleware"
 
-import math from "./reducers/mathReducer"
-import user from "./reducers/userReducer"
-import composerSave from "./reducers/composerReducer"
+import composer from "./reducers/composerReducer"
+import nav from "./reducers/navReducer"
 
 export default createStore(
-	combineReducers({ math, user, composerSave }),
+	combineReducers({ composer, nav }),
 	{},
 	// applyMiddleware(logger(), thunk, promise())
 );
