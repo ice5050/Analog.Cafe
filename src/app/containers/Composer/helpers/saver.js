@@ -14,7 +14,7 @@ export const saveContent = throttle((document, state) => {
 	localStorage.setItem("composer-content-text", document.text)
 	store.dispatch(actionUpdateSaveStatus("Draft Saved"))
 }, 3000)
-export const updateSaveStatus = () => store.dispatch(actionUpdateSaveStatus("Saving&hellip;"))
+export const updateSaveStatus = () => store.dispatch(actionUpdateSaveStatus("Saving..."))
 
 export const saveHeader = throttle(header => {
 	const headerState = JSON.stringify(header)

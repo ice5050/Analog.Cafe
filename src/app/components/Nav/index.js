@@ -28,7 +28,7 @@ export const ComposerNav = props => {
 	return(
 		<Wrapper>
 			<ul>
-				<NavItem indicator prime left><span>Draft Saved</span></NavItem>
+				<NavItem indicator prime left><span>{ props.saveStatus }</span></NavItem>
 
 				<NavItem prime center	><NavIndexLink	to={ "/"						}><Logo /></NavIndexLink></NavItem>
 
