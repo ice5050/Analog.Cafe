@@ -29,6 +29,7 @@ export const ComposerNav = props => {
 		<Wrapper>
 			<ul>
 				<NavItem indicator prime left><span>Draft Saved</span></NavItem>
+
 				<NavItem prime center	><NavIndexLink	to={ "/"						}><Logo /></NavIndexLink></NavItem>
 
 				<NavItem prime right><NavLink 				to={ "/sign-in"	}><span>Send <span role="img" aria-label="Rocket">🚀</span></span></NavLink></NavItem>
@@ -36,3 +37,5 @@ export const ComposerNav = props => {
 		</Wrapper>
 	)
 }
+
+export { Wrapper }

@@ -6,7 +6,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux"
 
 import math from "./reducers/mathReducer"
 import user from "./reducers/userReducer"
-import composerSave from "./reducers/composerSaveReducer"
+import composerSave from "./reducers/composerReducer"
 
 export default createStore(
 	combineReducers({ math, user, composerSave }),

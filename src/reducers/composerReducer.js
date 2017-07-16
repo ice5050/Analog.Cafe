@@ -1,4 +1,4 @@
-const composerSaveReducer = (state = {
+const composerReducer = (state = {
 		status: "Draft",
 	}, action) =>  {
 	switch (action.type) {
@@ -15,4 +15,4 @@ const composerSaveReducer = (state = {
 	return state
 };
 
-export default composerSaveReducer
+export default composerReducer

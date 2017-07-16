@@ -4,7 +4,7 @@ import throttle from "lodash/throttle"
 
 // redux
 import store from "../../../../store"
-import { updateStatus } from "../../../../actions/composerSaveActions"
+import { updateStatus } from "../../../../actions/composerActions"
 
 
 // return
