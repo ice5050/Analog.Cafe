@@ -13,8 +13,8 @@ export const Wrapper = styled.nav`
 	${ props => props.theme.typography.title.auto }
 	position: 				relative;
 	z-index: 					${ props => props.theme.layer.nav };
-	padding-top: 			${ containerVerticalSpacing }em;
-	padding-bottom: 	${ containerVerticalSpacing }em;
+	margin-top: 			${ containerVerticalSpacing }em;
+	margin-bottom: 		${ containerVerticalSpacing }em;
 
 	> ul {
 		padding: 					0;

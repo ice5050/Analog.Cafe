@@ -82,7 +82,7 @@ export default class extends React.Component {
     this.uploadRequest(file)
   } // ⤵
 	uploadRequest = file => {
-		const { node, editor } = this.props
+		const { editor } = this.props
 		const resolvedState = editor.getState()
 			.transform()
 			.insertBlock({
@@ -109,21 +109,21 @@ export default class extends React.Component {
 				</CardHeader>
 				<div>
 					<GridRow>
-						<Square><AspectRatio><img src="/images/thumbnails/square.jpg"/></AspectRatio></Square>
-						<Square><img src="/images/thumbnails/square.jpg"/></Square>
+						<Square><AspectRatio><img src="/images/thumbnails/square.jpg" alt=""/></AspectRatio></Square>
+						<Square><img src="/images/thumbnails/square.jpg" alt=""/></Square>
 						<SquareButton onClick={ this.initFileUpload }>
 							<h3>Upload<br />New</h3>
 						</SquareButton>
 					</GridRow>
 					<GridRow>
-						<Square><AspectRatio><img src="/images/thumbnails/square.jpg"/></AspectRatio></Square>
-						<Square><img src="/images/thumbnails/square.jpg"/></Square>
-						<Square><img src="/images/thumbnails/square.jpg"/></Square>
+						<Square><AspectRatio><img src="/images/thumbnails/square.jpg" alt=""/></AspectRatio></Square>
+						<Square><img src="/images/thumbnails/square.jpg" alt=""/></Square>
+						<Square><img src="/images/thumbnails/square.jpg" alt=""/></Square>
 					</GridRow>
 					<GridRow>
-						<Square><AspectRatio><img src="/images/thumbnails/square.jpg"/></AspectRatio></Square>
-						<Square><img src="/images/thumbnails/square.jpg"/></Square>
-						<Square><img src="/images/thumbnails/square.jpg"/></Square>
+						<Square><AspectRatio><img src="/images/thumbnails/square.jpg" alt=""/></AspectRatio></Square>
+						<Square><img src="/images/thumbnails/square.jpg" alt=""/></Square>
+						<Square><img src="/images/thumbnails/square.jpg" alt=""/></Square>
 					</GridRow>
 				</div>
 				<Hint><Link>About image suggestions</Link></Hint>

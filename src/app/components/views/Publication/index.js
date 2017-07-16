@@ -2,15 +2,13 @@
 import React from "react"
 
 // components
-import { VisitorNav } from "../../NavTypes"
+import Nav from "../../../containers/Nav"
 
 // render
 export default props => {
 	return (
-		<div>
-			<VisitorNav />
+		<Nav>
 			{ props.children }
-			<VisitorNav />
-		</div>
+		</Nav>
 	)
 }

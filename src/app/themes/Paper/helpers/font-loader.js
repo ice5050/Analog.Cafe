@@ -1,10 +1,15 @@
 // tools
 import FontFaceObserver from "fontfaceobserver"
 
-// return 
+// return
 export const loadFonts = () => {
 	const doc = document.documentElement.classList
-	if( doc.contains("fonts-loaded") ){ return }    
+	if(doc.contains("fonts-loaded")) return
+	if(sessionStorage.getItem("fonts-loaded") === "true") {
+		doc.add("fonts-loaded-headers")
+		doc.add("fonts-loaded")
+		return
+	}
 
 	(new FontFaceObserver("Exo 2", {
 		style: "normal",
@@ -35,7 +40,7 @@ export const loadFonts = () => {
 			]).then(
 			function(){
 				doc.add("fonts-loaded")
-				//__cookie.set('fontsLoaded', true)
+				sessionStorage.setItem("fonts-loaded", "true")
 			}, function(){ console.log("Lora FAILED") }
 		)}, function(){ console.log("Exo 2 FAILED") })
 }

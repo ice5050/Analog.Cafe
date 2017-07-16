@@ -10,7 +10,7 @@ import ImageButton from "./components/ImageButton"
 import { plugins } from "./plugins"
 import { schema } from "./schema"
 import { loadContent } from "../../helpers/loader"
-import { saveContent } from "../../helpers/saver"
+import { saveContent, updateSaveStatus } from "../../helpers/saver"
 
 
 // return
@@ -47,7 +47,10 @@ export default class extends React.Component {
 	}
 
 	// content saver
-  handleDocumentChange = saveContent
+  handleDocumentChange = (document, state) => {
+		updateSaveStatus()
+		saveContent(document, state)
+	}
 
 	// image button handler:
 	handleImageButton = e => {
