@@ -1,8 +1,15 @@
 // tools
 import React from "react"
 import { render } from "react-dom"
+import { Provider } from "react-redux";
 
 // components
 import App from "./app/containers/App"
+import store from "./store";
 
-render(<App/>, document.getElementById("app"))
+render(
+	<Provider store={ store } >
+		<App />
+	</Provider>,
+	window.document.getElementById('app')
+)
