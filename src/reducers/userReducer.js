@@ -14,9 +14,9 @@ const userReducer = (state = {
 				...state,
 				age: action.payload
 			}
-			break;
+			break
 	}
-	return state;
-};
+	return state
+}
 
-export default userReducer;
+export default userReducer

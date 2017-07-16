@@ -9,16 +9,16 @@ const mathReducer = (state = {
 				result: state.result + action.payload,
 				lastValues: [...state.lastValues, action.payload]
 			};
-			break;
+			break
 		case "SUBTRACT":
 			state = {
 				...state,
 				result: state.result - action.payload,
 				lastValues: [...state.lastValues, action.payload]
 			}
-			break;
+			break
 	}
-	return state;
-};
+	return state
+}
 
-export default mathReducer;
+export default mathReducer

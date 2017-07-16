@@ -6,9 +6,10 @@ import { createStore, combineReducers, applyMiddleware } from "redux"
 
 import math from "./reducers/mathReducer"
 import user from "./reducers/userReducer"
+import composerSave from "./reducers/composerSaveReducer"
 
 export default createStore(
-	combineReducers({ math, user }),
+	combineReducers({ math, user, composerSave }),
 	{},
 	// applyMiddleware(logger(), thunk, promise())
 );
