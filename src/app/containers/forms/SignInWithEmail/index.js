@@ -50,8 +50,8 @@ export default class extends React.Component {
             // method="post"
             data={{ email: this.state.email }}
           >
-            <Button onClick={ this.handleSubmit }>Sign In</Button>
-          </ModalLink>
+          <Button onClick={ this.handleSubmit }>Sign In</Button>
+        </ModalLink>
       </Form>
 		)
 	}

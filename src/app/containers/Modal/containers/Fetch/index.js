@@ -11,9 +11,9 @@ import defaultPostState from "./state.json"
 
 // return
 export default class extends React.Component {
-	state = defaultPostState
+	state = this.props.fetch
 
-  _fetch = () => { console.log(this.props)
+  _fetch = () => {
   	let slug = this.props.fetch
 		// fetch & update state
 		if(this.state.slug === slug) return

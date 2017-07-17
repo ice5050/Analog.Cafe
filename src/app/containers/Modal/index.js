@@ -1,26 +1,48 @@
 // tools
 import React from "react"
 
+// redux
+import { connect } from "react-redux"
+
 // components
 import Fetch from "./containers/Fetch"
 
 // styles
-import { Anchor, Wrapper } from "./styles"
+import { Wrapper } from "./styles"
 
 // return
-export default class extends React.Component {
+class Modal extends React.Component {
   state = { load: false }
-  handleClick = e => {
-    e.preventDefault()
-    this.setState({ load: false })
-    setTimeout(() => this.setState({ load: true }), 20)
-  }
 	render() {
     return (
     	<Wrapper>
-				<Anchor href="#card" onClick={ this.handleClick.bind(this) } >{ this.props.children }</Anchor>
-				{ this.state.load && <Fetch { ...this.props } /> }
+        <Fetch
+          style={ this.state.load ? { display: "block" } : { display: "none" }  }
+          fetch={
+            {status: "loading",
+            title : "Loading Card..."}
+          }
+        />
       </Wrapper>
     )
   }
 }
+
+
+// connet with redux
+const mapStateToProps = state => {
+	return {
+		view: state.nav.view,
+    location: state.nav.location,
+    saveStatus: state.composer.saveStatus,
+	}
+}
+export default connect(mapStateToProps)(Modal)
+
+
+
+// title="Sign in with Email"
+// image={ banner }
+// fetch={ "/api/auth/email" }
+// // method="post"
+// data={{ email: this.state.email }}
