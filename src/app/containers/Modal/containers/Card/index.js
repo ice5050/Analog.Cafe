@@ -17,24 +17,24 @@ export default class extends React.Component {
 
 	render() {
     return (
-			<Overlay show={ this.state.show } onClick={ this.handleClose.bind(this)} >
+			<Overlay onClick={ this.handleClose.bind(this)} >
 				<Card>
 					<CardHeader>
-						<h3>{ this.props.title || "Hello!" }</h3>
+						<h3>{ this.props.title }</h3>
 						<a href="#close" onClick={ this.handleClose.bind(this)} >✕</a>
 					</CardHeader>
 					<figure>
 						<img
-							src={ this.props.image || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" }
+							src={ this.props.image }
 							style={{ height: this.props.image ? "inherit" : "0" }}
 							alt="Card"
 						/>
 						<figcaption>
-							<CardCaption style={{ padding: this.props.text ? "" : "0" }} >{ this.props.text || "" }</CardCaption>
+							<CardCaption style={ this.props.text === "" && { padding: "0" } } >{ this.props.text }</CardCaption>
 						</figcaption>
 					</figure>
 					{
-						this.props.buttons &&
+						Object.keys(this.props.buttons).length !== 0 &&
 						this.props.buttons.map(function(button, i) {
 							return (
 								<CardButton

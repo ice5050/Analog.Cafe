@@ -15,30 +15,42 @@ import { Wrapper } from "./styles"
 
 // return
 class Modal extends React.Component {
-	state = {
-    display: "none",
+  state = {
+    style: {
+      display: "block",
+    },
     data: {
-      title : "Loading Card..."
+      title: "Loading Card...",
+      image: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      text: "",
+      buttons: {},
+    },
+    source: {
+      url: "/api/auth/email",
+      method: "get"
     }
   }
 
   _fetch = () => {
-  	let slug = this.props.fetch
+  	let slug = this.state.source.url
 		// fetch & update state
-		if(this.state.slug === slug) return
+		if(this.state.source.url === slug) return
 		axios({
-		  method: 			this.props.method || "get",
+		  method: 			this.state.source.method,
 		  url: 					slug + ".json",
-		  data:					this.props.data || "",
 		})
 			.then(response => {
 				let data = response.data
 				this.setState({
-					title:				data.title,
-					image:				data.image || this.props.image,
-					text:					data.text,
-					slug,
-					buttons: 			data.buttons,
+          data: {
+  					title:				data.title,
+  					image:				data.image,
+  					text:					data.text,
+  					buttons: 			data.buttons,
+          },
+          source: {
+            url: slug,
+          }
 				})
 			})
 			.catch(error => console.log(error))
@@ -50,13 +62,14 @@ class Modal extends React.Component {
 
   render() {
 		return(
-      <Wrapper style={{ display: this.state.display }}>
+      <Wrapper style={ this.state.style }>
   			<Card
-  				title={ this.state.title  }
-  				image={ this.state.image }
-  				text={ this.state.text }
-  				buttons={ this.state.buttons }
-  				show={ this.props.show }
+  				title={ this.state.data.title  }
+  				image={ this.state.data.image }
+  				text={ this.state.data.text }
+  				buttons={ this.state.data.buttons }
+
+          // callback for show/hide toggle from the card
   			/>
       </Wrapper>
 		)

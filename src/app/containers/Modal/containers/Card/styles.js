@@ -12,5 +12,4 @@ export const Overlay = styled.div`
 	right: 											0;
 	z-index: 										${ props => props.theme.layer.card };
 	padding:  									5vh 0;
-	display:										${ props => props.show ? `block` : `none` };
 `
