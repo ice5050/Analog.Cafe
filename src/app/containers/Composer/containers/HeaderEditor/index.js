@@ -5,7 +5,7 @@ import { loadHeader } from "../../helpers/loader"
 
 // components
 import TitleCase from "../../../TitleCase"
-import ModalLink from "../../../Modal"
+// import ModalLink from "../../../Modal"
 
 
 // styles
@@ -49,11 +49,13 @@ export default class extends React.Component {
 					inputDesignation="subtitle"
 				></TitleCase>
 
-				<ModalLink
+				{/* <ModalLink
 					title={ this.props.author.name }
 					image={ placeholder }
 					fetch={ "/api/author/" + this.props.author.id }
-				><Byline>Link to <AuthorLink>Your Profile</AuthorLink> will appear here.</Byline></ModalLink>
+				> */}
+					<Byline>Link to <AuthorLink>Your Profile</AuthorLink> will appear here.</Byline>
+				{/* </ModalLink> */}
 
 			</Header>
 		)

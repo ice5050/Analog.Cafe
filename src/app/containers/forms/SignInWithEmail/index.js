@@ -2,7 +2,7 @@
 import React from "react"
 
 // components
-import ModalLink from "../../Modal"
+// import ModalLink from "../../Modal"
 import { Button } from "../../../components/Button"
 import { SubtitleInput } from "../../../components/InputText"
 
@@ -43,15 +43,15 @@ export default class extends React.Component {
           onChange={ this.handleEmailChange }
           required
         />
-        <ModalLink
+        {/* <ModalLink
             title="Sign in with Email"
             image={ banner }
             fetch={ "/api/auth/email" }
             // method="post"
             data={{ email: this.state.email }}
-          >
+          > */}
           <Button onClick={ this.handleSubmit }>Sign In</Button>
-        </ModalLink>
+        {/* </ModalLink> */}
       </Form>
 		)
 	}

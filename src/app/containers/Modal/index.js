@@ -19,8 +19,7 @@ class Modal extends React.Component {
         <Fetch
           style={ this.state.load ? { display: "block" } : { display: "none" }  }
           fetch={
-            {status: "loading",
-            title : "Loading Card..."}
+            { title : "Loading Card..." }
           }
         />
       </Wrapper>
@@ -32,9 +31,9 @@ class Modal extends React.Component {
 // connet with redux
 const mapStateToProps = state => {
 	return {
-		view: state.nav.view,
-    location: state.nav.location,
-    saveStatus: state.composer.saveStatus,
+		// view: state.nav.view,
+    // location: state.nav.location,
+    // saveStatus: state.composer.saveStatus,
 	}
 }
 export default connect(mapStateToProps)(Modal)

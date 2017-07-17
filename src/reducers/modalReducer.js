@@ -1,17 +1,16 @@
-const navReducer = (
+const modalReducer = (
     state = {
-      status: "loading",
-      title : "Loading Card..."
+      data: {
+        title : "Loading Card..."
+      }
   	},
     action
   ) =>  {
 	switch (action.type) {
-
-    case "CREATE_WITH_CONTENT":
+    case "CREATE":
       state = {
         ...state,
-        status:  action.payload.status || "loading",
-        
+        data: action.payload
       }
       break
 		default:
@@ -19,12 +18,4 @@ const navReducer = (
 	}
 	return state
 }
-export default navReducer
-
-
-
-title="Sign in with Email"
-image={ banner }
-fetch={ "/api/auth/email" }
-// method="post"
-data={{ email: this.state.email }}
+export default modalReducer
