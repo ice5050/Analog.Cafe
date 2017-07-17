@@ -8,10 +8,7 @@ import defaultPostState from "./state.json"
 
 
 // components
-import Card from "./containers/Card"
-
-// styles
-import { Wrapper } from "./styles"
+import { ModalCard, ModalWrapper } from "../../components/Card"
 
 // return
 class Modal extends React.Component {
@@ -60,18 +57,25 @@ class Modal extends React.Component {
   componentDidUpdate = () => this._fetch()
 	// need condition for componentWillUnmount()
 
+  handleHideModal = () => {
+    // this.setState({
+    //   style: { display: "none" }
+    // })
+  }
+
   render() {
 		return(
-      <Wrapper style={ this.state.style }>
-  			<Card
+      <ModalWrapper style={ this.state.style }>
+  			<ModalCard
   				title={ this.state.data.title  }
   				image={ this.state.data.image }
   				text={ this.state.data.text }
   				buttons={ this.state.data.buttons }
 
+          hideModal={ this.handleHideModal.bind(this) }
           // callback for show/hide toggle from the card
   			/>
-      </Wrapper>
+      </ModalWrapper>
 		)
 	}
 }
