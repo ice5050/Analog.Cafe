@@ -25,7 +25,6 @@ export default class extends React.Component {
 			.then(response => {
 				let data = response.data
 				this.setState({
-					status: 			data.status,
 					title:				data.title,
 					image:				data.image || this.props.image,
 					text:					data.text,
