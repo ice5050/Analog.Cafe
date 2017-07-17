@@ -15,23 +15,12 @@ import { Wrapper } from "./styles"
 
 // return
 class Modal extends React.Component {
-  state = { load: false }
-	render() {
-    return (
-    	<Wrapper>
-        <Fetch
-          style={ this.state.load ? { display: "block" } : { display: "none" }  }
-          fetch={
-            { title : "Loading Card..." }
-          }
-        />
-      </Wrapper>
-    )
+	state = {
+    display: "none",
+    data: {
+      title : "Loading Card..."
+    }
   }
-}
-
-class Fetch extends React.Component {
-	state = this.props.fetch
 
   _fetch = () => {
   	let slug = this.props.fetch
@@ -61,13 +50,15 @@ class Fetch extends React.Component {
 
   render() {
 		return(
-			<Card
-				title={ this.state.title  }
-				image={ this.state.image }
-				text={ this.state.text }
-				buttons={ this.state.buttons }
-				show={ this.props.show }
-			/>
+      <Wrapper style={{ display: this.state.display }}>
+  			<Card
+  				title={ this.state.title  }
+  				image={ this.state.image }
+  				text={ this.state.text }
+  				buttons={ this.state.buttons }
+  				show={ this.props.show }
+  			/>
+      </Wrapper>
 		)
 	}
 }
