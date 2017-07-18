@@ -71,7 +71,6 @@ export const CardHeader = styled.header`
   }
   a {
     text-decoration:none;
-    line-height: 		1em;
     position: 			absolute;
     top: 						0;
     right: 					0;

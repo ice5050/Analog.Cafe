@@ -56,7 +56,7 @@ export default class extends React.Component {
                 data: { email: this.state.email },
               }
             }}
-            elementType="div"
+            wrapperElement="div"
           >
           <Button onClick={ this.handleSubmit }>Sign In</Button>
         </ModalDispatch>

@@ -16,20 +16,20 @@ class ModalDispatch extends React.Component {
   }
   render() {
     // Wrapper defaults to <a> link, however it could become *any* react component:
-    let elementType, elementProps
-    if(!this.props.elementType){
-      elementType = "a"
-      elementProps = { href: "#card" }
+    let wrapperElement, wrapperProps
+    if(!this.props.wrapperElement){
+      wrapperElement = "a"
+      wrapperProps = { href: "#card" }
     }
     else {
-      elementType = this.props.elementType
-      elementProps = {}
+      wrapperElement = this.props.wrapperElement
+      wrapperProps = {}
     }
-    const Wrapper = elementType
+    const Wrapper = wrapperElement
 		return(
       <Wrapper
         onClick={ this.invokeModal.bind(this) }
-        { ...elementProps }>
+        { ...wrapperProps }>
         { this.props.children }
       </Wrapper>
 		)

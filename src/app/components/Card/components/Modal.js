@@ -34,10 +34,9 @@ export const ModalCard = props => {
 					<h3>{ props.title }</h3>
 					<a href="#close" onClick={ props.hideModal } >✕</a>
 				</CardHeader>
-				<figure>
+				<figure style={{ height: typeof props.image === "undefined" ? "0" : "inherit" }}>
 					<img
-						src={ props.image }
-						style={{ height: typeof props.image === "undefined" ? "0" : "inherit" }}
+						src={ props.image || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" }
 						alt="Card"
 					/>
 					<figcaption>

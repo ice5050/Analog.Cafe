@@ -6,10 +6,18 @@ export function setData(data) {
 }
 
 export function fetch(request) {
-  return {
-    type: "FETCH_REQUEST",
-    payload: fetch
-  }
+  // return {
+  //   type: "FETCH_REQUEST",
+  //   payload: fetch
+  // }
+	return dispatch => {
+		setTimeout(() => {
+			dispatch({
+				type: "SET_DATA",
+				payload: { title: "Loading..."}
+			})
+		}, 2000)
+	}
 }
 
 export function setVisibility(isVisible) {
