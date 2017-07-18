@@ -1,4 +1,4 @@
-const composerReducer = (
+export default (
 		state = {
 			saveStatus: "Draft",
 		},
@@ -16,4 +16,3 @@ const composerReducer = (
 	}
 	return state
 }
-export default composerReducer

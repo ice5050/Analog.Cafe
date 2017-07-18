@@ -58,9 +58,9 @@ class Modal extends React.Component {
 	// need condition for componentWillUnmount()
 
   handleHideModal = () => {
-    // this.setState({
-    //   style: { display: "none" }
-    // })
+    this.setState({
+      style: { display: "none" }
+    })
   }
 
   render() {
@@ -71,9 +71,7 @@ class Modal extends React.Component {
   				image={ this.state.data.image }
   				text={ this.state.data.text }
   				buttons={ this.state.data.buttons }
-
           hideModal={ this.handleHideModal.bind(this) }
-          // callback for show/hide toggle from the card
   			/>
       </ModalWrapper>
 		)

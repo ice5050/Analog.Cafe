@@ -1,4 +1,4 @@
-const navReducer = (
+export default (
     state = {
   		view: "VISITOR",
       location: { "top": true, "bottom": true }
@@ -28,4 +28,3 @@ const navReducer = (
 	}
 	return state
 }
-export default navReducer

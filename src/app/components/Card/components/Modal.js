@@ -28,11 +28,11 @@ export const ModalWrapper = styled.div`
 // return
 export const ModalCard = props => {
   return (
-		<ModalOverlay onClick={ props.hideModal() } >
+		<ModalOverlay onClick={ props.hideModal } >
 			<Card>
 				<CardHeader>
 					<h3>{ props.title }</h3>
-					<a href="#close" onClick={ props.hideModal() } >✕</a>
+					<a href="#close" onClick={ props.hideModal } >✕</a>
 				</CardHeader>
 				<figure>
 					<img
