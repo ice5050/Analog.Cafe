@@ -17,10 +17,22 @@ export default (
     action
   ) =>  {
 	switch (action.type) {
-    case "CREATE":
+    case "SET_DATA":
       state = {
         ...state,
         data: action.payload
+      }
+      break
+    case "FETCH_SOURCE":
+      state = {
+        ...state,
+        source: action.payload
+      }
+      break
+    case "SET_VISIBILITY":
+      state = {
+        ...state,
+        style: action.payload
       }
       break
 		default:

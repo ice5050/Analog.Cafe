@@ -4,7 +4,6 @@ import axios from "axios"
 
 // redux
 import { connect } from "react-redux"
-import defaultPostState from "./state.json"
 
 
 // components

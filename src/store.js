@@ -6,9 +6,10 @@ import { createStore, combineReducers, /*applyMiddleware*/ } from "redux"
 
 import composer from "./reducers/composerReducer"
 import nav from "./reducers/navReducer"
+import modal from "./reducers/modalReducer"
 
 export default createStore(
-	combineReducers({ composer, nav }),
+	combineReducers({ composer, nav, modal }),
 	{},
 	// applyMiddleware(logger(), thunk, promise())
 );
