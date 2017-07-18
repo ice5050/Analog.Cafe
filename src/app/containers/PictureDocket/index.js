@@ -4,7 +4,7 @@ import React from "react"
 
 // components
 import PictureDocket from "../../components/PictureDocket"
-import { CardHeader } from "../../components/CardStyles"
+import { CardHeader } from "../../components/Card/styles"
 import { GridRow, Square, AspectRatio } from "../../components/GridStyles"
 import Link from "../../components/Link"
 

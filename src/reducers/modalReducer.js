@@ -1,8 +1,6 @@
 export default (
     state = {
-      style: {
-        display: "block",
-      },
+      isVisible: false,
       data: {
         title: "Loading Card...",
         image: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
@@ -32,7 +30,7 @@ export default (
     case "SET_VISIBILITY":
       state = {
         ...state,
-        style: action.payload
+        isVisible: action.payload
       }
       break
 		default:

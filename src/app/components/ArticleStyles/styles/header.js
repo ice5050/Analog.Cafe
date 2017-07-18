@@ -26,6 +26,5 @@ export const Byline = styled.div`
 	font-size: 			${ props => props.theme.size.font.make.smaller }em;
 	font-variant: 	small-caps;
 	display: 				block;
-	cursor: 				pointer;
 	display: 				inline;
 `

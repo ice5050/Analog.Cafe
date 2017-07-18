@@ -18,7 +18,7 @@ import { Intro, Submit } from "../components/views/Submit"
 import Composer from "./Composer"
 import List from "./List"
 import Post from "./Post"
-import Modal from "./Modal"
+import { Modal } from "./Modal"
 
 // init GA tracking
 ReactGA.initialize("UA-91374353-3")
@@ -54,13 +54,15 @@ class App extends React.Component {
 	render(){
 		return (
 			<Paper>
+
+				{/* helmet */}
 				<Helmet
 					defaultTitle="Analog.Cafe ☕️"
 					titleTemplate="%s ☕️ Analog.Cafe"
 				/>
-				<Router history={ browserHistory } onUpdate={ this.handleRouterUpdate.bind(this) }>
 
-					{/* Routes */}
+				{/* routes */}
+				<Router history={ browserHistory } onUpdate={ this.handleRouterUpdate.bind(this) }>
 					<Route path="/"			 					component={ Publication } >
 						<IndexRoute 								component={ List } />
 						<Route path="photo-essays"	component={ List } />
@@ -77,7 +79,7 @@ class App extends React.Component {
 					<Route path="*"								component={ NotFound } status={404} />
 				</Router>
 
-				{/* Modal Card */}
+				{/* modal card */}
 				<Modal />
 			</Paper>
 		)

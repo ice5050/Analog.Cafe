@@ -12,9 +12,9 @@ export function fetchSource(fetch) {
   }
 }
 
-export function setVisibility(style) {
+export function setVisibility(isVisible) {
   return {
     type: "SET_VISIBILITY",
-    payload: style
+    payload: isVisible
   }
 }

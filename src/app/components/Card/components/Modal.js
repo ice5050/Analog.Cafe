@@ -19,7 +19,7 @@ const ModalOverlay = styled.div`
 	padding:  									5vh 0;
 `
 export const ModalWrapper = styled.div`
-	display: 					inline;
+	display: 					block;
 	position:					relative;
 	z-index: 					${ props => props.theme.layer.card };
 `
@@ -37,14 +37,17 @@ export const ModalCard = props => {
 				<figure>
 					<img
 						src={ props.image }
-						style={{ height: props.image ? "inherit" : "0" }}
+						style={{ height: typeof props.image === "undefined" ? "0" : "inherit" }}
 						alt="Card"
 					/>
 					<figcaption>
-						<CardCaption style={ props.text === "" && { padding: "0" } } >{ props.text }</CardCaption>
+						<CardCaption
+							style={{ padding: typeof props.text === "undefined" ? "0" : "inherit" }}
+						>{ props.text }</CardCaption>
 					</figcaption>
 				</figure>
 				{
+					props.buttons &&
 					Object.keys(props.buttons).length !== 0 &&
 					props.buttons.map(function(button, i) {
 						return (
