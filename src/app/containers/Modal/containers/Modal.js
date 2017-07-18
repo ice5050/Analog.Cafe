@@ -12,18 +12,6 @@ import { ModalCard, ModalWrapper } from "../../../components/Card"
 
 // return
 const Modal = props => {
-  // _fetch = () => {
-  //   if(this.props.modal.request.url === "" ) return
-	// 	axios({
-	// 	  method: 			this.props.modal.request.method,
-  //     data:         this.props.modal.request.data,
-	// 	  url: 					this.props.modal.request.url + ".json",
-	// 	})
-	// 		.then(response => {
-  //       this.props.setData(response.data)
-	// 		})
-	// 		.catch(error => console.log(error))
-  // }
 		return(
       <ModalWrapper style={{
         display: props.modal.isVisible ? "block" : "none"

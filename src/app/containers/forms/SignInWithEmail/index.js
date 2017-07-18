@@ -8,8 +8,6 @@ import { SubtitleInput } from "../../../components/InputText"
 
 // styles
 import { Form } from "./styles"
-import banner from "../../../components/icons/images/banner-email.png"
-
 
 
 // helpers
@@ -46,11 +44,6 @@ export default class extends React.Component {
 
         <ModalDispatch
             with={{
-              data: {
-                title: "Sign in with Email",
-                image: banner,
-                text: "Sending email...",
-              },
               request: {
                 url: "/api/auth/email",
                 data: { email: this.state.email },
