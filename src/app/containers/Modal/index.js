@@ -4,6 +4,7 @@ import axios from "axios"
 
 // redux
 import { connect } from "react-redux"
+import { setData, fetchSource, setVisibility } from "../../../actions/modalActions"
 
 
 // components
@@ -11,66 +12,37 @@ import { ModalCard, ModalWrapper } from "../../components/Card"
 
 // return
 class Modal extends React.Component {
-  state = {
-    style: {
-      display: "block",
-    },
-    data: {
-      title: "Loading Card...",
-      image: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
-      text: "",
-      buttons: {},
-    },
-    source: {
-      url: "/api/auth/email",
-      method: "get"
-    }
-  }
 
   _fetch = () => {
-  	let slug = this.state.source.url
+  	let slug = this.props.modal.source.url
 		// fetch & update state
-		if(this.state.source.url === slug) return
+		if(this.props.modal.source.url === slug) return
+    if(this.props.modal.source.url === "" ) return
 		axios({
-		  method: 			this.state.source.method,
+		  method: 			this.props.modal.source.method,
 		  url: 					slug + ".json",
 		})
 			.then(response => {
 				let data = response.data
-				this.setState({
-          data: {
-  					title:				data.title,
-  					image:				data.image,
-  					text:					data.text,
-  					buttons: 			data.buttons,
-          },
-          source: {
-            url: slug,
-          }
-				})
+        this.props.setData(response.data)
+        this.props.fetchSource({ url: slug })
 			})
 			.catch(error => console.log(error))
   }
 
-  componentDidMount = () => this._fetch()
-  componentDidUpdate = () => this._fetch()
+  // componentDidMount = () => this._fetch()
+  // componentDidUpdate = () => this._fetch()
 	// need condition for componentWillUnmount()
 
-  handleHideModal = () => {
-    this.setState({
-      style: { display: "none" }
-    })
-  }
-
-  render() {
+  render() { console.log(this.props.modal.style)
 		return(
-      <ModalWrapper style={ this.state.style }>
+      <ModalWrapper style={ this.props.modal.style }>
   			<ModalCard
-  				title={ this.state.data.title  }
-  				image={ this.state.data.image }
-  				text={ this.state.data.text }
-  				buttons={ this.state.data.buttons }
-          hideModal={ this.handleHideModal.bind(this) }
+  				title={ this.props.modal.data.title  }
+  				image={ this.props.modal.data.image }
+  				text={ this.props.modal.data.text }
+  				buttons={ this.props.modal.data.buttons }
+          hideModal={ () => this.props.setVisibility({ display: "none" }) }
   			/>
       </ModalWrapper>
 		)
@@ -78,21 +50,23 @@ class Modal extends React.Component {
 }
 
 
-
 // connet with redux
 const mapStateToProps = state => {
 	return {
-		// view: state.nav.view,
-    // location: state.nav.location,
-    // saveStatus: state.composer.saveStatus,
+    modal: state.modal,
 	}
 }
-export default connect(mapStateToProps)(Modal)
-
-
-
-// title="Sign in with Email"
-// image={ banner }
-// fetch={ "/api/auth/email" }
-// // method="post"
-// data={{ email: this.state.email }}
+const mapDispatchToProps = dispatch => {
+	return {
+		setData: data => {
+			dispatch(setData(data))
+		},
+    fetchSource: fetch => {
+			dispatch(fetchSource(fetch))
+		},
+    setVisibility: style => {
+			dispatch(setVisibility(style))
+		}
+	}
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Modal)

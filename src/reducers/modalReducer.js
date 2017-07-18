@@ -10,7 +10,7 @@ export default (
         buttons: {},
       },
       source: {
-        url: "/api/auth/email",
+        url: "",
         method: "get"
       }
   	},
