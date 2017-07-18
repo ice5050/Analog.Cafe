@@ -5,7 +5,7 @@ import { loadHeader } from "../../helpers/loader"
 
 // components
 import TitleCase from "../../../TitleCase"
-import { ModalLink } from "../../../Modal"
+import { ModalDispatch } from "../../../Modal"
 
 
 // styles
@@ -50,16 +50,16 @@ export default class extends React.Component {
 
 
 					<Byline>
-						Link to <ModalLink
+						Link to <ModalDispatch
 							with={{
-								source: { url: "/api/author/" + this.props.author.id },
+								request: { url: "/api/author/" + this.props.author.id },
 								data: {
 									image: placeholder,
 									title: "Your Profile",
 									text: "Short author bio hasn’t been added yet."
 								}
 							}}
-						>Your Profile</ModalLink> will appear here.
+						>Your Profile</ModalDispatch> will appear here.
 					</Byline>
 
 

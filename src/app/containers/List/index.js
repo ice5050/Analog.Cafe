@@ -1,7 +1,7 @@
 // tools
 import React from "react"
 import axios from "axios"
-// import ModalLink from "../Modal"
+// import ModalDispatch from "../Modal"
 
 
 // components
@@ -87,7 +87,7 @@ export default class extends React.Component {
 					<div>
 							{
 								this.state.filters.author ?
-								// <ModalLink
+								// <ModalDispatch
 								// 	title={ this.state.filters.author.name }
 								// 	fetch={ "/api/author/" + this.state.filters.author.id }
 								// >
@@ -95,7 +95,7 @@ export default class extends React.Component {
 										{ getListHeaders(this.props.location.pathname).meta.text }
 										<u>{ this.state.filters.author.name || "" }</u>
 									</em></q>
-								// </ModalLink>
+								// </ModalDispatch>
 								: <q><em>{ getListHeaders(this.props.location.pathname).meta.text }</em></q>
 							}
 						&nbsp;{ getListHeaders(this.props.location.pathname).meta.emoji }

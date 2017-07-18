@@ -7,9 +7,10 @@ export default (
         text: "",
         buttons: {},
       },
-      source: {
+      request: {
         url: "",
-        method: "get"
+        method: "get",
+        data: {},
       }
   	},
     action
@@ -21,7 +22,7 @@ export default (
         data: action.payload
       }
       break
-    case "FETCH_SOURCE":
+    case "FETCH_REQUEST":
       state = {
         ...state,
         source: action.payload

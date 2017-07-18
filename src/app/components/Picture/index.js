@@ -2,7 +2,7 @@
 import React from "react"
 
 // components
-// import ModalLink from "../../containers/Modal"
+// import ModalDispatch from "../../containers/Modal"
 
 // styles
 import AuthorLink from "../AuthorLink"
@@ -17,7 +17,7 @@ export default props => {
 			<figcaption style={ props.nocaption && { borderBottom: "8px solid #2c2c2c", height: 0, overflow: "hidden" } }>
 
 			{ props.author ?
-				// <ModalLink
+				// <ModalDispatch
 				// 	title={ props.author.name }
 				// 	image={ placeholder }
 				// 	fetch={ "/api/author/" + props.author.id }
@@ -26,7 +26,7 @@ export default props => {
 						{ props.children }
 						<Byline { ...props } style={ props.author.name === "" ? { display: "none" } : null } > Image by <AuthorLink>{ props.author.name }</AuthorLink>.</Byline>
 					</Caption>
-				// </ModalLink>
+				// </ModalDispatch>
 				: <Caption { ...props } >{ props.children }</Caption>
 			}
 

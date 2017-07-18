@@ -4,7 +4,7 @@ import axios from "axios"
 
 // redux
 import { connect } from "react-redux"
-import { setData, fetchSource, setVisibility } from "../../../../actions/modalActions"
+import { setData, setVisibility } from "../../../../actions/modalActions"
 
 
 // components
@@ -13,10 +13,11 @@ import { ModalCard, ModalWrapper } from "../../../components/Card"
 // return
 class Modal extends React.Component {
   _fetch = () => {
-    if(this.props.modal.source.url === "" ) return
+    if(this.props.modal.request.url === "" ) return
 		axios({
-		  method: 			this.props.modal.source.method,
-		  url: 					this.props.modal.source.url + ".json",
+		  method: 			this.props.modal.request.method,
+      data:         this.props.modal.request.data,
+		  url: 					this.props.modal.request.url + ".json",
 		})
 			.then(response => {
         this.props.setData(response.data)
@@ -51,9 +52,6 @@ const mapDispatchToProps = dispatch => {
 	return {
 		setData: data => {
 			dispatch(setData(data))
-		},
-    fetchSource: fetch => {
-			dispatch(fetchSource(fetch))
 		},
     setVisibility: isVisible => {
 			dispatch(setVisibility(isVisible))

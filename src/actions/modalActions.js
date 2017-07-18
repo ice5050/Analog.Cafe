@@ -5,9 +5,9 @@ export function setData(data) {
 	}
 }
 
-export function fetchSource(fetch) {
+export function fetch(request) {
   return {
-    type: "FETCH_SOURCE",
+    type: "FETCH_REQUEST",
     payload: fetch
   }
 }

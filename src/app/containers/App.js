@@ -81,6 +81,7 @@ class App extends React.Component {
 
 				{/* modal card */}
 				<Modal />
+				
 			</Paper>
 		)
 	}

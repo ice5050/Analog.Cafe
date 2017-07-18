@@ -6,7 +6,7 @@ import { Editor, Raw } from "slate"
 
 // components
 import Heading from "../../components/ArticleHeading"
-// import ModalLink from "../Modal"
+// import ModalDispatch from "../Modal"
 import { Section, Article, Byline } from "../../components/ArticleStyles"
 import AuthorLink from "../../components/AuthorLink"
 
@@ -65,12 +65,12 @@ export default class extends React.Component {
 					pageTitle={ this.state.title }
 					pageSubtitle={ this.state.subtitle }
 				>
-				{/* <ModalLink
+				{/* <ModalDispatch
 					title={ this.state.author.name }
 					fetch={ "/api/author/" + this.state.author.id }
 				> */}
 					<Byline>by <AuthorLink>{ this.state.author.name }</AuthorLink></Byline>
-				{/* </ModalLink> */}
+				{/* </ModalDispatch> */}
 				</Heading>
 				<Section postStatus={ this.state.status } endsign>
 					<Editor

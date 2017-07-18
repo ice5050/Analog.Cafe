@@ -2,8 +2,8 @@
 
 // components
 import Modal from "./containers/Modal"
-import ModalLink from "./containers/ModalLink"
+import ModalDispatch from "./containers/ModalDispatch"
 
 // return
 export { Modal }
-export { ModalLink }
+export { ModalDispatch }
