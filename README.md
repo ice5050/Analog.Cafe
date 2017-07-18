@@ -1,7 +1,7 @@
 # Analog.Cafe
 > Simple React-based CMS with fantastic public rich text submission processor. Built, used and maintained by [Analog.Cafe](http://analog.cafe) Film Photography Publication.
 
-<img src="https://github.com/dmitrizzle/Analog.Cafe/blob/develop/public/images/figures/submit.gif?raw=true" width="373" alt="Screenshot" />
+<img src="https://github.com/dmitrizzle/Analog.Cafe/blob/develop/public/images/pictures/submit.gif?raw=true" width="373" alt="Screenshot" />
 
 ## TOC:
  - [Why](#why)?
