@@ -5,7 +5,7 @@ import Helmet from "react-helmet"
 import ReactGA from "react-ga"
 
 // theme
-import Paper from "../themes/Paper"
+import Paper from "../../themes/Paper"
 
 // redux
 import { connect } from "react-redux"

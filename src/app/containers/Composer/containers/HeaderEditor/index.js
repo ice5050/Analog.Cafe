@@ -53,7 +53,11 @@ export default class extends React.Component {
 						Link to <ModalLink
 							with={{
 								source: { url: "/api/author/" + this.props.author.id },
-								data: { image: placeholder }
+								data: {
+									image: placeholder,
+									title: "Your Profile",
+									text: "Short author bio hasn’t been added yet."
+								}
 							}}
 						>Your Profile</ModalLink> will appear here.
 					</Byline>

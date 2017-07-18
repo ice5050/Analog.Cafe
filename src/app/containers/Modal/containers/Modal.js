@@ -33,7 +33,7 @@ class Modal extends React.Component {
   				image={ this.props.modal.data.image }
   				text={ this.props.modal.data.text }
   				buttons={ this.props.modal.data.buttons }
-          hideModal={ () => this.props.setVisibility("none") }
+          hideModal={ () => this.props.setVisibility(false) }
   			/>
       </ModalWrapper>
 		)

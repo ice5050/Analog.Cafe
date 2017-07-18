@@ -42,7 +42,7 @@ export const ModalCard = props => {
 					/>
 					<figcaption>
 						<CardCaption
-							style={{ padding: typeof props.text === "undefined" ? "0" : "inherit" }}
+							//style={{ padding: typeof props.text === "undefined" ? "0" : "" }}
 						>{ props.text }</CardCaption>
 					</figcaption>
 				</figure>

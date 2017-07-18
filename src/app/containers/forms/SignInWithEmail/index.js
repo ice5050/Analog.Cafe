@@ -8,7 +8,7 @@ import { SubtitleInput } from "../../../components/InputText"
 
 // styles
 import { Form } from "./styles"
-import banner from "../../../components/icons/images/banner-email.jpg"
+import banner from "../../../components/icons/images/banner-email.png"
 
 
 
