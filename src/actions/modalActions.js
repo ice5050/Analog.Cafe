@@ -1,3 +1,7 @@
+// tools
+import axios from "axios"
+
+// return
 export function setData(data) {
 	return {
 		type: "SET_DATA",
@@ -6,17 +10,31 @@ export function setData(data) {
 }
 
 export function fetch(request) {
-  // return {
-  //   type: "FETCH_REQUEST",
-  //   payload: fetch
-  // }
 	return dispatch => {
-		setTimeout(() => {
-			dispatch({
-				type: "SET_DATA",
-				payload: { title: "Loading..."}
+		dispatch({
+			type: "SET_DATA",
+			payload: { title: "Loading Card..."}
+		})
+		axios({
+			  method: 			request.method || "get",
+	      data:         request.data,
+			  url: 					request.url + ".json",
 			})
-		}, 2000)
+			.then(response => {
+				dispatch({
+					type: "SET_DATA",
+					payload: response.data
+				})
+			})
+			.catch(error => {
+				dispatch({
+					type: "SET_DATA",
+					payload: {
+						title: "Error 😧",
+						text: error
+					}
+				})
+			})
 	}
 }
 

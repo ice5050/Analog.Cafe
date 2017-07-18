@@ -32,7 +32,7 @@ export const ModalCard = props => {
 			<Card>
 				<CardHeader>
 					<h3>{ props.title }</h3>
-					<a href="#close" onClick={ props.hideModal } >✕</a>
+					<a href="#close" onClick={ event => { event.preventDefault(); props.hideModal } } >✕</a>
 				</CardHeader>
 				<figure style={{ height: typeof props.image === "undefined" ? "0" : "inherit" }}>
 					<img

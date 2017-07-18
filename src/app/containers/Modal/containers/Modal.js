@@ -1,6 +1,6 @@
 // tools
 import React from "react"
-import axios from "axios"
+// import axios from "axios"
 
 // redux
 import { connect } from "react-redux"
@@ -11,34 +11,32 @@ import { setData, setVisibility } from "../../../../actions/modalActions"
 import { ModalCard, ModalWrapper } from "../../../components/Card"
 
 // return
-class Modal extends React.Component {
-  _fetch = () => {
-    if(this.props.modal.request.url === "" ) return
-		axios({
-		  method: 			this.props.modal.request.method,
-      data:         this.props.modal.request.data,
-		  url: 					this.props.modal.request.url + ".json",
-		})
-			.then(response => {
-        this.props.setData(response.data)
-			})
-			.catch(error => console.log(error))
-  }
-  render() { console.log(this.props.modal)
+const Modal = props => {
+  // _fetch = () => {
+  //   if(this.props.modal.request.url === "" ) return
+	// 	axios({
+	// 	  method: 			this.props.modal.request.method,
+  //     data:         this.props.modal.request.data,
+	// 	  url: 					this.props.modal.request.url + ".json",
+	// 	})
+	// 		.then(response => {
+  //       this.props.setData(response.data)
+	// 		})
+	// 		.catch(error => console.log(error))
+  // }
 		return(
       <ModalWrapper style={{
-        display: this.props.modal.isVisible ? "block" : "none"
+        display: props.modal.isVisible ? "block" : "none"
       }}>
   			<ModalCard
-  				title={ this.props.modal.data.title  }
-  				image={ this.props.modal.data.image }
-  				text={ this.props.modal.data.text }
-  				buttons={ this.props.modal.data.buttons }
-          hideModal={ () => this.props.setVisibility(false) }
+  				title={ props.modal.data.title  }
+  				image={ props.modal.data.image }
+  				text={ props.modal.data.text }
+  				buttons={ props.modal.data.buttons }
+          hideModal={ () => props.setVisibility(false) }
   			/>
       </ModalWrapper>
 		)
-	}
 }
 
 
