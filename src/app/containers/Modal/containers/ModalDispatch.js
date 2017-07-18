@@ -11,8 +11,8 @@ class ModalDispatch extends React.Component {
   invokeModal = event => {
     event.preventDefault()
     this.props.setVisibility(true)
-    this.props.setData(this.props.with.data)
-    this.props.fetch(this.props.with.request)
+    this.props.with.data && this.props.setData(this.props.with.data)
+    this.props.with.request && this.props.fetch(this.props.with.request)
   }
   render() {
     // Wrapper defaults to <a> link, however it could become *any* react component:

@@ -52,7 +52,6 @@ export default class extends React.Component {
 					<Byline>
 						Link to <ModalDispatch
 							with={{
-								request: { url: "/api/author/kyla-medica" },
 								data: {
 									image: placeholder,
 									title: "Your Profile",
