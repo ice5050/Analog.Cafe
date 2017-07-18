@@ -5,12 +5,11 @@ import { loadHeader } from "../../helpers/loader"
 
 // components
 import TitleCase from "../../../TitleCase"
-import ModalLink from "../../../Modal"
+import { ModalDispatch } from "../../../Modal"
 
 
 // styles
 import { Header, Byline } from "../../../../components/ArticleStyles"
-import AuthorLink from "../../../../components/AuthorLink"
 import placeholder from "../../../../components/icons/images/placeholder-profile.png"
 
 
@@ -49,11 +48,19 @@ export default class extends React.Component {
 					inputDesignation="subtitle"
 				></TitleCase>
 
-				<ModalLink
-					title={ this.props.author.name }
-					image={ placeholder }
-					fetch={ "/api/author/" + this.props.author.id }
-				><Byline>Link to <AuthorLink>Your Profile</AuthorLink> will appear here.</Byline></ModalLink>
+
+					<Byline>
+						Link to <ModalDispatch
+							with={{
+								data: {
+									image: placeholder,
+									title: "Your Profile",
+									text: "Short author bio hasn’t been added yet."
+								}
+							}}
+						>Your Profile</ModalDispatch> will appear here.
+					</Byline>
+
 
 			</Header>
 		)

@@ -26,12 +26,12 @@ export default props => {
 					<p><Link to="/sign-in"><strong>Sign in</strong></Link> if you already have an account.</p>
 				</div>
 
-				<Figure src="/images/figures/submit-camera.jpg" feature>&ldquo;We accept film photography submissions.&rdquo; 🎞</Figure>
+				<Figure src="/images/pictures/submit-camera.jpg" feature>&ldquo;We accept film photography submissions.&rdquo; 🎞</Figure>
 
 
 				<h3>How to Submit</h3>
 				<p>It&rsquo;s very easy to use <strong>Analog.Cafe Composer</strong>. You can insert your images and edit text with ease. The Composer tool will do all the formatting and beautification for you.</p>
-				<Figure src="/images/figures/submit.gif" nocaption></Figure>
+				<Figure src="/images/pictures/submit.gif" nocaption></Figure>
 				<p><strong>Image Suggestions</strong> &mdash; when you upload your images, you will see Image Suggestions. They are hand-picked selections by the editor that you can freely use here on Analog.Cafe website. A credit to the original photographer will appear automatically.</p>
 				<p>You will also have a chance to participate or opt out from the Image Suggestions program.</p>
 

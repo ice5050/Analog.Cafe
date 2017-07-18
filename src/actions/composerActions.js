@@ -1,6 +1,6 @@
-export function updateSaveStatus(status) {
+export function setDraftStatus(status) {
 	return {
-		type: "SAVE_STATUS",
+		type: "SET_DRAFT_STATUS",
 		payload: status
 	}
 }

@@ -1,5 +1,6 @@
 {
   "status": "ok",
-	"title" : "Login with Email",
-	"text" : "Please check your d@analog.cafe email account to complete your login process."
+	"title" : "Sign in With Email",
+	"text" : "Please check your d@analog.cafe email account to complete your login process.",
+  "image": "/images/banners/check-email.png"
 }

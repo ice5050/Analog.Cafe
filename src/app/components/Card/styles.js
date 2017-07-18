@@ -47,6 +47,7 @@ export const CardButton = styled(LinkButton)`
 export const CardCaption = styled(Caption)`
 	text-align: 	left;
 	padding: 			${ props => props.theme.size.block.spacing }em ${ props => props.theme.size.block.column.safety }em;
+	font-size: 		1.075em !important;
 
 `
 
@@ -70,7 +71,6 @@ export const CardHeader = styled.header`
   }
   a {
     text-decoration:none;
-    line-height: 		1em;
     position: 			absolute;
     top: 						0;
     right: 					0;

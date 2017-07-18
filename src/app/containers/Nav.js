@@ -12,7 +12,7 @@ const Nav = props => {
   return(
     <Wrapper>
       { props.view === "VISITOR" &&  <VisitorNav /> }
-      { props.view === "COMPOSER" && <ComposerNav saveStatus={ props.saveStatus } /> }
+      { props.view === "COMPOSER" && <ComposerNav draftStatus={ props.draftStatus } /> }
     </Wrapper>
   )
 }
@@ -20,12 +20,12 @@ class NavWrapper extends React.Component {
   render() {
 		return(
       <div>
-        { this.props.location.top
-          && <Nav view={ this.props.view } saveStatus={ this.props.saveStatus } />
+        { this.props.nav.location.top
+          && <Nav view={ this.props.nav.view } draftStatus={ this.props.composer.draftStatus } />
         }
           { this.props.children }
-        { this.props.location.bottom
-          && <Nav view={ this.props.view } saveStatus={ this.props.saveStatus } />
+        { this.props.nav.location.bottom
+          && <Nav view={ this.props.nav.view } draftStatus={ this.props.composer.draftStatus } />
         }
       </div>
     )
@@ -35,9 +35,8 @@ class NavWrapper extends React.Component {
 // connet with redux
 const mapStateToProps = state => {
 	return {
-		view: state.nav.view,
-    location: state.nav.location,
-    saveStatus: state.composer.saveStatus,
+		nav: state.nav,
+    composer: state.composer,
 	}
 }
 export default connect(mapStateToProps)(NavWrapper)

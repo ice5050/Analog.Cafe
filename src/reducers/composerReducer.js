@@ -1,14 +1,14 @@
-const composerReducer = (
+export default (
 		state = {
-			saveStatus: "Draft",
+			draftStatus: "Draft",
 		},
 		action
 	) =>  {
 	switch (action.type) {
-		case "SAVE_STATUS":
+		case "SET_DRAFT_STATUS":
 			state = {
 				...state,
-				saveStatus: action.payload
+				draftStatus: action.payload
 			}
 			break
 		default:
@@ -16,4 +16,3 @@ const composerReducer = (
 	}
 	return state
 }
-export default composerReducer

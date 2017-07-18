@@ -5,12 +5,11 @@ import Helmet from "react-helmet"
 import ReactGA from "react-ga"
 
 // theme
-import Paper from "../themes/Paper"
+import Paper from "../../themes/Paper"
 
 // redux
 import { connect } from "react-redux"
 import { setView as setNavView, setLocation as setNavLocation } from "../../actions/navActions"
-
 
 
 // views and components
@@ -19,6 +18,7 @@ import { Intro, Submit } from "../components/views/Submit"
 import Composer from "./Composer"
 import List from "./List"
 import Post from "./Post"
+import { Modal } from "./Modal"
 
 // init GA tracking
 ReactGA.initialize("UA-91374353-3")
@@ -54,10 +54,14 @@ class App extends React.Component {
 	render(){
 		return (
 			<Paper>
+
+				{/* helmet */}
 				<Helmet
 					defaultTitle="Analog.Cafe ☕️"
 					titleTemplate="%s ☕️ Analog.Cafe"
 				/>
+
+				{/* routes */}
 				<Router history={ browserHistory } onUpdate={ this.handleRouterUpdate.bind(this) }>
 					<Route path="/"			 					component={ Publication } >
 						<IndexRoute 								component={ List } />
@@ -74,6 +78,10 @@ class App extends React.Component {
 					<Route path="sign-in"					component={ SignIn } />
 					<Route path="*"								component={ NotFound } status={404} />
 				</Router>
+
+				{/* modal card */}
+				<Modal />
+				
 			</Paper>
 		)
 	}
