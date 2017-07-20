@@ -3,12 +3,12 @@ import React from "react"
 import styled from "styled-components"
 
 // components
-import Heading from "../../ArticleHeading"
-import Figure from "../../Picture"
-import Link from "../../Link"
+import Heading from "../ArticleHeading"
+import Figure from "../Picture"
+import Link from "../Link"
 
 // styles
-import { Section, Article, Quote } from "../../ArticleStyles"
+import { Section, Article, Quote } from "../ArticleStyles"
 
 const ThankYouList = styled(Quote)`
 	font-style: normal !important;

@@ -2,12 +2,12 @@
 import React from "react"
 
 // components
-import Heading from "../../ArticleHeading"
-import { LinkButton, ButtonGroup } from "../../Button"
-import { Caption } from "../../CaptionStyles"
-import Figure from "../../Picture"
-import Link from "../../Link"
-import { Section, Article } from "../../ArticleStyles"
+import Heading from "../ArticleHeading"
+import { LinkButton, ButtonGroup } from "../Button"
+import { Caption } from "../CaptionStyles"
+import Figure from "../Picture"
+import Link from "../Link"
+import { Section, Article } from "../ArticleStyles"
 
 
 // render

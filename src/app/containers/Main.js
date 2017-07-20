@@ -8,7 +8,7 @@ import List from "./List"
 import Post from "./Post"
   // static
 import { About, NotFound, SignIn } from "../components/views"
-import { Submit } from "../components/views/Submit"
+import SubmitRoutes from "../components/views/SubmitRoutes"
 
 // rebder
 export default props => (
@@ -26,7 +26,7 @@ export default props => (
 
       {/* static views and urls */}
       <Route exact path="/about"        component= { About } />
-      <Route path="/submit"             component= { Submit } />
+      <Route path="/submit"             component= { SubmitRoutes } />
       <Route exact path="/sign-in"      component={ SignIn } />
       <Route                            component={ NotFound } />
 

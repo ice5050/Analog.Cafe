@@ -2,9 +2,9 @@
 import React from "react"
 
 // components
-import { Article, Section } from "../../ArticleStyles"
-import { LinkButton } from "../../Button"
-import Composer from "../../../containers/Composer"
+import { Article, Section } from "../ArticleStyles"
+import { LinkButton } from "../Button"
+import Composer from "../../containers/Composer"
 
 
 // render

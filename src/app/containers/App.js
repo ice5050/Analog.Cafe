@@ -6,13 +6,6 @@ import ReactGA from "react-ga"
 import { connect } from "react-redux"
 import { setView as setNavView, setLocation as setNavLocation } from "../../actions/navActions"
 
-
-// views and components
-// import { About, NotFound, SignIn, Publication } from "../components/views"
-// import { Intro, Submit } from "../components/views/Submit"
-// import Composer from "./Composer"
-// import List from "./List"
-// import Post from "./Post"
 import { Modal } from "./Modal"
 import Nav from "./Nav"
 import Main from "./Main"
@@ -78,18 +71,3 @@ const mapDispatchToProps = dispatch => {
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps, null, {pure: false})(App)
-
-
-
-//
-// {/* onUpdate={ this.handleRouterUpdate.bind(this) } */}
-// 	<Switch>
-
-// 		<Route exact path="/submit"					component={ Submit } />
-// 			{/* <Route 											component={ Intro } />
-// 			<Route exact path="compose" 			component={ Composer } />
-// 		</Route> */}
-// 		<Route exact path="/sign-in"					component={ SignIn } />
-//
-// 		{/* <Route exact path="*"								component={ NotFound } status={404} /> */}
-// 	</Switch>
