@@ -1,15 +1,17 @@
 // tools
 import React from "react"
-import Helmet from "react-helmet"
+import { Switch, Route } from "react-router-dom"
 
 // components
+import Intro from "./Intro"
+import Composer from "./Composer"
 
 // render
 export const Submit = props => {
 	return (
-		{ props.children }
+		<Switch>
+			<Route exact path="/submit" component={ Intro } />
+			<Route exact path="/submit/compose" component={ Composer } />
+		</Switch>
 	)
 }
-
-export { default as Intro } from "./Intro"
-export { default as Composer } from "./Composer"

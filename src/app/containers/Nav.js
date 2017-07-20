@@ -39,4 +39,4 @@ const mapStateToProps = state => {
     composer: state.composer,
 	}
 }
-export default connect(mapStateToProps)(NavWrapper)
+export default connect(mapStateToProps, null, null, {pure: false})(NavWrapper)

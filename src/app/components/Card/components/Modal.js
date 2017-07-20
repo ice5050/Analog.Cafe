@@ -18,7 +18,7 @@ const ModalOverlay = styled.div`
 	z-index: 										${ props => props.theme.layer.card };
 	padding:  									5vh 0;
 `
-export const ModalWrapper = styled.div`
+export const ModalWrapper = styled.aside`
 	display: 					block;
 	position:					relative;
 	z-index: 					${ props => props.theme.layer.card };

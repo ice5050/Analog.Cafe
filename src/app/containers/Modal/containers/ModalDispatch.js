@@ -56,4 +56,4 @@ const mapDispatchToProps = dispatch => {
 		}
 	}
 }
-export default connect(mapStateToProps, mapDispatchToProps)(ModalDispatch)
+export default connect(mapStateToProps, mapDispatchToProps, null, {pure: false})(ModalDispatch)
