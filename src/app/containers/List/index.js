@@ -24,7 +24,6 @@ import { ROUTE_LIST_API } from "./routes"
 // render
 class List extends React.Component {
 	state = defaultListState
-
   _fetch = (page=1) => {
 
   	//
@@ -32,7 +31,7 @@ class List extends React.Component {
   	//
 
   	// filter either by author or tags (but not both)
-  	let pathname = this.props.location.pathname
+  	let pathname = this.state.pathname
   	let uriParams = getListHeaders(pathname, page).search
 
 
@@ -67,19 +66,24 @@ class List extends React.Component {
 			})
 			.catch(error => console.log(error))
   }
-
   handleMore = e => {
   	e.preventDefault()
   	this._fetch(parseInt(this.state.page.current, 0) + 1)
   }
 
   // load on mount
-  componentDidMount = () => this._fetch()
+  componentDidMount = () => {
+		this._fetch()
+		this.props.history.listen((location, action) => {
+      console.log(location.pathname)
+				this.setState({
+					pathname: location.pathname
+				})
+				this._fetch()
+    })
+	}
 
-  // load on url change (reset the state)
-  componentDidUpdate = () => {
-  	if(this.props.location.pathname !== this.state.pathname) this._fetch()
-  }
+
 
 	render() {
 		return(
@@ -89,7 +93,7 @@ class List extends React.Component {
 							{
 								this.state.filters.author ?
 									<q><em>
-										{ getListHeaders(this.props.location.pathname).meta.text }
+										{ getListHeaders(this.state.pathname).meta.text }
 										{ this.state.filters.author.name &&
 											<ModalDispatch
 												with={{
@@ -99,9 +103,9 @@ class List extends React.Component {
 												}}
 											>{ this.state.filters.author.name }</ModalDispatch> }
 									</em></q>
-								: <q><em>{ getListHeaders(this.props.location.pathname).meta.text }</em></q>
+								: <q><em>{ getListHeaders(this.state.pathname).meta.text }</em></q>
 							}
-						&nbsp;{ getListHeaders(this.props.location.pathname).meta.emoji }
+						&nbsp;{ getListHeaders(this.state.pathname).meta.emoji }
 					</div>
 				</ListDescription>
 				<ListBlock  status={ this.state.status } items={ this.state.items } />
