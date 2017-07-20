@@ -5,7 +5,7 @@ import React from "react"
 import Logo from "../Logo"
 
 // styles
-import { Wrapper, NavLink, NavIndexLink, NavItem } from "./styles"
+import { NavLink, NavIndexLink, NavItem } from "./styles"
 
 // return
 export const VisitorNav = props => {
@@ -34,4 +34,4 @@ export const ComposerNav = props => {
 	)
 }
 
-export { Wrapper }
+export { Wrapper } from "./styles"

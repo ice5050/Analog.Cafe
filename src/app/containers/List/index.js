@@ -36,6 +36,7 @@ class List extends React.Component {
 
 
     // proceed only if the search parameters are different from already loaded page
+		console.log(uriParams, pathname)
   	if(this.state.page.loaded === uriParams) return
 
 
@@ -73,13 +74,18 @@ class List extends React.Component {
 
   // load on mount
   componentDidMount = () => {
+
+		this.setState({
+			pathname: this.props.location.pathname
+		})
+		console.log(this.props.location.pathname)
 		this._fetch()
+
 		this.props.history.listen((location, action) => {
-      console.log(location.pathname)
-				this.setState({
-					pathname: location.pathname
-				})
-				this._fetch()
+			this.setState({
+				pathname: location.pathname
+			})
+			this._fetch()
     })
 	}
 
