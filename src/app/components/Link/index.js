@@ -1,6 +1,6 @@
 // tools
 import React from "react"
-import { Link } from "react-router"
+import { NavLink } from "react-router-dom"
 
 // constants
 import { DOMAIN_NAME } from "./domain"
@@ -36,5 +36,5 @@ export default props => {
 
 	// internal links
 	else
-		return <Link to={ to } { ...linkProps }>{ props.children }</Link>
+		return <NavLink to={ to } { ...linkProps }>{ props.children }</NavLink>
 }

@@ -1,6 +1,7 @@
 // tools
 import React from "react"
 import axios from "axios"
+import { withRouter } from "react-router"
 import { ModalDispatch } from "../Modal"
 
 
@@ -21,7 +22,7 @@ import { ROUTE_LIST_API } from "./routes"
 
 
 // render
-export default class extends React.Component {
+class List extends React.Component {
 	state = defaultListState
 
   _fetch = (page=1) => {
@@ -112,3 +113,5 @@ export default class extends React.Component {
 		)
 	}
 }
+
+export default withRouter(List)

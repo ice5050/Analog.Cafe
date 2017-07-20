@@ -1,11 +1,8 @@
 // tools
 import React from "react"
-import { Router, Route, browserHistory, IndexRoute } from "react-router"
-import Helmet from "react-helmet"
 import ReactGA from "react-ga"
 
-// theme
-import Paper from "../../themes/Paper"
+
 
 // redux
 import { connect } from "react-redux"
@@ -13,12 +10,14 @@ import { setView as setNavView, setLocation as setNavLocation } from "../../acti
 
 
 // views and components
-import { About, NotFound, SignIn, Publication } from "../components/views"
-import { Intro, Submit } from "../components/views/Submit"
-import Composer from "./Composer"
-import List from "./List"
-import Post from "./Post"
+// import { About, NotFound, SignIn, Publication } from "../components/views"
+// import { Intro, Submit } from "../components/views/Submit"
+// import Composer from "./Composer"
+// import List from "./List"
+// import Post from "./Post"
 import { Modal } from "./Modal"
+import Nav from "./Nav"
+import Main from "./Main"
 
 // init GA tracking
 ReactGA.initialize("UA-91374353-3")
@@ -27,6 +26,7 @@ const trackView = () => {
 	ReactGA.pageview(window.location.pathname + window.location.search)
 	window.scrollTo(0,0)
 }
+
 
 // render & route
 class App extends React.Component {
@@ -53,36 +53,10 @@ class App extends React.Component {
 
 	render(){
 		return (
-			<Paper>
-
-				{/* helmet */}
-				<Helmet
-					defaultTitle="Analog.Cafe ☕️"
-					titleTemplate="%s ☕️ Analog.Cafe"
-				/>
-
-				{/* routes */}
-				<Router history={ browserHistory } onUpdate={ this.handleRouterUpdate.bind(this) }>
-					<Route path="/"			 					component={ Publication } >
-						<IndexRoute 								component={ List } />
-						<Route path="photo-essays"	component={ List } />
-						<Route path="articles"			component={ List } />
-						<Route path="about"			 		component={ About } />
-						<Route path="zine/*"				component={ Post } />
-						<Route path="author/*"			component={ List } />
-					</Route>
-					<Route path="submit"					component={ Submit } >
-						<IndexRoute 								component={ Intro } />
-						<Route path="compose" 			component={ Composer } />
-					</Route>
-					<Route path="sign-in"					component={ SignIn } />
-					<Route path="*"								component={ NotFound } status={404} />
-				</Router>
-
-				{/* modal card */}
+			<Nav>
+				<Main />
 				<Modal />
-				
-			</Paper>
+			</Nav>
 		)
 	}
 }
@@ -106,3 +80,22 @@ const mapDispatchToProps = dispatch => {
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App)
+
+
+
+//
+// {/* onUpdate={ this.handleRouterUpdate.bind(this) } */}
+// 	<Switch>
+
+// 			<Route exact path="about"			 		component={ About } />
+// 			<Route exact path="zine/*"				component={ Post } />
+// 		</Route> */}
+// 		<Route exact path="/submit"					component={ Submit } />
+// 			{/* <Route 											component={ Intro } />
+// 			<Route exact path="compose" 			component={ Composer } />
+// 		</Route> */}
+// 		<Route exact path="/sign-in"					component={ SignIn } />
+// 		<Route exact path="/"			 					component={ Publication } />
+//
+// 		{/* <Route exact path="*"								component={ NotFound } status={404} /> */}
+// 	</Switch>
