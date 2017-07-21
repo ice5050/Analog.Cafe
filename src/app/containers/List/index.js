@@ -6,7 +6,7 @@ import { ModalDispatch } from "../Modal"
 // redux & state
 import { connect } from "react-redux"
 import { fetchListPage } from "../../../actions/listActions"
-import { ROUTE_LIST_API } from "./routes"
+import { ROUTE_LIST_API, PAGE_ITERATOR_STRING } from "./routes"
 
 // components
 import ListDescription from "../../components/ListDescription"
@@ -21,15 +21,13 @@ import { getListHeaders } from "./helpers"
 class List extends React.Component {
 	fetchNewList = () => {
 		this.props.fetchListPage({
-			url: ROUTE_LIST_API + getListHeaders(this.props.history.location.pathname, this.props.list.page.current).search
+			url: (ROUTE_LIST_API + getListHeaders(this.props.history.location.pathname, this.props.list.page.current).search).split(PAGE_ITERATOR_STRING)[0]
 		})
 	}
 	handleLoadMore = event => {
 		event.preventDefault()
-		let pageIteratorString = "-page-"
-		let requestedUrl = this.props.list.requested.url
 		this.props.fetchListPage({
-			url: requestedUrl.split(pageIteratorString)[0] + pageIteratorString + (parseInt(this.props.list.page.current) + 1)
+			url: (this.props.list.requested.url).split(PAGE_ITERATOR_STRING)[0] + PAGE_ITERATOR_STRING + (parseInt(this.props.list.page.current, 0) + 1)
 		}, true)
 	}
 	componentWillMount() {
@@ -85,8 +83,8 @@ const mapStateToProps = state => { console.log("state updated")
 }
 const mapDispatchToProps = dispatch => {
 	return {
-    fetchListPage: (request, append) => {
-			dispatch(fetchListPage(request, append))
+    fetchListPage: (request, appendItems) => {
+			dispatch(fetchListPage(request, appendItems))
 		}
 	}
 }

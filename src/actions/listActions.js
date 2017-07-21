@@ -7,6 +7,7 @@ import {
 
 // return
 export function setListPage(page, appendItems) {
+  console.log("setListPage",page, appendItems)
   if(appendItems === false) return {
     type: "SET_LIST_PAGE",
     payload: page
@@ -29,6 +30,8 @@ export function fetchListPage(request, appendItems = false) {
     // run duplicate & validation checks
     let listState = getState().list
     if(listState.requested.url === request.url) return
+
+    console.log(request.url, appendItems)
 
     dispatch(initListPage(request))
     axios({

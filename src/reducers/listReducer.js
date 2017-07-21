@@ -63,13 +63,13 @@ export default (
         items: [
           ...state.items,
           ...action.payload.items,
-        ]
+        ],
 			}
 			break
     case "INIT_LIST_PAGE":
       state = {
         ...state,
-        requested: action.payload
+        requested: action.payload,
       }
       break
 		default:
