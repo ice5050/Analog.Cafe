@@ -4,11 +4,11 @@ import { Switch, Route } from "react-router-dom"
 
 // views
   // dynamic
-import List from "./List"
-import Post from "./Post"
+import List from "../../containers/List"
+import Post from "../../containers/Post"
   // static
-import { About, NotFound, SignIn } from "../components/views"
-import SubmitRoutes from "../components/views/SubmitRoutes"
+import { About, NotFound, SignIn } from "./"
+import AppRoutesSubmit from "./AppRoutesSubmit"
 
 // rebder
 export default props => (
@@ -26,7 +26,7 @@ export default props => (
 
       {/* static views and urls */}
       <Route exact path="/about"        component= { About } />
-      <Route path="/submit"             component= { SubmitRoutes } />
+      <Route path="/submit"             component= { AppRoutesSubmit } />
       <Route exact path="/sign-in"      component={ SignIn } />
       <Route                            component={ NotFound } />
 

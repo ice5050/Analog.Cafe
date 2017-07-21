@@ -8,7 +8,7 @@ import { setView as setNavView, setLocation as setNavLocation } from "../../acti
 
 import { Modal } from "./Modal"
 import Nav from "./Nav"
-import Main from "./Main"
+import AppRoutes from "../components/views/AppRoutes"
 
 // init GA tracking
 ReactGA.initialize("UA-91374353-3")
@@ -45,7 +45,7 @@ class App extends React.Component {
 	render(){
 		return (
 			<Nav>
-				<Main />
+				<AppRoutes />
 				<Modal />
 			</Nav>
 		)
