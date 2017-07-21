@@ -17,7 +17,7 @@ export default props => (
 
       {/* dynamic urls and views */}
       <Route exact path="/author/*"			component={ List } />
-      <Route exact path="zine/*"				component={ Post } />
+      <Route exact path="/zine/*"				component={ Post } />
 
       {/* dynamic views, static urls */}
       <Route exact path="/"             component={ List } />
