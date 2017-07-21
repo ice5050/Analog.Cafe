@@ -6,59 +6,30 @@ import {
 } from "./modalActions"
 
 // return
-export function setStatus(status) {
-	return {
-		type: "SET_STATUS",
-		payload: status
-	}
+export function setListPage(page) {
+  return {
+    type: "SET_LIST_PAGE",
+    payload: page
+  }
 }
-export function setFilters(filters) {
+export function resetListPage() {
 	return {
-		type: "SET_FILTERS",
-		payload: filters
-	}
-}
-export function setPagination(pagination) {
-	return {
-		type: "SET_PAGINATION",
-		payload: pagination
-	}
-}
-export function resetList() {
-	return {
-		type: "RESET_LIST",
+		type: "RESET_LIST_PAGE",
 		payload: {}
 	}
 }
 
-export function fetchInsert(request) {
+export function fetchListPage(request) { console.log("fetch")
   return dispatch => {
-    dispatch({
-      type: "RESET_LIST",
-  		payload: {}
-    })
+    dispatch(resetListPage())
     axios({
       method: 			request.method || "get",
       data:         request.data || {},
       url: 					request.url + ".json",
     })
       .then(response => {
-        dispatch({
-          type: "ADD_PAGE",
-          payload: response.data.items,
-        })
-        dispatch({
-          type: "SET_STATUS",
-      		payload: response.data.status
-        })
-        dispatch({
-          type: "SET_FILTERS",
-      		payload: response.data.filters
-        })
-        dispatch({
-          type: "SET_PAGINATION",
-      		payload: response.data.page
-        })
+        console.log(response.data)
+        dispatch(setListPage(response.data))
       })
       .catch(error => {
         setModalVisibility(true)

@@ -45,33 +45,21 @@ export default (
     action
   ) =>  {
 	switch (action.type) {
-		case "SET_STATUS":
+		case "SET_LIST_PAGE":
+      console.log("set state")
 			state = {
 				...state,
-				status: action.payload
+				...action.payload
 			}
 			break
-    case "SET_FILTERS":
-			state = {
-				...state,
-				filters: action.payload
-			}
-			break
-    case "SET_PAGINATION":
-			state = {
-				...state,
-				page: action.payload
-			}
-			break
-    case "ADD_PAGE":
-      //console.log([...state.items, ...action.payload])
-			state = {
-				...state,
-				items: action.payload
-			}
-      console.log(state)
-			break
-    case "RESET_LIST":
+    // case "ADD_PAGE":
+    //   //console.log([...state.items, ...action.payload])
+		// 	state = {
+		// 		...state,
+		// 		items: action.payload
+		// 	}
+		// 	break
+    case "RESET_LIST_PAGE":
 		default:
       return state
 	}
