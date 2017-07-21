@@ -1,6 +1,7 @@
 // tools
 import React from "react"
 import ReactGA from "react-ga"
+import { withRouter } from "react-router"
 
 // redux
 import { connect } from "react-redux"
@@ -23,7 +24,11 @@ const trackView = () => {
 class App extends React.Component {
 
 	// manipulate nav view & GA tracking
-	handleRouterUpdate = () => {
+	componentDidMount(){
+		console.log("App mounted")
+		this.props.history.listen((location, action) => this.handleRouterChnange())
+	}
+	handleRouterChnange = () => {
 		trackView()
 		switch (window.location.pathname) {
 			case "/submit/compose":
@@ -70,4 +75,4 @@ const mapDispatchToProps = dispatch => {
 		}
 	}
 }
-export default connect(mapStateToProps, mapDispatchToProps, null, {pure: false})(App)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
