@@ -40,13 +40,17 @@ export default (
           },
           "summary" : "█ ██████████ ██████ ██████ ███████████ ███ ███████████ █████████"
         }
-      ]
+      ],
+      requested : {
+        method: "get",
+        data: {},
+        url: "",
+      }
   	},
     action
   ) =>  {
 	switch (action.type) {
 		case "SET_LIST_PAGE":
-      console.log("set state")
 			state = {
 				...state,
 				...action.payload
@@ -59,7 +63,12 @@ export default (
 		// 		items: action.payload
 		// 	}
 		// 	break
-    case "RESET_LIST_PAGE":
+    case "INIT_LIST_PAGE":
+      state = {
+        ...state,
+        requested: action.payload
+      }
+      break
 		default:
       return state
 	}

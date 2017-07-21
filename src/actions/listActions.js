@@ -12,25 +12,23 @@ export function setListPage(page) {
     payload: page
   }
 }
-export function resetListPage() {
+export function initListPage(request) {
 	return {
-		type: "RESET_LIST_PAGE",
-		payload: {}
+		type: "INIT_LIST_PAGE",
+		payload: request
 	}
 }
 
-export function fetchListPage(request) { console.log("fetch")
-  return dispatch => {
-    dispatch(resetListPage())
+export function fetchListPage(request) {
+  return (dispatch, getState) => {
+    if(getState().list.requested.url === request.url) return
+    dispatch(initListPage(request))
     axios({
       method: 			request.method || "get",
       data:         request.data || {},
       url: 					request.url + ".json",
     })
-      .then(response => {
-        console.log(response.data)
-        dispatch(setListPage(response.data))
-      })
+      .then(response => dispatch(setListPage(response.data)))
       .catch(error => {
         setModalVisibility(true)
         setModalData({
