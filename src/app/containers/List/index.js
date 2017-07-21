@@ -6,7 +6,7 @@ import { ModalDispatch } from "../Modal"
 // redux & state
 import { connect } from "react-redux"
 import { fetchListPage } from "../../../actions/listActions"
-import { ROUTE_LIST_API, PAGE_ITERATOR_STRING } from "./routes"
+import { ROUTE_LIST_API, PAGE_ITERATOR_STRING } from "./constants"
 
 // components
 import ListDescription from "../../components/ListDescription"
@@ -88,4 +88,4 @@ const mapDispatchToProps = dispatch => {
 		}
 	}
 }
-export default withRouter(connect(mapStateToProps, mapDispatchToProps /*, null, {pure: false}*/ )(List))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(List))

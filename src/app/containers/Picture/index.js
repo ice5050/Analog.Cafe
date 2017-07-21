@@ -8,7 +8,7 @@ import { PlainTextarea } from "../../components/InputText"
 
 
 // dictionary
-import { ROUTE_IMAGE_API } from "./routes"
+import { ROUTE_IMAGE_API } from "./constants"
 
 // export
 export default class extends React.Component {

@@ -13,7 +13,6 @@ import placeholder from "../../components/icons/images/placeholder-figure.png"
 
 
 // dictionary
-// import { ROUTE_IMAGE_API } from "./routes"
 import styled from "styled-components"
 const SquareButton = styled(Square)`
 	cursor: pointer;
