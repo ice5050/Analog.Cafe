@@ -17,13 +17,13 @@ export function fetch(request) {
 		})
 		axios({
 			  method: 			request.method || "get",
-	      data:         request.data,
+	      data:         request.data || {},
 			  url: 					request.url + ".json",
 			})
 			.then(response => {
 				dispatch({
 					type: "SET_DATA",
-					payload: response.data
+					payload: response.data,
 				})
 			})
 			.catch(error => {
