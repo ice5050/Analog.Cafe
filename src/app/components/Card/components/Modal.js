@@ -55,7 +55,6 @@ export const ModalCard = props => {
 								to={ button.to }
 								key={ button.to }
 								red={ button.red ? true : null }
-								noRouterContext
 							>{ button.text }</CardButton>
 						)
 					})

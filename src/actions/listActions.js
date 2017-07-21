@@ -6,9 +6,13 @@ import {
 } from "./modalActions"
 
 // return
-export function setListPage(page) {
-  return {
+export function setListPage(page, appendItems) {
+  if(appendItems === false) return {
     type: "SET_LIST_PAGE",
+    payload: page
+  }
+  else return {
+    type: "ADD_LIST_PAGE",
     payload: page
   }
 }
@@ -19,16 +23,20 @@ export function initListPage(request) {
 	}
 }
 
-export function fetchListPage(request) {
+export function fetchListPage(request, appendItems = false) {
   return (dispatch, getState) => {
-    if(getState().list.requested.url === request.url) return
+
+    // run duplicate & validation checks
+    let listState = getState().list
+    if(listState.requested.url === request.url) return
+
     dispatch(initListPage(request))
     axios({
       method: 			request.method || "get",
       data:         request.data || {},
       url: 					request.url + ".json",
     })
-      .then(response => dispatch(setListPage(response.data)))
+      .then(response => dispatch(setListPage(response.data, appendItems)))
       .catch(error => {
         setModalVisibility(true)
         setModalData({

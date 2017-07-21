@@ -56,13 +56,16 @@ export default (
 				...action.payload
 			}
 			break
-    // case "ADD_PAGE":
-    //   //console.log([...state.items, ...action.payload])
-		// 	state = {
-		// 		...state,
-		// 		items: action.payload
-		// 	}
-		// 	break
+    case "ADD_LIST_PAGE":
+			state = {
+				...state,
+				...action.payload,
+        items: [
+          ...state.items,
+          ...action.payload.items,
+        ]
+			}
+			break
     case "INIT_LIST_PAGE":
       state = {
         ...state,

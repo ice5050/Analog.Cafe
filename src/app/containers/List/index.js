@@ -8,48 +8,29 @@ import { connect } from "react-redux"
 import { fetchListPage } from "../../../actions/listActions"
 import { ROUTE_LIST_API } from "./routes"
 
-
 // components
 import ListDescription from "../../components/ListDescription"
 import { LinkButton } from "../../components/Button"
 import { default as ListBlock } from "../../components/List"
 import { Section, Article } from "../../components/ArticleStyles"
 
-
-// helper
+// helpers
 import { getListHeaders } from "./helpers"
 
-// handleMore = (e) => {
-// 	console.log("more")
-// // 	e.preventDefault()
-// // 	this._fetch(parseInt(this.state.page.current, 0) + 1)
-// }
-// componentDidMount = () => {
-// 	//
-// 	// this.setState({
-// 	// 	pathname: props.location.pathname
-// 	// })
-// 	// console.log(props.location.pathname)
-// 	// this._fetch()
-//
-// 	props.history.listen((location, action) => {
-// 		// this.setState({
-// 		// 	pathname: location.pathname
-// 		// })
-// 		this._fetch()
-// 		console.log("history change")
-// 	})
-// 	this._fetch()
-// 	console.log("componentDidMount")
-//
-// }
-
-
+// return
 class List extends React.Component {
 	fetchNewList = () => {
 		this.props.fetchListPage({
 			url: ROUTE_LIST_API + getListHeaders(this.props.history.location.pathname, this.props.list.page.current).search
 		})
+	}
+	handleLoadMore = event => {
+		event.preventDefault()
+		let pageIteratorString = "-page-"
+		let requestedUrl = this.props.list.requested.url
+		this.props.fetchListPage({
+			url: requestedUrl.split(pageIteratorString)[0] + pageIteratorString + (parseInt(this.props.list.page.current) + 1)
+		}, true)
 	}
 	componentWillMount() {
     this.unlisten = this.props.history.listen(location => this.fetchNewList())
@@ -85,8 +66,8 @@ class List extends React.Component {
 				<ListBlock  status={ this.props.list.status } items={ this.props.list.items } />
 
 				{
-					// parseInt(props.list.page.total, 0) > 1 && parseInt(props.list.page.total, 0) > parseInt(props.list.page.current, 0) ?
-					// <LinkButton to="#more" red onClick={ console.log("more") }>Load More</LinkButton> : null
+					parseInt(this.props.list.page.total, 0) > 1 && parseInt(this.props.list.page.total, 0) > parseInt(this.props.list.page.current, 0) ?
+					<LinkButton to="#more" red onClick={ this.handleLoadMore.bind(this) }>Load More</LinkButton> : null
 				}
 
 				<Article><Section /></Article>
@@ -104,8 +85,8 @@ const mapStateToProps = state => { console.log("state updated")
 }
 const mapDispatchToProps = dispatch => {
 	return {
-    fetchListPage: request => {
-			dispatch(fetchListPage(request))
+    fetchListPage: (request, append) => {
+			dispatch(fetchListPage(request, append))
 		}
 	}
 }
