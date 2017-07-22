@@ -50,13 +50,13 @@ export default (
     action
   ) =>  {
 	switch (action.type) {
-		case "SET_LIST_PAGE":
+		case "SET_PAGE":
 			state = {
 				...state,
 				...action.payload
 			}
 			break
-    case "ADD_LIST_PAGE":
+    case "ADD_PAGE":
 			state = {
 				...state,
 				...action.payload,
@@ -66,7 +66,7 @@ export default (
         ],
 			}
 			break
-    case "INIT_LIST_PAGE":
+    case "INIT_PAGE":
       state = {
         ...state,
         requested: action.payload,

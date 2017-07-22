@@ -1,51 +1,44 @@
 // tools
 import axios from "axios"
-import {
-  setVisibility as setModalVisibility,
-  setData as setModalData,
-} from "./modalActions"
+import { setModal } from "./modalActions"
 
 // return
-export function setListPage(page, appendItems) {
-  console.log("setListPage",page, appendItems)
+export function setPage(page, appendItems) {
   if(appendItems === false) return {
-    type: "SET_LIST_PAGE",
+    type: "SET_PAGE",
     payload: page
   }
   else return {
-    type: "ADD_LIST_PAGE",
-    payload: page
+    type: "ADD_PAGE",
+    payload: page,
   }
 }
-export function initListPage(request) {
+export function initPage(request) {
 	return {
-		type: "INIT_LIST_PAGE",
-		payload: request
+		type: "INIT_PAGE",
+		payload: request,
 	}
 }
 
-export function fetchListPage(request, appendItems = false) {
+export function fetchPage(request, appendItems = false) {
   return (dispatch, getState) => {
 
     // run duplicate & validation checks
     let listState = getState().list
     if(listState.requested.url === request.url) return
+    dispatch(initPage(request))
 
-    console.log(request.url, appendItems)
-
-    dispatch(initListPage(request))
     axios({
       method: 			request.method || "get",
       data:         request.data || {},
       url: 					request.url + ".json",
     })
-      .then(response => dispatch(setListPage(response.data, appendItems)))
+      .then(response => dispatch(setPage(response.data, appendItems)))
       .catch(error => {
-        setModalVisibility(true)
-        setModalData({
+        setModal({
           title: "Error 😧",
-          text: error
-        })
+          text: error,
+        }, { url: "error" })
       })
   }
 }

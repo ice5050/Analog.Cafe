@@ -52,11 +52,12 @@ export default class extends React.Component {
 					<Byline>
 						Link to <ModalDispatch
 							with={{
-								data: {
+								info: {
 									image: placeholder,
 									title: "Your Profile",
 									text: "Short author bio hasn’t been added yet."
-								}
+								},
+								id: "placeholders/author"
 							}}
 						>Your Profile</ModalDispatch> will appear here.
 					</Byline>

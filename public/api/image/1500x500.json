@@ -1,7 +1,9 @@
-{  
+{
   "status": "ok",
-	"author" : {
-		"name" : "Kyla Medica",
-		"id" : "kyla-medica"
-	}
+  "info": {
+  	"author" : {
+  		"name" : "Kyla Medica",
+  		"id" : "kyla-medica"
+  	}
+  }
 }

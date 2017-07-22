@@ -1,10 +1,11 @@
 // tools
 import React from "react"
+import ReactGA from "react-ga"
 // import axios from "axios"
 
 // redux
 import { connect } from "react-redux"
-import { setData, setVisibility } from "../../../../actions/modalActions"
+import { hideModal } from "../../../../actions/modalActions"
 
 
 // components
@@ -12,16 +13,20 @@ import { ModalCard, ModalWrapper } from "../../../components/Card"
 
 // return
 const Modal = props => {
+		if(!props.modal.hidden && props.modal.status === "ok"){
+			// let virtualModalUrl = (props.modal.info.title).replace(/ /g,"-").replace(/[^a-z0-9-]/gi,"").toLowerCase()
+			// ReactGA.modalview(virtualModalUrl)
+		}
 		return(
       <ModalWrapper style={{
-        display: props.modal.isVisible ? "block" : "none"
+        display: props.modal.hidden ? "none" : "block"
       }}>
   			<ModalCard
-  				title={ props.modal.data.title  }
-  				image={ props.modal.data.image }
-  				text={ props.modal.data.text }
-  				buttons={ props.modal.data.buttons }
-          hideModal={ () => props.setVisibility(false) }
+  				title={ props.modal.info.title  }
+  				image={ props.modal.info.image }
+  				text={ props.modal.info.text }
+  				buttons={ props.modal.info.buttons }
+          hideModal={ () => props.hideModal() }
   			/>
       </ModalWrapper>
 		)
@@ -30,18 +35,16 @@ const Modal = props => {
 
 // connet with redux
 const mapStateToProps = state => {
+	console.log(state.modal)
 	return {
     modal: state.modal,
 	}
 }
 const mapDispatchToProps = dispatch => {
 	return {
-		setData: data => {
-			dispatch(setData(data))
-		},
-    setVisibility: isVisible => {
-			dispatch(setVisibility(isVisible))
+    hideModal: () => {
+			dispatch(hideModal())
 		}
 	}
 }
-export default connect(mapStateToProps, mapDispatchToProps, null, {pure: false})(Modal)
+export default connect(mapStateToProps, mapDispatchToProps)(Modal)

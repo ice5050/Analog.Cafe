@@ -12,7 +12,11 @@ import Nav from "./Nav"
 import AppRoutes from "../components/views/AppRoutes"
 
 // init GA tracking
-ReactGA.initialize("UA-91374353-3")
+ReactGA.initialize("UA-91374353-3", {
+  debug: false,
+  titleCase: true,
+  gaOptions: {}
+})
 const trackView = () => {
 	ReactGA.set({ page: window.location.pathname + window.location.search })
 	ReactGA.pageview(window.location.pathname + window.location.search)
@@ -25,10 +29,10 @@ class App extends React.Component {
 
 	// manipulate nav view & GA tracking
 	componentDidMount(){
-		console.log("App mounted")
-		this.props.history.listen((location, action) => this.handleRouterChnange())
+		this.handleRouteChnange()
+		this.props.history.listen((location, action) => this.handleRouteChnange())
 	}
-	handleRouterChnange = () => {
+	handleRouteChnange = () => {
 		trackView()
 		switch (window.location.pathname) {
 			case "/submit/compose":
@@ -59,12 +63,6 @@ class App extends React.Component {
 
 
 // connet with redux
-const mapStateToProps = state => {
-	return {
-		// view: state.nav.view,
-		// navLocation: state.nav.location,
-	}
-}
 const mapDispatchToProps = dispatch => {
 	return {
 		setNavView: view => {
@@ -75,4 +73,4 @@ const mapDispatchToProps = dispatch => {
 		}
 	}
 }
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
+export default withRouter(connect(null, mapDispatchToProps)(App))
