@@ -19,6 +19,12 @@ class Figure extends React.Component {
 		this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
+	componentWillReceiveProps(nextProps) {
+    const caption = nextProps.node.data.get("caption");
+    if (caption !== this.state.caption) {
+      this.setState({ caption })
+    }
+  }
   handleChange(event) {
     const caption = event.target.value
     const { node, editor } = this.props
@@ -54,18 +60,21 @@ class Figure extends React.Component {
 		}
   }
   render() {
-		console.log(state)
     const { attributes, state, node } = this.props
     const { src } = this.state
     const focus = state.isFocused && state.selection.hasEdgeIn(node)
 		const className = focus ? "focus" : "nofocus"
+
+
+			console.log(src)
+			//console.log(this.props.pictures[imageSrcToPictureId(src)].author)
 
     return src
       ? <Picture
       		{ ...attributes }
       		src={ src }
       		className={ className }
-      		author={ this.props.pictures[imageSrcToPictureId(src)].author }
+      		author={ this.props.pictures[imageSrcToPictureId(src)] && this.props.pictures[imageSrcToPictureId(src)].info.author }
       		composer={ !this.props.readOnly }
       	>
       		{ !this.props.readOnly
@@ -75,17 +84,17 @@ class Figure extends React.Component {
 							onChange={ this.handleChange }
 							onClick={ this.handleClick }
 						/>
-						: <div>{ this.state.caption }</div>
+						: <div>{ this.state.caption }{ this.state.caption && <br />}</div>
 					}
       	</Picture>
-      : <Picture { ...attributes } src="" className={ className }>Loading your image...</Picture>
+      : <Picture { ...attributes } src="" className={ className }>Loading image...</Picture>
   }
 }
 
 // connet with redux
 const mapStateToProps = state => {
 	return {
-    modal: state.pictures,
+    pictures: state.pictures,
 	}
 }
 const mapDispatchToProps = dispatch => {

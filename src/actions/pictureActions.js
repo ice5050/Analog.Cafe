@@ -6,9 +6,13 @@ import { imageSrcToPictureId } from "../app/containers/Picture/helpers"
 // return
 export function devisePicture(src) {
 
+	console.log("devisePicture", imageSrcToPictureId(src))
+
 	let id = imageSrcToPictureId(src)
 	let request
-	request = ROUTE_IMAGE_API + "/" + id
+	request = {
+		url: ROUTE_IMAGE_API + "/" + id,
+	}
 
 	return (dispatch, getState) => {
 
@@ -24,12 +28,23 @@ export function devisePicture(src) {
 			.then(response => dispatch({
 				type: "DEVISE_PICTURE",
 				payload: {
-					info: response.info,
-					status: response.status,
-					id: id
+					info: response.data.info,
+					status: response.data.status,
+					id
 				}
-			})
-			.catch(error => console.log(error))
-		)
+			}))
+			.catch(error => dispatch({
+				type: "DEVISE_PICTURE",
+				payload: {
+					info: {
+						author: {
+							"name": "Unknown",
+							"id": "unknown"
+						}
+					},
+					status: "fail",
+					id
+				}
+			}))
 	}
 }
