@@ -150,7 +150,8 @@
           },
           {
             "data":{
-              "src":"https://cdn-images-1.medium.com/max/2000/1*5nYZqhhj3gnL_Cc1Nb9lpA.jpeg"
+              "src":"https://cdn-images-1.medium.com/max/2000/1*5nYZqhhj3gnL_Cc1Nb9lpA.jpeg",
+              "caption": "image caption"
             },
             "kind":"block",
             "isVoid":true,

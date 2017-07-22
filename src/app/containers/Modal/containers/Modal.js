@@ -1,7 +1,6 @@
 // tools
 import React from "react"
 import ReactGA from "react-ga"
-// import axios from "axios"
 
 // redux
 import { connect } from "react-redux"
@@ -34,7 +33,6 @@ const Modal = props => {
 
 // connet with redux
 const mapStateToProps = state => {
-	console.log(state.modal)
 	return {
     modal: state.modal,
 	}
