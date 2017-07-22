@@ -1,54 +1,53 @@
-export default (
-    state = {
-      "status": "loading",
-      "filters": {
-        "tags": [],
-        "author": {}
+const INITIAL_STATE = {
+  "status": "loading",
+  "filters": {
+    "tags": [],
+    "author": {}
+  },
+  "page" : {
+    "current" : "1",
+    "total" : "1"
+  },
+  "items" : [
+    {
+      "type" : "placeholder",
+      "tag" : "████████",
+      "title" : "███",
+      "id" : "0000000",
+      "author" : {
+        "name" : "██████"
       },
-      "page" : {
-        "current" : "1",
-        "total" : "1"
+      "summary" : "█ ████████ ██████ ████ ████ ██████████ ████ ████████████████ ██"
+    },
+    {
+      "type" : "placeholder",
+      "tag" : "████",
+      "title" : "████",
+      "id" : "0000001",
+      "author" : {
+        "name" : "█████"
       },
-      "items" : [
-        {
-          "type" : "placeholder",
-          "tag" : "████████",
-          "title" : "███",
-          "id" : "0000000",
-          "author" : {
-            "name" : "██████"
-          },
-          "summary" : "█ ████████ ██████ ████ ████ ██████████ ████ ████████████████ ██"
-        },
-        {
-          "type" : "placeholder",
-          "tag" : "████",
-          "title" : "████",
-          "id" : "0000001",
-          "author" : {
-            "name" : "█████"
-          },
-          "summary" : "█████ ████████████ ████████ ███ ███████████ ██████████████████"
-        },
-        {
-          "type" : "placeholder",
-          "tag" : "█████████",
-          "title" : "██",
-          "id" : "0000002",
-          "author" : {
-            "name" : "██"
-          },
-          "summary" : "█ ██████████ ██████ ██████ ███████████ ███ ███████████ █████████"
-        }
-      ],
-      requested : {
-        method: "get",
-        data: {},
-        url: "",
-      }
-  	},
-    action
-  ) =>  {
+      "summary" : "█████ ████████████ ████████ ███ ███████████ ██████████████████"
+    },
+    {
+      "type" : "placeholder",
+      "tag" : "█████████",
+      "title" : "██",
+      "id" : "0000002",
+      "author" : {
+        "name" : "██"
+      },
+      "summary" : "█ ██████████ ██████ ██████ ███████████ ███ ███████████ █████████"
+    }
+  ],
+  requested : {
+    method: "get",
+    data: {},
+    url: "",
+  }
+}
+
+export default (state = INITIAL_STATE, action) =>  {
 	switch (action.type) {
 		case "SET_PAGE":
 			state = {
@@ -68,9 +67,8 @@ export default (
 			break
     case "INIT_PAGE":
       state = {
-        ...state,
+        ...INITIAL_STATE,
         requested: action.payload,
-        status: "loading",
       }
       break
 		default:

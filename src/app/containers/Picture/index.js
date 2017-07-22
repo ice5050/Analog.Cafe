@@ -79,7 +79,7 @@ export default class extends React.Component {
   	axios.get(ROUTE_IMAGE_API + slug + ".json")
 			.then(response => {
 				let data = response.data
-				this.setState({ author:	data.info.author })
+				//this.setState({ author:	data.info.author })
 			})
 			.catch(error => console.log(error))
   }
