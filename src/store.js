@@ -8,9 +8,10 @@ import composer from "./reducers/composerReducer"
 import nav from "./reducers/navReducer"
 import modal from "./reducers/modalReducer"
 import list from "./reducers/listReducer"
+import post from "./reducers/postReducer"
 
 export default createStore(
-	combineReducers({ composer, nav, modal, list }),
+	combineReducers({ composer, nav, modal, list, post }),
 	{},
 	applyMiddleware(/*logger(), promise(),*/ thunk)
 );

@@ -34,11 +34,14 @@ export function fetchPage(request, appendItems = false) {
       url: 					request.url + ".json",
     })
       .then(response => dispatch(setPage(response.data, appendItems)))
-      .catch(error => {
-        setModal({
-          title: "Error 😧",
-          text: error,
-        }, { url: "error" })
-      })
+      .catch(error =>
+        dispatch(setModal({
+          status: "ok",
+          info: {
+            title: "Error 😧",
+            text: "Couldn’t load the list. Are you connected to the Internet?",
+          }
+        }, { url: "error" }))
+      )
   }
 }
