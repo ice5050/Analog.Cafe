@@ -13,7 +13,7 @@ import AppRoutes from "../components/views/AppRoutes"
 
 // init GA tracking
 ReactGA.initialize("UA-91374353-3", {
-  debug: false,
+  debug: true,
   titleCase: true,
   gaOptions: {}
 })

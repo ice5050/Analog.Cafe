@@ -14,8 +14,7 @@ import { ModalCard, ModalWrapper } from "../../../components/Card"
 // return
 const Modal = props => {
 		if(!props.modal.hidden && props.modal.status === "ok"){
-			// let virtualModalUrl = (props.modal.info.title).replace(/ /g,"-").replace(/[^a-z0-9-]/gi,"").toLowerCase()
-			// ReactGA.modalview(virtualModalUrl)
+			ReactGA.modalview(props.modal.requested.url)
 		}
 		return(
       <ModalWrapper style={{
