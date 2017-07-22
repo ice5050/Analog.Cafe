@@ -1,9 +1,13 @@
 // tools
 import React from "react"
-import axios from "axios"
 import { Editor, Raw } from "slate"
 import { withRouter } from "react-router"
 
+// redux & state
+import { connect } from "react-redux"
+import { fetchPage } from "../../../actions/postActions"
+import { ROUTE_POST_API, ROUTE_ARTICLE_DIR } from "./constants"
+import { schema } from "../Composer/containers/ContentEditor/schema"
 
 
 // components
@@ -11,79 +15,49 @@ import Heading from "../../components/ArticleHeading"
 import { ModalDispatch } from "../Modal"
 import { Section, Article, Byline } from "../../components/ArticleStyles"
 
-// state
-import defaultPostState from "./state.json"
-import { schema } from "../Composer/containers/ContentEditor/schema"
-
-// constants
-import { ROUTE_POST_API, ROUTE_ARTICLE_DIR } from "./constants"
-
 
 // render
-class Post extends React.Component {
-	state = {
-		status: 		defaultPostState.status,
-		title: 			defaultPostState.title,
-		subtitle: 	defaultPostState.subtitle,
-		author: 		defaultPostState.author,
-		content: {
-			raw: 			Raw.deserialize(defaultPostState.content.raw, {terse: true}),
-			schema
-		}
-	}
-
-  _fetch = () => { console.log(this.props.history.location.pathname)
-    // convert route to api search
-		let slug = (this.props.history.location.pathname).replace(ROUTE_ARTICLE_DIR,"")
-		// fetch & update state
-		if(this.state.slug === slug) return
-  	axios.get(ROUTE_POST_API + slug + ".json")
-			.then(response => {
-				let data = response.data
-				this.setState({
-					status: 	data.status,
-					title:		data.title,
-					subtitle:	data.subtitle,
-					author:		data.author,
-					slug,
-					content: {
-						raw: Raw.deserialize(data.content.raw, {terse: true}),
-						schema
-					}
-				})
-			})
-			.catch(error => console.log(error))
-  }
-
-  componentDidMount = () => this._fetch()
-  // componentDidUpdate = () => this._fetch()
-	// need condition for componentWillUnmount()
-
-  render() {
-		return(
-			<Article>
-				<Heading
-					pageTitle={ this.state.title }
-					pageSubtitle={ this.state.subtitle }
-				>
-					<Byline>by <ModalDispatch
-						with={{
-							request: {
-								url: "/api/author/" + this.state.author.id
-							}
-						}}
-					>{ this.state.author.name }</ModalDispatch></Byline>
-				</Heading>
-				<Section postStatus={ this.state.status } endsign>
-					<Editor
-						readOnly={					true }
-						state={							this.state.content.raw }
-						schema={						this.state.content.schema }
-					/>
-				</Section>
-			</Article>
-		)
-	}
+const Post = props => {
+	props.fetchPage({
+		url: ROUTE_POST_API + (props.history.location.pathname).replace(ROUTE_ARTICLE_DIR,"")
+	})
+	return(
+		<Article>
+			<Heading
+				pageTitle={ props.post.title }
+				pageSubtitle={ props.post.subtitle }
+			>
+				<Byline>by <ModalDispatch
+					with={{
+						request: {
+							url: "/api/author/" + props.post.author.id
+						}
+					}}
+				>{ props.post.author.name }</ModalDispatch></Byline>
+			</Heading>
+			<Section postStatus={ props.post.status } endsign>
+				<Editor
+					readOnly={					true }
+					state={							Raw.deserialize(props.post.content.raw, {terse: true}) }
+					schema={						schema }
+				/>
+			</Section>
+		</Article>
+	)
 }
 
-export default withRouter(Post)
+
+// connet with redux
+const mapStateToProps = state => {
+	return {
+    post: state.post,
+	}
+}
+const mapDispatchToProps = dispatch => {
+	return {
+    fetchPage: (request) => {
+			dispatch(fetchPage(request))
+		}
+	}
+}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Post))

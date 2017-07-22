@@ -3,7 +3,7 @@ export default (
     	"status": "loading",
     	"title": "Loading Article...",
     	"subtitle": "",
-    	"author": { "name" : "Fetching Author Name..." },
+    	"author": { "name" : "Fetching Author Name...", "id" : "" },
     	"content" : {
     		"raw" : {
     			"nodes":[{
@@ -18,7 +18,12 @@ export default (
     				}]
     			}]
     		}
-    	}
+    	},
+      requested : {
+        method: "get",
+        data: {},
+        url: "",
+      }
     },
     action
   ) =>  {

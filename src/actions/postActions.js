@@ -20,8 +20,8 @@ export function fetchPage(request) {
   return (dispatch, getState) => {
 
     // run duplicate & validation checks
-    let listState = getState().list
-    if(listState.requested.url === request.url) return
+    let postState = getState().post
+    if(postState.requested.url === request.url) return
     dispatch(initPage(request))
 
     axios({

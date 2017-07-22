@@ -76,7 +76,7 @@ class List extends React.Component {
 
 
 // connet with redux
-const mapStateToProps = state => { console.log("state updated")
+const mapStateToProps = state => {
 	return {
     list: state.list,
 	}
