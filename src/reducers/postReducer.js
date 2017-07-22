@@ -38,6 +38,7 @@ export default (
       state = {
         ...state,
         requested: action.payload,
+        status: "loading",
       }
       break
 		default:
