@@ -3,14 +3,10 @@ import axios from "axios"
 import { setModal } from "./modalActions"
 
 // return
-export function setPage(page, appendItems) {
-  if(appendItems === false) return {
+export function setPage(page) {
+  return {
     type: "SET_PAGE",
     payload: page
-  }
-  else return {
-    type: "ADD_PAGE",
-    payload: page,
   }
 }
 export function initPage(request) {
@@ -20,7 +16,7 @@ export function initPage(request) {
 	}
 }
 
-export function fetchPage(request, appendItems = false) {
+export function fetchPage(request) {
   return (dispatch, getState) => {
 
     // run duplicate & validation checks
@@ -33,15 +29,15 @@ export function fetchPage(request, appendItems = false) {
       data:         request.data || {},
       url: 					request.url + ".json",
     })
-      .then(response => dispatch(setPage(response.data, appendItems)))
+      .then(response => dispatch(setPage(response.data)))
       .catch(error =>
         dispatch(setModal({
           status: "ok",
           info: {
             title: "Error 😧",
-            text: "Couldn’t load the list. Are you connected to the Internet?",
+            text: "Couldn’t load the post. Are you connected to the Internet?",
           }
-        }, { url: "errors/list" }))
+        }, { url: "errors/post" }))
       )
   }
 }

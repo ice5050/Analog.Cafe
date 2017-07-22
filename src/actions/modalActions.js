@@ -39,7 +39,7 @@ export function fetchModal(request) {
 					title: "Error 😧",
 					text: "Couldn’t load the card. Are you connected to the Internet?",
 				}
-			}, { url: "error" }))
+			}, { url: "errors/modal" }))
 		)
 	}
 }
