@@ -3,16 +3,23 @@ import React from "react"
 
 // redux
 import { connect } from "react-redux"
-import { setData, fetch, setVisibility } from "../../../../actions/modalActions"
+import { fetchModal, setModal } from "../../../../actions/modalActions"
 
 
 // return
 class ModalDispatch extends React.Component {
   invokeModal = event => {
     event.preventDefault()
-    this.props.setVisibility(true)
-    this.props.with.data && this.props.setData(this.props.with.data)
-    this.props.with.request && this.props.fetch(this.props.with.request)
+    this.props.with.request ?
+      this.props.fetchModal(this.props.with.request)
+    :
+      this.props.setModal(
+        {
+          status: "ok",
+          info: this.props.with.info
+        },
+        { url: this.props.with.id }
+      )
   }
   render() {
     // Wrapper defaults to <a> link, however it could become *any* react component:
@@ -45,15 +52,12 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
 	return {
-		setData: data => {
-			dispatch(setData(data))
+		setModal: (info, request) => {
+			dispatch(setModal(info, request))
 		},
-    fetch: request => {
-			dispatch(fetch(request))
-		},
-    setVisibility: isVisible => {
-			dispatch(setVisibility(isVisible))
+    fetchModal: request => {
+			dispatch(fetchModal(request))
 		}
 	}
 }
-export default connect(mapStateToProps, mapDispatchToProps)(ModalDispatch)
+export default connect(mapStateToProps, mapDispatchToProps, null, {pure: false})(ModalDispatch)

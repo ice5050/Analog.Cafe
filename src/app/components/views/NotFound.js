@@ -1,11 +1,11 @@
 // tools
 import React from "react"
-import Link from "../../Link"
+import Link from "../Link"
 
 
 // components
-import Heading from "../../ArticleHeading"
-import { Section, Article } from "../../ArticleStyles"
+import Heading from "../ArticleHeading"
+import { Section, Article } from "../ArticleStyles"
 
 // render
 export default props => {

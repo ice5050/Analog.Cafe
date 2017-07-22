@@ -5,6 +5,7 @@
 // state
 
 // dictionary
+export const PAGE_ITERATOR_STRING = "-page-"
 export const ROUTE_ARTICLE_DIR = "/zine"
 export const ROUTE_LIST_API = "/api/list"
 export const ROUTE_FILTERS = {
@@ -30,5 +31,5 @@ export const ROUTE_META = {
 											"text" : "Submissions by ",
 											"emoji"				: "👤",
 	},
-							
+
 }

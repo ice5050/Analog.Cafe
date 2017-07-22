@@ -1,38 +1,38 @@
 // tools
 import React from "react"
-import { Router, Route, browserHistory, IndexRoute } from "react-router"
-import Helmet from "react-helmet"
 import ReactGA from "react-ga"
-
-// theme
-import Paper from "../../themes/Paper"
+import { withRouter } from "react-router"
 
 // redux
 import { connect } from "react-redux"
 import { setView as setNavView, setLocation as setNavLocation } from "../../actions/navActions"
 
-
-// views and components
-import { About, NotFound, SignIn, Publication } from "../components/views"
-import { Intro, Submit } from "../components/views/Submit"
-import Composer from "./Composer"
-import List from "./List"
-import Post from "./Post"
 import { Modal } from "./Modal"
+import Nav from "./Nav"
+import AppRoutes from "../components/views/AppRoutes"
 
 // init GA tracking
-ReactGA.initialize("UA-91374353-3")
+ReactGA.initialize("UA-91374353-3", {
+  debug: true,
+  titleCase: true,
+  gaOptions: {}
+})
 const trackView = () => {
 	ReactGA.set({ page: window.location.pathname + window.location.search })
 	ReactGA.pageview(window.location.pathname + window.location.search)
 	window.scrollTo(0,0)
 }
 
+
 // render & route
 class App extends React.Component {
 
 	// manipulate nav view & GA tracking
-	handleRouterUpdate = () => {
+	componentDidMount(){
+		this.handleRouteChnange()
+		this.props.history.listen((location, action) => this.handleRouteChnange())
+	}
+	handleRouteChnange = () => {
 		trackView()
 		switch (window.location.pathname) {
 			case "/submit/compose":
@@ -53,48 +53,16 @@ class App extends React.Component {
 
 	render(){
 		return (
-			<Paper>
-
-				{/* helmet */}
-				<Helmet
-					defaultTitle="Analog.Cafe ☕️"
-					titleTemplate="%s ☕️ Analog.Cafe"
-				/>
-
-				{/* routes */}
-				<Router history={ browserHistory } onUpdate={ this.handleRouterUpdate.bind(this) }>
-					<Route path="/"			 					component={ Publication } >
-						<IndexRoute 								component={ List } />
-						<Route path="photo-essays"	component={ List } />
-						<Route path="articles"			component={ List } />
-						<Route path="about"			 		component={ About } />
-						<Route path="zine/*"				component={ Post } />
-						<Route path="author/*"			component={ List } />
-					</Route>
-					<Route path="submit"					component={ Submit } >
-						<IndexRoute 								component={ Intro } />
-						<Route path="compose" 			component={ Composer } />
-					</Route>
-					<Route path="sign-in"					component={ SignIn } />
-					<Route path="*"								component={ NotFound } status={404} />
-				</Router>
-
-				{/* modal card */}
+			<Nav>
+				<AppRoutes />
 				<Modal />
-				
-			</Paper>
+			</Nav>
 		)
 	}
 }
 
 
 // connet with redux
-const mapStateToProps = state => {
-	return {
-		// view: state.nav.view,
-		// navLocation: state.nav.location,
-	}
-}
 const mapDispatchToProps = dispatch => {
 	return {
 		setNavView: view => {
@@ -105,4 +73,4 @@ const mapDispatchToProps = dispatch => {
 		}
 	}
 }
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default withRouter(connect(null, mapDispatchToProps)(App))

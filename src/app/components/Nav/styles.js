@@ -1,7 +1,6 @@
 // tools
 import React from "react"
 import styled from "styled-components"
-import { IndexLink } from "react-router"
 
 // components
 import Link from "../Link"
@@ -44,7 +43,7 @@ export const NavLink = props => {
 	return <StyledLink { ...props } activeClassName="active"/>
 }
 export const NavIndexLink = props => {
-	return <IndexLink { ...props } activeClassName="active"/>
+	return <Link { ...props } activeClassName="active"/>
 }
 
 export const NavItem = styled.li`

@@ -10,7 +10,7 @@ import { Caption } from "../CaptionStyles"
 
 
 // css
-export const Card = styled.aside`
+export const Card = styled.div`
 	position: 			relative;
 	display: 				block;
 	background: 		${ props => props.theme.color.background };

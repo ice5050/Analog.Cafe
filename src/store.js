@@ -7,9 +7,10 @@ import thunk from "redux-thunk"
 import composer from "./reducers/composerReducer"
 import nav from "./reducers/navReducer"
 import modal from "./reducers/modalReducer"
+import list from "./reducers/listReducer"
 
 export default createStore(
-	combineReducers({ composer, nav, modal }),
+	combineReducers({ composer, nav, modal, list }),
 	{},
 	applyMiddleware(/*logger(), promise(),*/ thunk)
 );

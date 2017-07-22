@@ -5,37 +5,33 @@ import React from "react"
 import Logo from "../Logo"
 
 // styles
-import { Wrapper, NavLink, NavIndexLink, NavItem } from "./styles"
+import { NavLink, NavIndexLink, NavItem } from "./styles"
 
 // return
 export const VisitorNav = props => {
 	return(
-		<Wrapper>
-			<ul>
-				<NavItem><NavLink 										to={ "/photo-essays" 			}><span>Photo Essays</span></NavLink></NavItem>
-				<NavItem><NavLink											to={ "/articles"					}><span>Articles</span></NavLink></NavItem>
+		<ul>
+			<NavItem><NavLink 										exact to={ "/photo-essays" 			}><span>Photo Essays</span></NavLink></NavItem>
+			<NavItem><NavLink											exact to={ "/articles"					}><span>Articles</span></NavLink></NavItem>
 
-				<NavItem prime center	><NavIndexLink	to={ "/"									}><Logo /></NavIndexLink></NavItem>
+			<NavItem prime center	><NavIndexLink	exact to={ "/"									}><Logo /></NavIndexLink></NavItem>
 
-				<NavItem prime left		><NavLink 			to={ "/about"			 				}><span>About</span></NavLink></NavItem>
-				<NavItem prime right	><NavLink 			to={ "/submit" 						}><span>Submit</span></NavLink></NavItem>
-			</ul>
-		</Wrapper>
+			<NavItem prime left		><NavLink 			exact to={ "/about"			 				}><span>About</span></NavLink></NavItem>
+			<NavItem prime right	><NavLink 			exact to={ "/submit" 						}><span>Submit</span></NavLink></NavItem>
+		</ul>
 	)
 }
 
 export const ComposerNav = props => {
 	return(
-		<Wrapper>
-			<ul>
-				<NavItem indicator prime left><span>{ props.draftStatus }</span></NavItem>
+		<ul>
+			<NavItem indicator prime left><span>{ props.draftStatus }</span></NavItem>
 
-				<NavItem prime center	><NavIndexLink	to={ "/"						}><Logo /></NavIndexLink></NavItem>
+			<NavItem prime center	><NavIndexLink	exact to={ "/"						}><Logo /></NavIndexLink></NavItem>
 
-				<NavItem prime right><NavLink 				to={ "/sign-in"	}><span>Send <span role="img" aria-label="Rocket">🚀</span></span></NavLink></NavItem>
-			</ul>
-		</Wrapper>
+			<NavItem prime right><NavLink 				exact to={ "/sign-in"	}><span>Send <span role="img" aria-label="Rocket">🚀</span></span></NavLink></NavItem>
+		</ul>
 	)
 }
 
-export { Wrapper }
+export { Wrapper } from "./styles"

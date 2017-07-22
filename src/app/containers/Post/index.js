@@ -2,6 +2,8 @@
 import React from "react"
 import axios from "axios"
 import { Editor, Raw } from "slate"
+import { withRouter } from "react-router"
+
 
 
 // components
@@ -13,12 +15,12 @@ import { Section, Article, Byline } from "../../components/ArticleStyles"
 import defaultPostState from "./state.json"
 import { schema } from "../Composer/containers/ContentEditor/schema"
 
-// routes
-import { ROUTE_POST_API, ROUTE_ARTICLE_DIR } from "./routes"
+// constants
+import { ROUTE_POST_API, ROUTE_ARTICLE_DIR } from "./constants"
 
 
 // render
-export default class extends React.Component {
+class Post extends React.Component {
 	state = {
 		status: 		defaultPostState.status,
 		title: 			defaultPostState.title,
@@ -30,9 +32,9 @@ export default class extends React.Component {
 		}
 	}
 
-  _fetch = () => {
+  _fetch = () => { console.log(this.props.history.location.pathname)
     // convert route to api search
-		let slug = (this.props.location.pathname).replace(ROUTE_ARTICLE_DIR,"")
+		let slug = (this.props.history.location.pathname).replace(ROUTE_ARTICLE_DIR,"")
 		// fetch & update state
 		if(this.state.slug === slug) return
   	axios.get(ROUTE_POST_API + slug + ".json")
@@ -83,3 +85,5 @@ export default class extends React.Component {
 		)
 	}
 }
+
+export default withRouter(Post)

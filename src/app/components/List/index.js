@@ -12,8 +12,8 @@ import { ZigzagPicture } from "./styles/zigzag-picture"
 // helper
 import { datestamp } from "./helpers"
 
-// routes
-import { ROUTE_ARTICLE_DIR } from "./routes"
+// constants
+import { ROUTE_ARTICLE_DIR } from "./constants"
 
 
 // return

@@ -2,45 +2,42 @@
 import axios from "axios"
 
 // return
-export function setData(data) {
+export function initModal(request) {
 	return {
-		type: "SET_DATA",
-		payload: data
+		type: "INIT_MODAL",
+		payload: request,
+	}
+}
+export function hideModal() {
+	return {
+		type: "HIDE_MODAL",
+		payload: {},
 	}
 }
 
-export function fetch(request) {
+export function setModal(info, request) {
 	return dispatch => {
+		dispatch(initModal(request))
 		dispatch({
-			type: "SET_DATA",
-			payload: { title: "Loading Card..."}
+			type: "SET_MODAL",
+			payload: info,
 		})
+	}
+}
+export function fetchModal(request) {
+	return dispatch => {
+		dispatch(initModal(request))
 		axios({
 			  method: 			request.method || "get",
-	      data:         request.data,
+	      data:         request.data || {},
 			  url: 					request.url + ".json",
 			})
-			.then(response => {
-				dispatch({
-					type: "SET_DATA",
-					payload: response.data
-				})
-			})
-			.catch(error => {
-				dispatch({
-					type: "SET_DATA",
-					payload: {
-						title: "Error 😧",
-						text: error
-					}
-				})
-			})
+			.then(response => dispatch(setModal(response.data, request)))
+			.catch(error => dispatch(
+				setModal({
+					title: "Error 😧",
+					text: error,
+				}, request)
+			))
 	}
-}
-
-export function setVisibility(isVisible) {
-  return {
-    type: "SET_VISIBILITY",
-    payload: isVisible
-  }
 }

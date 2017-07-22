@@ -1,37 +1,40 @@
 export default (
     state = {
-      isVisible: false,
-      data: {
+      hidden: true,
+      status: "loading",
+      info: {
         title: "Loading Card...",
         image: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
         text: "",
         buttons: {},
       },
-      request: {
-        url: "",
+      requested : {
         method: "get",
         data: {},
+        url: "",
       }
   	},
     action
   ) =>  {
 	switch (action.type) {
-    case "SET_DATA":
+    case "SET_MODAL":
       state = {
         ...state,
-        data: action.payload
+        ...action.payload
       }
       break
-    case "FETCH_REQUEST":
+    case "INIT_MODAL":
       state = {
         ...state,
-        source: action.payload
+        hidden: false,
+        requested: action.payload,
       }
       break
-    case "SET_VISIBILITY":
+    case "HIDE_MODAL":
       state = {
         ...state,
-        isVisible: action.payload
+        hidden: true,
+        requested: state.requested
       }
       break
 		default:

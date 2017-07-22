@@ -8,7 +8,7 @@ import { PlainTextarea } from "../../components/InputText"
 
 
 // dictionary
-import { ROUTE_IMAGE_API } from "./routes"
+import { ROUTE_IMAGE_API } from "./constants"
 
 // export
 export default class extends React.Component {
@@ -79,7 +79,7 @@ export default class extends React.Component {
   	axios.get(ROUTE_IMAGE_API + slug + ".json")
 			.then(response => {
 				let data = response.data
-				this.setState({ author:	data.author })
+				this.setState({ author:	data.info.author })
 			})
 			.catch(error => console.log(error))
   }
