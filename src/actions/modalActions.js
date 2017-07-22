@@ -17,11 +17,14 @@ export function hideModal() {
 
 export function setModal(info, request) {
 	return dispatch => {
-		dispatch(initModal(request))
-		dispatch({
-			type: "SET_MODAL",
-			payload: info,
-		})
+		let modalDelay = setTimeout(() => {
+			dispatch(initModal(request))
+			dispatch({
+				type: "SET_MODAL",
+				payload: info,
+			})
+			clearTimeout(modalDelay)
+		}, 100)
 	}
 }
 export function fetchModal(request) {
