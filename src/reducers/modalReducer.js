@@ -1,21 +1,19 @@
-export default (
-    state = {
-      hidden: true,
-      status: "loading",
-      info: {
-        title: "Loading Card...",
-        image: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
-        text: "",
-        buttons: {},
-      },
-      requested : {
-        method: "get",
-        data: {},
-        url: "",
-      }
-  	},
-    action
-  ) =>  {
+const INITIAL_STATE = {
+  hidden: true,
+  status: "loading",
+  info: {
+    title: "Loading Card...",
+    text: "",
+    buttons: {},
+  },
+  requested : {
+    method: "get",
+    data: {},
+    url: "",
+  }
+}
+
+export default (state = INITIAL_STATE, action) =>  {
 	switch (action.type) {
     case "SET_MODAL":
       state = {
@@ -25,7 +23,7 @@ export default (
       break
     case "INIT_MODAL":
       state = {
-        ...state,
+        ...INITIAL_STATE,
         hidden: false,
         requested: action.payload,
       }

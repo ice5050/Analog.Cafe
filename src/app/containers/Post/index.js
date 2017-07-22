@@ -33,7 +33,7 @@ const Post = props => {
 							url: "/api/author/" + props.post.author.id
 						}
 					}}
-				>{ props.post.author.name }</ModalDispatch></Byline>
+				><em style={{ fontVariant: "normal" }}>{ props.post.author.name }</em></ModalDispatch></Byline>
 			</Heading>
 			<Section postStatus={ props.post.status } endsign>
 				<Editor
