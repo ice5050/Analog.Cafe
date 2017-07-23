@@ -7,7 +7,7 @@ import { Switch, Route } from "react-router-dom"
 import List from "../../containers/List"
 import Post from "../../containers/Post"
   // static
-import { About, NotFound, SignIn } from "./"
+import { About, SignIn, NotFound } from "./"
 import AppRoutesSubmit from "./AppRoutesSubmit"
 
 // rebder
