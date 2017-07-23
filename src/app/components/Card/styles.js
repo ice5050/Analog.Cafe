@@ -15,7 +15,6 @@ export const Card = styled.div`
 	display: 				block;
 	background: 		${ props => props.theme.color.background };
 	overflow: 			hidden;
-	margin: 				0 auto;
 	max-width: 			${ props => props.theme.size.breakpoint.stops.min }px;
 
 	border-radius: 	${ props => props.theme.effects.borderRadius.med }em;

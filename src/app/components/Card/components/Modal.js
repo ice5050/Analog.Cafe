@@ -2,28 +2,16 @@
 import React from "react"
 
 // styles
-import styled from "styled-components"
 import { Card, CardButton, CardCaption, CardHeader } from "../styles"
-
-
-// modal overlay-specific styles
-export const ModalOverlay = styled.aside`
-	position: 									fixed;
-	overflow:										scroll;
-	-webkit-overflow-scrolling: touch;
-	top: 												0;
-	bottom: 										0;
-	left: 											0;
-	right: 											0;
-	z-index: 										${ props => props.theme.layer.card };
-	padding:  									5vh 0;
-`
+export { ModalOverlay } from "./styles"
 
 
 // return
 export const ModalCard = props => {
   return (
-		<Card>
+		<Card style={{
+			margin: "5vh auto 90.1vh", // 90.1vh is required for iOS to be scrollable
+		}}>
 			<CardHeader>
 				<h3>{ props.title }</h3>
 				<a href="#close" onClick={ event => { event.preventDefault(); props.hideModal() } } >✕</a>
