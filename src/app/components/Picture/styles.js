@@ -117,5 +117,7 @@ export const Caption = styled(PictureCaption)`
 	${ props => props.feature && captionBlock }
 `
 export const Byline = styled.div`
+	font-variant: normal;
+	font-style: italic;
 	${'' /* ${ props => props.composer && `opacity: .5;` } */}
 `

@@ -1,27 +1,25 @@
 // tools
 import React from "react"
-import axios from "axios"
+import { imageSrcToPictureId } from "./helpers"
+
+// redux
+import { connect } from "react-redux"
+import { devisePicture } from "../../../actions/pictureActions"
 
 // components
 import Picture from "../../components/Picture"
 import { PlainTextarea } from "../../components/InputText"
 
-
-// dictionary
-import { ROUTE_IMAGE_API } from "./constants"
-
 // export
-export default class extends React.Component {
-
-
-	// state for caption
+class Figure extends React.Component {
+	// state for caption & selection
 	constructor(props) {
     super(props)
     this.state = { caption: props.node.data.get("caption") }
 		this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
-  componentWillReceiveProps(nextProps) {
+	componentWillReceiveProps(nextProps) {
     const caption = nextProps.node.data.get("caption");
     if (caption !== this.state.caption) {
       this.setState({ caption })
@@ -43,45 +41,23 @@ export default class extends React.Component {
   	event.preventDefault()
     event.stopPropagation()
   }
-
-
-
   componentDidMount() {
     const { node } = this.props
     const { data } = node
-    this.load(data.get("file"), data.get("src"))
+    this.loadImage(data.get("file"), data.get("src"))
   }
-  load(file, src) {
+  loadImage(file, src) {
   	if(!file || !file.name){
   		this.setState({ src })
 
-			// if the same one author passed as a prop to entire Editor, do not fetch each author for each image:
-  		if(this.props.editor.props.author){
-  			this.setState({ author:	this.props.editor.props.author })
-  			return
-  		}
-
-  		// convert file path to just file name:
-  		let imageName = src.split('\\').pop().split('/').pop() 	// get rid of domain and pathname
-  		imageName 		= imageName.replace(/\.[^/.]+$/, "") 			// get rid of extension
-  		// get image info from DB:
-  		this._fetch(imageName)
-
+			// get image author
+			this.props.readOnly && this.props.devisePicture(src)
   	}
   	else {
 			const reader = new FileReader()
 			reader.addEventListener("load", () => this.setState({ src: reader.result }))
 			reader.readAsDataURL(file)
 		}
-  }
-  _fetch = (imageName) => {
-  	let slug = "/" + imageName
-  	axios.get(ROUTE_IMAGE_API + slug + ".json")
-			.then(response => {
-				let data = response.data
-				this.setState({ author:	data.info.author })
-			})
-			.catch(error => console.log(error))
   }
   render() {
     const { attributes, state, node } = this.props
@@ -92,9 +68,10 @@ export default class extends React.Component {
     return src
       ? <Picture
       		{ ...attributes }
+					readOnly={ this.props.readOnly }
       		src={ src }
       		className={ className }
-      		author={ this.state.author }
+      		author={ this.props.pictures[imageSrcToPictureId(src)] && this.props.pictures[imageSrcToPictureId(src)].info.author }
       		composer={ !this.props.readOnly }
       	>
       		{ !this.props.readOnly
@@ -104,9 +81,24 @@ export default class extends React.Component {
 							onChange={ this.handleChange }
 							onClick={ this.handleClick }
 						/>
-						: <div>{ this.state.caption }</div>
+						: <div>{ this.state.caption }{ this.state.caption && <br />}</div>
 					}
       	</Picture>
-      : <Picture { ...attributes } src="" className={ className }>Loading your image...</Picture>
+      : <Picture { ...attributes } src="" className={ className }>Loading image...</Picture>
   }
 }
+
+// connet with redux
+const mapStateToProps = state => {
+	return {
+    pictures: state.pictures,
+	}
+}
+const mapDispatchToProps = dispatch => {
+	return {
+    devisePicture: src => {
+			dispatch(devisePicture(src))
+		}
+	}
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Figure)

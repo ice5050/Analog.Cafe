@@ -4,7 +4,7 @@ import toTitleCase from "titlecase"
 
 
 // styles
-import { Header, Title, Subtitle } from "../ArticleStyles"
+import { Header, Title, Subtitle } from "./ArticleStyles"
 
 // return
 export default props => {

@@ -8,9 +8,11 @@ import composer from "./reducers/composerReducer"
 import nav from "./reducers/navReducer"
 import modal from "./reducers/modalReducer"
 import list from "./reducers/listReducer"
+import post from "./reducers/postReducer"
+import pictures from "./reducers/pictureReducer"
 
 export default createStore(
-	combineReducers({ composer, nav, modal, list }),
-	{},
+	combineReducers({ composer, nav, modal, list, post, pictures }),
+	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 	applyMiddleware(/*logger(), promise(),*/ thunk)
 );

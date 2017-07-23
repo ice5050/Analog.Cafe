@@ -33,11 +33,13 @@ export function fetchModal(request) {
 			  url: 					request.url + ".json",
 			})
 			.then(response => dispatch(setModal(response.data, request)))
-			.catch(error => dispatch(
-				setModal({
-					title: "Error 😧",
-					text: error,
-				}, request)
-			))
+			.catch(error => dispatch(setModal({
+				status: "ok",
+				info: {
+					title: "Error " + error.response.status + " 😧",
+					text: "Couldn’t load the card. Sorry!",
+				}
+			}, { url: "errors/modal" }))
+		)
 	}
 }

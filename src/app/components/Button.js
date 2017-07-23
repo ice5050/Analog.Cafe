@@ -6,7 +6,7 @@ import styled, { css } from "styled-components"
 import Color from "color"
 
 // components
-import Link from "../Link"
+import Link from "./Link"
 
 
 // css

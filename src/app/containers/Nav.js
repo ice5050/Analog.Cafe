@@ -9,24 +9,15 @@ import { VisitorNav, ComposerNav, Wrapper } from "../components/Nav"
 
 // render
 const Nav = props => {
-  return(
-    <Wrapper>
-      { props.view === "VISITOR" &&  <VisitorNav /> }
-      { props.view === "COMPOSER" && <ComposerNav draftStatus={ props.draftStatus } /> }
-    </Wrapper>
-  )
-}
-const NavWrapper = props => {
+  if(props.top && !props.nav.location.top) return null
+  if(props.bottom && !props.nav.location.bottom) return null
 	return(
-    <div>
-      { props.nav.location.top
-        && <Nav view={ props.nav.view } draftStatus={ props.composer.draftStatus } />
+    <Wrapper>
+      {
+        props.nav.view === "COMPOSER" ?
+          <ComposerNav draftStatus={ props.composer.draftStatus } /> : <VisitorNav />
       }
-        { props.children }
-      { props.nav.location.bottom
-        && <Nav view={ props.nav.view } draftStatus={ props.composer.draftStatus } />
-      }
-    </div>
+    </Wrapper>
   )
 }
 
@@ -37,4 +28,4 @@ const mapStateToProps = state => {
     composer: state.composer,
 	}
 }
-export default connect(mapStateToProps)(NavWrapper)
+export default connect(mapStateToProps)(Nav)

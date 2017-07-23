@@ -13,7 +13,7 @@ import AppRoutes from "../components/views/AppRoutes"
 
 // init GA tracking
 ReactGA.initialize("UA-91374353-3", {
-  debug: true,
+  debug: false,
   titleCase: true,
   gaOptions: {}
 })
@@ -25,7 +25,7 @@ const trackView = () => {
 
 
 // render & route
-class App extends React.Component {
+class App extends React.PureComponent {
 
 	// manipulate nav view & GA tracking
 	componentDidMount(){
@@ -34,7 +34,7 @@ class App extends React.Component {
 	}
 	handleRouteChnange = () => {
 		trackView()
-		switch (window.location.pathname) {
+		switch (this.props.history.location.pathname) {
 			case "/submit/compose":
 			case "/submit/compose/":
 				this.props.setNavView("COMPOSER")
@@ -46,17 +46,28 @@ class App extends React.Component {
 				this.props.setNavLocation({ "top": false })
 				break
 			default:
-				this.props.setNavView("VISITOR")
-				this.props.setNavLocation({})
+        if(this.props.history.location.state && this.props.history.location.state.status === "404"){
+          this.props.setNavView("VISITOR")
+  				this.props.setNavLocation({
+            top: false,
+            bottom: false,
+          })
+        }
+        else{
+          this.props.setNavView("VISITOR")
+  				this.props.setNavLocation({})
+        }
 		}
 	}
 
 	render(){
 		return (
-			<Nav>
-				<AppRoutes />
-				<Modal />
-			</Nav>
+      <div>
+  			<Nav top />
+  				<AppRoutes />
+  			<Nav bottom />
+        <Modal />
+      </div>
 		)
 	}
 }

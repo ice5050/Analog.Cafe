@@ -1,6 +1,5 @@
 // tools
 import React from "react"
-// import axios from "axios"
 
 // components
 import PictureDocket from "../../components/PictureDocket"
@@ -65,10 +64,7 @@ export default class extends React.Component {
 				.removeNodeByKey(node.key)
 				.apply()
 		}
-
-		// console.log(editor.getState(), resolvedState)
 		editor.onChange(resolvedState)
-		// editor.setState({ state: resolvedState })
 
 	}
 

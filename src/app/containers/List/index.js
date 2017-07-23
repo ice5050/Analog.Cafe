@@ -30,7 +30,7 @@ class List extends React.Component {
 			url: (this.props.list.requested.url).split(PAGE_ITERATOR_STRING)[0] + PAGE_ITERATOR_STRING + (parseInt(this.props.list.page.current, 0) + 1)
 		}, true)
 	}
-	componentWillMount() {
+	componentDidMount() {
     this.unlisten = this.props.history.listen(location => this.fetchNewList())
 		this.fetchNewList()
   }
@@ -76,7 +76,7 @@ class List extends React.Component {
 
 
 // connet with redux
-const mapStateToProps = state => { console.log("state updated")
+const mapStateToProps = state => {
 	return {
     list: state.list,
 	}
