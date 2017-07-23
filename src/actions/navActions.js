@@ -1,13 +1,13 @@
 export function setView(view) {
 	return {
-		type: "SET_VIEW",
+		type: "NAV.SET_VIEW",
 		payload: view
 	}
 }
 
 export function setLocation(location) {
   return {
-    type: "SET_LOCATION",
+    type: "NAV.SET_LOCATION",
     payload: location
   }
 }

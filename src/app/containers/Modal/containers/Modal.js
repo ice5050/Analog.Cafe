@@ -4,7 +4,7 @@ import ReactGA from "react-ga"
 
 // redux
 import { connect } from "react-redux"
-import { hideModal } from "../../../../actions/modalActions"
+import { hideCard } from "../../../../actions/modalActions"
 
 
 // components
@@ -22,7 +22,7 @@ const Modal = props => {
 				style={{
 	        display: props.modal.hidden ? "none" : "block"
 	      }}
-				onClick={ () => props.hideModal() }
+				onClick={ () => props.hideCard() }
 			>
   			<ModalCard
   				title={ props.modal.info.title  }
@@ -43,8 +43,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
 	return {
-    hideModal: () => {
-			dispatch(hideModal())
+    hideCard: () => {
+			dispatch(hideCard())
 		}
 	}
 }

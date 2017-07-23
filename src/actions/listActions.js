@@ -1,6 +1,6 @@
 // tools
 import axios from "axios"
-import { setModal } from "./modalActions"
+import { setCard } from "./modalActions"
 
 // return
 export function setPage(page, appendItems) {
@@ -13,10 +13,10 @@ export function setPage(page, appendItems) {
     payload: page,
   }
 }
-export function initPage(request) {
+export function initPage(state) {
 	return {
 		type: "INIT_PAGE",
-		payload: request,
+		payload: state,
 	}
 }
 
@@ -26,7 +26,9 @@ export function fetchPage(request, appendItems = false) {
     // run duplicate & validation checks
     let listState = getState().list
     if(listState.requested.url === request.url) return
-    !appendItems && dispatch(initPage(request))
+    !appendItems && dispatch(initPage({
+      requested: request,
+    }))
 
     axios({
       method: 			request.method || "get",
@@ -35,7 +37,7 @@ export function fetchPage(request, appendItems = false) {
     })
       .then(response => dispatch(setPage(response.data, appendItems)))
       .catch(error =>
-        dispatch(setModal({
+        dispatch(setCard({
           status: "ok",
           info: {
             title: "Error " + error.response.status + " 😧",

@@ -26,16 +26,17 @@ const INITIAL_STATE = {
 }
 export default (state = INITIAL_STATE, action) =>  {
 	switch (action.type) {
-		case "SET_PAGE":
+		case "POST.SET_PAGE":
 			state = {
 				...state,
 				...action.payload
 			}
+      console.log("POST.SET_PAGE", state)
 			break
-    case "INIT_PAGE":
+    case "POST.INIT_PAGE":
       state = {
         ...INITIAL_STATE,
-        requested: action.payload,
+        ...action.payload,
       }
       break
 		default:

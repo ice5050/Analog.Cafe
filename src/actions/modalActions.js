@@ -2,38 +2,44 @@
 import axios from "axios"
 
 // return
-export function initModal(request) {
+export function initCard(state) {
 	return {
-		type: "INIT_MODAL",
-		payload: request,
+		type: "MODAL.INIT_CARD",
+		payload: state,
 	}
 }
-export function hideModal() {
+export function hideCard() {
 	return {
-		type: "HIDE_MODAL",
+		type: "MODAL.HIDE_CARD",
 		payload: {},
 	}
 }
 
-export function setModal(info, request) {
+export function setCard(info, request) {
 	return dispatch => {
-		dispatch(initModal(request))
+		dispatch(initCard({
+			requested: request,
+			hidden: false,
+		}))
 		dispatch({
-			type: "SET_MODAL",
+			type: "MODAL.SET_CARD",
 			payload: info,
 		})
 	}
 }
-export function fetchModal(request) {
+export function fetchCard(request) {
 	return dispatch => {
-		dispatch(initModal(request))
+		dispatch(initCard({
+			requested: request,
+			hidden: false,
+		}))
 		axios({
 			  method: 			request.method || "get",
 	      data:         request.data || {},
 			  url: 					request.url + ".json",
 			})
-			.then(response => dispatch(setModal(response.data, request)))
-			.catch(error => dispatch(setModal({
+			.then(response => dispatch(setCard(response.data, request)))
+			.catch(error => dispatch(setCard({
 				status: "ok",
 				info: {
 					title: "Error " + error.response.status + " 😧",

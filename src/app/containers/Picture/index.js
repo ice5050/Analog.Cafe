@@ -4,7 +4,7 @@ import { imageSrcToPictureId } from "./helpers"
 
 // redux
 import { connect } from "react-redux"
-import { devisePicture } from "../../../actions/pictureActions"
+import { getInfo } from "../../../actions/pictureActions"
 
 // components
 import Picture from "../../components/Picture"
@@ -51,7 +51,7 @@ class Figure extends React.Component {
   		this.setState({ src })
 
 			// get image author
-			this.props.readOnly && this.props.devisePicture(src)
+			this.props.readOnly && this.props.getInfo(src)
   	}
   	else {
 			const reader = new FileReader()
@@ -96,8 +96,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
 	return {
-    devisePicture: src => {
-			dispatch(devisePicture(src))
+    getInfo: src => {
+			dispatch(getInfo(src))
 		}
 	}
 }
