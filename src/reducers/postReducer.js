@@ -31,7 +31,6 @@ export default (state = INITIAL_STATE, action) =>  {
 				...state,
 				...action.payload
 			}
-      console.log("POST.SET_PAGE", state)
 			break
     case "POST.INIT_PAGE":
       state = {

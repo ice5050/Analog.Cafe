@@ -65,7 +65,7 @@ class List extends React.Component {
 				<ListBlock
 					status={ this.props.list.status }
 					items={ this.props.list.items }
-					nextPostTitle={ nextPostTitle => {console.log(nextPostTitle);this.props.setNextPost({ title: nextPostTitle })} }
+					nextPostTitle={ nextPostTitle => this.props.setNextPost({ title: nextPostTitle }) }
 				/>
 
 				{

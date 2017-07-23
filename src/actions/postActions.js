@@ -4,7 +4,6 @@ import { setCard } from "./modalActions"
 
 // return
 export function setPage(page) {
-console.log("setPage",page)
   return {
     type: "POST.SET_PAGE",
     payload: page
@@ -22,7 +21,6 @@ export function fetchPage(request) {
 
     // run duplicate & validation checks
     let postState = getState().post
-    console.log("fetchPage",postState)
     if(postState.requested.url === request.url) return
     dispatch(initPage({
       requested: request,
