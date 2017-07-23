@@ -31,7 +31,7 @@ export default props => {
 										{ item.type !== "placeholder" && <img src={ item.poster.medium } alt={ item.title + " poster image" } /> }
 									</figure>
 									<h2>{ item.title }</h2>
-									<Caption>{ item.summary }</Caption>
+									<Caption status={ props.status }>{ item.summary }</Caption>
 									<div>
 										<Stats { ...props }>{
 											( item.tag === "photo-essay" && item.stats.images === "1" ) ? "Photograph" :
