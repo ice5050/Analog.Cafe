@@ -6,8 +6,9 @@ import { Switch, Route } from "react-router-dom"
   // dynamic
 import List from "../../containers/List"
 import Post from "../../containers/Post"
+import NotFound from "../../containers/NotFound"
   // static
-import { About, SignIn, NotFound } from "./"
+import { About, SignIn } from "./"
 import AppRoutesSubmit from "./AppRoutesSubmit"
 
 // rebder
@@ -29,7 +30,7 @@ export default props => {
         <Route exact path="/about"        component= { About } />
         <Route path="/submit"             component= { AppRoutesSubmit } />
         <Route exact path="/sign-in"      component={ SignIn } />
-        <Route                            component={ NotFound } />
+        <Route state={{"status":"404"}}                           component={ NotFound } />
 
       </Switch>
     </main>

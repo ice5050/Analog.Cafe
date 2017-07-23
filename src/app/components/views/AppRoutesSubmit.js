@@ -3,8 +3,7 @@ import React from "react"
 import { Switch, Route } from "react-router-dom"
 
 // components
-import Submit from "./Submit"
-import Composer from "./Composer"
+import { Submit, Composer } from "./"
 
 // render
 export default props => {

@@ -34,7 +34,7 @@ class App extends React.PureComponent {
 	}
 	handleRouteChnange = () => {
 		trackView()
-		switch (window.location.pathname) {
+		switch (this.props.history.location.pathname) {
 			case "/submit/compose":
 			case "/submit/compose/":
 				this.props.setNavView("COMPOSER")
@@ -46,8 +46,17 @@ class App extends React.PureComponent {
 				this.props.setNavLocation({ "top": false })
 				break
 			default:
-				this.props.setNavView("VISITOR")
-				this.props.setNavLocation({})
+        if(this.props.history.location.state && this.props.history.location.state.status === "404"){
+          this.props.setNavView("VISITOR")
+  				this.props.setNavLocation({
+            top: false,
+            bottom: false,
+          })
+        }
+        else{
+          this.props.setNavView("VISITOR")
+  				this.props.setNavLocation({})
+        }
 		}
 	}
 
