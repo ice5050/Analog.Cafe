@@ -25,7 +25,7 @@ const trackView = () => {
 
 
 // render & route
-class App extends React.Component {
+class App extends React.PureComponent {
 
 	// manipulate nav view & GA tracking
 	componentDidMount(){
@@ -53,10 +53,12 @@ class App extends React.Component {
 
 	render(){
 		return (
-			<Nav>
-				<AppRoutes />
-				<Modal />
-			</Nav>
+      <div>
+  			<Nav top />
+  				<AppRoutes />
+  			<Nav bottom />
+        <Modal />
+      </div>
 		)
 	}
 }

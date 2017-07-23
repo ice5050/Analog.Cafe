@@ -26,7 +26,7 @@ export function fetchPage(request, appendItems = false) {
     // run duplicate & validation checks
     let listState = getState().list
     if(listState.requested.url === request.url) return
-    dispatch(initPage(request))
+    !appendItems && dispatch(initPage(request))
 
     axios({
       method: 			request.method || "get",

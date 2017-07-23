@@ -9,27 +9,16 @@ import { VisitorNav, ComposerNav, Wrapper } from "../components/Nav"
 
 // render
 const Nav = props => {
-  return(
+  if(props.top && !props.nav.location.top) return null
+  if(props.bottom && !props.nav.location.bottom) return null
+	return(
     <Wrapper>
-      { props.view === "VISITOR" &&  <VisitorNav /> }
-      { props.view === "COMPOSER" && <ComposerNav draftStatus={ props.draftStatus } /> }
+      {
+        props.nav.view === "COMPOSER" ?
+          <ComposerNav draftStatus={ props.composer.draftStatus } /> : <VisitorNav />
+      }
     </Wrapper>
   )
-}
-class NavWrapper extends React.PureComponent {
-  render(){
-    return(
-      <div>
-        { this.props.nav.location.top
-          && <Nav view={ this.props.nav.view } draftStatus={ this.props.composer.draftStatus } />
-        }
-          { this.props.children }
-        { this.props.nav.location.bottom
-          && <Nav view={ this.props.nav.view } draftStatus={ this.props.composer.draftStatus } />
-        }
-      </div>
-    )
-  }
 }
 
 // connet with redux
@@ -39,4 +28,4 @@ const mapStateToProps = state => {
     composer: state.composer,
 	}
 }
-export default connect(mapStateToProps)(NavWrapper)
+export default connect(mapStateToProps)(Nav)
