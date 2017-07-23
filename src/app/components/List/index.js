@@ -25,13 +25,16 @@ export default props => {
 				props.items.map(function(item) {
 					return (
 						<li key={ item.id }>
-							<Link to={ item.slug && ROUTE_ARTICLE_DIR + "/" + item.slug }>
+							<Link
+								to={ item.slug && ROUTE_ARTICLE_DIR + "/" + item.slug }
+								onClick={ () => props.nextPostTitle(item.title) }
+							>
 								<section>
 									<figure>
 										{ item.type !== "placeholder" && <img src={ item.poster.medium } alt={ item.title + " poster image" } /> }
 									</figure>
 									<h2>{ item.title }</h2>
-									<Caption>{ item.summary }</Caption>
+									<Caption status={ props.status }>{ item.summary }</Caption>
 									<div>
 										<Stats { ...props }>{
 											( item.tag === "photo-essay" && item.stats.images === "1" ) ? "Photograph" :

@@ -13,7 +13,7 @@ export default (
     action
   ) =>  {
 	switch (action.type) {
-    case "DEVISE_PICTURE":
+    case "PICTURE.GET_INFO":
       state = {
         ...state,
         [ action.payload.id ]: {

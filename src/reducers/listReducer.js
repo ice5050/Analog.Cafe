@@ -68,7 +68,7 @@ export default (state = INITIAL_STATE, action) =>  {
     case "INIT_PAGE":
       state = {
         ...INITIAL_STATE,
-        requested: action.payload,
+        ...action.payload,
       }
       break
 		default:

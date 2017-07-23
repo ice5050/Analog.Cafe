@@ -4,29 +4,33 @@ import ReactGA from "react-ga"
 
 // redux
 import { connect } from "react-redux"
-import { hideModal } from "../../../../actions/modalActions"
+import { hideCard } from "../../../../actions/modalActions"
 
 
 // components
-import { ModalCard, ModalWrapper } from "../../../components/Card"
+import { ModalCard, ModalOverlay } from "../../../components/Card"
 
 // return
 const Modal = props => {
 		if(!props.modal.hidden && props.modal.status === "ok"){
-			ReactGA.modalview(props.modal.requested.url)
+			ReactGA.modalview(props.modal.requested.url) // google analytics
+			document.getElementById("ModalOverlay").scrollTop = 0 // scroll card to top
 		}
 		return(
-      <ModalWrapper style={{
-        display: props.modal.hidden ? "none" : "block"
-      }}>
+      <ModalOverlay
+				id="ModalOverlay"
+				style={{
+	        display: props.modal.hidden ? "none" : "block"
+	      }}
+				onClick={ () => props.hideCard() }
+			>
   			<ModalCard
   				title={ props.modal.info.title  }
   				image={ props.modal.info.image }
   				text={ props.modal.info.text }
   				buttons={ props.modal.info.buttons }
-          hideModal={ () => props.hideModal() }
   			/>
-      </ModalWrapper>
+      </ModalOverlay>
 		)
 }
 
@@ -39,8 +43,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
 	return {
-    hideModal: () => {
-			dispatch(hideModal())
+    hideCard: () => {
+			dispatch(hideCard())
 		}
 	}
 }

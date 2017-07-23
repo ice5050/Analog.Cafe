@@ -6,6 +6,7 @@ import { ModalDispatch } from "../Modal"
 // redux & state
 import { connect } from "react-redux"
 import { fetchPage } from "../../../actions/listActions"
+import { setPage as setNextPost } from "../../../actions/postActions"
 import { ROUTE_LIST_API, PAGE_ITERATOR_STRING } from "./constants"
 
 // components
@@ -61,7 +62,11 @@ class List extends React.Component {
 					</div>
 				</ListDescription>
 
-				<ListBlock  status={ this.props.list.status } items={ this.props.list.items } />
+				<ListBlock
+					status={ this.props.list.status }
+					items={ this.props.list.items }
+					nextPostTitle={ nextPostTitle => this.props.setNextPost({ title: nextPostTitle }) }
+				/>
 
 				{
 					parseInt(this.props.list.page.total, 0) > 1 && parseInt(this.props.list.page.total, 0) > parseInt(this.props.list.page.current, 0) ?
@@ -85,6 +90,9 @@ const mapDispatchToProps = dispatch => {
 	return {
     fetchPage: (request, appendItems) => {
 			dispatch(fetchPage(request, appendItems))
+		},
+		setNextPost: (nextPost) => {
+			dispatch(setNextPost(nextPost))
 		}
 	}
 }

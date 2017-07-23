@@ -3,7 +3,7 @@ import React from "react"
 
 // redux
 import { connect } from "react-redux"
-import { fetchModal, setModal } from "../../../../actions/modalActions"
+import { fetchCard, setCard } from "../../../../actions/modalActions"
 
 
 // return
@@ -11,9 +11,9 @@ class ModalDispatch extends React.Component {
   invokeModal = event => {
     event.preventDefault()
     this.props.with.request ?
-      this.props.fetchModal(this.props.with.request)
+      this.props.fetchCard(this.props.with.request)
     :
-      this.props.setModal(
+      this.props.setCard(
         {
           status: "ok",
           info: this.props.with.info
@@ -52,11 +52,11 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
 	return {
-		setModal: (info, request) => {
-			dispatch(setModal(info, request))
+		setCard: (info, request) => {
+			dispatch(setCard(info, request))
 		},
-    fetchModal: request => {
-			dispatch(fetchModal(request))
+    fetchCard: request => {
+			dispatch(fetchCard(request))
 		}
 	}
 }

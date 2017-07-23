@@ -4,7 +4,7 @@ import { ROUTE_IMAGE_API } from "../app/containers/Picture/constants"
 import { imageSrcToPictureId } from "../app/containers/Picture/helpers"
 
 // return
-export function devisePicture(src) {
+export function getInfo(src) {
 
 	let id = imageSrcToPictureId(src)
 	let request
@@ -24,7 +24,7 @@ export function devisePicture(src) {
 			  url: 					request.url + ".json",
 			})
 			.then(response => dispatch({
-				type: "DEVISE_PICTURE",
+				type: "PICTURE.GET_INFO",
 				payload: {
 					info: response.data.info,
 					status: response.data.status,
@@ -32,7 +32,7 @@ export function devisePicture(src) {
 				}
 			}))
 			.catch(error => dispatch({
-				type: "DEVISE_PICTURE",
+				type: "PICTURE.GET_INFO",
 				payload: {
 					info: {
 						author: {

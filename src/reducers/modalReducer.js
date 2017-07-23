@@ -15,20 +15,19 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) =>  {
 	switch (action.type) {
-    case "SET_MODAL":
+    case "MODAL.SET_CARD":
       state = {
         ...state,
         ...action.payload
       }
       break
-    case "INIT_MODAL":
+    case "MODAL.INIT_CARD":
       state = {
         ...INITIAL_STATE,
-        hidden: false,
-        requested: action.payload,
+        ...action.payload,
       }
       break
-    case "HIDE_MODAL":
+    case "MODAL.HIDE_CARD":
       state = {
         ...state,
         hidden: true,

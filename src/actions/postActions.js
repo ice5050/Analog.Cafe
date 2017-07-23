@@ -1,28 +1,30 @@
 // tools
 import axios from "axios"
-import { setModal } from "./modalActions"
+import { setCard } from "./modalActions"
 
 // return
 export function setPage(page) {
   return {
-    type: "SET_PAGE",
+    type: "POST.SET_PAGE",
     payload: page
   }
 }
-export function initPage(request) {
+export function initPage(state) {
 	return {
-		type: "INIT_PAGE",
-		payload: request,
+		type: "POST.INIT_PAGE",
+		payload: state,
 	}
 }
 
 export function fetchPage(request) {
   return (dispatch, getState) => {
 
-    // run duplicate & validation checks
+    // pre-cook post title, when available:
     let postState = getState().post
-    if(postState.requested.url === request.url) return
-    dispatch(initPage(request))
+    dispatch(initPage({
+      requested: request,
+      title: postState.title,
+    }))
 
     axios({
       method: 			request.method || "get",
@@ -31,7 +33,7 @@ export function fetchPage(request) {
     })
       .then(response => dispatch(setPage(response.data)))
       .catch(error =>
-        dispatch(setModal({
+        dispatch(setCard({
           status: "ok",
           info: {
             title: "Error " + error.response.status + " 😧",

@@ -151,14 +151,14 @@ export const Ul = styled.ul`
 			${ props => props.status === "loading" && `word-break: break-all;` }
 
 			& > div {
-				max-width: 30em;
+				/* max-width: 30em; */
+				padding-top:	calc(${ blockSpacing }em / 4.5);
+				display: inline-block;
+
 				${ props => props.theme.size.breakpoint.max.m`{
 					width: 				calc(100vw - ${ blockSafety }em * 2);
 					min-width: 		auto;
-					padding-top:	${ blockSafety }em;
-					float:				none;
-					/* clear:				both; */
-					display:			inline;
+					padding-top:	calc(${ blockSafety }em / 2);
 				}` }
 				${ props => props.theme.size.breakpoint.max.xs`{
 					text-align: left;

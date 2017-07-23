@@ -6,13 +6,13 @@ export default (
     action
   ) =>  {
 	switch (action.type) {
-		case "SET_VIEW":
+		case "NAV.SET_VIEW":
 			state = {
 				...state,
 				view: action.payload
 			}
 			break
-    case "SET_LOCATION":
+    case "NAV.SET_LOCATION":
       const top = action.payload.top
       const bottom = action.payload.bottom
       state = {

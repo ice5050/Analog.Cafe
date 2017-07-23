@@ -108,7 +108,7 @@ export const plugins = [
     trigger: 		"space",
     before: 		/[ ]$/,
     transform: 	(transform, e, data, matches) => {
-      return // no double-space
+      return transform.deleteBackward(1).insertText(".") // double-space > .
     }
   }),
   AutoReplace({
