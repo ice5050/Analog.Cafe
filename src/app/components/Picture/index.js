@@ -17,13 +17,15 @@ export default props => {
 			{ props.author ?
 					<Caption { ...props } >
 						{ props.children }
-						Image by <Byline { ...props } style={ props.author.name === "" ? { display: "none" } : null } ><ModalDispatch
+						{ props.readOnly &&
+						"Image by " + <Byline { ...props } style={ props.author.name === "" ? { display: "none" } : null } ><ModalDispatch
 							with={{
 								request: {
 									url: "/api/author/" + props.author.id,
 								}
 							}}
 						>{ props.author.name }</ModalDispatch></Byline>
+					}
 					</Caption>
 				: <Caption { ...props } >{ props.children }</Caption>
 			}
