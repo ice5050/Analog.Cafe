@@ -33,7 +33,6 @@ export default (state = INITIAL_STATE, action) =>  {
 			}
 			break
     case "INIT_PAGE":
-    console.log("post content", state.content)
       state = {
         ...INITIAL_STATE,
         requested: action.payload,

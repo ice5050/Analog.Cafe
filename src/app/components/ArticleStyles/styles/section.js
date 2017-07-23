@@ -17,7 +17,6 @@ const paragraph = css`
 
 	/* placeholder style */
 	${ props => props.postStatus === "loading" ? `opacity: ` + props.theme.opacity.least + `; letter-spacing: 0 !important;`: null }
-	${ props => props.postStatus === "loading" ? console.log("loading") : console.log("no loading") }
 `
 const sectionBreak = css`
 	text-align: 	center;

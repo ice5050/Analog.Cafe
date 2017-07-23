@@ -16,18 +16,20 @@ const Nav = props => {
     </Wrapper>
   )
 }
-const NavWrapper = props => {
-	return(
-    <div>
-      { props.nav.location.top
-        && <Nav view={ props.nav.view } draftStatus={ props.composer.draftStatus } />
-      }
-        { props.children }
-      { props.nav.location.bottom
-        && <Nav view={ props.nav.view } draftStatus={ props.composer.draftStatus } />
-      }
-    </div>
-  )
+class NavWrapper extends React.PureComponent {
+  render(){
+    return(
+      <div>
+        { this.props.nav.location.top
+          && <Nav view={ this.props.nav.view } draftStatus={ this.props.composer.draftStatus } />
+        }
+          { this.props.children }
+        { this.props.nav.location.bottom
+          && <Nav view={ this.props.nav.view } draftStatus={ this.props.composer.draftStatus } />
+        }
+      </div>
+    )
+  }
 }
 
 // connet with redux

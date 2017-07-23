@@ -6,8 +6,6 @@ import { imageSrcToPictureId } from "../app/containers/Picture/helpers"
 // return
 export function devisePicture(src) {
 
-	console.log("devisePicture", imageSrcToPictureId(src))
-
 	let id = imageSrcToPictureId(src)
 	let request
 	request = {
