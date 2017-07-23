@@ -39,7 +39,8 @@ export function devisePicture(src) {
 					info: {
 						author: {
 							"name": "Unknown",
-							"id": "unknown"
+							"id": "unknown",
+							"errorCode": error.response.status,
 						}
 					},
 					status: "fail",

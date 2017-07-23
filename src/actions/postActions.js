@@ -34,8 +34,8 @@ export function fetchPage(request) {
         dispatch(setModal({
           status: "ok",
           info: {
-            title: "Error 😧",
-            text: "Couldn’t load the post. Are you connected to the Internet?",
+            title: "Error " + error.response.status + " 😧",
+            text: "Couldn’t load the post. Sorry!",
           }
         }, { url: "errors/post" }))
       )

@@ -38,8 +38,8 @@ export function fetchPage(request, appendItems = false) {
         dispatch(setModal({
           status: "ok",
           info: {
-            title: "Error 😧",
-            text: "Couldn’t load the list. Are you connected to the Internet?",
+            title: "Error " + error.response.status + " 😧",
+            text: "Couldn’t load the list. Sorry!",
           }
         }, { url: "errors/list" }))
       )

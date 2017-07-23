@@ -31,8 +31,8 @@ export default props => {
 										: {
 											info: {
 												image: placeholder,
-												title: "Unknown Author 🤔",
-												text: "Seems like there is no author listed..."
+												title: "Unknown Author (" + props.author.errorCode + ") 🤔",
+												text: "Seems like there is no author listed... Sorry!"
 											},
 											id: "errors/author"
 										}

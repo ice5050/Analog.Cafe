@@ -36,8 +36,8 @@ export function fetchModal(request) {
 			.catch(error => dispatch(setModal({
 				status: "ok",
 				info: {
-					title: "Error 😧",
-					text: "Couldn’t load the card. Are you connected to the Internet?",
+					title: "Error " + error.response.status + " 😧",
+					text: "Couldn’t load the card. Sorry!",
 				}
 			}, { url: "errors/modal" }))
 		)
