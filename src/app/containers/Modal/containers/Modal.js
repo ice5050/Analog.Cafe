@@ -8,7 +8,7 @@ import { hideModal } from "../../../../actions/modalActions"
 
 
 // components
-import { ModalCard, ModalWrapper } from "../../../components/Card"
+import { ModalCard, ModalOverlay } from "../../../components/Card"
 
 // return
 const Modal = props => {
@@ -16,17 +16,19 @@ const Modal = props => {
 			ReactGA.modalview(props.modal.requested.url)
 		}
 		return(
-      <ModalWrapper style={{
-        display: props.modal.hidden ? "none" : "block"
-      }}>
+      <ModalOverlay
+				style={{
+	        display: props.modal.hidden ? "none" : "block"
+	      }}
+				onClick={ () => props.hideModal() }
+			>
   			<ModalCard
   				title={ props.modal.info.title  }
   				image={ props.modal.info.image }
   				text={ props.modal.info.text }
   				buttons={ props.modal.info.buttons }
-          hideModal={ () => props.hideModal() }
   			/>
-      </ModalWrapper>
+      </ModalOverlay>
 		)
 }
 

@@ -7,7 +7,7 @@ import { Card, CardButton, CardCaption, CardHeader } from "../styles"
 
 
 // modal overlay-specific styles
-const ModalOverlay = styled.div`
+export const ModalOverlay = styled.aside`
 	position: 									fixed;
 	overflow:										scroll;
 	-webkit-overflow-scrolling: touch;
@@ -18,48 +18,41 @@ const ModalOverlay = styled.div`
 	z-index: 										${ props => props.theme.layer.card };
 	padding:  									5vh 0;
 `
-export const ModalWrapper = styled.aside`
-	display: 					block;
-	position:					relative;
-	z-index: 					${ props => props.theme.layer.card };
-`
 
 
 // return
 export const ModalCard = props => {
   return (
-		<ModalOverlay onClick={ props.hideModal } >
-			<Card>
-				<CardHeader>
-					<h3>{ props.title }</h3>
-					<a href="#close" onClick={ event => { event.preventDefault(); props.hideModal() } } >✕</a>
-				</CardHeader>
-				<figure>
-					<img
-						src={ props.image || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" }
-						style={{ height: typeof props.image === "undefined" ? "0" : "inherit" }}
-						alt="Card"
-					/>
-					<figcaption>
-						<CardCaption
-							style={{ padding: typeof props.text === "undefined" ? "0" : "" }}
-						>{ props.text }</CardCaption>
-					</figcaption>
-				</figure>
-				{
-					props.buttons &&
-					Object.keys(props.buttons).length !== 0 &&
-					props.buttons.map(function(button, i) {
-						return (
-							<CardButton
-								to={ button.to }
-								key={ button.to }
-								red={ button.red ? true : null }
-							>{ button.text }</CardButton>
-						)
-					})
-				}
-			</Card>
-		</ModalOverlay>
+		<Card>
+			<CardHeader>
+				<h3>{ props.title }</h3>
+				<a href="#close" onClick={ event => { event.preventDefault(); props.hideModal() } } >✕</a>
+			</CardHeader>
+			<figure>
+				<img
+					src={ props.image || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" }
+					style={{ height: typeof props.image === "undefined" ? "0" : "inherit" }}
+					alt="Card"
+				/>
+				<figcaption>
+					<CardCaption
+						style={{ padding: typeof props.text === "undefined" ? "0" : "" }}
+					>{ props.text }</CardCaption>
+				</figcaption>
+			</figure>
+			{
+				props.buttons &&
+				Object.keys(props.buttons).length !== 0 &&
+				props.buttons.map(function(button, i) {
+					return (
+						<CardButton
+							to={ button.to }
+							key={ button.to }
+							red={ button.red ? true : null }
+						>{ button.text }</CardButton>
+					)
+				})
+			}
+		</Card>
 	)
 }

@@ -3,4 +3,4 @@
 // components
 
 // return
-export { ModalCard, ModalWrapper } from "./components/Modal"
+export { ModalCard, ModalOverlay } from "./components/Modal"
