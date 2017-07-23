@@ -21,11 +21,9 @@ export function initPage(state) {
 }
 
 export function fetchPage(request, appendItems = false) {
-  return (dispatch, getState) => {
+  return dispatch => {
 
-    // run duplicate & validation checks
-    let listState = getState().list
-    if(listState.requested.url === request.url) return
+    // reset list state (unless it's being paginated)
     !appendItems && dispatch(initPage({
       requested: request,
     }))

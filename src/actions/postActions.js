@@ -19,9 +19,8 @@ export function initPage(state) {
 export function fetchPage(request) {
   return (dispatch, getState) => {
 
-    // run duplicate & validation checks
+    // pre-cook post title, when available:
     let postState = getState().post
-    if(postState.requested.url === request.url) return
     dispatch(initPage({
       requested: request,
       title: postState.title,
