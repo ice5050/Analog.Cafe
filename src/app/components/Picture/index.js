@@ -6,6 +6,7 @@ import { ModalDispatch } from "../../containers/Modal"
 
 // styles
 import { Image, Figure, Caption, Byline } from "./styles"
+import placeholder from "../icons/images/placeholder-profile.png"
 
 // return
 export default props => {
@@ -17,15 +18,27 @@ export default props => {
 			{ props.author ?
 					<Caption { ...props } >
 						{ props.children }
-						{ props.readOnly &&
-						"Image by " + <Byline { ...props } style={ props.author.name === "" ? { display: "none" } : null } ><ModalDispatch
-							with={{
-								request: {
-									url: "/api/author/" + props.author.id,
+						{
+							props.readOnly ?
+							<div>Image by <Byline { ...props } style={ props.author.name === "" ? { display: "none" } : null } ><ModalDispatch
+								with={
+									props.author.id !== "unknown"
+										? {
+											request: {
+											url: "/api/author/" + props.author.id,
+											}
+										}
+										: {
+											info: {
+												image: placeholder,
+												title: "Unknown Author 🤔",
+												text: "Seems like there is no author listed..."
+											},
+											id: "errors/author"
+										}
 								}
-							}}
-						>{ props.author.name }</ModalDispatch></Byline>
-					}
+							>{ props.author.name }</ModalDispatch></Byline></div> : null
+						}
 					</Caption>
 				: <Caption { ...props } >{ props.children }</Caption>
 			}
