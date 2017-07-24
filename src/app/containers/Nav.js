@@ -5,7 +5,7 @@ import React from "react"
 import { connect } from "react-redux"
 
 // components
-import { VisitorNav, ComposerNav, Wrapper } from "../components/Nav"
+import { CommonNav, ComposerNav, Wrapper } from "../components/Nav"
 
 // render
 const Nav = props => {
@@ -14,8 +14,9 @@ const Nav = props => {
 	return(
     <Wrapper>
       {
-        props.nav.view === "COMPOSER" ?
-          <ComposerNav draftStatus={ props.composer.draftStatus } /> : <VisitorNav />
+        props.nav.view === "COMPOSER"
+          ? <ComposerNav draftStatus={ props.composer.draftStatus } />
+          : <CommonNav userStatus={ props.user.status } />
       }
     </Wrapper>
   )
@@ -26,6 +27,9 @@ const mapStateToProps = state => {
 	return {
 		nav: state.nav,
     composer: state.composer,
+    user: {
+      status: "ok",
+    }
 	}
 }
 export default connect(mapStateToProps)(Nav)
