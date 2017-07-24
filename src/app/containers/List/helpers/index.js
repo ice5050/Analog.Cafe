@@ -27,7 +27,10 @@ export const getListHeaders = (pathname = "/", page=1) => {
 	// filter by tags
 	else {
 		search = ROUTE_FILTERS[pathname] ? "/tags-" + ROUTE_FILTERS[pathname] : "/index"
-    meta =  ROUTE_META[pathname]
+    meta = ROUTE_META[pathname] ? ROUTE_META[pathname] : {
+			text: "Film photography publication",
+			emoji: "🍩",
+		}
 	}
 
 	// add pagination

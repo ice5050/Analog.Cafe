@@ -13,10 +13,14 @@ export const CommonNav = props => {
 		<ul>
 			<NavItem><NavLink exact to={ "/photo-essays" }><span>Photo Essays</span></NavLink></NavItem>
 			<NavItem><NavLink	exact to={ "/articles" }><span>Articles</span></NavLink></NavItem>
-
 			<NavItem prime center><NavIndexLink	exact to={ "/" }><Logo /></NavIndexLink></NavItem>
-
-			<NavItem prime left><NavLink exact to={ "/about" }><span>About</span></NavLink></NavItem>
+			<NavItem prime left>
+				{
+					props.userStatus === "ok"
+					? <NavLink exact to={ "/submit/compose" }><span>Submit</span></NavLink>
+					: <NavLink exact to={ "/about" }><span>About</span></NavLink>
+				}
+			</NavItem>
 			<NavItem prime right>
 				{
 					props.userStatus === "ok"
