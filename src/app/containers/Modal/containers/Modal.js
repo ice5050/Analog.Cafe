@@ -14,7 +14,6 @@ import { ModalCard, ModalOverlay } from "../../../components/Card"
 const Modal = props => {
 		if(!props.modal.hidden && props.modal.status === "ok"){
 			ReactGA.modalview(props.modal.requested.url) // google analytics
-			document.getElementById("ModalOverlay").scrollTop = 0 // scroll card to top
 		}
 		return(
       <ModalOverlay

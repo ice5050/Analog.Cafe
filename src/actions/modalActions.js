@@ -9,6 +9,7 @@ export function initCard(state) {
 	}
 }
 export function hideCard() {
+	document.getElementById("ModalOverlay").scrollTop = 0 // scroll card to top
 	return {
 		type: "MODAL.HIDE_CARD",
 		payload: {},
