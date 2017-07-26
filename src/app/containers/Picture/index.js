@@ -65,6 +65,10 @@ class Figure extends React.Component {
     const focus = state.isFocused && state.selection.hasEdgeIn(node)
 		const className = focus ? "focus" : "nofocus"
 
+		const feature = node.data.get("feature")
+
+		console.log(feature)
+
     return src
       ? <Picture
       		{ ...attributes }
@@ -73,6 +77,7 @@ class Figure extends React.Component {
       		className={ className }
       		author={ this.props.pictures[imageSrcToPictureId(src)] && this.props.pictures[imageSrcToPictureId(src)].info.author }
       		composer={ !this.props.readOnly }
+					feature={ feature }
       	>
       		{ !this.props.readOnly
 						? <PlainTextarea

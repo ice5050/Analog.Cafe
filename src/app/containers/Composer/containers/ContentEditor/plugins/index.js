@@ -7,6 +7,7 @@ import placeholder from "../../../../../components/icons/images/placeholder-figu
 
 // Analog.Cafe plugins
 import { MarkHotkey } from "./mark-hotkey"
+import { ToggleFeature } from "./toggle-feature"
 import { Linkify } from "./linkify"
 import { Paste } from "./paste-html"
 
@@ -29,6 +30,8 @@ export const plugins = [
 	// hot keys
   MarkHotkey({ 	key: "b", 			type: "bold" }),
   MarkHotkey({ 	key: "i", 			type: "italic" }),
+
+	ToggleFeature({ key: "k", node: "image" }),
 
   // markdown shortcuts
   AutoReplace({

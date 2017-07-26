@@ -10,7 +10,6 @@ import { CommonNav, ComposerNav, Wrapper } from "../components/Nav"
 
 // render
 const Nav = props => {
-  console.log(props.user)
   if(props.top && !props.nav.location.top) return null
   if(props.bottom && !props.nav.location.bottom) return null
 	return(
