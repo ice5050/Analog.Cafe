@@ -9,8 +9,8 @@ export function ToggleFeature(options) {
   return {
     onKeyDown(event, data, state) {
       if (!event.metaKey || keycode(event.which) !== key) return
+      if (state.focusBlock.type !== "image") return
       event.preventDefault()
-
 
       const previousDataImmutable = state.focusBlock.data
       const previousData = {

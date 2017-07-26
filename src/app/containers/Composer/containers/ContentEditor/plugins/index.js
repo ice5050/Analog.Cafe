@@ -3,7 +3,7 @@ import { html } from "../rules"
 import toTitleCase from "titlecase"
 
 // styles
-import placeholder from "../../../../../components/icons/images/placeholder-figure.png"
+import placeholder from "../../../../../components/icons/images/placeholder-figure.jpg"
 
 // Analog.Cafe plugins
 import { MarkHotkey } from "./mark-hotkey"
@@ -31,7 +31,7 @@ export const plugins = [
   MarkHotkey({ 	key: "b", 			type: "bold" }),
   MarkHotkey({ 	key: "i", 			type: "italic" }),
 
-	ToggleFeature({ key: "k", node: "image" }),
+	ToggleFeature({ key: "f", node: "image" }),
 
   // markdown shortcuts
   AutoReplace({
