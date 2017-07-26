@@ -1,10 +1,3 @@
-// tools
-
-// components
-
-// state
-
-// dictionary
 export const PAGE_ITERATOR_STRING = "-page-"
 export const ROUTE_ARTICLE_DIR = "/zine"
 export const ROUTE_LIST_API = "/api/list"

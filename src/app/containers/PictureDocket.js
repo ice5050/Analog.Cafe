@@ -2,13 +2,13 @@
 import React from "react"
 
 // components
-import PictureDocket from "../../components/PictureDocket"
-import { CardHeader } from "../../components/Card/styles"
-import { GridRow, Square, AspectRatio } from "../../components/GridStyles"
-import Link from "../../components/Link"
+import PictureDocket from "../components/PictureDocket"
+import { CardHeader } from "../components/Card/styles"
+import { GridRow, Square, AspectRatio } from "../components/GridStyles"
+import Link from "../components/Link"
 
 // styles
-import placeholder from "../../components/icons/images/placeholder-figure.png"
+import placeholder from "../components/icons/images/placeholder-figure.png"
 
 
 // dictionary

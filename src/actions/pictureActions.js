@@ -1,6 +1,6 @@
 // tools
 import axios from "axios"
-import { ROUTE_IMAGE_API } from "../app/containers/Picture/constants"
+import { ROUTE_IMAGE_API } from "../constants/picture"
 import { imageSrcToPictureId } from "../app/containers/Picture/helpers"
 
 // return
