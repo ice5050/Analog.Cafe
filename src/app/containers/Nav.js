@@ -29,7 +29,7 @@ const mapStateToProps = state => {
     composer: state.composer,
     user: {
       status: "ok",
-      //status: "forbidden",
+      status: "forbidden",
     }
 	}
 }
