@@ -1,6 +1,9 @@
 // tools
 import React from "react"
 
+// redux
+import { connect } from "react-redux"
+
 // components
 import HeaderEditor from "./containers/HeaderEditor"
 import ContentEditor from "./containers/ContentEditor"
@@ -14,14 +17,13 @@ const titlePlaceholder = {
 }
 
 // return
-// this is a pure function, but I left it in /containers folder
-// because it gathers all sub-containers conveniently for export
-export default props => {
+const Composer = props => {
 	return(
 		<div>
 			<HeaderEditor
 				pageTitle={ titlePlaceholder.title }
 				pageSubtitle={ titlePlaceholder.subtitle }
+				user={ props.user }
 			/>
 			<Section endsign>
 				<ContentEditor
@@ -31,3 +33,12 @@ export default props => {
 		</div>
 	)
 }
+
+// connet with redux
+const mapStateToProps = state => {
+	return {
+    user: state.user,
+	}
+}
+
+export default connect(mapStateToProps)(Composer)
