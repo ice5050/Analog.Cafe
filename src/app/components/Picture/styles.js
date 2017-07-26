@@ -87,6 +87,8 @@ export const Figure = styled.figure`
 
 
 	&.focus {
+		border-top-right-radius: 0;
+		border-top-left-radius: 0;
 		box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
 		figcaption {
 			box-shadow:	0 ${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight } inset;
