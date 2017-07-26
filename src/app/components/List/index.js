@@ -13,7 +13,7 @@ import { ZigzagPicture } from "./styles/zigzag-picture"
 import { datestamp } from "./helpers"
 
 // constants
-import { ROUTE_ARTICLE_DIR } from "./constants"
+import { ROUTE_ARTICLE_DIR } from "../../../constants/list"
 
 
 // return

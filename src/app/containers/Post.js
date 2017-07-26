@@ -5,15 +5,15 @@ import { withRouter } from "react-router"
 
 // redux & state
 import { connect } from "react-redux"
-import { fetchPage } from "../../../actions/postActions"
-import { ROUTE_POST_API, ROUTE_ARTICLE_DIR } from "./constants"
-import { schema } from "../Composer/containers/ContentEditor/schema"
+import { fetchPage } from "../../actions/postActions"
+import { ROUTE_POST_API, ROUTE_ARTICLE_DIR } from "../../constants/post"
+import { schema } from "./Composer/containers/ContentEditor/schema"
 
 
 // components
-import Heading from "../../components/ArticleHeading"
-import { ModalDispatch } from "../Modal"
-import { Section, Article, Byline } from "../../components/ArticleStyles"
+import Heading from "../components/ArticleHeading"
+import { ModalDispatch } from "./Modal"
+import { Section, Article, Byline } from "../components/ArticleStyles"
 
 
 // render

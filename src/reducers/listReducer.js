@@ -49,13 +49,13 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) =>  {
 	switch (action.type) {
-		case "SET_PAGE":
+		case "LIST.SET_PAGE":
 			state = {
 				...state,
 				...action.payload
 			}
 			break
-    case "ADD_PAGE":
+    case "LIST.ADD_PAGE":
 			state = {
 				...state,
 				...action.payload,
@@ -65,7 +65,7 @@ export default (state = INITIAL_STATE, action) =>  {
         ],
 			}
 			break
-    case "INIT_PAGE":
+    case "LIST.INIT_PAGE":
       state = {
         ...INITIAL_STATE,
         ...action.payload,

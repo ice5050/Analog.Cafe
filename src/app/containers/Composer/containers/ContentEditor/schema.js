@@ -5,7 +5,7 @@ import React from "react"
 import Picture from "../../../Picture"
 import PictureDocket from "../../../PictureDocket"
 import Link from "../../../../components/Link"
-import Placeholder from "./containers/Placeholder"
+import Placeholder from "./components/Placeholder"
 
 
 // return

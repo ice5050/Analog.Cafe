@@ -44,16 +44,16 @@ export default props => {
 					Thayanantha Thevanayagam<br />
 					Betty Dai<br />
 					Kevin Kethcart<br />
-					Fernando Lavín García<br />
+					Fernando Lavin (@film.lav)<br />
 					Lee Webb<br />
 					Lewis Phan<br />
 					Genester<br />
-					Jose Altamirano<br />
+					Jose Altamirano (josekasek)<br />
 					Marianne Oliver<br />
 					Michael Jones<br />
 					Tim Dobbs<br />
 					James Cockroft<br />
-					Dustin Veitch<br />
+					faultyflipflap<br />
 					Jennifer Precious Finch<br />
 					Denise<br />
 					Frank Russo<br />
@@ -63,15 +63,15 @@ export default props => {
 					Kevin Aungle<br />
 					Jack Yu<br />
 					Stephen Dowling<br />
-					David Vonk<br />
+					Anonymous<br />
 					Joey Pasco<br />
 					Kanoa Mulling<br />
-					Barbara Van Hee<br />
+					BVH<br />
 					Jacob Michael Hanania<br />
 					Rob James Davie<br />
 					Joey Santiago<br />
 					Danielle Cardoz<br />
-					Francisco Montoto Monroy<br />
+					Francisco M<br />
 					Jonathan Zobro<br />
 					Matthew Stollmeyer<br />
 					Ishtiaq Rahman<br />
@@ -90,7 +90,7 @@ export default props => {
 					Anonymous<br />
 					Geraldine Pontius<br />
 					Larry Treadway<br />
-					Hakan Alca<br />
+					Hakan A.<br />
 					Ben Cairns
 				</ThankYouList>
 

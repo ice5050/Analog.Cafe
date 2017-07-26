@@ -25,6 +25,7 @@ export default props => {
         <Route exact path="/"             component={ List } />
         <Route exact path="/photo-essays"	component={ List } />
         <Route exact path="/articles"			component={ List } />
+        <Route exact path="/my-stuff"			component={ List } />
 
         {/* static views and urls */}
         <Route exact path="/about"        component= { About } />

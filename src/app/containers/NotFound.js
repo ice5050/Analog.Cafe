@@ -11,7 +11,7 @@ import { Section, Article } from "../components/ArticleStyles"
 // render
 class NotFound extends React.PureComponent {
 	componentWillMount() {
-		this.props.history.push({
+		this.props.history.replace({
 			state: {
 				status: "404"
 			}

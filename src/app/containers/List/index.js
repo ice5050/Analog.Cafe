@@ -7,7 +7,7 @@ import { ModalDispatch } from "../Modal"
 import { connect } from "react-redux"
 import { fetchPage } from "../../../actions/listActions"
 import { setPage as setNextPost } from "../../../actions/postActions"
-import { ROUTE_LIST_API, PAGE_ITERATOR_STRING } from "./constants"
+import { ROUTE_LIST_API, PAGE_ITERATOR_STRING } from "../../../constants/list"
 
 // components
 import ListDescription from "../../components/ListDescription"

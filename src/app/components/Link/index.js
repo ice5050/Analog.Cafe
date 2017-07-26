@@ -3,7 +3,7 @@ import React from "react"
 import { NavLink } from "react-router-dom"
 
 // constants
-import { DOMAIN_NAME } from "./constants"
+import { DOMAIN_NAME } from "../../../constants/link"
 
 // styles
 export default props => {

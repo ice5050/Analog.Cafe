@@ -1,4 +1,4 @@
-import { ROUTE_FILTERS, ROUTE_META } from "../constants"
+import { ROUTE_FILTERS, ROUTE_META } from "../../../../constants/list"
 
 export const datestamp = unix => {
 	const m = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
@@ -27,7 +27,13 @@ export const getListHeaders = (pathname = "/", page=1) => {
 	// filter by tags
 	else {
 		search = ROUTE_FILTERS[pathname] ? "/tags-" + ROUTE_FILTERS[pathname] : "/index"
-    meta =  ROUTE_META[pathname]
+    meta = ROUTE_META[pathname]
+		? ROUTE_META[pathname]
+		// default list meta stuff:
+		: {
+			text: "Film photography publication",
+			emoji: "🍩",
+		}
 	}
 
 	// add pagination
