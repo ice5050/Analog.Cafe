@@ -1,5 +1,6 @@
 {
   "status": "ok",
+  "status": "forbidden",
   "info": {
     "author" : {
   		"name" : "Author Awesome",
