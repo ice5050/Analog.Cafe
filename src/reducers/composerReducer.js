@@ -5,7 +5,7 @@ export default (
 		action
 	) =>  {
 	switch (action.type) {
-		case "SET_DRAFT_STATUS":
+		case "COMPOSER.SET_DRAFT_STATUS":
 			state = {
 				...state,
 				draftStatus: action.payload

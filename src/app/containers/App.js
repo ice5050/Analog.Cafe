@@ -6,6 +6,8 @@ import { withRouter } from "react-router"
 // redux
 import { connect } from "react-redux"
 import { setView as setNavView, setLocation as setNavLocation } from "../../actions/navActions"
+import { getSession as getUserSession } from "../../actions/userActions"
+
 
 import { Modal } from "./Modal"
 import Nav from "./Nav"
@@ -31,6 +33,7 @@ class App extends React.PureComponent {
 	componentDidMount(){
 		this.handleRouteChnange()
 		this.props.history.listen((location, action) => this.handleRouteChnange())
+    this.props.getUserSession()
 	}
 	handleRouteChnange = () => {
 		trackView()
@@ -81,7 +84,10 @@ const mapDispatchToProps = dispatch => {
 		},
 		setNavLocation: location => {
 			dispatch(setNavLocation(location))
-		}
+		},
+    getUserSession: () => {
+      dispatch(getUserSession())
+    }
 	}
 }
 export default withRouter(connect(null, mapDispatchToProps)(App))

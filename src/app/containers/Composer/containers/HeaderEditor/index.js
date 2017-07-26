@@ -55,7 +55,7 @@ export default class extends React.Component {
 								info: {
 									image: placeholder,
 									title: "Your Profile",
-									text: "Short author bio hasn’t been added yet."
+									text: "You can create, view or update your profile after you send your submission. 🚀"
 								},
 								id: "placeholders/author"
 							}}

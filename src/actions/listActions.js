@@ -5,17 +5,17 @@ import { setCard } from "./modalActions"
 // return
 export function setPage(page, appendItems) {
   if(appendItems === false) return {
-    type: "SET_PAGE",
+    type: "LIST.SET_PAGE",
     payload: page
   }
   else return {
-    type: "ADD_PAGE",
+    type: "LIST.ADD_PAGE",
     payload: page,
   }
 }
 export function initPage(state) {
 	return {
-		type: "INIT_PAGE",
+		type: "LIST.INIT_PAGE",
 		payload: state,
 	}
 }
