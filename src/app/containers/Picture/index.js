@@ -69,8 +69,6 @@ class Figure extends React.Component {
 		const className = focus ? "focus" : "nofocus"
 		const feature = node.data.get("feature")
 
-		console.log(feature)
-
     return src
       ? <Picture
       		{ ...attributes }

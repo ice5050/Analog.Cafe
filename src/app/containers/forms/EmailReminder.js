@@ -2,12 +2,12 @@
 import React from "react"
 
 // components
-import { ModalDispatch } from "../../Modal"
-import { Button } from "../../../components/Button"
-import { SubtitleInput } from "../../../components/InputText"
+import { ModalDispatch } from "../Modal"
+import { Button } from "../../components/Button"
+import { SubtitleInput } from "../../components/InputText"
 
 // styles
-import { Form } from "./styles"
+import { Form } from "../../components/FormStyles"
 
 
 // helpers
@@ -51,7 +51,7 @@ export default class extends React.Component {
             }}
             wrapperElement="div"
           >
-          <Button onClick={ this.handleSubmit }>Sign In</Button>
+          <Button onClick={ this.handleSubmit } red>Remind Me</Button>
         </ModalDispatch>
       </Form>
 		)

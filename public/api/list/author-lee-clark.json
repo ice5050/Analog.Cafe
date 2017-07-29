@@ -1,19 +1,20 @@
 {
   "status": "ok",
   "filters": {
-		"tags": [
-			"photo-essay"
-		],
-		"author": {}
+		"tags": [],
+		"author": {
+			"name" : "Lee Clark",
+			"id": "lee-clark"
+		}
   },
-	"page": {
+  "page": {
   	"current" : "1",
   	"total" : "1",
   	"items-total": "1",
   	"items-per-page" : "10"
   },
   "items": [
-  	{
+    {
       "tag" : "photo-essay",
       "slug" : "brighton-beach-jrwe",
     	"title" : "Brighton Beach",

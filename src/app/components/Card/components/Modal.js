@@ -19,7 +19,7 @@ export const ModalCard = props => {
 			<figure>
 				<img
 					src={ props.image || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" }
-					style={{ height: typeof props.image === "undefined" ? "0" : "inherit" }}
+					style={{ height: typeof props.image === "undefined" ? "0" : "initial" }}
 					alt="Card"
 				/>
 				<figcaption>

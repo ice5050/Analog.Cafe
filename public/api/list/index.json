@@ -7,10 +7,54 @@
   "page": {
   	"current" : "1",
   	"total" : "1",
-  	"items-total": "1",
+  	"items-total": "2",
   	"items-per-page" : "10"
   },
   "items": [
+    {
+      "tag" : "photo-essay",
+      "slug" : "brighton-beach-jrwe",
+    	"title" : "Brighton Beach",
+      "subtitle" : "",
+    	"id" : "jrwe",
+    	"post-date" : "1501300500",
+    	"stats" : {
+    		"images" : "6",
+    		"words" : "253"
+    	},
+    	"author" : {
+    		"name" : "Lee Clark",
+    		"id" : "lee-clark"
+    	},
+    	"poster" : {
+    		"small" : "/images/pictures/brighton-beach-015.jpg",
+    		"medium" : "/images/pictures/brighton-beach-015.jpg",
+    		"large" : "/images/pictures/brighton-beach-015.jpg"
+    	},
+    	"summary" : "Brighton Beach is a Russian community neighbourhood in New York. When I was growing up in Moscow as a kid I’ve heard a lot about it on TV: the magical place where one can become and live like an American. During the early 90s, there was an obsession with everything USA; it suddenly became “amazing and wonderful”, instead of “the villain” — a narrative it was given for over fifty years prior. Perestroika flipped the entire culture onto its head."
+  	},
+    {
+      "tag" : "theory-and-practice",
+      "slug" : "testing-the-olympus-supertrip-in-shanghai-sfd8",
+      "title" : "Testing the Olympus Supertrip in Shanghai",
+      "subtitle" : "A New Old Camera in a New Old City",
+      "id" : "sfd8",
+      "post-date" : "1501299660",
+      "stats" : {
+        "images" : "4",
+        "words" : "454"
+      },
+      "author" : {
+        "name" : "Lee Webb",
+        "id" : "lee-webb"
+      },
+      "poster" : {
+        "small" : "/images/pictures/lee-shanghai-1.jpg",
+        "medium" : "/images/pictures/lee-shanghai-1.jpg",
+        "large" : "/images/pictures/lee-shanghai-1.jpg"
+      },
+      "summary" : "The Olympus Supertrip is the second of two film cameras I picked up from a charity shop in Nottingham. The other was a Canon Sure Shot AF-7. If you’ve not read it yet, I’d recommend the article I wrote about them both here. While the test run of the Canon Sure Shot AF-7 was mainly done in Chongqing, I tested the Olympus Supertrip once I’d got back to Shanghai."
+    },
   	{
   		"tag" : "off-topic",
   		"slug" : "analog-cafe-e8tr",

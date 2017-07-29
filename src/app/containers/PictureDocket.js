@@ -72,7 +72,7 @@ export default class extends React.Component {
     return (
 			<PictureDocket>
 				<CardHeader>
-					<h3 style={{ paddingTop: ".25em" }}>Add an Image:</h3>
+					<h3 style={{ paddingTop: ".25em" }}>Add an image:</h3>
 					<a href="#close" onClick={ this.handleClose.bind(this) } >✕</a>
 				</CardHeader>
 				<GridContainer>

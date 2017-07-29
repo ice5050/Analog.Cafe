@@ -1,0 +1,26 @@
+{
+  "status": "ok",
+	"category" : "photo-essay",
+	"slug" : "brighton-beach-jrwe",
+	"title" : "Brighton Beach",
+  "subtitle" : "",
+	"id" : "jrwe",
+	"post-date" : "1501300500",
+	"stats" : {
+		"images" : "6",
+		"words" : "253"
+	},
+	"author" : {
+		"name" : "Lee Clark",
+		"id" : "lee-clark"
+	},
+	"poster" : {
+		"small" : "/images/pictures/brighton-beach-015.jpg",
+		"medium" : "/images/pictures/brighton-beach-015.jpg",
+		"large" : "/images/pictures/brighton-beach-015.jpg"
+	},
+	"summary" : "Brighton Beach is a Russian community neighbourhood in New York. When I was growing up in Moscow as a kid I’ve heard a lot about it on TV: the magical place where one can become and live like an American. During the early 90s, there was an obsession with everything USA; it suddenly became “amazing and wonderful”, instead of “the villain” — a narrative it was given for over fifty years prior. Perestroika flipped the entire culture onto its head.",
+	"content" : {
+		"raw" : {"document":{"data":{},"kind":"document","nodes":[{"data":{"feature":true,"src":"/images/pictures/brighton-beach-015.jpg"},"kind":"block","isVoid":true,"type":"image","nodes":[{"kind":"text","ranges":[{"kind":"range","text":" ","marks":[]}]}]},{"data":{},"kind":"block","isVoid":false,"type":"heading","nodes":[{"kind":"text","ranges":[{"kind":"range","text":"Note from the editor:","marks":[]}]}]},{"data":{},"kind":"block","isVoid":false,"type":"paragraph","nodes":[{"kind":"text","ranges":[{"kind":"range","text":"Brighton Beach is a Russian community neighbourhood in New York. When I was growing up in Moscow as a kid I’ve heard a lot about it on TV: the magical place where one can become and live like an American. During the early 90s, there was an obsession with everything USA; it suddenly became “amazing and wonderful”, instead of “the villain” — a narrative it was given for over fifty years prior. Perestroika flipped the entire culture onto its head.","marks":[{"data":{},"kind":"mark","type":"italic"}]}]}]},{"data":{},"kind":"block","isVoid":false,"type":"paragraph","nodes":[{"kind":"text","ranges":[{"kind":"range","text":"Lee approached me a few months ago with the images she took discreetly on the beach itself. These incredibly honest photographs reminded me of the old Soviet movies that portrayed holidays Russians would take in Sochi — a southern beach city.","marks":[{"data":{},"kind":"mark","type":"italic"}]}]}]},{"data":{},"kind":"block","isVoid":false,"type":"paragraph","nodes":[{"kind":"text","ranges":[{"kind":"range","text":"Some things remain unchanged.","marks":[{"data":{},"kind":"mark","type":"italic"}]}]}]},{"data":{},"kind":"block","isVoid":true,"type":"divider","nodes":[{"kind":"text","ranges":[{"kind":"range","text":" ","marks":[]}]}]},{"data":{"feature":false,"src":"/images/pictures/brighton-beach-009.jpg"},"kind":"block","isVoid":true,"type":"image","nodes":[{"kind":"text","ranges":[{"kind":"range","text":" ","marks":[]}]}]},{"data":{},"kind":"block","isVoid":false,"type":"paragraph","nodes":[{"kind":"text","ranges":[{"kind":"range","text":"As I walked along the beach, I tried to take pictures without people noticing the camera. Since I used a Yashica twin reflex camera, I positioned my body in a different direction than the lens, so people would think I was taking a picture elsewhere. However, as I walked along the boardwalk, a woman in her 70’s sunbathing yelled at me, ","marks":[]}]}]},{"data":{},"kind":"block","isVoid":false,"type":"paragraph","nodes":[{"kind":"text","ranges":[{"kind":"range","text":"“","marks":[]},{"kind":"range","text":"Hey! I know what you’re doing! You’re not fooling anyone!","marks":[{"data":{},"kind":"mark","type":"italic"}]},{"kind":"range","text":"”","marks":[]}]}]},{"data":{},"kind":"block","isVoid":false,"type":"paragraph","nodes":[{"kind":"text","ranges":[{"kind":"range","text":"I looked up from the lens and apologized, she laughed and motioned me over. She was sitting with her husband, who was also a street photographer. He told me about his experiences taking candid street pictures at Coney Island and his job as a photographer for the Johnny Carson show.","marks":[]}]}]},{"data":{"feature":true,"src":"/images/pictures/brighton-beach-008.jpg"},"kind":"block","isVoid":true,"type":"image","nodes":[{"kind":"text","ranges":[{"kind":"range","text":" ","marks":[]}]}]},{"data":{"feature":true,"src":"/images/pictures/brighton-beach-020.jpg"},"kind":"block","isVoid":true,"type":"image","nodes":[{"kind":"text","ranges":[{"kind":"range","text":" ","marks":[]}]}]},{"data":{"feature":true,"src":"/images/pictures/brighton-beach-012.jpg"},"kind":"block","isVoid":true,"type":"image","nodes":[{"kind":"text","ranges":[{"kind":"range","text":" ","marks":[]}]}]},{"data":{"feature":true,"src":"/images/pictures/brighton-beach-132.jpg"},"kind":"block","isVoid":true,"type":"image","nodes":[{"kind":"text","ranges":[{"kind":"range","text":" ","marks":[]}]}]},{"data":{},"kind":"block","isVoid":false,"type":"paragraph","nodes":[{"kind":"text","ranges":[{"kind":"range","text":"","marks":[]}]}]}]},"kind":"state"}
+  }
+}

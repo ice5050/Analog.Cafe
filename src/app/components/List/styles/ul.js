@@ -125,7 +125,7 @@ export const Ul = styled.ul`
 				overflow: 				hidden;
 				white-space: 			nowrap;
 				text-overflow: 		ellipsis;
-				max-width: 				calc(100% - ${ blockSafety}em * 2);
+				max-width: 				11.5em;
 				${ props => props.theme.size.breakpoint.max.m`{
 					display: 			block;
 					white-space: 	normal;

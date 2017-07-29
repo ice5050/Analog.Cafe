@@ -31,13 +31,13 @@ export default props => {
 			/>
 			<Section endsign>
 				<Figure src="/images/pictures/about-forest.jpg" feature>A short ride up a twisty mountain road from downtown Chiang Mai<br />&mdash; where Analog.Cafe is built &mdash;<br />is a tropical forest.</Figure>
-				<blockquote><strong>Analog.Cafe</strong> exists because of the people who contribute their art and the editors who curate it. Because of the developers and designers who contribute their time and skill to build this platform. And because of the 51 people who have graciously <Link to="https://www.kickstarter.com/projects/dmitrizzle/analogcafe-the-remarkable-film-photography-blog">funded</Link> the initial stages of this project.</blockquote>
+				<blockquote><strong>Analog.Cafe</strong> exists because of the people who contribute their art and the editors who curate it. It’s because of the developers and designers who devote their time and skill to build this platform. And because of the 51 people who have graciously <Link to="https://www.kickstarter.com/projects/dmitrizzle/analogcafe-the-remarkable-film-photography-blog">funded</Link> the initial stages of this project.</blockquote>
 				<p><strong>Analog.Cafe</strong> is a curated film photography publication that encourages and supports collaboration.</p>
 				<p><strong>Analog.Cafe</strong> favours creative & informative works based on quality, creativity and diversity.</p>
 
 				<hr />
 
-				<h3>Thank You, Kickstarter Backers!</h3>
+				<h3>Thank you, Kickstarter backers!</h3>
 				<p>The individuals in this list were the first to offer their love and support. <span role="img" aria-label="Clapping hands and a bowing person">👏🙇</span></p>
 
 				<ThankYouList>
@@ -95,8 +95,8 @@ export default props => {
 				</ThankYouList>
 
 
-				<h3>Connect, Contact & Get Involved</h3>
-				<p>If you have a question, suggestion or just want to chat, feel free to follow and message on <Link to="https://twitter.com/analog_cafe">Twitter</Link>, <Link to="https://facebook.com/analog8cafe">Facebook</Link> or <Link to="https://instagram.com/analog_cafe">Instagram</Link>. Otherwise you can email <strong>d (at) analog (dot) cafe</strong>.</p>
+				<h3>Connect, contact & get involved.</h3>
+				<p>If you have a question, suggestion or just want to chat, feel free to follow and message on <Link to="https://twitter.com/analog_cafe">Twitter</Link>, <Link to="https://facebook.com/analog8cafe">Facebook</Link> or <Link to="https://instagram.com/analog_cafe">Instagram</Link>. Otherwise you can email <strong>d (at) analog (dot) cafe</strong></p>
 
 			</Section>
 		</Article>

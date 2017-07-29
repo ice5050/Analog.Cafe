@@ -1,9 +1,0 @@
-{
-  "status": "ok",
-  "info": {
-  	"id" : "author-awesome",
-  	"title" : "Author Awesome",
-  	"image" : "/images/avatars/kyla-medica.jpg",
-  	"text" : "Short author bio 2."
-  }
-}

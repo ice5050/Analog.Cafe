@@ -2,7 +2,7 @@
 import React from "react"
 
 // components
-import SignInWithEmail from "../../../containers/forms/SignInWithEmail"
+import SignInWithEmail from "../../../containers/forms/SigninWithEmail"
 import Heading from "../../ArticleHeading"
 import { Article, Section } from "../../ArticleStyles"
 
