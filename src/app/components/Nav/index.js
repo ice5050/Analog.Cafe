@@ -42,7 +42,7 @@ export const ComposerNav = props => {
 					info: {
 						image: done,
 						title: "Never Loose Your Work",
-						text: "Your work is saved automatically every 3 seconds onto your device."
+						text: "Your work is saved automatically every 3 seconds onto your device. 👍"
 					},
 					id: "hints/save"
 				}}

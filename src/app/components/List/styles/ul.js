@@ -89,6 +89,7 @@ export const Ul = styled.ul`
 			&:active::before { visibility: hidden; }
 		}
 		section {
+			position: 				relative;
 			max-width: 				61.5%;
 			padding: 					calc(${ blockSafety }em * 3) ${ blockSafety }em ${ props => props.theme.size.block.spacing }em ${ blockSafety }em;
 			${	props => props.theme.size.breakpoint.max.l`

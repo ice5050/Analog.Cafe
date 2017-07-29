@@ -22,7 +22,7 @@ export default props => {
 		<Bleed>
 			<Ul status={ props.status }>
 			{
-				props.items.map(function(item) {
+				props.items.map(item => {
 					return (
 						<li key={ item.id }>
 							<Link

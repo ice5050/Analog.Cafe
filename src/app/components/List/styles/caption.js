@@ -20,6 +20,8 @@ export const Caption = styled(ListCaption)`
 	}
 
 	&::after, &::before { display: none; }
+	-webkit-mask-image: linear-gradient(155deg, rgba(0, 0, 0, 1) 65%, rgba(0, 0, 0, 0) 98%);
+	mask-image: linear-gradient(155deg, rgba(0, 0, 0, 1) 65%, rgba(0, 0, 0, 0) 98%);
 
 	${ props => props.theme.size.breakpoint.max.m`{
 		&, .fonts-loaded & {
