@@ -10,6 +10,7 @@
  - [How do I contribute](#how-do-i-contribute)?
  - [What is it built with](#what-is-it-built-with)?
  - [Resources](#resources).
+ - [Contributors (Wiki)](https://github.com/dmitrizzle/Analog.Cafe/wiki/Contributors).
 
 ### Why?
 **This is indeed another CMS, with a unique combination of features and build quality not found anywhere else.**
