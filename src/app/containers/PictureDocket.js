@@ -107,8 +107,9 @@ export default class extends React.Component {
 						info: {
 							image: "/images/banners/image-suggestions.jpg",
 							title: "Image Suggestions",
-							text: "You can freely use these hand-picked film photographs by the editor within your submission. A credit to the original photographer will be added automatically. Of course you can still upload your own images."
-						}
+							text: "You can freely use these hand-picked film photographs by the editor within your submission. A credit to the original photographer will be added automatically. Of course you can still upload your own images!"
+						},
+						id: "hints/image-suggestions"
 					}}
 				>What is this?</ModalDispatch></Caption>
         <input

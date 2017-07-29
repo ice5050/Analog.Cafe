@@ -64,7 +64,7 @@ export default class extends React.Component {
 										title: "Your Profile",
 										text: "You can create, view or update your profile after you send your submission. 🚀"
 									},
-									id: "placeholders/author"
+									id: "hints/author"
 								}
 							}
 						>Your Profile</ModalDispatch> will appear here.
