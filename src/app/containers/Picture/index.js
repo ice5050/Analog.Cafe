@@ -28,8 +28,9 @@ class Figure extends React.Component {
   handleChange(event) {
     const caption = event.target.value
     const { node, editor } = this.props
+		const feature = node.data.get("feature")
     const src = node.data.get("src")
-    const properties = {data: { caption, src }}
+    const properties = {data: { caption, src, feature }}
     const next = editor
       .getState()
       .transform()
@@ -44,6 +45,8 @@ class Figure extends React.Component {
   componentDidMount() {
     const { node } = this.props
     const { data } = node
+		const caption = data.get("caption")
+		this.setState({ caption })
     this.loadImage(data.get("file"), data.get("src"))
   }
   loadImage(file, src) {
@@ -64,7 +67,6 @@ class Figure extends React.Component {
     const { src } = this.state
     const focus = state.isFocused && state.selection.hasEdgeIn(node)
 		const className = focus ? "focus" : "nofocus"
-
 		const feature = node.data.get("feature")
 
 		console.log(feature)

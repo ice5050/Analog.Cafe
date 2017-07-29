@@ -26,6 +26,7 @@ const ButtonStyles = css`
   padding: 					${ props => props.theme.size.block.spacing /1.25 }em 0;
   margin-top: 			${ props => props.theme.size.block.spacing }em;
   margin-bottom: 		${ props => props.theme.size.block.spacing }em;
+  cursor:           pointer;
 
 
   box-shadow: 			0 1px 1px ${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least * 2).string() }

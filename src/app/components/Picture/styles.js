@@ -124,8 +124,3 @@ export const Caption = styled(PictureCaption)`
 	textarea { font-size: 1em !important; text-align: center; overflow: hidden; }
 	${ props => props.feature && captionBlock }
 `
-export const Byline = styled.div`
-	font-variant: normal;
-	font-style: italic;
-	${'' /* ${ props => props.composer && `opacity: .5;` } */}
-`

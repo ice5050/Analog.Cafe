@@ -1,4 +1,4 @@
-{  
+{
   "status": "ok",
   "filters": {
 		"tags": [
@@ -15,124 +15,27 @@
   	"items-per-page" : "10"
   },
   "items": [
-  	{
-  		"tag" : "opinion",
-  		"slug" : "why-shoot-film-8945",
-  		"title" : "Why Shoot Film?",
-  		"subtitle" : "Subtitle",
-  		"id" : "0000000",
-  		"post-date" : "1497155353",
-  		"stats" : {
-  			"images" : "3",
-  			"words" : "300"
-  		},
-  		"author" : {
-  			"name" : "Kayla Medica",
-  			"id" : "kyla-medica"
-  		},
-  		"poster" : {
-				"small" : "/images/pictures/poster.jpg",
-				"medium" : "/images/pictures/poster.jpg",
-				"large" : "/images/pictures/poster.jpg"
-  		},
-  		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
-  	},
-  	{
-  		"tag" : "photo-essay",
-  		"slug" : "why-shoot-film-8945",
-  		"title" : "Why Shoot Film?",
-  		"subtitle" : "Subtitle 2",
-  		"id" : "0000001",
-  		"post-date" : "1484179200",
-  		"stats" : {
-  			"images" : "3",
-  			"words" : "300"
-  		},
-  		"author" : {
-  			"name" : "Kayla Medica",
-  			"id" : "kyla-medica"
-  		},
-  		"poster" : {
-				"small" : "/images/pictures/poster.jpg",
-				"medium" : "/images/pictures/poster.jpg",
-				"large" : "/images/pictures/poster.jpg"
-  		},
-  		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
-  	},
-  	{
-  		"tag" : "theory-and-practice",
-  		"slug" : "why-shoot-film-8945",
-  		"title" : "Why Shoot Film?",
-  		"subtitle" : "",
-  		"id" : "0000002",
-  		"post-date" : "1484179200",
-  		"stats" : {
-  			"images" : "3",
-  			"words" : "300"
-  		},
-  		"author" : {
-  			"name" : "Kayla Medica",
-  			"id" : "kyla-medica"
-  		},
-  		"poster" : {
-				"small" : "/images/pictures/poster.jpg",
-				"medium" : "/images/pictures/poster.jpg",
-				"large" : "/images/pictures/poster.jpg"
-  		},
-  		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
-  	},
-  	{
-  		"tag" : "photo-essay",
-  		"slug" : "why-shoot-film-8945",
-  		"title" : "Why Shoot Film 2",
-  		"subtitle" : "",
-  		"id" : "0000003",
-  		"post-date" : "1484179200",
-  		"stats" : {
-  			"images" : "1",
-  			"words" : "300"
-  		},
-  		"author" : {
-  			"name" : "Kayla Medica",
-  			"id" : "kyla-medica"
-  		},
-  		"poster" : {
-				"small" : "/images/pictures/poster.jpg",
-				"medium" : "/images/pictures/poster.jpg",
-				"large" : "/images/pictures/poster.jpg"
-  		},
-  		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
-  	}
+    {
+      "tag" : "off-topic",
+      "slug" : "analog-cafe-e8tr",
+      "title" : "Analog.Cafe",
+      "subtitle" : "An Introduction",
+      "id" : "e8tr",
+      "post-date" : "1501176150",
+      "stats" : {
+        "images" : "1",
+        "words" : "119"
+      },
+      "author" : {
+        "name" : "dmitrizzle",
+        "id" : "dmitrizzle"
+      },
+      "poster" : {
+        "small" : "/images/pictures/an-introduction-cat-tax.jpg",
+        "medium" : "/images/pictures/an-introduction-cat-tax.jpg",
+        "large" : "/images/pictures/an-introduction-cat-tax.jpg"
+      },
+      "summary" : "This is officially the first post. I am nervous and tipsy, also grateful and excited. It feels pretty nice to be able to start something that’s meant to inspire thousands and be the creative outlet for skilled film photographers, writers, and artists."
+    }
   ]
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

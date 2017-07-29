@@ -12,5 +12,10 @@ export const CaptionStyles = css`
 	font-variant: small-caps;
 	text-align: 	justify;
 	padding:			0;
+
+	& a {
+		font-variant: normal;
+		font-style: italic;
+	}
 `
 export const Caption = styled.div`${ CaptionStyles }`

@@ -1,10 +1,9 @@
 // tools
 import keycode from "keycode"
-import { Data } from "slate"
 
 // return
 export function ToggleFeature(options) {
-  const { node, key } = options
+  const { key } = options
 
   return {
     onKeyDown(event, data, state) {
@@ -19,7 +18,6 @@ export function ToggleFeature(options) {
         "src": previousDataImmutable.get("src"),
       }
       let featureStatus = previousData.feature ? false : true
-      console.log(previousData)
       return state
         .transform()
         .setBlock({ type: "image", data: { ...previousData, feature: featureStatus } })

@@ -2,7 +2,10 @@
   "status": "ok",
   "filters": {
 		"tags": [],
-		"author": {}
+		"author": {
+			"name" : "dmitrizzle",
+			"id": "dmitrizzle"
+		}
   },
   "page": {
   	"current" : "1",

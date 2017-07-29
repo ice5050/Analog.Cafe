@@ -36,7 +36,7 @@ class Post extends React.PureComponent {
 								url: "/api/author/" + this.props.post.author.id
 							}
 						}}
-					><em style={{ fontVariant: "normal" }}>{ this.props.post.author.name }</em></ModalDispatch></Byline>
+					>{ this.props.post.author.name }</ModalDispatch></Byline>
 				</Heading>
 				<Section postStatus={ this.props.post.status } endsign>
 					<Editor

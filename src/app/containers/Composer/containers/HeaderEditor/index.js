@@ -67,7 +67,7 @@ export default class extends React.Component {
 									id: "placeholders/author"
 								}
 							}
-						><em style={{ fontVariant: "normal" }}>Your Profile</em></ModalDispatch> will appear here.
+						>Your Profile</ModalDispatch> will appear here.
 					</Byline>
 
 
