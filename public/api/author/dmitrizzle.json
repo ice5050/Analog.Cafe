@@ -1,0 +1,20 @@
+{
+  "status": "ok",
+  "info": {
+  	"id" : "dmitrizzle",
+  	"title" : "dmitrizzle",
+  	"image" : "/images/avatars/dmitrizzle.jpg",
+  	"text" : "Film photographer, writer, developer, designer, creator of Analog.Cafe.",
+  	"buttons" : [
+  		{
+  			"to": "https://twitter.com/dmitrizzle",
+  			"text": "Find me on Twitter"
+  		},
+  		{
+  			"to": "/author/dmitrizzle",
+  			"text": "More on Analog.Cafe",
+  			"red": true
+  		}
+  	]
+  }
+}

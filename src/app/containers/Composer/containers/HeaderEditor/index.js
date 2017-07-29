@@ -64,10 +64,10 @@ export default class extends React.Component {
 										title: "Your Profile",
 										text: "You can create, view or update your profile after you send your submission. 🚀"
 									},
-									id: "placeholders/author"
+									id: "hints/author"
 								}
 							}
-						><em style={{ fontVariant: "normal" }}>Your Profile</em></ModalDispatch> will appear here.
+						>Your Profile</ModalDispatch> will appear here.
 					</Byline>
 
 

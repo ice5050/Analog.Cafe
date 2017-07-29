@@ -31,7 +31,7 @@ export default props => {
         <Route exact path="/about"        component= { About } />
         <Route path="/submit"             component= { AppRoutesSubmit } />
         <Route exact path="/sign-in"      component={ SignIn } />
-        <Route state={{"status":"404"}}                           component={ NotFound } />
+        <Route state={{"status":"404"}}   component={ NotFound } />
 
       </Switch>
     </main>

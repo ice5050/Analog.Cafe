@@ -5,7 +5,7 @@ import React from "react"
 import { ModalDispatch } from "../../containers/Modal"
 
 // styles
-import { Image, Figure, Caption, Byline } from "./styles"
+import { Image, Figure, Caption } from "./styles"
 import placeholder from "../icons/images/placeholder-profile.png"
 
 // return
@@ -20,7 +20,7 @@ export default props => {
 						{ props.children }
 						{
 							props.readOnly ?
-							<div>Image by <Byline { ...props } style={ props.author.name === "" ? { display: "none" } : null } ><ModalDispatch
+							<div>Image by <span style={ props.author.name === "" ? { display: "none" } : null } ><ModalDispatch
 								with={
 									props.author.id !== "unknown"
 										? {
@@ -37,7 +37,7 @@ export default props => {
 											id: "errors/author"
 										}
 								}
-							>{ props.author.name }</ModalDispatch></Byline></div> : null
+							>{ props.author.name }</ModalDispatch></span></div> : null
 						}
 					</Caption>
 				: <Caption { ...props } >{ props.children }</Caption>

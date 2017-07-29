@@ -6,230 +6,76 @@
   },
   "page": {
   	"current" : "1",
-  	"total" : "3",
-  	"items-total": "23",
+  	"total" : "1",
+  	"items-total": "2",
   	"items-per-page" : "10"
   },
   "items": [
-  	{
-  		"tag" : "opinion",
-  		"slug" : "why-shoot-film-8945",
-  		"title" : "Title 1",
-  		"subtitle" : "Subtitle",
-  		"id" : "8945",
-  		"post-date" : "1497155353",
-  		"stats" : {
-  			"images" : "3",
-  			"words" : "300"
-  		},
-  		"author" : {
-  			"name" : "Kayla Medica",
-  			"id" : "kyla-medica"
-  		},
-  		"poster" : {
-				"small" : "/images/pictures/poster.jpg",
-				"medium" : "/images/pictures/poster.jpg",
-				"large" : "/images/pictures/poster.jpg"
-  		},
-  		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
+    {
+      "tag" : "photo-essay",
+      "slug" : "brighton-beach-jrwe",
+    	"title" : "Brighton Beach",
+      "subtitle" : "",
+    	"id" : "jrwe",
+    	"post-date" : "1501300500",
+    	"stats" : {
+    		"images" : "6",
+    		"words" : "253"
+    	},
+    	"author" : {
+    		"name" : "Lee Clark",
+    		"id" : "lee-clark"
+    	},
+    	"poster" : {
+    		"small" : "/images/pictures/brighton-beach-015.jpg",
+    		"medium" : "/images/pictures/brighton-beach-015.jpg",
+    		"large" : "/images/pictures/brighton-beach-015.jpg"
+    	},
+    	"summary" : "Brighton Beach is a Russian community neighbourhood in New York. When I was growing up in Moscow as a kid I’ve heard a lot about it on TV: the magical place where one can become and live like an American. During the early 90s, there was an obsession with everything USA; it suddenly became “amazing and wonderful”, instead of “the villain” — a narrative it was given for over fifty years prior. Perestroika flipped the entire culture onto its head."
   	},
+    {
+      "tag" : "theory-and-practice",
+      "slug" : "testing-the-olympus-supertrip-in-shanghai-sfd8",
+      "title" : "Testing the Olympus Supertrip in Shanghai",
+      "subtitle" : "A New Old Camera in a New Old City",
+      "id" : "sfd8",
+      "post-date" : "1501299660",
+      "stats" : {
+        "images" : "4",
+        "words" : "454"
+      },
+      "author" : {
+        "name" : "Lee Webb",
+        "id" : "lee-webb"
+      },
+      "poster" : {
+        "small" : "/images/pictures/lee-shanghai-1.jpg",
+        "medium" : "/images/pictures/lee-shanghai-1.jpg",
+        "large" : "/images/pictures/lee-shanghai-1.jpg"
+      },
+      "summary" : "The Olympus Supertrip is the second of two film cameras I picked up from a charity shop in Nottingham. The other was a Canon Sure Shot AF-7. If you’ve not read it yet, I’d recommend the article I wrote about them both here. While the test run of the Canon Sure Shot AF-7 was mainly done in Chongqing, I tested the Olympus Supertrip once I’d got back to Shanghai."
+    },
   	{
-  		"tag" : "photo-essay",
-  		"slug" : "why-shoot-film-8945",
-  		"title" : "Title 2",
-  		"subtitle" : "Subtitle 2",
-  		"id" : "0000001",
-  		"post-date" : "1484179200",
-  		"stats" : {
-  			"images" : "3",
-  			"words" : "300"
-  		},
-  		"author" : {
-  			"name" : "Kayla Medica",
-  			"id" : "kyla-medica"
-  		},
-  		"poster" : {
-				"small" : "/images/pictures/poster.jpg",
-				"medium" : "/images/pictures/poster.jpg",
-				"large" : "/images/pictures/poster.jpg"
-  		},
-  		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
-  	},
-  	{
-  		"tag" : "theory-and-practice",
-  		"slug" : "why-shoot-film-8945",
-  		"title" : "Title 3",
-  		"subtitle" : "",
-  		"id" : "0000002",
-  		"post-date" : "1484179200",
-  		"stats" : {
-  			"images" : "3",
-  			"words" : "300"
-  		},
-  		"author" : {
-  			"name" : "Kayla Medica",
-  			"id" : "kyla-medica"
-  		},
-  		"poster" : {
-				"small" : "/images/pictures/poster.jpg",
-				"medium" : "/images/pictures/poster.jpg",
-				"large" : "/images/pictures/poster.jpg"
-  		},
-  		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
-  	},
-  	{
-  		"tag" : "photo-essay",
-  		"slug" : "why-shoot-film-8945",
-  		"title" : "Title 4",
-  		"subtitle" : "",
-  		"id" : "0000003",
-  		"post-date" : "1484179200",
+  		"tag" : "off-topic",
+  		"slug" : "analog-cafe-e8tr",
+  		"title" : "Analog.Cafe",
+  		"subtitle" : "An Introduction",
+  		"id" : "e8tr",
+  		"post-date" : "1501176150",
   		"stats" : {
   			"images" : "1",
-  			"words" : "300"
+  			"words" : "119"
   		},
   		"author" : {
-  			"name" : "Kayla Medica",
-  			"id" : "kyla-medica"
+  			"name" : "dmitrizzle",
+  			"id" : "dmitrizzle"
   		},
   		"poster" : {
-				"small" : "/images/pictures/poster.jpg",
-				"medium" : "/images/pictures/poster.jpg",
-				"large" : "/images/pictures/poster.jpg"
+				"small" : "/images/pictures/an-introduction-cat-tax.jpg",
+				"medium" : "/images/pictures/an-introduction-cat-tax.jpg",
+				"large" : "/images/pictures/an-introduction-cat-tax.jpg"
   		},
-  		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
-  	},
-  	{
-  		"tag" : "photo-essay",
-  		"slug" : "why-shoot-film-8945",
-  		"title" : "Title 5",
-  		"subtitle" : "",
-  		"id" : "0000004",
-  		"post-date" : "1484179200",
-  		"stats" : {
-  			"images" : "1",
-  			"words" : "300"
-  		},
-  		"author" : {
-  			"name" : "Kayla Medica",
-  			"id" : "kyla-medica"
-  		},
-  		"poster" : {
-				"small" : "/images/pictures/poster.jpg",
-				"medium" : "/images/pictures/poster.jpg",
-				"large" : "/images/pictures/poster.jpg"
-  		},
-  		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
-  	},
-  	{
-  		"tag" : "photo-essay",
-  		"slug" : "why-shoot-film-8945",
-  		"title" : "Title 6",
-  		"subtitle" : "",
-  		"id" : "0000005",
-  		"post-date" : "1484179200",
-  		"stats" : {
-  			"images" : "1",
-  			"words" : "300"
-  		},
-  		"author" : {
-  			"name" : "Kayla Medica",
-  			"id" : "kyla-medica"
-  		},
-  		"poster" : {
-				"small" : "/images/pictures/poster.jpg",
-				"medium" : "/images/pictures/poster.jpg",
-				"large" : "/images/pictures/poster.jpg"
-  		},
-  		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
-  	},
-  	{
-  		"tag" : "photo-essay",
-  		"slug" : "why-shoot-film-8945",
-  		"title" : "Title 7",
-  		"subtitle" : "",
-  		"id" : "0000006",
-  		"post-date" : "1484179200",
-  		"stats" : {
-  			"images" : "1",
-  			"words" : "300"
-  		},
-  		"author" : {
-  			"name" : "Kayla Medica",
-  			"id" : "kyla-medica"
-  		},
-  		"poster" : {
-				"small" : "/images/pictures/poster.jpg",
-				"medium" : "/images/pictures/poster.jpg",
-				"large" : "/images/pictures/poster.jpg"
-  		},
-  		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
-  	},
-  	{
-  		"tag" : "photo-essay",
-  		"slug" : "why-shoot-film-8945",
-  		"title" : "Title 8",
-  		"subtitle" : "",
-  		"id" : "0000007",
-  		"post-date" : "1484179200",
-  		"stats" : {
-  			"images" : "1",
-  			"words" : "300"
-  		},
-  		"author" : {
-  			"name" : "Kayla Medica",
-  			"id" : "kyla-medica"
-  		},
-  		"poster" : {
-				"small" : "/images/pictures/poster.jpg",
-				"medium" : "/images/pictures/poster.jpg",
-				"large" : "/images/pictures/poster.jpg"
-  		},
-  		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
-  	},
-  	{
-  		"tag" : "photo-essay",
-  		"slug" : "why-shoot-film-8945",
-  		"title" : "Title 9",
-  		"subtitle" : "",
-  		"id" : "0000008",
-  		"post-date" : "1484179200",
-  		"stats" : {
-  			"images" : "1",
-  			"words" : "300"
-  		},
-  		"author" : {
-  			"name" : "Kayla Medica",
-  			"id" : "kyla-medica"
-  		},
-  		"poster" : {
-				"small" : "/images/pictures/poster.jpg",
-				"medium" : "/images/pictures/poster.jpg",
-				"large" : "/images/pictures/poster.jpg"
-  		},
-  		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
-  	},
-  	{
-  		"tag" : "photo-essay",
-  		"slug" : "why-shoot-film-8945",
-  		"title" : "Title 10",
-  		"subtitle" : "",
-  		"id" : "0000009",
-  		"post-date" : "1484179200",
-  		"stats" : {
-  			"images" : "1",
-  			"words" : "300"
-  		},
-  		"author" : {
-  			"name" : "Kayla Medica",
-  			"id" : "kyla-medica"
-  		},
-  		"poster" : {
-				"small" : "/images/pictures/poster.jpg",
-				"medium" : "/images/pictures/poster.jpg",
-				"large" : "/images/pictures/poster.jpg"
-  		},
-  		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
+  		"summary" : "This is officially the first post. I am nervous and tipsy, also grateful and excited. It feels pretty nice to be able to start something that’s meant to inspire thousands and be the creative outlet for skilled film photographers, writers, and artists."
   	}
   ]
 }

@@ -31,6 +31,7 @@ class App extends React.PureComponent {
 
 	// manipulate nav view & GA tracking
 	componentDidMount(){
+    console.log(process.env.NODE_ENV)
 		this.handleRouteChnange()
 		this.props.history.listen((location, action) => this.handleRouteChnange())
     this.props.getUserSession()

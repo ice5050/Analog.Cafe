@@ -21,13 +21,12 @@ const bleed = css`
 	margin-left: 		-${ props => props.theme.size.block.column.safety }em;
 	margin-right: 	-${ props => props.theme.size.block.column.safety }em;
 	margin-bottom: 	0;
-	margin-top: 		0;
 	width: 					100vw !important;
 	max-width: 			100vw !important;
 	box-shadow: 		none;
 	border-radius: 	0;
 
-	${ props => props.theme.size.breakpoint.min.l`padding-top: ${ props => props.theme.size.block.spacing }em;`}
+	${ props => props.theme.size.breakpoint.min.l`margin-top: ${ props => props.theme.size.block.spacing }em;`}
 
 	${ props => props.feature ? props => props.theme.size.breakpoint.min.l`
 		margin-left:	calc(( -100vw + ${ props => props.theme.size.block.column.maxwidth.m }px )/2 - ${ props => props.theme.size.block.column.safety }em );
@@ -37,16 +36,20 @@ const bleed = css`
 		margin-left:	calc(( -100vw + ${ props => props.theme.size.block.column.maxwidth.l }px )/2 - ${ props => props.theme.size.block.column.safety }em );
 	`
 	: null }
+	${ props => props.theme.size.breakpoint.max.m`
+		margin-top: 0;
+	`}
 `
 export const Figure = styled.figure`
-	overflow: hidden;
-	padding: 				0;
-	margin: 				${ props => props.theme.size.block.spacing / 2 }em  ${ props => props.theme.size.block.spacing }em ${ props => props.theme.size.block.spacing }em -${ props => props.theme.size.block.column.maxwidth.m / 4 }px;
+	overflow: 			hidden;
 	position: 			relative;
+	padding: 				0;
+	margin: 				${ props => props.theme.size.block.spacing /2 }em  ${ props => props.theme.size.block.spacing }em ${ props => props.theme.size.block.spacing }em -${ props => props.theme.size.block.column.maxwidth.m / 4 }px;
 	z-index: 				${ props => props.theme.layer.up };
 	width: 					85%;
 	float: 					left;
 	background:			${ props => props.theme.color.background };
+
 
 	${ shadow }
 
@@ -66,6 +69,7 @@ export const Figure = styled.figure`
 	`}
 
 	${ props => props.feature ? bleed : props => props.theme.size.breakpoint.max.m`
+
 		margin-left: 0 !important;
 		border-radius:	${ props => props.theme.effects.borderRadius.small }em;
 	`}
@@ -83,8 +87,12 @@ export const Figure = styled.figure`
 
 
 	&.focus {
-		box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight },
-								0 ${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
+		border-top-right-radius: 0;
+		border-top-left-radius: 0;
+		box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
+		figcaption {
+			box-shadow:	0 ${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight } inset;
+		}
 		z-index: 		${ props => props.theme.layer.up + 1 };
 	}
 
@@ -115,9 +123,4 @@ export const Caption = styled(PictureCaption)`
 	}
 	textarea { font-size: 1em !important; text-align: center; overflow: hidden; }
 	${ props => props.feature && captionBlock }
-`
-export const Byline = styled.div`
-	font-variant: normal;
-	font-style: italic;
-	${'' /* ${ props => props.composer && `opacity: .5;` } */}
 `

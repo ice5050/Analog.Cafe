@@ -1,4 +1,4 @@
-{  
+{
   "status": "ok",
   "filters": {
 		"tags": [
@@ -9,84 +9,31 @@
 	"page": {
   	"current" : "1",
   	"total" : "1",
-  	"items-total": "2",
+  	"items-total": "1",
   	"items-per-page" : "10"
   },
   "items": [
   	{
-  		"tag" : "photo-essay",
-  		"slug" : "why-shoot-film-8945",
-  		"title" : "Why Shoot Film?",
-  		"subtitle" : "Subtitle 2",
-  		"id" : "0000001",
-  		"post-date" : "1484179200",
-  		"stats" : {
-  			"images" : "3",
-  			"words" : "300"
-  		},
-  		"author" : {
-  			"name" : "Kayla Medica",
-  			"id" : "kyla-medica"
-  		},
-  		"poster" : {
-				"small" : "/images/pictures/poster.jpg",
-				"medium" : "/images/pictures/poster.jpg",
-				"large" : "/images/pictures/poster.jpg"
-  		},
-  		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
-  	},
-  	{
-  		"tag" : "photo-essay",
-  		"slug" : "why-shoot-film-8945",
-  		"title" : "Why Shoot Film 2",
-  		"subtitle" : "",
-  		"id" : "0000003",
-  		"post-date" : "1484179200",
-  		"stats" : {
-  			"images" : "1",
-  			"words" : "300"
-  		},
-  		"author" : {
-  			"name" : "Kayla Medica",
-  			"id" : "kyla-medica"
-  		},
-  		"poster" : {
-				"small" : "/images/pictures/poster.jpg",
-				"medium" : "/images/pictures/poster.jpg",
-				"large" : "/images/pictures/poster.jpg"
-  		},
-  		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
+      "tag" : "photo-essay",
+      "slug" : "brighton-beach-jrwe",
+    	"title" : "Brighton Beach",
+      "subtitle" : "",
+    	"id" : "jrwe",
+    	"post-date" : "1501300500",
+    	"stats" : {
+    		"images" : "6",
+    		"words" : "253"
+    	},
+    	"author" : {
+    		"name" : "Lee Clark",
+    		"id" : "lee-clark"
+    	},
+    	"poster" : {
+    		"small" : "/images/pictures/brighton-beach-015.jpg",
+    		"medium" : "/images/pictures/brighton-beach-015.jpg",
+    		"large" : "/images/pictures/brighton-beach-015.jpg"
+    	},
+    	"summary" : "Brighton Beach is a Russian community neighbourhood in New York. When I was growing up in Moscow as a kid I’ve heard a lot about it on TV: the magical place where one can become and live like an American. During the early 90s, there was an obsession with everything USA; it suddenly became “amazing and wonderful”, instead of “the villain” — a narrative it was given for over fifty years prior. Perestroika flipped the entire culture onto its head."
   	}
   ]
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

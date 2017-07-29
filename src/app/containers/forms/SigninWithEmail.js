@@ -2,19 +2,16 @@
 import React from "react"
 
 // components
-import { ModalDispatch } from "../../Modal"
-import { Button } from "../../../components/Button"
-import { SubtitleInput } from "../../../components/InputText"
+import { ModalDispatch } from "../Modal"
+import { Button } from "../../components/Button"
+import { SubtitleInput } from "../../components/InputText"
 
 // styles
-import { Form } from "./styles"
+import { Form } from "../../components/FormStyles"
 
 
 // helpers
-const validateEmail = (email) => {
-  const rule = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i
-  return rule.test(email)
-}
+import validateEmail from "./helpers/validateEmail"
 
 // render
 export default class extends React.Component {

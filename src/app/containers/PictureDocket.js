@@ -4,39 +4,12 @@ import React from "react"
 // components
 import PictureDocket from "../components/PictureDocket"
 import { CardHeader } from "../components/Card/styles"
-import { GridRow, Square, AspectRatio } from "../components/GridStyles"
-import Link from "../components/Link"
+import { Caption } from "../components/CaptionStyles"
+import { GridContainer, GridRow, Square, GridButton, AspectRatio } from "../components/GridStyles"
+import { ModalDispatch } from "./Modal"
 
 // styles
-import placeholder from "../components/icons/images/placeholder-figure.png"
-
-
-// dictionary
-import styled from "styled-components"
-const SquareButton = styled(Square)`
-	cursor: pointer;
-	display: flex;
-  justify-content: center;
-  text-align: center;
-	align-items: center;
-	background-color: ${ props => props.theme.color.brand };
-	h3 { padding: 0; }
-	&:active {
-		background-color: ${ props => props.theme.color.foreground };
-	}
-
-	${ props => props.theme.size.breakpoint.max.m`
-		h3 {
-			font-size: 1.5em;
-		}
-	`}
-`
-const Hint = styled.div`
-	font-style: italic;
-	font-size: ${ props => props.theme.size.font.make.smaller }em;
-	display: block;
-	text-align: center;
-`
+import placeholder from "../components/icons/images/placeholder-figure.jpg"
 
 // export
 export default class extends React.Component {
@@ -99,16 +72,24 @@ export default class extends React.Component {
     return (
 			<PictureDocket>
 				<CardHeader>
-					<h3>Add Image</h3>
+					<h3 style={{ paddingTop: ".25em" }}>Add an image:</h3>
 					<a href="#close" onClick={ this.handleClose.bind(this) } >✕</a>
 				</CardHeader>
-				<div>
+				<GridContainer>
 					<GridRow>
 						<Square><AspectRatio><img src="/images/thumbnails/square.jpg" alt=""/></AspectRatio></Square>
 						<Square><img src="/images/thumbnails/square.jpg" alt=""/></Square>
-						<SquareButton onClick={ this.initFileUpload }>
-							<h3>Upload<br />New</h3>
-						</SquareButton>
+						<GridButton onClick={ this.initFileUpload } red>
+							<div>
+								<span
+									role="img"
+									aria-label="Laptop or mobile device"
+									style={{}}
+								>💻📱</span>
+								<br />
+								Upload New
+							</div>
+						</GridButton>
 					</GridRow>
 					<GridRow>
 						<Square><AspectRatio><img src="/images/thumbnails/square.jpg" alt=""/></AspectRatio></Square>
@@ -120,8 +101,17 @@ export default class extends React.Component {
 						<Square><img src="/images/thumbnails/square.jpg" alt=""/></Square>
 						<Square><img src="/images/thumbnails/square.jpg" alt=""/></Square>
 					</GridRow>
-				</div>
-				<Hint><Link>About image suggestions</Link></Hint>
+				</GridContainer>
+				<Caption style={{ opacity: ".5", textAlign: "center"}}><ModalDispatch
+					with={{
+						info: {
+							image: "/images/banners/image-suggestions.jpg",
+							title: "Image Suggestions",
+							text: "You can freely use these hand-picked film photographs by the editor within your submission. A credit to the original photographer will be added automatically. Of course you can still upload your own images!"
+						},
+						id: "hints/image-suggestions"
+					}}
+				>What is this?</ModalDispatch></Caption>
         <input
           type=								"file"
           accept=							"image/x-png,image/jpeg"

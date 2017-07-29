@@ -35,6 +35,7 @@ class ModalDispatch extends React.Component {
     const Wrapper = wrapperElement
 		return(
       <Wrapper
+        style={ this.props.style }
         onClick={ this.invokeModal.bind(this) }
         { ...wrapperProps }>
         { this.props.children }

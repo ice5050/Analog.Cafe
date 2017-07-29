@@ -6,7 +6,6 @@ const ROUTE_USER_API = "/api/auth/user"
 
 // return
 export function getSession(request={ url: ROUTE_USER_API }) {
-	console.log("check")
 	return dispatch => {
 		axios({
 			  method: 			request.method || "get",
