@@ -2,19 +2,14 @@
 import React from "react"
 
 // components
-import { ModalDispatch } from "../Modal"
 import { Button } from "../../components/Button"
 import { SubtitleInput } from "../../components/InputText"
 
 // styles
 import { Form } from "../../components/FormStyles"
 
-
 // helpers
-const validateEmail = (email) => {
-  const rule = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i
-  return rule.test(email)
-}
+import validateEmail from "./helpers/validateEmail"
 
 // render
 export default class extends React.Component {
@@ -28,10 +23,11 @@ export default class extends React.Component {
     this.setState({ email: event.target.value || "", warning: false })
   }
   handleSubmit(event){
-    if(validateEmail(this.state.email)) return
     event.stopPropagation()
     event.preventDefault()
-    this.setState({ warning: true })
+    validateEmail(this.state.email)
+      ? window.open("https://cafe.us4.list-manage.com/subscribe/post?u=256339f7eafa36f2f466aca44&id=12d8a644fa&MERGE0=" + this.state.email)
+      : this.setState({ warning: true })
   }
   render() {
 		return(
@@ -41,18 +37,7 @@ export default class extends React.Component {
           onChange={ this.handleEmailChange }
           required
         />
-
-        <ModalDispatch
-            with={{
-              request: {
-                url: "/api/auth/messages/email",
-                data: { email: this.state.email },
-              }
-            }}
-            wrapperElement="div"
-          >
-          <Button onClick={ this.handleSubmit } red>Remind Me</Button>
-        </ModalDispatch>
+        <Button onClick={ this.handleSubmit } red>Remind Me</Button>
       </Form>
 		)
 	}

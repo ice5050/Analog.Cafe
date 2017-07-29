@@ -11,10 +11,7 @@ import { Form } from "../../components/FormStyles"
 
 
 // helpers
-const validateEmail = (email) => {
-  const rule = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i
-  return rule.test(email)
-}
+import validateEmail from "./helpers/validateEmail"
 
 // render
 export default class extends React.Component {
