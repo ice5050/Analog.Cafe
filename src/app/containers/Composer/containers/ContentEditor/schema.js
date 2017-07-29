@@ -3,8 +3,9 @@ import React from "react"
 
 // components
 import Picture from "../../../Picture"
+import PictureDocket from "../../../PictureDocket"
 import Link from "../../../../components/Link"
-import Placeholder from "./containers/Placeholder"
+import Placeholder from "./components/Placeholder"
 
 
 // return
@@ -15,7 +16,7 @@ export const schema = {
 										style={{ position: "relative" }}
 									>
 										<Placeholder { ...props }>
-											The story behind your image or series goes here...
+											Write your story...
 										</Placeholder>
 										{ props.children }
 									</p>,
@@ -33,6 +34,7 @@ export const schema = {
 										return <blockquote { ...props.attributes } className={ className }>{ props.children }</blockquote>
 		},
 		image:	 			Picture,
+		docket:				PictureDocket,
     link: 				props => {
 										const { data } = props.node
 										const href = data.get("href")

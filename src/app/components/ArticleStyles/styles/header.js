@@ -8,7 +8,7 @@ const blockSafety = props => props.theme.size.block.column.safety
 export const Header = styled.header`
 	${ props => props.theme.size.font.auto }
 	text-align: 		center;
-	margin: 				${ blockSafety }em auto;
+	margin: 				${ blockSafety }em auto 0;
 	max-width: 			${ props => props.theme.size.block.column.maxwidth.m }px;
 	border-bottom:	${ props => props.theme.elements.thickBorder };
 	padding: 				0 ${ blockSafety }em ${ blockSafety }em;
@@ -26,6 +26,9 @@ export const Byline = styled.div`
 	font-size: 			${ props => props.theme.size.font.make.smaller }em;
 	font-variant: 	small-caps;
 	display: 				block;
-	cursor: 				pointer;
 	display: 				inline;
+	& a {
+		font-variant: normal;
+		font-style: italic;
+	}
 `

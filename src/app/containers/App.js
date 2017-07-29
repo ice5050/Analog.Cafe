@@ -1,61 +1,94 @@
 // tools
 import React from "react"
-import { Router, Route, browserHistory, IndexRoute } from "react-router"
-import Helmet from "react-helmet"
 import ReactGA from "react-ga"
+import { withRouter } from "react-router"
 
-// theme
-import Paper from "../themes/Paper"
+// redux
+import { connect } from "react-redux"
+import { setView as setNavView, setLocation as setNavLocation } from "../../actions/navActions"
+import { getSession as getUserSession } from "../../actions/userActions"
 
 
-// views and components
-import { About, NotFound, Login, Publication } from "../components/views"
-import { Intro, Submit } from "../components/views/Submit"
-import Composer from "./Composer"
-import List from "./List"
-import Post from "./Post"
-
+import { Modal } from "./Modal"
+import Nav from "./Nav"
+import AppRoutes from "../components/views/AppRoutes"
 
 // init GA tracking
-ReactGA.initialize("UA-91374353-3")
+ReactGA.initialize("UA-91374353-3", {
+  debug: false,
+  titleCase: true,
+  gaOptions: {}
+})
+const trackView = () => {
+	ReactGA.set({ page: window.location.pathname + window.location.search })
+	ReactGA.pageview(window.location.pathname + window.location.search)
+	window.scrollTo(0,0)
+}
+
 
 // render & route
-export default props => {
-	const updateView = () => {
-		ReactGA.set({ page: window.location.pathname + window.location.search })
-		ReactGA.pageview(window.location.pathname + window.location.search)
+class App extends React.PureComponent {
 
-		window.scrollTo(0,0)
+	// manipulate nav view & GA tracking
+	componentDidMount(){
+    console.log(process.env.NODE_ENV)
+		this.handleRouteChnange()
+		this.props.history.listen((location, action) => this.handleRouteChnange())
+    this.props.getUserSession()
 	}
-	return (
-		<Paper>
-			<Helmet
-				defaultTitle="Analog.Cafe ☕️"
-				titleTemplate="%s ☕️ Analog.Cafe"
-			/>
+	handleRouteChnange = () => {
+		trackView()
+		switch (this.props.history.location.pathname) {
+			case "/submit/compose":
+			case "/submit/compose/":
+				this.props.setNavView("COMPOSER")
+				this.props.setNavLocation({ "bottom": false })
+				break
+			case "/sign-in":
+			case "/sign-in/":
+				this.props.setNavView("VISITOR")
+				this.props.setNavLocation({ "top": false })
+				break
+			default:
+        if(this.props.history.location.state && this.props.history.location.state.status === "404"){
+          this.props.setNavView("VISITOR")
+  				this.props.setNavLocation({
+            top: false,
+            bottom: false,
+          })
+        }
+        else{
+          this.props.setNavView("VISITOR")
+  				this.props.setNavLocation({})
+        }
+		}
+	}
 
-			<Router history={ browserHistory } onUpdate={ updateView } >
-
-				<Route path="/"			 					component={ Publication } >
-					<IndexRoute 								component={ List } />
-					<Route path="photo-essays"	component={ List } />
-					<Route path="articles"			component={ List } />
-					<Route path="about"			 		component={ About } />
-
-					<Route path="zine/*"				component={ Post } />
-					<Route path="author/*"			component={ List } />
-				</Route>
-
-				<Route path="submit"					component={ Submit } >
-					<IndexRoute 								component={ Intro } />
-					<Route path="compose" 			component={ Composer } />
-				</Route>
-
-				<Route path="log-in"						component={ Login } />
-				<Route path="*"								component={ NotFound } status={404} />
-
-			</Router>
-
-		</Paper>
-	)
+	render(){
+		return (
+      <div>
+  			<Nav top />
+  				<AppRoutes />
+  			<Nav bottom />
+        <Modal />
+      </div>
+		)
+	}
 }
+
+
+// connet with redux
+const mapDispatchToProps = dispatch => {
+	return {
+		setNavView: view => {
+			dispatch(setNavView(view))
+		},
+		setNavLocation: location => {
+			dispatch(setNavLocation(location))
+		},
+    getUserSession: () => {
+      dispatch(getUserSession())
+    }
+	}
+}
+export default withRouter(connect(null, mapDispatchToProps)(App))

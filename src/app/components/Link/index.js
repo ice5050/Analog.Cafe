@@ -1,15 +1,15 @@
 // tools
 import React from "react"
-import { Link } from "react-router"
+import { NavLink } from "react-router-dom"
 
 // constants
-import { DOMAIN_NAME } from "./domain"
+import { DOMAIN_NAME } from "../../../constants/link"
 
 // styles
 export default props => {
 
 	// all links within analog.cafe domain should become relative
-	let to = props.to || "/" // <-- with fallback to domain root
+	let to = props.to || "#" // <-- with fallback
 	to = to.replace("http://" + DOMAIN_NAME,"")
 		.replace("https://" + DOMAIN_NAME,"")
 		.replace("http://www." + DOMAIN_NAME,"")
@@ -25,5 +25,5 @@ export default props => {
 
 	// internal links
 	else
-		return <Link to={ to } { ...props }>{ props.children }</Link>
+		return <NavLink to={ to } { ...props }>{ props.children }</NavLink>
 }

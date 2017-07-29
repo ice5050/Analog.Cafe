@@ -1,112 +1,99 @@
 // tools
 import React from "react"
-import axios from "axios"
-import ModalLink from "../Modal"
+import { withRouter } from "react-router"
+import { ModalDispatch } from "../Modal"
 
+// redux & state
+import { connect } from "react-redux"
+import { fetchPage } from "../../../actions/listActions"
+import { setPage as setNextPost } from "../../../actions/postActions"
+import { ROUTE_LIST_API, PAGE_ITERATOR_STRING } from "../../../constants/list"
 
 // components
 import ListDescription from "../../components/ListDescription"
-import Button from "../../components/Button"
+import { LinkButton } from "../../components/Button"
 import { default as ListBlock } from "../../components/List"
 import { Section, Article } from "../../components/ArticleStyles"
 
-// state
-import defaultListState from "./state.json"
-
-// helper
+// helpers
 import { getListHeaders } from "./helpers"
 
-// routes
-import { ROUTE_LIST_API } from "./routes"
-
-
-// render
-export default class extends React.Component {
-	state = defaultListState
-
-  _fetch = (page=1) => {
-
-  	//
-  	// this function, as well as getListHeaders() heavily relies on URL
-  	//
-
-  	// filter either by author or tags (but not both)
-  	let pathname = this.props.location.pathname
-  	let uriParams = getListHeaders(pathname, page).search
-
-
-    // proceed only if the search parameters are different from already loaded page
-  	if(this.state.page.loaded === uriParams) return
-
-
-		// fetch & update state
-		axios.get(ROUTE_LIST_API + uriParams + ".json")
-			.then(response => {
-				let data = response.data
-				let items = data.items
-
-				// grow list only if...
-				if(
-					// it's not a placeholder
-					this.state.items[0].type !== "placeholder"
-					// second (or later) page received
-					&& parseInt(data.page.current, 0) > 1
-				)
-				items = [...this.state.items, ...data.items]
-
-				// save state
-				this.setState({
-					status: 			data.status,
-					filters:			data.filters,
-
-					page:					{...data.page, loaded: uriParams},
-					pathname,
-					items,
-				})
-			})
-			.catch(error => console.log(error))
+// return
+class List extends React.Component {
+	fetchNewList = () => {
+		this.props.fetchPage({
+			url: (ROUTE_LIST_API + getListHeaders(this.props.history.location.pathname, this.props.list.page.current).search).split(PAGE_ITERATOR_STRING)[0]
+		})
+	}
+	handleLoadMore = event => {
+		event.preventDefault()
+		this.props.fetchPage({
+			url: (this.props.list.requested.url).split(PAGE_ITERATOR_STRING)[0] + PAGE_ITERATOR_STRING + (parseInt(this.props.list.page.current, 0) + 1)
+		}, true)
+	}
+	componentDidMount() {
+    this.unlisten = this.props.history.listen(location => this.fetchNewList())
+		this.fetchNewList()
   }
-
-  handleMore = e => {
-  	e.preventDefault()
-  	this._fetch(parseInt(this.state.page.current, 0) + 1)
+  componentWillUnmount() {
+    this.unlisten()
   }
-
-  // load on mount
-  componentDidMount = () => this._fetch()
-
-  // load on url change (reset the state)
-  componentDidUpdate = () => {
-  	if(this.props.location.pathname !== this.state.pathname) this._fetch()
-  }
-
 	render() {
 		return(
 			<div>
 				<ListDescription>
 					<div>
 							{
-								this.state.filters.author
-								? <ModalLink
-									title={ this.state.filters.author.name }
-									fetch={ "/api/author/" + this.state.filters.author.id }
-								>
+								this.props.list.filters.author ?
 									<q><em>
 										{ getListHeaders(this.props.location.pathname).meta.text }
-										<u>{ this.state.filters.author.name || "" }</u>
+										{ this.props.list.filters.author.name &&
+											<ModalDispatch
+												with={{
+													request: {
+														url: "/api/author/" + this.props.list.filters.author.id
+													}
+												}}
+											>{ this.props.list.filters.author.name }</ModalDispatch> }
 									</em></q>
-								</ModalLink>
 								: <q><em>{ getListHeaders(this.props.location.pathname).meta.text }</em></q>
 							}
 						&nbsp;{ getListHeaders(this.props.location.pathname).meta.emoji }
 					</div>
 				</ListDescription>
-				<ListBlock  status={ this.state.status } items={ this.state.items } />
 
-				{ parseInt(this.state.page.total, 0) > 1 && parseInt(this.state.page.total, 0) > parseInt(this.state.page.current, 0) ? <Button to="#more" red onClick={ this.handleMore.bind(this)} >Load More</Button> : null }
+				<ListBlock
+					status={ this.props.list.status }
+					items={ this.props.list.items }
+					nextPostTitle={ nextPostTitle => this.props.setNextPost({ title: nextPostTitle }) }
+				/>
+
+				{
+					parseInt(this.props.list.page.total, 0) > 1 && parseInt(this.props.list.page.total, 0) > parseInt(this.props.list.page.current, 0) ?
+					<LinkButton to="#more" red onClick={ this.handleLoadMore.bind(this) }>Load More</LinkButton> : null
+				}
 
 				<Article><Section /></Article>
 			</div>
 		)
 	}
 }
+
+
+// connet with redux
+const mapStateToProps = state => {
+	return {
+    list: state.list,
+	}
+}
+const mapDispatchToProps = dispatch => {
+	return {
+    fetchPage: (request, appendItems) => {
+			dispatch(fetchPage(request, appendItems))
+		},
+		setNextPost: (nextPost) => {
+			dispatch(setNextPost(nextPost))
+		}
+	}
+}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(List))

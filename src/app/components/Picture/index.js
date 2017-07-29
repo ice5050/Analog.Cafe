@@ -2,28 +2,44 @@
 import React from "react"
 
 // components
-import ModalLink from "../../containers/Modal"
+import { ModalDispatch } from "../../containers/Modal"
 
 // styles
-import { Image, Figure, Caption, Byline } from "./styles"
+import { Image, Figure, Caption } from "./styles"
+import placeholder from "../icons/images/placeholder-profile.png"
 
 // return
 export default props => {
 	return (
 		<Figure { ...props } >
 			<Image { ...props } />
-			<figcaption>
+			<figcaption style={ props.nocaption && { borderBottom: "8px solid #2c2c2c", height: 0, overflow: "hidden" } }>
 
-			{ props.author
-				? <ModalLink
-					title={ props.author.name }
-					fetch={ "/api/author/" + props.author.id }
-				>
+			{ props.author ?
 					<Caption { ...props } >
 						{ props.children }
-						<Byline { ...props } >Image by <u>{ props.author.name }</u>.</Byline>
+						{
+							props.readOnly ?
+							<div>Image by <span style={ props.author.name === "" ? { display: "none" } : null } ><ModalDispatch
+								with={
+									props.author.id !== "unknown"
+										? {
+											request: {
+											url: "/api/author/" + props.author.id,
+											}
+										}
+										: {
+											info: {
+												image: placeholder,
+												title: "Unknown Author (" + props.author.errorCode + ") 🤔",
+												text: "Seems like there is no author listed... Sorry!"
+											},
+											id: "errors/author"
+										}
+								}
+							>{ props.author.name }</ModalDispatch></span></div> : null
+						}
 					</Caption>
-				</ModalLink>
 				: <Caption { ...props } >{ props.children }</Caption>
 			}
 

@@ -8,7 +8,9 @@ import { Quote } from "./quote"
 const sectionHeading = css`
 	${ props => props.theme.typography.title.auto }
 	font-size: ${ props => props.theme.size.font.make.larger / 1.5 }em;
-	padding-top: 1em;
+	padding-top: ${ props => props.theme.size.block.spacing }em;
+	margin-bottom: ${ props => props.theme.size.block.spacing /4 }em;
+	clear: both;
 `
 const paragraph = css`
 	margin: ${ props => props.theme.size.block.spacing }em 0;
@@ -18,7 +20,7 @@ const paragraph = css`
 `
 const sectionBreak = css`
 	text-align: 	center;
-	padding:			${ props => props.theme.size.block.column.safety }em 0 ${ props => props.theme.size.block.spacing * 2 }em;
+	padding:			${ props => props.theme.size.block.column.safety * 2 }em 0 ${ props => props.theme.size.block.spacing * 4 }em;
 	color:				${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.half).string() };
 	border:				0;
 	margin:				0;
@@ -45,9 +47,12 @@ export const Section = styled.section`
 	padding: 		0 ${ props => props.theme.size.block.column.safety }em;
 
 	&::after {
-		content: 		"";
+		content: 		${ props => props.endsign ? `"❦"` : `""`};
 		clear: 			both;
 		display: 		block;
+		${ props => props.endsign && `padding:` + props.theme.size.block.spacing + `em 0 ` + props.theme.size.block.column.safety * 4 + `em 0;` }
+
+		text-align: center;
 	}
 
 	p		{ ${ paragraph } }

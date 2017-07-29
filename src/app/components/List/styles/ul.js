@@ -89,6 +89,7 @@ export const Ul = styled.ul`
 			&:active::before { visibility: hidden; }
 		}
 		section {
+			position: 				relative;
 			max-width: 				61.5%;
 			padding: 					calc(${ blockSafety }em * 3) ${ blockSafety }em ${ props => props.theme.size.block.spacing }em ${ blockSafety }em;
 			${	props => props.theme.size.breakpoint.max.l`
@@ -124,7 +125,7 @@ export const Ul = styled.ul`
 				overflow: 				hidden;
 				white-space: 			nowrap;
 				text-overflow: 		ellipsis;
-				max-width: 				calc(100% - ${ blockSafety}em * 2);
+				max-width: 				11.5em;
 				${ props => props.theme.size.breakpoint.max.m`{
 					display: 			block;
 					white-space: 	normal;
@@ -151,14 +152,14 @@ export const Ul = styled.ul`
 			${ props => props.status === "loading" && `word-break: break-all;` }
 
 			& > div {
-				max-width: 30em;
+				/* max-width: 30em; */
+				padding-top:	calc(${ blockSpacing }em / 4.5);
+				display: inline-block;
+
 				${ props => props.theme.size.breakpoint.max.m`{
 					width: 				calc(100vw - ${ blockSafety }em * 2);
 					min-width: 		auto;
-					padding-top:	${ blockSafety }em;
-					float:				none;
-					/* clear:				both; */
-					display:			inline;
+					padding-top:	calc(${ blockSafety }em / 2);
 				}` }
 				${ props => props.theme.size.breakpoint.max.xs`{
 					text-align: left;

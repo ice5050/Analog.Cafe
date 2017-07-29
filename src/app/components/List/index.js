@@ -12,8 +12,8 @@ import { ZigzagPicture } from "./styles/zigzag-picture"
 // helper
 import { datestamp } from "./helpers"
 
-// routes
-import { ROUTE_ARTICLE_DIR } from "./routes"
+// constants
+import { ROUTE_ARTICLE_DIR } from "../../../constants/list"
 
 
 // return
@@ -22,23 +22,26 @@ export default props => {
 		<Bleed>
 			<Ul status={ props.status }>
 			{
-				props.items.map(function(item) {
+				props.items.map(item => {
 					return (
 						<li key={ item.id }>
-							<Link to={ item.slug && ROUTE_ARTICLE_DIR + "/" + item.slug }>
+							<Link
+								to={ item.slug && ROUTE_ARTICLE_DIR + "/" + item.slug }
+								onClick={ () => props.nextPostTitle(item.title) }
+							>
 								<section>
 									<figure>
 										{ item.type !== "placeholder" && <img src={ item.poster.medium } alt={ item.title + " poster image" } /> }
 									</figure>
-									<h2>{ item.title }</h2>
-									<Caption>{ item.summary }</Caption>
+									<h2 title={ item.title }>{ item.title }</h2>
+									<Caption status={ props.status }>{ item.summary }</Caption>
 									<div>
 										<Stats { ...props }>{
 											( item.tag === "photo-essay" && item.stats.images === "1" ) ? "Photograph" :
 											(item.tag + "").replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())
 										}{
 											item.type !== "placeholder" && (
-												( item.category !== "photo-essay" ) ?
+												( item.tag !== "photo-essay" ) ?
 												" | "
 													+ Math.round(item.stats.words / 200)
 													+ "-minute read" :

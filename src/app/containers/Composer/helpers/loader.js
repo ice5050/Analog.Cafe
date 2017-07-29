@@ -1,18 +1,17 @@
 // tools
 
 // state
-import defaultContentState from "../containers/ContentEditor/state.json"
-import defaultHeaderState from "../containers/HeaderEditor/state.json"
+import { DEFAULT_COMPOSER_EDITOR_STATE, DEFAULT_COMPOSER_HEADER_STATE } from "../../../../constants/composer"
 
 // return
 export const loadContent = () => {
 	let local = localStorage.getItem("composer-content-state")
-	try { return local ? JSON.parse(local) : defaultContentState }
-	catch (e) { return defaultContentState }
+	try { return local ? JSON.parse(local) : DEFAULT_COMPOSER_EDITOR_STATE }
+	catch (e) { return DEFAULT_COMPOSER_EDITOR_STATE }
 }
 
 export const loadHeader = () => {
 	let local = localStorage.getItem("composer-header-state")
-	try { return local ? JSON.parse(local) : defaultHeaderState }
-	catch (e) { return defaultHeaderState }
+	try { return local ? JSON.parse(local) : DEFAULT_COMPOSER_HEADER_STATE }
+	catch (e) { return DEFAULT_COMPOSER_HEADER_STATE }
 }

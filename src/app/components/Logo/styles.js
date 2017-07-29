@@ -3,12 +3,12 @@ import styled from "styled-components"
 import Color from "color"
 
 // components
-import Logo from "../LogoGraphic"
+import Logo from "../icons/components/AnalogCafe"
 
 // css
 export const LogoOutline = styled.div`
 	position: 	${ props => props.stamp ? "relative" : "absolute" };
-	top: 				${ props => (props.theme.size.block.column.safety) / 2 }em;
+	top: 				-${ props => (props.theme.size.block.column.safety) / 2 + 1 }em;
 	left: 			calc(50% - ${ props => props.theme.size.font.make.larger - (props.theme.size.block.spacing / 2) }em);
 	z-index: 		${ props => props.theme.layer.up };
 	padding: 		${ props => props.theme.size.block.spacing }em;

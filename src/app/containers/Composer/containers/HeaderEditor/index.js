@@ -4,12 +4,13 @@ import { saveHeader } from "../../helpers/saver"
 import { loadHeader } from "../../helpers/loader"
 
 // components
-import { TitleCase } from "../../../TitleCase"
-import ModalLink from "../../../Modal"
+import TitleCase from "../../../TitleCase"
+import { ModalDispatch } from "../../../Modal"
 
 
 // styles
 import { Header, Byline } from "../../../../components/ArticleStyles"
+import placeholder from "../../../../components/icons/images/placeholder-profile.png"
 
 
 
@@ -47,10 +48,28 @@ export default class extends React.Component {
 					inputDesignation="subtitle"
 				></TitleCase>
 
-				<ModalLink
-					title={ this.props.author.name }
-					fetch={ "/api/author/" + this.props.author.id }
-				><Byline>Link to <u>Your Profile</u> will appear here.</Byline></ModalLink>
+
+					<Byline>
+						Link to <ModalDispatch
+							with={
+								this.props.user.status === "ok"
+								? {
+									request: {
+										url: "/api/author/" + this.props.user.info.author.id,
+									},
+								}
+								: {
+									info: {
+										image: placeholder,
+										title: "Your Profile",
+										text: "You can create, view or update your profile after you send your submission. 🚀"
+									},
+									id: "hints/author"
+								}
+							}
+						>Your Profile</ModalDispatch> will appear here.
+					</Byline>
+
 
 			</Header>
 		)
