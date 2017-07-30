@@ -6,14 +6,14 @@
   	"image" : "/images/avatars/dmitrizzle.jpg",
   	"text" : "Film photographer, writer, developer, designer, creator of Analog.Cafe.",
   	"buttons" : [
-  		{
+      {
+        "to": "/author/dmitrizzle",
+        "text": "More on Analog.Cafe",
+        "red": true
+      },
+      {
   			"to": "https://twitter.com/dmitrizzle",
-  			"text": "Find me on Twitter"
-  		},
-  		{
-  			"to": "/author/dmitrizzle",
-  			"text": "More on Analog.Cafe",
-  			"red": true
+  			"text": "Follow on Twitter"
   		}
   	]
   }

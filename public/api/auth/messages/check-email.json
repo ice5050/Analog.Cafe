@@ -2,7 +2,7 @@
   "status": "ok",
   "info": {
   	"title" : "Sign in With Email",
-  	"text" : "Please check your d@analog.cafe email account and click the link in the email we just sent you.",
+  	"text" : "Please check your ${USER_EMAIL} email account and click the link in the email we just sent you.",
     "image": "/images/banners/check-email.png"
   }
 }

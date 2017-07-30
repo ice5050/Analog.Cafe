@@ -32,8 +32,8 @@ export default props => {
 				<h3>How to submit.</h3>
 				<p>It&rsquo;s very easy to use the <strong>Analog.Cafe Composer</strong>. You can insert your images and edit text with ease. The Composer tool will do all the formatting and beautification for you.</p>
 				<Figure src="/images/pictures/submit.gif" nocaption></Figure>
-				<p><strong>Image Suggestions</strong> &mdash; when you upload your images, you will see <em>Image Suggestions</em>. They are hand-picked selections by the editor that you can use freely. A credit to the original photographer will appear automatically.</p>
-				<p>You will also have a choice to participate or opt out from the Image Suggestions program.</p>
+				<p><strong>Image Suggestions</strong> &mdash; when you upload your images, you will see <em>Image Suggestions:</em> hand-picked photographs that you can use freely in your submission.</p>
+				<p>You can choose whether you want your photographs to be considered for Image Suggestions or not when you see “More Exposure?” question upon sending your submission.</p>
 
 				<h3>How to get accepted.</h3>
 				<p>Analog.Cafe focuses heavily on film photography as the subject of every submission. That being said, if your work suits the general style of the publication but doesn&rsquo;t use photographs shot on film it can still be accepted.</p>

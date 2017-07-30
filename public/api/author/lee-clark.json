@@ -7,13 +7,13 @@
   	"text" : "Lee Clark is a teacher and film photographer based in Los Angeles.",
   	"buttons" : [
   		{
-  			"to": "http://leeclarkphotos.org",
-  			"text": "Author’s Website"
-  		},
-  		{
   			"to": "/author/lee-clark",
   			"text": "More on Analog.Cafe",
   			"red": true
+  		},
+      {
+  			"to": "http://leeclarkphotos.org",
+  			"text": "Visit Author’s Website"
   		}
   	]
   }

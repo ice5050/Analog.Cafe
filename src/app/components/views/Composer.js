@@ -3,7 +3,8 @@ import React from "react"
 
 // components
 import { Article } from "../ArticleStyles"
-import { LinkButton } from "../Button"
+import { Button } from "../Button"
+import { ModalDispatch } from "../../containers/Modal"
 import Composer from "../../containers/Composer"
 
 
@@ -12,7 +13,15 @@ export default props => {
 	return (
 		<Article>
 			<Composer />
-			<LinkButton to="/sign-in" red>Send Submission <span role="img" aria-label="Rocket">🚀</span></LinkButton>
+			<ModalDispatch
+				with={{
+					request: {
+						url: "/api/messages/submit-consent"
+					}
+				}}
+				wrapperElement="div"
+			>
+			<Button to="/sign-in" red>Send Submission <span role="img" aria-label="Rocket">🚀</span></Button></ModalDispatch>
 		</Article>
 	)
 }

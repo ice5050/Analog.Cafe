@@ -22,7 +22,7 @@ export const ROUTE_META = {
 	},
 	"/author/*"			:	{
 											"text" : "Submissions by ",
-											"emoji"				: "👤",
+											"emoji"				: "🤘",
 	},
 
 }

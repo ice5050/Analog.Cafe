@@ -16,6 +16,7 @@ export default props => {
 			<Switch>
 				<Route exact path="/submit" component={ Submit } />
 				<Route exact path="/submit/compose" component={ Composer } />
+				<Route path="/submit/*" component={ NotFound } />
 			</Switch>
 	)
 	else
