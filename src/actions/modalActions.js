@@ -1,5 +1,6 @@
 // tools
 import axios from "axios"
+import errorMessage from "../constants/error-messages"
 
 // return
 export function initCard(state) {
@@ -44,7 +45,7 @@ export function fetchCard(request) {
 				status: "ok",
 				info: {
 					title: "Error " + error.response.status + " 😧",
-					text: "Couldn’t load the card. Sorry!",
+					text: errorMessage.FAILED_CARD,
 				}
 			}, { url: "errors/modal" }))
 		)

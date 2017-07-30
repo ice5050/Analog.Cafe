@@ -1,6 +1,7 @@
 // tools
 import axios from "axios"
 import { setCard } from "./modalActions"
+import errorMessage from "../constants/error-messages"
 
 const ROUTE_USER_API = "/api/auth/user"
 
@@ -20,7 +21,7 @@ export function getSession(request={ url: ROUTE_USER_API }) {
 				status: "ok",
 				info: {
 					title: "Error " + error.response.status + " 😧",
-					text: "Couldn’t verify your account. Sorry!",
+					text: errorMessage.FAILED_LOGIN,
 				}
 			}, { url: "errors/user" }))
 		)

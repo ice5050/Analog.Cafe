@@ -1,6 +1,7 @@
 // tools
 import axios from "axios"
 import { setCard } from "./modalActions"
+import errorMessage from "../constants/error-messages"
 
 // return
 export function setPage(page, appendItems) {
@@ -39,7 +40,7 @@ export function fetchPage(request, appendItems = false) {
           status: "ok",
           info: {
             title: "Error " + error.response.status + " 😧",
-            text: "Couldn’t load the list. Sorry!",
+            text: errorMessage.FAILED_LIST,
           }
         }, { url: "errors/list" }))
       )

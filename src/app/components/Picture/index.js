@@ -1,5 +1,6 @@
 // tools
 import React from "react"
+import errorMessage from "../../../constants/error-messages"
 
 // components
 import { ModalDispatch } from "../../containers/Modal"
@@ -31,8 +32,8 @@ export default props => {
 										: {
 											info: {
 												image: placeholder,
-												title: "Unknown Author (" + props.author.errorCode + ") 🤔",
-												text: "Seems like there is no author listed... Sorry!"
+												title: "Error " + props.author.errorCode + " 😧",
+												text: errorMessage.NO_AUTHOR
 											},
 											id: "errors/author"
 										}
