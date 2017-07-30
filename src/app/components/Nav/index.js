@@ -39,28 +39,28 @@ const NavLinkSendLabel = () => {
 }
 const NavLinkSend = props => {
 	return (
-		<div>{
-			props.userStatus === "ok"
-			? <ModalDispatch
-					with={{
-						info: {
-							// image: done,
-							title: "Please Confirm ✅",
-							text: "Please confirm that you would like to send your submission for review.",
-							"buttons" : [
-					  		{
-					  			"to": "/submit/thank-you",
-					  			"text": "Confirm",
-					  			"red": true
-					  		}
-					  	]
-						},
-						id: "hints/save"
-					}}
-					style={{ textDecoration: "none" }}
-				><NavLinkSendLabel/></ModalDispatch>
-			: <NavLink exact to={ "/sign-in"	}><NavLinkSendLabel/></NavLink>
-		}</div>
+		<ModalDispatch
+			with={{
+				info: {
+					image: "/images/banners/image-suggestions-action.jpg",
+					title: "More Exposure?",
+					text: "If you choose “Yes,” your photos might be featured in more Analog.Cafe articles.",
+					"buttons" : [
+						{
+			  			"to": "/submit/confirm-full-consent",
+			  			"text": "Yes",
+							"red": true
+			  		},
+			  		{
+			  			"to": "/submit/confirm-basic-consent",
+			  			"text": "No"
+			  		}
+			  	]
+				},
+				id: "dialog/submit-suggestions"
+			}}
+			style={{ textDecoration: "none" }}
+		><NavLinkSendLabel/></ModalDispatch>
 	)
 }
 
