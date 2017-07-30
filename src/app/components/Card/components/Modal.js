@@ -14,7 +14,7 @@ export const ModalCard = props => {
 		}}>
 			<CardHeader>
 				<h3>{ props.title }</h3>
-				<a href="#close" onClick={ event => { event.preventDefault(); props.hideCard() } } >✕</a>
+				<a href="#close" onClick={ event => event.preventDefault() }>✕</a>
 			</CardHeader>
 			<figure>
 				<img

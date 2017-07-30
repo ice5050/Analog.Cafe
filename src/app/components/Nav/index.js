@@ -41,23 +41,9 @@ const NavLinkSend = props => {
 	return (
 		<ModalDispatch
 			with={{
-				info: {
-					image: "/images/banners/image-suggestions-action.jpg",
-					title: "More Exposure?",
-					text: "If you choose “Yes,” your photos might be featured in more Analog.Cafe articles.",
-					"buttons" : [
-						{
-			  			"to": "/submit/confirm-full-consent",
-			  			"text": "Yes",
-							"red": true
-			  		},
-			  		{
-			  			"to": "/submit/confirm-basic-consent",
-			  			"text": "No"
-			  		}
-			  	]
-				},
-				id: "dialog/submit-suggestions"
+				request: {
+					url: "/api/messages/notify/submit-consent"
+				}
 			}}
 			style={{ textDecoration: "none" }}
 		><NavLinkSendLabel/></ModalDispatch>

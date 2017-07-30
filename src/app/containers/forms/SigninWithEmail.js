@@ -42,7 +42,7 @@ export default class extends React.Component {
         <ModalDispatch
             with={{
               request: {
-                url: "/api/messages/email",
+                url: "/api/auth/messages/notify/check-email",
                 data: { email: this.state.email },
               }
             }}
