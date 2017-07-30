@@ -16,7 +16,7 @@ const Nav = props => {
     <Wrapper>
       {
         props.nav.view === "COMPOSER"
-          ? <ComposerNav draftStatus={ props.composer.draftStatus } />
+          ? <ComposerNav draftStatus={ props.composer.draftStatus } userStatus={ props.user.status } />
           : <CommonNav userStatus={ props.user.status } />
       }
     </Wrapper>

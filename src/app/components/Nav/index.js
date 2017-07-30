@@ -34,6 +34,36 @@ export const CommonNav = props => {
 	)
 }
 
+const NavLinkSendLabel = () => {
+	return <span>Send <span role="img" aria-label="Rocket">🚀</span></span>
+}
+const NavLinkSend = props => {
+	return (
+		<div>{
+			props.userStatus === "ok"
+			? <ModalDispatch
+					with={{
+						info: {
+							// image: done,
+							title: "Please Confirm ✅",
+							text: "Please confirm that you would like to send your submission for review.",
+							"buttons" : [
+					  		{
+					  			"to": "/submit/thank-you",
+					  			"text": "Confirm",
+					  			"red": true
+					  		}
+					  	]
+						},
+						id: "hints/save"
+					}}
+					style={{ textDecoration: "none" }}
+				><NavLinkSendLabel/></ModalDispatch>
+			: <NavLink exact to={ "/sign-in"	}><NavLinkSendLabel/></NavLink>
+		}</div>
+	)
+}
+
 export const ComposerNav = props => {
 	return(
 		<ul>
@@ -49,7 +79,7 @@ export const ComposerNav = props => {
 				style={{ textDecoration: "none" }}
 			><span>{ props.draftStatus }</span></ModalDispatch></NavItem>
 			<NavItem prime center><NavIndexLink	exact to={ "/" }><Logo /></NavIndexLink></NavItem>
-			<NavItem prime right><NavLink exact to={ "/sign-in"	}><span>Send <span role="img" aria-label="Rocket">🚀</span></span></NavLink></NavItem>
+			<NavItem prime right><NavLinkSend userStatus={ props.userStatus }/></NavItem>
 		</ul>
 	)
 }

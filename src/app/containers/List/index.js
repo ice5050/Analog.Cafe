@@ -55,8 +55,8 @@ class List extends React.Component {
 													}
 												}}
 											>{ this.props.list.filters.author.name }</ModalDispatch> }
-									</em></q>
-								: <q><em>{ getListHeaders(this.props.location.pathname).meta.text }</em></q>
+									</em>.</q>
+								: <q><em>{ getListHeaders(this.props.location.pathname).meta.text }</em>.</q>
 							}
 						&nbsp;{ getListHeaders(this.props.location.pathname).meta.emoji }
 					</div>
