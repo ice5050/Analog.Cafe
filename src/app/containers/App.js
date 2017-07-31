@@ -68,7 +68,7 @@ class App extends React.PureComponent {
 		return (
       <div>
   			<Nav top />
-  				<AppRoutes />
+  				<AppRoutes userStatus={ this.props.user.status } />
   			<Nav bottom />
         <Modal />
       </div>
@@ -91,4 +91,9 @@ const mapDispatchToProps = dispatch => {
     }
 	}
 }
-export default withRouter(connect(null, mapDispatchToProps)(App))
+const mapStateToProps = state => {
+	return {
+    user: state.user,
+	}
+}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))

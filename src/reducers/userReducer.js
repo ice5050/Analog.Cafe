@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  status: "forbidden",
+  status: "pending",
   info: {},
 }
 
