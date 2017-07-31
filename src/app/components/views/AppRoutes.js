@@ -7,9 +7,9 @@ import { Switch, Route } from "react-router-dom"
 import List from "../../containers/List"
 import Post from "../../containers/Post"
 import NotFound from "../../containers/NotFound"
-import AuthRoute from "./AuthRoute"
+import SignIn from "../../containers/auth/SignIn"
   // static
-import { About, SignIn } from "./"
+import { About } from "./"
 import AppRoutesSubmit from "./AppRoutesSubmit"
 
 // render
@@ -28,20 +28,7 @@ export default props => {
         <Route exact path="/articles"			component={ List } />
 
         {/* auth views */}
-        <AuthRoute
-          exact
-          path="/my-stuff"
-          rejectPath={ "/sign-in" }
-          userStatus={ props.userStatus }
-          component={ List }
-        />
-        {/* <AuthRoute
-          exact
-          path="/sign-in"
-          rejectPath={ "/my-stuff" }
-          userStatus={ !props.userStatus }
-          component={ SignIn }
-        /> */}
+        <Route exact path="/my-stuff"			component={ List } />
         <Route exact path="/sign-in"      component={ SignIn } />
 
         {/* static views and urls */}

@@ -22,7 +22,7 @@ class NotFound extends React.PureComponent {
 			<Article>
 				<Heading
 					pageTitle="😨"
-					pageSubtitle="Page not Found..."
+					pageSubtitle="Page not Found&hellip;"
 				/>
 				<Section>
 					<p style={{textAlign: "center"}}>Click <strong><Link to="/">here</Link></strong> to go to homepage.</p>
