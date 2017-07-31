@@ -5,7 +5,7 @@ import { Switch, Route } from "react-router-dom"
 // components
 import { Submit, Composer } from "./"
 import SubmitSoon from "./SubmitSoon"
-import NotFound from "../../containers/NotFound"
+import NotFound from "../../containers/errors/NotFound"
 
 // render
 export default props => {

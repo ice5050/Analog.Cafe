@@ -37,7 +37,10 @@ class App extends React.PureComponent {
     this.props.getUserSession()
 	}
 	handleRouteChnange = () => {
+    // Google Analytics
 		trackView()
+
+    // configure header/footer views depending on routes and HTTP status
 		switch (this.props.history.location.pathname) {
 			case "/submit/compose":
 			case "/submit/compose/":
@@ -47,17 +50,30 @@ class App extends React.PureComponent {
 			case "/sign-in":
 			case "/sign-in/":
 				this.props.setNavView("VISITOR")
-				this.props.setNavLocation({ "top": false })
-				break
+        if(this.props.history.location.state &&
+          this.props.history.location.state.status === "600"
+        ){
+          this.props.setNavLocation({
+            top: false,
+            bottom: false,
+          })
+        }
+        else {
+          this.props.setNavLocation({ "top": false })
+        }
+        break
 			default:
-        if(this.props.history.location.state && this.props.history.location.state.status === "404"){
+        if(this.props.history.location.state && (
+            this.props.history.location.state.status === "404"
+          || this.props.history.location.state.status === "403"
+        )){
           this.props.setNavView("VISITOR")
   				this.props.setNavLocation({
             top: false,
             bottom: false,
           })
         }
-        else{
+        else {
           this.props.setNavView("VISITOR")
   				this.props.setNavLocation({})
         }

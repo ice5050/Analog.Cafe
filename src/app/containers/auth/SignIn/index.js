@@ -1,6 +1,5 @@
 // tools
 import React from "react"
-import Link from "../../../components/Link"
 
 // redux
 import { connect } from "react-redux"
@@ -9,6 +8,7 @@ import { connect } from "react-redux"
 import SignInWithEmail from "../../forms/SigninWithEmail"
 import Heading from "../../../components/ArticleHeading"
 import { Article, Section } from "../../../components/ArticleStyles"
+import AlreadyAuthenticated from "../../errors/AlreadyAuthenticated"
 
 
 // styles
@@ -33,17 +33,7 @@ const SignIn = props => {
 		</Article>
 	)
 	else
-	return(
-		<Article>
-			<Heading
-				pageTitle="😏"
-				pageSubtitle="You Are Already Signed In!"
-			/>
-			<Section>
-				<p style={{textAlign: "center"}}>Click <strong><Link to="/my-stuff">here</Link></strong> to see your stuff.</p>
-			</Section>
-		</Article>
-	)
+	return <AlreadyAuthenticated />
 }
 
 // connet with redux

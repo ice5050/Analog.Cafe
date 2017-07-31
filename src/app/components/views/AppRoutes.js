@@ -6,8 +6,10 @@ import { Switch, Route } from "react-router-dom"
   // dynamic
 import List from "../../containers/List"
 import Post from "../../containers/Post"
-import NotFound from "../../containers/NotFound"
+import NotFound from "../../containers/errors/NotFound"
+  // protected
 import SignIn from "../../containers/auth/SignIn"
+import MyStuff from "../../containers/auth/MyStuff"
   // static
 import { About } from "./"
 import AppRoutesSubmit from "./AppRoutesSubmit"
@@ -28,7 +30,7 @@ export default props => {
         <Route exact path="/articles"			component={ List } />
 
         {/* auth views */}
-        <Route exact path="/my-stuff"			component={ List } />
+        <Route exact path="/my-stuff"			component={ MyStuff } />
         <Route exact path="/sign-in"      component={ SignIn } />
 
         {/* static views and urls */}
