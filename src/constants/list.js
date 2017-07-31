@@ -24,5 +24,9 @@ export const ROUTE_META = {
 											"text" : "Submissions by ",
 											"emoji"				: "🤘",
 	},
+	"default"				: {
+											"text" : "Film photography publication",
+											"emoji"				: "🍩",
+	},
 
 }

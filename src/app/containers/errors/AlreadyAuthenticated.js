@@ -11,7 +11,7 @@ class AlreadyAuthenticated extends React.PureComponent {
 	componentWillMount() {
 		this.props.history.replace({
 			state: {
-				status: "600"
+				status: "103"
 			}
 		})
 	}

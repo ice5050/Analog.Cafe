@@ -51,7 +51,7 @@ class App extends React.PureComponent {
 			case "/sign-in/":
 				this.props.setNavView("VISITOR")
         if(this.props.history.location.state &&
-          this.props.history.location.state.status === "600"
+          this.props.history.location.state.status === "103"
         ){
           this.props.setNavLocation({
             top: false,

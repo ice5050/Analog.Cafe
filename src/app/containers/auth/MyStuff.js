@@ -12,7 +12,10 @@ import Forbidden from "../errors/Forbidden"
 // render
 const MyStuff = props => {
 	return props.user.status === "ok"
-		? <List />
+		? <div>
+			<span>Hello</span>
+			<List />
+		</div>
 		: <Forbidden />
 }
 

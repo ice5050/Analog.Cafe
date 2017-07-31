@@ -29,11 +29,7 @@ export const getListHeaders = (pathname = "/", page=1) => {
 		search = ROUTE_FILTERS[pathname] ? "/tags-" + ROUTE_FILTERS[pathname] : "/index"
     meta = ROUTE_META[pathname]
 		? ROUTE_META[pathname]
-		// default list meta stuff:
-		: {
-			text: "Film photography publication",
-			emoji: "🍩",
-		}
+		: ROUTE_META.default
 	}
 
 	// add pagination
