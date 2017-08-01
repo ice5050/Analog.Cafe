@@ -6,12 +6,12 @@ import { Switch, Route } from "react-router-dom"
   // dynamic
 import List from "../../containers/List"
 import Post from "../../containers/Post"
-import NotFound from "../../containers/errors/NotFound"
+import NotFound from "../../containers/_screens-errors/NotFound"
   // protected
-import SignIn from "../../containers/auth/SignIn"
-import MyStuff from "../../containers/auth/MyStuff"
+import SignIn from "../../containers/_screens-auth/SignIn"
+import MyStuff from "../../containers/_screens-auth/MyStuff"
   // static
-import { About } from "./"
+import About from "./About"
 import AppRoutesSubmit from "./AppRoutesSubmit"
 
 // render

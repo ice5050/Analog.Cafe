@@ -7,7 +7,7 @@ import { ModalDispatch } from "../../containers/Modal"
 
 // styles
 import { Image, Figure, Caption } from "./styles"
-import placeholder from "../icons/images/placeholder-profile.png"
+import placeholder from "../_icons/images/placeholder-profile.png"
 
 // return
 export default props => {

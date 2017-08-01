@@ -3,15 +3,16 @@ import React from "react"
 import { Switch, Route } from "react-router-dom"
 
 // components
-import { Submit, Composer } from "./"
+import Submit from "./Submit"
+import Composer from "./Composer"
 import SubmitSoon from "./SubmitSoon"
-import NotFound from "../../containers/errors/NotFound"
+import NotFound from "../../containers/_screens-errors/NotFound"
 
 // render
 export default props => {
 
 	// Composer isn't ready for production yet.
-	if(process.env.NODE_ENV !== "development")
+	if(process.env.NODE_ENV === "development")
 	return (
 			<Switch>
 				<Route exact path="/submit" component={ Submit } />

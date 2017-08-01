@@ -4,7 +4,7 @@ import styled, { css } from "styled-components"
 
 // components
 import { LinkButton } from "../../../components/Button"
-import Twitter from "../../../components/icons/components/Twitter"
+import Twitter from "../../../components/_icons/components/Twitter"
 
 
 // css

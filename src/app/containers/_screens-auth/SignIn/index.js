@@ -5,10 +5,10 @@ import React from "react"
 import { connect } from "react-redux"
 
 // components
-import SignInWithEmail from "../../forms/SigninWithEmail"
+import SignInWithEmail from "../../_forms/SigninWithEmail"
 import Heading from "../../../components/ArticleHeading"
 import { Article, Section } from "../../../components/ArticleStyles"
-import AlreadyAuthenticated from "../../errors/AlreadyAuthenticated"
+import AlreadyAuthenticated from "../../_screens-errors/AlreadyAuthenticated"
 
 
 // styles
@@ -24,7 +24,7 @@ const SignIn = props => {
 			<Section>
 
 				<ButtonGroup>
-					<TwitterButton to="/submit/send">Sign In with Twitter</TwitterButton>
+					<TwitterButton to="/submit/send">Sign in With Twitter</TwitterButton>
 					<p><em>- or -</em></p>
 					<SignInWithEmail />
 				</ButtonGroup>

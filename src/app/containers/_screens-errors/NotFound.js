@@ -1,40 +1,41 @@
 // tools
 import React from "react"
 import { withRouter } from "react-router"
+import Link from "../../components/Link"
+
 
 // components
-import Link from "../../components/Link"
 import Heading from "../../components/ArticleHeading"
-import { Article, Section } from "../../components/ArticleStyles"
+import { Section, Article } from "../../components/ArticleStyles"
 
+// render
 class NotFound extends React.PureComponent {
 	componentWillMount() {
 		this.props.history.replace({
 			state: {
-				status: "403"
+				status: "404"
 			}
 		})
 	}
-  componentWillUnmount() {
+	componentWillUnmount() {
     this.props.history.replace({
 			state: {
 				status: "200"
 			}
 		})
   }
-	render(){
+	render() {
 		return(
 			<Article>
 				<Heading
-					pageTitle="😣"
-					pageSubtitle="You Need to Signed In First."
+					pageTitle="😨"
+					pageSubtitle="Page Not Found&hellip;"
 				/>
 				<Section>
-					<p style={{textAlign: "center"}}>Click <strong><Link to="/sign-in">here</Link></strong> to sign in.</p>
+					<p style={{textAlign: "center"}}>Click <strong><Link to="/">here</Link></strong> to go to homepage.</p>
 				</Section>
 			</Article>
 		)
 	}
 }
-
 export default withRouter(NotFound)

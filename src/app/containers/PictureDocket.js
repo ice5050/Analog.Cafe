@@ -9,7 +9,7 @@ import { GridContainer, GridRow, Square, GridButton, AspectRatio } from "../comp
 import { ModalDispatch } from "./Modal"
 
 // styles
-import placeholder from "../components/icons/images/placeholder-figure.jpg"
+import placeholder from "../components/_icons/images/placeholder-figure.jpg"
 
 // export
 export default class extends React.Component {

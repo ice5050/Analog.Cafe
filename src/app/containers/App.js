@@ -11,7 +11,7 @@ import { getSession as getUserSession } from "../../actions/userActions"
 
 import { Modal } from "./Modal"
 import Nav from "./Nav"
-import AppRoutes from "../components/views/AppRoutes"
+import AppRoutes from "../components/_screens/AppRoutes"
 
 // init GA tracking
 ReactGA.initialize("UA-91374353-3", {

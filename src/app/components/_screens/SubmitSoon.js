@@ -4,7 +4,7 @@ import React from "react"
 // components
 import Heading from "../ArticleHeading"
 import { Section, Article } from "../ArticleStyles"
-import SignInWithEmail from "../../containers/forms/EmailReminder"
+import SignInWithEmail from "../../containers/_forms/EmailReminder"
 import Figure from "../Picture"
 import Link from "../Link"
 
