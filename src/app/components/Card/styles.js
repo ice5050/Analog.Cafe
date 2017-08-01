@@ -6,7 +6,7 @@ import Color from "color"
 import { LinkButton } from "../Button"
 
 // styles
-import { Caption } from "../CaptionStyles"
+import { Sidenote } from "../CaptionStyles"
 
 
 // css
@@ -43,7 +43,7 @@ export const CardButton = styled(LinkButton)`
 	}
 `
 
-export const CardCaption = styled(Caption)`
+export const CardCaption = styled(Sidenote)`
 	text-align: 	left;
 	padding: 			${ props => props.theme.size.block.spacing }em ${ props => props.theme.size.block.column.safety }em;
 	font-size: 		1.075em !important;

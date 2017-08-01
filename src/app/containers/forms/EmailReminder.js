@@ -33,11 +33,11 @@ export default class extends React.Component {
 		return(
       <Form warning={ this.state.warning }>
         <SubtitleInput
-          placeholder="Type Your Email"
+          placeholder="@Your Email"
           onChange={ this.handleEmailChange }
           required
         />
-        <Button onClick={ this.handleSubmit } red>Remind Me</Button>
+        <Button onClick={ this.handleSubmit } red>Yes, Remind Me</Button>
       </Form>
 		)
 	}

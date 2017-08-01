@@ -9,7 +9,7 @@ export const datestamp = unix => {
 	return month + " " + day + ", " + year
 }
 
-export const getListHeaders = (pathname = "/", page=1) => {
+export const getListMeta = (pathname = "/", page=1) => {
 	let search
 	let meta
 	page = parseInt(page, 0)

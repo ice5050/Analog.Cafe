@@ -3,13 +3,14 @@ import React from "react"
 
 
 // styles
-import { ListDescription, BrandName } from "./styles"
+import { ListDescription as ListDescriptionStyles, BrandName } from "./styles"
+export { ListHeader } from "./styles"
 
 // return
-export default props => {
+export const ListDescription = props => {
 	return (
-		<ListDescription { ...props } >
+		<ListDescriptionStyles { ...props } >
 			<BrandName>Analog.Cafe</BrandName>{ props.children }
-		</ListDescription>
+		</ListDescriptionStyles>
 	)
 }

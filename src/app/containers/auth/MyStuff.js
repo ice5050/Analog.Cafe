@@ -7,15 +7,23 @@ import { connect } from "react-redux"
 // components
 import List from "../List"
 import Forbidden from "../errors/Forbidden"
+import { Button, ButtonGroup } from "../../components/Button"
+import Link from "../../components/Link"
+
 
 
 // render
 const MyStuff = props => {
 	return props.user.status === "ok"
-		? <div>
-			<span>Hello</span>
-			<List />
-		</div>
+		? <List
+			header={
+				<ButtonGroup>
+					<Button red style={{ margin: "0 auto" }}>Edit Your Profile</Button>
+					<strong><Link>Sign Out</Link></strong>
+				</ButtonGroup>
+			}
+			private
+		/>
 		: <Forbidden />
 }
 
