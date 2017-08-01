@@ -40,7 +40,13 @@ export default props => {
 					},
 					id: "footnotes/analog-cafe-inclusive"
 				}} >inclusive</ModalDispatch> creative outlet that publishes <strong>outstanding images and stories</strong>.</p>
-				<p>Analog.Cafe <em>editor(s)</em> favour works based on <strong>skill, imagination, innovation and diversity</strong>.</p>
+				<p>Analog.Cafe <ModalDispatch with={{
+					info: {
+						title: "Editors",
+						text: "Today it’s just me, dmitrizzle. Due to technical limitations. I consult with and take advice regularly and will be adding a team of editors shortly (as soon as technically and logistically possible)."
+					},
+					id: "footnotes/analog-cafe-editors"
+				}} >editor(s)</ModalDispatch> favour works based on <strong>skill, imagination, innovation and diversity</strong>.</p>
 
 				<hr />
 

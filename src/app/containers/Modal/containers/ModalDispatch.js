@@ -1,6 +1,6 @@
 // tools
 import React from "react"
-
+import styled from "styled-components"
 // redux
 import { connect } from "react-redux"
 import { fetchCard, setCard } from "../../../../actions/modalActions"
@@ -26,23 +26,30 @@ class ModalDispatch extends React.Component {
     let wrapperElement, wrapperProps
     if(!this.props.wrapperElement){
       wrapperElement = "a"
-      wrapperProps = { href: "#card" }
+      wrapperProps = {
+        href: "#card",
+      }
     }
     else {
       wrapperElement = this.props.wrapperElement
       wrapperProps = {}
     }
     const Wrapper = wrapperElement
+    const ModalDispatchWrapper= styled(Wrapper)`
+      
+    `
 		return(
-      <Wrapper
+      <ModalDispatchWrapper
         style={ this.props.style }
         onClick={ this.invokeModal.bind(this) }
         { ...wrapperProps }>
         { this.props.children }
-      </Wrapper>
+      </ModalDispatchWrapper>
 		)
 	}
 }
+
+
 
 
 // connet with redux
