@@ -1,3 +1,4 @@
+# Folder Structure and Naming Conventions
 ## What is a React component:
 A React component is a file or a folder containing a file that has JavaScript function that receives React.js `props` and can be rendered by React.js in JSX: `<Component />`.
 
