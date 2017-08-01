@@ -6,6 +6,7 @@ import styled from "styled-components"
 import Heading from "../ArticleHeading"
 import Figure from "../Picture"
 import Link from "../Link"
+import { ModalDispatch } from "../../containers/Modal"
 
 // styles
 import { Section, Article, Quote } from "../ArticleStyles"
@@ -32,8 +33,20 @@ export default props => {
 			<Section endsign>
 				<Figure src="/images/pictures/about-forest.jpg" feature>A short ride up a twisty mountain road from downtown Chiang Mai<br />&mdash; where Analog.Cafe is built &mdash;<br />is a tropical forest.</Figure>
 				<blockquote><strong>Analog.Cafe</strong> exists because of the people who contribute their art and the editors who curate it. It’s because of the <Link to="https://github.com/dmitrizzle/Analog.Cafe/wiki/Contributors">developers</Link> and designers who devote their time and skill to build this platform. And because of the 51 people who have graciously <Link to="https://www.kickstarter.com/projects/dmitrizzle/analogcafe-the-remarkable-film-photography-blog">funded</Link> the initial stages of this project.</blockquote>
-				<p><strong>Analog.Cafe</strong> is a curated film photography publication that encourages and supports collaboration.</p>
-				<p><strong>Analog.Cafe</strong> favours creative & informative works based on quality, creativity and diversity.</p>
+				<p>Analog.Cafe is an <ModalDispatch with={{
+					info: {
+						title: "Inclusive",
+						text: "Because this is a human-edited publication, its output will be shaped by biases and personal opinions. However, Analog.Cafe shall always strive to be welcoming and fair."
+					},
+					id: "footnotes/analog-cafe-inclusive"
+				}} >inclusive</ModalDispatch> creative outlet that publishes <strong>outstanding images and stories</strong>.</p>
+				<p>Analog.Cafe <ModalDispatch with={{
+					info: {
+						title: "Editors",
+						text: "Today it’s just me, dmitrizzle. Due to technical limitations. I consult with and take advice regularly and will be adding a team of editors shortly (as soon as technically and logistically possible)."
+					},
+					id: "footnotes/analog-cafe-editors"
+				}} >editor(s)</ModalDispatch> favour works based on <strong>skill, imagination, innovation and diversity</strong>.</p>
 
 				<hr />
 

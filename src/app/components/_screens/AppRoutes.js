@@ -6,12 +6,15 @@ import { Switch, Route } from "react-router-dom"
   // dynamic
 import List from "../../containers/List"
 import Post from "../../containers/Post"
-import NotFound from "../../containers/NotFound"
+import NotFound from "../../containers/_screens-errors/NotFound"
+  // protected
+import SignIn from "../../containers/_screens-auth/SignIn"
+import MyStuff from "../../containers/_screens-auth/MyStuff"
   // static
-import { About, SignIn } from "./"
+import About from "./About"
 import AppRoutesSubmit from "./AppRoutesSubmit"
 
-// rebder
+// render
 export default props => {
   return(
     <main>
@@ -25,13 +28,16 @@ export default props => {
         <Route exact path="/"             component={ List } />
         <Route exact path="/photo-essays"	component={ List } />
         <Route exact path="/articles"			component={ List } />
-        <Route exact path="/my-stuff"			component={ List } />
+
+        {/* auth views */}
+        <Route exact path="/my-stuff"			component={ MyStuff } />
+        <Route exact path="/sign-in"      component={ SignIn } />
 
         {/* static views and urls */}
         <Route exact path="/about"        component= { About } />
         <Route path="/submit"             component= { AppRoutesSubmit } />
-        <Route exact path="/sign-in"      component={ SignIn } />
         <Route state={{"status":"404"}}   component={ NotFound } />
+
 
       </Switch>
     </main>

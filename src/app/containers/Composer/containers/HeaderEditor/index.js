@@ -10,7 +10,7 @@ import { ModalDispatch } from "../../../Modal"
 
 // styles
 import { Header, Byline } from "../../../../components/ArticleStyles"
-import placeholder from "../../../../components/icons/images/placeholder-profile.png"
+import placeholder from "../../../../components/_icons/images/placeholder-profile.png"
 
 
 

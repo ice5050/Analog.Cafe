@@ -3,9 +3,10 @@ import React from "react"
 import { Switch, Route } from "react-router-dom"
 
 // components
-import { Submit, Composer } from "./"
+import Submit from "./Submit"
+import Composer from "./Composer"
 import SubmitSoon from "./SubmitSoon"
-import NotFound from "../../containers/NotFound"
+import NotFound from "../../containers/_screens-errors/NotFound"
 
 // render
 export default props => {

@@ -3,7 +3,7 @@ import React from "react"
 
 // components
 import Logo from "../Logo"
-import done from "../icons/images/done.jpg"
+import done from "../_icons/images/done.jpg"
 import { ModalDispatch } from "../../containers/Modal"
 
 // styles

@@ -1,12 +1,12 @@
 // tools
 import React from "react"
 import { withRouter } from "react-router"
-import Link from "../components/Link"
+import Link from "../../components/Link"
 
 
 // components
-import Heading from "../components/ArticleHeading"
-import { Section, Article } from "../components/ArticleStyles"
+import Heading from "../../components/ArticleHeading"
+import { Section, Article } from "../../components/ArticleStyles"
 
 // render
 class NotFound extends React.PureComponent {
@@ -17,12 +17,19 @@ class NotFound extends React.PureComponent {
 			}
 		})
 	}
+	componentWillUnmount() {
+    this.props.history.replace({
+			state: {
+				status: "200"
+			}
+		})
+  }
 	render() {
 		return(
 			<Article>
 				<Heading
 					pageTitle="😨"
-					pageSubtitle="Page not Found..."
+					pageSubtitle="Page Not Found&hellip;"
 				/>
 				<Section>
 					<p style={{textAlign: "center"}}>Click <strong><Link to="/">here</Link></strong> to go to homepage.</p>

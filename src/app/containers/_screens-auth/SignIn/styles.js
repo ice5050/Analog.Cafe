@@ -3,8 +3,8 @@ import React from "react"
 import styled, { css } from "styled-components"
 
 // components
-import { LinkButton } from "../../Button"
-import Twitter from "../../icons/components/Twitter"
+import { LinkButton } from "../../../components/Button"
+import Twitter from "../../../components/_icons/components/Twitter"
 
 
 // css

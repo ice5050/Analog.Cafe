@@ -4,8 +4,9 @@ import React from "react"
 // components
 import Heading from "../ArticleHeading"
 import { Section, Article } from "../ArticleStyles"
-import SignInWithEmail from "../../containers/forms/EmailReminder"
+import SignInWithEmail from "../../containers/_forms/EmailReminder"
 import Figure from "../Picture"
+import Link from "../Link"
 
 
 
@@ -21,7 +22,7 @@ export default props => {
 
 
 				<h3>Submissions open on 09.17</h3>
-				<p>This September we are opening submissions to Analog.Cafe. Let us send you a reminder on the day:</p>
+				<p>This September we (the <Link to="https://github.com/dmitrizzle/Analog.Cafe/wiki/Contributors">dev</Link> team) are opening submissions to Analog.Cafe. Would you like a reminder on the day?</p>
 
 				<SignInWithEmail />
 
