@@ -27,8 +27,8 @@ export const Byline = styled.div`
 	font-variant: 	small-caps;
 	display: 				block;
 	display: 				inline;
-	& a {
+	${'' /* & a {
 		font-variant: normal;
 		font-style: italic;
-	}
+	} */}
 `

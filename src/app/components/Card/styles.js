@@ -68,6 +68,9 @@ export const CardHeader = styled.header`
     text-align:			left;
     padding:				0;
   }
+	h3::before {
+		content: "✧";
+	}
   a {
     text-decoration:none;
     position: 			absolute;

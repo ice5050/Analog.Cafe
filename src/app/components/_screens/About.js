@@ -40,10 +40,10 @@ export default props => {
 					},
 					id: "footnotes/analog-cafe-inclusive"
 				}} >inclusive</ModalDispatch> creative outlet that publishes <strong>outstanding images and stories</strong>.</p>
-				<p>Analog.Cafe <ModalDispatch with={{
+				<p>Analog.Cafe’s <ModalDispatch with={{
 					info: {
 						title: "Editors",
-						text: "“dmitrizzle” is the editor for the entiere publication. Starting Fall 2017 Analog.Cafe will be expanding its editorial team."
+						text: "Starting Fall 2017 Analog.Cafe will be expanding its editorial team. Until then it’s just me, “dmitrizzle”. Hello! ⚘"
 					},
 					id: "footnotes/analog-cafe-editors"
 				}} >editor(s)</ModalDispatch> favour works based on <strong>skill, imagination, innovation and diversity</strong>.</p>

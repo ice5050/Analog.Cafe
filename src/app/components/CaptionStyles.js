@@ -16,10 +16,10 @@ export const Caption = styled.div`
 	${ CaptionStyles }
 	font-variant: small-caps;
 	text-align: 	justify;
-	& a {
+	${'' /* & a {
 		font-variant: normal;
 		font-style: italic;
-	}
+	} */}
 
 `
 export const Sidenote = styled.div`
