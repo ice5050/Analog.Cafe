@@ -36,14 +36,14 @@ export default props => {
 				<p>Analog.Cafe is an <ModalDispatch with={{
 					info: {
 						title: "Inclusive",
-						text: "Because this is a human-edited publication, its output will be shaped by biases and personal opinions. However, Analog.Cafe shall always strive to be welcoming and fair."
+						text: "Analog.Cafe is a human-edited publication; it’s bound to be shaped by personal opinions. However, it shall always strive to be welcoming and fair."
 					},
 					id: "footnotes/analog-cafe-inclusive"
 				}} >inclusive</ModalDispatch> creative outlet that publishes <strong>outstanding images and stories</strong>.</p>
 				<p>Analog.Cafe <ModalDispatch with={{
 					info: {
 						title: "Editors",
-						text: "Due to temporary (untill fall 2017) technical limitations, today it’s just me, dmitrizzle (founder of Analog.Cafe, who also happens to be responsible for code, design and content)."
+						text: "“dmitrizzle” is the editor for the entiere publication. Starting Fall 2017 Analog.Cafe will be expanding its editorial team."
 					},
 					id: "footnotes/analog-cafe-editors"
 				}} >editor(s)</ModalDispatch> favour works based on <strong>skill, imagination, innovation and diversity</strong>.</p>
