@@ -34,7 +34,7 @@ class App extends React.PureComponent {
     console.log(process.env.NODE_ENV)
 		this.handleRouteChnange()
 		this.props.history.listen((location, action) => this.handleRouteChnange())
-    this.props.getUserSession()
+    // this.props.getUserSession()
 	}
 	handleRouteChnange = () => {
     // Google Analytics
@@ -101,9 +101,9 @@ const mapDispatchToProps = dispatch => {
 		},
 		setNavLocation: location => {
 			dispatch(setNavLocation(location))
-		},
-    getUserSession: () => {
-      dispatch(getUserSession())
+		// },
+    // getUserSession: () => {
+    //   dispatch(getUserSession())
     }
 	}
 }
