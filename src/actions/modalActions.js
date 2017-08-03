@@ -25,7 +25,7 @@ export function setCard(info, request) {
 		}))
 		dispatch({
 			type: "MODAL.SET_CARD",
-			payload: info,
+			payload: info["data"],
 		})
 	}
 }
@@ -38,7 +38,7 @@ export function fetchCard(request) {
 		axios({
 			  method: 			request.method || "get",
 	      data:         request.data || {},
-			  url: 					request.url + ".json",
+			  url: 					request.url,
 			})
 			.then(response => dispatch(setCard(response.data, request)))
 			.catch(error => dispatch(setCard({

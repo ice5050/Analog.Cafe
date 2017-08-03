@@ -7,7 +7,7 @@ import errorMessage from "../constants/error-messages"
 export function setPage(page) {
   return {
     type: "POST.SET_PAGE",
-    payload: page
+    payload: page["data"]
   }
 }
 export function initPage(state) {
@@ -30,7 +30,7 @@ export function fetchPage(request) {
     axios({
       method: 			request.method || "get",
       data:         request.data || {},
-      url: 					request.url + ".json",
+      url: 					request.url,
     })
       .then(response => dispatch(setPage(response.data)))
       .catch(error =>
