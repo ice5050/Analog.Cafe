@@ -1,1 +1,2 @@
-export const ROUTE_AUTHOR_API = "http://localhost:8080/api/authors"
+import { API_DOMAIN } from "./link"
+export const ROUTE_AUTHOR_API = API_DOMAIN + "/api/authors"
