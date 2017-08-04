@@ -32,7 +32,7 @@ export default props => {
 										: {
 											info: {
 												image: placeholder,
-												title: "Error " + props.author.errorCode + " 😧",
+												title: "Error " + props.author.errorCode,
 												text: errorMessage.NO_AUTHOR
 											},
 											id: "errors/author"
