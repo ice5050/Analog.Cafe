@@ -14,12 +14,12 @@ export const ModalCard = props => {
 		}}>
 			<CardHeader>
 				<h3>{ props.title }</h3>
-				<a href="#close" onClick={ event => event.preventDefault() }>✕</a>
+				<a href="#close">✕</a>
 			</CardHeader>
 			<figure>
 				<img
 					src={ props.image || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" }
-					style={{ height: typeof props.image === "undefined" ? "0" : "initial" }}
+					style={{ display: typeof props.image === "undefined" ? "none" : "initial" }}
 					alt="Card"
 				/>
 				<figcaption>

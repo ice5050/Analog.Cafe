@@ -52,8 +52,9 @@ export const CardCaption = styled(Sidenote)`
 
 export const CardHeader = styled.header`
   padding: 				${ props => props.theme.size.block.spacing /4 }em ${ props => props.theme.size.block.spacing /2 }em;
-  padding-right: 	${ props => props.theme.size.block.spacing *3 }em;
   z-index: 				${ props => props.theme.layer.up };
+	display: 				flex;
+	justify-content: space-between;
 
   position: 			relative;
   box-shadow: 		0 1px 1px ${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least * 2).string() }
@@ -68,12 +69,12 @@ export const CardHeader = styled.header`
     text-align:			left;
     padding:				0;
   }
+	h3::before {
+		content: "✧";
+	}
   a {
+		${ props => props.theme.size.font.auto }
     text-decoration:none;
-    position: 			absolute;
-    top: 						0;
-    right: 					0;
-    padding: 				${ props => props.theme.size.block.spacing / 2.25 }em ${ props => props.theme.size.block.spacing /2 }em;
     &:active {
       background: 	0 0;
       color: 				${ props => props.theme.color.brand };
