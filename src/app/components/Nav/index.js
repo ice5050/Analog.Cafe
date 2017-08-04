@@ -71,18 +71,3 @@ export const ComposerNav = props => {
 }
 
 export { NavWrapper } from "./styles"
-
-export const SubNav = props => {
-	return(
-		<div
-			// style={{
-			// 	textAlign: "center",
-			// 	position: "absolute",
-			// 	width: "100%",
-			// 	top: "-5em",
-			// }}
-		>
-			{/* <a href="#top" style={{ textDecoration: "none" }}>↟Up↟</a> */}
-	</div>
-	)
-}
