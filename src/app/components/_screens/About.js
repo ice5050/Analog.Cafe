@@ -43,7 +43,7 @@ export default props => {
 				<p>Analog.Cafe’s <ModalDispatch with={{
 					info: {
 						title: "Editors",
-						text: "Starting Fall 2017 Analog.Cafe will be expanding its editorial team. Until then it’s just me, “dmitrizzle”. Hello! ⚘"
+						text: "Starting Fall 2017 Analog.Cafe will be expanding its editorial team. Until then it’s just me, “dmitrizzle”. 𝕳𝖊𝔩𝔩ố‼"
 					},
 					id: "footnotes/analog-cafe-editors"
 				}} >editor(s)</ModalDispatch> favour works based on <strong>skill, imagination, innovation and diversity</strong>.</p>

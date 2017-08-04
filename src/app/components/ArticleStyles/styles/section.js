@@ -50,7 +50,7 @@ export const Section = styled.section`
 		content: 		${ props => props.endsign ? `"❦"` : `""`};
 		clear: 			both;
 		display: 		block;
-		${ props => props.endsign && `padding:` + props.theme.size.block.spacing + `em 0 ` + props.theme.size.block.column.safety * 4 + `em 0;` }
+		${ props => props.endsign && `padding: 0 0 ` + props.theme.size.block.column.safety + `em 0;` }
 
 		text-align: center;
 	}
