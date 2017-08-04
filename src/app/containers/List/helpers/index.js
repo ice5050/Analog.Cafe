@@ -26,7 +26,7 @@ export const getListMeta = (pathname = "/", page=1) => {
 
 	// filter by tags
 	else {
-		search = ROUTE_FILTERS[pathname] ? "/tags-" + ROUTE_FILTERS[pathname] : "/index"
+		search = ROUTE_FILTERS[pathname] ? "?tag=" + ROUTE_FILTERS[pathname] : ""
     meta = ROUTE_META[pathname]
 		? ROUTE_META[pathname]
 		: ROUTE_META.default
