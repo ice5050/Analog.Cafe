@@ -16,7 +16,7 @@ const paragraph = css`
 	margin: ${ props => props.theme.size.block.spacing }em 0;
 
 	/* placeholder style */
-	${ props => props.postStatus === "loading" ? `opacity: ` + props.theme.opacity.least + `; letter-spacing: 0 !important;`: null }
+	${ props => props.postStatus === "loading" ? `opacity: ` + props.theme.opacity.least + `; letter-spacing: -1px !important;`: null }
 `
 const sectionBreak = css`
 	text-align: 	center;
@@ -47,11 +47,9 @@ export const Section = styled.section`
 	padding: 		0 ${ props => props.theme.size.block.column.safety }em;
 
 	&::after {
-		content: 		${ props => props.endsign ? `"❦"` : `""`};
+		content: 		"⁓☙❦❧⁓";
 		clear: 			both;
 		display: 		block;
-		${ props => props.endsign && `padding: 0 0 ` + props.theme.size.block.column.safety + `em 0;` }
-
 		text-align: center;
 	}
 
@@ -74,6 +72,6 @@ export const Section = styled.section`
 	.fonts-loaded-headers & h4 { ${ props => props.theme.typography.title.fontsLoaded } }
 	hr 					{ ${ sectionBreak } }
 
-	border-bottom:	${ props => props.theme.elements.thickBorder };
+	${'' /* border-bottom:	${ props => props.theme.elements.thickBorder }; */}
 `
 export const Article = styled.article``

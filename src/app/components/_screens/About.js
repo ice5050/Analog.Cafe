@@ -30,7 +30,7 @@ export default props => {
 				pageTitle="Analog.Cafe ☕️"
 				pageSubtitle="Film Photography Publication"
 			/>
-			<Section endsign>
+			<Section>
 				<Figure src="/images/pictures/about-forest.jpg" feature>A short ride up a twisty mountain road from downtown Chiang Mai<br />&mdash; where Analog.Cafe is built &mdash;<br />is a tropical forest.</Figure>
 				<blockquote><strong>Analog.Cafe</strong> exists because of the people who contribute their art and the editors who curate it. It’s because of the <Link to="https://github.com/dmitrizzle/Analog.Cafe/wiki/Contributors">developers</Link> and designers who devote their time and skill to build this platform. And because of the 51 people who have graciously <Link to="https://www.kickstarter.com/projects/dmitrizzle/analogcafe-the-remarkable-film-photography-blog">funded</Link> the initial stages of this project.</blockquote>
 				<p>Analog.Cafe is an <ModalDispatch with={{

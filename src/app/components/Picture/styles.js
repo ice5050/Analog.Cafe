@@ -121,6 +121,6 @@ export const Caption = styled(PictureCaption)`
 	div, textarea {
 		display: inline;
 	}
-	textarea { font-size: 1em !important; text-align: center; overflow: hidden; }
+	textarea { font-size: 1em !important; text-align: center; overflow: hidden; font-variant: small-caps; }
 	${ props => props.feature && captionBlock }
 `

@@ -142,7 +142,7 @@ export const Ul = styled.ul`
 				/* placeholder style */
 				${ props => props.status === "loading" && `
 					margin-top: -.1em;
-					letter-spacing: 0 !important;
+					letter-spacing: -1px !important;
 				`}
 
 			}

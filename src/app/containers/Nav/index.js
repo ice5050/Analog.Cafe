@@ -6,7 +6,7 @@ import { connect } from "react-redux"
 
 
 // components
-import { CommonNav, ComposerNav, NavWrapper } from "../components/Nav"
+import { CommonNav, ComposerNav, NavWrapper } from "../../components/Nav"
 
 // render
 const Nav = props => {

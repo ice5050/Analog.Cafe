@@ -2,14 +2,14 @@
 import React from "react"
 
 // components
-import PictureDocket from "../components/PictureDocket"
-import { CardHeader } from "../components/Card/styles"
-import { Caption } from "../components/CaptionStyles"
-import { GridContainer, GridRow, Square, GridButton, AspectRatio } from "../components/GridStyles"
-import { ModalDispatch } from "./Modal"
+import PictureDocket from "../../components/PictureDocket"
+import { CardHeader } from "../../components/Card/styles"
+import { Caption } from "../../components/CaptionStyles"
+import { GridContainer, GridRow, Square, GridButton, AspectRatio } from "../../components/GridStyles"
+import { ModalDispatch } from "../Modal"
 
 // styles
-import placeholder from "../components/_icons/images/placeholder-figure.jpg"
+import placeholder from "../../components/_icons/images/placeholder-figure.jpg"
 
 // export
 export default class extends React.Component {
