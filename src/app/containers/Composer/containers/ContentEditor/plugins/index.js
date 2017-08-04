@@ -1,6 +1,6 @@
 // tools
 import { html } from "../rules"
-import toTitleCase from "titlecase"
+// import toTitleCase from "titlecase"
 
 // styles
 import placeholder from "../../../../../components/_icons/images/placeholder-figure.jpg"
@@ -58,15 +58,30 @@ export const plugins = [
       return transform.setBlock({ type: "heading" }) // title
     }
   }),
-  AutoReplace({
+  // AutoReplace({
+  //   trigger: 		"enter",
+  //   before: 		/.+/,
+  //   onlyIn:			"heading",
+  //   transform: 	(transform, e, data, matches) => {
+  //   	let title = toTitleCase(matches.before[0])
+  //     return transform.deleteBackward(title.length).insertText(title)
+  //     	.splitBlock()
+  //     	.setBlock({ type: "paragraph" }) // Title Case Header the After Next Line Key
+  //   }
+  // }),
+	AutoReplace({
     trigger: 		"enter",
     before: 		/.+/,
     onlyIn:			"heading",
     transform: 	(transform, e, data, matches) => {
-    	let title = toTitleCase(matches.before[0])
-      return transform.deleteBackward(title.length).insertText(title)
-      	.splitBlock()
-      	.setBlock({ type: "paragraph" }) // Title Case Header the After Next Line Key
+    	let heading = matches.before[0]
+			if(heading[heading.length-1].search(/[^\w\s]|_/) === -1) 	// if no punctuation mark at the end of heading...
+	      return transform.insertText(".")												// add a period.
+	      	.splitBlock()
+	      	.setBlock({ type: "paragraph" })
+			else
+				return transform.splitBlock()
+					.setBlock({ type: "paragraph" })
     }
   }),
   AutoReplace({
