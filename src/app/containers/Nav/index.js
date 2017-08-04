@@ -6,20 +6,20 @@ import { connect } from "react-redux"
 
 
 // components
-import { CommonNav, ComposerNav, Wrapper } from "../components/Nav"
+import { CommonNav, ComposerNav, NavWrapper } from "../../components/Nav"
 
 // render
 const Nav = props => {
   if(props.top && !props.nav.location.top) return null
   if(props.bottom && !props.nav.location.bottom) return null
 	return(
-    <Wrapper>
+    <NavWrapper>
       {
         props.nav.view === "COMPOSER"
           ? <ComposerNav draftStatus={ props.composer.draftStatus } userStatus={ props.user.status } />
           : <CommonNav userStatus={ props.user.status } />
       }
-    </Wrapper>
+    </NavWrapper>
   )
 }
 

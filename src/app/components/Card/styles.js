@@ -70,7 +70,7 @@ export const CardHeader = styled.header`
     padding:				0;
   }
 	h3::before {
-		content: "✧";
+		content: "✦";
 	}
   a {
 		${ props => props.theme.size.font.auto }

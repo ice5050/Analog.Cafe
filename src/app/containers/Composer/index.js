@@ -25,7 +25,7 @@ const Composer = props => {
 				pageSubtitle={ titlePlaceholder.subtitle }
 				user={ props.user }
 			/>
-			<Section endsign>
+			<Section>
 				<ContentEditor
 					ref={ input => { this.contentEditor = input } }
 				/>

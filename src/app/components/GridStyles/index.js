@@ -1,7 +1,7 @@
 // tools
 import styled, { css } from "styled-components"
 import Color from "color"
-import { Button } from "./Button"
+import { Button } from "../Button"
 
 
 // css

@@ -8,7 +8,7 @@ import Link from "../Link"
 
 // css
 const containerVerticalSpacing = props => props.theme.size.font.make.larger / 1.2
-export const Wrapper = styled.nav`
+export const NavWrapper = styled.nav`
 	${ props => props.theme.size.font.auto }
 	${ props => props.theme.typography.title.auto }
 	position: 				relative;

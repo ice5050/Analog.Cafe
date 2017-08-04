@@ -18,7 +18,7 @@ export default props => {
 				pageTitle="Submit"
 				pageSubtitle="Film Photography & Essays"
 			/>
-			<Section endsign>
+			<Section>
 
 
 				<h3>Submissions open on 09.17</h3>
