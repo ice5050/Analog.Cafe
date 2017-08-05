@@ -62,7 +62,7 @@ export default class extends React.Component {
 									info: {
 										image: placeholder,
 										title: "Your Profile",
-										text: "You can create, view or update your profile after you send your submission. 🚀"
+										text: "You can create, view or update your profile after you send your submission."
 									},
 									id: "hints/author"
 								}

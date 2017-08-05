@@ -47,7 +47,7 @@ export default props => {
 					},
 					id: "footnotes/analog-cafe-editors"
 				}} >editor(s)</ModalDispatch> favour works based on <strong>skill, imagination, innovation and diversity</strong>.</p>
-				
+
 				<hr />
 
 				<h3>Thank you, Kickstarter backers!</h3>

@@ -58,7 +58,7 @@ export const ComposerNav = props => {
 					info: {
 						image: done,
 						title: "Never Loose Your Work",
-						text: "Your draft is saved automatically every 3 seconds onto your device. Your can write and save your work even when you aren’t connected to the internet."
+						text: "Your draft is saved automatically every 3 seconds onto your device. Even when you aren’t connected to the internet."
 					},
 					id: "hints/save"
 				}}
