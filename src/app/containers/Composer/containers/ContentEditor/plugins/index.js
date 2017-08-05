@@ -1,6 +1,5 @@
 // tools
 import { html } from "../rules"
-// import toTitleCase from "titlecase"
 
 // styles
 import placeholder from "../../../../../components/_icons/images/placeholder-figure.jpg"
@@ -55,20 +54,11 @@ export const plugins = [
     trigger: 		"space",
     before: 		/^(#)$/,
     transform: 	(transform, e, data, matches) => {
-      return transform.setBlock({ type: "heading" }) // title
+      return transform.setBlock({ type: "heading" }) // heading
     }
   }),
-  // AutoReplace({
-  //   trigger: 		"enter",
-  //   before: 		/.+/,
-  //   onlyIn:			"heading",
-  //   transform: 	(transform, e, data, matches) => {
-  //   	let title = toTitleCase(matches.before[0])
-  //     return transform.deleteBackward(title.length).insertText(title)
-  //     	.splitBlock()
-  //     	.setBlock({ type: "paragraph" }) // Title Case Header the After Next Line Key
-  //   }
-  // }),
+
+	// heading formatting
 	AutoReplace({
     trigger: 		"enter",
     before: 		/.+/,
@@ -89,44 +79,46 @@ export const plugins = [
     after: 			/./,
     onlyIn:			"heading",
     transform: 	(transform, e, data, matches) => {
-      return transform.setBlock({ type: "paragraph" }) // cancel title
+      return transform.setBlock({ type: "paragraph" }) // cancel heading
     }
   }),
 
-  // auto format rules
-  AutoReplace({
+  // smart quotes
+	AutoReplace({
     trigger: 		/(")/,
     before: 		/[^ ”]$/,
     transform: 	(transform, e, data, matches) => {
-      return transform.insertText("”") // smart double quote
+      return transform.insertText("”") // smart double quote (right)
     }
   }),
   AutoReplace({
     trigger: 		/(")/,
     before: 		/(^)|[ ]$/,
     transform: 	(transform, e, data, matches) => {
-      return transform.insertText("“") // smart double quote
+      return transform.insertText("“") // smart double quote (left)
     }
   }),
   AutoReplace({
     trigger: 		/(')/,
     before: 		/[^ ”]$/,
     transform: 	(transform, e, data, matches) => {
-      return transform.insertText("’") // smart single quote
+      return transform.insertText("’") // smart single quote (right)
     }
   }),
   AutoReplace({
     trigger: 		/(')/,
     before: 		/(^)|[ ]$/,
     transform: 	(transform, e, data, matches) => {
-      return transform.insertText("‘") // smart single quote
+      return transform.insertText("‘") // smart single quote (left)
     }
   }),
+
+	// auto-format rules
   AutoReplace({
     trigger: 		"space",
     before: 		/[ ]$/,
     transform: 	(transform, e, data, matches) => {
-      return transform.deleteBackward(1).insertText(".") // double-space > .
+      return transform.deleteBackward(1).insertText(".") // double-space mutates to period (.)
     }
   }),
   AutoReplace({
