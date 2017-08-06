@@ -20,7 +20,7 @@ export function getSession(request={ url: ROUTE_USER_API }) {
 			.catch(error => dispatch(setCard({
 				status: "ok",
 				info: {
-					title: "Error " + error.response.status + " 😧",
+					title: "Error " + error.response.status,
 					text: errorMessage.FAILED_LOGIN,
 				}
 			}, { url: "errors/user" }))

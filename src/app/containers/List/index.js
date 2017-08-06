@@ -22,7 +22,6 @@ import { getListMeta } from "./helpers"
 class List extends React.Component {
 	fetchNewList = () => {
 		const apiRoute = this.props.private ? ROUTE_AUTHENTICATED_LIST_API : ROUTE_LIST_API
-		console.log(apiRoute)
 		this.props.fetchPage({
 			url: (apiRoute + getListMeta(this.props.history.location.pathname, this.props.list.page.current).search).split(PAGE_ITERATOR_STRING)[0]
 		})

@@ -43,7 +43,7 @@ export default props => {
 				<p>Analog.Cafe’s <ModalDispatch with={{
 					info: {
 						title: "Editors",
-						text: "Starting Fall 2017 Analog.Cafe will be expanding its editorial team. Until then it’s just me, “dmitrizzle”. 𝕳𝖊𝔩𝔩ố‼"
+						text: "Starting Fall 2017 Analog.Cafe will be expanding its editorial team. Until then it’s just me, “dmitrizzle”. Hello!"
 					},
 					id: "footnotes/analog-cafe-editors"
 				}} >editor(s)</ModalDispatch> favour works based on <strong>skill, imagination, innovation and diversity</strong>.</p>
@@ -51,7 +51,7 @@ export default props => {
 				<hr />
 
 				<h3>Thank you, Kickstarter backers!</h3>
-				<p>The individuals in this list were the first to offer their love and support. <span role="img" aria-label="Clapping hands and a bowing person">👏🙇</span></p>
+				<p>Analog.Cafe owes its existence in large part to the contributions, support and encouragement provided by the people below. <span role="img" aria-label="Clapping hands and a bowing person">👏🙇</span></p>
 
 				<ThankYouList>
 					Thayanantha Thevanayagam<br />
