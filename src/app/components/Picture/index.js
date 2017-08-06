@@ -21,7 +21,7 @@ export default props => {
 						{ props.children }
 						{
 							props.readOnly ?
-							<div>Image by <span style={ props.author.name === "" ? { display: "none" } : null } ><ModalDispatch
+							<span style={{ color: "#2c2c2c" }}> Image by <span style={ props.author.name === "" ? { display: "none" } : null } ><ModalDispatch
 								with={
 									props.author.id !== "unknown"
 										? {
@@ -38,7 +38,7 @@ export default props => {
 											id: "errors/author"
 										}
 								}
-							>{ props.author.name }</ModalDispatch></span></div> : null
+							>{ props.author.name }</ModalDispatch>.</span></span> : null
 						}
 					</Caption>
 				: <Caption { ...props } >{ props.children }</Caption>

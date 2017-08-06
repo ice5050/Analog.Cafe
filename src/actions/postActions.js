@@ -3,6 +3,8 @@ import axios from "axios"
 import { setCard } from "./modalActions"
 import errorMessage from "../constants/error-messages"
 
+import { ROUTE_POST_API } from "../constants/post"
+
 // return
 export function setPage(page) {
   return {
@@ -20,8 +22,16 @@ export function initPage(state) {
 export function fetchPage(request) {
   return (dispatch, getState) => {
 
-    // pre-cook post title, when available:
+    // do not load anything outside of API scope
+    if(!(request.url).includes(ROUTE_POST_API)) return
+
+    // get current state from store
     let postState = getState().post
+
+    // do not load post twice in a arow
+    if(postState.requested.url === request.url) return
+
+    // pre-cook post title, when available
     dispatch(initPage({
       requested: request,
       title: postState.title,

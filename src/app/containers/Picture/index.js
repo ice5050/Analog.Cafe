@@ -91,7 +91,7 @@ class Figure extends React.Component {
 							onChange={ this.handleChange }
 							onClick={ this.handleClick }
 						/>
-						: <div>{ this.state.caption }{ this.state.caption && <br />}</div>
+						: <span>{ this.state.caption }</span>
 					}
       	</Picture>
       : <Picture { ...attributes } src="" className={ className }>Loading image...</Picture>

@@ -7,6 +7,9 @@ import PictureDocket from "../../../PictureDocket"
 import Link from "../../../../components/Link"
 import Placeholder from "./components/Placeholder"
 
+// helpers
+import { parseHref } from "../../../../components/Link/helpers"
+
 
 // return
 export const schema = {
@@ -38,7 +41,7 @@ export const schema = {
     link: 				props => {
 										const { data } = props.node
 										const href = data.get("href")
-										return <Link { ...props.attributes } to={ href }>{ props.children }</Link>
+										return <Link { ...props.attributes } to={ parseHref(href) }>{ props.children }</Link>
     },
 	},
 	marks: {
