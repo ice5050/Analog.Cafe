@@ -5,7 +5,8 @@ import { NavLink } from "react-router-dom"
 // constants
 import { DOMAIN_NAME } from "../../../constants/link"
 
-// styles
+
+// return
 export default props => {
 
 	// all links within analog.cafe domain should become relative

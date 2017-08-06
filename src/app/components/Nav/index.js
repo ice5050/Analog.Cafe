@@ -70,4 +70,4 @@ export const ComposerNav = props => {
 	)
 }
 
-export { Wrapper } from "./styles"
+export { NavWrapper } from "./styles"

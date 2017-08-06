@@ -5,16 +5,16 @@ import { withRouter } from "react-router"
 
 // redux & state
 import { connect } from "react-redux"
-import { fetchPage } from "../../actions/postActions"
-import { ROUTE_POST_API, ROUTE_ARTICLE_DIR } from "../../constants/post"
-import { ROUTE_AUTHOR_API } from "../../constants/author"
+import { fetchPage } from "../../../actions/postActions"
+import { ROUTE_POST_API, ROUTE_ARTICLE_DIR } from "../../../constants/post"
+import { ROUTE_AUTHOR_API } from "../../../constants/author"
 import { schema } from "./Composer/containers/ContentEditor/schema"
 
 
 // components
-import Heading from "../components/ArticleHeading"
-import { ModalDispatch } from "./Modal"
-import { Section, Article, Byline } from "../components/ArticleStyles"
+import Heading from "../../components/ArticleHeading"
+import { ModalDispatch } from "../Modal"
+import { Section, Article, Byline } from "../../components/ArticleStyles"
 
 
 // render
@@ -39,7 +39,7 @@ class Post extends React.PureComponent {
 						}}
 					>{ this.props.post.author.name }</ModalDispatch></Byline>
 				</Heading>
-				<Section postStatus={ this.props.post.status } endsign>
+				<Section postStatus={ this.props.post.status }>
 					<Editor
 						readOnly={					true }
 						state={							Raw.deserialize(this.props.post.content.raw, {terse: true}) }

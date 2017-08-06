@@ -40,7 +40,7 @@ class ModalDispatch extends React.Component {
     wrapperElement === "a"
     ? ModalDispatchWrapper = styled(Wrapper)`
         &::after {
-          content: "✧";
+          content: "✦";
           text-decoration: none;
           font-style: normal;
           display: inline-block;
@@ -48,6 +48,7 @@ class ModalDispatch extends React.Component {
           font-size: .5em;
           margin-right: -.25em;
           margin-left: -.15em;
+          margin-top: -.5em;
         }
       `
     : ModalDispatchWrapper = Wrapper
