@@ -7,7 +7,7 @@ import errorMessage from "../constants/error-messages"
 export function setPage(page) {
   return {
     type: "POST.SET_PAGE",
-    payload: page["data"]
+    payload: page
   }
 }
 export function initPage(state) {

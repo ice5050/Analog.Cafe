@@ -8,7 +8,7 @@ import { connect } from "react-redux"
 import { fetchPage } from "../../../actions/postActions"
 import { ROUTE_POST_API, ROUTE_ARTICLE_DIR } from "../../../constants/post"
 import { ROUTE_AUTHOR_API } from "../../../constants/author"
-import { schema } from "./Composer/containers/ContentEditor/schema"
+import { schema } from "../Composer/containers/ContentEditor/schema"
 
 
 // components
