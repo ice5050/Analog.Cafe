@@ -25,7 +25,7 @@ export function setCard(info, request) {
 		}))
 		dispatch({
 			type: "MODAL.SET_CARD",
-			payload: info["data"],
+			payload: info,
 		})
 	}
 }
