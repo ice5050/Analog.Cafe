@@ -19,7 +19,7 @@ export const ZigzagPicture = styled.figure`
 	li:last-child & {
 		border-bottom: ${ props => props.theme.elements.thickBorder };
 	}
-	li:first-child & {
+	${'' /* li:first-child & {
 		border-top-width: calc(4.85em + ${ props => props.theme.size.block.border }px);
-	}
+	} */}
 `
