@@ -12,8 +12,19 @@ import placeholder from "../_icons/images/placeholder-profile.png"
 // return
 export default props => {
 	return (
-		<Figure { ...props } >
-			<Image { ...props } />
+		<Figure { ...props } onContextMenu={ event => event.preventDefault() } >
+			<Image
+				{ ...props }
+				style={
+					props.readOnly
+					&& {
+						WebkitTouchCallout : "none",
+						userSelect : "none",
+						pointerEvents: "none",
+					}
+				}
+
+			/>
 			<figcaption style={ props.nocaption && { borderBottom: "8px solid #2c2c2c", height: 0, overflow: "hidden" } }>
 
 			{ props.author ?
