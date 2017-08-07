@@ -36,7 +36,7 @@ export default props => {
 									<h2 title={ item.title }>{ item.title }</h2>
 									<Caption status={ props.status }>{
 										(item.summary).length > 250
-										 	? (item.summary).substr(0, 249) + "\u2026"
+										 	? (item.summary).substr(0, 249) + "…"
 											: item.summary
 									}</Caption>
 									<div>

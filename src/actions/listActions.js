@@ -3,6 +3,8 @@ import axios from "axios"
 import { setCard } from "./modalActions"
 import errorMessage from "../constants/error-messages"
 
+import { ROUTE_LIST_API } from "../constants/list"
+
 // return
 export function setPage(page, appendItems) {
   if(appendItems === false) return {
@@ -22,7 +24,17 @@ export function initPage(state) {
 }
 
 export function fetchPage(request, appendItems = false) {
-  return dispatch => {
+  return (dispatch, getState) => {
+
+    // do not load anything outside of API scope
+    if(!(request.url).includes(ROUTE_LIST_API)) return
+
+    // get current state from store
+    let listState = getState().list
+
+    // do not load post twice in a arow
+    console.log(listState.requested.url, request.url)
+    if(listState.requested.url === request.url) return
 
     // reset list state (unless it's being paginated)
     !appendItems && dispatch(initPage({
@@ -39,7 +51,7 @@ export function fetchPage(request, appendItems = false) {
         dispatch(setCard({
           status: "ok",
           info: {
-            title: "Error " + error.response.status + " 😧",
+            title: "Error " + error.response.status,
             text: errorMessage.FAILED_LIST,
           }
         }, { url: "errors/list" }))

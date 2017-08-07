@@ -13,10 +13,10 @@ export const ModalCard = props => {
 			margin: "5vh auto 90.1vh", // 90.1vh is required for iOS to be scrollable
 		}}>
 			<CardHeader>
-				<h3>{ props.title }</h3>
-				<a href="#close">✕</a>
+				<h3 onClick={ event => event.stopPropagation() }>{ props.title }</h3>
+				<a href="#close" onClick={ event => event.preventDefault() }>✕</a>
 			</CardHeader>
-			<figure>
+			<figure onClick={ event => event.stopPropagation() }>
 				<img
 					src={ props.image || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" }
 					style={{ display: typeof props.image === "undefined" ? "none" : "initial" }}

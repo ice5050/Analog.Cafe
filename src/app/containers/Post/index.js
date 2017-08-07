@@ -19,11 +19,23 @@ import { Section, Article, Byline } from "../../components/ArticleStyles"
 
 // render
 class Post extends React.PureComponent {
-	componentWillMount(){
+	fetchPage = () => {
+
+		// do not fetch pages unless they are located in /zine dir
+		// otherwise on unmount the component will try to load any page, and return 404 errors
+		if(!(this.props.history.location.pathname).includes(ROUTE_ARTICLE_DIR)) return
+
 		this.props.fetchPage({
 			url: ROUTE_POST_API + (this.props.history.location.pathname).replace(ROUTE_ARTICLE_DIR,"")
 		})
 	}
+	componentDidMount(){
+		this.unlisten = this.props.history.listen(location => this.fetchPage())
+		this.fetchPage()
+	}
+	componentWillUnmount() {
+    this.unlisten()
+  }
 	render() {
 		return(
 			<Article>
