@@ -91,10 +91,11 @@ export const Ul = styled.ul`
 		section {
 			position: 				relative;
 			max-width: 				61.5%;
-			padding: 					calc(${ blockSafety }em * 3) ${ blockSafety }em ${ props => props.theme.size.block.spacing }em ${ blockSafety }em;
+			padding: 					calc(${ blockSpacing }em * 6) ${ blockSafety }em ${ props => props.theme.size.block.spacing }em ${ blockSafety }em;
 			${	props => props.theme.size.breakpoint.max.l`
 				max-width: 	100% !important;
 				overflow: 	hidden;
+				padding-top: calc(${ blockSafety }em * 3);
 			`}
 			& > figure {
 				${ posterDimensions }
