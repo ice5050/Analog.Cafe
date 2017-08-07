@@ -13,6 +13,7 @@ export const zigzagTopShim = 12
 const blockSafety = props => props.theme.size.block.column.safety
 const blockSpacing = props => props.theme.size.block.spacing
 const greyLine = props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string()
+const greyFade = props => Color(props.theme.color.foreground).alpha(0).string()
 
 const posterDimensions = css`
 	width: 	5.5em;
@@ -83,9 +84,7 @@ export const Ul = styled.ul`
 				height: 					1px;
 				width: 						100%;
 				pointer-events: 	none;
-				${ props => props.theme.size.breakpoint.max.l`{
-					background: 			${ greyLine };
-				}`
+				background:				linear-gradient(to right, ${ greyFade } 0%, ${ greyLine } 100%)
 			}
 			&:active::before { visibility: hidden; }
 		}
