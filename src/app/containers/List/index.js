@@ -69,7 +69,11 @@ class List extends React.Component {
 				<ListBlock
 					status={ this.props.list.status }
 					items={ this.props.list.items }
-					nextPostTitle={ nextPostTitle => this.props.setNextPost({ title: nextPostTitle }) }
+					nextPostHeading={ nextPostHeading => this.props.setNextPost({
+						title: nextPostHeading.title,
+						subtitle: nextPostHeading.subtitle,
+						author: nextPostHeading.author,
+					})}
 					private={ this.props.private }
 				/>
 

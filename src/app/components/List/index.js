@@ -27,7 +27,11 @@ export default props => {
 						<li key={ item.id }>
 							<Link
 								to={ item.slug && ROUTE_ARTICLE_DIR + "/" + item.slug }
-								onClick={ () => props.nextPostTitle(item.title) }
+								onClick={ () => props.nextPostHeading({
+									title: item.title,
+									subtitle: item.subtitle,
+									author: item.author,
+								}) }
 							>
 								<section>
 									<figure>
