@@ -70,10 +70,9 @@ export const Ul = styled.ul`
 
 			&:active {
 				background: 0 0;
-				figure {
+				section figure {
 					box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight },
 						0 ${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
-
 				}
 			}
 			&::after {
@@ -113,7 +112,6 @@ export const Ul = styled.ul`
 
 				/* placeholder style */
 				background-color: ${ props => props.status === "loading" ? props.theme.color.foreground : greyLine };
-
 			}
 			h2 {
 				${ props => props.theme.typography.title.auto }
