@@ -41,7 +41,7 @@ export default props => {
 							>{ props.author.name }</ModalDispatch>.</span></span> : null
 						}
 					</Caption>
-				: <Caption { ...props } >{ props.children }</Caption>
+				: <Caption { ...props } >{ props.children }<span style={{ color: "#2c2c2c" }}> Finding image author…</span></Caption>
 			}
 
 			</figcaption>
