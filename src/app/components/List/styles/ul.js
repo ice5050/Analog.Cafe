@@ -13,7 +13,7 @@ export const zigzagTopShim = 12
 const blockSafety = props => props.theme.size.block.column.safety
 const blockSpacing = props => props.theme.size.block.spacing
 const greyLine = props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string()
-const greyFade = props => Color(props.theme.color.foreground).alpha(0).string()
+// const greyFade = props => Color(props.theme.color.foreground).alpha(0).string()
 
 const posterDimensions = css`
 	width: 	5.5em;
@@ -76,7 +76,7 @@ export const Ul = styled.ul`
 						0 ${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
 				}
 			}
-			&::after {
+			${'' /* &::after {
 				${ zigzagFill }
 				display: 					block;
 				content: 					"";
@@ -86,7 +86,7 @@ export const Ul = styled.ul`
 				pointer-events: 	none;
 				background:				linear-gradient(to right, ${ greyFade } 0%, ${ greyLine } 100%)
 			}
-			&:active::before { visibility: hidden; }
+			&:active::before { visibility: hidden; } */}
 		}
 		section {
 			position: 				relative;
