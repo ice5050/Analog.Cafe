@@ -50,16 +50,14 @@ class List extends React.Component {
 									this.props.list.filters.author ?
 										<q><em>
 											{ getListMeta(this.props.location.pathname).meta.text }
-											{ this.props.list.filters.author.name
-												? <ModalDispatch
-														with={{
-															request: {
-																url: "/api/author/" + this.props.list.filters.author.id
-															}
-														}}
-													>{ this.props.list.filters.author.name }</ModalDispatch>
-												: <span style={{ fontStyle: "normal" }}>😎</span> 
-											}
+											{ this.props.list.filters.author.name &&
+												<ModalDispatch
+													with={{
+														request: {
+															url: "/api/author/" + this.props.list.filters.author.id
+														}
+													}}
+												>{ this.props.list.filters.author.name }</ModalDispatch> }
 										</em>.</q>
 									: <q><em>{ getListMeta(this.props.location.pathname).meta.text }</em>.</q>
 								}

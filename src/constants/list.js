@@ -23,7 +23,7 @@ export const ROUTE_META = {
 											"designation" : "homepage",
 	},
 	"/author/*"			:	{
-											"text" : "Published works by ",
+											"text" : "Works by or featuring ",
 											"emoji"				: "🤘",
 	},
 	"default"				: {
