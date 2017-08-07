@@ -83,7 +83,9 @@ export const Ul = styled.ul`
 				height: 					1px;
 				width: 						100%;
 				pointer-events: 	none;
-				background: 			${ greyLine };
+				${ props => props.theme.size.breakpoint.max.l`{
+					background: 			${ greyLine };
+				}`
 			}
 			&:active::before { visibility: hidden; }
 		}
@@ -112,6 +114,21 @@ export const Ul = styled.ul`
 
 				/* placeholder style */
 				background-color: ${ props => props.status === "loading" ? props.theme.color.foreground : greyLine };
+				border-bottom: ${ props => props.theme.elements.thickBorder };
+
+				${'' /* position: relative;
+				&::after {
+					content: "";
+					position: absolute;
+					right: 0;
+					bottom: 0;
+					width: 0;
+					height: 0;
+					border-left: 8px solid transparent;
+					border-right: 8px solid;
+					border-bottom: 8px solid;
+					border-top: 8px solid transparent;
+				} */}
 			}
 			h2 {
 				${ props => props.theme.typography.title.auto }

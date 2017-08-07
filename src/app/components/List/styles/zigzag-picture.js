@@ -15,12 +15,11 @@ export const ZigzagPicture = styled.figure`
 		margin-top: -${ zigzagTopShim + 4.5 }em;
 	}
 
-	box-shadow: 0 8px 0 0px #2c2c2c inset, 0 calc(0.5em + 8px) 2em rgba(44, 44, 44, 0.5) inset;
-
+	border-top: ${ props => props.theme.elements.thickBorder };
 	li:last-child & {
-		box-shadow: 0 8px 0 0px #2c2c2c inset, 0 -8px 0 0px #2c2c2c inset, 0 calc(0.5em + 8px) 2em rgba(44, 44, 44, 0.5) inset;
+		border-bottom: ${ props => props.theme.elements.thickBorder };
 	}
 	li:first-child & {
-		 box-shadow: 0 8px 0 0px #2c2c2c inset, 0 105px 0 0 #2c2c2c inset, 0 calc(0.5em + 8px) 2em rgba(44, 44, 44, 0.5) inset;
+		border-top-width: calc(4.85em + ${ props => props.theme.size.block.border }px);
 	}
 `
