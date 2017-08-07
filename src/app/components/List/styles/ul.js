@@ -3,7 +3,7 @@ import styled, { css } from "styled-components"
 import Color from "color"
 
 // images
-import zigzagImage from "./zigzag-mask.svg";
+import zigzagImage from "./slanted-zigzag-mask.svg";
 
 
 // css & constants
@@ -19,7 +19,7 @@ const posterDimensions = css`
 	width: 	5.5em;
 	height: 9.33em;
 `
-const zigzagWidthShim = css`width: calc( ${ zigzagWidth } + 5px);`
+const zigzagWidthShim = css`width: calc( ${ zigzagWidth } + 3px);`
 const zigzagFill = css`
 	position: absolute;
 	right: 		0;
