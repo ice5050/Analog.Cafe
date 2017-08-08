@@ -35,6 +35,8 @@ export function fetchPage(request) {
     dispatch(initPage({
       requested: request,
       title: postState.title,
+      subtitle: postState.subtitle,
+      author: postState.author,
     }))
 
     axios({

@@ -94,7 +94,7 @@ class Figure extends React.Component {
 						: <span>{ this.state.caption }</span>
 					}
       	</Picture>
-      : <Picture { ...attributes } src="" className={ className }>Loading image...</Picture>
+      : <Picture { ...attributes } src="" className={ className }>Loading image…</Picture>
   }
 }
 

@@ -12,5 +12,5 @@ export const ModalOverlay = styled.aside`
 
 	overflow:										scroll;
 	-webkit-overflow-scrolling: touch;
-
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
 `

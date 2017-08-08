@@ -2,7 +2,7 @@ const INITIAL_STATE = {
   hidden: true,
   status: "loading",
   info: {
-    title: "Loading Card...",
+    title: "Loading Card…",
     text: "",
     buttons: {},
   },

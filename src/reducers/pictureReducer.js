@@ -4,7 +4,7 @@ export default (
         "status": "loading",
         "info": {
         	"author" : {
-        		"name" : "Fetching caption...",
+        		"name" : "Finding image author…",
         		"id" : "",
         	}
         }
