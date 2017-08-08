@@ -45,7 +45,7 @@ export default props => {
 									}</Caption>
 									<div>
 										<Stats { ...props }>{
-											( item.tag === "photo-essay" && item.stats.images === "1" ) ? "Photograph" :
+											( item.tag === "photo-essay" && item.stats.images === 1 ) ? "Photograph" :
 											(item.tag + "").replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())
 										}{
 											item.type !== "placeholder" && !props.private && (
