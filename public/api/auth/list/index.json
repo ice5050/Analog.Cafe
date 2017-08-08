@@ -37,7 +37,7 @@
   		"summary" : "This is officially the first post. I am nervous and tipsy, also grateful and excited. It feels pretty nice to be able to start something that’s meant to inspire thousands and be the creative outlet for skilled film photographers, writers, and artists."
   	},
     {
-  		"tag" : "rejected",
+  		"tag" : "not-published",
   		"slug" : "story-324d",
   		"title" : "Story",
   		"subtitle" : "",
@@ -58,7 +58,7 @@
   		"summary" : "This story is meant to be rejected. Because, quite frankly it sucks."
   	},
     {
-  		"tag" : "pending",
+  		"tag" : "pending-review...",
   		"slug" : "story-389d",
   		"title" : "Another Story",
   		"subtitle" : "",
