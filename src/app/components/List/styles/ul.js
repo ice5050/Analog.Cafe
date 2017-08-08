@@ -3,7 +3,7 @@ import styled, { css } from "styled-components"
 import Color from "color"
 
 // images
-import zigzagImage from "./zigzag-mask.svg";
+import zigzagImage from "./slanted-zigzag-mask.svg";
 
 
 // css & constants
@@ -13,12 +13,13 @@ export const zigzagTopShim = 12
 const blockSafety = props => props.theme.size.block.column.safety
 const blockSpacing = props => props.theme.size.block.spacing
 const greyLine = props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string()
+// const greyFade = props => Color(props.theme.color.foreground).alpha(0).string()
 
 const posterDimensions = css`
 	width: 	5.5em;
 	height: 9.33em;
 `
-const zigzagWidthShim = css`width: calc( ${ zigzagWidth } + 5px);`
+const zigzagWidthShim = css`width: calc( ${ zigzagWidth } + 3px);`
 const zigzagFill = css`
 	position: absolute;
 	right: 		0;
@@ -70,13 +71,12 @@ export const Ul = styled.ul`
 
 			&:active {
 				background: 0 0;
-				figure {
+				section figure {
 					box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight },
 						0 ${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
-
 				}
 			}
-			&::after {
+			${'' /* &::after {
 				${ zigzagFill }
 				display: 					block;
 				content: 					"";
@@ -84,17 +84,18 @@ export const Ul = styled.ul`
 				height: 					1px;
 				width: 						100%;
 				pointer-events: 	none;
-				background: 			${ greyLine };
+				background:				linear-gradient(to right, ${ greyFade } 0%, ${ greyLine } 100%)
 			}
-			&:active::before { visibility: hidden; }
+			&:active::before { visibility: hidden; } */}
 		}
 		section {
 			position: 				relative;
 			max-width: 				61.5%;
-			padding: 					calc(${ blockSafety }em * 3) ${ blockSafety }em ${ props => props.theme.size.block.spacing }em ${ blockSafety }em;
+			padding: 					calc(${ blockSpacing }em * 6) ${ blockSafety }em ${ props => props.theme.size.block.spacing }em ${ blockSafety }em;
 			${	props => props.theme.size.breakpoint.max.l`
 				max-width: 	100% !important;
 				overflow: 	hidden;
+				padding-top: calc(${ blockSafety }em * 3);
 			`}
 			& > figure {
 				${ posterDimensions }
@@ -113,7 +114,21 @@ export const Ul = styled.ul`
 
 				/* placeholder style */
 				background-color: ${ props => props.status === "loading" ? props.theme.color.foreground : greyLine };
+				border-bottom: ${ props => props.theme.elements.thickBorder };
 
+				${'' /* position: relative;
+				&::after {
+					content: "";
+					position: absolute;
+					right: 0;
+					bottom: 0;
+					width: 0;
+					height: 0;
+					border-left: 8px solid transparent;
+					border-right: 8px solid;
+					border-bottom: 8px solid;
+					border-top: 8px solid transparent;
+				} */}
 			}
 			h2 {
 				${ props => props.theme.typography.title.auto }

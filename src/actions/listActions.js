@@ -3,7 +3,7 @@ import axios from "axios"
 import { setCard } from "./modalActions"
 import errorMessage from "../constants/error-messages"
 
-import { ROUTE_LIST_API } from "../constants/list"
+import { ROUTE_LIST_API, ROUTE_AUTHENTICATED_LIST_API } from "../constants/list"
 
 // return
 export function setPage(page, appendItems) {
@@ -27,7 +27,10 @@ export function fetchPage(request, appendItems = false) {
   return (dispatch, getState) => {
 
     // do not load anything outside of API scope
-    if(!(request.url).includes(ROUTE_LIST_API)) return
+    if(
+      !(request.url).includes(ROUTE_LIST_API)
+      && !(request.url).includes(ROUTE_AUTHENTICATED_LIST_API)
+    ) return
 
     // get current state from store
     let listState = getState().list
