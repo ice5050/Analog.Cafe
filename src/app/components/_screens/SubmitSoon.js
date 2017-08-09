@@ -16,7 +16,7 @@ export default props => {
 		<Article>
 			<Heading
 				pageTitle="Submit"
-				pageSubtitle="Film Photography & Essays"
+				pageSubtitle="Film Photography, Essays & Articles"
 			/>
 			<Section>
 

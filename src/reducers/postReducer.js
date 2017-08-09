@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   "status": "loading",
-  "title": "Loading Post…",
+  "title": "Loading…",
   "subtitle": "",
   "author": { "name" : "Finding post author…", "id" : "" },
   "content" : {

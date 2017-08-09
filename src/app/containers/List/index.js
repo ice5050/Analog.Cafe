@@ -40,6 +40,7 @@ class List extends React.Component {
     this.unlisten()
   }
 	render() {
+		const renderedListMeta = getListMeta(this.props.location.pathname).meta
 		return(
 			<div>
 				<ListDescription>
@@ -49,7 +50,7 @@ class List extends React.Component {
 								{
 									this.props.list.filters.author ?
 										<q><em>
-											{ getListMeta(this.props.location.pathname).meta.text }
+											{ renderedListMeta.text }
 											{ this.props.list.filters.author.name &&
 												<ModalDispatch
 													with={{
@@ -59,9 +60,11 @@ class List extends React.Component {
 													}}
 												>{ this.props.list.filters.author.name }</ModalDispatch> }
 										</em>.</q>
-									: <q><em>{ getListMeta(this.props.location.pathname).meta.text }</em>.</q>
+									: <q><em>{
+										renderedListMeta.text
+									}</em>.</q>
 								}
-							&nbsp;{ getListMeta(this.props.location.pathname).meta.emoji }
+							&nbsp;{ renderedListMeta.emoji }
 						</ListHeader>
 					}
 				</ListDescription>
