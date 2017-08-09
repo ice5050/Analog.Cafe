@@ -12,8 +12,7 @@ import NotFound from "../../containers/_screens-errors/NotFound"
 export default props => {
 
 	// Composer isn't ready for production yet.
-	// if(process.env.NODE_ENV === "development")
-	if(false)
+	if(process.env.NODE_ENV === "development")
 	return (
 			<Switch>
 				<Route exact path="/submit" component={ Submit } />

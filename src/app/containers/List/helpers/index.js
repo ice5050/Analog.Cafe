@@ -17,7 +17,7 @@ export const getListMeta = (pathname = "/", page=1) => {
 	// filter by author name
 	if(pathname.includes("/author/")){
 		let id = pathname.match(/\/author\/(.*)/)[1]
-		search = id ? "&author=" + id : "/index"
+		search = id ? "&author=" + id : ""
 		meta = {
 			text: ROUTE_META["/author/*"].text,
 			emoji: ROUTE_META["/author/*"].emoji
