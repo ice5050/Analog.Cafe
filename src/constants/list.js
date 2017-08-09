@@ -10,20 +10,20 @@ export const ROUTE_FILTERS = {
 }
 export const ROUTE_META = {
 	"/photo-essays"	: {
-											"text"	: "Photo essays & graphic stories",
-											"emoji"				: "🌅",
+											"text"	: "Stories told with images shot on film cameras",
+											"emoji"				: "🌇",
 	},
 	"/articles"			:	{
-											"text" : "Articles on film photography & beyond",
-											"emoji"				: "🖋",
+											"text" : "Practical film photography & other inspiring reads",
+											"emoji"				: "🌈",
 	},
 	"/"							:	{
-											"text" : "Film photography, art, stories & more",
+											"text" : "Film photography publication",
 											"emoji"				: "☕️",
 											"designation" : "homepage",
 	},
 	"/author/*"			:	{
-											"text" : "Works by or featuring ",
+											"text" : "Images and stories by ",
 											"emoji"				: "🤘",
 	},
 	"default"				: {
