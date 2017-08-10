@@ -1,6 +1,7 @@
 // tools
 import React from "react"
 
+import { APP_NAME } from "../../../constants/app"
 
 // styles
 import { ListDescription as ListDescriptionStyles, BrandName } from "./styles"
@@ -10,7 +11,7 @@ export { ListHeader } from "./styles"
 export const ListDescription = props => {
 	return (
 		<ListDescriptionStyles { ...props } >
-			<BrandName>Analog.Cafe</BrandName>{ props.children }
+			<BrandName>{ APP_NAME }</BrandName>{ props.children }
 		</ListDescriptionStyles>
 	)
 }

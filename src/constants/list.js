@@ -15,27 +15,16 @@ export const ROUTE_FILTERS = {
 }
 export const ROUTE_META = {
 	"/photo-essays"	: {
-
-
-
-
-
-											"text"	: "Stories, expressed with images shot on film",
-
-
-
-
-
-
+											"text"	: "Stories told with images shot on film",
 											"emoji"				: "🌇🌃🌌",
 											// photo-essay
 	},
 	"/articles"			:	{
 											"text" : "Reads of interest",
-											// creative-expression > story
-											// off-topic > editorial
-											// theory-and-practice > review
-											// opinion > how-to
+											// story
+											// editorial
+											// review
+											// how-to
 											"emoji"				: "🌈",
 	},
 	"/"							:	{
