@@ -12,7 +12,8 @@ import { ModalDispatch } from "../../../Modal"
 import { Header, Byline } from "../../../../components/ArticleStyles"
 import placeholder from "../../../../components/_icons/images/placeholder-profile.png"
 
-
+const maxTitleLength = 65
+const maxSubtitleLength = 75
 const maxSuggestedTitleLength = 32
 const maxSuggestedSubtitleLength = 52
 
@@ -54,6 +55,7 @@ export default class extends React.Component {
 					value={ this.headerData.title }
 					inputDesignation="title"
 					warning={ this.state.title.warning || this.headerData.title.length > maxSuggestedTitleLength }
+					maxLength={ maxTitleLength }
 				/>
 				<TitleCase
 					placeholder={ this.props.pageSubtitle }
@@ -61,6 +63,7 @@ export default class extends React.Component {
 					value={ this.headerData.subtitle }
 					inputDesignation="subtitle"
 					warning={ this.state.subtitle.warning || this.headerData.subtitle.length > maxSuggestedSubtitleLength }
+					maxLength={ maxSubtitleLength }
 				/>
 					<Byline>
 						Link to <ModalDispatch

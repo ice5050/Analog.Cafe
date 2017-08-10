@@ -30,6 +30,7 @@ export default class extends React.Component {
 			    	className={ 	this.props.className }
 			    	placeholder={	this.props.placeholder }
             warning={     this.props.warning }
+            maxLength={   this.props.maxLength }
 			/>
 		)
   }
