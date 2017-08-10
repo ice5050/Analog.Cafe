@@ -1,2 +1,2 @@
 export const DOMAIN_NAME = "analog.cafe"
-export const API_DOMAIN = "https://analog-cafe-server-dev-ice5050.herokuapp.com"
+export const API_DOMAIN = process.env.REACT_APP_API_URL
