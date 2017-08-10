@@ -32,12 +32,13 @@ export default class extends React.Component {
   }
   render() {
 		return(
-      <Form warning={ this.state.warning }>
+      <Form>
         <SubtitleInput
           placeholder="Type Your Email"
           onChange={ this.handleEmailChange }
           required
           maxLength="200"
+          warning={ this.state.warning }
         />
 
         <ModalDispatch
