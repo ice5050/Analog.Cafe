@@ -13,6 +13,8 @@ import { Header, Byline } from "../../../../components/ArticleStyles"
 import placeholder from "../../../../components/_icons/images/placeholder-profile.png"
 
 
+const maxSuggestedTitleLength = 32
+const maxSuggestedSubtitleLength = 52
 
 // return
 export default class extends React.Component {
@@ -25,20 +27,20 @@ export default class extends React.Component {
 		title: { warning: false },
 		subtitle: { warning: false },
 	}
-  componentDidMount() {
+  componentWillMount() {
 		this.headerData = loadHeader()
 	}
   handleTitleChange(event) {
   	this.headerData.title = event
   	saveHeader(this.headerData);
-		((this.headerData.title).length > 32)
+		((this.headerData.title).length > maxSuggestedTitleLength)
 		? this.setState({ title: { warning: true }})
 		: this.setState({ title: { warning: false }})
   }
   handleSubtitleChange(event) {
   	this.headerData.subtitle = event
   	saveHeader(this.headerData);
-		((this.headerData.subtitle).length > 52)
+		((this.headerData.subtitle).length > maxSuggestedSubtitleLength)
 		? this.setState({ subtitle: { warning: true }})
 		: this.setState({ subtitle: { warning: false }})
 
@@ -49,16 +51,16 @@ export default class extends React.Component {
 				<TitleCase
 					placeholder={ this.props.pageTitle }
 					onChange={ this.handleTitleChange }
-					value={ loadHeader().title }
+					value={ this.headerData.title }
 					inputDesignation="title"
-					warning={ this.state.title.warning }
+					warning={ this.state.title.warning || this.headerData.title.length > maxSuggestedTitleLength }
 				/>
 				<TitleCase
 					placeholder={ this.props.pageSubtitle }
 					onChange={ this.handleSubtitleChange }
-					value={ loadHeader().subtitle }
+					value={ this.headerData.subtitle }
 					inputDesignation="subtitle"
-					warning={ this.state.subtitle.warning }
+					warning={ this.state.subtitle.warning || this.headerData.subtitle.length > maxSuggestedSubtitleLength }
 				/>
 					<Byline>
 						Link to <ModalDispatch
