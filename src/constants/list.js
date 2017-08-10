@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { API_DOMAIN } from "./link"
+=======
+import { APP_DESCRIPTION } from "./app"
+>>>>>>> Updated lael copy, updated titles, added app.js to constants folder
 export { ROUTE_ARTICLE_DIR } from "./post"
 export const PAGE_ITERATOR_STRING = "&page="
 export const ROUTE_LIST_API = API_DOMAIN + "/api/list?"
@@ -11,15 +15,31 @@ export const ROUTE_FILTERS = {
 }
 export const ROUTE_META = {
 	"/photo-essays"	: {
-											"text"	: "Stories told with images shot on film cameras",
-											"emoji"				: "🌇",
+
+
+
+
+
+											"text"	: "Stories, expressed with images shot on film",
+
+
+
+
+
+
+											"emoji"				: "🌇🌃🌌",
+											// photo-essay
 	},
 	"/articles"			:	{
-											"text" : "Practical film photography & other inspiring reads",
+											"text" : "Reads of interest",
+											// creative-expression > story
+											// off-topic > editorial
+											// theory-and-practice > review
+											// opinion > how-to
 											"emoji"				: "🌈",
 	},
 	"/"							:	{
-											"text" : "Film photography publication",
+											"text" : APP_DESCRIPTION,
 											"emoji"				: "☕️",
 											"designation" : "homepage",
 	},
@@ -28,8 +48,7 @@ export const ROUTE_META = {
 											"emoji"				: "🤘",
 	},
 	"default"				: {
-											"text" : "Film photography publication",
+											"text" : APP_DESCRIPTION,
 											"emoji"				: "🍩",
 	},
-
 }
