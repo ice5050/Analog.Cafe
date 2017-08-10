@@ -1,9 +1,15 @@
+// tools
+import React from "react";
+import { renderToStaticMarkup } from "react-dom/server"
+
 // styles
 import styled, { css } from "styled-components"
 import Color from "color"
 
 // images
-import zigzagImage from "./slanted-zigzag-mask.svg";
+import ZigZag from "../components/ZigZag";
+const zigZagSVG = encodeURIComponent(renderToStaticMarkup(<ZigZag />))
+const zigZagDataUri = `url("data:image/svg+xml,${zigZagSVG}")`
 
 
 // css & constants
@@ -54,7 +60,7 @@ export const Ul = styled.ul`
 		${ zigzagDimensions }
 		filter: 						drop-shadow(1px 0 0 ${ greyLine });
 		background-size: 		100%;
-		background-image: 	url(${ zigzagImage });
+		background-image: 	${ zigZagDataUri };
 		background-repeat: 	repeat-y;
 	}
 
