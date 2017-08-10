@@ -21,16 +21,27 @@ export default class extends React.Component {
     this.handleTitleChange = this.handleTitleChange.bind(this)
     this.handleSubtitleChange = this.handleSubtitleChange.bind(this)
   }
+	state = {
+		title: { warning: false },
+		subtitle: { warning: false },
+	}
   componentDidMount() {
 		this.headerData = loadHeader()
 	}
   handleTitleChange(event) {
   	this.headerData.title = event
-  	saveHeader(this.headerData)
+  	saveHeader(this.headerData);
+		((this.headerData.title).length > 32)
+		? this.setState({ title: { warning: true }})
+		: this.setState({ title: { warning: false }})
   }
   handleSubtitleChange(event) {
   	this.headerData.subtitle = event
-  	saveHeader(this.headerData)
+  	saveHeader(this.headerData);
+		((this.headerData.subtitle).length > 52)
+		? this.setState({ subtitle: { warning: true }})
+		: this.setState({ subtitle: { warning: false }})
+
   }
   render() {
 		return (
@@ -40,15 +51,15 @@ export default class extends React.Component {
 					onChange={ this.handleTitleChange }
 					value={ loadHeader().title }
 					inputDesignation="title"
-				></TitleCase>
+					warning={ this.state.title.warning }
+				/>
 				<TitleCase
 					placeholder={ this.props.pageSubtitle }
 					onChange={ this.handleSubtitleChange }
 					value={ loadHeader().subtitle }
 					inputDesignation="subtitle"
-				></TitleCase>
-
-
+					warning={ this.state.subtitle.warning }
+				/>
 					<Byline>
 						Link to <ModalDispatch
 							with={
@@ -69,8 +80,6 @@ export default class extends React.Component {
 							}
 						>Your Profile</ModalDispatch> will appear here.
 					</Byline>
-
-
 			</Header>
 		)
 	}
