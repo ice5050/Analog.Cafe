@@ -1,1 +1,1 @@
-export const DOMAIN_NAME = "analog.cafe"
+export { DOMAIN_NAME } from "./app"
