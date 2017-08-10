@@ -37,6 +37,7 @@ export default class extends React.Component {
           placeholder="Type Your Email"
           onChange={ this.handleEmailChange }
           required
+          maxLength="200"
         />
 
         <ModalDispatch
