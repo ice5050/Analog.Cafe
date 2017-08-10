@@ -49,6 +49,7 @@ export const Figure = styled.figure`
 	width: 					85%;
 	float: 					left;
 	background:			${ props => props.theme.color.background };
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 
 
 	${ shadow }
