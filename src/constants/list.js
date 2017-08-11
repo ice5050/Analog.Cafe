@@ -1,4 +1,7 @@
+
 import { API_DOMAIN } from "./link"
+import { APP_DESCRIPTION } from "./app"
+
 export { ROUTE_ARTICLE_DIR } from "./post"
 export const PAGE_ITERATOR_STRING = "&page="
 export const ROUTE_LIST_API = API_DOMAIN + "/api/list?"
@@ -11,25 +14,29 @@ export const ROUTE_FILTERS = {
 }
 export const ROUTE_META = {
 	"/photo-essays"	: {
-											"text"	: "Photo essays & graphic stories",
-											"emoji"				: "🌅",
+											"text"	: "Stories told with images shot on film",
+											"emoji"				: "🌇🌃🌌",
+											// photo-essay
 	},
 	"/articles"			:	{
-											"text" : "Articles on film photography & beyond",
-											"emoji"				: "🖋",
+											"text" : "Reads of interest",
+											// story
+											// editorial
+											// review
+											// how-to
+											"emoji"				: "🌈",
 	},
 	"/"							:	{
-											"text" : "Film photography, art, stories & more",
+											"text" : APP_DESCRIPTION,
 											"emoji"				: "☕️",
 											"designation" : "homepage",
 	},
 	"/author/*"			:	{
-											"text" : "Works by or featuring ",
+											"text" : "Images and stories by ",
 											"emoji"				: "🤘",
 	},
 	"default"				: {
-											"text" : "Film photography publication",
+											"text" : APP_DESCRIPTION,
 											"emoji"				: "🍩",
 	},
-
 }

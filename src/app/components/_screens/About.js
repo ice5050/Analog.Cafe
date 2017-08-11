@@ -28,7 +28,7 @@ export default props => {
 		<Article>
 			<Heading
 				pageTitle="Analog.Cafe ☕️"
-				pageSubtitle="Film Photography Publication"
+				pageSubtitle="A Film Photography Publication"
 			/>
 			<Section>
 				<Figure src="/images/pictures/about-forest.jpg" feature noAuthor>A short ride up a twisty mountain road from downtown Chiang Mai<br />&mdash; where Analog.Cafe is built &mdash;<br />is a tropical forest.</Figure>
