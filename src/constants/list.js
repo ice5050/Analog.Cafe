@@ -1,10 +1,9 @@
 
-import { API_DOMAIN } from "./link"
-import { APP_DESCRIPTION } from "./app"
+import { APP_DESCRIPTION, ROUTE_API_DOMAIN } from "./app"
 
 export { ROUTE_ARTICLE_DIR } from "./post"
 export const PAGE_ITERATOR_STRING = "&page="
-export const ROUTE_LIST_API = API_DOMAIN + "/api/list?"
+export const ROUTE_LIST_API = ROUTE_API_DOMAIN + "/api/list?"
 export const ROUTE_AUTHENTICATED_LIST_API = "/api/auth/list"
 export const ROUTE_FILTERS = {
 	"/photo-essays"	: "photo-essay",
