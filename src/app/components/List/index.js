@@ -45,7 +45,11 @@ export default props => {
 									}</Caption>
 									<div>
 										<Stats { ...props }>{
+<<<<<<< HEAD
 											(item.tag === "photo-essay" && item.stats.images === 1) ? "Single-Frame Narrative" :
+=======
+											( item.tag === "photo-essay" && item.stats.images === 1 ) ? "Single-Frame Narrative" :
+>>>>>>> Integer instead of string for post image count
 											(item.tag + "").replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())
 										}{
 											item.type !== "placeholder" && !props.private && (
