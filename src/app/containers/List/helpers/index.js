@@ -17,7 +17,7 @@ export const getListMeta = (pathname = "/", page=1) => {
 	// filter by author name
 	if(pathname.includes("/author/")){
 		let id = pathname.match(/\/author\/(.*)/)[1]
-		search = id ? "/author-" + id : "/index"
+		search = id ? "&author=" + id : ""
 		meta = {
 			text: ROUTE_META["/author/*"].text,
 			emoji: ROUTE_META["/author/*"].emoji
@@ -26,13 +26,13 @@ export const getListMeta = (pathname = "/", page=1) => {
 
 	// filter by tags
 	else {
-		search = ROUTE_FILTERS[pathname] ? "/tags-" + ROUTE_FILTERS[pathname] : "/index"
+		search = ROUTE_FILTERS[pathname] ? "&tag=" + ROUTE_FILTERS[pathname] : ""
     meta = ROUTE_META[pathname]
 		? ROUTE_META[pathname]
 		: ROUTE_META.default
 	}
 
 	// add pagination
-	search += page > 1 ? "-page-" + page : ""
+	search += page > 1 ? "&page=" + page : ""
 	return { search, meta }
 }

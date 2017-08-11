@@ -7,6 +7,7 @@ import { withRouter } from "react-router"
 import { connect } from "react-redux"
 import { fetchPage } from "../../../actions/postActions"
 import { ROUTE_POST_API, ROUTE_ARTICLE_DIR } from "../../../constants/post"
+import { ROUTE_AUTHOR_API } from "../../../constants/author"
 import { schema } from "../Composer/containers/ContentEditor/schema"
 
 
@@ -45,7 +46,7 @@ class Post extends React.PureComponent {
 					<Byline>by <ModalDispatch
 						with={{
 							request: {
-								url: "/api/author/" + this.props.post.author.id
+								url: ROUTE_AUTHOR_API + "/" + this.props.post.author.id
 							}
 						}}
 					>{ this.props.post.author.name }</ModalDispatch></Byline>

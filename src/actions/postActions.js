@@ -42,7 +42,7 @@ export function fetchPage(request) {
     axios({
       method: 			request.method || "get",
       data:         request.data || {},
-      url: 					request.url + ".json",
+      url: 					request.url,
     })
       .then(response => dispatch(setPage(response.data)))
       .catch(error =>
