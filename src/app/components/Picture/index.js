@@ -2,6 +2,8 @@
 import React from "react"
 import errorMessage from "../../../constants/error-messages"
 
+import { ROUTE_AUTHOR_API } from "../../../constants/author"
+
 // components
 import { ModalDispatch } from "../../containers/Modal"
 
@@ -37,7 +39,7 @@ export default props => {
 									props.author.id !== "unknown"
 										? {
 											request: {
-											url: "/api/author/" + props.author.id,
+											url: ROUTE_AUTHOR_API + "/" + props.author.id,
 											}
 										}
 										: {
