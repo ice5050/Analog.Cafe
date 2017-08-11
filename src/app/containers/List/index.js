@@ -7,7 +7,7 @@ import { ModalDispatch } from "../Modal"
 import { connect } from "react-redux"
 import { fetchPage } from "../../../actions/listActions"
 import { setPage as setNextPost } from "../../../actions/postActions"
-import { ROUTE_LIST_API, PAGE_ITERATOR_STRING, ROUTE_AUTHENTICATED_LIST_API } from "../../../constants/list"
+import { ROUTE_LIST_API, ROUTE_AUTHENTICATED_LIST_API } from "../../../constants/list"
 
 // components
 import { ListDescription, ListHeader } from "../../components/ListDescription"
@@ -20,16 +20,16 @@ import { getListMeta } from "./helpers"
 
 // return
 class List extends React.Component {
+	listAPI = this.props.private ? ROUTE_AUTHENTICATED_LIST_API : ROUTE_LIST_API
 	fetchNewList = () => {
-		const whichAPI = this.props.private ? ROUTE_AUTHENTICATED_LIST_API : ROUTE_LIST_API
 		this.props.fetchPage(
-			getListMeta(this.props.history.location.pathname, this.props.list.page.current, whichAPI).request
+			getListMeta(this.props.history.location.pathname, this.props.list.page.current, this.listAPI).request
 		)
 	}
 	handleLoadMore = event => {
 		event.preventDefault()
 		this.props.fetchPage(
-			getListMeta(this.props.history.location.pathname, (parseInt(this.props.list.page.current, 0) + 1, whichAPI).request,
+			getListMeta(this.props.history.location.pathname, (parseInt(this.props.list.page.current, 0) + 1), this.listAPI).request,
 			// append items:
 			true
 		)
