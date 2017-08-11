@@ -13,7 +13,7 @@ import { ZigzagPicture } from "./styles/zigzag-picture"
 import { datestamp } from "./helpers"
 
 // constants
-import { ROUTE_ARTICLE_DIR } from "../../../constants/list"
+import { ROUTE_POST_DIR } from "../../../constants/list"
 
 
 // return
@@ -26,7 +26,7 @@ export default props => {
 					return (
 						<li key={ item.id }>
 							<Link
-								to={ item.slug && ROUTE_ARTICLE_DIR + "/" + item.slug }
+								to={ item.slug && ROUTE_POST_DIR + "/" + item.slug }
 								onClick={ () => props.nextPostHeading({
 									title: item.title,
 									subtitle: item.subtitle,

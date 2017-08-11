@@ -1,7 +1,7 @@
 
 import { APP_DESCRIPTION, ROUTE_API_DOMAIN } from "./app"
 
-export { ROUTE_ARTICLE_DIR } from "./post"
+export { ROUTE_POST_DIR } from "./post"
 export const PAGE_ITERATOR_STRING = "&page="
 export const ROUTE_LIST_API = ROUTE_API_DOMAIN + "/api/list?"
 export const ROUTE_AUTHENTICATED_LIST_API = "/api/auth/list"

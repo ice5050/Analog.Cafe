@@ -21,16 +21,18 @@ import { getListMeta } from "./helpers"
 // return
 class List extends React.Component {
 	fetchNewList = () => {
-		const apiRoute = this.props.private ? ROUTE_AUTHENTICATED_LIST_API : ROUTE_LIST_API
-		this.props.fetchPage({
-			url: (apiRoute + getListMeta(this.props.history.location.pathname, this.props.list.page.current).search).split(PAGE_ITERATOR_STRING)[0]
-		})
+		const whichAPI = this.props.private ? ROUTE_AUTHENTICATED_LIST_API : ROUTE_LIST_API
+		this.props.fetchPage(
+			getListMeta(this.props.history.location.pathname, this.props.list.page.current, whichAPI).request
+		)
 	}
 	handleLoadMore = event => {
 		event.preventDefault()
-		this.props.fetchPage({
-			url: (this.props.list.requested.url).split(PAGE_ITERATOR_STRING)[0] + PAGE_ITERATOR_STRING + (parseInt(this.props.list.page.current, 0) + 1)
-		}, true)
+		this.props.fetchPage(
+			getListMeta(this.props.history.location.pathname, (parseInt(this.props.list.page.current, 0) + 1, whichAPI).request,
+			// append items:
+			true
+		)
 	}
 	componentDidMount() {
     this.unlisten = this.props.history.listen(location => this.fetchNewList())
