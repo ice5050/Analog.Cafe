@@ -2,7 +2,6 @@
 import React from "react"
 import errorMessage from "../../../constants/error-messages"
 
-// redux & state
 import { ROUTE_AUTHOR_API } from "../../../constants/author"
 
 // components
