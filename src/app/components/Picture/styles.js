@@ -1,4 +1,5 @@
 // tools
+import React from "react"
 import { Picture } from "react-responsive-picture"
 
 // styles
@@ -8,7 +9,8 @@ import { Caption as PictureCaption, CaptionStyles } from "../CaptionStyles"
 
 
 // css
-export const Image = styled(Picture)`
+// remove `style` prop from Picture HOC
+export const Image = styled( ({ style, ...props }) => <Picture { ...props } />)`
 	width: 		100%;
   display: 	block;
 `
@@ -49,6 +51,7 @@ export const Figure = styled.figure`
 	width: 					85%;
 	float: 					left;
 	background:			${ props => props.theme.color.background };
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 
 
 	${ shadow }

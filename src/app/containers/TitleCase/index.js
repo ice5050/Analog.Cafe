@@ -3,7 +3,7 @@ import React from "react"
 import toTitleCase from "titlecase"
 
 // components
-import { TitleTextarea, SubtitleTextarea } from "../../components/InputText"
+import { TitleTextarea, SubtitleTextarea } from "../../components/InputStyles"
 
 // return
 const components = {
@@ -29,6 +29,8 @@ export default class extends React.Component {
 			    	onChange={		this.handleChange }
 			    	className={ 	this.props.className }
 			    	placeholder={	this.props.placeholder }
+            warning={     this.props.warning }
+            maxLength={   this.props.maxLength }
 			/>
 		)
   }

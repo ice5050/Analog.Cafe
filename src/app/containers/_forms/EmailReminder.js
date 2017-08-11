@@ -3,7 +3,7 @@ import React from "react"
 
 // components
 import { Button } from "../../components/Button"
-import { SubtitleInput } from "../../components/InputText"
+import { SubtitleInput } from "../../components/InputStyles"
 
 // styles
 import { Form } from "../../components/FormStyles"
