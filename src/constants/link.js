@@ -1,6 +1,7 @@
-<<<<<<< HEAD
-export const DOMAIN_NAME = "analog.cafe"
+
 export const API_DOMAIN = process.env.REACT_APP_API_URL
-=======
 export { DOMAIN_NAME } from "./app"
->>>>>>> Updated lael copy, updated titles, added app.js to constants folder
+
+export const API_DOMAIN = process.env.REACT_APP_API_URL
+export { DOMAIN_NAME } from "./app"
+>>>>>>> bde5114ddaef330fca3837f2cdd69ad956a15c57

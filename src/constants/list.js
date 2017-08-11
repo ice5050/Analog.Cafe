@@ -1,8 +1,7 @@
-<<<<<<< HEAD
+
 import { API_DOMAIN } from "./link"
-=======
 import { APP_DESCRIPTION } from "./app"
->>>>>>> Updated lael copy, updated titles, added app.js to constants folder
+
 export { ROUTE_ARTICLE_DIR } from "./post"
 export const PAGE_ITERATOR_STRING = "&page="
 export const ROUTE_LIST_API = API_DOMAIN + "/api/list?"
