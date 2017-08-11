@@ -43,6 +43,7 @@ export function fetchPage(request) {
       method: 			request.method || "get",
       data:         request.data || {},
       url: 					request.url,
+      header: 			request.header || {},
     })
       .then(response => {
         (response.data.content && response.data.content.raw)
