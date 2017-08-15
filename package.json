@@ -5,8 +5,8 @@
   "license": "MPL-2.0",
   "private": true,
   "engines": {
-    "node": "7.x",
-    "npm": "4.x"
+    "node": "8.x",
+    "npm": "5.x"
   },
   "repository": {
     "type": "git",
