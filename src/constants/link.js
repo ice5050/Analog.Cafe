@@ -1,2 +1,1 @@
-export const DOMAIN_NAME = "analog.cafe"
-export const API_DOMAIN = process.env.REACT_APP_API_DOMAIN
+export { ROUTE_APP_DOMAIN } from "./app"

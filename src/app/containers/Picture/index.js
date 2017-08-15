@@ -8,7 +8,7 @@ import { getInfo } from "../../../actions/pictureActions"
 
 // components
 import Picture from "../../components/Picture"
-import { PlainTextarea } from "../../components/InputText"
+import { PlainTextarea } from "../../components/InputStyles"
 
 // export
 class Figure extends React.Component {

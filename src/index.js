@@ -2,6 +2,7 @@
 import React from "react"
 import { render } from "react-dom"
 import Helmet from "react-helmet"
+import { APP_NAME } from "./constants/app"
 
 // router
 import { BrowserRouter } from "react-router-dom"
@@ -22,8 +23,8 @@ render(
 		<BrowserRouter>
 			<Paper>
 				<Helmet
-					defaultTitle="Analog.Cafe ☕️"
-					titleTemplate="%s ☕️ Analog.Cafe"
+					defaultTitle={ APP_NAME + " ☕️" }
+					titleTemplate={ "%s ☕️ " + APP_NAME}
 				/>
 				<App />
 			</Paper>

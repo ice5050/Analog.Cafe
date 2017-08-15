@@ -13,8 +13,8 @@
   "items": [
     {
       "tag" : "photo-essay",
-    	"slug" : "bangkok-taipei-jiufen-taroko-taichung-nwj7",
-    	"title" : "Thailand ✈ Taiwan & Back",
+    	"slug" : "a-trip-to-taiwan-nwj7",
+    	"title" : "A Trip to Taiwan",
     	"subtitle" : "",
     	"id" : "nwj7",
     	"post-date" : "1501992240",
@@ -57,8 +57,8 @@
   	},
     {
     	"tag" : "photo-essay",
-    	"slug" : "some-time-ago-in-dalian-pem1",
-    	"title" : "Some Time Ago, in Dalian",
+    	"slug" : "when-was-this-again-pem1",
+    	"title" : "When Was This, Again?",
     	"subtitle" : "",
     	"id" : "pem1",
     	"post-date" : "1501923600",

@@ -18,7 +18,6 @@ export const Form = styled.form`
 		text-align: center;
 		padding: 0;
 		line-height: ${ props => props.theme.size.block.spacing * 2 }em;
-		background: ${ props => props.warning ? Color(props.theme.color.brand).alpha(props.theme.opacity.least * 2).string() : `transparent` };
 	}
 	button {
 		margin: 0;
