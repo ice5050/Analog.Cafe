@@ -6,7 +6,7 @@ import { withRouter } from "react-router"
 // redux & state
 import { connect } from "react-redux"
 import { fetchPage } from "../../../actions/postActions"
-import { ROUTE_POST_API, ROUTE_ARTICLE_DIR } from "../../../constants/post"
+import { ROUTE_POST_API, ROUTE_POST_DIR } from "../../../constants/post"
 import { ROUTE_AUTHOR_API } from "../../../constants/author"
 import { schema } from "../Composer/containers/ContentEditor/schema"
 
@@ -23,10 +23,10 @@ class Post extends React.PureComponent {
 
 		// do not fetch pages unless they are located in /zine dir
 		// otherwise on unmount the component will try to load any page, and return 404 errors
-		if(!(this.props.history.location.pathname).includes(ROUTE_ARTICLE_DIR)) return
+		if(!(this.props.history.location.pathname).includes(ROUTE_POST_DIR)) return
 
 		this.props.fetchPage({
-			url: ROUTE_POST_API + (this.props.history.location.pathname).replace(ROUTE_ARTICLE_DIR,"")
+			url: ROUTE_POST_API + (this.props.history.location.pathname).replace(ROUTE_POST_DIR,"")
 		})
 	}
 	componentDidMount(){

@@ -1,6 +1,6 @@
 
 // constants
-import { ROUTE_APP_DOMAIN } from "../../../../constants/link"
+import { ROUTE_APP_DOMAIN } from "../../../../constants/app"
 
 export const parseHref = href => {
   let address = href || "#" // <-- with fallback
