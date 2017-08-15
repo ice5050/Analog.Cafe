@@ -44,12 +44,22 @@ export function fetchPage(request) {
       data:         request.data || {},
       url: 					request.url,
     })
-      .then(response => dispatch(setPage(response.data)))
+      .then(response => {
+        (response.data.content && response.data.content.raw)
+        ? dispatch(setPage(response.data))
+        : dispatch(setCard({
+          status: "ok",
+          info: {
+            title: "Error 204",
+            text: errorMessage.EMPTY_POST,
+          }
+        }, { url: "errors/post" }))
+      })
       .catch(error =>
         dispatch(setCard({
           status: "ok",
           info: {
-            title: "Error " + error.response.status,
+            title: "Error " + (error.response ? error.response.status : "204"),
             text: errorMessage.FAILED_POST,
           }
         }, { url: "errors/post" }))

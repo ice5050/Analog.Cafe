@@ -23,8 +23,9 @@ export default props => {
 			<Ul status={ props.status }>
 			{
 				props.items.map(item => {
+					console.log(item._id)
 					return (
-						<li key={ item.id }>
+						<li key={ item._id }>
 							<Link
 								to={ item.slug && ROUTE_POST_DIR + "/" + item.slug }
 								onClick={ () => props.nextPostHeading({
