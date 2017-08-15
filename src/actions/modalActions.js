@@ -40,7 +40,17 @@ export function fetchCard(request) {
 	      data:         request.data || {},
 			  url: 					request.url,
 			})
-			.then(response => dispatch(setCard(response.data, request)))
+			.then(response => {
+				(response.data.info.title && response.data.info.text)
+        ? dispatch(setCard(response.data, request))
+        : dispatch(setCard({
+          status: "ok",
+          info: {
+            title: "Error 204",
+            text: errorMessage.EMPTY_CARD,
+          }
+        }, { url: "errors/modal" }))
+			})
 			.catch(error => dispatch(setCard({
 				status: "ok",
 				info: {

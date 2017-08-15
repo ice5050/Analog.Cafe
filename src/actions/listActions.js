@@ -36,20 +36,30 @@ export function fetchPage(request, appendItems = false) {
     let listState = getState().list
 
     // do not load post twice in a arow
-    console.log(listState.requested.url, request.url)
-    if(listState.requested.url === request.url) return
+    if(listState.requested.url === request.url && listState.requested.data.page === request.data.page) return
 
     // reset list state (unless it's being paginated)
-    !appendItems && dispatch(initPage({
-      requested: request,
-    }))
+    if(!appendItems)
+      dispatch(initPage({
+        requested: request,
+      }))
 
     axios({
       method: 			request.method || "get",
       data:         request.data || {},
       url: 					request.url,
     })
-      .then(response => dispatch(setPage(response.data, appendItems)))
+      .then(response => {
+        response.data.page["items-total"] > 0
+        ? dispatch(setPage(response.data, appendItems))
+        : dispatch(setCard({
+          status: "ok",
+          info: {
+            title: "Error 204",
+            text: errorMessage.EMPTY_LIST,
+          }
+        }, { url: "errors/list" }))
+      })
       .catch(error =>
         dispatch(setCard({
           status: "ok",
