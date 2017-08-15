@@ -1,18 +1,32 @@
 // tools
 import React from "react"
+import errorMessage from "../../../constants/error-messages"
+
+import { ROUTE_AUTHOR_API } from "../../../constants/author"
 
 // components
 import { ModalDispatch } from "../../containers/Modal"
 
 // styles
 import { Image, Figure, Caption } from "./styles"
-import placeholder from "../icons/images/placeholder-profile.png"
+import placeholder from "../_icons/images/placeholder-profile.png"
 
 // return
 export default props => {
 	return (
-		<Figure { ...props } >
-			<Image { ...props } />
+		<Figure { ...props } onContextMenu={ event => event.preventDefault() } >
+			<Image
+				{ ...props }
+				style={
+					props.readOnly
+					&& {
+						WebkitTouchCallout : "none",
+						userSelect : "none",
+						pointerEvents: "none",
+					}
+				}
+
+			/>
 			<figcaption style={ props.nocaption && { borderBottom: "8px solid #2c2c2c", height: 0, overflow: "hidden" } }>
 
 			{ props.author ?
@@ -20,27 +34,30 @@ export default props => {
 						{ props.children }
 						{
 							props.readOnly ?
-							<div>Image by <span style={ props.author.name === "" ? { display: "none" } : null } ><ModalDispatch
+							<span style={{ color: "#2c2c2c" }}> Image by <span style={ props.author.name === "" ? { display: "none" } : null } ><ModalDispatch
 								with={
 									props.author.id !== "unknown"
 										? {
 											request: {
-											url: "/api/author/" + props.author.id,
+											url: ROUTE_AUTHOR_API + "/" + props.author.id,
 											}
 										}
 										: {
 											info: {
 												image: placeholder,
-												title: "Unknown Author (" + props.author.errorCode + ") 🤔",
-												text: "Seems like there is no author listed... Sorry!"
+												title: "Error " + props.author.errorCode,
+												text: errorMessage.NO_AUTHOR
 											},
 											id: "errors/author"
 										}
 								}
-							>{ props.author.name }</ModalDispatch></span></div> : null
+							>{ props.author.name }</ModalDispatch>.</span></span> : null
 						}
 					</Caption>
-				: <Caption { ...props } >{ props.children }</Caption>
+				: <Caption { ...props } >
+					{ props.children }
+					{ !props.noAuthor && <span style={{ color: "#2c2c2c" }}> Finding image author…</span> }
+				</Caption>
 			}
 
 			</figcaption>

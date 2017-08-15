@@ -1,15 +1,17 @@
 // tools
 import React from "react"
 
+import { APP_NAME } from "../../../constants/app"
 
 // styles
-import { ListDescription, BrandName } from "./styles"
+import { ListDescription as ListDescriptionStyles, BrandName } from "./styles"
+export { ListHeader } from "./styles"
 
 // return
-export default props => {
+export const ListDescription = props => {
 	return (
-		<ListDescription { ...props } >
-			<BrandName>Analog.Cafe</BrandName>{ props.children }
-		</ListDescription>
+		<ListDescriptionStyles { ...props } >
+			<BrandName>{ APP_NAME }</BrandName>{ props.children }
+		</ListDescriptionStyles>
 	)
 }

@@ -8,7 +8,7 @@ import { getInfo } from "../../../actions/pictureActions"
 
 // components
 import Picture from "../../components/Picture"
-import { PlainTextarea } from "../../components/InputText"
+import { PlainTextarea } from "../../components/InputStyles"
 
 // export
 class Figure extends React.Component {
@@ -26,7 +26,12 @@ class Figure extends React.Component {
     }
   }
   handleChange(event) {
-    const caption = event.target.value
+		let caption  = (event.target.value).replace(/'\b/g, "‘")	// Opening singles
+      .replace(/\b'/g, "’")     	// Closing singles
+      .replace(/"\b/g, "“")     	// Opening doubles
+      .replace(/\b"/g, "”")     	// Closing doubles
+      .replace(/--/g,  "—")     	// em-dashes
+      .replace(/\b\.\.\./g,  "…")		// ellipsis
     const { node, editor } = this.props
 		const feature = node.data.get("feature")
     const src = node.data.get("src")
@@ -86,10 +91,10 @@ class Figure extends React.Component {
 							onChange={ this.handleChange }
 							onClick={ this.handleClick }
 						/>
-						: <div>{ this.state.caption }{ this.state.caption && <br />}</div>
+						: <span>{ this.state.caption }</span>
 					}
       	</Picture>
-      : <Picture { ...attributes } src="" className={ className }>Loading image...</Picture>
+      : <Picture { ...attributes } src="" className={ className }>Loading image…</Picture>
   }
 }
 

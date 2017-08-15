@@ -1,28 +1,40 @@
-export const PAGE_ITERATOR_STRING = "-page-"
-export const ROUTE_ARTICLE_DIR = "/zine"
-export const ROUTE_LIST_API = "/api/list"
+
+import { APP_DESCRIPTION, ROUTE_API_DOMAIN } from "./app"
+
+export { ROUTE_POST_DIR } from "./post"
+export const ROUTE_LIST_API = ROUTE_API_DOMAIN + "/api/list"
+export const ROUTE_AUTHENTICATED_LIST_API = "/api/auth/list"
 export const ROUTE_FILTERS = {
 	"/photo-essays"	: "photo-essay",
-	"/articles"			:	"theory-and-practice_opinion_off-topic",
+	"/articles"			:	"theory-and-practice:opinion:off-topic",
+	"/my-stuff"			:	"",
 	"/"							:	"",
 }
 export const ROUTE_META = {
 	"/photo-essays"	: {
-											"text"	: "Photo essays & graphic stories",
-											"emoji"				: "🌅",
+											"text"	: "Stories told with images shot on film",
+											"emoji"				: "🌇🌃🌌",
+											// photo-essay
 	},
 	"/articles"			:	{
-											"text" : "Articles on film photography & beyond",
-											"emoji"				: "🖋",
+											"text" : "Reads of interest",
+											// story
+											// editorial
+											// review
+											// how-to
+											"emoji"				: "🌈",
 	},
 	"/"							:	{
-											"text" : "Film photography, art, stories & more",
+											"text" : APP_DESCRIPTION,
 											"emoji"				: "☕️",
 											"designation" : "homepage",
 	},
 	"/author/*"			:	{
-											"text" : "Submissions by ",
-											"emoji"				: "👤",
+											"text" : "Images and stories by ",
+											"emoji"				: "🤘",
 	},
-
+	"default"				: {
+											"text" : APP_DESCRIPTION,
+											"emoji"				: "🍩",
+	},
 }

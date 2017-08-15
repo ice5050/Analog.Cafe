@@ -1,6 +1,9 @@
 // tools
 import axios from "axios"
 import { setCard } from "./modalActions"
+import errorMessage from "../constants/error-messages"
+
+import { ROUTE_LIST_API, ROUTE_AUTHENTICATED_LIST_API } from "../constants/list"
 
 // return
 export function setPage(page, appendItems) {
@@ -21,25 +24,48 @@ export function initPage(state) {
 }
 
 export function fetchPage(request, appendItems = false) {
-  return dispatch => {
+  return (dispatch, getState) => {
+
+    // do not load anything outside of API scope
+    if(
+      !(request.url).includes(ROUTE_LIST_API)
+      && !(request.url).includes(ROUTE_AUTHENTICATED_LIST_API)
+    ) return
+
+    // get current state from store
+    let listState = getState().list
+
+    // do not load post twice in a arow
+    if(listState.requested.url === request.url && listState.requested.data.page === request.data.page) return
 
     // reset list state (unless it's being paginated)
-    !appendItems && dispatch(initPage({
-      requested: request,
-    }))
+    if(!appendItems)
+      dispatch(initPage({
+        requested: request,
+      }))
 
     axios({
       method: 			request.method || "get",
       data:         request.data || {},
-      url: 					request.url + ".json",
+      url: 					request.url,
     })
-      .then(response => dispatch(setPage(response.data, appendItems)))
+      .then(response => {
+        response.data.page["items-total"] > 0
+        ? dispatch(setPage(response.data, appendItems))
+        : dispatch(setCard({
+          status: "ok",
+          info: {
+            title: "Error 204",
+            text: errorMessage.EMPTY_LIST,
+          }
+        }, { url: "errors/list" }))
+      })
       .catch(error =>
         dispatch(setCard({
           status: "ok",
           info: {
-            title: "Error " + error.response.status + " 😧",
-            text: "Couldn’t load the list. Sorry!",
+            title: "Error " + error.response.status,
+            text: errorMessage.FAILED_LIST,
           }
         }, { url: "errors/list" }))
       )

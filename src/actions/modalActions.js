@@ -1,5 +1,6 @@
 // tools
 import axios from "axios"
+import errorMessage from "../constants/error-messages"
 
 // return
 export function initCard(state) {
@@ -37,14 +38,24 @@ export function fetchCard(request) {
 		axios({
 			  method: 			request.method || "get",
 	      data:         request.data || {},
-			  url: 					request.url + ".json",
+			  url: 					request.url,
 			})
-			.then(response => dispatch(setCard(response.data, request)))
+			.then(response => {
+				(response.data.info.title && response.data.info.text)
+        ? dispatch(setCard(response.data, request))
+        : dispatch(setCard({
+          status: "ok",
+          info: {
+            title: "Error 204",
+            text: errorMessage.EMPTY_CARD,
+          }
+        }, { url: "errors/modal" }))
+			})
 			.catch(error => dispatch(setCard({
 				status: "ok",
 				info: {
-					title: "Error " + error.response.status + " 😧",
-					text: "Couldn’t load the card. Sorry!",
+					title: "Error " + error.response.status,
+					text: errorMessage.FAILED_CARD,
 				}
 			}, { url: "errors/modal" }))
 		)

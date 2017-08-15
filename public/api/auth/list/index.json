@@ -1,0 +1,82 @@
+{
+  "status": "ok",
+  "filters": {
+		"tags": [],
+		"author": {
+			"name" : "dmitrizzle",
+			"id": "dmitrizzle"
+		}
+  },
+  "page": {
+  	"current" : "1",
+  	"total" : "1",
+  	"items-total": "1",
+  	"items-per-page" : "10"
+  },
+  "items": [
+  	{
+  		"tag" : "published",
+  		"slug" : "analog-cafe-e8tr",
+  		"title" : "Analog.Cafe",
+  		"subtitle" : "An Introduction",
+  		"id" : "e8tr",
+  		"post-date" : "1501176150",
+  		"stats" : {
+  			"images" : "1",
+  			"words" : "119"
+  		},
+  		"author" : {
+  			"name" : "dmitrizzle",
+  			"id" : "dmitrizzle"
+  		},
+  		"poster" : {
+				"small" : "/images/pictures/an-introduction-cat-tax.jpg",
+				"medium" : "/images/pictures/an-introduction-cat-tax.jpg",
+				"large" : "/images/pictures/an-introduction-cat-tax.jpg"
+  		},
+  		"summary" : "This is officially the first post. I am nervous and tipsy, also grateful and excited. It feels pretty nice to be able to start something that’s meant to inspire thousands and be the creative outlet for skilled film photographers, writers, and artists."
+  	},
+    {
+  		"tag" : "not-published",
+  		"slug" : "story-324d",
+  		"title" : "Story",
+  		"subtitle" : "",
+  		"id" : "324d",
+  		"stats" : {
+  			"images" : "1",
+  			"words" : "344"
+  		},
+  		"author" : {
+  			"name" : "dmitrizzle",
+  			"id" : "dmitrizzle"
+  		},
+  		"poster" : {
+				"small" : "/images/pictures/an-introduction-cat-tax.jpg",
+				"medium" : "/images/pictures/an-introduction-cat-tax.jpg",
+				"large" : "/images/pictures/an-introduction-cat-tax.jpg"
+  		},
+  		"summary" : "This story is meant to be rejected. Because, quite frankly it sucks."
+  	},
+    {
+  		"tag" : "pending-review...",
+  		"slug" : "story-389d",
+  		"title" : "Another Story",
+  		"subtitle" : "",
+  		"id" : "389d",
+  		"stats" : {
+  			"images" : "1",
+  			"words" : "344"
+  		},
+  		"author" : {
+  			"name" : "dmitrizzle",
+  			"id" : "dmitrizzle"
+  		},
+  		"poster" : {
+				"small" : "/images/pictures/an-introduction-cat-tax.jpg",
+				"medium" : "/images/pictures/an-introduction-cat-tax.jpg",
+				"large" : "/images/pictures/an-introduction-cat-tax.jpg"
+  		},
+  		"summary" : "This story is meant to be under review, indefinitely."
+  	}
+  ]
+}

@@ -17,6 +17,8 @@ export default styled.div`
 			background: 	${ Paper.color.highlight };
 			color: 				${ Paper.color.foreground };
 		}
+		text-decoration-skip: ink;
+		-webkit-text-decoration-skip: ink;
 	}
 	*::selection {
 		background: ${ Paper.color.highlight };

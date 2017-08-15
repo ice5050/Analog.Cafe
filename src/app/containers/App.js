@@ -11,7 +11,7 @@ import { getSession as getUserSession } from "../../actions/userActions"
 
 import { Modal } from "./Modal"
 import Nav from "./Nav"
-import AppRoutes from "../components/views/AppRoutes"
+import AppRoutes from "../components/_screens/AppRoutes"
 
 // init GA tracking
 ReactGA.initialize("UA-91374353-3", {
@@ -37,7 +37,10 @@ class App extends React.PureComponent {
     this.props.getUserSession()
 	}
 	handleRouteChnange = () => {
+    // Google Analytics
 		trackView()
+
+    // configure header/footer views depending on routes and HTTP status
 		switch (this.props.history.location.pathname) {
 			case "/submit/compose":
 			case "/submit/compose/":
@@ -47,17 +50,30 @@ class App extends React.PureComponent {
 			case "/sign-in":
 			case "/sign-in/":
 				this.props.setNavView("VISITOR")
-				this.props.setNavLocation({ "top": false })
-				break
+        if(this.props.history.location.state &&
+          this.props.history.location.state.status === "103"
+        ){
+          this.props.setNavLocation({
+            top: false,
+            bottom: false,
+          })
+        }
+        else {
+          this.props.setNavLocation({ "top": false })
+        }
+        break
 			default:
-        if(this.props.history.location.state && this.props.history.location.state.status === "404"){
+        if(this.props.history.location.state && (
+            this.props.history.location.state.status === "404"
+          || this.props.history.location.state.status === "403"
+        )){
           this.props.setNavView("VISITOR")
   				this.props.setNavLocation({
             top: false,
             bottom: false,
           })
         }
-        else{
+        else {
           this.props.setNavView("VISITOR")
   				this.props.setNavLocation({})
         }
@@ -68,7 +84,7 @@ class App extends React.PureComponent {
 		return (
       <div>
   			<Nav top />
-  				<AppRoutes />
+  				<AppRoutes userStatus={ this.props.user.status } />
   			<Nav bottom />
         <Modal />
       </div>
@@ -91,4 +107,9 @@ const mapDispatchToProps = dispatch => {
     }
 	}
 }
-export default withRouter(connect(null, mapDispatchToProps)(App))
+const mapStateToProps = state => {
+	return {
+    user: state.user,
+	}
+}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))

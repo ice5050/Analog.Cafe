@@ -2,6 +2,7 @@
 import React from "react"
 import ReactGA from "react-ga"
 
+
 // redux
 import { connect } from "react-redux"
 import { hideCard } from "../../../../actions/modalActions"
@@ -15,6 +16,10 @@ const Modal = props => {
 		if(!props.modal.hidden && props.modal.status === "ok"){
 			ReactGA.modalview(props.modal.requested.url) // google analytics
 		}
+
+		// close card on escape keypress
+		document.onkeydown = event => (event.keyCode === 27 && !props.modal.hidden) ? props.hideCard() : null
+
 		return(
       <ModalOverlay
 				id="ModalOverlay"

@@ -7,29 +7,32 @@ import { ModalDispatch } from "../Modal"
 import { connect } from "react-redux"
 import { fetchPage } from "../../../actions/listActions"
 import { setPage as setNextPost } from "../../../actions/postActions"
-import { ROUTE_LIST_API, PAGE_ITERATOR_STRING } from "../../../constants/list"
+import { ROUTE_LIST_API, ROUTE_AUTHENTICATED_LIST_API } from "../../../constants/list"
 
 // components
-import ListDescription from "../../components/ListDescription"
+import { ListDescription, ListHeader } from "../../components/ListDescription"
 import { LinkButton } from "../../components/Button"
 import { default as ListBlock } from "../../components/List"
 import { Section, Article } from "../../components/ArticleStyles"
 
 // helpers
-import { getListHeaders } from "./helpers"
+import { getListMeta } from "./helpers"
 
 // return
 class List extends React.Component {
+	listAPI = this.props.private ? ROUTE_AUTHENTICATED_LIST_API : ROUTE_LIST_API
 	fetchNewList = () => {
-		this.props.fetchPage({
-			url: (ROUTE_LIST_API + getListHeaders(this.props.history.location.pathname, this.props.list.page.current).search).split(PAGE_ITERATOR_STRING)[0]
-		})
+		this.props.fetchPage(
+			getListMeta(this.props.history.location.pathname, this.props.list.page.current, this.listAPI).request
+		)
 	}
 	handleLoadMore = event => {
 		event.preventDefault()
-		this.props.fetchPage({
-			url: (this.props.list.requested.url).split(PAGE_ITERATOR_STRING)[0] + PAGE_ITERATOR_STRING + (parseInt(this.props.list.page.current, 0) + 1)
-		}, true)
+		this.props.fetchPage(
+			getListMeta(this.props.history.location.pathname, (parseInt(this.props.list.page.current, 0) + 1), this.listAPI).request,
+			// append items:
+			true
+		)
 	}
 	componentDidMount() {
     this.unlisten = this.props.history.listen(location => this.fetchNewList())
@@ -39,33 +42,44 @@ class List extends React.Component {
     this.unlisten()
   }
 	render() {
+		const renderedListMeta = getListMeta(this.props.location.pathname).meta
 		return(
 			<div>
 				<ListDescription>
-					<div>
-							{
-								this.props.list.filters.author ?
-									<q><em>
-										{ getListHeaders(this.props.location.pathname).meta.text }
-										{ this.props.list.filters.author.name &&
-											<ModalDispatch
-												with={{
-													request: {
-														url: "/api/author/" + this.props.list.filters.author.id
-													}
-												}}
-											>{ this.props.list.filters.author.name }</ModalDispatch> }
-									</em></q>
-								: <q><em>{ getListHeaders(this.props.location.pathname).meta.text }</em></q>
-							}
-						&nbsp;{ getListHeaders(this.props.location.pathname).meta.emoji }
-					</div>
+					{
+						this.props.header ? this.props.header :
+						<ListHeader>
+								{
+									this.props.list.filters.author ?
+										<q><em>
+											{ renderedListMeta.text }
+											{ this.props.list.filters.author.name &&
+												<ModalDispatch
+													with={{
+														request: {
+															url: "/api/author/" + this.props.list.filters.author.id
+														}
+													}}
+												>{ this.props.list.filters.author.name }</ModalDispatch> }
+										</em>.</q>
+									: <q><em>{
+										renderedListMeta.text
+									}</em>.</q>
+								}
+							&nbsp;{ renderedListMeta.emoji }
+						</ListHeader>
+					}
 				</ListDescription>
 
 				<ListBlock
 					status={ this.props.list.status }
 					items={ this.props.list.items }
-					nextPostTitle={ nextPostTitle => this.props.setNextPost({ title: nextPostTitle }) }
+					nextPostHeading={ nextPostHeading => this.props.setNextPost({
+						title: nextPostHeading.title,
+						subtitle: nextPostHeading.subtitle,
+						author: nextPostHeading.author,
+					})}
+					private={ this.props.private }
 				/>
 
 				{
