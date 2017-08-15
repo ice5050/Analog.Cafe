@@ -36,8 +36,6 @@ export function fetchPage(request, appendItems = false) {
     let listState = getState().list
 
     // do not load post twice in a arow
-    console.log("listState.requested", listState.requested.data.page)
-      console.log("request)", request.data.page)
     if(listState.requested.url === request.url && listState.requested.data.page === request.data.page) return
 
     // reset list state (unless it's being paginated)
@@ -52,7 +50,6 @@ export function fetchPage(request, appendItems = false) {
       url: 					request.url,
     })
       .then(response => {
-        console.log("Response", response.data.page["items-total"])
         response.data.page["items-total"] > 0
         ? dispatch(setPage(response.data, appendItems))
         : dispatch(setCard({
