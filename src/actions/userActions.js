@@ -11,6 +11,7 @@ export function getSession(request={ url: ROUTE_USER_API }) {
 		axios({
 			  method: 			request.method || "get",
 	      data:         request.data || {},
+				params:       request.params || {},
 			  url: 					request.url + ".json",
 			})
 			.then(response => dispatch({

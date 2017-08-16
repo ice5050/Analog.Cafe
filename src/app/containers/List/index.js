@@ -23,7 +23,7 @@ class List extends React.Component {
 	listAPI = this.props.private ? ROUTE_AUTHENTICATED_LIST_API : ROUTE_LIST_API
 	fetchNewList = () => {
 		this.props.fetchPage(
-			getListMeta(this.props.history.location.pathname, this.props.list.page.current, this.listAPI).request
+			getListMeta(this.props.history.location.pathname, 1, this.listAPI).request
 		)
 	}
 	handleLoadMore = event => {
