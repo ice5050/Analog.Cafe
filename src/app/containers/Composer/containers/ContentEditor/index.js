@@ -25,6 +25,12 @@ export default class extends React.Component {
 			parentBlockOffsets: { top: 0, left: 0 }
 		}
 	}
+
+	constructor(props) {
+    super(props)
+		this.props.requestData.raw = loadContent()
+  }
+
 	handleChange = state => {
 		this.setState({ state: state })
 
@@ -49,6 +55,7 @@ export default class extends React.Component {
 	// content saver
   handleDocumentChange = (document, state) => {
 		setDraftStatusHelper()
+		this.props.requestData.raw = JSON.stringify(Raw.serialize(state))
 		saveContent(document, state)
 	}
 
