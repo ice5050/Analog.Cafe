@@ -10,6 +10,7 @@ const INITIAL_STATE = {
   },
   "items" : [
     {
+      "_id": "1",
       "type" : "placeholder",
       "tag" : "████████",
       "title" : "███",
@@ -20,6 +21,7 @@ const INITIAL_STATE = {
       "summary" : "█ ████████ ██████ ████ ████ ██████████ ████ ████████████████ ██"
     },
     {
+      "_id": "2",
       "type" : "placeholder",
       "tag" : "████",
       "title" : "████",
@@ -30,6 +32,7 @@ const INITIAL_STATE = {
       "summary" : "█████ ████████████ ████████ ███ ███████████ ██████████████████"
     },
     {
+      "_id": "3",
       "type" : "placeholder",
       "tag" : "█████████",
       "title" : "██",
