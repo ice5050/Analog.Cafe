@@ -24,7 +24,7 @@ const StyledTwitterButton = styled(LinkButton)`
 `
 export const TwitterButton = props => {
 	return (
-		<StyledTwitterButton to={ ROUTE_LOGIN_TWITTER_API } >
+		<StyledTwitterButton to={ ROUTE_LOGIN_TWITTER_API }>
 			<Twitter />
 			&nbsp;{ props.children }
 		</StyledTwitterButton>

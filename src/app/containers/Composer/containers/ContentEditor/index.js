@@ -28,7 +28,7 @@ export default class extends React.Component {
 
 	constructor(props) {
     super(props)
-		this.props.requestData.raw =  loadContent()
+		this.props.requestData.raw = loadContent()
   }
 
 	handleChange = state => {

@@ -36,7 +36,7 @@ const Composer = props => {
 	)
 }
 
-// connet with redux
+// connect with redux
 const mapStateToProps = state => {
 	return {
     user: state.user,
