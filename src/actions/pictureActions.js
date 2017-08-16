@@ -21,6 +21,7 @@ export function getInfo(src) {
 		axios({
 			  method: 			request.method || "get",
 	      data:         request.data || {},
+				params:       request.params || {},
 			  url: 					request.url + ".json",
 			})
 			.then(response => dispatch({

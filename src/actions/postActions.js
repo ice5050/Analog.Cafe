@@ -42,6 +42,7 @@ export function fetchPage(request) {
     axios({
       method: 			request.method || "get",
       data:         request.data || {},
+      params:       request.params || {},
       url: 					request.url,
     })
       .then(response => {

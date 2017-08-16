@@ -1,3 +1,4 @@
+
 const INITIAL_STATE = {
   "status": "loading",
   "title": "Loading…",
@@ -20,7 +21,7 @@ const INITIAL_STATE = {
   },
   requested : {
     method: "get",
-    data: {},
+    params: {},
     url: "",
   }
 }
