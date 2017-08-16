@@ -8,6 +8,7 @@ import { connect } from "react-redux"
 import { fetchPage } from "../../../actions/listActions"
 import { setPage as setNextPost } from "../../../actions/postActions"
 import { ROUTE_LIST_API, ROUTE_AUTHENTICATED_LIST_API } from "../../../constants/list"
+import { ROUTE_AUTHOR_API } from "../../../constants/author"
 
 // components
 import { ListDescription, ListHeader } from "../../components/ListDescription"
@@ -57,7 +58,7 @@ class List extends React.Component {
 												<ModalDispatch
 													with={{
 														request: {
-															url: "/api/author/" + this.props.list.filters.author.id
+															url: ROUTE_AUTHOR_API + "/" + this.props.list.filters.author.id
 														}
 													}}
 												>{ this.props.list.filters.author.name }</ModalDispatch> }
