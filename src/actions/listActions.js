@@ -36,7 +36,12 @@ export function fetchPage(request, appendItems = false) {
     let listState = getState().list
 
     // do not load post twice in a arow
-    if(listState.requested.url === request.url && listState.requested.data.page === request.data.page) return
+    if(
+      (listState.requested.url === request.url) &&
+      (listState.requested.data.tag === request.data.tag) &&
+      (listState.requested.data.author === request.data.author) &&
+      (listState.requested.data.page === request.data.page)
+    ) return
 
     // reset list state (unless it's being paginated)
     if(!appendItems)
@@ -46,7 +51,7 @@ export function fetchPage(request, appendItems = false) {
 
     axios({
       method: 			request.method || "get",
-      data:         request.data || {},
+      params:         request.data || {},
       url: 					request.url,
     })
       .then(response => {
