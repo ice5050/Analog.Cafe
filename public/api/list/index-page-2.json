@@ -1,4 +1,4 @@
-{  
+{
   "status": "ok",
   "filters": {
 		"tags": [],
@@ -12,7 +12,7 @@
   },
   "items": [
   	{
-  		"tag" : "opinion",
+  		"tag" : "how-to",
   		"slug" : "why-shoot-film-8945",
   		"title" : "Title 11",
   		"subtitle" : "Subtitle",
@@ -56,7 +56,7 @@
   		"summary" : "I bought my first film camera five years ago as a 17th birthday present to myself. I saved up my money and walked to a little old and dusty Kodak shop and bought myself a Nikkormat FT2 with a 50mm lens."
   	},
   	{
-  		"tag" : "theory-and-practice",
+  		"tag" : "review",
   		"slug" : "why-shoot-film-8945",
   		"title" : "Title 13",
   		"subtitle" : "",
