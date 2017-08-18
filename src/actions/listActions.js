@@ -71,7 +71,7 @@ export function fetchPage(request, appendItems = false) {
           dispatch(setCard({
           status: "ok",
           info: {
-            title: "Error " + (error.response ? error.response.status : "no response"),
+            title: "Error: " + (error.response ? error.response.status : "no response"),
             text: errorMessage.FAILED_LIST,
           }
         }, { url: "errors/list" }))}

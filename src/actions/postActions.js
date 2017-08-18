@@ -60,7 +60,7 @@ export function fetchPage(request) {
         dispatch(setCard({
           status: "ok",
           info: {
-            title: "Error " + (error.response ? error.response.status : "204"),
+            title: "Error: " + (error.response ? error.response.status : "no response"),
             text: errorMessage.FAILED_POST,
           }
         }, { url: "errors/post" }))
