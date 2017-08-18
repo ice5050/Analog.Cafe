@@ -1,5 +1,6 @@
 // tools
 import React from "react"
+import axios from "axios"
 
 // components
 import PictureDocket from "../../components/PictureDocket"
@@ -7,6 +8,7 @@ import { CardHeader } from "../../components/Card/styles"
 import { Caption } from "../../components/CaptionStyles"
 import { GridContainer, GridRow, Square, GridButton, AspectRatio } from "../../components/GridStyles"
 import { ModalDispatch } from "../Modal"
+import { ROUTE_UPLOAD_IMAGE_API } from "../../../constants/submission"
 
 // styles
 import placeholder from "../../components/_icons/images/placeholder-figure.jpg"
@@ -50,20 +52,31 @@ export default class extends React.Component {
     this.uploadRequest(file)
   } // ⤵
 	uploadRequest = file => {
-		const { editor } = this.props
-		const resolvedState = editor.getState()
-			.transform()
-			.insertBlock({
-				type: "image",
-				isVoid: true,
-				data: { file, src: placeholder }
-			})
-			.apply()
-		editor.onChange(resolvedState)
-		setTimeout((function(){
-			this.handleClose()
-		}).bind(this), 10)
-		// saveContent(this.state.state.document, resolvedState)
+
+		var data = new FormData();
+		data.append("file", file)
+		axios.post(ROUTE_UPLOAD_IMAGE_API, data,
+		{
+			 headers: {
+				 'content-type': 'multipart/form-data',
+				 'Authorization': "JWT " + localStorage.getItem('token')
+			 }
+		})
+    .then(response => {
+			const { editor } = this.props
+			const resolvedState = editor.getState()
+				.transform()
+				.insertBlock({
+					type: "image",
+					isVoid: true,
+					data: { src: response.data.url }
+				})
+				.apply()
+			editor.onChange(resolvedState)
+			setTimeout((function(){
+				this.handleClose()
+			}).bind(this), 10)
+		})
 	}
 
   render() {
