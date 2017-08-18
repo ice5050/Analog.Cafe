@@ -67,13 +67,14 @@ export function fetchPage(request, appendItems = false) {
         }, { url: "errors/list" }))
       })
       .catch(error =>
-        dispatch(setCard({
+        {console.log(error.response)
+          dispatch(setCard({
           status: "ok",
           info: {
-            title: "Error " + error.response.status,
+            title: "Error " + (error.response ? error.response.status : "no response"),
             text: errorMessage.FAILED_LIST,
           }
-        }, { url: "errors/list" }))
+        }, { url: "errors/list" }))}
       )
   }
 }

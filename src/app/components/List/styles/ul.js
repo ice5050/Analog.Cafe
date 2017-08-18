@@ -120,12 +120,15 @@ export const Ul = styled.ul`
 					width: 				auto;
 					margin-left:	-50%;
 					filter: 			sepia(75%) hue-rotate(-12deg);
+					${ props => props.theme.size.breakpoint.max.l`{
+						filter: 			grayscale(95%);
+					}`}
 				}
 
 				${ props => props.theme.size.breakpoint.max.m`{
 					margin-top: calc(${ blockSpacing }em / 2 + 0.1em);
 					margin-bottom: 0;
-				}` }
+				}`}
 
 				/* placeholder style */
 				background-color: ${ props => props.status === "loading" ? props.theme.color.foreground : greyLine };
