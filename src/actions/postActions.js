@@ -42,6 +42,7 @@ export function fetchPage(request) {
     axios({
       method: 			request.method || "get",
       data:         request.data || {},
+      params:       request.params || {},
       url: 					request.url,
       header: 			request.header || {},
     })
@@ -60,7 +61,7 @@ export function fetchPage(request) {
         dispatch(setCard({
           status: "ok",
           info: {
-            title: "Error " + (error.response ? error.response.status : "204"),
+            title: "Error: " + (error.response ? error.response.status : "no response"),
             text: errorMessage.FAILED_POST,
           }
         }, { url: "errors/post" }))

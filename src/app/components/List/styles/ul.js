@@ -108,15 +108,27 @@ export const Ul = styled.ul`
 				float: 			left;
 				margin: 		0 ${ blockSpacing }em 0 0;
 				overflow:		hidden;
+
+				${'' /* styles borrowed from Picture component */}
+				box-shadow: 0 0 .5em ${ props => Color(props.theme.color.foreground).alpha(props.theme.opacity.least).string() };
+				${ props => props.theme.size.breakpoint.max.m`
+					border-radius:	${ props => props.theme.effects.borderRadius.small }em;
+				`}
+
 				& > img {
 					height:				150%;
 					width: 				auto;
 					margin-left:	-50%;
+					filter: 			sepia(75%) hue-rotate(-12deg);
+					${ props => props.theme.size.breakpoint.max.l`{
+						filter: 			grayscale(95%);
+					}`}
 				}
+
 				${ props => props.theme.size.breakpoint.max.m`{
 					margin-top: calc(${ blockSpacing }em / 2 + 0.1em);
 					margin-bottom: 0;
-				}` }
+				}`}
 
 				/* placeholder style */
 				background-color: ${ props => props.status === "loading" ? props.theme.color.foreground : greyLine };
@@ -178,10 +190,10 @@ export const Ul = styled.ul`
 				display: inline-block;
 
 				${ props => props.theme.size.breakpoint.max.m`{
-					width: 				calc(100vw - ${ blockSafety }em * 2);
+					width: 				calc(100vw - ${ blockSpacing }em * 3.5);
 					min-width: 		auto;
 					padding-top:	calc(${ blockSafety }em / 2);
-				}` }
+				}`}
 				${ props => props.theme.size.breakpoint.max.xs`{
 					text-align: left;
 				}`}

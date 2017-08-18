@@ -12,7 +12,7 @@ export const ROUTE_FILTERS = {
 }
 export const ROUTE_META = {
 	"/photo-essays"	: {
-											"text"	: "Stories told with images shot on film",
+											"text"	: "Stories told with images on film",
 											"emoji"				: "🌇🌃🌌",
 											// photo-essay
 	},

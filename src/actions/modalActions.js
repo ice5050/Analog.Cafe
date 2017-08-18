@@ -38,6 +38,7 @@ export function fetchCard(request) {
 		axios({
 			  method: 			request.method || "get",
 	      data:         request.data || {},
+				params:       request.params || {},
 			  url: 					request.url,
 				headers: 			request.headers || {},
 			})
@@ -59,7 +60,7 @@ export function fetchCard(request) {
 			.catch(error => dispatch(setCard({
 				status: "ok",
 				info: {
-					title: "Error " + error.response.status,
+					title: "Error: " + (error.response ? error.response.status : "no response"),
 					text: errorMessage.FAILED_CARD,
 				}
 			}, { url: "errors/modal" }))

@@ -22,4 +22,6 @@ export const ZigzagPicture = styled.figure`
 	${'' /* li:first-child & {
 		border-top-width: calc(4.85em + ${ props => props.theme.size.block.border }px);
 	} */}
+
+	filter: grayscale(95%) contrast(65%);
 `
