@@ -78,11 +78,11 @@ export const Ul = styled.ul`
 			&:active {
 				background: 0 0;
 				section figure {
+					box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
+					border-bottom-color: ${ props => props.theme.color.highlight };
 					${ props => props.theme.size.breakpoint.max.m`
 						border-radius: 0 0 ${ props => props.theme.effects.borderRadius.small }em ${ props => props.theme.effects.borderRadius.small }em;
 					`}
-					box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight },
-						0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight } inset;
 				}
 			}
 		}
