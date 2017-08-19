@@ -78,9 +78,9 @@ export const Ul = styled.ul`
 			&:active {
 				background: 0 0;
 				section figure {
-					border-radius: 0;
+					border-radius: 0 0 ${ props => props.theme.effects.borderRadius.small }em ${ props => props.theme.effects.borderRadius.small }em;
 					box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight },
-						0 ${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
+						0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight } inset;
 				}
 			}
 		}
@@ -108,6 +108,8 @@ export const Ul = styled.ul`
 				& > div {
 					width: 100%;
 					height: 100%;
+					z-index: ${ props => props.theme.layer.tuck };
+					position: relative;
 					background-size: cover;
 					background-position: center;
 					filter: 			sepia(75%) hue-rotate(-12deg);
