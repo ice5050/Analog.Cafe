@@ -42,7 +42,7 @@ const NavLinkSend = props => {
 		<ModalDispatch
 			with={{
 				request: {
-					url: "/api/messages/submit-consent"
+					url: "/api/messages/submit-consent.json"
 				}
 			}}
 			style={{ textDecoration: "none" }}

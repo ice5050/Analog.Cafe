@@ -16,7 +16,7 @@ export default props => {
 			<ModalDispatch
 				with={{
 					request: {
-						url: "/api/messages/submit-consent"
+						url: "/api/messages/submit-consent.json"
 					}
 				}}
 				wrapperElement="div"
