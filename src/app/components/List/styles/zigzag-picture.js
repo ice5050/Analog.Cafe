@@ -5,10 +5,10 @@ import styled from "styled-components"
 import { zigzagWidth, zigzagTopShim } from "./ul"
 
 // css
-export const ZigzagPicture = styled.figure`
+export const ZigzagPicture = styled.div`
 	min-width: 						${ zigzagWidth };
 	background-size: 			cover;
-	background-position: 	center;
+	background-position: 	bottom right;
 	margin: 							0 0 0 auto;
 	${	props => props.theme.size.breakpoint.max.l` display: none; `}
 	ul:first-child li:first-child & {
