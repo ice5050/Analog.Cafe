@@ -78,21 +78,11 @@ export const Ul = styled.ul`
 			&:active {
 				background: 0 0;
 				section figure {
+					border-radius: 0;
 					box-shadow:	0 -${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight },
 						0 ${ props => props.theme.size.block.border }px 0 ${ props => props.theme.color.highlight };
 				}
 			}
-			${'' /* &::after {
-				${ zigzagFill }
-				display: 					block;
-				content: 					"";
-				z-index: 					${ props => props.theme.layer.up + 1};
-				height: 					1px;
-				width: 						100%;
-				pointer-events: 	none;
-				background:				linear-gradient(to right, ${ greyFade } 0%, ${ greyLine } 100%)
-			}
-			&:active::before { visibility: hidden; } */}
 		}
 		section {
 			position: 				relative;
@@ -115,10 +105,11 @@ export const Ul = styled.ul`
 					border-radius:	${ props => props.theme.effects.borderRadius.small }em;
 				`}
 
-				& > img {
-					height:				150%;
-					width: 				auto;
-					margin-left:	-50%;
+				& > div {
+					width: 100%;
+					height: 100%;
+					background-size: cover;
+					background-position: center;
 					filter: 			sepia(75%) hue-rotate(-12deg);
 					${ props => props.theme.size.breakpoint.max.l`{
 						filter: 			grayscale(95%);
@@ -134,19 +125,6 @@ export const Ul = styled.ul`
 				background-color: ${ props => props.status === "loading" ? props.theme.color.foreground : greyLine };
 				border-bottom: ${ props => props.theme.elements.thickBorder };
 
-				${'' /* position: relative;
-				&::after {
-					content: "";
-					position: absolute;
-					right: 0;
-					bottom: 0;
-					width: 0;
-					height: 0;
-					border-left: 8px solid transparent;
-					border-right: 8px solid;
-					border-bottom: 8px solid;
-					border-top: 8px solid transparent;
-				} */}
 			}
 			h2 {
 				${ props => props.theme.typography.title.auto }
