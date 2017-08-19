@@ -7,6 +7,7 @@ import { zigzagWidth, zigzagTopShim } from "./ul"
 // css
 export const ZigzagPicture = styled.div`
 	min-width: 						${ zigzagWidth };
+	background-color: 		rgba(44, 44, 44, 0.125);
 	background-size: 			cover;
 	background-position: 	bottom right;
 	margin: 							0 0 0 auto;
