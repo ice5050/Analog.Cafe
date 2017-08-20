@@ -111,11 +111,11 @@ export const Ul = styled.ul`
 					position: 						relative;
 					background-size: 			cover;
 					background-position: 	center;
-					filter: 							sepia(75%) hue-rotate(-12deg);
 					-webkit-filter: 			sepia(75%) hue-rotate(-12deg);
+					filter: 							sepia(75%) hue-rotate(-12deg);
 					${ props => props.theme.size.breakpoint.max.l`{
-						filter: 						grayscale(95%);
 						-webkit-filter: 		grayscale(95%);
+						filter: 						grayscale(95%);
 					}`}
 				}
 

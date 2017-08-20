@@ -24,6 +24,6 @@ export const ZigzagPicture = styled.div`
 		border-top-width: calc(4.85em + ${ props => props.theme.size.block.border }px);
 	} */}
 
-	filter: 				grayscale(95%) contrast(65%);
 	-webkit-filter: grayscale(95%) contrast(65%);
+	filter: 				grayscale(95%) contrast(65%);
 `
