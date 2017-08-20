@@ -78,6 +78,7 @@ export const Ul = styled.ul`
 			&:active {
 				background: 0 0;
 				section figure {
+					box-shadow:	none;
 					border-bottom-color: ${ props => props.theme.color.highlight };
 				}
 			}
