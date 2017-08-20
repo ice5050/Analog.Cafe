@@ -1,0 +1,15 @@
+{
+  "short_name": "Analog.Cafe",
+  "name": "Analog.Cafe",
+  "icons": [
+  {
+    "src": "favicon_192_1.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

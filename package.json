@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "babel-polyfill": "^6.26.0",
     "color": "^2.0.0",
     "fontfaceobserver": "^2.0.13",
     "is-url": "^1.2.2",
@@ -24,27 +25,27 @@
     "react-dom": "^15.6.1",
     "react-ga": "^2.2.0",
     "react-helmet": "^5.1.3",
-    "react-redux": "^5.0.5",
+    "react-redux": "^5.0.6",
     "react-responsive-picture": "^1.0.6",
     "react-router-dom": "^4.1.2",
-    "react-textarea-autosize": "^5.0.7",
+    "react-textarea-autosize": "^5.1.0",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "sanitize.css": "^5.0.0",
-    "slate": "^0.20.6",
+    "slate": "^0.21.2",
     "slate-auto-replace": "^0.5.0",
     "slate-drop-or-paste-images": "^0.5.0",
     "slate-edit-blockquote": "^0.2.0",
     "slate-trailing-block": "^0.2.4",
-    "styled-components": "^2.1.1",
+    "styled-components": "^2.1.2",
     "titlecase": "^1.1.2",
-    "typeface-exo-2": "0.0.31",
-    "typeface-lora": "0.0.31",
-    "webpack": "^3.2.0"
+    "typeface-exo-2": "0.0.36",
+    "typeface-lora": "0.0.35",
+    "webpack": "^3.5.5"
   },
   "devDependencies": {
-    "babel-plugin-root-import": "^5.0.0",
-    "react-scripts": "^1.0.7"
+    "babel-plugin-root-import": "^5.1.0",
+    "react-scripts": "1.0.11"
   },
   "scripts": {
     "start": "react-scripts start",
