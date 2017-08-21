@@ -76,6 +76,9 @@ export default class extends React.Component {
 				this.handleClose()
 			}).bind(this), 10)
 		})
+		.catch(error => {
+			console.log(error)
+		})
 	}
 
   render() {

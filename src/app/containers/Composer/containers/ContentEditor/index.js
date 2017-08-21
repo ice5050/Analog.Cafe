@@ -2,6 +2,7 @@
 import React from "react"
 import { Editor, Raw } from "slate"
 import getOffsets from "positions"
+import { withRouter } from "react-router"
 
 // components
 import ImageButton from "./components/ImageButton"
@@ -14,7 +15,7 @@ import { saveContent, setDraftStatusHelper } from "../../helpers/saver"
 
 
 // return
-export default class extends React.Component {
+class ContentEditor extends React.Component {
 	state = {
 		state: Raw.deserialize(loadContent(), { terse: true }),
 		schema,
@@ -64,18 +65,22 @@ export default class extends React.Component {
     e.preventDefault()
     e.stopPropagation()
 
-		const resolvedState = this.state.state
-			.transform()
-			.insertBlock({
-				type: "docket",
-				isVoid: true
+		if(localStorage.getItem('token')) {
+			const resolvedState = this.state.state
+				.transform()
+				.insertBlock({
+					type: "docket",
+					isVoid: true
+				})
+				.apply()
+			this.setState({
+				state: resolvedState,
+				cursorContext: { ...this.state.cursorContext, newLine: false	}
 			})
-			.apply()
-	  this.setState({
-			state: resolvedState,
-			cursorContext: { ...this.state.cursorContext, newLine: false	}
-		})
-		saveContent(this.state.state.document, resolvedState)
+			saveContent(this.state.state.document, resolvedState)
+		}else{
+			this.props.history.push('/sign-in')
+		}
   }
 
 	// render
@@ -101,3 +106,5 @@ export default class extends React.Component {
 		)
 	}
 }
+
+export default withRouter(ContentEditor)
