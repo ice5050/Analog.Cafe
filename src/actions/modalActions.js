@@ -43,19 +43,15 @@ export function fetchCard(request) {
 				headers: 			request.headers || {},
 			})
 			.then(response => {
-				if (request.onSuccess) {
-					request.onSuccess()
-				} else {
-					(response.data.info.title && response.data.info.text)
-	        ? dispatch(setCard(response.data, request))
-	        : dispatch(setCard({
-	          status: "ok",
-	          info: {
-	            title: "Error 204",
-	            text: errorMessage.EMPTY_CARD,
-	          }
-	        }, { url: "errors/modal" }))
-				}
+				(response.data.info.title && response.data.info.text)
+        ? dispatch(setCard(response.data, request))
+        : dispatch(setCard({
+          status: "ok",
+          info: {
+            title: "Error 204",
+            text: errorMessage.EMPTY_CARD,
+          }
+        }, { url: "errors/modal" }))
 			})
 			.catch(error => dispatch(setCard({
 				status: "ok",

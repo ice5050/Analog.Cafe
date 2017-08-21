@@ -1,10 +1,10 @@
 // tools
 import React from "react"
+import axios from "axios"
 
 // styles
 import { Card, CardButton, CardCaption, CardHeader } from "../styles"
 export { ModalOverlay } from "./styles"
-
 
 // return
 export const ModalCard = props => {
@@ -34,6 +34,28 @@ export const ModalCard = props => {
 				props.buttons.map(function(button, i) {
 					return (
 						<CardButton
+              onClick={
+                function() {
+                  if(button.request){
+                    console.log(button.request)
+                    axios({
+              			  method: 	button.request.method || "get",
+              	      data:     button.request.data || {},
+              				params:   button.request.params || {},
+              			  url: 		  button.request.url,
+              				headers: 			{
+                        Authorization: "JWT " + localStorage.getItem('token')
+                      }
+              			})
+              			.then(response => {
+
+                    })
+              			.catch(error => {
+                      console.log(error)
+                    })
+                  }
+                }
+              }
 							to={ button.to }
 							key={ button.to }
 							red={ button.red ? true : null }

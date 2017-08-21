@@ -15,6 +15,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "babel-polyfill": "^6.26.0",
+    "buffer-shims": "^1.0.0",
     "color": "^2.0.0",
     "fontfaceobserver": "^2.0.13",
     "is-url": "^1.2.2",
