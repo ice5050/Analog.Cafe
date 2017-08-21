@@ -52,15 +52,14 @@ export default class extends React.Component {
     this.uploadRequest(file)
   } // ⤵
 	uploadRequest = file => {
-
 		var data = new FormData();
 		data.append("file", file)
 		axios.post(ROUTE_UPLOAD_IMAGE_API, data,
 		{
-			 headers: {
-				 'content-type': 'multipart/form-data',
-				 'Authorization': "JWT " + localStorage.getItem('token')
-			 }
+			headers: {
+				'content-type': 'multipart/form-data',
+				'Authorization': "JWT " + localStorage.getItem('token')
+			}
 		})
     .then(response => {
 			const { editor } = this.props
