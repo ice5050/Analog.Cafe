@@ -37,20 +37,19 @@ export const ModalCard = props => {
               onClick={
                 function() {
                   if(button.request){
-                    console.log(button.request)
                     axios({
-              			  method: 	button.request.method || "get",
-              	      data:     button.request.data || {},
-              				params:   button.request.params || {},
-              			  url: 		  button.request.url,
-              				headers: 			{
+                      method: 	button.request.method || "get",
+                      data:     button.request.data || {},
+                      params:   button.request.params || {},
+                      url: 		  button.request.url,
+                      headers: 			{
                         Authorization: "JWT " + localStorage.getItem('token')
                       }
-              			})
-              			.then(response => {
+                    })
+                    .then(response => {
 
                     })
-              			.catch(error => {
+                    .catch(error => {
                       console.log(error)
                     })
                   }
