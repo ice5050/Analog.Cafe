@@ -29,6 +29,8 @@ class ContentEditor extends React.Component {
 
 	constructor(props) {
     super(props)
+
+		// what is `this.props.requestData.raw`? Write a comment explaining what this does.
 		this.props.requestData.raw = loadContent()
   }
 

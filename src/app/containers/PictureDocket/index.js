@@ -10,9 +10,6 @@ import { GridContainer, GridRow, Square, GridButton, AspectRatio } from "../../c
 import { ModalDispatch } from "../Modal"
 import { ROUTE_UPLOAD_IMAGE_API } from "../../../constants/submission"
 
-// styles
-import placeholder from "../../components/_icons/images/placeholder-figure.jpg"
-
 // export
 export default class extends React.Component {
 	constructor(props) {
