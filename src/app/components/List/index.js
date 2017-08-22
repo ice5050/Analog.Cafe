@@ -35,7 +35,12 @@ export default props => {
 							>
 								<section>
 									<figure>
-										{ item.type !== "placeholder" && <img src={ item.poster.medium } alt={ item.title + " poster image" } /> }
+										{ item.type !== "placeholder" && <div
+											style={{
+												backgroundImage : "url(" + item.poster.medium + ")"
+											}}
+											aria-label={ item.title + " poster image" }
+										/> }
 									</figure>
 									<h2 title={ item.title }>{ item.title }</h2>
 									<Caption status={ props.status }>{

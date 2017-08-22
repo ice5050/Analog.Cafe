@@ -5,10 +5,11 @@ import styled from "styled-components"
 import { zigzagWidth, zigzagTopShim } from "./ul"
 
 // css
-export const ZigzagPicture = styled.figure`
+export const ZigzagPicture = styled.div`
 	min-width: 						${ zigzagWidth };
+	background-color: 		rgba(44, 44, 44, 0.125);
 	background-size: 			cover;
-	background-position: 	center;
+	background-position: 	bottom right;
 	margin: 							0 0 0 auto;
 	${	props => props.theme.size.breakpoint.max.l` display: none; `}
 	ul:first-child li:first-child & {
@@ -22,4 +23,7 @@ export const ZigzagPicture = styled.figure`
 	${'' /* li:first-child & {
 		border-top-width: calc(4.85em + ${ props => props.theme.size.block.border }px);
 	} */}
+
+	-webkit-filter: grayscale(95%) contrast(65%);
+	filter: 				grayscale(95%) contrast(65%);
 `

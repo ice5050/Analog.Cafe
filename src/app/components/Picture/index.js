@@ -14,18 +14,10 @@ import placeholder from "../_icons/images/placeholder-profile.png"
 // return
 export default props => {
 	return (
-		<Figure { ...props } onContextMenu={ event => event.preventDefault() } >
+		<Figure { ...props }>
 			<Image
 				{ ...props }
-				style={
-					props.readOnly
-					&& {
-						WebkitTouchCallout : "none",
-						userSelect : "none",
-						pointerEvents: "none",
-					}
-				}
-
+				protected={ (props.readOnly !== false && process.env.NODE_ENV === "production") }
 			/>
 			<figcaption style={ props.nocaption && { borderBottom: "8px solid #2c2c2c", height: 0, overflow: "hidden" } }>
 
@@ -45,7 +37,7 @@ export default props => {
 										: {
 											info: {
 												image: placeholder,
-												title: "Error " + props.author.errorCode,
+												title: "Error: " + props.author.errorCode,
 												text: errorMessage.NO_AUTHOR
 											},
 											id: "errors/author"
