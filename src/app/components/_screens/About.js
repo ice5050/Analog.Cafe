@@ -103,7 +103,7 @@ export default props => {
 					Anonymous<br />
 					Geraldine Pontius<br />
 					Larry Treadway<br />
-					Hakan A.<br />
+					Hakan (@haknization)<br />
 					Ben Cairns
 				</ThankYouList>
 
