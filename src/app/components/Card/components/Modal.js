@@ -46,9 +46,7 @@ export const ModalCard = props => {
                         Authorization: "JWT " + localStorage.getItem('token')
                       }
                     })
-                    .then(response => {
-
-                    })
+                    .then(() => {})
                     .catch(error => {
                       console.log(error)
                     })
