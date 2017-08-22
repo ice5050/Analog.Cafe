@@ -18,6 +18,9 @@ import Paper from "./themes/Paper"
 // components
 import App from "./app/containers/App"
 
+// service worker
+import registerServiceWorker from './registerServiceWorker'
+
 // launch!
 render(
 	<Provider store={ store } >
@@ -33,3 +36,5 @@ render(
 	</Provider>,
 	window.document.getElementById('app')
 )
+
+registerServiceWorker()

@@ -1,15 +1,16 @@
 // tools
 import React from "react"
 import styled from "styled-components"
+import { withRouter } from "react-router"
 // redux
 import { connect } from "react-redux"
 import { fetchCard, setCard } from "../../../../actions/modalActions"
-
 
 // return
 class ModalDispatch extends React.Component {
   invokeModal = event => {
     event.preventDefault()
+    this.props.with.request.history = this.props.history
     this.props.with.request ?
       this.props.fetchCard(this.props.with.request)
     :
@@ -64,9 +65,6 @@ class ModalDispatch extends React.Component {
 	}
 }
 
-
-
-
 // connet with redux
 const mapStateToProps = state => {
 	return {
@@ -83,4 +81,4 @@ const mapDispatchToProps = dispatch => {
 		}
 	}
 }
-export default connect(mapStateToProps, mapDispatchToProps, null, {pure: false})(ModalDispatch)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps, null, {pure: false})(ModalDispatch))

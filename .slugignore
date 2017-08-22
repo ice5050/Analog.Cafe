@@ -1,3 +1,2 @@
 # ignore these files on Heroku deployment
-# yarn.lock
 package-lock.json
