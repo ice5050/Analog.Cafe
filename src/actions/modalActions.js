@@ -54,7 +54,7 @@ export function fetchCard(request) {
       }, { url: "errors/modal" }))
 		})
 		.catch(error => {
-			if(error.response.status == 401){
+			if(error.response.status === 401){
 				request.history.push('/sign-in')
 			}else{
 				dispatch(setCard({
