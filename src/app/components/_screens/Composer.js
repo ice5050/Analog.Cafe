@@ -11,7 +11,6 @@ import { HeaderEditor } from "../../containers/Composer"
 import { ContentEditor } from "../../containers/Composer"
 
 import { ROUTE_SUBMISSION_API } from "../../../constants/submission"
-import { ROUTE_REDIRECT_AFTER_SUBMIT } from "../../../constants/submission"
 
 var requestData = {
 	raw: "",
@@ -30,10 +29,7 @@ export default props => {
 						url: ROUTE_SUBMISSION_API,
 						data: requestData,
 						method: "POST",
-						headers: { Authorization: "JWT " + localStorage.getItem('token') },
-						onSuccess: function(){
-							window.location = ROUTE_REDIRECT_AFTER_SUBMIT
-						}
+						headers: { Authorization: "JWT " + localStorage.getItem('token') }
 					}
 				}}
 				wrapperElement="div"
