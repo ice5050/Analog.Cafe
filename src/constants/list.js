@@ -6,13 +6,13 @@ export const ROUTE_LIST_API = ROUTE_API_DOMAIN + "/api/list"
 export const ROUTE_AUTHENTICATED_LIST_API = "/api/auth/list"
 export const ROUTE_FILTERS = {
 	"/photo-essays"	: "photo-essay",
-	"/articles"			:	"theory-and-practice:opinion:off-topic",
+	"/articles"			:	"review:how-to:editorial",
 	"/my-stuff"			:	"",
 	"/"							:	"",
 }
 export const ROUTE_META = {
 	"/photo-essays"	: {
-											"text"	: "Stories told with images shot on film",
+											"text"	: "Stories told with images on film",
 											"emoji"				: "🌇🌃🌌",
 											// photo-essay
 	},

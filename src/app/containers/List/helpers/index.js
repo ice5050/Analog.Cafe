@@ -19,7 +19,7 @@ export const getListMeta = (pathname = "/", page = 1, url = ROUTE_LIST_API) => {
 	if(pathname.includes("/author/")){
 		meta = ROUTE_META["/author/*"]
 		request = {
-			data: {
+			params: {
 				author: pathname.match(/\/author\/(.*)/)[1],
 				page,
 			},
@@ -31,7 +31,7 @@ export const getListMeta = (pathname = "/", page = 1, url = ROUTE_LIST_API) => {
 	else {
     meta = ROUTE_META[pathname] ? ROUTE_META[pathname] : ROUTE_META.default
 		request = {
-			data: {
+			params: {
 				tag: ROUTE_FILTERS[pathname] ? ROUTE_FILTERS[pathname] : "",
 				page,
 			},

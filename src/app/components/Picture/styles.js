@@ -10,9 +10,17 @@ import { Caption as PictureCaption, CaptionStyles } from "../CaptionStyles"
 
 // css
 // remove `style` prop from Picture HOC
-export const Image = styled( ({ style, ...props }) => <Picture { ...props } />)`
+export const Image = styled( ({ style, ...props }) => <Picture
+	{ ...props }
+	onContextMenu={ event => props.protected && event.preventDefault() }
+/>)`
 	width: 		100%;
   display: 	block;
+	${ props => props.protected && `
+		-webkit-touch-callout : none;
+		user-select : none;
+		pointer-events: none;
+	`}
 `
 
 const shadow = css`

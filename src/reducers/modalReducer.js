@@ -8,7 +8,7 @@ const INITIAL_STATE = {
   },
   requested : {
     method: "get",
-    data: {},
+    params: {},
     url: "",
   }
 }

@@ -36,28 +36,35 @@ export function fetchCard(request) {
 			hidden: false,
 		}))
 		axios({
-			  method: 			request.method || "get",
-	      data:         request.data || {},
-			  url: 					request.url,
-			})
-			.then(response => {
-				(response.data.info.title && response.data.info.text)
-        ? dispatch(setCard(response.data, request))
-        : dispatch(setCard({
-          status: "ok",
-          info: {
-            title: "Error 204",
-            text: errorMessage.EMPTY_CARD,
-          }
-        }, { url: "errors/modal" }))
-			})
-			.catch(error => dispatch(setCard({
-				status: "ok",
-				info: {
-					title: "Error " + error.response.status,
-					text: errorMessage.FAILED_CARD,
-				}
-			}, { url: "errors/modal" }))
-		)
+		  method: 			request.method || "get",
+      data:         request.data || {},
+			params:       request.params || {},
+		  url: 					request.url,
+			headers: 			request.headers || {},
+		})
+		.then(response => {
+			(response.data.info.title && response.data.info.text)
+      ? dispatch(setCard(response.data, request))
+      : dispatch(setCard({
+        status: "ok",
+        info: {
+          title: "Error 204",
+          text: errorMessage.EMPTY_CARD,
+        }
+      }, { url: "errors/modal" }))
+		})
+		.catch(error => {
+			if(error.response.status === 401){
+				request.history.push('/sign-in')
+			}else{
+				dispatch(setCard({
+					status: "ok",
+					info: {
+						title: "Error: " + (error.response ? error.response.status : "no response"),
+						text: errorMessage.FAILED_CARD,
+					}
+				}, { url: "errors/modal" }))
+			}
+		})
 	}
 }

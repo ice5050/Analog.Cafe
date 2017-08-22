@@ -38,9 +38,9 @@ export function fetchPage(request, appendItems = false) {
     // do not load post twice in a arow
     if(
       (listState.requested.url === request.url) &&
-      (listState.requested.data.tag === request.data.tag) &&
-      (listState.requested.data.author === request.data.author) &&
-      (listState.requested.data.page === request.data.page)
+      (listState.requested.params.tag === request.params.tag) &&
+      (listState.requested.params.author === request.params.author) &&
+      (listState.requested.params.page === request.params.page)
     ) return
 
     // reset list state (unless it's being paginated)
@@ -51,7 +51,8 @@ export function fetchPage(request, appendItems = false) {
 
     axios({
       method: 			request.method || "get",
-      params:         request.data || {},
+      params:       request.params || {},
+      data:         request.data || {},
       url: 					request.url,
     })
       .then(response => {
@@ -66,13 +67,14 @@ export function fetchPage(request, appendItems = false) {
         }, { url: "errors/list" }))
       })
       .catch(error =>
-        dispatch(setCard({
+        {console.log(error.response)
+          dispatch(setCard({
           status: "ok",
           info: {
-            title: "Error " + error.response.status,
+            title: "Error: " + (error.response ? error.response.status : "no response"),
             text: errorMessage.FAILED_LIST,
           }
-        }, { url: "errors/list" }))
+        }, { url: "errors/list" }))}
       )
   }
 }
