@@ -61,19 +61,21 @@ class List extends React.Component {
                   ? <q>
                       <em>
                         {renderedListMeta.text}
-                        {this.props.list.filters.author.name &&
-                          <ModalDispatch
-                            with={{
-                              request: {
-                                url:
-                                  ROUTE_AUTHOR_API +
-                                  "/" +
-                                  this.props.list.filters.author.id
-                              }
-                            }}
-                          >
-                            {this.props.list.filters.author.name}
-                          </ModalDispatch>}
+                        {this.props.list.filters.author.name
+                          ? <ModalDispatch
+                              with={{
+                                request: {
+                                  url:
+                                    ROUTE_AUTHOR_API +
+                                    "/" +
+                                    this.props.list.filters.author.id
+                                }
+                              }}
+                            >
+                              {this.props.list.filters.author.name}
+                            </ModalDispatch>
+                          : this.props.location.pathname.includes("/author/") &&
+                            "(author)"}
                       </em>.
                     </q>
                   : <q>

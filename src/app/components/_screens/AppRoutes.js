@@ -20,6 +20,8 @@ export default props => {
     <main>
       <Switch>
         {/* dynamic urls and views */}
+        <Route exact path="/author" component={NotFound} />
+        <Route exact path="/zine" component={NotFound} />
         <Route exact path="/author/*" component={List} />
         <Route exact path="/zine/*" component={Article} />
 
