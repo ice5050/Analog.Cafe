@@ -39,7 +39,8 @@ export function fetchPage(request) {
           requested: request,
           title: articleState.title,
           subtitle: articleState.subtitle,
-          author: articleState.author
+          author: articleState.author,
+          poster: articleState.poster
         })
       )
     else dispatch(initPage())

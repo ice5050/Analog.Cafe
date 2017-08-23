@@ -1,5 +1,11 @@
 // tools
 import React from "react"
+import Helmet from "react-helmet"
+
+import {
+  ROUTE_APP_PERMANENT_DOMAIN_NAME,
+  ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL
+} from "../../../constants/app"
 
 // components
 import Heading from "../ArticleHeading"
@@ -13,6 +19,22 @@ import { Section, Article } from "../ArticleStyles"
 export default props => {
   return (
     <Article>
+      <Helmet>
+        <title>Submit</title>
+        <meta
+          name="description"
+          content="Submit film photography essays and articles to be featured on Analog.Cafe."
+        />
+        <meta
+          property="og:image"
+          content={
+            ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL +
+            ROUTE_APP_PERMANENT_DOMAIN_NAME +
+            "/images/pictures/submit-camera.jpg"
+          }
+        />
+      </Helmet>
+
       <Heading
         pageTitle="Submit"
         pageSubtitle="Film Photography, Essays & Articles"

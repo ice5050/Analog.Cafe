@@ -30,7 +30,8 @@ export default props => {
                     title: item.title,
                     subtitle: item.subtitle,
                     author: item.author,
-                    slug: item.slug
+                    slug: item.slug,
+                    poster: item.poster
                   })}
               >
                 <section>

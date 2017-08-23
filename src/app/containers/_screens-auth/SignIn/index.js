@@ -1,5 +1,6 @@
 // tools
 import React from "react"
+import Helmet from "react-helmet"
 
 // redux
 import { connect } from "react-redux"
@@ -19,6 +20,10 @@ const SignIn = props => {
   if (props.user.status !== "ok")
     return (
       <Article>
+        <Helmet>
+          <title>Sign In</title>
+        </Helmet>
+
         <Heading pageTitle="Sign In" />
         <Section>
           <ButtonGroup>

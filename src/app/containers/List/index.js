@@ -2,6 +2,7 @@
 import React from "react"
 import { withRouter } from "react-router"
 import { ModalDispatch } from "../Modal"
+import Helmet from "react-helmet"
 
 // redux & state
 import { connect } from "react-redux"
@@ -53,6 +54,12 @@ class List extends React.Component {
     const renderedListMeta = getListMeta(this.props.location.pathname).meta
     return (
       <div>
+        <Helmet>
+          <title>
+            {renderedListMeta.title}
+          </title>
+          <meta name="description" content={renderedListMeta.description} />
+        </Helmet>
         <ListDescription>
           {this.props.header
             ? this.props.header
@@ -60,7 +67,7 @@ class List extends React.Component {
                 {this.props.list.filters.author
                   ? <q>
                       <em>
-                        {renderedListMeta.text}
+                        {renderedListMeta.title}
                         {this.props.list.filters.author.name
                           ? <ModalDispatch
                               with={{
@@ -79,7 +86,7 @@ class List extends React.Component {
                       </em>.
                     </q>
                   : <q>
-                      <em>{renderedListMeta.text}</em>.
+                      <em>{renderedListMeta.title}</em>.
                     </q>}
                 &nbsp;{renderedListMeta.emoji}
               </ListHeader>}
@@ -93,7 +100,8 @@ class List extends React.Component {
               title: nextArticleHeading.title,
               subtitle: nextArticleHeading.subtitle,
               author: nextArticleHeading.author,
-              slug: nextArticleHeading.slug
+              slug: nextArticleHeading.slug,
+              poster: nextArticleHeading.poster
             })}
           private={this.props.private}
         />

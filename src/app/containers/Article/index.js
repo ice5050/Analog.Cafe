@@ -2,6 +2,7 @@
 import React from "react"
 import { Editor, Raw } from "slate"
 import { withRouter } from "react-router"
+import Helmet from "react-helmet"
 
 // redux & state
 import { connect } from "react-redux"
@@ -11,6 +12,11 @@ import {
   ROUTE_ARTICLE_DIR
 } from "../../../constants/article"
 import { ROUTE_AUTHOR_API } from "../../../constants/author"
+import {
+  ROUTE_APP_PERMANENT_DOMAIN_NAME,
+  ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL
+} from "../../../constants/app"
+
 import { schema } from "../Composer/containers/ContentEditor/schema"
 
 // components
@@ -18,7 +24,7 @@ import Heading from "../../components/ArticleHeading"
 import { ModalDispatch } from "../Modal"
 import {
   Section,
-  Article as ArticleStyle,
+  Article as ArticleElement,
   Byline
 } from "../../components/ArticleStyles"
 
@@ -44,8 +50,24 @@ class Article extends React.PureComponent {
     this.unlisten()
   }
   render() {
+    console.log(this.props.article)
     return (
-      <ArticleStyle>
+      <ArticleElement>
+        <Helmet>
+          <title>
+            {this.props.article.title}
+          </title>
+          <meta name="description" content={this.props.article.summary} />
+          <meta
+            property="og:image"
+            content={
+              this.props.article.poster &&
+              ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL +
+                ROUTE_APP_PERMANENT_DOMAIN_NAME +
+                this.props.article.poster.medium
+            }
+          />
+        </Helmet>
         <Heading
           pageTitle={this.props.article.title}
           pageSubtitle={this.props.article.subtitle}
@@ -72,7 +94,7 @@ class Article extends React.PureComponent {
             schema={schema}
           />
         </Section>
-      </ArticleStyle>
+      </ArticleElement>
     )
   }
 }
