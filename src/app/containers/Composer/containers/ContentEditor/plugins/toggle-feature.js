@@ -13,14 +13,17 @@ export function ToggleFeature(options) {
 
       const previousDataImmutable = state.focusBlock.data
       const previousData = {
-        "feature": previousDataImmutable.get("feature"),
-        "file": previousDataImmutable.get("file"),
-        "src": previousDataImmutable.get("src"),
+        feature: previousDataImmutable.get("feature"),
+        file: previousDataImmutable.get("file"),
+        src: previousDataImmutable.get("src")
       }
       let featureStatus = previousData.feature ? false : true
       return state
         .transform()
-        .setBlock({ type: "image", data: { ...previousData, feature: featureStatus } })
+        .setBlock({
+          type: "image",
+          data: { ...previousData, feature: featureStatus }
+        })
         .apply()
     }
   }

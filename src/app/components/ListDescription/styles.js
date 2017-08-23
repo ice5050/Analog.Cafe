@@ -1,31 +1,28 @@
 // styles
 import styled from "styled-components"
 
-
 // css
 export const ListDescription = styled.div`
+  ${props => props.theme.typography.text.auto} ${props =>
+      props.theme.size.font.auto} height: 7.5em;
+  overflow: hidden;
+  margin: -.5em auto 0;
 
-	${ props => props.theme.typography.text.auto }
-	${ props => props.theme.size.font.auto }
-
-	height: 		7.5em;
-	overflow: 	hidden;
-	margin: 		-.5em auto 0;
-
-	max-width: 	${ props => props.theme.size.block.column.maxwidth.m }px;
-	position: 	relative;
-	z-index: 		${ props => props.theme.layer.card };
+  max-width: ${props => props.theme.size.block.column.maxwidth.m}px;
+  position: relative;
+  z-index: ${props => props.theme.layer.card};
 `
 export const BrandName = styled.strong`
-	${ props => props.theme.typography.title.auto }
-	text-align: 		center;
-	display: 				block;
-	font-size: 			${ props => props.theme.size.font.make.smaller }em;
-	margin-bottom:	.5em;
+  ${props => props.theme.typography.title.auto} text-align: center;
+  display: block;
+  font-size: ${props => props.theme.size.font.make.smaller}em;
+  margin-bottom: .5em;
 `
 export const ListHeader = styled.div`
-	text-align: 	center;
-	font-size: 		${ props => props.theme.size.font.make.smaller }em;
-	padding: 			${ props => props.theme.size.block.column.safety }em;
-	q { background: ${ props => props.theme.color.background }; }
+  text-align: center;
+  font-size: ${props => props.theme.size.font.make.smaller}em;
+  padding: ${props => props.theme.size.block.column.safety}em;
+  q {
+    background: ${props => props.theme.color.background};
+  }
 `

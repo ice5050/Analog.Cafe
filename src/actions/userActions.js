@@ -3,32 +3,29 @@
 // import { setCard } from './modalActions'
 // import errorMessage from '../constants/error-messages'
 
-const ROUTE_USER_API = '/api/auth/user'
-
+const ROUTE_USER_API = "/api/auth/user"
 
 // refactor this:
 function getParameterByName(name, url = window.location.href) {
-  name = name.replace(/[\[\]]/g, '\\$&')
-  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+  name = name.replace(/[\[\]]/g, "\\$&")
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
     results = regex.exec(url)
   if (!results) return null
-  if (!results[2]) return ''
-  return decodeURIComponent(results[2].replace(/\+/g, ' '))
+  if (!results[2]) return ""
+  return decodeURIComponent(results[2].replace(/\+/g, " "))
 }
 
 // implement popup & user data functionality from below
 export function getSession(request = { url: ROUTE_USER_API }) {
-  var token = getParameterByName('token')
+  var token = getParameterByName("token")
   if (token) {
-    localStorage.setItem('token', token)
+    localStorage.setItem("token", token)
   }
-	return dispatch => {}
+  return dispatch => {}
 }
 
 // below: dispatch popup warning that user needs to log in or
 // dispatch user's logged in credentials to store
-
-
 
 // -export function getSession(request={ url: ROUTE_USER_API }) {
 //  -	return dispatch => {

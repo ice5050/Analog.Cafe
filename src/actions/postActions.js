@@ -13,58 +13,71 @@ export function setPage(page) {
   }
 }
 export function initPage(state) {
-	return {
-		type: "POST.INIT_PAGE",
-		payload: state,
-	}
+  return {
+    type: "POST.INIT_PAGE",
+    payload: state
+  }
 }
 
 export function fetchPage(request) {
   return (dispatch, getState) => {
-
     // do not load anything outside of API scope
-    if(!(request.url).includes(ROUTE_POST_API)) return
+    if (!request.url.includes(ROUTE_POST_API)) return
 
     // get current state from store
     let postState = getState().post
 
     // do not load post twice in a arow
-    if(postState.requested.url === request.url) return
+    if (postState.requested.url === request.url) return
 
     // pre-cook post title, when available
-    dispatch(initPage({
-      requested: request,
-      title: postState.title,
-      subtitle: postState.subtitle,
-      author: postState.author,
-    }))
+    dispatch(
+      initPage({
+        requested: request,
+        title: postState.title,
+        subtitle: postState.subtitle,
+        author: postState.author
+      })
+    )
 
     axios({
-      method: 			request.method || "get",
-      data:         request.data || {},
-      params:       request.params || {},
-      url: 					request.url,
-      header: 			request.header || {},
+      method: request.method || "get",
+      data: request.data || {},
+      params: request.params || {},
+      url: request.url,
+      header: request.header || {}
     })
       .then(response => {
-        (response.data.content && response.data.content.raw)
-        ? dispatch(setPage(response.data))
-        : dispatch(setCard({
-          status: "ok",
-          info: {
-            title: "Error 204",
-            text: errorMessage.EMPTY_POST,
-          }
-        }, { url: "errors/post" }))
+        response.data.content && response.data.content.raw
+          ? dispatch(setPage(response.data))
+          : dispatch(
+              setCard(
+                {
+                  status: "ok",
+                  info: {
+                    title: "Error 204",
+                    text: errorMessage.EMPTY_POST
+                  }
+                },
+                { url: "errors/post" }
+              )
+            )
       })
       .catch(error =>
-        dispatch(setCard({
-          status: "ok",
-          info: {
-            title: "Error: " + (error.response ? error.response.status : "no response"),
-            text: errorMessage.FAILED_POST,
-          }
-        }, { url: "errors/post" }))
+        dispatch(
+          setCard(
+            {
+              status: "ok",
+              info: {
+                title:
+                  "Error: " +
+                  (error.response ? error.response.status : "no response"),
+                text: errorMessage.FAILED_POST
+              }
+            },
+            { url: "errors/post" }
+          )
+        )
       )
   }
 }

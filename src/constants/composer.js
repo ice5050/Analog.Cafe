@@ -1,11 +1,11 @@
-export const DEFAULT_COMPOSER_HEADER_STATE = { "title": "", "subtitle": "" }
+export const DEFAULT_COMPOSER_HEADER_STATE = { title: "", subtitle: "" }
 export const DEFAULT_COMPOSER_EDITOR_STATE = {
-  "nodes":[
+  nodes: [
     {
-      "data":{ },
-      "kind":"block",
-      "isVoid":false,
-      "type":"paragraph"
+      data: {},
+      kind: "block",
+      isVoid: false,
+      type: "paragraph"
     }
   ]
 }

@@ -16,10 +16,7 @@ export function MarkHotkey(options) {
       event.preventDefault()
 
       // Toggle the mark `type`.
-      return state
-        .transform()
-        .toggleMark(type)
-        .apply()
+      return state.transform().toggleMark(type).apply()
     }
   }
 }
