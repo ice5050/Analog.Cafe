@@ -2,7 +2,7 @@ const INITIAL_STATE = {
   status: "loading",
   title: "Loading…",
   subtitle: "",
-  author: { name: "Finding post author…", id: "" },
+  author: { name: "Finding article author…", id: "" },
   content: {
     raw: {
       nodes: [
@@ -33,13 +33,13 @@ const INITIAL_STATE = {
 }
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "POST.SET_PAGE":
+    case "ARTICLE.SET_PAGE":
       state = {
         ...state,
         ...action.payload
       }
       break
-    case "POST.INIT_PAGE":
+    case "ARTICLE.INIT_PAGE":
       state = {
         ...INITIAL_STATE,
         ...action.payload

@@ -58,6 +58,8 @@ export default class extends React.Component {
   uploadRequest = file => {
     var data = new FormData()
     data.append("file", file)
+
+    // upload image to server:
     axios
       .post(ROUTE_UPLOAD_IMAGE_API, data, {
         headers: {

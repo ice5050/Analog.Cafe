@@ -1,6 +1,6 @@
 import { APP_DESCRIPTION, ROUTE_API_DOMAIN } from "./app"
 
-export { ROUTE_POST_DIR } from "./post"
+export { ROUTE_ARTICLE_DIR } from "./article"
 export const ROUTE_LIST_API = ROUTE_API_DOMAIN + "/api/list"
 export const ROUTE_AUTHENTICATED_LIST_API = "/api/auth/list"
 export const ROUTE_FILTERS = {
@@ -11,12 +11,16 @@ export const ROUTE_FILTERS = {
 }
 export const ROUTE_META = {
   "/photo-essays": {
-    text: "Stories told with images on film",
+    title: "Stories told with images on film",
+    description:
+      "A collection of photo essays which were created with film (analog) cameras.",
     emoji: "🌇🌃🌌"
     // photo-essay
   },
   "/articles": {
-    text: "Reads of interest",
+    title: "Reads of interest",
+    description:
+      "Stories, editorials, reviews, how-to’s and other articles about art, inspiration and technology.",
     // story
     // editorial
     // review
@@ -24,16 +28,19 @@ export const ROUTE_META = {
     emoji: "🌈"
   },
   "/": {
-    text: APP_DESCRIPTION,
+    title: APP_DESCRIPTION,
+    description:
+      "Analog.Cafe is an inclusive creative outlet that publishes outstanding images and stories.",
     emoji: "☕️",
     designation: "homepage"
   },
   "/author/*": {
-    text: "Images and stories by ",
+    title: "Images and stories by ",
+    description: "Published works and photography by Analog.Cafe authors.",
     emoji: "🤘"
   },
   default: {
-    text: APP_DESCRIPTION,
+    title: APP_DESCRIPTION,
     emoji: "🍩"
   }
 }

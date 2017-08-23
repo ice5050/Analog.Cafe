@@ -4,18 +4,18 @@ import { setCard } from "./modalActions"
 import errorMessage from "../constants/error-messages"
 import { axiosRequest } from "./helpers"
 
-import { ROUTE_POST_API } from "../constants/post"
+import { ROUTE_ARTICLE_API } from "../constants/article"
 
 // return
 export function setPage(page) {
   return {
-    type: "POST.SET_PAGE",
+    type: "ARTICLE.SET_PAGE",
     payload: page
   }
 }
 export function initPage(state) {
   return {
-    type: "POST.INIT_PAGE",
+    type: "ARTICLE.INIT_PAGE",
     payload: state
   }
 }
@@ -23,23 +23,27 @@ export function initPage(state) {
 export function fetchPage(request) {
   return (dispatch, getState) => {
     // do not load anything outside of API scope
-    if (!request.url.includes(ROUTE_POST_API)) return
+    if (!request.url.includes(ROUTE_ARTICLE_API)) return
 
     // get current state from store
-    let postState = getState().post
+    let articleState = getState().article
 
-    // do not load post twice in a arow
-    if (postState.requested.url === request.url) return
+    // do not load article twice in a arow
+    if (articleState.requested.url === request.url) return
 
-    // pre-cook post title, when available
-    dispatch(
-      initPage({
-        requested: request,
-        title: postState.title,
-        subtitle: postState.subtitle,
-        author: postState.author
-      })
-    )
+    // pre-cook article title, when available
+    // (if it matches actual requested article)
+    if (request.url.includes(articleState.slug))
+      dispatch(
+        initPage({
+          requested: request,
+          title: articleState.title,
+          subtitle: articleState.subtitle,
+          author: articleState.author,
+          poster: articleState.poster
+        })
+      )
+    else dispatch(initPage())
 
     axios(axiosRequest(request))
       .then(response => {
@@ -51,10 +55,10 @@ export function fetchPage(request) {
                   status: "ok",
                   info: {
                     title: "Error 204",
-                    text: errorMessage.EMPTY_POST
+                    text: errorMessage.EMPTY_ARTICLE
                   }
                 },
-                { url: "errors/post" }
+                { url: "errors/article" }
               )
             )
       })
@@ -67,10 +71,10 @@ export function fetchPage(request) {
                 title:
                   "Error: " +
                   (error.response ? error.response.status : "no response"),
-                text: errorMessage.FAILED_POST
+                text: errorMessage.FAILED_ARTICLE
               }
             },
-            { url: "errors/post" }
+            { url: "errors/article" }
           )
         )
       )

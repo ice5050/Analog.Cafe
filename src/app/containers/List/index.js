@@ -2,11 +2,12 @@
 import React from "react"
 import { withRouter } from "react-router"
 import { ModalDispatch } from "../Modal"
+import Helmet from "react-helmet"
 
 // redux & state
 import { connect } from "react-redux"
 import { fetchPage } from "../../../actions/listActions"
-import { setPage as setNextPost } from "../../../actions/postActions"
+import { setPage as setNextArticle } from "../../../actions/articleActions"
 import {
   ROUTE_LIST_API,
   ROUTE_AUTHENTICATED_LIST_API
@@ -53,6 +54,12 @@ class List extends React.Component {
     const renderedListMeta = getListMeta(this.props.location.pathname).meta
     return (
       <div>
+        <Helmet>
+          <title>
+            {renderedListMeta.title}
+          </title>
+          <meta name="description" content={renderedListMeta.description} />
+        </Helmet>
         <ListDescription>
           {this.props.header
             ? this.props.header
@@ -60,24 +67,26 @@ class List extends React.Component {
                 {this.props.list.filters.author
                   ? <q>
                       <em>
-                        {renderedListMeta.text}
-                        {this.props.list.filters.author.name &&
-                          <ModalDispatch
-                            with={{
-                              request: {
-                                url:
-                                  ROUTE_AUTHOR_API +
-                                  "/" +
-                                  this.props.list.filters.author.id
-                              }
-                            }}
-                          >
-                            {this.props.list.filters.author.name}
-                          </ModalDispatch>}
+                        {renderedListMeta.title}
+                        {this.props.list.filters.author.name
+                          ? <ModalDispatch
+                              with={{
+                                request: {
+                                  url:
+                                    ROUTE_AUTHOR_API +
+                                    "/" +
+                                    this.props.list.filters.author.id
+                                }
+                              }}
+                            >
+                              {this.props.list.filters.author.name}
+                            </ModalDispatch>
+                          : this.props.location.pathname.includes("/author/") &&
+                            "(author)"}
                       </em>.
                     </q>
                   : <q>
-                      <em>{renderedListMeta.text}</em>.
+                      <em>{renderedListMeta.title}</em>.
                     </q>}
                 &nbsp;{renderedListMeta.emoji}
               </ListHeader>}
@@ -86,11 +95,13 @@ class List extends React.Component {
         <ListBlock
           status={this.props.list.status}
           items={this.props.list.items}
-          nextPostHeading={nextPostHeading =>
-            this.props.setNextPost({
-              title: nextPostHeading.title,
-              subtitle: nextPostHeading.subtitle,
-              author: nextPostHeading.author
+          nextArticleHeading={nextArticleHeading =>
+            this.props.setNextArticle({
+              title: nextArticleHeading.title,
+              subtitle: nextArticleHeading.subtitle,
+              author: nextArticleHeading.author,
+              slug: nextArticleHeading.slug,
+              poster: nextArticleHeading.poster
             })}
           private={this.props.private}
         />
@@ -122,8 +133,8 @@ const mapDispatchToProps = dispatch => {
     fetchPage: (request, appendItems) => {
       dispatch(fetchPage(request, appendItems))
     },
-    setNextPost: nextPost => {
-      dispatch(setNextPost(nextPost))
+    setNextArticle: nextArticle => {
+      dispatch(setNextArticle(nextArticle))
     }
   }
 }
