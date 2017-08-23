@@ -8,19 +8,19 @@ import {
   APP_TRACKING_GAID,
   ROUTE_APP_CURRENT_DOMAIN,
   ROUTE_APP_PERMANENT_DOMAIN
-} from "../../constants/app"
+} from "../../../constants/app"
 
 // redux
 import { connect } from "react-redux"
 import {
   setView as setNavView,
   setLocation as setNavLocation
-} from "../../actions/navActions"
-import { getSession as getUserSession } from "../../actions/userActions"
+} from "../../../actions/navActions"
+import { getSession as getUserSession } from "../../../actions/userActions"
 
-import { Modal } from "./Modal"
-import Nav from "./Nav"
-import AppRoutes from "../components/_screens/AppRoutes"
+import { Modal } from "../Modal"
+import Nav from "../Nav"
+import AppRoutes from "../../components/_screens/AppRoutes"
 
 // init GA tracking
 console.log(process.env)
