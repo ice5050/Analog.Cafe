@@ -47,12 +47,21 @@ class App extends React.PureComponent {
         this.props.setNavView("COMPOSER")
         this.props.setNavLocation({ bottom: false })
         break
+      case "/submit/confirm-full-consent":
+      case "/submit/confirm-full-consent/":
+      case "/submit/confirm-basic-consent/":
+      case "/submit/confirm-basic-consent":
+        this.props.setNavLocation({
+          top: false,
+          bottom: false
+        })
+        break
       case "/sign-in":
       case "/sign-in/":
         this.props.setNavView("VISITOR")
         if (
           this.props.history.location.state &&
-          this.props.history.location.state.status === "103"
+          this.props.history.location.state.status === "103" // already authenticated
         ) {
           this.props.setNavLocation({
             top: false,
