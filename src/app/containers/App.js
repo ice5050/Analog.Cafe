@@ -3,6 +3,13 @@ import React from "react"
 import ReactGA from "react-ga"
 import { withRouter } from "react-router"
 
+// constants
+import {
+  APP_TRACKING_GAID,
+  ROUTE_APP_CURRENT_DOMAIN,
+  ROUTE_APP_PERMANENT_DOMAIN
+} from "../../constants/app"
+
 // redux
 import { connect } from "react-redux"
 import {
@@ -16,7 +23,13 @@ import Nav from "./Nav"
 import AppRoutes from "../components/_screens/AppRoutes"
 
 // init GA tracking
-ReactGA.initialize("UA-91374353-3", {
+console.log(process.env)
+if (
+  process.env.NODE_ENV === "development" ||
+  ROUTE_APP_CURRENT_DOMAIN !== ROUTE_APP_PERMANENT_DOMAIN
+)
+  window["ga-disable-" + APP_TRACKING_GAID] = true
+ReactGA.initialize(APP_TRACKING_GAID, {
   debug: false,
   titleCase: true,
   gaOptions: {}
