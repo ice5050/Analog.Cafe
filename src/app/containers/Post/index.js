@@ -10,71 +10,76 @@ import { ROUTE_POST_API, ROUTE_POST_DIR } from "../../../constants/post"
 import { ROUTE_AUTHOR_API } from "../../../constants/author"
 import { schema } from "../Composer/containers/ContentEditor/schema"
 
-
 // components
 import Heading from "../../components/ArticleHeading"
 import { ModalDispatch } from "../Modal"
 import { Section, Article, Byline } from "../../components/ArticleStyles"
 
-
 // render
 class Post extends React.PureComponent {
-	fetchPage = () => {
+  fetchPage = () => {
+    // do not fetch pages unless they are located in /zine dir
+    // otherwise on unmount the component will try to load any page, and return 404 errors
+    if (!this.props.history.location.pathname.includes(ROUTE_POST_DIR)) return
 
-		// do not fetch pages unless they are located in /zine dir
-		// otherwise on unmount the component will try to load any page, and return 404 errors
-		if(!(this.props.history.location.pathname).includes(ROUTE_POST_DIR)) return
-
-		this.props.fetchPage({
-			url: ROUTE_POST_API + (this.props.history.location.pathname).replace(ROUTE_POST_DIR,"")
-		})
-	}
-	componentDidMount(){
-		this.unlisten = this.props.history.listen(location => this.fetchPage())
-		this.fetchPage()
-	}
-	componentWillUnmount() {
+    this.props.fetchPage({
+      url:
+        ROUTE_POST_API +
+        this.props.history.location.pathname.replace(ROUTE_POST_DIR, "")
+    })
+  }
+  componentDidMount() {
+    this.unlisten = this.props.history.listen(location => this.fetchPage())
+    this.fetchPage()
+  }
+  componentWillUnmount() {
     this.unlisten()
   }
-	render() {
-		return(
-			<Article>
-				<Heading
-					pageTitle={ this.props.post.title }
-					pageSubtitle={ this.props.post.subtitle }
-				>
-					<Byline>by <ModalDispatch
-						with={{
-							request: {
-								url: ROUTE_AUTHOR_API + "/" + this.props.post.author.id
-							}
-						}}
-					>{ this.props.post.author.name }</ModalDispatch></Byline>
-				</Heading>
-				<Section postStatus={ this.props.post.status }>
-					<Editor
-						readOnly={					true }
-						state={							Raw.deserialize(this.props.post.content.raw, {terse: true}) }
-						schema={						schema }
-					/>
-				</Section>
-			</Article>
-		)
-	}
+  render() {
+    return (
+      <Article>
+        <Heading
+          pageTitle={this.props.post.title}
+          pageSubtitle={this.props.post.subtitle}
+        >
+          <Byline>
+            by{" "}
+            <ModalDispatch
+              with={{
+                request: {
+                  url: ROUTE_AUTHOR_API + "/" + this.props.post.author.id
+                }
+              }}
+            >
+              {this.props.post.author.name}
+            </ModalDispatch>
+          </Byline>
+        </Heading>
+        <Section postStatus={this.props.post.status}>
+          <Editor
+            readOnly={true}
+            state={Raw.deserialize(this.props.post.content.raw, {
+              terse: true
+            })}
+            schema={schema}
+          />
+        </Section>
+      </Article>
+    )
+  }
 }
-
 
 // connet with redux
 const mapStateToProps = state => {
-	return {
-    post: state.post,
-	}
+  return {
+    post: state.post
+  }
 }
 const mapDispatchToProps = dispatch => {
-	return {
-    fetchPage: (request) => {
-			dispatch(fetchPage(request))
-		}
-	}
+  return {
+    fetchPage: request => {
+      dispatch(fetchPage(request))
+    }
+  }
 }
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Post))

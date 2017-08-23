@@ -7,12 +7,12 @@ import { TitleTextarea, SubtitleTextarea } from "../../components/InputStyles"
 
 // return
 const components = {
-    title: TitleTextarea,
-    subtitle: SubtitleTextarea
+  title: TitleTextarea,
+  subtitle: SubtitleTextarea
 }
 
 export default class extends React.Component {
-	constructor(props) {
+  constructor(props) {
     super(props)
     this.state = { value: props.value || "" }
     this.handleChange = this.handleChange.bind(this)
@@ -22,16 +22,16 @@ export default class extends React.Component {
     this.props.onChange(event.target.value)
   }
   render() {
-		const InputElement = components[this.props.inputDesignation]
+    const InputElement = components[this.props.inputDesignation]
     return (
-			<InputElement
-			    	value={				this.state.value }
-			    	onChange={		this.handleChange }
-			    	className={ 	this.props.className }
-			    	placeholder={	this.props.placeholder }
-            warning={     this.props.warning }
-            maxLength={   this.props.maxLength }
-			/>
-		)
+      <InputElement
+        value={this.state.value}
+        onChange={this.handleChange}
+        className={this.props.className}
+        placeholder={this.props.placeholder}
+        warning={this.props.warning}
+        maxLength={this.props.maxLength}
+      />
+    )
   }
 }

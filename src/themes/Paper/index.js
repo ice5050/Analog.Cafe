@@ -15,9 +15,11 @@ loadFonts()
 
 // render
 export default props => {
-	return (
-			<ThemeProvider theme={ Paper } >
-				<ThemeGlobals>{ props.children }</ThemeGlobals>
-			</ThemeProvider>
-	)
+  return (
+    <ThemeProvider theme={Paper}>
+      <ThemeGlobals>
+        {props.children}
+      </ThemeGlobals>
+    </ThemeProvider>
+  )
 }

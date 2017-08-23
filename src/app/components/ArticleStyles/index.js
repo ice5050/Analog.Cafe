@@ -11,4 +11,4 @@ export { Subtitle } from "./styles/header"
 export { Byline } from "./styles/header"
 export { Article } from "./styles/section"
 export { Section } from "./styles/section"
-export const Quote = styled.blockquote`${QuoteStyles}`
+export const Quote = styled.blockquote`${QuoteStyles};`

@@ -9,7 +9,7 @@ import { APP_NAME } from "./constants/app"
 import { BrowserRouter } from "react-router-dom"
 
 // redux
-import store from "./store";
+import store from "./store"
 import { Provider } from "react-redux"
 
 // theme
@@ -19,22 +19,22 @@ import Paper from "./themes/Paper"
 import App from "./app/containers/App"
 
 // service worker
-import registerServiceWorker from './registerServiceWorker'
+import registerServiceWorker from "./registerServiceWorker"
 
 // launch!
 render(
-	<Provider store={ store } >
-		<BrowserRouter>
-			<Paper>
-				<Helmet
-					defaultTitle={ APP_NAME + " ☕️" }
-					titleTemplate={ "%s ☕️ " + APP_NAME}
-				/>
-				<App />
-			</Paper>
-		</BrowserRouter>
-	</Provider>,
-	window.document.getElementById('app')
+  <Provider store={store}>
+    <BrowserRouter>
+      <Paper>
+        <Helmet
+          defaultTitle={APP_NAME + " ☕️"}
+          titleTemplate={"%s ☕️ " + APP_NAME}
+        />
+        <App />
+      </Paper>
+    </BrowserRouter>
+  </Provider>,
+  window.document.getElementById("app")
 )
 
 registerServiceWorker()
