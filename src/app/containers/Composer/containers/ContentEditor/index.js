@@ -29,8 +29,8 @@ class ContentEditor extends React.Component {
   constructor(props) {
     super(props)
 
-    // what is `this.props.requestData.raw`? Write a comment explaining what this does.
-    this.props.requestData.raw = loadContent()
+    // composerState is what appears by default in composer once the user opens the view
+    this.props.composerState.raw = loadContent()
   }
 
   handleChange = state => {
@@ -61,7 +61,7 @@ class ContentEditor extends React.Component {
   // content saver
   handleDocumentChange = (document, state) => {
     setDraftStatusHelper()
-    this.props.requestData.raw = JSON.stringify(Raw.serialize(state))
+    this.props.composerState.raw = JSON.stringify(Raw.serialize(state))
     saveContent(document, state)
   }
 

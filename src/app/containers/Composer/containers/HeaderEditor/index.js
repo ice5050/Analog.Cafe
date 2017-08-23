@@ -20,8 +20,8 @@ const maxSuggestedSubtitleLength = 52
 export default class extends React.Component {
   constructor(props) {
     super(props)
-    this.props.requestData.title = loadHeader().title
-    this.props.requestData.subtitle = loadHeader().subtitle
+    this.props.composerState.title = loadHeader().title
+    this.props.composerState.subtitle = loadHeader().subtitle
     this.handleTitleChange = this.handleTitleChange.bind(this)
     this.handleSubtitleChange = this.handleSubtitleChange.bind(this)
   }
@@ -34,14 +34,14 @@ export default class extends React.Component {
   }
   handleTitleChange(event) {
     this.headerData.title = event
-    this.props.requestData.title = event
+    this.props.composerState.title = event
     saveHeader(this.headerData)
     this.headerData.title.length > maxSuggestedTitleLength
       ? this.setState({ title: { warning: true } })
       : this.setState({ title: { warning: false } })
   }
   handleSubtitleChange(event) {
-    this.props.requestData.subtitle = event
+    this.props.composerState.subtitle = event
     this.headerData.subtitle = event
     saveHeader(this.headerData)
     this.headerData.subtitle.length > maxSuggestedSubtitleLength

@@ -2,7 +2,7 @@
 import React from "react"
 import ReactGA from "react-ga"
 import { withRouter } from "react-router"
-import {parse as parseQueryString} from "query-string"
+import { parse as parseQueryString } from "query-string"
 
 // constants & helpers
 import {
@@ -51,7 +51,6 @@ class App extends React.PureComponent {
     this.handleRouteChnange()
     this.props.history.listen((location, action) => this.handleRouteChnange())
 
-    console.log(parseQueryString(this.props.location.search))
     rememberMe(
       // save user auth token in localStorage:
       this.props.location.search &&
