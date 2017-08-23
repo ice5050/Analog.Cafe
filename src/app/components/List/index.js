@@ -24,7 +24,7 @@ export default props => {
 			{
 				props.items.map(item => {
 					return (
-						<li key={ item._id }>
+						<li key={ item.id }>
 							<Link
 								to={ item.slug && ROUTE_POST_DIR + "/" + item.slug }
 								onClick={ () => props.nextPostHeading({
