@@ -56,7 +56,10 @@ class List extends React.Component {
       <div>
         <Helmet>
           <title>
-            {renderedListMeta.title}
+            {renderedListMeta.title +
+              (this.props.list.filters.author
+                ? this.props.list.filters.author.name
+                : null)}
           </title>
           <meta name="description" content={renderedListMeta.description} />
         </Helmet>
