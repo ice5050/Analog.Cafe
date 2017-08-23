@@ -3,12 +3,13 @@ import React from "react"
 import ReactGA from "react-ga"
 import { withRouter } from "react-router"
 
-// constants
+// constants & helpers
 import {
   APP_TRACKING_GAID,
   ROUTE_APP_CURRENT_DOMAIN,
   ROUTE_APP_PERMANENT_DOMAIN
 } from "../../../constants/app"
+import { rememberMe } from "./helpers"
 
 // redux
 import { connect } from "react-redux"
@@ -45,8 +46,18 @@ class App extends React.PureComponent {
   // manipulate nav view & GA tracking
   componentDidMount() {
     console.log(process.env.NODE_ENV)
+
+    // listen to route changes:
     this.handleRouteChnange()
     this.props.history.listen((location, action) => this.handleRouteChnange())
+
+    // save user auth token in localStorage:
+    rememberMe(
+      this.props.location.query && this.props.location.query.token
+        ? this.props.location.query.token
+        : false
+    )
+    // retreive auth user info & credentials & store in Redux:
     this.props.getUserSession()
   }
   handleRouteChnange = () => {
