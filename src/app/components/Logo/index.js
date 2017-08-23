@@ -8,9 +8,9 @@ import { LogoOutline, LogoWithDownstate } from "./styles"
 
 // render
 export default props => {
-	return(
-		<LogoOutline {...props} title={ APP_NAME } >
-			<LogoWithDownstate {...props} />
-		</LogoOutline>
-	)
+  return (
+    <LogoOutline {...props} title={APP_NAME}>
+      <LogoWithDownstate {...props} />
+    </LogoOutline>
+  )
 }

@@ -4,17 +4,17 @@ const INITIAL_STATE = {
   info: {
     title: "Loading Card…",
     text: "",
-    buttons: {},
+    buttons: {}
   },
-  requested : {
+  requested: {
     method: "get",
     params: {},
-    url: "",
+    url: ""
   }
 }
 
-export default (state = INITIAL_STATE, action) =>  {
-	switch (action.type) {
+export default (state = INITIAL_STATE, action) => {
+  switch (action.type) {
     case "MODAL.SET_CARD":
       state = {
         ...state,
@@ -24,7 +24,7 @@ export default (state = INITIAL_STATE, action) =>  {
     case "MODAL.INIT_CARD":
       state = {
         ...INITIAL_STATE,
-        ...action.payload,
+        ...action.payload
       }
       break
     case "MODAL.HIDE_CARD":
@@ -34,8 +34,8 @@ export default (state = INITIAL_STATE, action) =>  {
         requested: state.requested
       }
       break
-		default:
+    default:
       return state
-	}
-	return state
+  }
+  return state
 }
