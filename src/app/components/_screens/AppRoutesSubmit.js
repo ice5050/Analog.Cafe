@@ -26,7 +26,7 @@ export default props => {
         />
         <Route
           exact
-          path="/submit/confirm-full-consent"
+          path="/submit/confirm-basic-consent"
           component={SubmitConfirm}
         />
 
