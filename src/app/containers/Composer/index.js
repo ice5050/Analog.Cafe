@@ -20,14 +20,14 @@ const Composer = props => {
   return (
     <div>
       <HeaderEditor
-        requestData={props.requestData}
+        composerState={props.composerState}
         pageTitle={titlePlaceholder.title}
         pageSubtitle={titlePlaceholder.subtitle}
         user={props.user}
       />
       <Section>
         <ContentEditor
-          requestData={props.requestData}
+          composerState={props.composerState}
           ref={input => {
             this.contentEditor = input
           }}

@@ -8,23 +8,27 @@ import { ModalDispatch } from "../../containers/Modal"
 import Composer from "../../containers/Composer"
 
 import { ROUTE_SUBMISSION_API } from "../../../constants/submission"
+import {
+  DEFAULT_COMPOSER_EDITOR_STATE,
+  DEFAULT_COMPOSER_HEADER_STATE
+} from "../../../constants/composer"
 
-var requestData = {
-  raw: "",
-  title: "",
-  subtitle: ""
+const composerState = {
+  raw: DEFAULT_COMPOSER_EDITOR_STATE,
+  title: DEFAULT_COMPOSER_HEADER_STATE.title,
+  subtitle: DEFAULT_COMPOSER_HEADER_STATE.subtitle
 }
 
 // render
 export default props => {
   return (
     <Article>
-      <Composer requestData={requestData} />
+      <Composer composerState={composerState} />
       <ModalDispatch
         with={{
           request: {
             url: ROUTE_SUBMISSION_API,
-            data: requestData,
+            data: composerState,
             method: "POST",
             headers: { Authorization: "JWT " + localStorage.getItem("token") }
           }
