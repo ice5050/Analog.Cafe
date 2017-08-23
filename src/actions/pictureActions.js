@@ -2,6 +2,7 @@
 import axios from "axios"
 import { ROUTE_IMAGE_API } from "../constants/picture"
 import { imageSrcToPictureId } from "../app/containers/Picture/helpers"
+// import { axiosRequest } from "./helpers"
 
 // return
 export function getInfo(src) {
@@ -16,6 +17,7 @@ export function getInfo(src) {
     let picturesState = getState().pictures
     if (picturesState[id]) return
 
+    // axiosRequest(request)
     axios({
       method: request.method || "get",
       data: request.data || {},

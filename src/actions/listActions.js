@@ -58,6 +58,7 @@ export function fetchPage(request, appendItems = false) {
       method: request.method || "get",
       params: request.params || {},
       data: request.data || {},
+      headers: request.headers || {},
       url: request.url
     })
       .then(response => {

@@ -2,21 +2,35 @@
 import React from "react"
 import ReactGA from "react-ga"
 import { withRouter } from "react-router"
+import { parse as parseQueryString } from "query-string"
+
+// constants & helpers
+import {
+  APP_TRACKING_GAID,
+  ROUTE_APP_CURRENT_DOMAIN,
+  ROUTE_APP_PERMANENT_DOMAIN
+} from "../../../constants/app"
+import { rememberMe } from "./helpers"
 
 // redux
 import { connect } from "react-redux"
 import {
   setView as setNavView,
   setLocation as setNavLocation
-} from "../../actions/navActions"
-import { getSession as getUserSession } from "../../actions/userActions"
+} from "../../../actions/navActions"
+import { getUser } from "../../../actions/userActions"
 
-import { Modal } from "./Modal"
-import Nav from "./Nav"
-import AppRoutes from "../components/_screens/AppRoutes"
+import { Modal } from "../Modal"
+import Nav from "../Nav"
+import AppRoutes from "../../components/_screens/AppRoutes"
 
 // init GA tracking
-ReactGA.initialize("UA-91374353-3", {
+if (
+  process.env.NODE_ENV === "development" ||
+  ROUTE_APP_CURRENT_DOMAIN !== ROUTE_APP_PERMANENT_DOMAIN
+)
+  window["ga-disable-" + APP_TRACKING_GAID] = true
+ReactGA.initialize(APP_TRACKING_GAID, {
   debug: false,
   titleCase: true,
   gaOptions: {}
@@ -32,9 +46,23 @@ class App extends React.PureComponent {
   // manipulate nav view & GA tracking
   componentDidMount() {
     console.log(process.env.NODE_ENV)
+
+    // listen to route changes:
     this.handleRouteChnange()
     this.props.history.listen((location, action) => this.handleRouteChnange())
-    this.props.getUserSession()
+
+    rememberMe(
+      // save user auth token in localStorage:
+      this.props.location.search &&
+      parseQueryString(this.props.location.search).token
+        ? parseQueryString(this.props.location.search).token
+        : false,
+      // retreive auth user info & credentials & store in Redux
+      // if token exists in LS:
+      localStorage.getItem("token")
+        ? this.props.getUser(localStorage.getItem("token"))
+        : null
+    )
   }
   handleRouteChnange = () => {
     // Google Analytics
@@ -110,8 +138,8 @@ const mapDispatchToProps = dispatch => {
     setNavLocation: location => {
       dispatch(setNavLocation(location))
     },
-    getUserSession: () => {
-      dispatch(getUserSession())
+    getUser: token => {
+      dispatch(getUser(token))
     }
   }
 }
