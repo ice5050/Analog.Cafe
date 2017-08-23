@@ -31,7 +31,7 @@ class ContentEditor extends React.Component {
 
     // composerState is what appears by default in composer once the user opens the view
     this.props.composerState.raw = loadContent()
-    
+    console.log('code')
   }
 
   handleChange = state => {
