@@ -2,6 +2,7 @@
 import React from "react"
 import ReactGA from "react-ga"
 import { withRouter } from "react-router"
+import {parse as parseQueryString} from "query-string"
 
 // constants & helpers
 import {
@@ -17,14 +18,13 @@ import {
   setView as setNavView,
   setLocation as setNavLocation
 } from "../../../actions/navActions"
-import { getSession as getUserSession } from "../../../actions/userActions"
+import { getUser } from "../../../actions/userActions"
 
 import { Modal } from "../Modal"
 import Nav from "../Nav"
 import AppRoutes from "../../components/_screens/AppRoutes"
 
 // init GA tracking
-console.log(process.env)
 if (
   process.env.NODE_ENV === "development" ||
   ROUTE_APP_CURRENT_DOMAIN !== ROUTE_APP_PERMANENT_DOMAIN
@@ -51,14 +51,19 @@ class App extends React.PureComponent {
     this.handleRouteChnange()
     this.props.history.listen((location, action) => this.handleRouteChnange())
 
-    // save user auth token in localStorage:
+    console.log(parseQueryString(this.props.location.search))
     rememberMe(
-      this.props.location.query && this.props.location.query.token
-        ? this.props.location.query.token
-        : false
+      // save user auth token in localStorage:
+      this.props.location.search &&
+      parseQueryString(this.props.location.search).token
+        ? parseQueryString(this.props.location.search).token
+        : false,
+      // retreive auth user info & credentials & store in Redux
+      // if token exists in LS:
+      localStorage.getItem("token")
+        ? this.props.getUser(localStorage.getItem("token"))
+        : null
     )
-    // retreive auth user info & credentials & store in Redux:
-    this.props.getUserSession()
   }
   handleRouteChnange = () => {
     // Google Analytics
@@ -134,8 +139,8 @@ const mapDispatchToProps = dispatch => {
     setNavLocation: location => {
       dispatch(setNavLocation(location))
     },
-    getUserSession: () => {
-      dispatch(getUserSession())
+    getUser: token => {
+      dispatch(getUser(token))
     }
   }
 }

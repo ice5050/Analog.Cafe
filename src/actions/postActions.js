@@ -2,6 +2,7 @@
 import axios from "axios"
 import { setCard } from "./modalActions"
 import errorMessage from "../constants/error-messages"
+import { axiosRequest } from "./helpers"
 
 import { ROUTE_POST_API } from "../constants/post"
 
@@ -40,13 +41,7 @@ export function fetchPage(request) {
       })
     )
 
-    axios({
-      method: request.method || "get",
-      data: request.data || {},
-      params: request.params || {},
-      url: request.url,
-      header: request.header || {}
-    })
+    axios(axiosRequest(request))
       .then(response => {
         response.data.content && response.data.content.raw
           ? dispatch(setPage(response.data))

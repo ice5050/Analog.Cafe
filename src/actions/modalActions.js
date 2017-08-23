@@ -1,6 +1,7 @@
 // tools
 import axios from "axios"
 import errorMessage from "../constants/error-messages"
+import { axiosRequest } from "./helpers"
 
 // return
 export function initCard(state) {
@@ -39,13 +40,7 @@ export function fetchCard(request) {
         hidden: false
       })
     )
-    axios({
-      method: request.method || "get",
-      data: request.data || {},
-      params: request.params || {},
-      url: request.url,
-      headers: request.headers || {}
-    })
+    axios(axiosRequest(request))
       .then(response => {
         response.data.info.title && response.data.info.text
           ? dispatch(setCard(response.data, request))
