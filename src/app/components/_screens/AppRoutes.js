@@ -5,7 +5,7 @@ import { Switch, Route } from "react-router-dom"
 // views
 // dynamic
 import List from "../../containers/List"
-import Post from "../../containers/Post"
+import Article from "../../containers/Article"
 import NotFound from "../../containers/_screens-errors/NotFound"
 // protected
 import SignIn from "../../containers/_screens-auth/SignIn"
@@ -21,7 +21,7 @@ export default props => {
       <Switch>
         {/* dynamic urls and views */}
         <Route exact path="/author/*" component={List} />
-        <Route exact path="/zine/*" component={Post} />
+        <Route exact path="/zine/*" component={Article} />
 
         {/* dynamic views, static urls */}
         <Route exact path="/" component={List} />

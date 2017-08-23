@@ -7,7 +7,7 @@ import composer from "./reducers/composerReducer"
 import nav from "./reducers/navReducer"
 import modal from "./reducers/modalReducer"
 import list from "./reducers/listReducer"
-import post from "./reducers/postReducer"
+import article from "./reducers/articleReducer"
 import pictures from "./reducers/pictureReducer"
 import user from "./reducers/userReducer"
 
@@ -17,7 +17,7 @@ export default createStore(
     nav,
     modal,
     list,
-    post,
+    article,
     pictures,
     user
   }),

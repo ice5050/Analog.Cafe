@@ -6,7 +6,7 @@ import { ModalDispatch } from "../Modal"
 // redux & state
 import { connect } from "react-redux"
 import { fetchPage } from "../../../actions/listActions"
-import { setPage as setNextPost } from "../../../actions/postActions"
+import { setPage as setNextArticle } from "../../../actions/articleActions"
 import {
   ROUTE_LIST_API,
   ROUTE_AUTHENTICATED_LIST_API
@@ -86,11 +86,11 @@ class List extends React.Component {
         <ListBlock
           status={this.props.list.status}
           items={this.props.list.items}
-          nextPostHeading={nextPostHeading =>
-            this.props.setNextPost({
-              title: nextPostHeading.title,
-              subtitle: nextPostHeading.subtitle,
-              author: nextPostHeading.author
+          nextArticleHeading={nextArticleHeading =>
+            this.props.setNextArticle({
+              title: nextArticleHeading.title,
+              subtitle: nextArticleHeading.subtitle,
+              author: nextArticleHeading.author
             })}
           private={this.props.private}
         />
@@ -122,8 +122,8 @@ const mapDispatchToProps = dispatch => {
     fetchPage: (request, appendItems) => {
       dispatch(fetchPage(request, appendItems))
     },
-    setNextPost: nextPost => {
-      dispatch(setNextPost(nextPost))
+    setNextArticle: nextArticle => {
+      dispatch(setNextArticle(nextArticle))
     }
   }
 }
