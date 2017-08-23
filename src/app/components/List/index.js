@@ -29,7 +29,8 @@ export default props => {
                   props.nextArticleHeading({
                     title: item.title,
                     subtitle: item.subtitle,
-                    author: item.author
+                    author: item.author,
+                    slug: item.slug
                   })}
               >
                 <section>

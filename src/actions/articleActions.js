@@ -32,14 +32,17 @@ export function fetchPage(request) {
     if (articleState.requested.url === request.url) return
 
     // pre-cook article title, when available
-    dispatch(
-      initPage({
-        requested: request,
-        title: articleState.title,
-        subtitle: articleState.subtitle,
-        author: articleState.author
-      })
-    )
+    // (if it matches actual requested article)
+    if (request.url.includes(articleState.slug))
+      dispatch(
+        initPage({
+          requested: request,
+          title: articleState.title,
+          subtitle: articleState.subtitle,
+          author: articleState.author
+        })
+      )
+    else dispatch(initPage())
 
     axios(axiosRequest(request))
       .then(response => {

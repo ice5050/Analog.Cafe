@@ -90,7 +90,8 @@ class List extends React.Component {
             this.props.setNextArticle({
               title: nextArticleHeading.title,
               subtitle: nextArticleHeading.subtitle,
-              author: nextArticleHeading.author
+              author: nextArticleHeading.author,
+              slug: nextArticleHeading.slug
             })}
           private={this.props.private}
         />
