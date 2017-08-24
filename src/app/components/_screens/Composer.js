@@ -1,5 +1,6 @@
 // tools
 import React from "react"
+import Helmet from "react-helmet"
 
 // components
 import { Article } from "../ArticleStyles"
@@ -23,6 +24,13 @@ const composerState = {
 export default props => {
   return (
     <Article>
+      <Helmet>
+        <title>Composer</title>
+        <meta
+          name="description"
+          content="A tool to upload, edit and submit your photo essays and stories."
+        />
+      </Helmet>
       <Composer composerState={composerState} />
       <ModalDispatch
         with={{

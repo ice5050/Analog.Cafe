@@ -27,4 +27,14 @@ export const Form = styled.form`
     margin: 0;
     border-radius: 0;
   }
+
+  ${props => props.theme.size.breakpoint.max.xs`
+    width: 100vw;
+    max-width: 100vw;
+    border-radius: 0 !important;
+    section & {
+      margin-left: -${props =>
+        props.theme.size.block.column.safety}em !important;
+    }
+  `};
 `

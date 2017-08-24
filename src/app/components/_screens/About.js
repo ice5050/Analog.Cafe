@@ -1,12 +1,18 @@
 // tools
 import React from "react"
 import styled from "styled-components"
+import Helmet from "react-helmet"
 
 // components
 import Heading from "../ArticleHeading"
 import Figure from "../Picture"
 import Link from "../Link"
 import { ModalDispatch } from "../../containers/Modal"
+
+import {
+  ROUTE_APP_PERMANENT_DOMAIN_NAME,
+  ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL
+} from "../../../constants/app"
 
 // styles
 import { Section, Article, Quote } from "../ArticleStyles"
@@ -24,8 +30,24 @@ const ThankYouList = styled(Quote)`
 
 // render
 export default props => {
+  console.log(process.env)
   return (
     <Article>
+      <Helmet>
+        <title>About</title>
+        <meta
+          name="description"
+          content="Story, reason for existence, contributos and resources."
+        />
+        <meta
+          property="og:image"
+          content={
+            ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL +
+            ROUTE_APP_PERMANENT_DOMAIN_NAME +
+            "/images/pictures/about-forest.jpg"
+          }
+        />
+      </Helmet>
       <Heading
         pageTitle="Analog.Cafe ☕️"
         pageSubtitle="A Film Photography Publication"

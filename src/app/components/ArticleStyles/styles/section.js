@@ -16,7 +16,7 @@ const paragraph = css`
 
 	/* placeholder style */
 	${props =>
-    props.postStatus === "loading"
+    props.articleStatus === "loading"
       ? `opacity: ` +
         props.theme.opacity.least +
         `; letter-spacing: -1px !important;`

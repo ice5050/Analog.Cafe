@@ -37,7 +37,7 @@ export function fetchPage(request, appendItems = false) {
     // get current state from store
     let listState = getState().list
 
-    // do not load post twice in a arow
+    // do not load list twice in a arow
     if (
       listState.requested.url === request.url &&
       listState.requested.params.tag === request.params.tag &&

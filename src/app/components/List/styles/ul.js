@@ -58,7 +58,7 @@ export const Ul = styled.ul`
 	&::after {
 		${zigzagDimensions}
 		filter: 						drop-shadow(1px 0 0 ${greyLine});
-		background-size: 		100%;
+		background-size: 		15em 33em;
 		background-image: 	${zigZagDataUri};
 		background-repeat: 	repeat-y;
 	}
