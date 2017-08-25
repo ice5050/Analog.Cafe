@@ -71,6 +71,7 @@ class List extends React.Component {
                   ? <q>
                       <em>
                         {renderedListMeta.title}
+                        {this.props.list.filters.author.name ? " " : null}
                         {this.props.list.filters.author.name
                           ? <ModalDispatch
                               with={{
@@ -85,7 +86,7 @@ class List extends React.Component {
                               {this.props.list.filters.author.name}
                             </ModalDispatch>
                           : this.props.location.pathname.includes("/author/") &&
-                            "(author)"}
+                            "␆"}
                       </em>.
                     </q>
                   : <q>
