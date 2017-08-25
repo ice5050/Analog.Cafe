@@ -68,6 +68,7 @@ export default props => {
           : <Caption {...props}>
               {props.children}
               {!props.noAuthor &&
+                props.readOnly &&
                 <span style={{ color: "#2c2c2c" }}>
                   {" "}Finding image author…
                 </span>}

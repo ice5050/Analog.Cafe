@@ -8,7 +8,7 @@ import { Button } from "../Button"
 import { ModalDispatch } from "../../containers/Modal"
 import Composer from "../../containers/Composer"
 
-import { ROUTE_SUBMISSION_API } from "../../../constants/submission"
+// import { ROUTE_SUBMISSION_API } from "../../../constants/submission"
 import {
   DEFAULT_COMPOSER_EDITOR_STATE,
   DEFAULT_COMPOSER_HEADER_STATE

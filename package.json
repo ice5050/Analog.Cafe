@@ -33,7 +33,7 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "sanitize.css": "^5.0.0",
-    "slate": "^0.21.3",
+    "slate": "^0.20.6",
     "slate-auto-replace": "^0.5.0",
     "slate-drop-or-paste-images": "^0.5.0",
     "slate-edit-blockquote": "^0.2.0",
