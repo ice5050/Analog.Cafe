@@ -70,22 +70,18 @@ class ContentEditor extends React.Component {
     e.preventDefault()
     e.stopPropagation()
 
-    if (localStorage.getItem("token")) {
-      const resolvedState = this.state.state
-        .transform()
-        .insertBlock({
-          type: "docket",
-          isVoid: true
-        })
-        .apply()
-      this.setState({
-        state: resolvedState,
-        cursorContext: { ...this.state.cursorContext, newLine: false }
+    const resolvedState = this.state.state
+      .transform()
+      .insertBlock({
+        type: "docket",
+        isVoid: true
       })
-      saveContent(this.state.state.document, resolvedState)
-    } else {
-      this.props.history.push("/sign-in")
-    }
+      .apply()
+    this.setState({
+      state: resolvedState,
+      cursorContext: { ...this.state.cursorContext, newLine: false }
+    })
+    saveContent(this.state.state.document, resolvedState)
   }
 
   // render

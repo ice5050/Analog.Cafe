@@ -1,6 +1,5 @@
 // tools
 import React from "react"
-import axios from "axios"
 
 // components
 import PictureDocket from "../../components/PictureDocket"
@@ -14,7 +13,9 @@ import {
   AspectRatio
 } from "../../components/GridStyles"
 import { ModalDispatch } from "../Modal"
-import { ROUTE_UPLOAD_IMAGE_API } from "../../../constants/submission"
+
+// styles
+import placeholder from "../../components/_icons/images/placeholder-figure.jpg"
 
 // export
 export default class extends React.Component {
@@ -58,42 +59,29 @@ export default class extends React.Component {
   uploadRequest = file => {
     var data = new FormData()
     data.append("file", file)
-
-    // upload image to server:
-    axios
-      .post(ROUTE_UPLOAD_IMAGE_API, data, {
-        headers: {
-          "content-type": "multipart/form-data",
-          Authorization: "JWT " + localStorage.getItem("token")
+    const { editor } = this.props
+    const resolvedState = editor
+      .getState()
+      .transform()
+      .insertBlock({
+        type: "image",
+        isVoid: true,
+        data: {
+          file,
+          src: placeholder
         }
       })
-      .then(response => {
-        const { editor } = this.props
-        const resolvedState = editor
-          .getState()
-          .transform()
-          .insertBlock({
-            type: "image",
-            isVoid: true,
-            data: { src: response.data.url }
-          })
-          .apply()
-        editor.onChange(resolvedState)
-        setTimeout(
-          function() {
-            this.handleClose()
-          }.bind(this),
-          10
-        )
-      })
-      .catch(error => {
-        console.log(error)
-      })
+      .apply()
+    editor.onChange(resolvedState)
+    setTimeout(
+      function() {
+        this.handleClose()
+      }.bind(this),
+      10
+    )
   }
 
   render() {
-    // const { attributes, state, node } = this.props
-    // const focus = state.isFocused && state.selection.hasEdgeIn(node)
     return (
       <PictureDocket>
         <CardHeader>

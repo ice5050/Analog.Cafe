@@ -35,7 +35,7 @@ export const ROUTE_META = {
     designation: "homepage"
   },
   "/author/*": {
-    title: "Images and stories by ",
+    title: "Images and stories",
     description: "Published works and photography by Analog.Cafe authors.",
     emoji: "🤘"
   },

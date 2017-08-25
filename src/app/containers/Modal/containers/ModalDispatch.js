@@ -10,7 +10,6 @@ import { fetchCard, setCard } from "../../../../actions/modalActions"
 class ModalDispatch extends React.Component {
   invokeModal = event => {
     event.preventDefault()
-    this.props.with.request.history = this.props.history
     this.props.with.request
       ? this.props.fetchCard(this.props.with.request)
       : this.props.setCard(
