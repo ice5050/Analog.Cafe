@@ -35,12 +35,10 @@ export default props => {
       <ModalDispatch
         with={{
           request: {
-            url: ROUTE_SUBMISSION_API,
-            data: composerState,
-            method: "POST",
-            headers: { Authorization: "JWT " + localStorage.getItem("token") }
+            url: "/api/messages/submit-consent.json"
           }
         }}
+        style={{ textDecoration: "none" }}
         wrapperElement="div"
       >
         <Button red>
