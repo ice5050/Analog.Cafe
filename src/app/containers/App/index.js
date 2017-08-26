@@ -77,7 +77,7 @@ class App extends React.PureComponent {
         break
       case "/me/edit":
       case "/me/edit/":
-        this.props.setNavLocation({ top: false })
+        this.props.setNavLocation({ top: false, bottom: false })
         break
       case "/submit/confirm-full-consent":
       case "/submit/confirm-full-consent/":

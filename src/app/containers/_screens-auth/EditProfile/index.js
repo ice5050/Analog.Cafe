@@ -6,12 +6,23 @@ import { connect } from "react-redux"
 
 // components
 import Forbidden from "../../_screens-errors/Forbidden"
-import { Button, ButtonGroup } from "../../../components/Button"
-import Link from "../../../components/Link"
+import { ModalCard } from "../../../components/Card"
+
+import Heading from "../../../components/ArticleHeading"
+import { LinkButton } from "../../../components/Button"
+import { Article, Section } from "../../../components/ArticleStyles"
 
 // render
 const EditProfile = props => {
-  return props.user.status !== "ok" ? <div>Edit profile</div> : <Forbidden />
+  return props.user.status !== "ok"
+    ? <Article>
+        <Heading pageTitle="Edit Your Profile" />
+        <ModalCard title="Author Name" text="Short author bio." />
+        <LinkButton to="/me" red>
+          Done
+        </LinkButton>
+      </Article>
+    : <Forbidden />
 }
 
 // connet with redux
