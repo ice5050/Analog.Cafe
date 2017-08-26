@@ -5,10 +5,10 @@ import React from "react"
 import { connect } from "react-redux"
 
 // components
-import List from "../List"
-import Forbidden from "../_screens-errors/Forbidden"
-import { Button, ButtonGroup } from "../../components/Button"
-import Link from "../../components/Link"
+import List from "../../List"
+import Forbidden from "../../_screens-errors/Forbidden"
+import { Button, ButtonGroup } from "../../../components/Button"
+import Link from "../../../components/Link"
 
 // render
 const Me = props => {

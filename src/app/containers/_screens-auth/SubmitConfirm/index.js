@@ -3,8 +3,8 @@ import React from "react"
 import { withRouter } from "react-router"
 
 // components
-import Heading from "../../components/ArticleHeading"
-import { Article, Section } from "../../components/ArticleStyles"
+import Heading from "../../../components/ArticleHeading"
+import { Article, Section } from "../../../components/ArticleStyles"
 
 // render
 const SubmitConfirm = props => {
