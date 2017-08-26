@@ -10,7 +10,7 @@ import { Button, ButtonGroup } from "../../../components/Button"
 import Link from "../../../components/Link"
 
 // render
-const Me = props => {
+const EditProfile = props => {
   return props.user.status !== "ok" ? <div>Edit profile</div> : <Forbidden />
 }
 
@@ -20,4 +20,4 @@ const mapStateToProps = state => {
     user: state.user
   }
 }
-export default connect(mapStateToProps)(Me)
+export default connect(mapStateToProps)(EditProfile)

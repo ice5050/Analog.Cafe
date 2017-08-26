@@ -75,6 +75,10 @@ class App extends React.PureComponent {
         this.props.setNavView("COMPOSER")
         this.props.setNavLocation({ bottom: false })
         break
+      case "/me/edit":
+      case "/me/edit/":
+        this.props.setNavLocation({ top: false })
+        break
       case "/submit/confirm-full-consent":
       case "/submit/confirm-full-consent/":
       case "/submit/confirm-basic-consent/":
