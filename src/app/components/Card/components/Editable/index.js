@@ -2,24 +2,17 @@
 import React from "react"
 
 // styles
-import {
-  Card as CardElement,
-  CardButton,
-  CardCaption,
-  CardHeader
-} from "./styles"
+import { CardButton, CardCaption, CardHeader } from "../../styles"
+import { CardFlattened } from "./styles"
 
 // return
-export const Card = props => {
+export const CardEditable = props => {
   return (
-    <CardElement style={props.style}>
+    <CardFlattened>
       <CardHeader>
         <h3 onClick={event => event.stopPropagation()}>
           {props.title}
         </h3>
-        <a href="#close" onClick={event => event.preventDefault()}>
-          ✕
-        </a>
       </CardHeader>
       <figure onClick={event => event.stopPropagation()}>
         <img
@@ -53,9 +46,6 @@ export const Card = props => {
             </CardButton>
           )
         })}
-    </CardElement>
+    </CardFlattened>
   )
 }
-
-export { CardModal, ModalOverlay } from "./components/Modal"
-export { CardEditable } from "./components/Editable"

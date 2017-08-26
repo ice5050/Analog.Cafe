@@ -6,7 +6,7 @@ import { Card } from "../../"
 export { ModalOverlay } from "./styles"
 
 // return
-export const ModalCard = props => {
+export const CardModal = props => {
   return (
     <Card
       {...props}

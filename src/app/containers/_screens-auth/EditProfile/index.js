@@ -6,7 +6,7 @@ import { connect } from "react-redux"
 
 // components
 import Forbidden from "../../_screens-errors/Forbidden"
-import { ModalCard } from "../../../components/Card"
+import { CardEditable } from "../../../components/Card"
 
 import Heading from "../../../components/ArticleHeading"
 import { LinkButton } from "../../../components/Button"
@@ -17,7 +17,11 @@ const EditProfile = props => {
   return props.user.status !== "ok"
     ? <Article>
         <Heading pageTitle="Edit Your Profile" />
-        <ModalCard title="Author Name" text="Short author bio." />
+        <CardEditable
+          title="Author Name"
+          text="Short author bio."
+          image="/images/avatars/dmitrizzle.jpg"
+        />
         <LinkButton to="/me" red>
           Done
         </LinkButton>
