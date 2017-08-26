@@ -11,8 +11,8 @@ import { Button, ButtonGroup } from "../../components/Button"
 import Link from "../../components/Link"
 
 // render
-const MyStuff = props => {
-  return props.user.status === "ok"
+const Me = props => {
+  return props.user.status !== "ok"
     ? <List
         header={
           <ButtonGroup>
@@ -35,4 +35,4 @@ const mapStateToProps = state => {
     user: state.user
   }
 }
-export default connect(mapStateToProps)(MyStuff)
+export default connect(mapStateToProps)(Me)

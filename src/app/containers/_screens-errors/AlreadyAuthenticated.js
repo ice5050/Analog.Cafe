@@ -30,7 +30,7 @@ class AlreadyAuthenticated extends React.PureComponent {
           <p style={{ textAlign: "center" }}>
             Click{" "}
             <strong>
-              <Link to="/my-stuff">here</Link>
+              <Link to="/me">here</Link>
             </strong>{" "}
             to see your stuff.
           </p>

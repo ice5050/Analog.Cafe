@@ -6,7 +6,7 @@ export const ROUTE_AUTHENTICATED_LIST_API = "/api/auth/list"
 export const ROUTE_FILTERS = {
   "/photo-essays": "photo-essay",
   "/articles": "review:how-to:editorial",
-  "/my-stuff": "",
+  "/me": "",
   "/": ""
 }
 export const ROUTE_META = {

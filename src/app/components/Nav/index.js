@@ -39,7 +39,7 @@ export const CommonNav = props => {
       </NavItem>
       <NavItem prime right>
         {props.userStatus === "ok"
-          ? <NavLink to={"/my-stuff"}>
+          ? <NavLink to={"/me"}>
               <span>My Stuff</span>
             </NavLink>
           : <NavLink to={"/submit"}>
