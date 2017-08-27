@@ -3,7 +3,10 @@ import styled from "styled-components"
 import Color from "color"
 
 // components
-import { Card } from "../../styles"
+import { Card, CardCaptionStyles } from "../../styles"
+import { PlainTextarea } from "../../../InputStyles"
+
+import { CaptionStyles } from "../../../CaptionStyles"
 
 export const CardFlattened = styled(Card)`
   margin: ${props => props.theme.size.block.column.safety}em auto;
@@ -17,4 +20,9 @@ export const CardFlattened = styled(Card)`
         Color(props.theme.color.foreground)
           .alpha(props.theme.opacity.least)
           .string()};
+`
+export const CardCaptionEditable = styled(PlainTextarea)`
+  ${CaptionStyles}
+  ${CardCaptionStyles}
+  font-style: italic;
 `

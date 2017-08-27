@@ -61,6 +61,7 @@ export default class extends React.Component {
             this.headerData.title.length > maxSuggestedTitleLength
           }
           maxLength={maxTitleLength}
+          autoFocus
         />
         <TitleCase
           placeholder={this.props.pageSubtitle}

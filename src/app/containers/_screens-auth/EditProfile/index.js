@@ -10,7 +10,7 @@ import { CardEditable } from "../../../components/Card"
 
 import Heading from "../../../components/ArticleHeading"
 import { LinkButton } from "../../../components/Button"
-import { Article, Section } from "../../../components/ArticleStyles"
+import { Article } from "../../../components/ArticleStyles"
 
 // render
 const EditProfile = props => {

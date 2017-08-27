@@ -2,17 +2,21 @@
 import React from "react"
 
 // styles
-import { CardButton, CardCaption, CardHeader } from "../../styles"
-import { CardFlattened } from "./styles"
+import { CardButton, CardHeader } from "../../styles"
+import { CardFlattened, CardCaptionEditable } from "./styles"
+import { SubtitleInput } from "../../../InputStyles"
 
 // return
 export const CardEditable = props => {
   return (
     <CardFlattened>
       <CardHeader>
-        <h3 onClick={event => event.stopPropagation()}>
-          {props.title}
-        </h3>
+        <SubtitleInput
+          value={props.title}
+          maxLength="32"
+          autoFocus
+          // onChange={event => props.EditName(event)}
+        />
       </CardHeader>
       <figure onClick={event => event.stopPropagation()}>
         <img
@@ -23,14 +27,19 @@ export const CardEditable = props => {
           style={{
             display: typeof props.image === "undefined" ? "none" : "initial"
           }}
-          alt="Card"
+          alt="Profile avatar"
         />
+        {/* Image upload hidden input */}
+        <input
+          type="file"
+          accept="image/x-png,image/jpeg"
+          style={{ display: "none" }}
+        />
+
         <figcaption>
-          <CardCaption
-            style={{ padding: typeof props.text === "undefined" ? "0" : "" }}
-          >
+          <CardCaptionEditable maxLength="250">
             {props.text}
-          </CardCaption>
+          </CardCaptionEditable>
         </figcaption>
       </figure>
       {props.buttons &&

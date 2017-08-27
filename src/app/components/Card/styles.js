@@ -1,5 +1,5 @@
 // tools
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import Color from "color"
 
 // components
@@ -44,11 +44,14 @@ export const CardButton = styled(LinkButton)`
 	}
 `
 
-export const CardCaption = styled(Sidenote)`
-	text-align: 	left;
-	padding: 			${props => props.theme.size.block.spacing}em ${props =>
+export const CardCaptionStyles = css`
+text-align: 	left;
+padding: 			${props => props.theme.size.block.spacing}em ${props =>
   props.theme.size.block.column.safety}em;
-	font-size: 		1.075em !important;
+font-size: 		1.075em !important;
+`
+export const CardCaption = styled(Sidenote)`
+	${CardCaptionStyles}
 
 `
 
@@ -71,7 +74,8 @@ export const CardHeader = styled.header`
           .alpha(props.theme.opacity.least)
           .string()};
 
-  h3 {
+  h3,
+  input {
     ${props => props.theme.size.font.auto} ${props =>
         props.theme.typography.title.auto} white-space: nowrap;
     overflow: hidden;
@@ -79,7 +83,8 @@ export const CardHeader = styled.header`
     text-align: left;
     padding: 0;
   }
-  h3::before {
+  h3::before,
+  input::before {
     content: "✦";
   }
   a {
