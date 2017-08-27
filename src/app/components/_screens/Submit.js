@@ -3,8 +3,8 @@ import React from "react"
 import Helmet from "react-helmet"
 
 import {
-  ROUTE_APP_PERMANENT_DOMAIN_NAME,
-  ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL
+  ROUTE_APP_PRODUCTION_DOMAIN_NAME,
+  ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL
 } from "../../../constants/app"
 
 // components
@@ -28,8 +28,8 @@ export default props => {
         <meta
           property="og:image"
           content={
-            ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL +
-            ROUTE_APP_PERMANENT_DOMAIN_NAME +
+            ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL +
+            ROUTE_APP_PRODUCTION_DOMAIN_NAME +
             "/images/pictures/submit-camera.jpg"
           }
         />

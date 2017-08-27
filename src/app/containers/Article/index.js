@@ -13,8 +13,8 @@ import {
 } from "../../../constants/article"
 import { ROUTE_AUTHOR_API } from "../../../constants/author"
 import {
-  ROUTE_APP_PERMANENT_DOMAIN_NAME,
-  ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL
+  ROUTE_APP_PRODUCTION_DOMAIN_NAME,
+  ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL
 } from "../../../constants/app"
 
 import { schema } from "../Composer/containers/ContentEditor/schema"
@@ -61,8 +61,8 @@ class Article extends React.PureComponent {
             property="og:image"
             content={
               this.props.article.poster &&
-              ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL +
-                ROUTE_APP_PERMANENT_DOMAIN_NAME +
+              ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL +
+                ROUTE_APP_PRODUCTION_DOMAIN_NAME +
                 this.props.article.poster.medium
             }
           />
