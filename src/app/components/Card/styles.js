@@ -35,13 +35,16 @@ export const Card = styled.div`
   }
 `
 
+export const CardButtonStyles = css`
+max-width: 			100%;
+margin: 				0;
+border-radius: 	0;
+&:active {
+  box-shadow: 	0 -1px 0 ${props => props.theme.color.foreground};
+}
+`
 export const CardButton = styled(LinkButton)`
-	max-width: 			100%;
-	margin: 				0;
-	border-radius: 	0;
-	&:active {
-		box-shadow: 	0 -1px 0 ${props => props.theme.color.foreground};
-	}
+	${CardButtonStyles}
 `
 
 export const CardCaptionStyles = css`

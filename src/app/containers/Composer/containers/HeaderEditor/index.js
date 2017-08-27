@@ -14,9 +14,9 @@ import placeholder from "../../../../components/_icons/images/placeholder-profil
 // constants
 import {
   TITLE_LENGTH_MAX,
-  TITLE_LENGTH_SUGGESTED,
+  TITLE_LENGTH_OPTIMAL,
   SUBTITLE_LENGTH_MAX,
-  SUBTITLE_LENGTH_SUGGESTED
+  SUBTITLE_LENGTH_OPTIMAL
 } from "../../../../../constants/input"
 
 // return
@@ -39,7 +39,7 @@ export default class extends React.Component {
     this.headerData.title = event
     this.props.composerState.title = event
     saveHeader(this.headerData)
-    this.headerData.title.length > TITLE_LENGTH_SUGGESTED
+    this.headerData.title.length > TITLE_LENGTH_OPTIMAL
       ? this.setState({ title: { warning: true } })
       : this.setState({ title: { warning: false } })
   }
@@ -47,7 +47,7 @@ export default class extends React.Component {
     this.props.composerState.subtitle = event
     this.headerData.subtitle = event
     saveHeader(this.headerData)
-    this.headerData.subtitle.length > SUBTITLE_LENGTH_SUGGESTED
+    this.headerData.subtitle.length > SUBTITLE_LENGTH_OPTIMAL
       ? this.setState({ subtitle: { warning: true } })
       : this.setState({ subtitle: { warning: false } })
   }
@@ -61,7 +61,7 @@ export default class extends React.Component {
           inputDesignation="title"
           warning={
             this.state.title.warning ||
-            this.headerData.title.length > TITLE_LENGTH_SUGGESTED
+            this.headerData.title.length > TITLE_LENGTH_OPTIMAL
           }
           maxLength={TITLE_LENGTH_MAX}
           autoFocus
@@ -73,7 +73,7 @@ export default class extends React.Component {
           inputDesignation="subtitle"
           warning={
             this.state.subtitle.warning ||
-            this.headerData.subtitle.length > SUBTITLE_LENGTH_SUGGESTED
+            this.headerData.subtitle.length > SUBTITLE_LENGTH_OPTIMAL
           }
           maxLength={SUBTITLE_LENGTH_MAX}
         />

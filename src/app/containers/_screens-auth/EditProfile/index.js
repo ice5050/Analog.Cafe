@@ -18,9 +18,29 @@ const EditProfile = props => {
     ? <Article>
         <Heading pageTitle="Edit Your Profile" />
         <CardEditable
-          title="Author Name"
-          text="Short author bio."
-          image="/images/avatars/dmitrizzle.jpg"
+        //
+        //
+        //
+        // SAMPLE PROPS:
+        // THESE VALUES ARE INSERTED FROM MONGO > USERS
+        //
+        // title="Author Name"
+        // text="Short author bio."
+        // image="/images/avatars/dmitrizzle.jpg"
+        // buttons={[
+        //   {
+        //     to: "/author/dmitrizzle",
+        //     text: "More on Analog.Cafe",
+        //     red: true
+        //   },
+        //   {
+        //     to: "https://twitter.com/dmitrizzle/1237837468976r987s",
+        //     text: "Follow on Twitter"
+        //   }
+        // ]}
+        //
+        //
+        //
         />
         <LinkButton to="/me" red>
           Done

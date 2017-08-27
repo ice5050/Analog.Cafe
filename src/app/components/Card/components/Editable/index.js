@@ -2,9 +2,20 @@
 import React from "react"
 
 // styles
-import { CardButton, CardHeader } from "../../styles"
-import { CardFlattened, CardCaptionEditable } from "./styles"
+import { CardHeader } from "../../styles"
+import {
+  CardFlattened,
+  CardCaptionEditable,
+  CardButtonEditable
+} from "./styles"
 import { SubtitleInput } from "../../../InputStyles"
+import placeholder from "../../../_icons/images/placeholder-profile-upload.png"
+
+// constants
+import {
+  SUMMARY_LENGTH_MAX,
+  TITLE_LENGTH_OPTIMAL
+} from "../../../../../constants/input"
 
 // return
 export const CardEditable = props => {
@@ -12,23 +23,15 @@ export const CardEditable = props => {
     <CardFlattened>
       <CardHeader>
         <SubtitleInput
+          placeholder="Your Name"
           value={props.title}
-          maxLength="32"
+          maxLength={TITLE_LENGTH_OPTIMAL}
           autoFocus
           // onChange={event => props.EditName(event)}
         />
       </CardHeader>
-      <figure onClick={event => event.stopPropagation()}>
-        <img
-          src={
-            props.image ||
-            "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-          }
-          style={{
-            display: typeof props.image === "undefined" ? "none" : "initial"
-          }}
-          alt="Profile avatar"
-        />
+      <figure>
+        <img src={props.image || placeholder} alt="Profile avatar" />
         {/* Image upload hidden input */}
         <input
           type="file"
@@ -37,24 +40,19 @@ export const CardEditable = props => {
         />
 
         <figcaption>
-          <CardCaptionEditable maxLength="250">
+          <CardCaptionEditable
+            maxLength={SUMMARY_LENGTH_MAX}
+            placeholder="Your short author bio goes here."
+          >
             {props.text}
           </CardCaptionEditable>
         </figcaption>
       </figure>
-      {props.buttons &&
-        Object.keys(props.buttons).length !== 0 &&
-        props.buttons.map(function(button, i) {
-          return (
-            <CardButton
-              to={button.to}
-              key={button.to}
-              red={button.red ? true : null}
-            >
-              {button.text}
-            </CardButton>
-          )
-        })}
+      <CardButtonEditable
+        value={props.buttons && props.buttons[1] && props.buttons[1].to}
+        placeholder="Website"
+        maxLength={SUMMARY_LENGTH_MAX}
+      />
     </CardFlattened>
   )
 }
