@@ -28,8 +28,9 @@ import AppRoutes from "../../components/_screens/AppRoutes"
 if (
   process.env.NODE_ENV === "development" ||
   ROUTE_APP_CURRENT_DOMAIN !== ROUTE_APP_PERMANENT_DOMAIN_NAME
-)
+) {
   window["ga-disable-" + APP_TRACKING_GAID] = true
+}
 ReactGA.initialize(APP_TRACKING_GAID, {
   debug: false,
   titleCase: true,
@@ -54,10 +55,8 @@ class App extends React.PureComponent {
     rememberMe(
       // save user auth token in localStorage:
       this.props.location.search &&
-      parseQueryString(this.props.location.search).token
-        ? parseQueryString(this.props.location.search).token
-        : false,
-      // retreive auth user info & credentials & store in Redux
+        parseQueryString(this.props.location.search).token,
+      // retrieve auth user info & credentials & store in Redux
       // if token exists in LS:
       localStorage.getItem("token")
         ? this.props.getUser(localStorage.getItem("token"))
