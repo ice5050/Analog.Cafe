@@ -30,7 +30,7 @@ export const CardButtonEditable = styled.input`
   ${ButtonStyles} ${CardButtonStyles} border: 0;
   outline: 0;
   width: 100%;
-  cursor: default;
+  cursor: text;
   &:active {
     background: initial !important;
     color: initial !important;
