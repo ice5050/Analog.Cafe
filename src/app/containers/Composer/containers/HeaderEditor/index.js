@@ -20,7 +20,7 @@ import {
 } from "../../../../../constants/input"
 
 // return
-export default class extends React.Component {
+export default class extends React.PureComponent {
   constructor(props) {
     super(props)
     this.props.composerState.title = loadHeader().title
