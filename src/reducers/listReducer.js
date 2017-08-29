@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   status: "loading",
-  filters: {
+  filter: {
     tags: [],
     author: {}
   },
