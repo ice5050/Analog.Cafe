@@ -1,5 +1,7 @@
 // tools
 import { html } from "../rules"
+import localForage from "localforage"
+import uuidv1 from "uuid/v1"
 
 // styles
 import placeholder from "../../../../../components/_icons/images/placeholder-figure.jpg"
@@ -147,11 +149,13 @@ export const plugins = [
   InsertImages({
     extensions: ["png", "jpeg"],
     applyTransform: (transform, file) => {
+      var key = uuidv1()
+      localForage.setItem(key, file)
       return transform
         .insertBlock({
           type: "image",
           isVoid: true,
-          data: { file, src: placeholder }
+          data: { file, src: placeholder, key: key }
         })
         .apply()
     }

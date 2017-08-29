@@ -1,6 +1,7 @@
 // tools
 import React from "react"
 import { imageSrcToPictureId } from "./helpers"
+import localForage from "localforage"
 
 // redux
 import { connect } from "react-redux"
@@ -53,20 +54,26 @@ class Figure extends React.Component {
     const { data } = node
     const caption = data.get("caption")
     this.setState({ caption })
-    this.loadImage(data.get("file"), data.get("src"))
+    this.loadImage(data.get("file"), data.get("key"), data.get("src"))
   }
-  loadImage(file, src) {
-    if (!file || !file.name) {
+  loadImage(file, key, src) {
+    if (!key) {
       this.setState({ src })
-
       // get image author
       this.props.readOnly && this.props.getInfo(src)
     } else {
-      const reader = new FileReader()
-      reader.addEventListener("load", () =>
-        this.setState({ src: reader.result })
-      )
-      reader.readAsDataURL(file)
+      var _this = this
+      localForage.getItem(key).then(function(data) {
+        const reader = new FileReader()
+        reader.addEventListener("load", () =>
+          _this.setState({ src: reader.result })
+        )
+        if (Object.keys(file).length === 0 && file.constructor === Object) {
+          reader.readAsDataURL(data)
+        } else {
+          reader.readAsDataURL(file)
+        }
+      })
     }
   }
   render() {
