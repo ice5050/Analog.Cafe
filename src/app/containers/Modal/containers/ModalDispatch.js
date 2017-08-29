@@ -10,28 +10,25 @@ import { fetchCard, setCard } from "../../../../actions/modalActions"
 class ModalDispatch extends React.Component {
   invokeModal = event => {
     event.preventDefault()
-    this.props.with.request.history = this.props.history
-    this.props.with.request ?
-      this.props.fetchCard(this.props.with.request)
-    :
-      this.props.setCard(
-        {
-          status: "ok",
-          info: this.props.with.info
-        },
-        { url: this.props.with.id }
-      )
+    this.props.with.request
+      ? this.props.fetchCard(this.props.with.request)
+      : this.props.setCard(
+          {
+            status: "ok",
+            info: this.props.with.info
+          },
+          { url: this.props.with.id }
+        )
   }
   render() {
     // Wrapper defaults to <a> link, however it could become *any* react component:
     let wrapperElement, wrapperProps
-    if(!this.props.wrapperElement){
+    if (!this.props.wrapperElement) {
       wrapperElement = "a"
       wrapperProps = {
-        href: "#card",
+        href: "#card"
       }
-    }
-    else {
+    } else {
       wrapperElement = this.props.wrapperElement
       wrapperProps = {}
     }
@@ -39,7 +36,7 @@ class ModalDispatch extends React.Component {
     let ModalDispatchWrapper
 
     wrapperElement === "a"
-    ? ModalDispatchWrapper = styled(Wrapper)`
+      ? (ModalDispatchWrapper = styled(Wrapper)`
         &::after {
           content: "✦";
           text-decoration: none;
@@ -51,34 +48,39 @@ class ModalDispatch extends React.Component {
           margin-left: -.15em;
           margin-top: -.5em;
         }
-      `
-    : ModalDispatchWrapper = Wrapper
+      `)
+      : (ModalDispatchWrapper = Wrapper)
 
-		return(
+    return (
       <ModalDispatchWrapper
-        style={ this.props.style }
-        onClick={ this.invokeModal.bind(this) }
-        { ...wrapperProps }>
-        { this.props.children }
+        style={this.props.style}
+        onClick={this.invokeModal.bind(this)}
+        {...wrapperProps}
+      >
+        {this.props.children}
       </ModalDispatchWrapper>
-		)
-	}
+    )
+  }
 }
 
 // connet with redux
 const mapStateToProps = state => {
-	return {
-    modal: state.modal,
-	}
+  return {
+    modal: state.modal
+  }
 }
 const mapDispatchToProps = dispatch => {
-	return {
-		setCard: (info, request) => {
-			dispatch(setCard(info, request))
-		},
+  return {
+    setCard: (info, request) => {
+      dispatch(setCard(info, request))
+    },
     fetchCard: request => {
-			dispatch(fetchCard(request))
-		}
-	}
+      dispatch(fetchCard(request))
+    }
+  }
 }
-export default withRouter(connect(mapStateToProps, mapDispatchToProps, null, {pure: false})(ModalDispatch))
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps, null, { pure: false })(
+    ModalDispatch
+  )
+)

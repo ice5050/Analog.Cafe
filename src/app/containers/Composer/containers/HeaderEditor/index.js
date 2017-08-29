@@ -7,7 +7,6 @@ import { loadHeader } from "../../helpers/loader"
 import TitleCase from "../../../TitleCase"
 import { ModalDispatch } from "../../../Modal"
 
-
 // styles
 import { Header, Byline } from "../../../../components/ArticleStyles"
 import placeholder from "../../../../components/_icons/images/placeholder-profile.png"
@@ -19,77 +18,87 @@ const maxSuggestedSubtitleLength = 52
 
 // return
 export default class extends React.Component {
-	constructor(props) {
+  constructor(props) {
     super(props)
-		this.props.requestData.title = loadHeader().title
-		this.props.requestData.subtitle = loadHeader().subtitle
+    this.props.composerState.title = loadHeader().title
+    this.props.composerState.subtitle = loadHeader().subtitle
     this.handleTitleChange = this.handleTitleChange.bind(this)
     this.handleSubtitleChange = this.handleSubtitleChange.bind(this)
   }
-	state = {
-		title: { warning: false },
-		subtitle: { warning: false },
-	}
+  state = {
+    title: { warning: false },
+    subtitle: { warning: false }
+  }
   componentWillMount() {
-		this.headerData = loadHeader()
-	}
+    this.headerData = loadHeader()
+  }
   handleTitleChange(event) {
-  	this.headerData.title = event
-		this.props.requestData.title = event
-  	saveHeader(this.headerData);
-		((this.headerData.title).length > maxSuggestedTitleLength)
-		? this.setState({ title: { warning: true }})
-		: this.setState({ title: { warning: false }})
+    this.headerData.title = event
+    this.props.composerState.title = event
+    saveHeader(this.headerData)
+    this.headerData.title.length > maxSuggestedTitleLength
+      ? this.setState({ title: { warning: true } })
+      : this.setState({ title: { warning: false } })
   }
   handleSubtitleChange(event) {
-		this.props.requestData.subtitle = event
-  	this.headerData.subtitle = event
-  	saveHeader(this.headerData);
-		((this.headerData.subtitle).length > maxSuggestedSubtitleLength)
-		? this.setState({ subtitle: { warning: true }})
-		: this.setState({ subtitle: { warning: false }})
-
+    this.props.composerState.subtitle = event
+    this.headerData.subtitle = event
+    saveHeader(this.headerData)
+    this.headerData.subtitle.length > maxSuggestedSubtitleLength
+      ? this.setState({ subtitle: { warning: true } })
+      : this.setState({ subtitle: { warning: false } })
   }
   render() {
-		return (
-			<Header>
-				<TitleCase
-					placeholder={ this.props.pageTitle }
-					onChange={ this.handleTitleChange }
-					value={ this.headerData.title }
-					inputDesignation="title"
-					warning={ this.state.title.warning || this.headerData.title.length > maxSuggestedTitleLength }
-					maxLength={ maxTitleLength }
-				/>
-				<TitleCase
-					placeholder={ this.props.pageSubtitle }
-					onChange={ this.handleSubtitleChange }
-					value={ this.headerData.subtitle }
-					inputDesignation="subtitle"
-					warning={ this.state.subtitle.warning || this.headerData.subtitle.length > maxSuggestedSubtitleLength }
-					maxLength={ maxSubtitleLength }
-				/>
-					<Byline>
-						Link to <ModalDispatch
-							with={
-								this.props.user.status === "ok"
-								? {
-									request: {
-										url: "/api/author/" + this.props.user.info.author.id,
-									},
-								}
-								: {
-									info: {
-										image: placeholder,
-										title: "Your Profile",
-										text: "You can create, view or update your profile after you send your submission."
-									},
-									id: "hints/author"
-								}
-							}
-						>Your Profile</ModalDispatch> will appear here.
-					</Byline>
-			</Header>
-		)
-	}
+    return (
+      <Header>
+        <TitleCase
+          placeholder={this.props.pageTitle}
+          onChange={this.handleTitleChange}
+          value={this.headerData.title}
+          inputDesignation="title"
+          warning={
+            this.state.title.warning ||
+            this.headerData.title.length > maxSuggestedTitleLength
+          }
+          maxLength={maxTitleLength}
+        />
+        <TitleCase
+          placeholder={this.props.pageSubtitle}
+          onChange={this.handleSubtitleChange}
+          value={this.headerData.subtitle}
+          inputDesignation="subtitle"
+          warning={
+            this.state.subtitle.warning ||
+            this.headerData.subtitle.length > maxSuggestedSubtitleLength
+          }
+          maxLength={maxSubtitleLength}
+        />
+        <Byline>
+          Link to{" "}
+          <ModalDispatch
+            with={
+              this.props.user.status === "ok"
+                ? {
+                    request: {
+                      url: "/api/author/" + this.props.user.info.author.id
+                    }
+                  }
+                : {
+                    info: {
+                      image: placeholder,
+                      title: "Your Profile",
+                      text:
+                        "You can create, view or update your profile after you send your submission."
+                    },
+                    id: "hints/author"
+                  }
+            }
+          >
+            Your Profile
+          </ModalDispatch>{" "}
+          will appear here.
+        </Byline>
+      </Header>
+    )
+  }
 }

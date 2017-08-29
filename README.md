@@ -1,4 +1,6 @@
 # Analog.Cafe
+[![GitHub version](https://badge.fury.io/gh/dmitrizzle%2FAnalog.Cafe.svg)](https://badge.fury.io/gh/dmitrizzle%2FAnalog.Cafe) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
 > Simple React-based CMS with fantastic public rich text submission processor. Built, used and maintained by [Analog.Cafe](http://analog.cafe): A Film Photography Publication.
 
 <img src="https://github.com/dmitrizzle/Analog.Cafe/blob/develop/public/images/pictures/submit.gif?raw=true" width="373" alt="Screenshot" />

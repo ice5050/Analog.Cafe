@@ -1,18 +1,18 @@
 const INITIAL_STATE = {
   status: "pending",
-  info: {},
+  info: {}
 }
 
-export default (state = INITIAL_STATE, action) =>  {
-	switch (action.type) {
-    case "USER.GET_SESSION":
+export default (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case "USER.GET_USER":
       state = {
         ...state,
         ...action.payload
       }
       break
-		default:
+    default:
       return state
-	}
-	return state
+  }
+  return state
 }
