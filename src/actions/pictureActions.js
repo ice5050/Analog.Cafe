@@ -22,7 +22,7 @@ export function getInfo(src) {
       method: request.method || "get",
       data: request.data || {},
       params: request.params || {},
-      url: request.url + ".json"
+      url: request.url
     })
       .then(response =>
         dispatch({
