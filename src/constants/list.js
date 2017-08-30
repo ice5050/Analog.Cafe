@@ -5,7 +5,7 @@ export const ROUTE_LIST_API = ROUTE_API_DOMAIN + "/api/list"
 export const ROUTE_AUTHENTICATED_LIST_API = "/api/auth/list"
 export const ROUTE_FILTERS = {
   "/photo-essays": "photo-essay",
-  "/articles": "review:how-to:editorial",
+  "/articles": "review:how-to:editorial:story",
   "/my-stuff": "",
   "/": ""
 }
