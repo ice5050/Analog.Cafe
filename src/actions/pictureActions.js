@@ -5,6 +5,22 @@ import { imageSrcToPictureId } from "../app/containers/Picture/helpers"
 // import { axiosRequest } from "./helpers"
 
 // return
+const unknownAuthor = (id, error = { response: { status: 204 } }) => {
+  return {
+    type: "PICTURE.GET_INFO",
+    payload: {
+      info: {
+        author: {
+          name: "Unknown",
+          id: "unknown",
+          errorCode: error.response.status
+        }
+      },
+      status: "fail",
+      id
+    }
+  }
+}
 export function getInfo(src) {
   let id = imageSrcToPictureId(src)
   let request
@@ -24,31 +40,18 @@ export function getInfo(src) {
       params: request.params || {},
       url: request.url + ".json"
     })
-      .then(response =>
-        dispatch({
-          type: "PICTURE.GET_INFO",
-          payload: {
-            info: response.data.info,
-            status: response.data.status,
-            id
-          }
-        })
-      )
-      .catch(error =>
-        dispatch({
-          type: "PICTURE.GET_INFO",
-          payload: {
-            info: {
-              author: {
-                name: "Unknown",
-                id: "unknown",
-                errorCode: error.response.status
+      .then(response => {
+        response.data.info === "ok"
+          ? dispatch({
+              type: "PICTURE.GET_INFO",
+              payload: {
+                info: response.data.info,
+                status: response.data.status,
+                id
               }
-            },
-            status: "fail",
-            id
-          }
-        })
-      )
+            })
+          : dispatch(unknownAuthor(id))
+      })
+      .catch(error => dispatch(unknownAuthor(id, error)))
   }
 }
