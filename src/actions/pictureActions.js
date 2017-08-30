@@ -41,7 +41,7 @@ export function getInfo(src) {
       url: request.url + ".json"
     })
       .then(response => {
-        response.data.info === "ok"
+        response.data.status === "ok"
           ? dispatch({
               type: "PICTURE.GET_INFO",
               payload: {
