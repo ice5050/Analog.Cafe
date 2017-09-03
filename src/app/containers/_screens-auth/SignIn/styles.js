@@ -6,8 +6,6 @@ import styled, { css } from "styled-components"
 import { LinkButton } from "../../../components/Button"
 import Twitter from "../../../components/_icons/components/Twitter"
 
-import { ROUTE_LOGIN_TWITTER_API } from "../../../../constants/login"
-
 // css
 const brandButtonStyles = css`
 	color: 		${props => props.theme.color.background} !important;
@@ -22,9 +20,10 @@ const StyledTwitterButton = styled(LinkButton)`
 		margin: -1.25em 0 -1em -1em;
 	}
 `
+
 export const TwitterButton = props => {
   return (
-    <StyledTwitterButton to={ROUTE_LOGIN_TWITTER_API}>
+    <StyledTwitterButton onClick={props.onClick}>
       <Twitter />
       &nbsp;{props.children}
     </StyledTwitterButton>

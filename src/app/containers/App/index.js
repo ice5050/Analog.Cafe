@@ -2,7 +2,6 @@
 import React from "react"
 import ReactGA from "react-ga"
 import { withRouter } from "react-router"
-import { parse as parseQueryString } from "query-string"
 
 // constants & helpers
 import {
@@ -10,7 +9,6 @@ import {
   ROUTE_APP_CURRENT_DOMAIN,
   ROUTE_APP_PRODUCTION_DOMAIN_NAME
 } from "../../../constants/app"
-import { rememberMe } from "./helpers"
 
 // redux
 import { connect } from "react-redux"
@@ -54,17 +52,6 @@ class App extends React.PureComponent {
     // listen to route changes:
     this.handleRouteChnange()
     this.props.history.listen((location, action) => this.handleRouteChnange())
-
-    rememberMe(
-      // save user auth token in localStorage:
-      this.props.location.search &&
-        parseQueryString(this.props.location.search).token,
-      // retrieve auth user info & credentials & store in Redux
-      // if token exists in LS:
-      localStorage.getItem("token")
-        ? this.props.getUser(localStorage.getItem("token"))
-        : null
-    )
   }
   handleRouteChnange = () => {
     // Google Analytics
