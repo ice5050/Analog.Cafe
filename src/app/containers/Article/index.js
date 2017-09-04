@@ -50,7 +50,6 @@ class Article extends React.PureComponent {
     this.unlisten()
   }
   render() {
-    console.log(this.props.article.error)
     return (
       <ArticleElement>
         <Helmet>
