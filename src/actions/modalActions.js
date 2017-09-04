@@ -50,7 +50,7 @@ export function fetchCard(request) {
                   status: "ok",
                   info: {
                     title: "Error 204",
-                    text: errorMessage.EMPTY_CARD
+                    text: errorMessage.EMPTY_CARD.text
                   }
                 },
                 { url: "errors/modal" }
@@ -69,7 +69,7 @@ export function fetchCard(request) {
                   title:
                     "Error: " +
                     (error.response ? error.response.status : "no response"),
-                  text: errorMessage.FAILED_CARD
+                  text: errorMessage.FAILED_CARD.text
                 }
               },
               { url: "errors/modal" }

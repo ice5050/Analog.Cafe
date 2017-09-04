@@ -1,12 +1,16 @@
 export default {
-  NO_AUTHOR: "Seems like there is no author listed… Sorry!",
+  NO_AUTHOR: { text: "Seems like there is no author listed…" },
 
-  FAILED_LOGIN: "Couldn’t verify your account. Sorry!",
-  FAILED_ARTICLE: "Couldn’t load the article. Sorry!",
-  FAILED_CARD: "Couldn’t load the card. Sorry!",
-  FAILED_LIST: "Couldn’t load the list. Sorry!",
+  FAILED_LOGIN: { text: "Couldn’t verify your account." },
+  FAILED_CARD: { text: "Couldn’t load the card. Sorry!" },
+  FAILED_LIST: { text: "Couldn’t load the list. Sorry!" },
 
-  EMPTY_LIST: "This list is empty… Sorry!",
-  EMPTY_CARD: "This card is empty… Sorry!",
-  EMPTY_ARTICLE: "Can’t get the pictures or text for this article… Sorry!"
+  FAILED_PAGE: {
+    title: "😨",
+    subtitle: "Page Not Found"
+  },
+  EMPTY_ARTICLE: { error: "Error: None or malformed data received (204)" },
+
+  EMPTY_LIST: { text: "This list is empty… Sorry!" },
+  EMPTY_CARD: { text: "This card is empty… Sorry!" }
 }

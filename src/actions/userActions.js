@@ -31,7 +31,7 @@ export function getUser(token) {
                 title:
                   "Error: " +
                   (error.response ? error.response.status : "no response"),
-                text: errorMessage.FAILED_LOGIN
+                text: errorMessage.FAILED_LOGIN.text
               }
             },
             { url: "errors/user" }

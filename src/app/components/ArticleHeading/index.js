@@ -9,7 +9,7 @@ import { Header, Title, Subtitle } from "../ArticleStyles"
 export default props => {
   return (
     <Header>
-      <Title>
+      <Title title={props.title}>
         {toTitleCase(props.pageTitle)}
       </Title>
       {props.pageSubtitle &&

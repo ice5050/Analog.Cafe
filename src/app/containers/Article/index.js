@@ -50,7 +50,7 @@ class Article extends React.PureComponent {
     this.unlisten()
   }
   render() {
-    console.log(this.props.article)
+    console.log(this.props.article.error)
     return (
       <ArticleElement>
         <Helmet>
@@ -71,19 +71,21 @@ class Article extends React.PureComponent {
         <Heading
           pageTitle={this.props.article.title}
           pageSubtitle={this.props.article.subtitle}
+          title={this.props.article.error && this.props.article.error}
         >
-          <Byline>
-            by{" "}
-            <ModalDispatch
-              with={{
-                request: {
-                  url: ROUTE_AUTHOR_API + "/" + this.props.article.author.id
-                }
-              }}
-            >
-              {this.props.article.author.name}
-            </ModalDispatch>
-          </Byline>
+          {this.props.article.status === "published" &&
+            <Byline>
+              by{" "}
+              <ModalDispatch
+                with={{
+                  request: {
+                    url: ROUTE_AUTHOR_API + "/" + this.props.article.author.id
+                  }
+                }}
+              >
+                {this.props.article.author.name}
+              </ModalDispatch>
+            </Byline>}
         </Heading>
         <Section articleStatus={this.props.article.status}>
           <Editor

@@ -70,7 +70,7 @@ export function fetchPage(request, appendItems = false) {
                   status: "ok",
                   info: {
                     title: "Error 204",
-                    text: errorMessage.EMPTY_LIST
+                    text: errorMessage.EMPTY_LIST.text
                   }
                 },
                 { url: "errors/list" }
@@ -87,7 +87,7 @@ export function fetchPage(request, appendItems = false) {
                 title:
                   "Error: " +
                   (error.response ? error.response.status : "no response"),
-                text: errorMessage.FAILED_LIST
+                text: errorMessage.FAILED_LIST.text
               }
             },
             { url: "errors/list" }

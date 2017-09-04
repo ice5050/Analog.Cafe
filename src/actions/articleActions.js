@@ -50,33 +50,21 @@ export function fetchPage(request) {
         response.data.content && response.data.content.raw
           ? dispatch(setPage(response.data))
           : dispatch(
-              setCard(
-                {
-                  status: "ok",
-                  info: {
-                    title: "Error 204",
-                    text: errorMessage.EMPTY_ARTICLE
-                  }
-                },
-                { url: "errors/article" }
-              )
+              initPage({
+                title: errorMessage.FAILED_PAGE.title,
+                subtitle: errorMessage.FAILED_PAGE.subtitle,
+                error: errorMessage.EMPTY_RESPONSE.status
+              })
             )
       })
-      .catch(error =>
+      .catch(error => {
         dispatch(
-          setCard(
-            {
-              status: "ok",
-              info: {
-                title:
-                  "Error: " +
-                  (error.response ? error.response.status : "no response"),
-                text: errorMessage.FAILED_ARTICLE
-              }
-            },
-            { url: "errors/article" }
-          )
+          initPage({
+            title: errorMessage.FAILED_PAGE.title,
+            subtitle: errorMessage.FAILED_PAGE.subtitle,
+            error: error
+          })
         )
-      )
+      })
   }
 }

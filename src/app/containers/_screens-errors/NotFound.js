@@ -2,10 +2,13 @@
 import React from "react"
 import { withRouter } from "react-router"
 import Link from "../../components/Link"
+import Helmet from "react-helmet"
 
 // components
 import Heading from "../../components/ArticleHeading"
 import { Section, Article } from "../../components/ArticleStyles"
+
+import errorMessage from "../../../constants/error-messages"
 
 // render
 class NotFound extends React.PureComponent {
@@ -26,7 +29,15 @@ class NotFound extends React.PureComponent {
   render() {
     return (
       <Article>
-        <Heading pageTitle="😨" pageSubtitle="Page Not Found&hellip;" />
+        <Helmet>
+          <title>
+            {errorMessage.FAILED_PAGE.title}
+          </title>
+        </Helmet>
+        <Heading
+          pageTitle={errorMessage.FAILED_PAGE.title}
+          pageSubtitle={errorMessage.FAILED_PAGE.subtitle}
+        />
         <Section>
           <p style={{ textAlign: "center" }}>
             Click{" "}

@@ -53,7 +53,7 @@ export default props => {
                                 info: {
                                   image: placeholder,
                                   title: "Error: " + props.author.errorCode,
-                                  text: errorMessage.NO_AUTHOR
+                                  text: errorMessage.NO_AUTHOR.text
                                 },
                                 id: "errors/author"
                               }
