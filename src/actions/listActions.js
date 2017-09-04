@@ -71,11 +71,8 @@ export function fetchPage(request, appendItems = false) {
                 status: "ok",
                 info: {
                   title: errorMessage.VIEW_TEMPLATE.LIST.title,
-                  text:
-                    errorMessage.VIEW_TEMPLATE.LIST.text +
-                    " " +
-                    errorMessage.DISAMBIGUATION.CODE_204.error +
-                    "."
+                  text: errorMessage.VIEW_TEMPLATE.LIST.text,
+                  error: errorMessage.DISAMBIGUATION.CODE_204.error
                 }
               },
               { url: "errors/list" }
@@ -95,7 +92,8 @@ export function fetchPage(request, appendItems = false) {
               status: "ok",
               info: {
                 title: errorMessage.VIEW_TEMPLATE.LIST.title,
-                text: errorMessage.VIEW_TEMPLATE.LIST.text + " " + error + "."
+                text: errorMessage.VIEW_TEMPLATE.LIST.text,
+                error
               }
             },
             { url: "errors/list" }

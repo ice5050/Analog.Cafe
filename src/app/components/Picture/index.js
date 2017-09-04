@@ -52,11 +52,8 @@ export default props => {
                                 info: {
                                   title:
                                     errorMessage.VIEW_TEMPLATE.PICTURE.title,
-                                  text:
-                                    errorMessage.VIEW_TEMPLATE.PICTURE.text +
-                                    " " +
-                                    props.author.error +
-                                    "."
+                                  text: errorMessage.VIEW_TEMPLATE.PICTURE.text,
+                                  error: props.author.error
                                 },
                                 id: "errors/author"
                               }

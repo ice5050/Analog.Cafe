@@ -13,7 +13,7 @@ import {
 export const Card = props => {
   return (
     <CardElement style={props.style}>
-      <CardHeader>
+      <CardHeader title={props.error && props.error}>
         <h3 onClick={event => event.stopPropagation()}>
           {props.title}
         </h3>

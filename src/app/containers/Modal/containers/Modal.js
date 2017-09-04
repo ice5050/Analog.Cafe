@@ -30,10 +30,8 @@ const Modal = props => {
       <CardModal
         title={props.modal.info.title}
         image={props.modal.info.image}
-        text={
-          props.modal.info.text +
-          (props.modal.info.error ? " " + props.modal.info.error + "." : "")
-        }
+        text={props.modal.info.text}
+        error={props.modal.info.error && props.modal.info.error}
         buttons={props.modal.info.buttons}
       />
     </ModalOverlay>

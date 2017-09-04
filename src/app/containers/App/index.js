@@ -30,7 +30,7 @@ if (
   ROUTE_APP_CURRENT_DOMAIN !== ROUTE_APP_PRODUCTION_DOMAIN_NAME
 )
   window["ga-disable-" + APP_TRACKING_GAID] = true
-}
+
 ReactGA.initialize(APP_TRACKING_GAID, {
   debug: false,
   titleCase: true,
