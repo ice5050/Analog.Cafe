@@ -52,7 +52,6 @@ class List extends React.Component {
   }
   render() {
     const renderedListMeta = getListMeta(this.props.location.pathname).meta
-    console.log(this.props.list.error)
     return (
       <div>
         <Helmet>
