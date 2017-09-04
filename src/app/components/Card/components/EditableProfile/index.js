@@ -31,14 +31,12 @@ export default props => {
         />
       </CardHeader>
       <figure>
-        <img src={props.image || placeholder} alt="Profile avatar" />
-        {/* Image upload hidden input */}
-        <input
-          type="file"
-          accept="image/x-png,image/jpeg"
-          style={{ display: "none" }}
+        <img
+          src={props.image || placeholder}
+          alt="Profile avatar"
+          onClick={() => props.changeImage()}
+          style={{ cursor: "pointer" }}
         />
-
         <figcaption>
           <CardCaptionEditable
             maxLength={SUMMARY_LENGTH_MAX}

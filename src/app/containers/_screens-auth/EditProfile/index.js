@@ -25,6 +25,9 @@ class EditProfile extends React.PureComponent {
     this.handleButtonChange = this.handleButtonChange.bind(this)
     this.handleButtonFocus = this.handleButtonFocus.bind(this)
     this.handleButtonBlur = this.handleButtonBlur.bind(this)
+
+    this.handleFileUpload = this.handleFileUpload.bind(this)
+
     this.state = {
       title: this.props.user.info.title,
       text: this.props.user.info.text,
@@ -43,21 +46,37 @@ class EditProfile extends React.PureComponent {
   }
 
   // process changes to title and bio
-  handleTitleChange(event) {
+  handleTitleChange = event => {
     this.setState({
       ...this.state,
       title: event.target.value
     })
   }
-  handleTextChange(event) {
+  handleTextChange = event => {
     this.setState({
       ...this.state,
       text: event.target.value
     })
   }
 
+  // process image uploads
+  handleImageChange = () => {
+    this.fileInput.click()
+  }
+  handleFileUpload = event => {
+    const file = event.target.files[0]
+    this.uploadRequest(file)
+  } // ⤵
+  uploadRequest = file => {
+    const reader = new FileReader()
+    reader.addEventListener("load", () =>
+      this.setState({ image: reader.result })
+    )
+    reader.readAsDataURL(file)
+  }
+
   // process changes to user's link button
-  handleButtonChange(event) {
+  handleButtonChange = event => {
     this.setState({
       ...this.state,
       buttons: profileButtonsTemplate(
@@ -68,13 +87,13 @@ class EditProfile extends React.PureComponent {
     })
     console.log("handleButtonChange")
   }
-  handleButtonFocus() {
+  handleButtonFocus = () => {
     this.setState({
       ...this.state,
       buttonText: this.state.buttons[1].to
     })
   }
-  handleButtonBlur() {
+  handleButtonBlur = () => {
     this.setState({
       ...this.state,
       buttonText: this.state.buttons[1].text
@@ -97,13 +116,26 @@ class EditProfile extends React.PureComponent {
             text={this.props.text}
             changeText={this.handleTextChange}
             // author's avatar image
-            image={this.props.image}
+            image={this.state.image}
+            changeImage={this.handleImageChange}
             // author's link
             buttonText={this.state.buttonText}
             changeButton={this.handleButtonChange}
             focusButton={this.handleButtonFocus}
             blurButton={this.handleButtonBlur}
           />
+
+          {/* Image upload hidden input */}
+          <input
+            type="file"
+            accept="image/x-png,image/jpeg"
+            style={{ display: "none" }}
+            ref={input => {
+              this.fileInput = input
+            }}
+            onChange={this.handleFileUpload}
+          />
+
           <LinkButton to="/me" red>
             Done
           </LinkButton>
