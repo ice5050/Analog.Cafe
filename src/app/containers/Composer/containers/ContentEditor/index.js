@@ -28,7 +28,6 @@ class ContentEditor extends React.Component {
 
   constructor(props) {
     super(props)
-
     // composerState is what appears by default in composer once the user opens the view
     this.props.composerState.raw = loadContent()
   }
@@ -69,7 +68,6 @@ class ContentEditor extends React.Component {
   handleImageButton = e => {
     e.preventDefault()
     e.stopPropagation()
-
     const resolvedState = this.state.state
       .transform()
       .insertBlock({

@@ -3,14 +3,19 @@ import axios from "axios"
 import { setCard } from "./modalActions"
 import errorMessage from "../constants/error-messages"
 import { ROUTE_USER_API } from "../constants/user"
-import { axiosRequest } from "./helpers"
 
 // below: dispatch popup warning that user needs to log in or
 // dispatch user's logged in credentials to store
 
-export function getUser(request = { url: ROUTE_USER_API }) {
+export function getUser(token) {
   return dispatch => {
-    axios(axiosRequest(request))
+    axios({
+      method: "get",
+      headers: {
+        Authorization: "JWT " + token
+      },
+      url: ROUTE_USER_API
+    })
       .then(response =>
         dispatch({
           type: "USER.GET_USER",
@@ -23,10 +28,8 @@ export function getUser(request = { url: ROUTE_USER_API }) {
             {
               status: "ok",
               info: {
-                title:
-                  "Error: " +
-                  (error.response ? error.response.status : "no response"),
-                text: errorMessage.FAILED_LOGIN
+                title: errorMessage.VIEW_TEMPLATE.CARD.title,
+                text: errorMessage.DISAMBIGUATION.CODE_401.error
               }
             },
             { url: "errors/user" }

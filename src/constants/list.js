@@ -10,7 +10,7 @@ export const ROUTE_AUTHENTICATED_LIST_API = "/api/auth/list"
 // filter sets for particular view URLs/routes
 export const ROUTE_FILTERS = {
   "/photo-essays": "photo-essay",
-  "/articles": "review:how-to:editorial",
+  "/articles": "review:how-to:editorial:story",
   "/me": "",
   "/": ""
 }

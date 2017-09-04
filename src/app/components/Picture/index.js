@@ -9,7 +9,6 @@ import { ModalDispatch } from "../../containers/Modal"
 
 // styles
 import { Image, Figure, Caption } from "./styles"
-import placeholder from "../_icons/images/placeholder-profile.png"
 
 // return
 export default props => {
@@ -51,9 +50,13 @@ export default props => {
                               }
                             : {
                                 info: {
-                                  image: placeholder,
-                                  title: "Error: " + props.author.errorCode,
-                                  text: errorMessage.NO_AUTHOR
+                                  title:
+                                    errorMessage.VIEW_TEMPLATE.PICTURE.title,
+                                  text:
+                                    errorMessage.VIEW_TEMPLATE.PICTURE.text +
+                                    " " +
+                                    props.author.error +
+                                    "."
                                 },
                                 id: "errors/author"
                               }

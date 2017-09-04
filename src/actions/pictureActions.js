@@ -1,10 +1,30 @@
 // tools
 import axios from "axios"
 import { ROUTE_IMAGE_API } from "../constants/picture"
+import errorMessage from "../constants/error-messages"
 import { imageSrcToPictureId } from "../app/containers/Picture/helpers"
 // import { axiosRequest } from "./helpers"
 
 // return
+const unknownAuthor = (id, error) => {
+  return {
+    type: "PICTURE.GET_INFO",
+    payload: {
+      info: {
+        author: {
+          name: errorMessage.VIEW_TEMPLATE.PICTURE.name,
+          id: "unknown",
+          error:
+            !error.response || !error.response.status
+              ? errorMessage.DISAMBIGUATION.CODE_204.error
+              : error
+        }
+      },
+      status: "fail",
+      id
+    }
+  }
+}
 export function getInfo(src) {
   let id = imageSrcToPictureId(src)
   let request
@@ -24,31 +44,18 @@ export function getInfo(src) {
       params: request.params || {},
       url: request.url + ".json"
     })
-      .then(response =>
-        dispatch({
-          type: "PICTURE.GET_INFO",
-          payload: {
-            info: response.data.info,
-            status: response.data.status,
-            id
-          }
-        })
-      )
-      .catch(error =>
-        dispatch({
-          type: "PICTURE.GET_INFO",
-          payload: {
-            info: {
-              author: {
-                name: "Unknown",
-                id: "unknown",
-                errorCode: error.response.status
+      .then(response => {
+        response.data.status === "ok"
+          ? dispatch({
+              type: "PICTURE.GET_INFO",
+              payload: {
+                info: response.data.info,
+                status: response.data.status,
+                id
               }
-            },
-            status: "fail",
-            id
-          }
-        })
-      )
+            })
+          : dispatch(unknownAuthor(id))
+      })
+      .catch(error => dispatch(unknownAuthor(id, error)))
   }
 }

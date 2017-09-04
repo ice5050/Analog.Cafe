@@ -1,5 +1,7 @@
 // tools
 import React from "react"
+import localForage from "localforage"
+import uuidv1 from "uuid/v1"
 
 // components
 import PictureDocket from "../../components/PictureDocket"
@@ -57,8 +59,8 @@ export default class extends React.Component {
     this.uploadRequest(file)
   } // ⤵
   uploadRequest = file => {
-    var data = new FormData()
-    data.append("file", file)
+    var key = uuidv1()
+    localForage.setItem(key, file)
     const { editor } = this.props
     const resolvedState = editor
       .getState()
@@ -66,10 +68,7 @@ export default class extends React.Component {
       .insertBlock({
         type: "image",
         isVoid: true,
-        data: {
-          file,
-          src: placeholder
-        }
+        data: { file, key: key, src: placeholder }
       })
       .apply()
     editor.onChange(resolvedState)

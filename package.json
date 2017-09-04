@@ -1,6 +1,6 @@
 {
   "name": "analog-cafe",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "(Loosely) Collaborative Blogging App by Analog.Cafe",
   "license": "MPL-2.0",
   "private": true,
@@ -19,6 +19,7 @@
     "fontfaceobserver": "^2.0.13",
     "is-url": "^1.2.2",
     "keycode": "^2.1.9",
+    "localforage": "^1.5.0",
     "lodash": "^4.17.4",
     "positions": "^1.6.1",
     "query-string": "^5.0.0",
@@ -42,6 +43,7 @@
     "titlecase": "^1.1.2",
     "typeface-exo-2": "0.0.36",
     "typeface-lora": "0.0.35",
+    "uuid": "^3.1.0",
     "webpack": "^3.5.5"
   },
   "devDependencies": {

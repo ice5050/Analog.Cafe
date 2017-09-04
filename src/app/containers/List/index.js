@@ -57,9 +57,10 @@ class List extends React.Component {
         <Helmet>
           <title>
             {renderedListMeta.title +
-              (this.props.list.filters.author
-                ? this.props.list.filters.author.name
-                : null)}
+              (this.props.list.filter.author &&
+              this.props.list.filter.author.name
+                ? this.props.list.filter.author.name
+                : "")}
           </title>
           <meta name="description" content={renderedListMeta.description} />
         </Helmet>
@@ -67,32 +68,40 @@ class List extends React.Component {
           {this.props.header
             ? this.props.header
             : <ListHeader>
-                {this.props.list.filters.author
+                {this.props.list.filter.author
                   ? <q>
                       <em>
-                        {renderedListMeta.title}
-                        {this.props.list.filters.author.name ? " " : null}
-                        {this.props.list.filters.author.name
-                          ? <ModalDispatch
-                              with={{
-                                request: {
-                                  url:
-                                    ROUTE_AUTHOR_API +
-                                    "/" +
-                                    this.props.list.filters.author.id
-                                }
-                              }}
-                            >
-                              {this.props.list.filters.author.name}
-                            </ModalDispatch>
+                        {this.props.list.error
+                          ? this.props.list.error.title
+                          : renderedListMeta.title}
+                        {this.props.list.filter.author.name ? " " : null}
+                        {this.props.list.filter.author.name
+                          ? <span>
+                              by{" "}
+                              <ModalDispatch
+                                with={{
+                                  request: {
+                                    url:
+                                      ROUTE_AUTHOR_API +
+                                      "/" +
+                                      this.props.list.filter.author.id
+                                  }
+                                }}
+                              >
+                                {this.props.list.filter.author.name}
+                              </ModalDispatch>
+                            </span>
                           : this.props.location.pathname.includes("/author/") &&
-                            "␆"}
+                            ".."}
                       </em>.
                     </q>
                   : <q>
                       <em>{renderedListMeta.title}</em>.
                     </q>}
-                &nbsp;{renderedListMeta.emoji}
+                &nbsp;{this.props.list.filter.author &&
+                this.props.list.filter.author.name
+                  ? renderedListMeta.emoji
+                  : this.props.list.error ? this.props.list.error.emoji : null}
               </ListHeader>}
         </ListDescription>
 
