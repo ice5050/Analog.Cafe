@@ -1,6 +1,5 @@
 // tools
 import axios from "axios"
-import { setCard } from "./modalActions"
 import errorMessage from "../constants/error-messages"
 import { axiosRequest } from "./helpers"
 
@@ -51,18 +50,18 @@ export function fetchPage(request) {
           ? dispatch(setPage(response.data))
           : dispatch(
               initPage({
-                title: errorMessage.FAILED_PAGE.title,
-                subtitle: errorMessage.FAILED_PAGE.subtitle,
-                error: errorMessage.EMPTY_RESPONSE.status
+                title: errorMessage.VIEW_TEMPLATE.ARTICLE.title,
+                subtitle: errorMessage.VIEW_TEMPLATE.ARTICLE.subtitle,
+                error: errorMessage.DISAMBIGUATION.CODE_204.error
               })
             )
       })
       .catch(error => {
         dispatch(
           initPage({
-            title: errorMessage.FAILED_PAGE.title,
-            subtitle: errorMessage.FAILED_PAGE.subtitle,
-            error: error
+            title: errorMessage.VIEW_TEMPLATE.ARTICLE.title,
+            subtitle: errorMessage.VIEW_TEMPLATE.ARTICLE.subtitle,
+            error
           })
         )
       })

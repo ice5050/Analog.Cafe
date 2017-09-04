@@ -28,10 +28,8 @@ export function getUser(token) {
             {
               status: "ok",
               info: {
-                title:
-                  "Error: " +
-                  (error.response ? error.response.status : "no response"),
-                text: errorMessage.FAILED_LOGIN.text
+                title: errorMessage.VIEW_TEMPLATE.CARD.title,
+                text: errorMessage.DISAMBIGUATION.CODE_401.error
               }
             },
             { url: "errors/user" }

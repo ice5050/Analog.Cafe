@@ -31,12 +31,13 @@ class NotFound extends React.PureComponent {
       <Article>
         <Helmet>
           <title>
-            {errorMessage.FAILED_PAGE.title}
+            {errorMessage.VIEW_TEMPLATE.ARTICLE.title}
           </title>
         </Helmet>
         <Heading
-          pageTitle={errorMessage.FAILED_PAGE.title}
-          pageSubtitle={errorMessage.FAILED_PAGE.subtitle}
+          pageTitle={errorMessage.VIEW_TEMPLATE.ARTICLE.title}
+          pageSubtitle={errorMessage.VIEW_TEMPLATE.ARTICLE.subtitle}
+          title={errorMessage.DISAMBIGUATION.CODE_403.error}
         />
         <Section>
           <p style={{ textAlign: "center" }}>

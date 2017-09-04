@@ -1,11 +1,14 @@
 // tools
 import React from "react"
 import { withRouter } from "react-router"
+import Helmet from "react-helmet"
 
 // components
 import Link from "../../components/Link"
 import Heading from "../../components/ArticleHeading"
 import { Article, Section } from "../../components/ArticleStyles"
+
+import errorMessage from "../../../constants/error-messages"
 
 class NotFound extends React.PureComponent {
   componentWillMount() {
@@ -25,14 +28,23 @@ class NotFound extends React.PureComponent {
   render() {
     return (
       <Article>
-        <Heading pageTitle="😣" pageSubtitle="You Need to Sign in First." />
+        <Helmet>
+          <title>
+            {errorMessage.VIEW_TEMPLATE.ARTICLE.title}
+          </title>
+        </Helmet>
+        <Heading
+          pageTitle={errorMessage.VIEW_TEMPLATE.ARTICLE.title}
+          pageSubtitle={errorMessage.VIEW_TEMPLATE.ARTICLE.subtitle}
+          title={errorMessage.DISAMBIGUATION.CODE_403.error}
+        />{" "}
         <Section>
           <p style={{ textAlign: "center" }}>
-            Click{" "}
+            You need to{" "}
             <strong>
-              <Link to="/sign-in">here</Link>
+              <Link to="/sign-in">sign in</Link>
             </strong>{" "}
-            to sign in.
+            to view this page.
           </p>
         </Section>
       </Article>
