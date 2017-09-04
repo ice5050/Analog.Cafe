@@ -12,7 +12,7 @@ import Link from "../../../components/Link"
 
 // render
 const Me = props => {
-  return props.user.status !== "ok"
+  return props.user.status === "ok"
     ? <List
         header={
           <ButtonGroup>
