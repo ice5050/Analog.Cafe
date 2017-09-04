@@ -44,10 +44,11 @@ class List extends React.Component {
     )
   }
   componentDidMount() {
-    this.unlisten = this.props.history.listen(location => this.fetchNewList())
     this.fetchNewList()
+    this.unlisten = this.props.history.listen(this.fetchNewList)
   }
   componentWillUnmount() {
+    console.log("list unmount")
     this.unlisten()
   }
   render() {

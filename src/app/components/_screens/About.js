@@ -10,8 +10,8 @@ import Link from "../Link"
 import { ModalDispatch } from "../../containers/Modal"
 
 import {
-  ROUTE_APP_PERMANENT_DOMAIN_NAME,
-  ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL
+  ROUTE_APP_PRODUCTION_DOMAIN_NAME,
+  ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL
 } from "../../../constants/app"
 
 // styles
@@ -42,8 +42,8 @@ export default props => {
         <meta
           property="og:image"
           content={
-            ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL +
-            ROUTE_APP_PERMANENT_DOMAIN_NAME +
+            ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL +
+            ROUTE_APP_PRODUCTION_DOMAIN_NAME +
             "/images/pictures/about-forest.jpg"
           }
         />

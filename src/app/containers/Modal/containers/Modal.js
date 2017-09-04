@@ -7,7 +7,7 @@ import { connect } from "react-redux"
 import { hideCard } from "../../../../actions/modalActions"
 
 // components
-import { ModalCard, ModalOverlay } from "../../../components/Card"
+import { CardModal, ModalOverlay } from "../../../components/Card"
 
 // return
 const Modal = props => {
@@ -27,13 +27,11 @@ const Modal = props => {
       }}
       onClick={() => props.hideCard()}
     >
-      <ModalCard
+      <CardModal
         title={props.modal.info.title}
         image={props.modal.info.image}
-        text={
-          props.modal.info.text +
-          (props.modal.info.error ? " " + props.modal.info.error + "." : "")
-        }
+        text={props.modal.info.text}
+        error={props.modal.info.error && props.modal.info.error}
         buttons={props.modal.info.buttons}
       />
     </ModalOverlay>

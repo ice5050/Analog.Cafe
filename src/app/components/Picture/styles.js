@@ -27,10 +27,10 @@ export const Image = styled(({ style, ...props }) =>
 `
 
 const shadow = css`
-	box-shadow: 0 0 .5em ${props =>
-    Color(props.theme.color.foreground)
-      .alpha(props.theme.opacity.least)
-      .string()};
+	box-shadow: 0 0 ${props => props.theme.size.block.spacing / 2}em ${props =>
+  Color(props.theme.color.foreground)
+    .alpha(props.theme.opacity.least)
+    .string()};
 `
 const bleed = css`
 	float:					none;

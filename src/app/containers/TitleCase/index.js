@@ -25,6 +25,7 @@ export default class extends React.Component {
     const InputElement = components[this.props.inputDesignation]
     return (
       <InputElement
+        autoFocus={this.props.autoFocus}
         value={this.state.value}
         onChange={this.handleChange}
         className={this.props.className}

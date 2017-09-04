@@ -9,7 +9,7 @@ import Color from "color"
 import Link from "../Link"
 
 // css
-const ButtonStyles = css`
+export const ButtonStyles = css`
   max-width: 	${props => props.theme.size.breakpoint.stops.min}px;
 
   ${props => props.theme.size.font.auto}
