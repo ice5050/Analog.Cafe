@@ -1,8 +1,7 @@
 const INITIAL_STATE = {
   status: "loading",
-  title: "Loading…",
-  subtitle: "",
-  author: { name: "Finding article author…", id: "" },
+  title: "🤔",
+  subtitle: "Loading…",
   content: {
     raw: {
       nodes: [

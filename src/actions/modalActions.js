@@ -49,8 +49,9 @@ export function fetchCard(request) {
                 {
                   status: "ok",
                   info: {
-                    title: "Error 204",
-                    text: errorMessage.EMPTY_CARD
+                    title: errorMessage.VIEW_TEMPLATE.CARD.title,
+                    text: errorMessage.VIEW_TEMPLATE.CARD.text,
+                    error: errorMessage.DISAMBIGUATION.CODE_204.error
                   }
                 },
                 { url: "errors/modal" }
@@ -58,24 +59,33 @@ export function fetchCard(request) {
             )
       })
       .catch(error => {
-        if (error.response.status === 401) {
-          request.history.push("/sign-in")
-        } else {
-          dispatch(
-            setCard(
-              {
-                status: "ok",
-                info: {
-                  title:
-                    "Error: " +
-                    (error.response ? error.response.status : "no response"),
-                  text: errorMessage.FAILED_CARD
-                }
-              },
-              { url: "errors/modal" }
+        error.response && error.response.status && error.response.status === 401
+          ? dispatch(
+              setCard(
+                {
+                  status: "ok",
+                  info: {
+                    title: errorMessage.VIEW_TEMPLATE.CARD.title,
+                    text: errorMessage.VIEW_TEMPLATE.CARD.text,
+                    error: errorMessage.DISAMBIGUATION.CODE_401.error
+                  }
+                },
+                { url: "errors/modal" }
+              )
             )
-          )
-        }
+          : dispatch(
+              setCard(
+                {
+                  status: "ok",
+                  info: {
+                    title: errorMessage.VIEW_TEMPLATE.CARD.title,
+                    text: errorMessage.VIEW_TEMPLATE.CARD.text,
+                    error
+                  }
+                },
+                { url: "errors/modal" }
+              )
+            )
       })
   }
 }

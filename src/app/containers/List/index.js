@@ -57,9 +57,10 @@ class List extends React.Component {
         <Helmet>
           <title>
             {renderedListMeta.title +
-              (this.props.list.filter.author
+              (this.props.list.filter.author &&
+              this.props.list.filter.author.name
                 ? this.props.list.filter.author.name
-                : null)}
+                : "")}
           </title>
           <meta name="description" content={renderedListMeta.description} />
         </Helmet>
@@ -70,7 +71,9 @@ class List extends React.Component {
                 {this.props.list.filter.author
                   ? <q>
                       <em>
-                        {renderedListMeta.title}
+                        {this.props.list.error
+                          ? this.props.list.error.title
+                          : renderedListMeta.title}
                         {this.props.list.filter.author.name ? " " : null}
                         {this.props.list.filter.author.name
                           ? <span>
@@ -89,13 +92,16 @@ class List extends React.Component {
                               </ModalDispatch>
                             </span>
                           : this.props.location.pathname.includes("/author/") &&
-                            "␆"}
+                            ".."}
                       </em>.
                     </q>
                   : <q>
                       <em>{renderedListMeta.title}</em>.
                     </q>}
-                &nbsp;{renderedListMeta.emoji}
+                &nbsp;{this.props.list.filter.author &&
+                this.props.list.filter.author.name
+                  ? renderedListMeta.emoji
+                  : this.props.list.error ? this.props.list.error.emoji : null}
               </ListHeader>}
         </ListDescription>
 
