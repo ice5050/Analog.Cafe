@@ -74,7 +74,7 @@ export function fetchPage(request, appendItems = false) {
                   text:
                     errorMessage.VIEW_TEMPLATE.LIST.text +
                     " " +
-                    errorMessage.DISAMBIGUATION.CODE_204.console.error +
+                    errorMessage.DISAMBIGUATION.CODE_204.error +
                     "."
                 }
               },
