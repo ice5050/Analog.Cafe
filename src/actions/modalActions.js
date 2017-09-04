@@ -59,7 +59,7 @@ export function fetchCard(request) {
             )
       })
       .catch(error => {
-        error.response.status === 401
+        error.response && error.response.status && error.response.status === 401
           ? dispatch(
               setCard(
                 {
