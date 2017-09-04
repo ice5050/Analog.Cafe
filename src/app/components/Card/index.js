@@ -45,6 +45,7 @@ export const Card = props => {
         props.buttons.map(function(button, i) {
           return (
             <CardButton
+              onClick={button.onClick}
               to={button.to}
               key={button.to}
               red={button.red ? true : null}
