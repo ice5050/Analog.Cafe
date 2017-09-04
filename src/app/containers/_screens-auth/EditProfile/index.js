@@ -12,20 +12,37 @@ import Heading from "../../../components/ArticleHeading"
 import { LinkButton } from "../../../components/Button"
 import { Article } from "../../../components/ArticleStyles"
 
+// template for user profile button arrangement
+import { profileButtonsTemplate } from "./helpers"
+
 // render
 class EditProfile extends React.PureComponent {
+  // init
   constructor(props) {
     super(props)
     this.handleTitleChange = this.handleTitleChange.bind(this)
     this.handleTextChange = this.handleTextChange.bind(this)
-    this.handleButtonLinkChange = this.handleButtonLinkChange.bind(this)
+    this.handleButtonChange = this.handleButtonChange.bind(this)
+    this.handleButtonFocus = this.handleButtonFocus.bind(this)
+    this.handleButtonBlur = this.handleButtonBlur.bind(this)
     this.state = {
-      title: this.props.user.title,
-      text: this.props.user.text,
-      image: this.props.user.image,
-      buttons: this.props.user.buttons
+      title: this.props.user.info.title,
+      text: this.props.user.info.text,
+      image: this.props.user.info.image,
+      buttons: profileButtonsTemplate(
+        this.props.user.info.id,
+        this.props.user.info.buttons && this.props.user.info.buttons[1]
+          ? this.props.user.info.buttons[1].to
+          : undefined
+      ),
+      buttonText:
+        this.props.user.info.buttons && this.props.user.info.buttons[1]
+          ? this.props.user.info.buttons[1].text
+          : ""
     }
   }
+
+  // process changes to title and bio
   handleTitleChange(event) {
     this.setState({
       ...this.state,
@@ -38,23 +55,41 @@ class EditProfile extends React.PureComponent {
       text: event.target.value
     })
   }
-  handleButtonLinkChange(event) {
+
+  // process changes to user's link button
+  handleButtonChange(event) {
     this.setState({
       ...this.state,
-      buttons: [
-        this.props.buttons[0],
-        {
-          to: event.target.value,
-          text: "Link"
-        }
-      ]
+      buttons: profileButtonsTemplate(
+        this.props.user.info.id,
+        event.target.value
+      ),
+      buttonText: event.target.value
+    })
+    console.log("handleButtonChange")
+  }
+  handleButtonFocus() {
+    this.setState({
+      ...this.state,
+      buttonText: this.state.buttons[1].to
     })
   }
+  handleButtonBlur() {
+    this.setState({
+      ...this.state,
+      buttonText: this.state.buttons[1].text
+    })
+    console.log(this.state.buttons[1].text)
+  }
+
   render() {
-    return this.props.user.status !== "ok"
+    return this.props.user.info.status !== "ok"
       ? <Article>
           <Heading pageTitle="Edit Your Profile" />
           <CardEditableProfile
+            // these props are pulled from Redux store that has
+            // logged-in user info
+
             // author's name
             title={this.props.title}
             changeTitle={this.handleTitleChange}
@@ -64,32 +99,10 @@ class EditProfile extends React.PureComponent {
             // author's avatar image
             image={this.props.image}
             // author's link
-            buttons={this.props.buttons}
-            changeButtons={this.handleButtonLinkChange}
-
-            //
-            //
-            //
-            // SAMPLE PROPS:
-            // THESE VALUES ARE INSERTED FROM MONGO > USERS
-            //
-            // title="Author Name"
-            // text="Short author bio."
-            // image="/images/avatars/dmitrizzle.jpg"
-            // buttons={[
-            //   {
-            //     to: "/author/dmitrizzle",
-            //     text: "More on Analog.Cafe",
-            //     red: true
-            //   },
-            //   {
-            //     to: "https://twitter.com/dmitrizzle/1237837468976r987s",
-            //     text: "Follow on Twitter"
-            //   }
-            // ]}
-            //
-            //
-            //
+            buttonText={this.state.buttonText}
+            changeButton={this.handleButtonChange}
+            focusButton={this.handleButtonFocus}
+            blurButton={this.handleButtonBlur}
           />
           <LinkButton to="/me" red>
             Done

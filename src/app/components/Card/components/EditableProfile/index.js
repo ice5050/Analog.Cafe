@@ -50,10 +50,12 @@ export default props => {
         </figcaption>
       </figure>
       <CardButtonEditable
-        value={props.buttons && props.buttons[1] && props.buttons[1].to}
+        value={props.buttonText}
         placeholder="Website"
         maxLength={SUMMARY_LENGTH_MAX}
-        onChange={event => props.changeButtons(event)}
+        onChange={event => props.changeButton(event)}
+        onFocus={() => props.focusButton()}
+        onBlur={() => props.blurButton()}
       />
     </CardFlattened>
   )
