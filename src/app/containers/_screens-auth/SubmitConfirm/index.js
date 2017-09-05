@@ -11,10 +11,10 @@ import { connect } from "react-redux"
 // components
 import Heading from "../../../components/ArticleHeading"
 import { Article, Section } from "../../../components/ArticleStyles"
-import { loadContent, loadHeader } from "../Composer/helpers/loader"
+import { loadContent, loadHeader } from "../../Composer/helpers/loader"
 
-import { ROUTE_SUBMISSION_API } from "../../../constants/submission"
-import { fetchCard, setCard } from "../../../actions/modalActions"
+import { ROUTE_SUBMISSION_API } from "../../../../constants/submission"
+import { fetchCard, setCard } from "../../../../actions/modalActions"
 
 function redirectToSignIn(props) {
   props.history.push({
