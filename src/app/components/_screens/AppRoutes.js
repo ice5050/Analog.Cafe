@@ -8,8 +8,9 @@ import List from "../../containers/List"
 import Article from "../../containers/Article"
 import NotFound from "../../containers/_screens-errors/NotFound"
 // protected
+import EditProfile from "../../containers/_screens-auth/EditProfile"
 import SignIn from "../../containers/_screens-auth/SignIn"
-import MyStuff from "../../containers/_screens-auth/MyStuff"
+import Me from "../../containers/_screens-auth/Me"
 // static
 import About from "./About"
 import AppRoutesSubmit from "./AppRoutesSubmit"
@@ -31,7 +32,8 @@ export default props => {
         <Route exact path="/articles" component={List} />
 
         {/* auth views */}
-        <Route exact path="/my-stuff" component={MyStuff} />
+        <Route exact path="/me" component={Me} />
+        <Route exact path="/me/edit" component={EditProfile} />
         <Route exact path="/sign-in" component={SignIn} />
 
         {/* static views and urls */}

@@ -1,19 +1,23 @@
 // tools
 import axios from "axios"
 import { ROUTE_IMAGE_API } from "../constants/picture"
+import errorMessage from "../constants/error-messages"
 import { imageSrcToPictureId } from "../app/containers/Picture/helpers"
 // import { axiosRequest } from "./helpers"
 
 // return
-const unknownAuthor = (id, error = { response: { status: 204 } }) => {
+const unknownAuthor = (id, error) => {
   return {
     type: "PICTURE.GET_INFO",
     payload: {
       info: {
         author: {
-          name: "Unknown",
+          name: errorMessage.VIEW_TEMPLATE.PICTURE.name,
           id: "unknown",
-          errorCode: error.response.status
+          error:
+            !error.response || !error.response.status
+              ? errorMessage.DISAMBIGUATION.CODE_204.error
+              : error
         }
       },
       status: "fail",

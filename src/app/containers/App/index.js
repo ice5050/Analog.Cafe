@@ -8,7 +8,7 @@ import { parse as parseQueryString } from "query-string"
 import {
   APP_TRACKING_GAID,
   ROUTE_APP_CURRENT_DOMAIN,
-  ROUTE_APP_PERMANENT_DOMAIN_NAME
+  ROUTE_APP_PRODUCTION_DOMAIN_NAME
 } from "../../../constants/app"
 import { rememberMe } from "./helpers"
 
@@ -27,10 +27,10 @@ import AppRoutes from "../../components/_screens/AppRoutes"
 // init GA tracking
 if (
   process.env.NODE_ENV === "development" ||
-  ROUTE_APP_CURRENT_DOMAIN !== ROUTE_APP_PERMANENT_DOMAIN_NAME
-) {
+  ROUTE_APP_CURRENT_DOMAIN !== ROUTE_APP_PRODUCTION_DOMAIN_NAME
+)
   window["ga-disable-" + APP_TRACKING_GAID] = true
-}
+
 ReactGA.initialize(APP_TRACKING_GAID, {
   debug: false,
   titleCase: true,
@@ -73,6 +73,10 @@ class App extends React.PureComponent {
       case "/submit/compose/":
         this.props.setNavView("COMPOSER")
         this.props.setNavLocation({ bottom: false })
+        break
+      case "/me/edit":
+      case "/me/edit/":
+        this.props.setNavLocation({ top: false, bottom: false })
         break
       case "/submit/confirm-full-consent":
       case "/submit/confirm-full-consent/":
