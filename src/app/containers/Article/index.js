@@ -13,8 +13,8 @@ import {
 } from "../../../constants/article"
 import { ROUTE_AUTHOR_API } from "../../../constants/author"
 import {
-  ROUTE_APP_PERMANENT_DOMAIN_NAME,
-  ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL
+  ROUTE_APP_PRODUCTION_DOMAIN_NAME,
+  ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL
 } from "../../../constants/app"
 
 import { schema } from "../Composer/containers/ContentEditor/schema"
@@ -50,7 +50,6 @@ class Article extends React.PureComponent {
     this.unlisten()
   }
   render() {
-    console.log(this.props.article)
     return (
       <ArticleElement>
         <Helmet>
@@ -62,8 +61,8 @@ class Article extends React.PureComponent {
             property="og:image"
             content={
               this.props.article.poster &&
-              ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL +
-                ROUTE_APP_PERMANENT_DOMAIN_NAME +
+              ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL +
+                ROUTE_APP_PRODUCTION_DOMAIN_NAME +
                 this.props.article.poster.medium
             }
           />
@@ -71,19 +70,21 @@ class Article extends React.PureComponent {
         <Heading
           pageTitle={this.props.article.title}
           pageSubtitle={this.props.article.subtitle}
+          title={this.props.article.error && this.props.article.error}
         >
-          <Byline>
-            by{" "}
-            <ModalDispatch
-              with={{
-                request: {
-                  url: ROUTE_AUTHOR_API + "/" + this.props.article.author.id
-                }
-              }}
-            >
-              {this.props.article.author.name}
-            </ModalDispatch>
-          </Byline>
+          {this.props.article.status === "published" &&
+            <Byline>
+              by{" "}
+              <ModalDispatch
+                with={{
+                  request: {
+                    url: ROUTE_AUTHOR_API + "/" + this.props.article.author.id
+                  }
+                }}
+              >
+                {this.props.article.author.name}
+              </ModalDispatch>
+            </Byline>}
         </Heading>
         <Section articleStatus={this.props.article.status}>
           <Editor

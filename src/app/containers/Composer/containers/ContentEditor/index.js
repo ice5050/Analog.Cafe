@@ -96,7 +96,6 @@ class ContentEditor extends React.Component {
           state={this.state.state}
           onChange={this.handleChange}
           onDocumentChange={this.handleDocumentChange}
-          author={this.state.author}
           style={{ minHeight: "28em" }}
         />
       </div>

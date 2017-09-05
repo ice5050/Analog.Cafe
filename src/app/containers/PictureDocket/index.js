@@ -54,8 +54,8 @@ export default class extends React.Component {
   initFileUpload = event => {
     this.fileInput.click()
   }
-  handleFileUpload = e => {
-    const file = e.target.files[0]
+  handleFileUpload = event => {
+    const file = event.target.files[0]
     this.uploadRequest(file)
   } // ⤵
   uploadRequest = file => {
