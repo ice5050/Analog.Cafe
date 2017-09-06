@@ -1,7 +1,7 @@
 export default {
   VIEW_TEMPLATE: {
     ARTICLE: {
-      title: "😨",
+      title: "ʕ⊙ᴥ⊙ʔ",
       subtitle: "Page Not Available"
     },
     LIST: {
@@ -10,7 +10,7 @@ export default {
         "There are no available articles or photo essays published by this author or under this tag…",
       meta: {
         title: "List not available",
-        emoji: "😨"
+        emoji: "ʕ⊙ᴥ⊙ʔ"
       }
     },
     PICTURE: {
