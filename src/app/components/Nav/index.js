@@ -29,36 +29,33 @@ export const CommonNav = props => {
         </NavIndexLink>
       </NavItem>
       <NavItem prime left>
-        {props.userStatus === "ok"
-          ? <NavLink to={"/submit/compose"}>
-              <span>Submit</span>
-            </NavLink>
-          : <NavLink to={"/about"}>
-              <span>About</span>
-            </NavLink>}
+        {props.userStatus === "ok" ? (
+          <NavLink to={"/submit/compose"}>
+            <span>Submit</span>
+          </NavLink>
+        ) : (
+          <NavLink to={"/about"}>
+            <span>About</span>
+          </NavLink>
+        )}
       </NavItem>
       <NavItem prime right>
-        {props.userStatus === "ok"
-          ? <NavLink to={"/me"}>
-              <span>My Stuff</span>
-            </NavLink>
-          : <NavLink to={"/submit"}>
-              <span>Submit</span>
-            </NavLink>}
+        {props.userStatus === "ok" ? (
+          <NavLink to={"/me"}>
+            <span>My Stuff</span>
+          </NavLink>
+        ) : (
+          <NavLink to={"/submit"}>
+            <span>Submit</span>
+          </NavLink>
+        )}
       </NavItem>
     </ul>
   )
 }
 
 const NavLinkSendLabel = () => {
-  return (
-    <span>
-      Send{" "}
-      <span role="img" aria-label="Rocket">
-        🚀
-      </span>
-    </span>
-  )
+  return <span>Send</span>
 }
 const NavLinkSend = props => {
   return (
@@ -91,9 +88,7 @@ export const ComposerNav = props => {
           }}
           style={{ textDecoration: "none" }}
         >
-          <span>
-            {props.draftStatus}
-          </span>
+          <span>{props.draftStatus}</span>
         </ModalDispatch>
       </NavItem>
       <NavItem prime center>
