@@ -18,14 +18,17 @@ import {
 import { Section, Article, Quote } from "../ArticleStyles"
 
 const ThankYouList = styled(Quote)`
-	font-style: normal !important;
-	&::first-letter {
-		font-size: inherit !important;
-		font-weight: inherit !important;
-		float: none !important;
-		margin: 0 !important;
-	}
-	&::before, &::after { content: "" !important }
+  font-style: normal !important;
+  &::first-letter {
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    float: none !important;
+    margin: 0 !important;
+  }
+  &::before,
+  &::after {
+    content: "" !important;
+  }
 `
 
 // render
@@ -49,7 +52,7 @@ export default props => {
         />
       </Helmet>
       <Heading
-        pageTitle="Analog.Cafe ☕️"
+        pageTitle="Analog.Cafe"
         pageSubtitle="A Film Photography Publication"
       />
       <Section>
@@ -111,10 +114,7 @@ export default props => {
         <h3>Thank you, Kickstarter backers!</h3>
         <p>
           Analog.Cafe owes its existence in large part to the contributions,
-          support and encouragement provided by the people below.{" "}
-          <span role="img" aria-label="Clapping hands and a bowing person">
-            👏🙇
-          </span>
+          support and encouragement provided by the people below.
         </p>
 
         <ThankYouList>

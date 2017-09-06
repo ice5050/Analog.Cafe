@@ -4,7 +4,7 @@ import React from "react"
 import { render } from "react-dom"
 import Helmet from "react-helmet"
 import { APP_NAME } from "./constants/app"
-
+import emojis from "./constants/emoji"
 // router
 import { BrowserRouter } from "react-router-dom"
 
@@ -27,8 +27,8 @@ render(
     <BrowserRouter>
       <Paper>
         <Helmet
-          defaultTitle={APP_NAME + " ☕️"}
-          titleTemplate={"%s ☕️ " + APP_NAME}
+          defaultTitle={APP_NAME + " " + emojis.STAR}
+          titleTemplate={"%s " + emojis.STAR + " " + APP_NAME}
         />
         <App />
       </Paper>
