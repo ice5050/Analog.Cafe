@@ -1,6 +1,7 @@
 // tools
 import React from "react"
 import Helmet from "react-helmet"
+import emojis from "emojis"
 
 // components
 import { Article } from "../ArticleStyles"
