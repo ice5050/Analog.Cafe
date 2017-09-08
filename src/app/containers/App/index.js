@@ -28,8 +28,11 @@ import AppRoutes from "../../components/_screens/AppRoutes"
 if (
   process.env.NODE_ENV === "development" ||
   ROUTE_APP_CURRENT_DOMAIN !== ROUTE_APP_PRODUCTION_DOMAIN_NAME
-)
+) {
   window["ga-disable-" + APP_TRACKING_GAID] = true
+} else {
+  window["ga-disable-" + APP_TRACKING_GAID] = false
+}
 
 ReactGA.initialize(APP_TRACKING_GAID, {
   debug: false,
