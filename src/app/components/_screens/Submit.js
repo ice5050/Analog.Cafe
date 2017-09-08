@@ -203,7 +203,8 @@ export default props => {
                 <Link to="/submit/compose">Composer</Link> tool you certify that
                 the you are the owner of the copyrights or have a permission to
                 use in this context all the images, text, files or other
-                intellectual property that you submit to Analog.Cafe.
+                intellectual property that you submit to Analog.Cafe, and that
+                you agree to the above terms, conditions and benifits.
               </strong>
             </small>
           </p>
