@@ -9,11 +9,12 @@ import { connect } from "react-redux"
 import Forbidden from "../../_screens-errors/Forbidden"
 import { LinkButton, ButtonGroup } from "../../../components/Button"
 import Link from "../../../components/Link"
+import AsyncArticleLoader from "../../../components/_screens/AsyncArticleLoader"
 
 // async components
 const AsyncList = Loadable({
   loader: () => import("../../List"),
-  loading: () => <div>Loading...</div>
+  loading: AsyncArticleLoader
 })
 
 // render

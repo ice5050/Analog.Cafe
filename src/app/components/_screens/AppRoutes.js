@@ -8,8 +8,8 @@ import NotFound from "../../containers/_screens-errors/NotFound"
 import SignIn from "../../containers/_screens-auth/SignIn"
 import Me from "../../containers/_screens-auth/Me"
 import AppRoutesSubmit from "./AppRoutesSubmit"
-
 import AsyncListLoader from "./AsyncListLoader"
+import AsyncArticleLoader from "./AsyncArticleLoader"
 
 // async components
 const AsyncList = Loadable({
@@ -18,15 +18,15 @@ const AsyncList = Loadable({
 })
 const AsyncArticle = Loadable({
   loader: () => import("../../containers/Article"),
-  loading: () => <div>Loading...</div>
+  loading: AsyncArticleLoader
 })
 const AsyncEditProfile = Loadable({
   loader: () => import("../../containers/_screens-auth/EditProfile"),
-  loading: () => <div>Loading...</div>
+  loading: AsyncArticleLoader
 })
 const AsyncAbout = Loadable({
   loader: () => import("./About"),
-  loading: () => <div>Loading...</div>
+  loading: AsyncArticleLoader
 })
 
 // render

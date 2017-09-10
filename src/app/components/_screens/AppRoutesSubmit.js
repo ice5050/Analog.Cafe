@@ -7,15 +7,16 @@ import { Switch, Route } from "react-router-dom"
 import SubmitSoon from "./SubmitSoon"
 import NotFound from "../../containers/_screens-errors/NotFound"
 import SubmitConfirm from "../../containers/_screens-auth/SubmitConfirm"
+import AsyncArticleLoader from "./AsyncArticleLoader"
 
 // async components
 const AsyncSubmit = Loadable({
   loader: () => import("./Submit"),
-  loading: () => <div>Loading...</div>
+  loading: AsyncArticleLoader
 })
 const AsyncComposer = Loadable({
   loader: () => import("./Composer"),
-  loading: () => <div>Loading...</div>
+  loading: AsyncArticleLoader
 })
 
 // render
