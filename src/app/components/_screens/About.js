@@ -33,7 +33,6 @@ const ThankYouList = styled(Quote)`
 
 // render
 export default props => {
-  console.log(process.env)
   return (
     <Article>
       <Helmet>

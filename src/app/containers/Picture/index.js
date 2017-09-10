@@ -27,11 +27,12 @@ class Figure extends React.Component {
     }
   }
   handleChange(event) {
+    // format caption text
     let caption = event.target.value
-      .replace(/'\b/g, "‘") // Opening singles
-      .replace(/\b'/g, "’") // Closing singles
-      .replace(/"\b/g, "“") // Opening doubles
-      .replace(/\b"/g, "”") // Closing doubles
+      .replace(/'\b/g, "‘") // opening singles
+      .replace(/\b'/g, "’") // closing singles
+      .replace(/"\b/g, "“") // opening doubles
+      .replace(/\b"/g, "”") // closing doubles
       .replace(/--/g, "—") // em-dashes
       .replace(/\b\.\.\./g, "…") // ellipsis
     const { node, editor } = this.props
@@ -83,33 +84,35 @@ class Figure extends React.Component {
     const className = focus ? "focus" : "nofocus"
     const feature = node.data.get("feature")
 
-    return src
-      ? <Picture
-          {...attributes}
-          readOnly={this.props.readOnly}
-          src={src}
-          className={className}
-          author={
-            this.props.pictures[imageSrcToPictureId(src)] &&
-            this.props.pictures[imageSrcToPictureId(src)].info.author
-          }
-          composer={!this.props.readOnly}
-          feature={feature}
-        >
-          {!this.props.readOnly
-            ? <PlainTextarea
-                value={this.state.caption}
-                placeholder="Add image title, location, camera, film&hellip;"
-                onChange={this.handleChange}
-                onClick={this.handleClick}
-              />
-            : <span>
-                {this.state.caption}
-              </span>}
-        </Picture>
-      : <Picture {...attributes} src="" className={className}>
-          Loading image…
-        </Picture>
+    return src ? (
+      <Picture
+        {...attributes}
+        readOnly={this.props.readOnly}
+        src={src}
+        className={className}
+        author={
+          this.props.pictures[imageSrcToPictureId(src)] &&
+          this.props.pictures[imageSrcToPictureId(src)].info.author
+        }
+        composer={!this.props.readOnly}
+        feature={feature}
+      >
+        {!this.props.readOnly ? (
+          <PlainTextarea
+            value={this.state.caption}
+            placeholder="Add image title, location, camera, film&hellip;"
+            onChange={this.handleChange}
+            onClick={this.handleClick}
+          />
+        ) : (
+          <span>{this.state.caption}</span>
+        )}
+      </Picture>
+    ) : (
+      <Picture {...attributes} src="" className={className}>
+        Loading image…
+      </Picture>
+    )
   }
 }
 
