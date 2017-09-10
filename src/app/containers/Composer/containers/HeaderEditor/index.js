@@ -51,7 +51,7 @@ export default class extends React.PureComponent {
       ? this.setState({ subtitle: { warning: true } })
       : this.setState({ subtitle: { warning: false } })
   }
-  render() {
+  render = () => {
     return (
       <Header>
         <TitleCase

@@ -99,7 +99,7 @@ class EditProfile extends React.PureComponent {
     })
   }
 
-  render() {
+  render = () => {
     return this.props.user.info.status === "ok" ? (
       <Article>
         <Heading pageTitle="Edit Your Profile" />

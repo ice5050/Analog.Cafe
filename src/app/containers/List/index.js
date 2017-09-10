@@ -50,7 +50,7 @@ class List extends React.Component {
   componentWillUnmount = () => {
     this.unlisten()
   }
-  render() {
+  render = () => {
     const renderedListMeta = getListMeta(this.props.location.pathname).meta
     return (
       <div>

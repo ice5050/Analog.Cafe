@@ -123,7 +123,7 @@ class App extends React.PureComponent {
     }
   }
 
-  render() {
+  render = () => {
     return (
       <div>
         <Nav top />

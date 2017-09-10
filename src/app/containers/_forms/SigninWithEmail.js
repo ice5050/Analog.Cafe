@@ -29,7 +29,7 @@ export default class extends React.Component {
     event.preventDefault()
     this.setState({ warning: true })
   }
-  render() {
+  render = () => {
     return (
       <Form>
         <SubtitleInput

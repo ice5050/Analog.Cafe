@@ -25,7 +25,7 @@ class NotFound extends React.PureComponent {
       }
     })
   }
-  render() {
+  render = () => {
     return (
       <Article>
         <Helmet>

@@ -49,7 +49,7 @@ class Article extends React.PureComponent {
   componentWillUnmount = () => {
     this.unlisten()
   }
-  render() {
+  render = () => {
     return (
       <ArticleElement>
         <Helmet>

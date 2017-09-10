@@ -83,7 +83,7 @@ class ContentEditor extends React.Component {
   }
 
   // render
-  render() {
+  render = () => {
     return (
       <div style={{ position: "relative" }}>
         <ImageButton

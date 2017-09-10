@@ -32,7 +32,7 @@ export default class extends React.Component {
         )
       : this.setState({ warning: true })
   }
-  render() {
+  render = () => {
     return (
       <Form warning={this.state.warning}>
         <SubtitleInput

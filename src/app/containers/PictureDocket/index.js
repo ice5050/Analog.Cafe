@@ -79,7 +79,7 @@ export default class extends React.Component {
     )
   }
 
-  render() {
+  render = () => {
     return (
       <PictureDocket>
         <CardHeader>

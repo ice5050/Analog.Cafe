@@ -25,7 +25,7 @@ class AlreadyAuthenticated extends React.PureComponent {
       }
     })
   }
-  render() {
+  render = () => {
     return (
       <Article>
         <Helmet>

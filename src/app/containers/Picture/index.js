@@ -77,7 +77,7 @@ class Figure extends React.Component {
       })
     }
   }
-  render() {
+  render = () => {
     const { attributes, state, node } = this.props
     const { src } = this.state
     const focus = state.isFocused && state.selection.hasEdgeIn(node)
