@@ -13,14 +13,22 @@ export default props => {
     <Article>
       <Heading
         pageTitle={
-          props.isLoading ? (
+          props.isLoading ? props.pastDelay ? (
             emojis.HUG_RIGHT
+          ) : (
+            "‌"
           ) : (
             error.VIEW_TEMPLATE.LIST.meta.emoji
           )
         }
         pageSubtitle={
-          props.isLoading ? "Loading…" : error.VIEW_TEMPLATE.LIST.meta.title
+          props.isLoading ? props.pastDelay ? (
+            "Loading…"
+          ) : (
+            "‌"
+          ) : (
+            error.VIEW_TEMPLATE.LIST.meta.title
+          )
         }
       />
       <Section style={{ paddingTop: "100vh" }} />

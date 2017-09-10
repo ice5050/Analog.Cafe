@@ -12,22 +12,24 @@ export default props => {
   return (
     <div>
       <ListDescription>
-        <ListHeader>
-          <q>
-            <em>
-              {props.isLoading ? (
-                "Loading…"
-              ) : (
-                error.VIEW_TEMPLATE.LIST.meta.title
-              )}
-            </em>
-          </q>{" "}
-          {props.isLoading ? (
-            emojis.HUG_RIGHT
-          ) : (
-            error.VIEW_TEMPLATE.LIST.meta.emoji
-          )}
-        </ListHeader>
+        {props.pastDelay && (
+          <ListHeader>
+            <q>
+              <em>
+                {props.isLoading ? (
+                  "Loading…"
+                ) : (
+                  error.VIEW_TEMPLATE.LIST.meta.title
+                )}
+              </em>
+            </q>{" "}
+            {props.isLoading ? (
+              emojis.HUG_RIGHT
+            ) : (
+              error.VIEW_TEMPLATE.LIST.meta.emoji
+            )}
+          </ListHeader>
+        )}
       </ListDescription>
       <Article>
         <Section style={{ paddingTop: "100vh" }} />
