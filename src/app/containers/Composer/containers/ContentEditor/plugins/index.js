@@ -148,14 +148,14 @@ export const plugins = [
   // ...that will also need an upload tool connected.
   InsertImages({
     extensions: ["png", "jpeg"],
-    applyTransform: (transform, file) => {
-      var key = uuidv1()
+    applyTransform: (transform, file, state) => {
+      const key = uuidv1()
       localForage.setItem(key, file)
       return transform
         .insertBlock({
           type: "image",
           isVoid: true,
-          data: { file, src: placeholder, key: key }
+          data: { file, src: placeholder, key }
         })
         .apply()
     }
