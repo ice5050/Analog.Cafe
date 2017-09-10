@@ -3,7 +3,6 @@ import FontFaceObserver from "fontfaceobserver"
 
 // return
 export const fonts = () => {
-  console.log("req font load")
   const doc = document.documentElement.classList
   if (doc.contains("fonts-loaded")) return
   if (sessionStorage.getItem("fonts-loaded") === "true") {
