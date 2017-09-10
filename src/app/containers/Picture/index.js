@@ -79,7 +79,7 @@ class Figure extends React.Component {
   }
   render() {
     const { attributes, state, node } = this.props
-    const { src } = this.state // || node.data.get("src")
+    const { src } = this.state
     const focus = state.isFocused && state.selection.hasEdgeIn(node)
     const className = focus ? "focus" : "nofocus"
     const feature = node.data.get("feature")
