@@ -10,7 +10,7 @@ import error from "../../../constants/error-messages"
 // return
 export default props => {
   return (
-    <Article style={{ paddingTop: "100vh" }}>
+    <Article>
       <Heading
         pageTitle={
           props.isLoading ? (
@@ -23,7 +23,7 @@ export default props => {
           props.isLoading ? "Loading…" : error.VIEW_TEMPLATE.LIST.meta.title
         }
       />
-      <Section />
+      <Section style={{ paddingTop: "100vh" }} />
     </Article>
   )
 }

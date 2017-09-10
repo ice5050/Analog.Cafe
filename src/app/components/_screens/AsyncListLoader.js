@@ -29,8 +29,8 @@ export default props => {
           )}
         </ListHeader>
       </ListDescription>
-      <Article style={{ paddingTop: "100vh" }}>
-        <Section />
+      <Article>
+        <Section style={{ paddingTop: "100vh" }} />
       </Article>
     </div>
   )
