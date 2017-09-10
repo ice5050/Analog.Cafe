@@ -27,12 +27,12 @@ export default class extends React.PureComponent {
     this.props.composerState.subtitle = loadHeader().subtitle
     this.handleTitleChange = this.handleTitleChange.bind(this)
     this.handleSubtitleChange = this.handleSubtitleChange.bind(this)
+    this.state = {
+      title: { warning: false },
+      subtitle: { warning: false }
+    }
   }
-  state = {
-    title: { warning: false },
-    subtitle: { warning: false }
-  }
-  componentWillMount() {
+  componentWillMount = () => {
     this.headerData = loadHeader()
   }
   handleTitleChange(event) {
@@ -43,7 +43,7 @@ export default class extends React.PureComponent {
       ? this.setState({ title: { warning: true } })
       : this.setState({ title: { warning: false } })
   }
-  handleSubtitleChange(event) {
+  handleSubtitleChange = event => {
     this.props.composerState.subtitle = event
     this.headerData.subtitle = event
     saveHeader(this.headerData)
@@ -51,7 +51,7 @@ export default class extends React.PureComponent {
       ? this.setState({ subtitle: { warning: true } })
       : this.setState({ subtitle: { warning: false } })
   }
-  render() {
+  render = () => {
     return (
       <Header>
         <TitleCase
@@ -81,21 +81,23 @@ export default class extends React.PureComponent {
           Link to{" "}
           <ModalDispatch
             with={
-              this.props.user.status === "ok"
-                ? {
-                    request: {
-                      url: "/api/author/" + this.props.user.info.author.id
-                    }
+              this.props.user.status === "ok" ? (
+                {
+                  request: {
+                    url: "/api/author/" + this.props.user.info.author.id
                   }
-                : {
-                    info: {
-                      image: placeholder,
-                      title: "Your Profile",
-                      text:
-                        "You can create, view or update your profile after you send your submission."
-                    },
-                    id: "hints/author"
-                  }
+                }
+              ) : (
+                {
+                  info: {
+                    image: placeholder,
+                    title: "Your Profile",
+                    text:
+                      "You can create, view or update your profile after you send your submission."
+                  },
+                  id: "hints/author"
+                }
+              )
             }
           >
             Your Profile

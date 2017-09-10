@@ -16,7 +16,8 @@ export function ToggleFeature(options) {
         feature: previousDataImmutable.get("feature"),
         file: previousDataImmutable.get("file"),
         src: previousDataImmutable.get("src"),
-        key: previousDataImmutable.get("key")
+        key: previousDataImmutable.get("key"),
+        caption: previousDataImmutable.get("caption")
       }
       let featureStatus = previousData.feature ? false : true
       return state

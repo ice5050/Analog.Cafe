@@ -21,7 +21,7 @@ export default class extends React.Component {
     this.setState({ value: toTitleCase(event.target.value) })
     this.props.onChange(event.target.value)
   }
-  render() {
+  render = () => {
     const InputElement = components[this.props.inputDesignation]
     return (
       <InputElement
