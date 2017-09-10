@@ -11,14 +11,14 @@ import { Article, Section } from "../../components/ArticleStyles"
 import errorMessage from "../../../constants/error-messages"
 
 class AlreadyAuthenticated extends React.PureComponent {
-  componentWillMount() {
+  componentWillMount = () => {
     this.props.history.replace({
       state: {
         status: "103" // already authenticated
       }
     })
   }
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     this.props.history.replace({
       state: {
         status: "200"

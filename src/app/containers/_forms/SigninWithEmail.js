@@ -18,12 +18,12 @@ export default class extends React.Component {
     super(props)
     this.handleEmailChange = this.handleEmailChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.state = { email: "", warning: false }
   }
-  state = { email: "", warning: false }
-  handleEmailChange(event) {
+  handleEmailChange = event => {
     this.setState({ email: event.target.value || "", warning: false })
   }
-  handleSubmit(event) {
+  handleSubmit = event => {
     if (validateEmail(this.state.email)) return
     event.stopPropagation()
     event.preventDefault()

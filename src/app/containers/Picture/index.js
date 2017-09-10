@@ -20,13 +20,13 @@ class Figure extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps = nextProps => {
     const caption = nextProps.node.data.get("caption")
     if (caption !== this.state.caption) {
       this.setState({ caption })
     }
   }
-  handleChange(event) {
+  handleChange = event => {
     // format caption text
     let caption = event.target.value
       .replace(/'\b/g, "‘") // opening singles
@@ -46,18 +46,18 @@ class Figure extends React.Component {
       .apply()
     editor.onChange(next) // have to use native onChange in editor (rather than handleChange)
   }
-  handleClick(event) {
+  handleClick = event => {
     event.preventDefault()
     event.stopPropagation()
   }
-  componentDidMount() {
+  componentDidMount = () => {
     const { node } = this.props
     const { data } = node
     const caption = data.get("caption")
     this.setState({ caption })
     this.loadImage(data.get("file"), data.get("key"), data.get("src"))
   }
-  loadImage(file, key, src) {
+  loadImage = (file, key, src) => {
     if (!key) {
       this.setState({ src })
       // get image author

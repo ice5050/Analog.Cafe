@@ -11,14 +11,14 @@ import { Article, Section } from "../../components/ArticleStyles"
 import errorMessage from "../../../constants/error-messages"
 
 class NotFound extends React.PureComponent {
-  componentWillMount() {
+  componentWillMount = () => {
     this.props.history.replace({
       state: {
         status: "403"
       }
     })
   }
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     this.props.history.replace({
       state: {
         status: "200"
@@ -29,9 +29,7 @@ class NotFound extends React.PureComponent {
     return (
       <Article>
         <Helmet>
-          <title>
-            {errorMessage.VIEW_TEMPLATE.ARTICLE.title}
-          </title>
+          <title>{errorMessage.VIEW_TEMPLATE.ARTICLE.title}</title>
         </Helmet>
         <Heading
           pageTitle={errorMessage.VIEW_TEMPLATE.ARTICLE.title}

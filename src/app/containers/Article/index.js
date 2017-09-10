@@ -42,20 +42,18 @@ class Article extends React.PureComponent {
         this.props.history.location.pathname.replace(ROUTE_ARTICLE_DIR, "")
     })
   }
-  componentDidMount() {
+  componentDidMount = () => {
     this.unlisten = this.props.history.listen(location => this.fetchPage())
     this.fetchPage()
   }
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     this.unlisten()
   }
   render() {
     return (
       <ArticleElement>
         <Helmet>
-          <title>
-            {this.props.article.title}
-          </title>
+          <title>{this.props.article.title}</title>
           <meta name="description" content={this.props.article.summary} />
           <meta
             property="og:image"
@@ -72,7 +70,7 @@ class Article extends React.PureComponent {
           pageSubtitle={this.props.article.subtitle}
           title={this.props.article.error && this.props.article.error}
         >
-          {this.props.article.status === "published" &&
+          {this.props.article.status === "published" && (
             <Byline>
               by{" "}
               <ModalDispatch
@@ -84,7 +82,8 @@ class Article extends React.PureComponent {
               >
                 {this.props.article.author.name}
               </ModalDispatch>
-            </Byline>}
+            </Byline>
+          )}
         </Heading>
         <Section articleStatus={this.props.article.status}>
           <Editor
