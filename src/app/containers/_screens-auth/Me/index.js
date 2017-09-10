@@ -14,7 +14,8 @@ import AsyncArticleLoader from "../../../components/_screens/AsyncArticleLoader"
 // async components
 const AsyncList = Loadable({
   loader: () => import("../../List"),
-  loading: AsyncArticleLoader
+  loading: AsyncArticleLoader,
+  delay: 100
 })
 
 // render

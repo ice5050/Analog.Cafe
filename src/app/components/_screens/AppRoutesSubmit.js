@@ -12,11 +12,13 @@ import AsyncArticleLoader from "./AsyncArticleLoader"
 // async components
 const AsyncSubmit = Loadable({
   loader: () => import("./Submit"),
-  loading: AsyncArticleLoader
+  loading: AsyncArticleLoader,
+  delay: 100
 })
 const AsyncComposer = Loadable({
   loader: () => import("./Composer"),
-  loading: AsyncArticleLoader
+  loading: AsyncArticleLoader,
+  delay: 100
 })
 
 // render

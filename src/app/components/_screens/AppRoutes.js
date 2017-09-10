@@ -18,15 +18,18 @@ const AsyncList = Loadable({
 })
 const AsyncArticle = Loadable({
   loader: () => import("../../containers/Article"),
-  loading: AsyncArticleLoader
+  loading: AsyncArticleLoader,
+  delay: 100
 })
 const AsyncEditProfile = Loadable({
   loader: () => import("../../containers/_screens-auth/EditProfile"),
-  loading: AsyncArticleLoader
+  loading: AsyncArticleLoader,
+  delay: 100
 })
 const AsyncAbout = Loadable({
   loader: () => import("./About"),
-  loading: AsyncArticleLoader
+  loading: AsyncArticleLoader,
+  delay: 100
 })
 
 // render
