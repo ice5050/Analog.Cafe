@@ -12,6 +12,9 @@ import AsyncListLoader from "./AsyncListLoader"
 import AsyncArticleLoader from "./AsyncArticleLoader"
 
 // async components
+// `/components/_screens/AppRoutes.js`
+// `/components/_screens/AppRoutesSubmit.js`
+// `/containers/_screens-auth/Me/index.js`
 const AsyncList = Loadable({
   loader: () => import("../../containers/List"),
   loading: AsyncListLoader

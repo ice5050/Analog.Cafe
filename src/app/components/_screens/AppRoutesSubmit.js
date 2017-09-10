@@ -10,6 +10,9 @@ import SubmitConfirm from "../../containers/_screens-auth/SubmitConfirm"
 import AsyncArticleLoader from "./AsyncArticleLoader"
 
 // async components
+// `/components/_screens/AppRoutes.js`
+// `/components/_screens/AppRoutesSubmit.js`
+// `/containers/_screens-auth/Me/index.js`
 const AsyncSubmit = Loadable({
   loader: () => import("./Submit"),
   loading: AsyncArticleLoader,
