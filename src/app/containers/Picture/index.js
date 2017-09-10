@@ -38,7 +38,9 @@ class Figure extends React.Component {
     const { node, editor } = this.props
     const feature = node.data.get("feature")
     const src = node.data.get("src")
-    const properties = { data: { caption, src, feature } }
+    const key = node.data.get("key") || false
+    const file = node.data.get("file") || false
+    const properties = { data: { caption, src, feature, key, file } }
     const next = editor
       .getState()
       .transform()
