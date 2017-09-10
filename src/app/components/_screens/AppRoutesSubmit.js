@@ -1,13 +1,22 @@
 // tools
 import React from "react"
+import Loadable from "react-loadable"
 import { Switch, Route } from "react-router-dom"
 
 // components
-import Submit from "./Submit"
-import Composer from "./Composer"
 import SubmitSoon from "./SubmitSoon"
 import NotFound from "../../containers/_screens-errors/NotFound"
 import SubmitConfirm from "../../containers/_screens-auth/SubmitConfirm"
+
+// async components
+const AsyncSubmit = Loadable({
+  loader: () => import("./Submit"),
+  loading: () => <div>Loading...</div>
+})
+const AsyncComposer = Loadable({
+  loader: () => import("./Composer"),
+  loading: () => <div>Loading...</div>
+})
 
 // render
 export default props => {
@@ -15,8 +24,8 @@ export default props => {
   if (process.env.NODE_ENV === "development")
     return (
       <Switch>
-        <Route exact path="/submit" component={Submit} />
-        <Route exact path="/submit/compose" component={Composer} />
+        <Route exact path="/submit" component={AsyncSubmit} />
+        <Route exact path="/submit/compose" component={AsyncComposer} />
 
         {/* Signin & upload submission */}
         <Route

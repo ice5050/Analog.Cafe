@@ -1,32 +1,40 @@
 // tools
 import React from "react"
+import Loadable from "react-loadable"
 
 // redux
 import { connect } from "react-redux"
 
 // components
-import List from "../../List"
 import Forbidden from "../../_screens-errors/Forbidden"
 import { LinkButton, ButtonGroup } from "../../../components/Button"
 import Link from "../../../components/Link"
 
+// async components
+const AsyncList = Loadable({
+  loader: () => import("../../List"),
+  loading: () => <div>Loading...</div>
+})
+
 // render
 const Me = props => {
-  return props.user.status === "ok"
-    ? <List
-        header={
-          <ButtonGroup>
-            <LinkButton to="/me/edit" red style={{ margin: "0 auto" }}>
-              Edit Your Profile
-            </LinkButton>
-            <strong>
-              <Link>Sign Out</Link>
-            </strong>
-          </ButtonGroup>
-        }
-        private
-      />
-    : <Forbidden />
+  return props.user.status === "ok" ? (
+    <AsyncList
+      header={
+        <ButtonGroup>
+          <LinkButton to="/me/edit" red style={{ margin: "0 auto" }}>
+            Edit Your Profile
+          </LinkButton>
+          <strong>
+            <Link>Sign Out</Link>
+          </strong>
+        </ButtonGroup>
+      }
+      private
+    />
+  ) : (
+    <Forbidden />
+  )
 }
 
 // connet with redux
