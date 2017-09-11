@@ -32,17 +32,22 @@ socket.addEventListener("message", function(event) {
   }
 })
 
-function clickTwitterButton() {
-  window.open(ROUTE_LOGIN_TWITTER_API, "_blank", "height=600,width=500")
-}
-
 // render
-class SignIn extends React.Component {
+class SignIn extends React.PureComponent {
+  constructor(props) {
+    super(props)
+    this.handleTwitterButton = this.handleTwitterButton.bind(this)
+  }
+
   componentWillMount() {
     if (this.props.location && this.props.location.state) {
       redirect_to = this.props.location.state.redirect_to
     }
     props = this.props
+  }
+
+  handleTwitterButton = () => {
+    window.open(ROUTE_LOGIN_TWITTER_API, "_blank", "height=600,width=500")
   }
 
   render() {
@@ -56,7 +61,7 @@ class SignIn extends React.Component {
           <Heading pageTitle="Sign In" />
           <Section>
             <ButtonGroup>
-              <TwitterButton onClick={clickTwitterButton}>
+              <TwitterButton onClick={this.handleTwitterButton}>
                 Sign in With Twitter
               </TwitterButton>
               <p>
