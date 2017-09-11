@@ -27,7 +27,7 @@ class SignIn extends React.PureComponent {
     this.handleTwitterButton = this.handleTwitterButton.bind(this)
   }
 
-  componentWillMount() {
+  componentWillMount = () => {
     // listen for login confirmation & redirect when successful
     const socketAuth = new WebSocket(WEBSOCKET_AUTH_TOKEN)
     socketAuth.addEventListener("message", event => {
