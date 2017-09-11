@@ -33,7 +33,7 @@ import { setCard } from "../../../../actions/modalActions"
 // this function kicks user to sign-in scdreen but rembers where to come back to
 const redirectToSignIn = props => {
   props.setLoginRedirectRoutes({ success: props.history.location.pathname })
-  props.history.push({
+  props.history.replace({
     pathname: "/sign-in"
   })
 }
@@ -60,7 +60,9 @@ function sendSubmission(data, props, socket) {
       localStorage.removeItem("composer-header-state")
       localForage.clear()
       socket.close()
-      props.history.push(ROUTE_REDIRECT_AFTER_SUBMIT)
+      props.history.replace({
+        pathname: ROUTE_REDIRECT_AFTER_SUBMIT
+      })
     })
     .catch(error => {
       socket.close()
@@ -144,7 +146,9 @@ class SubmitConfirm extends React.Component {
         }
       } else {
         // content deleted
-        props.history.push(ROUTE_AUTH_USER_LANDING)
+        props.history.replace({
+          pathname: ROUTE_REDIRECT_AFTER_SUBMIT
+        })
       }
     }
   }

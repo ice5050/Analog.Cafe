@@ -32,7 +32,9 @@ class SignIn extends React.PureComponent {
     const socketAuth = new WebSocket(WEBSOCKET_AUTH_TOKEN)
     socketAuth.addEventListener("message", event => {
       rememberMe(event.data)
-      this.props.history.push(this.props.user.routes.success)
+      this.props.history.replace({
+        pathname: this.props.user.routes.success
+      })
     })
   }
 
