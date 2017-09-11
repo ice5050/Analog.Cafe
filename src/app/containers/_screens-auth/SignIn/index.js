@@ -18,7 +18,7 @@ import { TwitterButton } from "./styles"
 // constants & helpers
 import { rememberMe } from "./helpers"
 import { ROUTE_LOGIN_TWITTER_API } from "../../../../constants/login"
-import { WEBSOCKET_AUTH_TOKEN } from "../../../../constants/app"
+import { WEBSOCKET_AUTH_TOKEN } from "../../../../constants/user"
 
 var socket = new WebSocket(WEBSOCKET_AUTH_TOKEN)
 var redirect_to = null

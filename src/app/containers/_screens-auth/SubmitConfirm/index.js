@@ -12,9 +12,12 @@ import { connect } from "react-redux"
 import Heading from "../../../components/ArticleHeading"
 import { Article, Section } from "../../../components/ArticleStyles"
 import { loadContent, loadHeader } from "../../Composer/helpers/loader"
-import { WEBSOCKET_UPLOAD_PROGRESS } from "../../../../constants/app"
+import { WEBSOCKET_UPLOAD_PROGRESS } from "../../../../constants/submission"
 
-import { ROUTE_SUBMISSION_API } from "../../../../constants/submission"
+import {
+  ROUTE_SUBMISSION_API,
+  ROUTE_REDIRECT_AFTER_SUBMIT
+} from "../../../../constants/submission"
 import { fetchCard, setCard } from "../../../../actions/modalActions"
 
 function redirectToSignIn(props) {
@@ -46,7 +49,7 @@ function sendSubmission(data, props, socket) {
       localStorage.removeItem("composer-header-state")
       localForage.clear()
       socket.close()
-      props.history.push("/me")
+      props.history.push(ROUTE_REDIRECT_AFTER_SUBMIT)
     })
     .catch(error => {
       socket.close()
