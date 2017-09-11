@@ -4,9 +4,7 @@ import { setCard } from "./modalActions"
 import errorMessage from "../constants/error-messages"
 import { ROUTE_USER_API } from "../constants/user"
 
-// below: dispatch popup warning that user needs to log in or
-// dispatch user's logged in credentials to store
-
+// get user data matched to login credentials
 export function getUser(token) {
   return dispatch => {
     axios({
@@ -36,5 +34,18 @@ export function getUser(token) {
           )
         )
       )
+  }
+}
+
+// set user routes, notably redirect after login url
+export function setRoutes(routes) {
+  return {
+    type: "USER.SET_ROUTES",
+    payload: routes
+  }
+}
+export function resetRoutes() {
+  return {
+    type: "USER.RESET_ROUTES"
   }
 }
