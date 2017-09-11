@@ -20,18 +20,6 @@ import { rememberMe } from "./helpers"
 import { ROUTE_LOGIN_TWITTER_API } from "../../../../constants/login"
 import { WEBSOCKET_AUTH_TOKEN } from "../../../../constants/user"
 
-var socket = new WebSocket(WEBSOCKET_AUTH_TOKEN)
-var redirect_to = null
-var props = null
-
-// Listen for messages
-socket.addEventListener("message", function(event) {
-  rememberMe(event.data)
-  if (redirect_to && props) {
-    props.history.push(redirect_to)
-  }
-})
-
 // render
 class SignIn extends React.PureComponent {
   constructor(props) {
@@ -40,10 +28,12 @@ class SignIn extends React.PureComponent {
   }
 
   componentWillMount() {
-    if (this.props.location && this.props.location.state) {
-      redirect_to = this.props.location.state.redirect_to
-    }
-    props = this.props
+    // listen for login confirmation & redirect when successful
+    const socketAuth = new WebSocket(WEBSOCKET_AUTH_TOKEN)
+    socketAuth.addEventListener("message", event => {
+      rememberMe(event.data)
+      this.props.history.push(this.props.user.routes.success)
+    })
   }
 
   handleTwitterButton = () => {

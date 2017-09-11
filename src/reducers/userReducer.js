@@ -1,10 +1,10 @@
-import { ROUTE_USER_AUTH_SUCCESS } from "../constants/user"
+import { ROUTE_AUTH_USER_LANDING } from "../constants/user"
 
 const INITIAL_STATE = {
   status: "pending",
   info: {},
   routes: {
-    success: ROUTE_USER_AUTH_SUCCESS
+    success: ROUTE_AUTH_USER_LANDING
   }
 }
 

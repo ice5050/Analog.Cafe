@@ -1,6 +1,6 @@
 // related constants
 import { ROUTE_API_DOMAIN } from "./app"
-import { ROUTE_USER_AUTH_SUCCESS } from "./user"
+import { ROUTE_AUTH_USER_LANDING } from "./user"
 
 // api endpoints
 export const ROUTE_SUBMISSION_API = ROUTE_API_DOMAIN + "/api/submissions"
@@ -12,4 +12,4 @@ export const WEBSOCKET_UPLOAD_PROGRESS =
   process.env.REACT_APP_WEBSOCKET_UPLOAD_PROGRESS
 
 // redirect rules
-export const ROUTE_REDIRECT_AFTER_SUBMIT = ROUTE_USER_AUTH_SUCCESS
+export const ROUTE_REDIRECT_AFTER_SUBMIT = ROUTE_AUTH_USER_LANDING

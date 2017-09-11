@@ -1,29 +1,40 @@
 // tools
 import React from "react"
 import Helmet from "react-helmet"
+
 import { withRouter } from "react-router"
-import emojis from "../../../../constants/emoji"
+import { connect } from "react-redux"
+
 import axios from "axios"
 import localForage from "localforage"
 import "localforage-getitems"
-import { connect } from "react-redux"
 
 // components
 import Heading from "../../../components/ArticleHeading"
 import { Article, Section } from "../../../components/ArticleStyles"
 import { loadContent, loadHeader } from "../../Composer/helpers/loader"
-import { WEBSOCKET_UPLOAD_PROGRESS } from "../../../../constants/submission"
 
+// constants
+import { WEBSOCKET_UPLOAD_PROGRESS } from "../../../../constants/submission"
 import {
   ROUTE_SUBMISSION_API,
   ROUTE_REDIRECT_AFTER_SUBMIT
 } from "../../../../constants/submission"
-import { fetchCard, setCard } from "../../../../actions/modalActions"
+import { ROUTE_AUTH_USER_LANDING } from "../../../../constants/user"
+import emojis from "../../../../constants/emoji"
 
-function redirectToSignIn(props) {
+// redux actions
+import {
+  setRoutes as setLoginRedirectRoutes,
+  resetRoutes as resetLoginRedirectRoutes
+} from "../../../../actions/userActions"
+import { setCard } from "../../../../actions/modalActions"
+
+// this function kicks user to sign-in scdreen but rembers where to come back to
+const redirectToSignIn = props => {
+  props.setLoginRedirectRoutes({ success: props.history.location.pathname })
   props.history.push({
-    pathname: "/sign-in",
-    state: { redirect_to: props.history.location.pathname }
+    pathname: "/sign-in"
   })
 }
 
@@ -75,7 +86,7 @@ function sendSubmission(data, props, socket) {
                   red: true
                 },
                 {
-                  to: "/me",
+                  to: ROUTE_AUTH_USER_LANDING,
                   text: "Abort"
                 }
               ]
@@ -92,7 +103,7 @@ class SubmitConfirm extends React.Component {
   componentDidMount() {
     var props = this.props
     if (!localStorage.getItem("token")) {
-      redirectToSignIn(props)
+      redirectToSignIn(this.props)
     } else {
       var socket = new WebSocket(WEBSOCKET_UPLOAD_PROGRESS)
       // Listen for messages
@@ -133,12 +144,12 @@ class SubmitConfirm extends React.Component {
         }
       } else {
         // content deleted
-        props.history.push("/me")
+        props.history.push(ROUTE_AUTH_USER_LANDING)
       }
     }
   }
 
-  render() {
+  render = () => {
     return (
       <Article>
         <Helmet>
@@ -167,7 +178,8 @@ class SubmitConfirm extends React.Component {
 // connet with redux
 const mapStateToProps = state => {
   return {
-    modal: state.modal
+    modal: state.modal,
+    user: state.user
   }
 }
 const mapDispatchToProps = dispatch => {
@@ -175,8 +187,12 @@ const mapDispatchToProps = dispatch => {
     setCard: (info, request) => {
       dispatch(setCard(info, request))
     },
-    fetchCard: request => {
-      dispatch(fetchCard(request))
+
+    setLoginRedirectRoutes: routes => {
+      dispatch(setLoginRedirectRoutes(routes))
+    },
+    resetLoginRedirectRoutes: () => {
+      dispatch(resetLoginRedirectRoutes())
     }
   }
 }
@@ -184,5 +200,3 @@ const mapDispatchToProps = dispatch => {
 export default withRouter(
   connect(mapStateToProps, mapDispatchToProps)(SubmitConfirm)
 )
-
-// export default withRouter(SubmitConfirm)
