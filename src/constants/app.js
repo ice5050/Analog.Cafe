@@ -5,7 +5,11 @@ export const APP_NAME = "Analog.Cafe"
 export const APP_DESCRIPTION = "A film photography publication"
 
 // api location
-export const ROUTE_API_DOMAIN = process.env.REACT_APP_API_DOMAIN
+export const WEBSOCKET_UPLOAD_PROGRESS =
+  process.env.REACT_APP_WEBSOCKET_UPLOAD_PROGRESS
+export const WEBSOCKET_AUTHEN_TOKEN =
+  process.env.REACT_APP_WEBSOCKET_AUTHEN_TOKEN
+export const ROUTE_API_DOMAIN = process.env.REACT_APP_API_DOMAINSS
 
 // NOTE: this doesn't work yet
 export const ROUTE_APP_CURRENT_DOMAIN = window.location.hostname

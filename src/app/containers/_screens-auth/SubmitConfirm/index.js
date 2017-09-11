@@ -12,6 +12,7 @@ import { connect } from "react-redux"
 import Heading from "../../../components/ArticleHeading"
 import { Article, Section } from "../../../components/ArticleStyles"
 import { loadContent, loadHeader } from "../../Composer/helpers/loader"
+import { WEBSOCKET_UPLOAD_PROGRESS } from "../../../../constants/app"
 
 import { ROUTE_SUBMISSION_API } from "../../../../constants/submission"
 import { fetchCard, setCard } from "../../../../actions/modalActions"
@@ -90,7 +91,7 @@ class SubmitConfirm extends React.Component {
     if (!localStorage.getItem("token")) {
       redirectToSignIn(props)
     } else {
-      var socket = new WebSocket("ws://localhost:4001/api/submissions")
+      var socket = new WebSocket(WEBSOCKET_UPLOAD_PROGRESS)
       // Listen for messages
       socket.addEventListener("message", function(event) {
         console.log("Upload image form server to cloundinary: " + event.data)
