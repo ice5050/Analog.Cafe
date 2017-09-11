@@ -17,12 +17,15 @@ export const Image = styled(({ style, ...props }) => (
 ))`
   width: 100%;
   display: block;
+  text-align: center;
+  font-style: italic;
   ${props =>
     props.protected &&
     `
 		-webkit-touch-callout : none;
 		user-select : none;
 		pointer-events: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	`};
 `
 

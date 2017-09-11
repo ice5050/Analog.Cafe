@@ -11,7 +11,12 @@ export default props => {
     <picture>
       {/* <source srcset="smaller.jpg" media="(max-width: 768px)">
         <source srcset="default.jpg"> */}
-      <img srcSet={src} src={src} alt={alt} className={className} />
+      <img
+        srcSet={src}
+        src={src}
+        alt={"Image: “" + alt + "”"}
+        className={className}
+      />
     </picture>
   )
 }
