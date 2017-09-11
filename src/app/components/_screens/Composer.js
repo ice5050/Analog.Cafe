@@ -1,7 +1,6 @@
 // tools
 import React from "react"
 import Helmet from "react-helmet"
-import emojis from "emojis"
 
 // components
 import { Article } from "../ArticleStyles"
@@ -13,6 +12,7 @@ import {
   DEFAULT_COMPOSER_EDITOR_STATE,
   DEFAULT_COMPOSER_HEADER_STATE
 } from "../../../constants/composer"
+import emojis from "../../../constants/emoji"
 
 const composerState = {
   raw: DEFAULT_COMPOSER_EDITOR_STATE,
