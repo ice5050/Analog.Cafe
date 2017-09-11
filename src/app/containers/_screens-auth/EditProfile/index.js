@@ -85,7 +85,6 @@ class EditProfile extends React.PureComponent {
       ),
       buttonText: event.target.value
     })
-    console.log("handleButtonChange")
   }
   handleButtonFocus = () => {
     this.setState({
@@ -98,10 +97,9 @@ class EditProfile extends React.PureComponent {
       ...this.state,
       buttonText: this.state.buttons[1].text
     })
-    console.log(this.state.buttons[1].text)
   }
 
-  render() {
+  render = () => {
     return this.props.user.info.status === "ok"
       ? <Article>
           <Heading pageTitle="Edit Your Profile" />

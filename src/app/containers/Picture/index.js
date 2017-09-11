@@ -20,24 +20,27 @@ class Figure extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps = nextProps => {
     const caption = nextProps.node.data.get("caption")
     if (caption !== this.state.caption) {
       this.setState({ caption })
     }
   }
-  handleChange(event) {
+  handleChange = event => {
+    // format caption text
     let caption = event.target.value
-      .replace(/'\b/g, "‘") // Opening singles
-      .replace(/\b'/g, "’") // Closing singles
-      .replace(/"\b/g, "“") // Opening doubles
-      .replace(/\b"/g, "”") // Closing doubles
+      .replace(/'\b/g, "‘") // opening singles
+      .replace(/\b'/g, "’") // closing singles
+      .replace(/"\b/g, "“") // opening doubles
+      .replace(/\b"/g, "”") // closing doubles
       .replace(/--/g, "—") // em-dashes
       .replace(/\b\.\.\./g, "…") // ellipsis
     const { node, editor } = this.props
     const feature = node.data.get("feature")
     const src = node.data.get("src")
-    const properties = { data: { caption, src, feature } }
+    const key = node.data.get("key") || false
+    const file = node.data.get("file") || false
+    const properties = { data: { caption, src, feature, key, file } }
     const next = editor
       .getState()
       .transform()
@@ -45,18 +48,18 @@ class Figure extends React.Component {
       .apply()
     editor.onChange(next) // have to use native onChange in editor (rather than handleChange)
   }
-  handleClick(event) {
+  handleClick = event => {
     event.preventDefault()
     event.stopPropagation()
   }
-  componentDidMount() {
+  componentDidMount = () => {
     const { node } = this.props
     const { data } = node
     const caption = data.get("caption")
     this.setState({ caption })
     this.loadImage(data.get("file"), data.get("key"), data.get("src"))
   }
-  loadImage(file, key, src) {
+  loadImage = (file, key, src) => {
     if (!key) {
       this.setState({ src })
       // get image author
@@ -75,7 +78,7 @@ class Figure extends React.Component {
       })
     }
   }
-  render() {
+  render = () => {
     const { attributes, state, node } = this.props
     const { src } = this.state
     const focus = state.isFocused && state.selection.hasEdgeIn(node)

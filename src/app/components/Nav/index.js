@@ -51,14 +51,7 @@ export const CommonNav = props => {
 }
 
 const NavLinkSendLabel = () => {
-  return (
-    <span>
-      Send{" "}
-      <span role="img" aria-label="Rocket">
-        🚀
-      </span>
-    </span>
-  )
+  return <span>Send</span>
 }
 const NavLinkSend = props => {
   return (

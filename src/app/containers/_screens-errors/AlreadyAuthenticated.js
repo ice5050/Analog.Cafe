@@ -1,34 +1,46 @@
 // tools
 import React from "react"
 import { withRouter } from "react-router"
+import Helmet from "react-helmet"
 
 // components
 import Link from "../../components/Link"
 import Heading from "../../components/ArticleHeading"
 import { Article, Section } from "../../components/ArticleStyles"
 
+import errorMessage from "../../../constants/error-messages"
+
 class AlreadyAuthenticated extends React.PureComponent {
-  componentWillMount() {
+  componentWillMount = () => {
     this.props.history.replace({
       state: {
         status: "103" // already authenticated
       }
     })
   }
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     this.props.history.replace({
       state: {
         status: "200"
       }
     })
   }
-  render() {
+  render = () => {
     return (
       <Article>
-        <Heading pageTitle="😏" pageSubtitle="You Are Already Signed In!" />
+        <Helmet>
+          <title>
+            {errorMessage.VIEW_TEMPLATE.ARTICLE.title}
+          </title>
+        </Helmet>
+        <Heading
+          pageTitle={errorMessage.VIEW_TEMPLATE.ARTICLE.title}
+          pageSubtitle={errorMessage.VIEW_TEMPLATE.ARTICLE.subtitle}
+          title={errorMessage.DISAMBIGUATION.CODE_103.error}
+        />
         <Section>
           <p style={{ textAlign: "center" }}>
-            Click{" "}
+            You are aloready signed in. Click{" "}
             <strong>
               <Link to="/me">here</Link>
             </strong>{" "}

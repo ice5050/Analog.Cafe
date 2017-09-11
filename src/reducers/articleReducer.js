@@ -1,6 +1,8 @@
+import emojis from "../constants/emoji"
+
 const INITIAL_STATE = {
   status: "loading",
-  title: "🤔",
+  title: emojis.HUG_RIGHT,
   subtitle: "Loading…",
   content: {
     raw: {

@@ -1,17 +1,17 @@
 // tools
 import React from "react"
 import { ThemeProvider } from "styled-components"
+import { fonts } from "./helpers/font-loader"
 
 // styles
 import ThemeGlobals from "./styles/globals"
-import "sanitize.css/sanitize.css"
 
 // theme
 import { Paper } from "./Paper"
-import { loadFonts } from "./helpers/font-loader"
+import "typeface-lora"
+import "typeface-exo-2"
 
-// fonts
-loadFonts()
+fonts()
 
 // render
 export default props => {

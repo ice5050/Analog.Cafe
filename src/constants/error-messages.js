@@ -1,7 +1,8 @@
+import emojis from "./emoji"
 export default {
   VIEW_TEMPLATE: {
     ARTICLE: {
-      title: "😨",
+      title: emojis.WTF,
       subtitle: "Page Not Available"
     },
     LIST: {
@@ -10,7 +11,7 @@ export default {
         "There are no available articles or photo essays published by this author or under this tag…",
       meta: {
         title: "List not available",
-        emoji: "😨"
+        emoji: emojis.WTF
       }
     },
     PICTURE: {
@@ -24,6 +25,7 @@ export default {
     }
   },
   DISAMBIGUATION: {
+    CODE_203: { error: "Error: User already authenticated (103)" },
     CODE_204: { error: "Error: Malformed or no data received (204)" },
     CODE_404: {
       error: "Error: This view or data for this view does not exist (404)"

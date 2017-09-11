@@ -28,8 +28,11 @@ import AppRoutes from "../../components/_screens/AppRoutes"
 if (
   process.env.NODE_ENV === "development" ||
   ROUTE_APP_CURRENT_DOMAIN !== ROUTE_APP_PRODUCTION_DOMAIN_NAME
-)
+) {
   window["ga-disable-" + APP_TRACKING_GAID] = true
+} else {
+  window["ga-disable-" + APP_TRACKING_GAID] = false
+}
 
 ReactGA.initialize(APP_TRACKING_GAID, {
   debug: false,
@@ -45,7 +48,7 @@ const trackView = () => {
 // render & route
 class App extends React.PureComponent {
   // manipulate nav view & GA tracking
-  componentDidMount() {
+  componentDidMount = () => {
     console.log(process.env.NODE_ENV)
 
     // listen to route changes:
@@ -120,7 +123,7 @@ class App extends React.PureComponent {
     }
   }
 
-  render() {
+  render = () => {
     return (
       <div>
         <Nav top />

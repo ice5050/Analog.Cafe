@@ -1,6 +1,8 @@
 // tools
 import React from "react"
+import Helmet from "react-helmet"
 import { withRouter } from "react-router"
+import emojis from "../../../../constants/emoji"
 
 // components
 import Heading from "../../../components/ArticleHeading"
@@ -13,7 +15,10 @@ const SubmitConfirm = props => {
   )
   return (
     <Article>
-      <Heading pageTitle="Sending… 🚀" />
+      <Helmet>
+        <title>Uploading Submissoin…</title>
+      </Helmet>
+      <Heading pageTitle={emojis.NEONCAT} pageSubtitle="Sending…" />
       <Section>
         <p>
           You have requested

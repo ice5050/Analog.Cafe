@@ -2,7 +2,7 @@
 import FontFaceObserver from "fontfaceobserver"
 
 // return
-export const loadFonts = () => {
+export const fonts = () => {
   const doc = document.documentElement.classList
   if (doc.contains("fonts-loaded")) return
   if (sessionStorage.getItem("fonts-loaded") === "true") {
@@ -10,7 +10,6 @@ export const loadFonts = () => {
     doc.add("fonts-loaded")
     return
   }
-
   new FontFaceObserver("Exo 2", {
     style: "normal",
     weight: 600
@@ -19,7 +18,6 @@ export const loadFonts = () => {
     .then(
       function() {
         doc.add("fonts-loaded-headers")
-
         Promise.all([
           new FontFaceObserver("Lora", {
             style: "normal",

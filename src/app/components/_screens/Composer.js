@@ -9,6 +9,7 @@ import { ModalDispatch } from "../../containers/Modal"
 import Composer from "../../containers/Composer"
 
 // import { ROUTE_SUBMISSION_API } from "../../../constants/submission"
+import emojis from "../../../constants/emoji"
 import {
   DEFAULT_COMPOSER_EDITOR_STATE,
   DEFAULT_COMPOSER_HEADER_STATE
@@ -42,10 +43,7 @@ export default props => {
         wrapperElement="div"
       >
         <Button red>
-          Send Submission{" "}
-          <span role="img" aria-label="Rocket">
-            🚀
-          </span>
+          Send Submission {emojis.CHECKMARK}
         </Button>
       </ModalDispatch>
     </Article>

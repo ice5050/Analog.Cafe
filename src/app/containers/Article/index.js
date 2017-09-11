@@ -42,14 +42,14 @@ class Article extends React.PureComponent {
         this.props.history.location.pathname.replace(ROUTE_ARTICLE_DIR, "")
     })
   }
-  componentDidMount() {
+  componentDidMount = () => {
     this.unlisten = this.props.history.listen(location => this.fetchPage())
     this.fetchPage()
   }
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     this.unlisten()
   }
-  render() {
+  render = () => {
     return (
       <ArticleElement>
         <Helmet>

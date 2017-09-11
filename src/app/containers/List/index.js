@@ -43,15 +43,14 @@ class List extends React.Component {
       true
     )
   }
-  componentDidMount() {
+  componentDidMount = () => {
     this.fetchNewList()
     this.unlisten = this.props.history.listen(this.fetchNewList)
   }
-  componentWillUnmount() {
-    console.log("list unmount")
+  componentWillUnmount = () => {
     this.unlisten()
   }
-  render() {
+  render = () => {
     const renderedListMeta = getListMeta(this.props.location.pathname).meta
     return (
       <div>
@@ -102,7 +101,9 @@ class List extends React.Component {
                 &nbsp;{this.props.list.filter.author &&
                 this.props.list.filter.author.name
                   ? renderedListMeta.emoji
-                  : this.props.list.error ? this.props.list.error.emoji : null}
+                  : this.props.list.error
+                    ? this.props.list.error.emoji
+                    : renderedListMeta.emoji}
               </ListHeader>}
         </ListDescription>
 
