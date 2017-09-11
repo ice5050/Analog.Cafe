@@ -39,6 +39,7 @@ To get the code working on your machine:
 1. [Clone](https://help.github.com/articles/cloning-a-repository/) this repo.
 1. Run `yarn install`.
 1. Run `yarn start`.
+1. Install the [API server](https://github.com/ice5050/Analog.Cafe-Backend).
 
 ###  What is it built with?
 * [Node.js](https://github.com/nodejs/node)
