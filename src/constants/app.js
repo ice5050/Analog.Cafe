@@ -7,8 +7,7 @@ export const APP_DESCRIPTION = "A film photography publication"
 // api location
 export const WEBSOCKET_UPLOAD_PROGRESS =
   process.env.REACT_APP_WEBSOCKET_UPLOAD_PROGRESS
-export const WEBSOCKET_AUTHEN_TOKEN =
-  process.env.REACT_APP_WEBSOCKET_AUTHEN_TOKEN
+export const WEBSOCKET_AUTH_TOKEN = process.env.REACT_APP_WEBSOCKET_AUTH_TOKEN
 export const ROUTE_API_DOMAIN = process.env.REACT_APP_API_DOMAINSS
 
 // NOTE: this doesn't work yet
