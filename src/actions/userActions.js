@@ -5,7 +5,7 @@ import errorMessage from "../constants/error-messages"
 import { ROUTE_USER_API } from "../constants/user"
 
 // get user data matched to login credentials
-export function getUser(token) {
+export const getUser = token => {
   return dispatch => {
     axios({
       method: "get",
@@ -38,13 +38,13 @@ export function getUser(token) {
 }
 
 // set user routes, notably redirect after login url
-export function setRoutes(routes) {
+export const setRoutes = routes => {
   return {
     type: "USER.SET_ROUTES",
     payload: routes
   }
 }
-export function resetRoutes() {
+export const resetRoutes = () => {
   return {
     type: "USER.RESET_ROUTES"
   }
