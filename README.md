@@ -1,7 +1,7 @@
 # Analog.Cafe
 [![GitHub version](https://badge.fury.io/gh/dmitrizzle%2FAnalog.Cafe.svg)](https://badge.fury.io/gh/dmitrizzle%2FAnalog.Cafe) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-> Simple React-based CMS with fantastic public rich text submission processor. Built, used and maintained by [Analog.Cafe](http://analog.cafe): A Film Photography Publication.
+> Lightning-fast, offline-first PWA experience for readers. Beautiful Composer app and one-click accounts for authors. Content scheduling, approval flow and user management for editors.
 
 <img src="https://github.com/dmitrizzle/Analog.Cafe/blob/develop/public/images/pictures/submit.gif?raw=true" width="373" alt="Screenshot" />
 
@@ -23,10 +23,10 @@
 If you're interested in the story behind this project, check out this [Wiki](https://github.com/dmitrizzle/Analog.Cafe/wiki).
 
 ### Demo.
-[Analog.Cafe](http://analog.cafe). Or run the app on your local machine (see "[How do I contribute](#how-do-i-contribute)?")
+**[Analog.Cafe](http://analog.cafe): “A film photography publication.”** Or run the app on your local machine (see "[How do I contribute](#how-do-i-contribute)?")
 
 ### How can I use this?
-Currently there is no easy way to install, configure and use the system on your website out of the box. ~The first phase of this project is planned as a pre-release on August 2017 at [Analog.Cafe](http://analog.cafe) only~✅, followed by 1.0 around September 2017. There are ~two~ three organizations waiting to try this system with their content, which will probably happen by early 2018. Once that's confirmed working and tested, there will be a package for general usage.
+Currently there is no easy way to install, configure and use the system on your website out of the box. ~The first phase of this project is planned as a pre-release on August 2017 at [Analog.Cafe](http://analog.cafe) only~ ✅, followed by 1.0 around September 2017. There are ~two~ three organizations waiting to try this system with their content, which will probably happen by early 2018. Once that's confirmed working and tested, there will be a package for general usage.
 
 You can, however see and try all the code (see "[How do I contribute](#how-do-i-contribute)?")
 
@@ -37,9 +37,9 @@ To get the code working on your machine:
 1. [Get GIT](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 1. [Get Node.js](https://nodejs.org/en/download/package-manager/).
 1. [Clone](https://help.github.com/articles/cloning-a-repository/) this repo.
-1. Run `git submodule init` and `git submodule update` - learn more about [GIT Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 1. Run `yarn install`.
 1. Run `yarn start`.
+1. Install the [API server](https://github.com/ice5050/Analog.Cafe-Backend).
 
 ###  What is it built with?
 * [Node.js](https://github.com/nodejs/node)

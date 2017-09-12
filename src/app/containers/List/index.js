@@ -43,15 +43,14 @@ class List extends React.Component {
       true
     )
   }
-  componentDidMount() {
+  componentDidMount = () => {
     this.fetchNewList()
     this.unlisten = this.props.history.listen(this.fetchNewList)
   }
-  componentWillUnmount() {
-    console.log("list unmount")
+  componentWillUnmount = () => {
     this.unlisten()
   }
-  render() {
+  render = () => {
     const renderedListMeta = getListMeta(this.props.location.pathname).meta
     return (
       <div>

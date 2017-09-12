@@ -1,6 +1,6 @@
 // tools
 import React from "react"
-import { Picture } from "react-responsive-picture"
+import Picture from "./components/PictureElement"
 
 // styles
 import styled, { css } from "styled-components"
@@ -9,62 +9,62 @@ import { Caption as PictureCaption, CaptionStyles } from "../CaptionStyles"
 
 // css
 // remove `style` prop from Picture HOC
-export const Image = styled(({ style, ...props }) =>
+export const Image = styled(({ style, ...props }) => (
   <Picture
     {...props}
     onContextMenu={event => props.protected && event.preventDefault()}
   />
-)`
-	width: 		100%;
-  display: 	block;
-	${props =>
+))`
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-style: italic;
+  ${props =>
     props.protected &&
     `
 		-webkit-touch-callout : none;
 		user-select : none;
 		pointer-events: none;
-	`}
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	`};
 `
 
 const shadow = css`
-	box-shadow: 0 0 ${props => props.theme.size.block.spacing / 2}em ${props =>
-  Color(props.theme.color.foreground)
-    .alpha(props.theme.opacity.least)
-    .string()};
+  box-shadow: 0 0 ${props => props.theme.size.block.spacing / 2}em
+    ${props =>
+      Color(props.theme.color.foreground)
+        .alpha(props.theme.opacity.least)
+        .string()};
 `
 const bleed = css`
-	float:					none;
-	margin-left: 		-${props => props.theme.size.block.column.safety}em;
-	margin-right: 	-${props => props.theme.size.block.column.safety}em;
-	margin-bottom: 	0;
-	width: 					100vw !important;
-	max-width: 			100vw !important;
-	box-shadow: 		none;
-	border-radius: 	0;
+  float: none;
+  margin-left: -${props => props.theme.size.block.column.safety}em;
+  margin-right: -${props => props.theme.size.block.column.safety}em;
+  margin-bottom: 0;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  box-shadow: none;
+  border-radius: 0;
 
-	${props =>
+  ${props =>
     props.theme.size.breakpoint.min.l`margin-top: ${props =>
-      props.theme.size.block.spacing}em;`}
-
-	${props =>
-    props.feature
-      ? props => props.theme.size.breakpoint.min.l`
+      props.theme.size.block.spacing}em;`} ${props =>
+      props.feature
+        ? props => props.theme.size.breakpoint.min.l`
 		margin-left:	calc(( -100vw + ${props =>
       props.theme.size.block.column.maxwidth.m}px )/2 - ${props =>
-          props.theme.size.block.column.safety}em );
+            props.theme.size.block.column.safety}em );
 	`
-      : null}
-	${props =>
-    props.feature
-      ? props => props.theme.size.breakpoint.min.xxl`
+        : null} ${props =>
+      props.feature
+        ? props => props.theme.size.breakpoint.min.xxl`
 		margin-left:	calc(( -100vw + ${props =>
       props.theme.size.block.column.maxwidth.l}px )/2 - ${props =>
-          props.theme.size.block.column.safety}em );
+            props.theme.size.block.column.safety}em );
 	`
-      : null}
-	${props => props.theme.size.breakpoint.max.m`
+        : null} ${props => props.theme.size.breakpoint.max.m`
 		margin-top: 0;
-	`}
+	`};
 `
 export const Figure = styled.figure`
   overflow: hidden;
@@ -129,7 +129,7 @@ export const Figure = styled.figure`
 `
 
 const captionBlock = css`
-	${props => props.theme.size.breakpoint.min.l`
+  ${props => props.theme.size.breakpoint.min.l`
 		margin: 0 auto;
 		${props => props.theme.size.breakpoint.min.s`
 			max-width:	 ${props => props.theme.size.block.column.maxwidth.m}px;
@@ -137,23 +137,30 @@ const captionBlock = css`
 		${props => props.theme.size.breakpoint.min.xxl`
 			max-width:	 ${props => props.theme.size.block.column.maxwidth.l}px;
 		`}
-	`}
+	`};
 `
 export const Caption = styled(PictureCaption)`
-	border-bottom:	${props => props.theme.elements.thickBorder};
-	color: ${props =>
+  border-bottom: ${props => props.theme.elements.thickBorder};
+  color: ${props =>
     Color(props.theme.color.foreground)
       .alpha(props.theme.opacity.half)
       .string()};
-	padding: ${props => props.theme.size.block.column.safety / 2}em ${props =>
-  props.theme.size.block.column.safety /
-  props.theme.size.font.make.smaller}em ${props =>
-  props.theme.size.block.column.safety * 1.25}em;
-	text-align: center;
+  padding: ${props => props.theme.size.block.column.safety / 2}em
+    ${props =>
+      props.theme.size.block.column.safety /
+      props.theme.size.font.make.smaller}em
+    ${props => props.theme.size.block.column.safety * 1.25}em;
+  text-align: center;
 
-	div, textarea {
-		display: inline;
-	}
-	textarea { font-size: 1em !important; text-align: center; overflow: hidden; font-variant: small-caps; }
-	${props => props.feature && captionBlock}
+  div,
+  textarea {
+    display: inline;
+  }
+  textarea {
+    font-size: 1em !important;
+    text-align: center;
+    overflow: hidden;
+    font-variant: small-caps;
+  }
+  ${props => props.feature && captionBlock};
 `

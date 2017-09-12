@@ -85,7 +85,6 @@ class EditProfile extends React.PureComponent {
       ),
       buttonText: event.target.value
     })
-    console.log("handleButtonChange")
   }
   handleButtonFocus = () => {
     this.setState({
@@ -98,49 +97,50 @@ class EditProfile extends React.PureComponent {
       ...this.state,
       buttonText: this.state.buttons[1].text
     })
-    console.log(this.state.buttons[1].text)
   }
 
-  render() {
-    return this.props.user.info.status === "ok"
-      ? <Article>
-          <Heading pageTitle="Edit Your Profile" />
-          <CardEditableProfile
-            // these props are pulled from Redux store that has
-            // logged-in user info
+  render = () => {
+    return this.props.user.info.status === "ok" ? (
+      <Article>
+        <Heading pageTitle="Edit Your Profile" />
+        <CardEditableProfile
+          // these props are pulled from Redux store that has
+          // logged-in user info
 
-            // author's name
-            title={this.props.title}
-            changeTitle={this.handleTitleChange}
-            // author's bio
-            text={this.props.text}
-            changeText={this.handleTextChange}
-            // author's avatar image
-            image={this.state.image}
-            changeImage={this.handleImageChange}
-            // author's link
-            buttonText={this.state.buttonText}
-            changeButton={this.handleButtonChange}
-            focusButton={this.handleButtonFocus}
-            blurButton={this.handleButtonBlur}
-          />
+          // author's name
+          title={this.props.title}
+          changeTitle={this.handleTitleChange}
+          // author's bio
+          text={this.props.text}
+          changeText={this.handleTextChange}
+          // author's avatar image
+          image={this.state.image}
+          changeImage={this.handleImageChange}
+          // author's link
+          buttonText={this.state.buttonText}
+          changeButton={this.handleButtonChange}
+          focusButton={this.handleButtonFocus}
+          blurButton={this.handleButtonBlur}
+        />
 
-          {/* Image upload hidden input */}
-          <input
-            type="file"
-            accept="image/x-png,image/jpeg"
-            style={{ display: "none" }}
-            ref={input => {
-              this.fileInput = input
-            }}
-            onChange={this.handleFileUpload}
-          />
+        {/* Image upload hidden input */}
+        <input
+          type="file"
+          accept="image/x-png,image/jpeg"
+          style={{ display: "none" }}
+          ref={input => {
+            this.fileInput = input
+          }}
+          onChange={this.handleFileUpload}
+        />
 
-          <LinkButton to="/me" red>
-            Done
-          </LinkButton>
-        </Article>
-      : <Forbidden />
+        <LinkButton to="/me" red>
+          Done
+        </LinkButton>
+      </Article>
+    ) : (
+      <Forbidden />
+    )
   }
 }
 

@@ -48,7 +48,7 @@ const trackView = () => {
 // render & route
 class App extends React.PureComponent {
   // manipulate nav view & GA tracking
-  componentDidMount() {
+  componentDidMount = () => {
     console.log(process.env.NODE_ENV)
 
     // listen to route changes:
@@ -123,7 +123,7 @@ class App extends React.PureComponent {
     }
   }
 
-  render() {
+  render = () => {
     return (
       <div>
         <Nav top />

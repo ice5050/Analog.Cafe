@@ -33,7 +33,6 @@ const ThankYouList = styled(Quote)`
 
 // render
 export default props => {
-  console.log(process.env)
   return (
     <Article>
       <Helmet>
@@ -56,7 +55,12 @@ export default props => {
         pageSubtitle="A Film Photography Publication"
       />
       <Section>
-        <Figure src="/images/pictures/about-forest.jpg" feature noAuthor>
+        <Figure
+          src="/images/pictures/about-forest.jpg"
+          feature
+          noAuthor
+          alt="Forest view"
+        >
           A short ride up a twisty mountain road from downtown Chiang Mai<br />&mdash;
           where Analog.Cafe is built &mdash;<br />is a tropical forest.
         </Figure>
