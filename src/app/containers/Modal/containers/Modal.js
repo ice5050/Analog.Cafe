@@ -16,11 +16,14 @@ const Modal = props => {
   }
 
   // close card on escape keypress
-  document.onkeydown = event =>
-    event.keyCode === 27 &&
-    !props.modal.info.stubborn &&
-    !props.modal.hidden &&
-    props.hideCard()
+  document.onkeydown = event => {
+    if (
+      event.keyCode === 27 &&
+      !props.modal.info.stubborn &&
+      !props.modal.hidden
+    )
+      props.hideCard()
+  }
 
   return (
     <ModalOverlay
