@@ -42,7 +42,8 @@ export const send = request => {
                   info: {
                     title: errorMessage.VIEW_TEMPLATE.SUBMISSION.title,
                     text: errorMessage.VIEW_TEMPLATE.SUBMISSION.text,
-                    error: error,
+                    error,
+                    stubborn: true,
                     buttons: [
                       {
                         to: "#try-again",
@@ -54,7 +55,7 @@ export const send = request => {
                       },
                       {
                         to: "/submit/compose",
-                        text: "Try Later"
+                        text: "Cancel"
                       }
                     ]
                   }

@@ -25,7 +25,10 @@ import {
   setRoutes as setLoginRedirectRoutes,
   resetRoutes as resetLoginRedirectRoutes
 } from "../../../../actions/userActions"
-import { send as sendUpload } from "../../../../actions/uploadActions"
+import {
+  send as sendUpload,
+  initStatus as resetUploadStatus
+} from "../../../../actions/uploadActions"
 
 // render
 class Upload extends React.Component {
@@ -34,6 +37,7 @@ class Upload extends React.Component {
     this.socketUpload = new WebSocket(WEBSOCKET_UPLOAD_PROGRESS)
   }
   componentDidMount = () => {
+    console.log(this.props)
     // redirects
     if (!localStorage.getItem("token")) {
       redirectToSignIn(this.props)
@@ -67,11 +71,12 @@ class Upload extends React.Component {
           }
         }
         if (keys.length > 0) {
+          const _this = this // perhaps binding "this" to localForage fn would have been the right decision instead of _this - but I don't know and don't care to do this atm
           localForage.getItems(keys).then(function(results) {
             for (var i = 0; i < keys.length; i++) {
               data.append("images[" + keys[i] + "]", results[keys[i]])
             }
-            sendSubmission(data, this.props)
+            sendSubmission(data, _this.props)
           })
         } else {
           sendSubmission(data, this.props)
@@ -94,11 +99,14 @@ class Upload extends React.Component {
       localForage.clear()
       // close connection listener
       this.socketUpload.close()
+      // reset upload state
+      this.props.resetUploadStatus()
       // redirect after submission complete
       this.props.history.replace({
         pathname: ROUTE_REDIRECT_AFTER_SUBMIT
       })
-    } else {
+    } else if (this.props.upload.status !== "pending") {
+      // submission not in progress
       this.socketUpload.close() // close socket connection
       // if user is unauthorized, redirect to sign in page
       if (this.props.upload.status === "unauthorized") {
@@ -145,7 +153,9 @@ const mapDispatchToProps = dispatch => {
     sendUpload: request => {
       dispatch(sendUpload(request))
     },
-
+    resetUploadStatus: () => {
+      dispatch(resetUploadStatus())
+    },
     setLoginRedirectRoutes: routes => {
       dispatch(setLoginRedirectRoutes(routes))
     },
