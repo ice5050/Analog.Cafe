@@ -6,12 +6,11 @@ import uuidv1 from "uuid/v1"
 // components
 import PictureDocket from "../../components/PictureDocket"
 import { CardHeader } from "../../components/Card/styles"
-import { Caption } from "../../components/CaptionStyles"
 import {
   GridContainer,
   GridRow,
-  Square,
   GridButton,
+  GridCaption,
   AspectRatio
 } from "../../components/GridStyles"
 import { ModalDispatch } from "../Modal"
@@ -54,8 +53,8 @@ export default class extends React.Component {
   initFileUpload = event => {
     this.fileInput.click()
   }
-  handleFileUpload = e => {
-    const file = e.target.files[0]
+  handleFileUpload = event => {
+    const file = event.target.files[0]
     this.uploadRequest(file)
   } // ⤵
   uploadRequest = file => {
@@ -80,7 +79,7 @@ export default class extends React.Component {
     )
   }
 
-  render() {
+  render = () => {
     return (
       <PictureDocket>
         <CardHeader>
@@ -91,56 +90,50 @@ export default class extends React.Component {
         </CardHeader>
         <GridContainer>
           <GridRow>
-            <Square>
+            <GridButton>
               <AspectRatio>
                 <img src="/images/thumbnails/square.jpg" alt="" />
               </AspectRatio>
-            </Square>
-            <Square>
+            </GridButton>
+            <GridButton>
               <img src="/images/thumbnails/square.jpg" alt="" />
-            </Square>
+            </GridButton>
             <GridButton onClick={this.initFileUpload} red>
-              <div>
-                <span
-                  role="img"
-                  aria-label="Laptop or mobile device"
-                  style={{}}
-                >
-                  💻📱
-                </span>
+              <div style={{ margin: "0 auto" }}>
+                ＋
                 <br />
-                Upload New
+                Upload<span> New</span>
               </div>
             </GridButton>
           </GridRow>
           <GridRow>
-            <Square>
+            <GridButton>
               <AspectRatio>
                 <img src="/images/thumbnails/square.jpg" alt="" />
               </AspectRatio>
-            </Square>
-            <Square>
+            </GridButton>
+            <GridButton>
               <img src="/images/thumbnails/square.jpg" alt="" />
-            </Square>
-            <Square>
+            </GridButton>
+            <GridButton>
               <img src="/images/thumbnails/square.jpg" alt="" />
-            </Square>
+            </GridButton>
           </GridRow>
           <GridRow>
-            <Square>
+            <GridButton>
               <AspectRatio>
                 <img src="/images/thumbnails/square.jpg" alt="" />
               </AspectRatio>
-            </Square>
-            <Square>
+            </GridButton>
+            <GridButton>
               <img src="/images/thumbnails/square.jpg" alt="" />
-            </Square>
-            <Square>
+            </GridButton>
+            <GridButton>
               <img src="/images/thumbnails/square.jpg" alt="" />
-            </Square>
+            </GridButton>
           </GridRow>
         </GridContainer>
-        <Caption style={{ opacity: ".5", textAlign: "center" }}>
+        <GridCaption>
           <ModalDispatch
             with={{
               info: {
@@ -152,9 +145,10 @@ export default class extends React.Component {
               id: "hints/image-suggestions"
             }}
           >
-            What is this?
-          </ModalDispatch>
-        </Caption>
+            Image suggestions
+          </ModalDispatch>{" "}
+          curated by Analog.Cafe editors.
+        </GridCaption>
         <input
           type="file"
           accept="image/x-png,image/jpeg"

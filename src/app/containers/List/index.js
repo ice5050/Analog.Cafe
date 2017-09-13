@@ -43,60 +43,77 @@ class List extends React.Component {
       true
     )
   }
-  componentDidMount() {
-    this.unlisten = this.props.history.listen(location => this.fetchNewList())
+  componentDidMount = () => {
     this.fetchNewList()
+    this.unlisten = this.props.history.listen(this.fetchNewList)
   }
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     this.unlisten()
   }
-  render() {
+  render = () => {
     const renderedListMeta = getListMeta(this.props.location.pathname).meta
     return (
       <div>
         <Helmet>
           <title>
             {renderedListMeta.title +
-              (this.props.list.filter.author
+              (this.props.list.filter.author &&
+              this.props.list.filter.author.name
                 ? this.props.list.filter.author.name
-                : null)}
+                : "")}
           </title>
           <meta name="description" content={renderedListMeta.description} />
         </Helmet>
         <ListDescription>
-          {this.props.header
-            ? this.props.header
-            : <ListHeader>
-                {this.props.list.filter.author
-                  ? <q>
-                      <em>
-                        {renderedListMeta.title}
-                        {this.props.list.filter.author.name ? " " : null}
-                        {this.props.list.filter.author.name
-                          ? <span>
-                              by{" "}
-                              <ModalDispatch
-                                with={{
-                                  request: {
-                                    url:
-                                      ROUTE_AUTHOR_API +
-                                      "/" +
-                                      this.props.list.filter.author.id
-                                  }
-                                }}
-                              >
-                                {this.props.list.filter.author.name}
-                              </ModalDispatch>
-                            </span>
-                          : this.props.location.pathname.includes("/author/") &&
-                            "␆"}
-                      </em>.
-                    </q>
-                  : <q>
-                      <em>{renderedListMeta.title}</em>.
-                    </q>}
-                &nbsp;{renderedListMeta.emoji}
-              </ListHeader>}
+          {this.props.header ? (
+            this.props.header
+          ) : (
+            <ListHeader>
+              {this.props.list.filter.author ? (
+                <q>
+                  <em>
+                    {this.props.list.error ? (
+                      this.props.list.error.title
+                    ) : (
+                      renderedListMeta.title
+                    )}
+                    {this.props.list.filter.author.name ? " " : null}
+                    {this.props.list.filter.author.name ? (
+                      <span>
+                        by{" "}
+                        <ModalDispatch
+                          with={{
+                            request: {
+                              url:
+                                ROUTE_AUTHOR_API +
+                                "/" +
+                                this.props.list.filter.author.id
+                            }
+                          }}
+                        >
+                          {this.props.list.filter.author.name}
+                        </ModalDispatch>
+                      </span>
+                    ) : (
+                      this.props.location.pathname.includes("/author/") && ".."
+                    )}
+                  </em>.
+                </q>
+              ) : (
+                <q>
+                  <em>{renderedListMeta.title}</em>.
+                </q>
+              )}
+              &nbsp;{this.props.list.filter.author &&
+              this.props.list.filter.author.name ? (
+                renderedListMeta.emoji
+              ) : this.props.list.error ? (
+                this.props.list.error.emoji
+              ) : (
+                renderedListMeta.emoji
+              )}
+            </ListHeader>
+          )}
         </ListDescription>
 
         <ListBlock
@@ -115,11 +132,11 @@ class List extends React.Component {
 
         {parseInt(this.props.list.page.total, 0) > 1 &&
         parseInt(this.props.list.page.total, 0) >
-          parseInt(this.props.list.page.current, 0)
-          ? <LinkButton to="#more" red onClick={this.handleLoadMore.bind(this)}>
-              Load More
-            </LinkButton>
-          : null}
+          parseInt(this.props.list.page.current, 0) ? (
+          <LinkButton to="#more" red onClick={this.handleLoadMore.bind(this)}>
+            Load More
+          </LinkButton>
+        ) : null}
 
         <Article>
           <Section />

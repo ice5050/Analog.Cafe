@@ -13,8 +13,8 @@ import {
 } from "../../../constants/article"
 import { ROUTE_AUTHOR_API } from "../../../constants/author"
 import {
-  ROUTE_APP_PERMANENT_DOMAIN_NAME,
-  ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL
+  ROUTE_APP_PRODUCTION_DOMAIN_NAME,
+  ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL
 } from "../../../constants/app"
 
 import { schema } from "../Composer/containers/ContentEditor/schema"
@@ -42,28 +42,25 @@ class Article extends React.PureComponent {
         this.props.history.location.pathname.replace(ROUTE_ARTICLE_DIR, "")
     })
   }
-  componentDidMount() {
+  componentDidMount = () => {
     this.unlisten = this.props.history.listen(location => this.fetchPage())
     this.fetchPage()
   }
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     this.unlisten()
   }
-  render() {
-    console.log(this.props.article)
+  render = () => {
     return (
       <ArticleElement>
         <Helmet>
-          <title>
-            {this.props.article.title}
-          </title>
+          <title>{this.props.article.title}</title>
           <meta name="description" content={this.props.article.summary} />
           <meta
             property="og:image"
             content={
               this.props.article.poster &&
-              ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL +
-                ROUTE_APP_PERMANENT_DOMAIN_NAME +
+              ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL +
+                ROUTE_APP_PRODUCTION_DOMAIN_NAME +
                 this.props.article.poster.medium
             }
           />
@@ -71,19 +68,22 @@ class Article extends React.PureComponent {
         <Heading
           pageTitle={this.props.article.title}
           pageSubtitle={this.props.article.subtitle}
+          title={this.props.article.error && this.props.article.error}
         >
-          <Byline>
-            by{" "}
-            <ModalDispatch
-              with={{
-                request: {
-                  url: ROUTE_AUTHOR_API + "/" + this.props.article.author.id
-                }
-              }}
-            >
-              {this.props.article.author.name}
-            </ModalDispatch>
-          </Byline>
+          {this.props.article.status === "published" && (
+            <Byline>
+              by{" "}
+              <ModalDispatch
+                with={{
+                  request: {
+                    url: ROUTE_AUTHOR_API + "/" + this.props.article.author.id
+                  }
+                }}
+              >
+                {this.props.article.author.name}
+              </ModalDispatch>
+            </Byline>
+          )}
         </Heading>
         <Section articleStatus={this.props.article.status}>
           <Editor

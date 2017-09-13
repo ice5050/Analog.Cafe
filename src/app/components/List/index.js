@@ -13,7 +13,7 @@ import { ZigzagPicture } from "./styles/zigzag-picture"
 import { datestamp } from "./helpers"
 
 // constants
-import { ROUTE_ARTICLE_DIR } from "../../../constants/list"
+import { ROUTE_ARTICLE_DIR, SUMMARY_LENGTH_MAX } from "../../../constants/list"
 
 // return
 export default props => {
@@ -48,8 +48,8 @@ export default props => {
                     {item.title}
                   </h2>
                   <Caption status={props.status}>
-                    {item.summary.length > 250
-                      ? item.summary.substr(0, 249) + "…"
+                    {item.summary.length > SUMMARY_LENGTH_MAX
+                      ? item.summary.substr(0, SUMMARY_LENGTH_MAX - 1) + "…"
                       : item.summary}
                   </Caption>
                   <div>

@@ -7,23 +7,34 @@ import React from "react"
 import styled from "styled-components"
 
 const ScreenSlicer = styled.div`
-  background: ${props => props.theme.color.foreground};
-  color: ${props => props.theme.color.background};
   width: 100vw;
   max-width: 100vw;
   margin: ${props => props.theme.size.block.spacing}em 0;
   clear: both;
 
   & aside > header {
-    padding: ${props => props.theme.size.block.spacing}em 0
-      ${props => props.theme.size.block.column.safety}em 0;
+    padding: ${props => props.theme.size.block.spacing}em 0 0 0;
+    ${props => props.theme.size.breakpoint.max.m`
+      padding: ${props => props.theme.size.block.spacing}em 0
+        0 ${props => props.theme.size.block.column.safety}em !important;
+        `} box-shadow: none;
+    margin-bottom: ${props => props.theme.size.block.spacing}em;
+    border-bottom: ${props => props.theme.elements.thickBorder};
     & > a {
-      top: ${props => props.theme.size.block.spacing}em;
-      right: -${props => props.theme.size.block.spacing / 2}em;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      top: inherit;
+      ${props => props.theme.size.breakpoint.max.m`
+        right: ${props => props.theme.size.block.column.safety}em !important;
+          `};
     }
     & > h3 {
       font-size: ${props => props.theme.size.font.make.larger / 2}em;
       overflow: visible;
+      &::before {
+        content: none;
+      }
     }
   }
 
@@ -60,9 +71,7 @@ const ScreenSlicer = styled.div`
 export default props => {
   return (
     <ScreenSlicer>
-      <aside>
-        {props.children}
-      </aside>
+      <aside>{props.children}</aside>
     </ScreenSlicer>
   )
 }

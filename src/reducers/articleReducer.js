@@ -1,8 +1,9 @@
+import emojis from "../constants/emoji"
+
 const INITIAL_STATE = {
   status: "loading",
-  title: "Loading…",
-  subtitle: "",
-  author: { name: "Finding article author…", id: "" },
+  title: emojis.HUG_RIGHT,
+  subtitle: "Loading…",
   content: {
     raw: {
       nodes: [

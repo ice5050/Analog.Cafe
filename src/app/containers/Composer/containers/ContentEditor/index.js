@@ -15,21 +15,21 @@ import { saveContent, setDraftStatusHelper } from "../../helpers/saver"
 
 // return
 class ContentEditor extends React.Component {
-  state = {
-    state: Raw.deserialize(loadContent(), { terse: true }),
-    schema,
-    author: this.props.author,
-    cursorContext: {
-      isFocused: false,
-      newLine: false,
-      parentBlockOffsets: { top: 0, left: 0 }
-    }
-  }
-
   constructor(props) {
     super(props)
-    // composerState is what appears by default in composer once the user opens the view
     this.props.composerState.raw = loadContent()
+
+    // composerState is what appears by default in composer once the user opens the view
+    this.state = {
+      state: Raw.deserialize(loadContent(), { terse: true }),
+      schema,
+      author: this.props.author,
+      cursorContext: {
+        isFocused: false,
+        newLine: false,
+        parentBlockOffsets: { top: 0, left: 0 }
+      }
+    }
   }
 
   handleChange = state => {
@@ -83,7 +83,7 @@ class ContentEditor extends React.Component {
   }
 
   // render
-  render() {
+  render = () => {
     return (
       <div style={{ position: "relative" }}>
         <ImageButton
@@ -96,7 +96,6 @@ class ContentEditor extends React.Component {
           state={this.state.state}
           onChange={this.handleChange}
           onDocumentChange={this.handleDocumentChange}
-          author={this.state.author}
           style={{ minHeight: "28em" }}
         />
       </div>

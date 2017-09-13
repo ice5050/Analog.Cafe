@@ -1,10 +1,7 @@
 // styles
 import styled from "styled-components"
 import { Paper } from "../Paper"
-
-// fonts
-import { Exo2Latin600 } from "./fonts"
-import { LoraLatin400 } from "typeface-lora"
+import "sanitize.css/sanitize.css"
 
 // return
 export default styled.div`
@@ -26,6 +23,4 @@ export default styled.div`
   textarea {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
-
-  ${Exo2Latin600} ${LoraLatin400};
 `

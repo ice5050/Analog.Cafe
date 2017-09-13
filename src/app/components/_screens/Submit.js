@@ -3,8 +3,8 @@ import React from "react"
 import Helmet from "react-helmet"
 
 import {
-  ROUTE_APP_PERMANENT_DOMAIN_NAME,
-  ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL
+  ROUTE_APP_PRODUCTION_DOMAIN_NAME,
+  ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL
 } from "../../../constants/app"
 
 // components
@@ -28,8 +28,8 @@ export default props => {
         <meta
           property="og:image"
           content={
-            ROUTE_APP_PERMANENT_DOMAIN_PROTOCOL +
-            ROUTE_APP_PERMANENT_DOMAIN_NAME +
+            ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL +
+            ROUTE_APP_PRODUCTION_DOMAIN_NAME +
             "/images/pictures/submit-camera.jpg"
           }
         />
@@ -173,9 +173,16 @@ export default props => {
               editors the permission to modify your work (cropping, color and
               quality adjustments as well as copy editing and visual
               decorations). You are free to request an immediate withdrawal of
-              your work at any time. We will comply as soon as possible and
-              within reason. Analog.Cafe also reserves the right to remove your
-              work at any time at our discretion.
+              your work at any time via email (see{" "}
+              <Link to="/about">About</Link> page for contact info). We will
+              comply as soon as possible and within reason; images which are
+              used within other posts or are “suggested” images (“suggested”
+              images are recommended to authors within a grid of 8 when they
+              click “Add Image” button) will take at least two weeks to remove,
+              since we’ll be forced to make arrangements that would satisfy all
+              the posts and authors who have used that material. Analog.Cafe
+              also reserves the right to remove your work at any time at our
+              discretion.
             </small>
           </p>
           <p>
@@ -203,7 +210,8 @@ export default props => {
                 <Link to="/submit/compose">Composer</Link> tool you certify that
                 the you are the owner of the copyrights or have a permission to
                 use in this context all the images, text, files or other
-                intellectual property that you submit to Analog.Cafe.
+                intellectual property that you submit to Analog.Cafe, and that
+                you agree to the above terms, conditions and benifits.
               </strong>
             </small>
           </p>

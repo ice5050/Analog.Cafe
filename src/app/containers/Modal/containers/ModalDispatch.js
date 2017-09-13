@@ -20,7 +20,7 @@ class ModalDispatch extends React.Component {
           { url: this.props.with.id }
         )
   }
-  render() {
+  render = () => {
     // Wrapper defaults to <a> link, however it could become *any* react component:
     let wrapperElement, wrapperProps
     if (!this.props.wrapperElement) {
@@ -37,18 +37,18 @@ class ModalDispatch extends React.Component {
 
     wrapperElement === "a"
       ? (ModalDispatchWrapper = styled(Wrapper)`
-        &::after {
-          content: "✦";
-          text-decoration: none;
-          font-style: normal;
-          display: inline-block;
-          vertical-align: super;
-          font-size: .5em;
-          margin-right: -.25em;
-          margin-left: -.15em;
-          margin-top: -.5em;
-        }
-      `)
+          &::after {
+            content: "✦";
+            text-decoration: none;
+            font-style: normal;
+            display: inline-block;
+            vertical-align: super;
+            font-size: 0.5em;
+            margin-right: -.25em;
+            margin-left: -.15em;
+            margin-top: -.5em;
+          }
+        `)
       : (ModalDispatchWrapper = Wrapper)
 
     return (

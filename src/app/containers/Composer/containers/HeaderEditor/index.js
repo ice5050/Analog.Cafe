@@ -11,44 +11,47 @@ import { ModalDispatch } from "../../../Modal"
 import { Header, Byline } from "../../../../components/ArticleStyles"
 import placeholder from "../../../../components/_icons/images/placeholder-profile.png"
 
-const maxTitleLength = 65
-const maxSubtitleLength = 75
-const maxSuggestedTitleLength = 32
-const maxSuggestedSubtitleLength = 52
+// constants
+import {
+  TITLE_LENGTH_MAX,
+  TITLE_LENGTH_OPTIMAL,
+  SUBTITLE_LENGTH_MAX,
+  SUBTITLE_LENGTH_OPTIMAL
+} from "../../../../../constants/input"
 
 // return
-export default class extends React.Component {
+export default class extends React.PureComponent {
   constructor(props) {
     super(props)
     this.props.composerState.title = loadHeader().title
     this.props.composerState.subtitle = loadHeader().subtitle
     this.handleTitleChange = this.handleTitleChange.bind(this)
     this.handleSubtitleChange = this.handleSubtitleChange.bind(this)
+    this.state = {
+      title: { warning: false },
+      subtitle: { warning: false }
+    }
   }
-  state = {
-    title: { warning: false },
-    subtitle: { warning: false }
-  }
-  componentWillMount() {
+  componentWillMount = () => {
     this.headerData = loadHeader()
   }
   handleTitleChange(event) {
     this.headerData.title = event
     this.props.composerState.title = event
     saveHeader(this.headerData)
-    this.headerData.title.length > maxSuggestedTitleLength
+    this.headerData.title.length > TITLE_LENGTH_OPTIMAL
       ? this.setState({ title: { warning: true } })
       : this.setState({ title: { warning: false } })
   }
-  handleSubtitleChange(event) {
+  handleSubtitleChange = event => {
     this.props.composerState.subtitle = event
     this.headerData.subtitle = event
     saveHeader(this.headerData)
-    this.headerData.subtitle.length > maxSuggestedSubtitleLength
+    this.headerData.subtitle.length > SUBTITLE_LENGTH_OPTIMAL
       ? this.setState({ subtitle: { warning: true } })
       : this.setState({ subtitle: { warning: false } })
   }
-  render() {
+  render = () => {
     return (
       <Header>
         <TitleCase
@@ -58,9 +61,10 @@ export default class extends React.Component {
           inputDesignation="title"
           warning={
             this.state.title.warning ||
-            this.headerData.title.length > maxSuggestedTitleLength
+            this.headerData.title.length > TITLE_LENGTH_OPTIMAL
           }
-          maxLength={maxTitleLength}
+          maxLength={TITLE_LENGTH_MAX}
+          autoFocus
         />
         <TitleCase
           placeholder={this.props.pageSubtitle}
@@ -69,29 +73,31 @@ export default class extends React.Component {
           inputDesignation="subtitle"
           warning={
             this.state.subtitle.warning ||
-            this.headerData.subtitle.length > maxSuggestedSubtitleLength
+            this.headerData.subtitle.length > SUBTITLE_LENGTH_OPTIMAL
           }
-          maxLength={maxSubtitleLength}
+          maxLength={SUBTITLE_LENGTH_MAX}
         />
         <Byline>
           Link to{" "}
           <ModalDispatch
             with={
-              this.props.user.status === "ok"
-                ? {
-                    request: {
-                      url: "/api/author/" + this.props.user.info.author.id
-                    }
+              this.props.user.status === "ok" ? (
+                {
+                  request: {
+                    url: "/api/author/" + this.props.user.info.author.id
                   }
-                : {
-                    info: {
-                      image: placeholder,
-                      title: "Your Profile",
-                      text:
-                        "You can create, view or update your profile after you send your submission."
-                    },
-                    id: "hints/author"
-                  }
+                }
+              ) : (
+                {
+                  info: {
+                    image: placeholder,
+                    title: "Your Profile",
+                    text:
+                      "You can create, view or update your profile after you send your submission."
+                  },
+                  id: "hints/author"
+                }
+              )
             }
           >
             Your Profile

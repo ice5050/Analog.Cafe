@@ -62,36 +62,47 @@ export function fetchPage(request, appendItems = false) {
       url: request.url
     })
       .then(response => {
-        response.data.page["items-total"] > 0
-          ? dispatch(setPage(response.data, appendItems))
-          : dispatch(
-              setCard(
-                {
-                  status: "ok",
-                  info: {
-                    title: "Error 204",
-                    text: errorMessage.EMPTY_LIST
-                  }
-                },
-                { url: "errors/list" }
-              )
+        if (response.data.page["items-total"] > 0)
+          dispatch(setPage(response.data, appendItems))
+        else {
+          dispatch(
+            setCard(
+              {
+                status: "ok",
+                info: {
+                  title: errorMessage.VIEW_TEMPLATE.LIST.title,
+                  text: errorMessage.VIEW_TEMPLATE.LIST.text,
+                  error: errorMessage.DISAMBIGUATION.CODE_204.error
+                }
+              },
+              { url: "errors/list" }
             )
+          )
+          dispatch(
+            initPage({
+              error: errorMessage.VIEW_TEMPLATE.LIST.meta
+            })
+          )
+        }
       })
       .catch(error => {
-        console.log(error.response)
         dispatch(
           setCard(
             {
               status: "ok",
               info: {
-                title:
-                  "Error: " +
-                  (error.response ? error.response.status : "no response"),
-                text: errorMessage.FAILED_LIST
+                title: errorMessage.VIEW_TEMPLATE.LIST.title,
+                text: errorMessage.VIEW_TEMPLATE.LIST.text,
+                error
               }
             },
             { url: "errors/list" }
           )
+        )
+        dispatch(
+          initPage({
+            error: errorMessage.VIEW_TEMPLATE.LIST.meta
+          })
         )
       })
   }
