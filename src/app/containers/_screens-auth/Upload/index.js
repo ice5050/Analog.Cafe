@@ -16,7 +16,7 @@ import { Article, Section } from "../../../components/ArticleStyles"
 import { loadContent, loadHeader } from "../../Composer/helpers/loader"
 import { WEBSOCKET_UPLOAD_PROGRESS } from "../../../../constants/submission"
 import { ROUTE_REDIRECT_AFTER_SUBMIT } from "../../../../constants/submission"
-import emojis from "../../../../constants/emoji"
+import emojis from "../../../../constants/messages/emojis"
 
 import { redirectToSignIn, sendSubmission } from "./helpers"
 

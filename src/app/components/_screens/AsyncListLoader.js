@@ -4,8 +4,8 @@ import React from "react"
 // styles
 import { ListDescription, ListHeader } from "../ListDescription"
 import { Section, Article } from "../ArticleStyles"
-import emojis from "../../../constants/emoji"
-import error from "../../../constants/error-messages"
+import emojis from "../../../constants/messages/emojis"
+import errorMessages from "../../../constants/messages/errors"
 
 // return
 export default props => {
@@ -16,13 +16,17 @@ export default props => {
           <ListHeader>
             <q>
               <em>
-                {props.isLoading ? "Loading…" : error.VIEW_TEMPLATE.LIST.title}
+                {props.isLoading ? (
+                  "Loading…"
+                ) : (
+                  errorMessages.VIEW_TEMPLATE.LIST.title
+                )}
               </em>
             </q>{" "}
             {props.isLoading ? (
               emojis.HUG_RIGHT
             ) : (
-              error.VIEW_TEMPLATE.LIST.emoji
+              errorMessages.VIEW_TEMPLATE.LIST.emoji
             )}
           </ListHeader>
         )}

@@ -1,6 +1,6 @@
 // tools
 import axios from "axios"
-import errorMessage from "../constants/error-messages"
+import errorMessages from "../constants/messages/errors"
 import { axiosRequest } from "./helpers"
 
 import { ROUTE_LIST_API, ROUTE_AUTHENTICATED_LIST_API } from "../constants/list"
@@ -61,7 +61,7 @@ export const fetchPage = (request, appendItems = false) => {
         else {
           dispatch(
             initPage({
-              error: errorMessage.VIEW_TEMPLATE.LIST
+              error: errorMessages.VIEW_TEMPLATE.LIST
             })
           )
         }
@@ -69,7 +69,7 @@ export const fetchPage = (request, appendItems = false) => {
       .catch(error => {
         dispatch(
           initPage({
-            error: errorMessage.VIEW_TEMPLATE.LIST
+            error: errorMessages.VIEW_TEMPLATE.LIST
           })
         )
       })

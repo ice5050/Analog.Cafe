@@ -8,7 +8,7 @@ import Link from "../../components/Link"
 import Heading from "../../components/ArticleHeading"
 import { Article, Section } from "../../components/ArticleStyles"
 
-import errorMessage from "../../../constants/error-messages"
+import errorMessages from "../../../constants/messages/errors"
 
 class NotFound extends React.PureComponent {
   componentWillMount = () => {
@@ -29,12 +29,12 @@ class NotFound extends React.PureComponent {
     return (
       <Article>
         <Helmet>
-          <title>{errorMessage.VIEW_TEMPLATE.ARTICLE.title}</title>
+          <title>{errorMessages.VIEW_TEMPLATE.ARTICLE.title}</title>
         </Helmet>
         <Heading
-          pageTitle={errorMessage.VIEW_TEMPLATE.ARTICLE.title}
-          pageSubtitle={errorMessage.VIEW_TEMPLATE.ARTICLE.subtitle}
-          title={errorMessage.DISAMBIGUATION.CODE_403.error}
+          pageTitle={errorMessages.VIEW_TEMPLATE.ARTICLE.title}
+          pageSubtitle={errorMessages.VIEW_TEMPLATE.ARTICLE.subtitle}
+          title={errorMessages.DISAMBIGUATION.CODE_403.error}
         />{" "}
         <Section>
           <p style={{ textAlign: "center" }}>

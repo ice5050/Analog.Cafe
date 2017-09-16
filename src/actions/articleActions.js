@@ -1,6 +1,6 @@
 // tools
 import axios from "axios"
-import errorMessage from "../constants/error-messages"
+import errorMessages from "../constants/messages/errors"
 import { axiosRequest } from "./helpers"
 
 import { ROUTE_ARTICLE_API } from "../constants/article"
@@ -50,17 +50,17 @@ export const fetchPage = request => {
           ? dispatch(setPage(response.data))
           : dispatch(
               initPage({
-                title: errorMessage.VIEW_TEMPLATE.ARTICLE.title,
-                subtitle: errorMessage.VIEW_TEMPLATE.ARTICLE.subtitle,
-                error: errorMessage.DISAMBIGUATION.CODE_204.error
+                title: errorMessages.VIEW_TEMPLATE.ARTICLE.title,
+                subtitle: errorMessages.VIEW_TEMPLATE.ARTICLE.subtitle,
+                error: errorMessages.DISAMBIGUATION.CODE_204.error
               })
             )
       })
       .catch(error => {
         dispatch(
           initPage({
-            title: errorMessage.VIEW_TEMPLATE.ARTICLE.title,
-            subtitle: errorMessage.VIEW_TEMPLATE.ARTICLE.subtitle,
+            title: errorMessages.VIEW_TEMPLATE.ARTICLE.title,
+            subtitle: errorMessages.VIEW_TEMPLATE.ARTICLE.subtitle,
             error
           })
         )

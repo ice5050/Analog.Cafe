@@ -1,4 +1,4 @@
-import emojis from "./emoji"
+import emojis from "./emojis"
 export default {
   VIEW_TEMPLATE: {
     ARTICLE: {

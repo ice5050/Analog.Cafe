@@ -4,8 +4,8 @@ import React from "react"
 // styles
 import Heading from "../ArticleHeading"
 import { Section, Article } from "../ArticleStyles"
-import emojis from "../../../constants/emoji"
-import error from "../../../constants/error-messages"
+import emojis from "../../../constants/messages/emojis"
+import errorMessages from "../../../constants/messages/errors"
 
 // return
 export default props => {
@@ -18,7 +18,7 @@ export default props => {
           ) : (
             "‌"
           ) : (
-            error.VIEW_TEMPLATE.LIST.emoji
+            errorMessages.VIEW_TEMPLATE.LIST.emoji
           )
         }
         pageSubtitle={
@@ -27,7 +27,7 @@ export default props => {
           ) : (
             "‌"
           ) : (
-            error.VIEW_TEMPLATE.LIST.title
+            errorMessages.VIEW_TEMPLATE.LIST.title
           )
         }
       />

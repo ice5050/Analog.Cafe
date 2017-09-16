@@ -3,7 +3,7 @@ import axios from "axios"
 import { axiosRequest } from "./helpers"
 
 import { setCard } from "./modalActions"
-import errorMessage from "../constants/error-messages"
+import errorMessages from "../constants/messages/errors"
 
 export const setStatus = state => {
   return {
@@ -40,8 +40,8 @@ export const send = request => {
                 {
                   status: "ok",
                   info: {
-                    title: errorMessage.VIEW_TEMPLATE.SUBMISSION.title,
-                    text: errorMessage.VIEW_TEMPLATE.SUBMISSION.text,
+                    title: errorMessages.VIEW_TEMPLATE.SUBMISSION.title,
+                    text: errorMessages.VIEW_TEMPLATE.SUBMISSION.text,
                     error,
                     stubborn: true,
                     buttons: [

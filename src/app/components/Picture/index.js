@@ -1,6 +1,6 @@
 // tools
 import React from "react"
-import errorMessage from "../../../constants/error-messages"
+import errorMessages from "../../../constants/messages/errors"
 
 import { ROUTE_AUTHOR_API } from "../../../constants/author"
 
@@ -29,50 +29,51 @@ export default props => {
           }
         }
       >
-        {props.author
-          ? <Caption {...props}>
-              {props.children}
-              {props.readOnly
-                ? <span style={{ color: "#2c2c2c" }}>
-                    {" "}Image by{" "}
-                    <span
-                      style={
-                        props.author.name === "" ? { display: "none" } : null
-                      }
-                    >
-                      <ModalDispatch
-                        with={
-                          props.author.id !== "unknown"
-                            ? {
-                                request: {
-                                  url: ROUTE_AUTHOR_API + "/" + props.author.id
-                                }
-                              }
-                            : {
-                                info: {
-                                  title:
-                                    errorMessage.VIEW_TEMPLATE.PICTURE.title,
-                                  text: errorMessage.VIEW_TEMPLATE.PICTURE.text,
-                                  error: props.author.error
-                                },
-                                id: "errors/author"
-                              }
+        {props.author ? (
+          <Caption {...props}>
+            {props.children}
+            {props.readOnly ? (
+              <span style={{ color: "#2c2c2c" }}>
+                {" "}
+                Image by{" "}
+                <span
+                  style={props.author.name === "" ? { display: "none" } : null}
+                >
+                  <ModalDispatch
+                    with={
+                      props.author.id !== "unknown" ? (
+                        {
+                          request: {
+                            url: ROUTE_AUTHOR_API + "/" + props.author.id
+                          }
                         }
-                      >
-                        {props.author.name}
-                      </ModalDispatch>.
-                    </span>
-                  </span>
-                : null}
-            </Caption>
-          : <Caption {...props}>
-              {props.children}
-              {!props.noAuthor &&
-                props.readOnly &&
-                <span style={{ color: "#2c2c2c" }}>
-                  {" "}Finding image author…
-                </span>}
-            </Caption>}
+                      ) : (
+                        {
+                          info: {
+                            title: errorMessages.VIEW_TEMPLATE.PICTURE.title,
+                            text: errorMessages.VIEW_TEMPLATE.PICTURE.text,
+                            error: props.author.error
+                          },
+                          id: "errors/author"
+                        }
+                      )
+                    }
+                  >
+                    {props.author.name}
+                  </ModalDispatch>.
+                </span>
+              </span>
+            ) : null}
+          </Caption>
+        ) : (
+          <Caption {...props}>
+            {props.children}
+            {!props.noAuthor &&
+            props.readOnly && (
+              <span style={{ color: "#2c2c2c" }}> Finding image author…</span>
+            )}
+          </Caption>
+        )}
       </figcaption>
     </Figure>
   )

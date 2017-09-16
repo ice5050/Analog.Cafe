@@ -1,15 +1,15 @@
 // tools
 import axios from "axios"
 import { setCard } from "./modalActions"
-import errorMessage from "../constants/error-messages"
+import errorMessages from "../constants/messages/errors"
 import { ROUTE_USER_API } from "../constants/user"
 
 // error message
 const loginError = {
   status: "ok",
   info: {
-    title: errorMessage.VIEW_TEMPLATE.CARD.title,
-    text: errorMessage.DISAMBIGUATION.CODE_401.error
+    title: errorMessages.VIEW_TEMPLATE.CARD.title,
+    text: errorMessages.DISAMBIGUATION.CODE_401.error
   }
 }
 

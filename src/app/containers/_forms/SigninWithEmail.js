@@ -12,6 +12,8 @@ import { Form } from "../../components/FormStyles"
 // helpers
 import validateEmail from "./helpers/validateEmail"
 
+import { MESSAGE_HINT_CHECK_EMAIL } from "../../../constants/messages/hints"
+
 // render
 export default class extends React.Component {
   constructor(props) {
@@ -40,15 +42,7 @@ export default class extends React.Component {
           warning={this.state.warning}
         />
 
-        <ModalDispatch
-          with={{
-            request: {
-              url: "/api/auth/messages/check-email",
-              data: { email: this.state.email }
-            }
-          }}
-          wrapperElement="div"
-        >
+        <ModalDispatch with={MESSAGE_HINT_CHECK_EMAIL} wrapperElement="div">
           <Button onClick={this.handleSubmit}>Sign In</Button>
         </ModalDispatch>
       </Form>

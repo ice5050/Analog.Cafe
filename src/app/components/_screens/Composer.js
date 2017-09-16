@@ -12,7 +12,8 @@ import {
   DEFAULT_COMPOSER_EDITOR_STATE,
   DEFAULT_COMPOSER_HEADER_STATE
 } from "../../../constants/composer"
-import emojis from "../../../constants/emoji"
+import emojis from "../../../constants/messages/emojis"
+import { MESSAGE_HINT_SUBMIT_CONSENT } from "../../../constants/messages/hints"
 
 const composerState = {
   raw: DEFAULT_COMPOSER_EDITOR_STATE,
@@ -33,11 +34,7 @@ export default props => {
       </Helmet>
       <Composer composerState={composerState} />
       <ModalDispatch
-        with={{
-          request: {
-            url: "/api/messages/submit-consent.json"
-          }
-        }}
+        with={MESSAGE_HINT_SUBMIT_CONSENT}
         style={{ textDecoration: "none" }}
         wrapperElement="div"
       >

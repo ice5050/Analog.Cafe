@@ -9,7 +9,6 @@ import { ModalDispatch } from "../../../Modal"
 
 // styles
 import { Header, Byline } from "../../../../components/ArticleStyles"
-import placeholder from "../../../../components/_icons/images/placeholder-profile.png"
 
 // constants
 import {
@@ -18,6 +17,7 @@ import {
   SUBTITLE_LENGTH_MAX,
   SUBTITLE_LENGTH_OPTIMAL
 } from "../../../../../constants/input"
+import { MESSAGE_HINT_YOUR_PROFILE } from "../../../../../constants/messages/hints"
 
 // return
 export default class extends React.PureComponent {
@@ -72,17 +72,7 @@ export default class extends React.PureComponent {
         />
         <Byline>
           Link to{" "}
-          <ModalDispatch
-            with={{
-              info: {
-                image: placeholder,
-                title: "Your Profile",
-                text:
-                  "You can create, view or update your profile after you send your submission."
-              },
-              id: "hints/author"
-            }}
-          >
+          <ModalDispatch with={MESSAGE_HINT_YOUR_PROFILE}>
             Your Profile
           </ModalDispatch>{" "}
           will appear here.

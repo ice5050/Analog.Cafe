@@ -1,6 +1,6 @@
 // tools
 import axios from "axios"
-import errorMessage from "../constants/error-messages"
+import errorMessages from "../constants/messages/errors"
 import { axiosRequest } from "./helpers"
 
 // return
@@ -49,9 +49,9 @@ export const fetchCard = request => {
                 {
                   status: "ok",
                   info: {
-                    title: errorMessage.VIEW_TEMPLATE.CARD.title,
-                    text: errorMessage.VIEW_TEMPLATE.CARD.text,
-                    error: errorMessage.DISAMBIGUATION.CODE_204.error
+                    title: errorMessages.VIEW_TEMPLATE.CARD.title,
+                    text: errorMessages.VIEW_TEMPLATE.CARD.text,
+                    error: errorMessages.DISAMBIGUATION.CODE_204.error
                   }
                 },
                 { url: "errors/modal" }
@@ -65,9 +65,9 @@ export const fetchCard = request => {
                 {
                   status: "ok",
                   info: {
-                    title: errorMessage.VIEW_TEMPLATE.CARD.title,
-                    text: errorMessage.VIEW_TEMPLATE.CARD.text,
-                    error: errorMessage.DISAMBIGUATION.CODE_401.error
+                    title: errorMessages.VIEW_TEMPLATE.CARD.title,
+                    text: errorMessages.VIEW_TEMPLATE.CARD.text,
+                    error: errorMessages.DISAMBIGUATION.CODE_401.error
                   }
                 },
                 { url: "errors/modal" }
@@ -78,8 +78,8 @@ export const fetchCard = request => {
                 {
                   status: "ok",
                   info: {
-                    title: errorMessage.VIEW_TEMPLATE.CARD.title,
-                    text: errorMessage.VIEW_TEMPLATE.CARD.text,
+                    title: errorMessages.VIEW_TEMPLATE.CARD.title,
+                    text: errorMessages.VIEW_TEMPLATE.CARD.text,
                     error
                   }
                 },
