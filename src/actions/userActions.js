@@ -50,7 +50,7 @@ export const getInfo = () => {
           .then(response =>
             dispatch({
               type: "USER.GET_INFO",
-              payload: response.data
+              payload: response.data.data
             })
           )
           .catch(error => dispatch(setCard(loginError, { url: "errors/user" })))

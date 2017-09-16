@@ -1,6 +1,7 @@
 // tools
 import axios from "axios"
 import errorMessage from "../constants/error-messages"
+import { axiosRequest } from "./helpers"
 
 import { ROUTE_LIST_API, ROUTE_AUTHENTICATED_LIST_API } from "../constants/list"
 
@@ -36,7 +37,7 @@ export const fetchPage = (request, appendItems = false) => {
     // get current state from store
     let listState = getState().list
 
-    // do not load list twice in a arow
+    // do not load list more than once, escape loops
     if (
       listState.requested.url === request.url &&
       listState.requested.params.tag === request.params.tag &&
@@ -53,13 +54,7 @@ export const fetchPage = (request, appendItems = false) => {
         })
       )
 
-    axios({
-      method: request.method || "get",
-      params: request.params || {},
-      data: request.data || {},
-      headers: request.headers || {},
-      url: request.url
-    })
+    axios(axiosRequest(request))
       .then(response => {
         if (response.data.page["items-total"] > 0)
           dispatch(setPage(response.data, appendItems))

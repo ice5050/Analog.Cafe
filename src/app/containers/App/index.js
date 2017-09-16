@@ -17,7 +17,10 @@ import {
   setView as setNavView,
   setLocation as setNavLocation
 } from "../../../actions/navActions"
-import { verify as verifyUser } from "../../../actions/userActions"
+import {
+  verify as verifyUser,
+  getInfo as getUserInfo
+} from "../../../actions/userActions"
 
 import { Modal } from "../Modal"
 import Nav from "../Nav"
@@ -52,6 +55,8 @@ class App extends React.PureComponent {
 
     // verify user status
     this.props.verifyUser()
+    // get logged in user info
+    this.props.getUserInfo()
 
     // listen to route changes:
     this.handleRouteChnange()
@@ -135,8 +140,11 @@ const mapDispatchToProps = dispatch => {
     setNavLocation: location => {
       dispatch(setNavLocation(location))
     },
-    verifyUser: token => {
-      dispatch(verifyUser(token))
+    verifyUser: () => {
+      dispatch(verifyUser())
+    },
+    getUserInfo: () => {
+      dispatch(getUserInfo())
     }
   }
 }

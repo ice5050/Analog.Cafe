@@ -8,7 +8,7 @@ export { SUMMARY_LENGTH_MAX } from "./input"
 
 // api endpoints
 export const ROUTE_LIST_API = ROUTE_API_DOMAIN + "/list"
-export const ROUTE_AUTHENTICATED_LIST_API = "/auth/list"
+export const ROUTE_AUTHENTICATED_LIST_API = ROUTE_API_DOMAIN + "/auth/list"
 
 // filter sets for particular view URLs/routes
 export const ROUTE_FILTERS = {

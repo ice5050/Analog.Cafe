@@ -13,7 +13,7 @@ export default (state = INITIAL_STATE, action) => {
     case "USER.GET_INFO":
       state = {
         ...state,
-        ...action.payload
+        info: action.payload
       }
       break
     case "USER.VERIFY":
