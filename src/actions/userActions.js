@@ -39,22 +39,29 @@ export const forget = () => {
 export const getInfo = () => {
   return dispatch => {
     const token = localStorage.getItem("token")
-    token
-      ? axios({
-          method: "get",
-          headers: {
-            Authorization: "JWT " + token
-          },
-          url: ROUTE_USER_API
-        })
-          .then(response =>
-            dispatch({
-              type: "USER.GET_INFO",
-              payload: response.data.data
-            })
-          )
-          .catch(error => dispatch(setCard(loginError, { url: "errors/user" })))
-      : dispatch(setCard(loginError, { url: "errors/user" }))
+    if (!token) dispatch(setCard(loginError, { url: "errors/user" }))
+    else {
+      dispatch({
+        type: "USER.SET_INFO",
+        payload: {
+          title: "Getting Your Info…"
+        }
+      })
+      axios({
+        method: "get",
+        headers: {
+          Authorization: "JWT " + token
+        },
+        url: ROUTE_USER_API
+      })
+        .then(response =>
+          dispatch({
+            type: "USER.SET_INFO",
+            payload: response.data.data
+          })
+        )
+        .catch(error => dispatch(setCard(loginError, { url: "errors/user" })))
+    }
   }
 }
 

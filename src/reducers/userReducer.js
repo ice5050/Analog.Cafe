@@ -10,7 +10,7 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "USER.GET_INFO":
+    case "USER.SET_INFO":
       state = {
         ...state,
         info: action.payload

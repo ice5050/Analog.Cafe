@@ -53,9 +53,8 @@ class App extends React.PureComponent {
   componentDidMount = () => {
     console.log(process.env.NODE_ENV)
 
-    // verify user status
+    // verify user status & get user info
     this.props.verifyUser()
-    // get logged in user info
     this.props.getUserInfo()
 
     // listen to route changes:
