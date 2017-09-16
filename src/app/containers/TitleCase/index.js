@@ -11,7 +11,7 @@ const components = {
   subtitle: SubtitleTextarea
 }
 
-export default class extends React.Component {
+export default class extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = { value: props.value || "" }
@@ -31,6 +31,7 @@ export default class extends React.Component {
         className={this.props.className}
         placeholder={this.props.placeholder}
         warning={this.props.warning}
+        caution={this.props.caution}
         maxLength={this.props.maxLength}
       />
     )
