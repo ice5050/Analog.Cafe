@@ -17,6 +17,7 @@ const titlePlaceholder = {
 
 // return
 const Composer = props => {
+  console.log(this.props.user.status)
   return (
     <div>
       <HeaderEditor

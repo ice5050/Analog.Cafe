@@ -77,33 +77,7 @@ export default class extends React.PureComponent {
           }
           maxLength={SUBTITLE_LENGTH_MAX}
         />
-        <Byline>
-          Link to{" "}
-          <ModalDispatch
-            with={
-              this.props.user.status === "ok" ? (
-                {
-                  request: {
-                    url: "/author/" + this.props.user.info.author.id
-                  }
-                }
-              ) : (
-                {
-                  info: {
-                    image: placeholder,
-                    title: "Your Profile",
-                    text:
-                      "You can create, view or update your profile after you send your submission."
-                  },
-                  id: "hints/author"
-                }
-              )
-            }
-          >
-            Your Profile
-          </ModalDispatch>{" "}
-          will appear here.
-        </Byline>
+        <Byline>Link to  will appear here.</Byline>
       </Header>
     )
   }
