@@ -7,68 +7,61 @@ import { connect } from "react-redux"
 import { fetchCard, setCard } from "../../../../actions/modalActions"
 
 // return
-class ModalDispatch extends React.PureComponent {
-  invokeModal = event => {
+const ModalDispatch = props => {
+  const invokeModal = event => {
     event.preventDefault()
-    this.props.with.request
-      ? this.props.fetchCard(this.props.with.request)
-      : this.props.setCard(
+    props.with.request
+      ? props.fetchCard(props.with.request)
+      : props.setCard(
           {
             status: "ok",
-            info: this.props.with.info
+            info: props.with.info
           },
-          { url: this.props.with.id }
+          { url: props.with.id }
         )
   }
-  render = () => {
-    // Wrapper defaults to <a> link, however it could become *any* react component:
-    let wrapperElement, wrapperProps
-    if (!this.props.wrapperElement) {
-      wrapperElement = "a"
-      wrapperProps = {
-        href: "#card"
-      }
-    } else {
-      wrapperElement = this.props.wrapperElement
-      wrapperProps = {}
+  // Wrapper defaults to <a> link, however it could become *any* react component:
+  let wrapperElement, wrapperProps
+  if (!props.wrapperElement) {
+    wrapperElement = "a"
+    wrapperProps = {
+      href: "#card"
     }
-    const Wrapper = wrapperElement
-    let ModalDispatchWrapper
-
-    wrapperElement === "a"
-      ? (ModalDispatchWrapper = styled(Wrapper)`
-          &::after {
-            content: "✦";
-            text-decoration: none;
-            font-style: normal;
-            display: inline-block;
-            vertical-align: super;
-            font-size: 0.5em;
-            margin-right: -.25em;
-            margin-left: -.15em;
-            margin-top: -.5em;
-          }
-        `)
-      : (ModalDispatchWrapper = Wrapper)
-
-    return (
-      <ModalDispatchWrapper
-        style={this.props.style}
-        onClick={this.invokeModal.bind(this)}
-        {...wrapperProps}
-      >
-        {this.props.children}
-      </ModalDispatchWrapper>
-    )
+  } else {
+    wrapperElement = props.wrapperElement
+    wrapperProps = {}
   }
+  const Wrapper = wrapperElement
+  let ModalDispatchWrapper
+
+  wrapperElement === "a"
+    ? (ModalDispatchWrapper = styled(Wrapper)`
+        &::after {
+          content: "✦";
+          text-decoration: none;
+          font-style: normal;
+          display: inline-block;
+          vertical-align: super;
+          font-size: 0.5em;
+          margin-right: -.25em;
+          margin-left: -.15em;
+          margin-top: -.5em;
+        }
+      `)
+    : (ModalDispatchWrapper = Wrapper)
+
+  return (
+    <ModalDispatchWrapper
+      style={props.style}
+      onClick={invokeModal.bind(this)}
+      {...wrapperProps}
+    >
+      {props.children}
+    </ModalDispatchWrapper>
+  )
 }
 
 // connet with redux
-const mapStateToProps = state => {
-  return {
-    modal: state.modal
-  }
-}
 const mapDispatchToProps = dispatch => {
   return {
     setCard: (info, request) => {
@@ -79,4 +72,4 @@ const mapDispatchToProps = dispatch => {
     }
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(ModalDispatch)
+export default connect(null, mapDispatchToProps)(ModalDispatch)
