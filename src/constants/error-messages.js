@@ -7,12 +7,7 @@ export default {
     },
     LIST: {
       title: "List not available",
-      text:
-        "There are no available articles or photo essays published by this author or under this tag…",
-      meta: {
-        title: "List not available",
-        emoji: emojis.WTF
-      }
+      emoji: emojis.WTF
     },
     PICTURE: {
       name: "Unknown Author",

@@ -18,7 +18,7 @@ export default props => {
           ) : (
             "‌"
           ) : (
-            error.VIEW_TEMPLATE.LIST.meta.emoji
+            error.VIEW_TEMPLATE.LIST.emoji
           )
         }
         pageSubtitle={
@@ -27,7 +27,7 @@ export default props => {
           ) : (
             "‌"
           ) : (
-            error.VIEW_TEMPLATE.LIST.meta.title
+            error.VIEW_TEMPLATE.LIST.title
           )
         }
       />

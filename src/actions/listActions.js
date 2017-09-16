@@ -1,6 +1,5 @@
 // tools
 import axios from "axios"
-import { setCard } from "./modalActions"
 import errorMessage from "../constants/error-messages"
 
 import { ROUTE_LIST_API, ROUTE_AUTHENTICATED_LIST_API } from "../constants/list"
@@ -66,42 +65,16 @@ export const fetchPage = (request, appendItems = false) => {
           dispatch(setPage(response.data, appendItems))
         else {
           dispatch(
-            setCard(
-              {
-                status: "ok",
-                info: {
-                  title: errorMessage.VIEW_TEMPLATE.LIST.title,
-                  text: errorMessage.VIEW_TEMPLATE.LIST.text,
-                  error: errorMessage.DISAMBIGUATION.CODE_204.error
-                }
-              },
-              { url: "errors/list" }
-            )
-          )
-          dispatch(
             initPage({
-              error: errorMessage.VIEW_TEMPLATE.LIST.meta
+              error: errorMessage.VIEW_TEMPLATE.LIST
             })
           )
         }
       })
       .catch(error => {
         dispatch(
-          setCard(
-            {
-              status: "ok",
-              info: {
-                title: errorMessage.VIEW_TEMPLATE.LIST.title,
-                text: errorMessage.VIEW_TEMPLATE.LIST.text,
-                error
-              }
-            },
-            { url: "errors/list" }
-          )
-        )
-        dispatch(
           initPage({
-            error: errorMessage.VIEW_TEMPLATE.LIST.meta
+            error: errorMessage.VIEW_TEMPLATE.LIST
           })
         )
       })

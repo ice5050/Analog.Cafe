@@ -16,17 +16,13 @@ export default props => {
           <ListHeader>
             <q>
               <em>
-                {props.isLoading ? (
-                  "Loading…"
-                ) : (
-                  error.VIEW_TEMPLATE.LIST.meta.title
-                )}
+                {props.isLoading ? "Loading…" : error.VIEW_TEMPLATE.LIST.title}
               </em>
             </q>{" "}
             {props.isLoading ? (
               emojis.HUG_RIGHT
             ) : (
-              error.VIEW_TEMPLATE.LIST.meta.emoji
+              error.VIEW_TEMPLATE.LIST.emoji
             )}
           </ListHeader>
         )}
