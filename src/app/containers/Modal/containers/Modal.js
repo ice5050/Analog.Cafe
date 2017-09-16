@@ -9,10 +9,19 @@ import { hideCard } from "../../../../actions/modalActions"
 // components
 import { CardModal, ModalOverlay } from "../../../components/Card"
 
+import {
+  ROUTE_APP_CURRENT_DOMAIN,
+  ROUTE_API_DOMAIN
+} from "../../../../constants/app"
+
 // return
 const Modal = props => {
   if (!props.modal.hidden && props.modal.status === "ok") {
-    ReactGA.modalview(props.modal.requested.url) // google analytics
+    ReactGA.modalview(
+      props.modal.requested.url
+        .replace(ROUTE_API_DOMAIN, "") // cut api domain from the middle of reported path
+        .replace(ROUTE_APP_CURRENT_DOMAIN, "") // cut app domain from the middle of reported path
+    ) // google analytics
   }
 
   // close card on escape keypress

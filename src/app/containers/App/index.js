@@ -37,7 +37,7 @@ if (
 }
 
 ReactGA.initialize(APP_TRACKING_GAID, {
-  debug: false,
+  debug: true,
   titleCase: true,
   gaOptions: {}
 })

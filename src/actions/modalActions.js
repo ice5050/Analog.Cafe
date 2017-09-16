@@ -54,7 +54,7 @@ export const fetchCard = request => {
                     error: errorMessages.DISAMBIGUATION.CODE_204.error
                   }
                 },
-                { url: "errors/modal" }
+                { url: "errors/card" }
               )
             )
       })
@@ -70,7 +70,7 @@ export const fetchCard = request => {
                     error: errorMessages.DISAMBIGUATION.CODE_401.error
                   }
                 },
-                { url: "errors/modal" }
+                { url: "errors/card" }
               )
             )
           : dispatch(
@@ -83,7 +83,7 @@ export const fetchCard = request => {
                     error
                   }
                 },
-                { url: "errors/modal" }
+                { url: "errors/card" }
               )
             )
       })
