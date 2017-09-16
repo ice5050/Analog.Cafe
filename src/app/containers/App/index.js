@@ -37,7 +37,7 @@ if (
 }
 
 ReactGA.initialize(APP_TRACKING_GAID, {
-  debug: true,
+  debug: false,
   titleCase: true,
   gaOptions: {}
 })
@@ -55,7 +55,7 @@ class App extends React.PureComponent {
 
     // verify user status & get user info
     this.props.verifyUser()
-    this.props.getUserInfo()
+    this.props.user.status === "ok" && this.props.getUserInfo()
 
     // listen to route changes:
     this.handleRouteChnange()
