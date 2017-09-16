@@ -1,9 +1,6 @@
 // tools
 import React from "react"
 
-// redux
-import { connect } from "react-redux"
-
 // components
 import HeaderEditor from "./containers/HeaderEditor"
 import ContentEditor from "./containers/ContentEditor"
@@ -16,15 +13,13 @@ const titlePlaceholder = {
 }
 
 // return
-const Composer = props => {
-  console.log(this.props.user.status)
+export default props => {
   return (
     <div>
       <HeaderEditor
         composerState={props.composerState}
         pageTitle={titlePlaceholder.title}
         pageSubtitle={titlePlaceholder.subtitle}
-        user={props.user}
       />
       <Section>
         <ContentEditor
@@ -38,11 +33,5 @@ const Composer = props => {
   )
 }
 
-// connect with redux
-const mapStateToProps = state => {
-  return {
-    user: state.user
-  }
-}
-
-export default connect(mapStateToProps)(Composer)
+// NOTE: this is a pure component but it's in the containers folder to help tie
+// everything together.
