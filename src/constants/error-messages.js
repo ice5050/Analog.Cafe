@@ -30,7 +30,7 @@ export default {
     }
   },
   DISAMBIGUATION: {
-    CODE_203: { error: "Error: User already authenticated (103)" },
+    CODE_103: { error: "Error: User already authenticated (103)" },
     CODE_204: { error: "Error: Malformed or no data received (204)" },
     CODE_404: {
       error: "Error: This view or data for this view does not exist (404)"

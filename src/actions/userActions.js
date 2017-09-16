@@ -4,36 +4,57 @@ import { setCard } from "./modalActions"
 import errorMessage from "../constants/error-messages"
 import { ROUTE_USER_API } from "../constants/user"
 
-// get user data matched to login credentials
-export const getUser = token => {
+// error message
+const loginError = {
+  status: "ok",
+  info: {
+    title: errorMessage.VIEW_TEMPLATE.CARD.title,
+    text: errorMessage.DISAMBIGUATION.CODE_401.error
+  }
+}
+
+// check if user is logged in
+export const verify = () => {
   return dispatch => {
-    axios({
-      method: "get",
-      headers: {
-        Authorization: "JWT " + token
-      },
-      url: ROUTE_USER_API
+    const status = localStorage.getItem("token") ? "ok" : "forbidden"
+    dispatch({
+      type: "USER.VERIFY",
+      payload: status
     })
-      .then(response =>
-        dispatch({
-          type: "USER.GET_USER",
-          payload: response.data
+  }
+}
+
+// remove token from local storage
+export const forget = () => {
+  return dispatch => {
+    localStorage.removeItem("token")
+    dispatch({
+      type: "USER.RESET_STATE",
+      payload: null
+    })
+  }
+}
+
+// get user data matched to login credentials
+export const getInfo = () => {
+  return dispatch => {
+    const token = localStorage.getItem("token")
+    token
+      ? axios({
+          method: "get",
+          headers: {
+            Authorization: "JWT " + token
+          },
+          url: ROUTE_USER_API
         })
-      )
-      .catch(error =>
-        dispatch(
-          setCard(
-            {
-              status: "ok",
-              info: {
-                title: errorMessage.VIEW_TEMPLATE.CARD.title,
-                text: errorMessage.DISAMBIGUATION.CODE_401.error
-              }
-            },
-            { url: "errors/user" }
+          .then(response =>
+            dispatch({
+              type: "USER.GET_INFO",
+              payload: response.data
+            })
           )
-        )
-      )
+          .catch(error => dispatch(setCard(loginError, { url: "errors/user" })))
+      : dispatch(setCard(loginError, { url: "errors/user" }))
   }
 }
 

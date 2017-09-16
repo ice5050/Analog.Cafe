@@ -4,6 +4,10 @@ import Loadable from "react-loadable"
 
 // redux
 import { connect } from "react-redux"
+import {
+  forget as forgetUser,
+  verify as verifyUser
+} from "../../../../actions/userActions"
 
 // components
 import Forbidden from "../../_screens-errors/Forbidden"
@@ -24,34 +28,51 @@ const AsyncList = Loadable({
 })
 
 // render
-const Me = props => {
-  return props.user.status === "ok" ? (
-    <AsyncList
-      header={
-        <ButtonGroup>
-          <LinkButton
-            to={ROUTE_AUTH_USER_LANDING + "/edit"}
-            red
-            style={{ margin: "0 auto" }}
-          >
-            Edit Your Profile
-          </LinkButton>
-          <strong>
-            <Link>Sign Out</Link>
-          </strong>
-        </ButtonGroup>
-      }
-      private
-    />
-  ) : (
-    <Forbidden />
-  )
+class Me extends React.PureComponent {
+  componentWillMount = () => {
+    this.props.verifyUser()
+  }
+  render = () => {
+    return this.props.user.status === "ok" ? (
+      <AsyncList
+        header={
+          <ButtonGroup>
+            <LinkButton
+              to={ROUTE_AUTH_USER_LANDING + "/edit"}
+              red
+              style={{ margin: "0 auto" }}
+            >
+              Edit Your Profile
+            </LinkButton>
+            <strong>
+              <Link to="/" onClick={this.props.forgetUser}>
+                Sign Out
+              </Link>
+            </strong>
+          </ButtonGroup>
+        }
+        private
+      />
+    ) : (
+      <Forbidden />
+    )
+  }
 }
 
 // connet with redux
+const mapDispatchToProps = dispatch => {
+  return {
+    forgetUser: () => {
+      dispatch(forgetUser())
+    },
+    verifyUser: () => {
+      dispatch(verifyUser())
+    }
+  }
+}
 const mapStateToProps = state => {
   return {
     user: state.user
   }
 }
-export default connect(mapStateToProps)(Me)
+export default connect(mapStateToProps, mapDispatchToProps)(Me)

@@ -17,7 +17,7 @@ import {
   setView as setNavView,
   setLocation as setNavLocation
 } from "../../../actions/navActions"
-import { getUser } from "../../../actions/userActions"
+import { verify as verifyUser } from "../../../actions/userActions"
 
 import { Modal } from "../Modal"
 import Nav from "../Nav"
@@ -49,6 +49,9 @@ class App extends React.PureComponent {
   // manipulate nav view & GA tracking
   componentDidMount = () => {
     console.log(process.env.NODE_ENV)
+
+    // verify user status
+    this.props.verifyUser()
 
     // listen to route changes:
     this.handleRouteChnange()
@@ -132,8 +135,8 @@ const mapDispatchToProps = dispatch => {
     setNavLocation: location => {
       dispatch(setNavLocation(location))
     },
-    getUser: token => {
-      dispatch(getUser(token))
+    verifyUser: token => {
+      dispatch(verifyUser(token))
     }
   }
 }
