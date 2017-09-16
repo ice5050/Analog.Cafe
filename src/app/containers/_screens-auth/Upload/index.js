@@ -37,7 +37,6 @@ class Upload extends React.Component {
     this.socketUpload = new WebSocket(WEBSOCKET_UPLOAD_PROGRESS)
   }
   componentDidMount = () => {
-    console.log(this.props)
     // redirects
     if (!localStorage.getItem("token")) {
       redirectToSignIn(this.props)
@@ -79,6 +78,7 @@ class Upload extends React.Component {
             sendSubmission(data, _this.props)
           })
         } else {
+          console.log("no images")
           sendSubmission(data, this.props)
         }
       } else {

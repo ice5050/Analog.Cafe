@@ -4,6 +4,10 @@ import Helmet from "react-helmet"
 
 // redux
 import { connect } from "react-redux"
+import {
+  verify as verifyUser,
+  getInfo as getUserInfo
+} from "../../../../actions/userActions"
 
 // components
 import SignInWithEmail from "../../_forms/SigninWithEmail"
@@ -16,7 +20,6 @@ import { ButtonGroup } from "../../../components/Button"
 import { TwitterButton } from "./styles"
 
 // constants & helpers
-import { rememberMe } from "./helpers"
 import { ROUTE_LOGIN_TWITTER_API } from "../../../../constants/login"
 import { WEBSOCKET_AUTH_TOKEN } from "../../../../constants/user"
 
@@ -31,7 +34,15 @@ class SignIn extends React.PureComponent {
     // listen for login confirmation & redirect when successful
     const socketAuth = new WebSocket(WEBSOCKET_AUTH_TOKEN)
     socketAuth.addEventListener("message", event => {
-      rememberMe(event.data)
+      // store user token
+      localStorage.setItem("token", event.data)
+      // set up app session with Redux
+      verifyUser()
+      getUserInfo()
+
+      console.log(this.props.user.routes.success)
+
+      // redirect to predefined user route after signing in
       this.props.history.replace({
         pathname: this.props.user.routes.success
       })
@@ -71,10 +82,20 @@ class SignIn extends React.PureComponent {
 }
 
 // connet with redux
+const mapDispatchToProps = dispatch => {
+  return {
+    verifyUser: () => {
+      dispatch(verifyUser())
+    },
+    getUserInfo: () => {
+      dispatch(getUserInfo())
+    }
+  }
+}
 const mapStateToProps = state => {
   return {
     user: state.user
   }
 }
 
-export default connect(mapStateToProps)(SignIn)
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
