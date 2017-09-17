@@ -45,7 +45,6 @@ class EditProfile extends React.PureComponent {
   }
   componentWillReceiveProps = () => this.populateEditableProfile()
   populateEditableProfile = () => {
-    console.log(this.props.user.info)
     this.setState({
       title: this.props.user.info.title,
       text: this.props.user.info.text,
