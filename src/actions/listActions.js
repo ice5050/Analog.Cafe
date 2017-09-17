@@ -47,12 +47,14 @@ export function fetchPage(request, appendItems = false) {
       return
 
     // reset list state (unless it's being paginated)
-    if (!appendItems)
+    if (!appendItems) {
+      console.log("set list")
       dispatch(
         initPage({
           requested: request
         })
       )
+    }
 
     axios({
       method: request.method || "get",
