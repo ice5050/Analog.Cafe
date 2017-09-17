@@ -17,7 +17,7 @@ import AlreadyAuthenticated from "../../_screens-errors/AlreadyAuthenticated"
 
 // styles
 import { ButtonGroup } from "../../../components/Button"
-import { TwitterButton } from "./styles"
+import { TwitterButton, FacebookButton } from "./styles"
 
 // constants & helpers
 import { ROUTE_LOGIN_TWITTER_API } from "../../../../constants/login"
@@ -50,6 +50,9 @@ class SignIn extends React.PureComponent {
   handleTwitterButton = () => {
     window.open(ROUTE_LOGIN_TWITTER_API, "_blank", "height=600,width=500")
   }
+  handleFacebookButton = () => {
+    alert("Facebook login")
+  }
 
   render() {
     if (this.props.user.status !== "ok") {
@@ -61,10 +64,17 @@ class SignIn extends React.PureComponent {
 
           <Heading pageTitle="Sign In" />
           <Section>
+            <p style={{ textAlign: "center" }}>
+              Sign in or create new account instantly. No passwords required!
+            </p>
             <ButtonGroup>
               <TwitterButton onClick={this.handleTwitterButton}>
-                Sign in With Twitter
+                Continue with Twitter
               </TwitterButton>
+
+              <FacebookButton onClick={this.handleFacebookButton}>
+                Continue with Facebook
+              </FacebookButton>
               <p>
                 <em>- or -</em>
               </p>

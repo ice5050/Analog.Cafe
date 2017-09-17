@@ -35,15 +35,18 @@ export default class extends React.PureComponent {
     return (
       <Form>
         <SubtitleInput
-          placeholder="Type Your Email"
+          placeholder="Your Email"
           onChange={this.handleEmailChange}
           required
           maxLength="200"
           warning={this.state.warning}
         />
 
-        <ModalDispatch with={MESSAGE_HINT_CHECK_EMAIL} wrapperElement="div">
-          <Button onClick={this.handleSubmit}>Sign In</Button>
+        <ModalDispatch
+          with={MESSAGE_HINT_CHECK_EMAIL(this.state.email)}
+          wrapperElement="div"
+        >
+          <Button onClick={this.handleSubmit}>Continue</Button>
         </ModalDispatch>
       </Form>
     )

@@ -1,21 +1,22 @@
 import done from "../../app/components/_icons/images/done.jpg"
 import placeholder from "../../app/components/_icons/images/placeholder-profile.png"
 
-export const MESSAGE_HINT_CHECK_EMAIL = {
-  info: {
-    title: "Sign in With Email",
-    text:
-      "Please check your email account and click the link in the email we just sent you.",
-    image: "/images/banners/check-email.png"
-  },
-  id: "hints/check-email"
+export const MESSAGE_HINT_CHECK_EMAIL = email => {
+  return {
+    info: {
+      title: "Email Sign In",
+      text: `Please check your ${email} inbox and click the link we just sent you.`,
+      image: "/images/banners/check-email.png"
+    },
+    id: "hints/check-email"
+  }
 }
 export const MESSAGE_HINT_SUBMIT_CONSENT = {
   info: {
     image: "/images/banners/image-suggestions-action.jpg",
     title: "More Exposure?",
     text:
-      "If you choose “Yes,” we may suggest other authors to feature your images within their articles. You will be credited every time.",
+      "If you choose “Yes,” we may suggest other authors to feature your images (from this submission) within their articles. You will be credited every time.",
     buttons: [
       {
         to: "/submit/confirm-full-consent",
