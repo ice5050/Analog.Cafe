@@ -21,7 +21,7 @@ import placeholder from "../../components/_icons/images/placeholder-figure.jpg"
 import { MESSAGE_HINT_IMAGE_SUGGESTIONS } from "../../../constants/messages/hints"
 
 // return
-export default class extends React.Component {
+export default class extends React.PureComponent {
   constructor(props) {
     super(props)
     this.uploadRequest = this.uploadRequest.bind(this)

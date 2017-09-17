@@ -31,7 +31,7 @@ import {
 } from "../../../../actions/uploadActions"
 
 // render
-class Upload extends React.Component {
+class Upload extends React.PureComponent {
   constructor(props) {
     super(props)
     this.socketUpload = new WebSocket(WEBSOCKET_UPLOAD_PROGRESS)

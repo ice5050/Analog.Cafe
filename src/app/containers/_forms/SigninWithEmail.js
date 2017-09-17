@@ -15,7 +15,7 @@ import validateEmail from "./helpers/validateEmail"
 import { MESSAGE_HINT_CHECK_EMAIL } from "../../../constants/messages/hints"
 
 // render
-export default class extends React.Component {
+export default class extends React.PureComponent {
   constructor(props) {
     super(props)
     this.handleEmailChange = this.handleEmailChange.bind(this)
