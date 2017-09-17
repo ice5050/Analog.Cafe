@@ -37,10 +37,8 @@ class SignIn extends React.PureComponent {
       // store user token
       localStorage.setItem("token", event.data)
       // set up app session with Redux
-      verifyUser()
-      getUserInfo()
-
-      console.log(this.props.user.routes.success)
+      this.props.verifyUser()
+      this.props.getUserInfo()
 
       // redirect to predefined user route after signing in
       this.props.history.replace({

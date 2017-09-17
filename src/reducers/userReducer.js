@@ -16,7 +16,7 @@ export default (state = INITIAL_STATE, action) => {
         info: action.payload
       }
       break
-    case "USER.VERIFY":
+    case "USER.SET_STATUS":
       state = {
         ...state,
         status: action.payload

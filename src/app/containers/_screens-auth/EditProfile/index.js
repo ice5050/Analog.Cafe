@@ -3,6 +3,7 @@ import React from "react"
 
 // redux
 import { connect } from "react-redux"
+import { getInfo as getUserInfo } from "../../../../actions/userActions"
 
 // components
 import Forbidden from "../../_screens-errors/Forbidden"
@@ -27,10 +28,25 @@ class EditProfile extends React.PureComponent {
     this.handleButtonChange = this.handleButtonChange.bind(this)
     this.handleButtonFocus = this.handleButtonFocus.bind(this)
     this.handleButtonBlur = this.handleButtonBlur.bind(this)
-
     this.handleFileUpload = this.handleFileUpload.bind(this)
+    this.state = {}
+  }
 
-    this.state = {
+  componentDidMount = () => {
+    // fetch user info if not present (for componentWillReceiveProps)
+    if (
+      this.props.user.status === "ok" &&
+      Object.keys(this.props.user.info).length === 0
+    ) {
+      this.props.getUserInfo()
+    } else
+      // or populate all profile fields with current info
+      this.populateEditableProfile()
+  }
+  componentWillReceiveProps = () => this.populateEditableProfile()
+  populateEditableProfile = () => {
+    console.log(this.props.user.info)
+    this.setState({
       title: this.props.user.info.title,
       text: this.props.user.info.text,
       image: this.props.user.info.image,
@@ -44,7 +60,7 @@ class EditProfile extends React.PureComponent {
         this.props.user.info.buttons && this.props.user.info.buttons[1]
           ? this.props.user.info.buttons[1].text
           : ""
-    }
+    })
   }
 
   // process changes to title and bio
@@ -110,10 +126,10 @@ class EditProfile extends React.PureComponent {
           // logged-in user info
 
           // author's name
-          title={this.props.title}
+          title={this.state.title}
           changeTitle={this.handleTitleChange}
           // author's bio
-          text={this.props.text}
+          text={this.state.text}
           changeText={this.handleTextChange}
           // author's avatar image
           image={this.state.image}
@@ -147,9 +163,16 @@ class EditProfile extends React.PureComponent {
 }
 
 // connet with redux
+const mapDispatchToProps = dispatch => {
+  return {
+    getUserInfo: () => {
+      dispatch(getUserInfo())
+    }
+  }
+}
 const mapStateToProps = state => {
   return {
     user: state.user
   }
 }
-export default connect(mapStateToProps)(EditProfile)
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfile)

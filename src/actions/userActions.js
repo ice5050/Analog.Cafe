@@ -16,11 +16,16 @@ const loginError = {
 // check if user is logged in
 export const verify = () => {
   return dispatch => {
-    const status = localStorage.getItem("token") ? "ok" : "forbidden"
-    dispatch({
-      type: "USER.VERIFY",
-      payload: status
-    })
+    if (!localStorage.getItem("token"))
+      dispatch({
+        type: "USER.SET_STATUS",
+        payload: "forbidden"
+      })
+    else
+      dispatch({
+        type: "USER.SET_STATUS",
+        payload: "ok"
+      })
   }
 }
 
@@ -38,30 +43,24 @@ export const forget = () => {
 // get user data matched to login credentials
 export const getInfo = () => {
   return dispatch => {
+    // read token and kick if none
     const token = localStorage.getItem("token")
-    if (!token) dispatch(setCard(loginError, { url: "errors/user" }))
-    else {
-      dispatch({
-        type: "USER.SET_INFO",
-        payload: {
-          title: "Getting Your Info…"
-        }
+    if (!token) return
+
+    axios({
+      method: "get",
+      headers: {
+        Authorization: "JWT " + token
+      },
+      url: ROUTE_USER_API
+    })
+      .then(response => {
+        dispatch({
+          type: "USER.SET_INFO",
+          payload: response.data.data
+        })
       })
-      axios({
-        method: "get",
-        headers: {
-          Authorization: "JWT " + token
-        },
-        url: ROUTE_USER_API
-      })
-        .then(response =>
-          dispatch({
-            type: "USER.SET_INFO",
-            payload: response.data.data
-          })
-        )
-        .catch(error => dispatch(setCard(loginError, { url: "errors/user" })))
-    }
+      .catch(error => dispatch(setCard(loginError, { url: "errors/user" })))
   }
 }
 

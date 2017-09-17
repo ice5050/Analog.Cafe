@@ -51,11 +51,9 @@ const trackView = () => {
 class App extends React.PureComponent {
   // manipulate nav view & GA tracking
   componentDidMount = () => {
-    console.log(process.env.NODE_ENV)
-
-    // verify user status & get user info
+    // verify user status
     this.props.verifyUser()
-    this.props.user.status === "ok" && this.props.getUserInfo()
+    this.props.getUserInfo()
 
     // listen to route changes:
     this.handleRouteChnange()
