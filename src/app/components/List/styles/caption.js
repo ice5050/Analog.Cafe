@@ -22,8 +22,13 @@ export const Caption = styled(ListCaption)`
   &::before {
     display: none;
   }
+  -webkit-mask-image: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 1) 65%,
+    rgba(0, 0, 0, 0) 98%
+  );
   mask-image: linear-gradient(
-    -75deg,
+    135deg,
     rgba(0, 0, 0, 1) 65%,
     rgba(0, 0, 0, 0) 98%
   );
