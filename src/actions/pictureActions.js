@@ -1,9 +1,9 @@
 // tools
 import axios from "axios"
 import { ROUTE_IMAGE_API } from "../constants/picture"
-import errorMessage from "../constants/error-messages"
+import errorMessages from "../constants/messages/errors"
 import { imageSrcToPictureId } from "../app/containers/Picture/helpers"
-// import { axiosRequest } from "./helpers"
+import { axiosRequest } from "./helpers"
 
 // return
 const unknownAuthor = (id, error) => {
@@ -12,11 +12,11 @@ const unknownAuthor = (id, error) => {
     payload: {
       info: {
         author: {
-          name: errorMessage.VIEW_TEMPLATE.PICTURE.name,
+          name: errorMessages.VIEW_TEMPLATE.PICTURE.name,
           id: "unknown",
           error:
             !error.response || !error.response.status
-              ? errorMessage.DISAMBIGUATION.CODE_204.error
+              ? errorMessages.DISAMBIGUATION.CODE_204.error
               : error
         }
       },
@@ -25,7 +25,7 @@ const unknownAuthor = (id, error) => {
     }
   }
 }
-export function getInfo(src) {
+export const getInfo = src => {
   let id = imageSrcToPictureId(src)
   let request
   request = {
@@ -37,13 +37,7 @@ export function getInfo(src) {
     let picturesState = getState().pictures
     if (picturesState[id]) return
 
-    // axiosRequest(request)
-    axios({
-      method: request.method || "get",
-      data: request.data || {},
-      params: request.params || {},
-      url: request.url + ".json"
-    })
+    axios(axiosRequest(request))
       .then(response => {
         response.data.status === "ok"
           ? dispatch({

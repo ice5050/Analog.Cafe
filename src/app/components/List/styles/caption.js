@@ -23,7 +23,7 @@ export const Caption = styled(ListCaption)`
     display: none;
   }
   mask-image: linear-gradient(
-    -75deg,
+    135deg,
     rgba(0, 0, 0, 1) 65%,
     rgba(0, 0, 0, 0) 98%
   );

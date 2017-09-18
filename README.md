@@ -33,17 +33,22 @@ You can, however see and try all the code (see "[How do I contribute](#how-do-i-
 ### How do I contribute?
 If you are interested in contributing to this project - awesome! Have a look at [issues](https://github.com/dmitrizzle/Analog.Cafe/issues) and submit a PR if you have a fix or create a new one if you notice a bug.
 
-To get the code working on your machine:
-1. [Get GIT](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-1. [Get Node.js](https://nodejs.org/en/download/package-manager/).
+To get the code working on your machine (assuming you have [Node.js](https://nodejs.org/en/download/), [NPM](https://www.npmjs.com/get-npm), and [Brew](https://brew.sh/)(or Windows equivalent) on your machine):
 1. [Clone](https://help.github.com/articles/cloning-a-repository/) this repo.
 1. Run `yarn install`.
-1. Run `yarn start`.
+   * Run `yarn install`.
+   * Run `yarn start`.
 1. Install the [API server](https://github.com/ice5050/Analog.Cafe-Backend).
+   * Run `yarn install`.
+   * Run `yarn run dev`.
+1. Install Redis server `brew install redis`.
+   * Run `redis-server`.
 
 ###  What is it built with?
 * [Node.js](https://github.com/nodejs/node)
     * [Express.js](https://expressjs.com)
+    * [Redis](https://redis.io/)
+    * [Cloudinary API](https://cloudinary.com/)
 * [React.js](https://github.com/facebook/react)
     * [Create React App](https://github.com/facebookincubator/create-react-app)
     * [Redux](https://github.com/reactjs/redux)

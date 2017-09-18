@@ -1,16 +1,16 @@
 // tools
 import axios from "axios"
-import errorMessage from "../constants/error-messages"
+import errorMessages from "../constants/messages/errors"
 import { axiosRequest } from "./helpers"
 
 // return
-export function initCard(state) {
+export const initCard = state => {
   return {
     type: "MODAL.INIT_CARD",
     payload: state
   }
 }
-export function hideCard() {
+export const hideCard = () => {
   document.getElementById("ModalOverlay").scrollTop = 0 // scroll card to top
   return {
     type: "MODAL.HIDE_CARD",
@@ -18,7 +18,7 @@ export function hideCard() {
   }
 }
 
-export function setCard(info, request) {
+export const setCard = (info, request) => {
   return dispatch => {
     dispatch(
       initCard({
@@ -32,7 +32,7 @@ export function setCard(info, request) {
     })
   }
 }
-export function fetchCard(request) {
+export const fetchCard = request => {
   return dispatch => {
     dispatch(
       initCard({
@@ -49,12 +49,12 @@ export function fetchCard(request) {
                 {
                   status: "ok",
                   info: {
-                    title: errorMessage.VIEW_TEMPLATE.CARD.title,
-                    text: errorMessage.VIEW_TEMPLATE.CARD.text,
-                    error: errorMessage.DISAMBIGUATION.CODE_204.error
+                    title: errorMessages.VIEW_TEMPLATE.CARD.title,
+                    text: errorMessages.VIEW_TEMPLATE.CARD.text,
+                    error: errorMessages.DISAMBIGUATION.CODE_204.error
                   }
                 },
-                { url: "errors/modal" }
+                { url: "errors/card" }
               )
             )
       })
@@ -65,12 +65,12 @@ export function fetchCard(request) {
                 {
                   status: "ok",
                   info: {
-                    title: errorMessage.VIEW_TEMPLATE.CARD.title,
-                    text: errorMessage.VIEW_TEMPLATE.CARD.text,
-                    error: errorMessage.DISAMBIGUATION.CODE_401.error
+                    title: errorMessages.VIEW_TEMPLATE.CARD.title,
+                    text: errorMessages.VIEW_TEMPLATE.CARD.text,
+                    error: errorMessages.DISAMBIGUATION.CODE_401.error
                   }
                 },
-                { url: "errors/modal" }
+                { url: "errors/card" }
               )
             )
           : dispatch(
@@ -78,12 +78,12 @@ export function fetchCard(request) {
                 {
                   status: "ok",
                   info: {
-                    title: errorMessage.VIEW_TEMPLATE.CARD.title,
-                    text: errorMessage.VIEW_TEMPLATE.CARD.text,
+                    title: errorMessages.VIEW_TEMPLATE.CARD.title,
+                    text: errorMessages.VIEW_TEMPLATE.CARD.text,
                     error
                   }
                 },
-                { url: "errors/modal" }
+                { url: "errors/card" }
               )
             )
       })

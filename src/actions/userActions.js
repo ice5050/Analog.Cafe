@@ -1,40 +1,80 @@
 // tools
 import axios from "axios"
 import { setCard } from "./modalActions"
-import errorMessage from "../constants/error-messages"
+import errorMessages from "../constants/messages/errors"
+import { axiosRequest } from "./helpers"
+
 import { ROUTE_USER_API } from "../constants/user"
 
-// below: dispatch popup warning that user needs to log in or
-// dispatch user's logged in credentials to store
+// error message
+const loginError = {
+  status: "ok",
+  info: {
+    title: errorMessages.VIEW_TEMPLATE.CARD.title,
+    text: errorMessages.DISAMBIGUATION.CODE_401.error
+  }
+}
 
-export function getUser(token) {
+// check if user is logged in
+export const verify = () => {
   return dispatch => {
-    axios({
-      method: "get",
+    if (!localStorage.getItem("token"))
+      dispatch({
+        type: "USER.SET_STATUS",
+        payload: "forbidden"
+      })
+    else
+      dispatch({
+        type: "USER.SET_STATUS",
+        payload: "ok"
+      })
+  }
+}
+
+// remove token from local storage
+export const forget = () => {
+  return dispatch => {
+    localStorage.removeItem("token")
+    dispatch({
+      type: "USER.RESET_STATE",
+      payload: null
+    })
+  }
+}
+
+// get user data matched to login credentials
+export const getInfo = () => {
+  return dispatch => {
+    // read token and kick if none
+    const token = localStorage.getItem("token")
+    if (!token) return
+
+    let request = {
       headers: {
         Authorization: "JWT " + token
       },
       url: ROUTE_USER_API
-    })
-      .then(response =>
+    }
+    axios(axiosRequest(request))
+      .then(response => {
         dispatch({
-          type: "USER.GET_USER",
-          payload: response.data
+          type: "USER.SET_INFO",
+          payload: response.data.data
         })
-      )
-      .catch(error =>
-        dispatch(
-          setCard(
-            {
-              status: "ok",
-              info: {
-                title: errorMessage.VIEW_TEMPLATE.CARD.title,
-                text: errorMessage.DISAMBIGUATION.CODE_401.error
-              }
-            },
-            { url: "errors/user" }
-          )
-        )
-      )
+      })
+      .catch(error => dispatch(setCard(loginError, { url: "errors/user" })))
+  }
+}
+
+// set user routes, notably redirect after login url
+export const setRoutes = routes => {
+  return {
+    type: "USER.SET_ROUTES",
+    payload: routes
+  }
+}
+export const resetRoutes = () => {
+  return {
+    type: "USER.RESET_ROUTES"
   }
 }

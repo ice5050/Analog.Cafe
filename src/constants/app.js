@@ -4,10 +4,8 @@ export const ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL = "https://"
 export const APP_NAME = "Analog.Cafe"
 export const APP_DESCRIPTION = "A film photography publication"
 
-// api location
+// key routes
 export const ROUTE_API_DOMAIN = process.env.REACT_APP_API_DOMAIN
-
-// NOTE: this doesn't work yet
 export const ROUTE_APP_CURRENT_DOMAIN = window.location.hostname
 
 // Google Analytics

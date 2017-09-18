@@ -4,7 +4,7 @@ import React from "react"
 import { render } from "react-dom"
 import Helmet from "react-helmet"
 import { APP_NAME } from "./constants/app"
-import emojis from "./constants/emoji"
+import emojis from "./constants/messages/emojis"
 // router
 import { BrowserRouter } from "react-router-dom"
 

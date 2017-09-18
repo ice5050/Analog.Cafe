@@ -24,7 +24,7 @@ export default props => {
       <CardHeader>
         <SubtitleInput
           placeholder="Your Name"
-          value={props.title}
+          value={props.title || ""}
           maxLength={TITLE_LENGTH_OPTIMAL}
           autoFocus
           onChange={event => props.changeTitle(event)}
@@ -42,13 +42,12 @@ export default props => {
             maxLength={SUMMARY_LENGTH_MAX}
             placeholder="Your short author bio goes here."
             onChange={event => props.changeText(event)}
-          >
-            {props.text}
-          </CardCaptionEditable>
+            value={props.text || ""}
+          />
         </figcaption>
       </figure>
       <CardButtonEditable
-        value={props.buttonText}
+        value={props.buttonText || ""}
         placeholder="Website"
         maxLength={SUMMARY_LENGTH_MAX}
         onChange={event => props.changeButton(event)}
