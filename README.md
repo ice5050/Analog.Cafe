@@ -48,6 +48,7 @@ To get the code working on your machine (assuming you have [Node.js](https://nod
 * [Node.js](https://github.com/nodejs/node)
     * [Express.js](https://expressjs.com)
     * [Redis](https://redis.io/)
+    * [Cloudinary API](https://cloudinary.com/)
 * [React.js](https://github.com/facebook/react)
     * [Create React App](https://github.com/facebookincubator/create-react-app)
     * [Redux](https://github.com/reactjs/redux)
