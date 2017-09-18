@@ -35,8 +35,8 @@ export const CommonNav = props => {
       </NavItem>
       <NavItem prime left>
         {props.userStatus === "ok" ? (
-          <NavLink to={"/submit/compose"}>
-            <span>Submit</span>
+          <NavLink to={ROUTE_AUTH_USER_LANDING}>
+            <span>My Stuff</span>
           </NavLink>
         ) : (
           <NavLink to={"/about"}>
@@ -45,15 +45,9 @@ export const CommonNav = props => {
         )}
       </NavItem>
       <NavItem prime right>
-        {props.userStatus === "ok" ? (
-          <NavLink to={ROUTE_AUTH_USER_LANDING}>
-            <span>My Stuff</span>
-          </NavLink>
-        ) : (
-          <NavLink to={"/submit"}>
-            <span>Submit</span>
-          </NavLink>
-        )}
+        <NavLink to={props.userStatus === "ok" ? "/submit/compose" : "/submit"}>
+          <span>Submit</span>
+        </NavLink>
       </NavItem>
     </ul>
   )
