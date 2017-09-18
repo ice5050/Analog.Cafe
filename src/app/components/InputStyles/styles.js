@@ -39,3 +39,4 @@ export const subtitle = css`
   text-align: center;
   ${caution} ${warning};
 `
+export const textarea = css`${reset} ${caution} ${warning};`
