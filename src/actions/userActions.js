@@ -2,6 +2,8 @@
 import axios from "axios"
 import { setCard } from "./modalActions"
 import errorMessages from "../constants/messages/errors"
+import { axiosRequest } from "./helpers"
+
 import { ROUTE_USER_API } from "../constants/user"
 
 // error message
@@ -47,13 +49,13 @@ export const getInfo = () => {
     const token = localStorage.getItem("token")
     if (!token) return
 
-    axios({
-      method: "get",
+    let request = {
       headers: {
         Authorization: "JWT " + token
       },
       url: ROUTE_USER_API
-    })
+    }
+    axios(axiosRequest(request))
       .then(response => {
         dispatch({
           type: "USER.SET_INFO",

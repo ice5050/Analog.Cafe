@@ -46,6 +46,13 @@ export const fetchPage = (request, appendItems = false) => {
     )
       return
 
+    // authenticate user should they want to see protected content
+    // (i.e. thieir submissions)
+    if (request.url.includes(ROUTE_AUTHENTICATED_LIST_API))
+      request.headers = {
+        Authorization: "JWT " + localStorage.getItem("token")
+      }
+
     // reset list state (unless it's being paginated)
     if (!appendItems)
       dispatch(

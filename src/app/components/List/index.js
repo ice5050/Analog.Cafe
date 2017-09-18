@@ -49,9 +49,11 @@ export default props => {
                   <figure>
                     {item.type !== "placeholder" && (
                       <div
-                        style={{
-                          backgroundImage: "url(" + item.poster.medium + ")"
-                        }}
+                        style={
+                          item.poster && {
+                            backgroundImage: "url(" + item.poster.medium + ")"
+                          }
+                        }
                         aria-label={item.title + " poster image"}
                       />
                     )}
@@ -100,7 +102,7 @@ export default props => {
                 </section>
                 <ZigzagPicture
                   style={
-                    item.type !== "placeholder" ? (
+                    item.type !== "placeholder" && item.poster ? (
                       { backgroundImage: `url(${item.poster.medium})` }
                     ) : null
                   }
