@@ -9,15 +9,30 @@ import { hideCard } from "../../../../actions/modalActions"
 // components
 import { CardModal, ModalOverlay } from "../../../components/Card"
 
+import {
+  ROUTE_APP_CURRENT_DOMAIN,
+  ROUTE_API_DOMAIN
+} from "../../../../constants/app"
+
 // return
 const Modal = props => {
   if (!props.modal.hidden && props.modal.status === "ok") {
-    ReactGA.modalview(props.modal.requested.url) // google analytics
+    ReactGA.modalview(
+      props.modal.requested.url
+        .replace(ROUTE_API_DOMAIN, "") // cut api domain from the middle of reported path
+        .replace(ROUTE_APP_CURRENT_DOMAIN, "") // cut app domain from the middle of reported path
+    ) // google analytics
   }
 
   // close card on escape keypress
-  document.onkeydown = event =>
-    event.keyCode === 27 && !props.modal.hidden ? props.hideCard() : null
+  document.onkeydown = event => {
+    if (
+      event.keyCode === 27 &&
+      !props.modal.info.stubborn &&
+      !props.modal.hidden
+    )
+      props.hideCard()
+  }
 
   return (
     <ModalOverlay
@@ -25,6 +40,7 @@ const Modal = props => {
       style={{
         display: props.modal.hidden ? "none" : "block"
       }}
+      // there should be a way to close the card by a click of any button but not with clicking outside of the card
       onClick={() => props.hideCard()}
     >
       <CardModal
@@ -32,6 +48,7 @@ const Modal = props => {
         image={props.modal.info.image}
         text={props.modal.info.text}
         error={props.modal.info.error && props.modal.info.error}
+        stubborn={props.modal.info.stubborn}
         buttons={props.modal.info.buttons}
       />
     </ModalOverlay>

@@ -3,8 +3,13 @@ import React from "react"
 
 // components
 import Logo from "../Logo"
-import done from "../_icons/images/done.jpg"
 import { ModalDispatch } from "../../containers/Modal"
+
+import { ROUTE_AUTH_USER_LANDING } from "../../../constants/user"
+import {
+  MESSAGE_HINT_SUBMIT_CONSENT,
+  MESSAGE_HINT_AUTO_SAVE
+} from "../../../constants/messages/hints"
 
 // styles
 import { NavLink, NavIndexLink, NavItem } from "./styles"
@@ -41,7 +46,7 @@ export const CommonNav = props => {
       </NavItem>
       <NavItem prime right>
         {props.userStatus === "ok" ? (
-          <NavLink to={"/me"}>
+          <NavLink to={ROUTE_AUTH_USER_LANDING}>
             <span>My Stuff</span>
           </NavLink>
         ) : (
@@ -60,11 +65,7 @@ const NavLinkSendLabel = () => {
 const NavLinkSend = props => {
   return (
     <ModalDispatch
-      with={{
-        request: {
-          url: "/api/messages/submit-consent.json"
-        }
-      }}
+      with={MESSAGE_HINT_SUBMIT_CONSENT}
       style={{ textDecoration: "none" }}
     >
       <NavLinkSendLabel />
@@ -77,15 +78,7 @@ export const ComposerNav = props => {
     <ul>
       <NavItem indicator prime left>
         <ModalDispatch
-          with={{
-            info: {
-              image: done,
-              title: "Never Loose Your Work!",
-              text:
-                "Your draft is saved automatically every 3 seconds onto your device. Even when you aren’t connected to the internet."
-            },
-            id: "hints/save"
-          }}
+          with={MESSAGE_HINT_AUTO_SAVE}
           style={{ textDecoration: "none" }}
         >
           <span>{props.draftStatus}</span>

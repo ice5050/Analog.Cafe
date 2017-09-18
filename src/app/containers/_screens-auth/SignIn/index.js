@@ -4,6 +4,10 @@ import Helmet from "react-helmet"
 
 // redux
 import { connect } from "react-redux"
+import {
+  verify as verifyUser,
+  getInfo as getUserInfo
+} from "../../../../actions/userActions"
 
 // components
 import SignInWithEmail from "../../_forms/SigninWithEmail"
@@ -13,36 +17,41 @@ import AlreadyAuthenticated from "../../_screens-errors/AlreadyAuthenticated"
 
 // styles
 import { ButtonGroup } from "../../../components/Button"
-import { TwitterButton } from "./styles"
+import { TwitterButton, FacebookButton } from "./styles"
 
 // constants & helpers
-import { rememberMe } from "./helpers"
 import { ROUTE_LOGIN_TWITTER_API } from "../../../../constants/login"
-import { WEBSOCKET_AUTHEN_TOKEN } from "../../../../constants/app"
-
-var socket = new WebSocket(WEBSOCKET_AUTHEN_TOKEN)
-var redirect_to = null
-var props = null
-
-// Listen for messages
-socket.addEventListener("message", function(event) {
-  rememberMe(event.data)
-  if (redirect_to && props) {
-    props.history.push(redirect_to)
-  }
-})
-
-function clickTwitterButton() {
-  window.open(ROUTE_LOGIN_TWITTER_API, "_blank", "height=600,width=500")
-}
+import { WEBSOCKET_AUTH_TOKEN } from "../../../../constants/user"
 
 // render
-class SignIn extends React.Component {
-  componentWillMount() {
-    if (this.props.location && this.props.location.state) {
-      redirect_to = this.props.location.state.redirect_to
-    }
-    props = this.props
+class SignIn extends React.PureComponent {
+  constructor(props) {
+    super(props)
+    this.handleTwitterButton = this.handleTwitterButton.bind(this)
+  }
+
+  componentWillMount = () => {
+    // listen for login confirmation & redirect when successful
+    const socketAuth = new WebSocket(WEBSOCKET_AUTH_TOKEN)
+    socketAuth.addEventListener("message", event => {
+      // store user token
+      localStorage.setItem("token", event.data)
+      // set up app session with Redux
+      this.props.verifyUser()
+      this.props.getUserInfo()
+
+      // redirect to predefined user route after signing in
+      this.props.history.replace({
+        pathname: this.props.user.routes.success
+      })
+    })
+  }
+
+  handleTwitterButton = () => {
+    window.open(ROUTE_LOGIN_TWITTER_API, "_blank", "height=600,width=500")
+  }
+  handleFacebookButton = () => {
+    alert("Facebook login")
   }
 
   render() {
@@ -55,10 +64,17 @@ class SignIn extends React.Component {
 
           <Heading pageTitle="Sign In" />
           <Section>
+            <p style={{ textAlign: "center" }}>
+              Sign in or create new account instantly. No passwords required!
+            </p>
             <ButtonGroup>
-              <TwitterButton onClick={clickTwitterButton}>
-                Sign in With Twitter
+              <TwitterButton onClick={this.handleTwitterButton}>
+                Continue with Twitter
               </TwitterButton>
+
+              <FacebookButton onClick={this.handleFacebookButton}>
+                Continue with Facebook
+              </FacebookButton>
               <p>
                 <em>- or -</em>
               </p>
@@ -74,10 +90,20 @@ class SignIn extends React.Component {
 }
 
 // connet with redux
+const mapDispatchToProps = dispatch => {
+  return {
+    verifyUser: () => {
+      dispatch(verifyUser())
+    },
+    getUserInfo: () => {
+      dispatch(getUserInfo())
+    }
+  }
+}
 const mapStateToProps = state => {
   return {
     user: state.user
   }
 }
 
-export default connect(mapStateToProps)(SignIn)
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)

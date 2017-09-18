@@ -1,6 +1,6 @@
 // title input constants
-export const TITLE_LENGTH_MAX = 65
-export const TITLE_LENGTH_OPTIMAL = 32
+export const TITLE_LENGTH_MAX = 52
+export const TITLE_LENGTH_OPTIMAL = 24
 
 // subtitle input constants
 export const SUBTITLE_LENGTH_MAX = 75

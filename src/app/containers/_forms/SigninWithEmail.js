@@ -12,8 +12,10 @@ import { Form } from "../../components/FormStyles"
 // helpers
 import validateEmail from "./helpers/validateEmail"
 
+import { MESSAGE_HINT_CHECK_EMAIL } from "../../../constants/messages/hints"
+
 // render
-export default class extends React.Component {
+export default class extends React.PureComponent {
   constructor(props) {
     super(props)
     this.handleEmailChange = this.handleEmailChange.bind(this)
@@ -33,7 +35,7 @@ export default class extends React.Component {
     return (
       <Form>
         <SubtitleInput
-          placeholder="Type Your Email"
+          placeholder="Your Email"
           onChange={this.handleEmailChange}
           required
           maxLength="200"
@@ -41,15 +43,10 @@ export default class extends React.Component {
         />
 
         <ModalDispatch
-          with={{
-            request: {
-              url: "/api/auth/messages/check-email",
-              data: { email: this.state.email }
-            }
-          }}
+          with={MESSAGE_HINT_CHECK_EMAIL(this.state.email)}
           wrapperElement="div"
         >
-          <Button onClick={this.handleSubmit}>Sign In</Button>
+          <Button onClick={this.handleSubmit}>Continue</Button>
         </ModalDispatch>
       </Form>
     )
