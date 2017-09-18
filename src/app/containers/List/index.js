@@ -24,7 +24,7 @@ import { Section, Article } from "../../components/ArticleStyles"
 import { getListMeta } from "./helpers"
 
 // return
-class List extends React.Component {
+class List extends React.PureComponent {
   listAPI = this.props.private ? ROUTE_AUTHENTICATED_LIST_API : ROUTE_LIST_API
   fetchNewList = () => {
     this.props.fetchPage(

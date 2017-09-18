@@ -8,7 +8,7 @@ import Helmet from "react-helmet"
 import Heading from "../../components/ArticleHeading"
 import { Section, Article } from "../../components/ArticleStyles"
 
-import errorMessage from "../../../constants/error-messages"
+import errorMessages from "../../../constants/messages/errors"
 
 // render
 class NotFound extends React.PureComponent {
@@ -30,12 +30,12 @@ class NotFound extends React.PureComponent {
     return (
       <Article>
         <Helmet>
-          <title>{errorMessage.VIEW_TEMPLATE.ARTICLE.title}</title>
+          <title>{errorMessages.VIEW_TEMPLATE.ARTICLE.title}</title>
         </Helmet>
         <Heading
-          pageTitle={errorMessage.VIEW_TEMPLATE.ARTICLE.title}
-          pageSubtitle={errorMessage.VIEW_TEMPLATE.ARTICLE.subtitle}
-          title={errorMessage.DISAMBIGUATION.CODE_403.error}
+          pageTitle={errorMessages.VIEW_TEMPLATE.ARTICLE.title}
+          pageSubtitle={errorMessages.VIEW_TEMPLATE.ARTICLE.subtitle}
+          title={errorMessages.DISAMBIGUATION.CODE_403.error}
         />
         <Section>
           <p style={{ textAlign: "center" }}>

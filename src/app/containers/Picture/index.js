@@ -12,6 +12,8 @@ import Picture from "../../components/Picture"
 import { PlainTextarea } from "../../components/InputStyles"
 
 // export
+// this doesn't work as well with PureComponent:
+// author links need to be clicked twice after first load to work...
 class Figure extends React.Component {
   // state for caption & selection
   constructor(props) {

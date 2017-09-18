@@ -9,7 +9,6 @@ import { ModalDispatch } from "../../../Modal"
 
 // styles
 import { Header, Byline } from "../../../../components/ArticleStyles"
-import placeholder from "../../../../components/_icons/images/placeholder-profile.png"
 
 // constants
 import {
@@ -18,6 +17,7 @@ import {
   SUBTITLE_LENGTH_MAX,
   SUBTITLE_LENGTH_OPTIMAL
 } from "../../../../../constants/input"
+import { MESSAGE_HINT_YOUR_PROFILE } from "../../../../../constants/messages/hints"
 
 // return
 export default class extends React.PureComponent {
@@ -27,29 +27,26 @@ export default class extends React.PureComponent {
     this.props.composerState.subtitle = loadHeader().subtitle
     this.handleTitleChange = this.handleTitleChange.bind(this)
     this.handleSubtitleChange = this.handleSubtitleChange.bind(this)
-    this.state = {
-      title: { warning: false },
-      subtitle: { warning: false }
-    }
   }
   componentWillMount = () => {
     this.headerData = loadHeader()
   }
-  handleTitleChange(event) {
-    this.headerData.title = event
+  handleTitleChange = event => {
     this.props.composerState.title = event
+    this.headerData.title = event
     saveHeader(this.headerData)
-    this.headerData.title.length > TITLE_LENGTH_OPTIMAL
-      ? this.setState({ title: { warning: true } })
-      : this.setState({ title: { warning: false } })
+
+    // instead state management we're forcing update for all textfields
+    // which in turn triggers `warning` and `caution` label re-calculation
+    this.forceUpdate()
   }
   handleSubtitleChange = event => {
     this.props.composerState.subtitle = event
     this.headerData.subtitle = event
     saveHeader(this.headerData)
-    this.headerData.subtitle.length > SUBTITLE_LENGTH_OPTIMAL
-      ? this.setState({ subtitle: { warning: true } })
-      : this.setState({ subtitle: { warning: false } })
+
+    //^^
+    this.forceUpdate()
   }
   render = () => {
     return (
@@ -59,10 +56,8 @@ export default class extends React.PureComponent {
           onChange={this.handleTitleChange}
           value={this.headerData.title}
           inputDesignation="title"
-          warning={
-            this.state.title.warning ||
-            this.headerData.title.length > TITLE_LENGTH_OPTIMAL
-          }
+          caution={this.headerData.title.length > TITLE_LENGTH_OPTIMAL}
+          warning={this.headerData.title.length >= TITLE_LENGTH_MAX}
           maxLength={TITLE_LENGTH_MAX}
           autoFocus
         />
@@ -71,35 +66,13 @@ export default class extends React.PureComponent {
           onChange={this.handleSubtitleChange}
           value={this.headerData.subtitle}
           inputDesignation="subtitle"
-          warning={
-            this.state.subtitle.warning ||
-            this.headerData.subtitle.length > SUBTITLE_LENGTH_OPTIMAL
-          }
+          caution={this.headerData.subtitle.length > SUBTITLE_LENGTH_OPTIMAL}
+          warning={this.headerData.subtitle.length >= SUBTITLE_LENGTH_MAX}
           maxLength={SUBTITLE_LENGTH_MAX}
         />
         <Byline>
           Link to{" "}
-          <ModalDispatch
-            with={
-              this.props.user.status === "ok" ? (
-                {
-                  request: {
-                    url: "/api/author/" + this.props.user.info.author.id
-                  }
-                }
-              ) : (
-                {
-                  info: {
-                    image: placeholder,
-                    title: "Your Profile",
-                    text:
-                      "You can create, view or update your profile after you send your submission."
-                  },
-                  id: "hints/author"
-                }
-              )
-            }
-          >
+          <ModalDispatch with={MESSAGE_HINT_YOUR_PROFILE}>
             Your Profile
           </ModalDispatch>{" "}
           will appear here.

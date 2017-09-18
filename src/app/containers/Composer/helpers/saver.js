@@ -16,7 +16,7 @@ export const saveContent = throttle((document, state) => {
 }, 3000)
 // intermediate status before actual saves
 export const setDraftStatusHelper = () =>
-  store.dispatch(setDraftStatus("Saving..."))
+  store.dispatch(setDraftStatus("Saving…"))
 
 export const saveHeader = throttle(header => {
   const headerState = JSON.stringify(header)

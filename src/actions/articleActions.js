@@ -1,25 +1,25 @@
 // tools
 import axios from "axios"
-import errorMessage from "../constants/error-messages"
+import errorMessages from "../constants/messages/errors"
 import { axiosRequest } from "./helpers"
 
 import { ROUTE_ARTICLE_API } from "../constants/article"
 
 // return
-export function setPage(page) {
+export const setPage = page => {
   return {
     type: "ARTICLE.SET_PAGE",
     payload: page
   }
 }
-export function initPage(state) {
+export const initPage = state => {
   return {
     type: "ARTICLE.INIT_PAGE",
     payload: state
   }
 }
 
-export function fetchPage(request) {
+export const fetchPage = request => {
   return (dispatch, getState) => {
     // do not load anything outside of API scope
     if (!request.url.includes(ROUTE_ARTICLE_API)) return
@@ -50,17 +50,17 @@ export function fetchPage(request) {
           ? dispatch(setPage(response.data))
           : dispatch(
               initPage({
-                title: errorMessage.VIEW_TEMPLATE.ARTICLE.title,
-                subtitle: errorMessage.VIEW_TEMPLATE.ARTICLE.subtitle,
-                error: errorMessage.DISAMBIGUATION.CODE_204.error
+                title: errorMessages.VIEW_TEMPLATE.ARTICLE.title,
+                subtitle: errorMessages.VIEW_TEMPLATE.ARTICLE.subtitle,
+                error: errorMessages.DISAMBIGUATION.CODE_204.error
               })
             )
       })
       .catch(error => {
         dispatch(
           initPage({
-            title: errorMessage.VIEW_TEMPLATE.ARTICLE.title,
-            subtitle: errorMessage.VIEW_TEMPLATE.ARTICLE.subtitle,
+            title: errorMessages.VIEW_TEMPLATE.ARTICLE.title,
+            subtitle: errorMessages.VIEW_TEMPLATE.ARTICLE.subtitle,
             error
           })
         )
