@@ -19,6 +19,9 @@ export default props => {
   else alt = props.feature ? classFeature : classNofeature
 
   return (
+    // feature and non-feature images should have different set of sizes.
+    // non-feature image doesn't need huge size
+    // NOTE for the list we can also use just medium images max & small images on mobile
     <picture>
       {/* <source srcset="smaller.jpg" media="(max-width: 768px)">
         <source srcset="default.jpg"> */}

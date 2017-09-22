@@ -46,7 +46,7 @@ export default props => {
           content={
             ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL +
             ROUTE_APP_PRODUCTION_DOMAIN_NAME +
-            "/images/pictures/about-forest.jpg"
+            "https://res.cloudinary.com/analog-cafe/image/upload/c_scale,fl_progressive,h_2735,q_80,w_1830/v1505842923/dmitrizzle/about/about-forest.jpg"
           }
         />
       </Helmet>
@@ -56,7 +56,7 @@ export default props => {
       />
       <Section>
         <Figure
-          src="/images/pictures/about-forest.jpg"
+          src="https://res.cloudinary.com/analog-cafe/image/upload/c_scale,fl_progressive,h_2735,q_80,w_1830/v1505842923/dmitrizzle/about/about-forest.jpg"
           feature
           noAuthor
           alt="Forest view"

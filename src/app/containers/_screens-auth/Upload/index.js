@@ -77,7 +77,7 @@ class Upload extends React.PureComponent {
             sendSubmission(data, _this.props)
           })
         } else {
-          console.log("no images")
+          console.log("no images") // <-- this is if there are no uploade images; still fires if images inserted as URLs.
           sendSubmission(data, this.props)
         }
       } else {
