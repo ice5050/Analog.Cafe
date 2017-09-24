@@ -12,13 +12,15 @@ const Nav = props => {
   if (props.top && !props.nav.location.top) return null
   if (props.bottom && !props.nav.location.bottom) return null
   return (
-    <NavWrapper>
-      {props.nav.view === "COMPOSER"
-        ? <ComposerNav
-            draftStatus={props.composer.draftStatus}
-            userStatus={props.user.status}
-          />
-        : <CommonNav userStatus={props.user.status} />}
+    <NavWrapper id="nav">
+      {props.nav.view === "COMPOSER" ? (
+        <ComposerNav
+          draftStatus={props.composer.draftStatus}
+          userStatus={props.user.status}
+        />
+      ) : (
+        <CommonNav userStatus={props.user.status} />
+      )}
     </NavWrapper>
   )
 }

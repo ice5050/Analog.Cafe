@@ -1,7 +1,9 @@
 // styles
 import styled from "styled-components"
 import { Paper } from "../Paper"
-import "sanitize.css/sanitize.css"
+
+// in public/index.html:
+// import "sanitize.css/sanitize.css"
 
 // return
 export default styled.div`
