@@ -6,6 +6,9 @@ import Color from "color"
 // components
 import Link from "../Link"
 
+// NOTE: all CSS has bee copied into /public/index.html
+// for faster critical path loading times.
+
 // css
 const containerVerticalSpacing = props =>
   props.theme.size.font.make.larger / 1.2

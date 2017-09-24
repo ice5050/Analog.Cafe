@@ -25,32 +25,36 @@ export const Paper = {
   typography: {
     title: {
       auto: css`
-				font-family: 			Arial, sans-serif;
-				letter-spacing: 	0.005em;
-				line-height: 			${() => Paper.typography.title.lineHeight}em;
-				font-weight: 			700;
-				margin: 					0;
-				/* in some cases this vv doesn't work and causes garbage CSS */
-				.fonts-loaded-headers & { ${() => Paper.typography.title.fontsLoaded} }
-			`,
+        font-family: Arial, sans-serif;
+        letter-spacing: 0.005em;
+        line-height: ${() => Paper.typography.title.lineHeight}em;
+        font-weight: 700;
+        margin: 0;
+        /* in some cases this vv doesn't work and causes garbage CSS */
+        .fonts-loaded-headers & {
+          ${() => Paper.typography.title.fontsLoaded};
+        }
+      `,
       fontsLoaded: css`
-				font-family: 			"Exo 2", Arial sans-serif;
-				letter-spacing: 	0.025em;
-				font-weight: 			600;
-			`,
+        font-family: "Exo 2", Arial, sans-serif;
+        letter-spacing: 0.025em;
+        font-weight: 600;
+      `,
       lineHeight: 1.15 // base: multiplier
     },
     text: {
       auto: css`
-				font-family: 			Georgia, serif;
-				letter-spacing: 	0.05em;
-				line-height: 			${() => Paper.typography.text.lineHeight}em;
-				.fonts-loaded & { ${() => Paper.typography.text.fontsLoaded} }
-			`,
+        font-family: Georgia, serif;
+        letter-spacing: 0.05em;
+        line-height: ${() => Paper.typography.text.lineHeight}em;
+        .fonts-loaded & {
+          ${() => Paper.typography.text.fontsLoaded};
+        }
+      `,
       fontsLoaded: css`
-				font-family: 			Lora, Georgia, serif;
-				letter-spacing: 	0.025em;
-			`,
+        font-family: Lora, Georgia, serif;
+        letter-spacing: 0.025em;
+      `,
       lineHeight: 1.75 // base: multiplier
     }
   },
@@ -78,11 +82,12 @@ export const Paper = {
       },
       // automatically set font size based on screen size; should be at the top of most components' css
       auto: css`
-					${min.m`font-size: 	${() => Paper.size.font.m}px;`}
-					${max.s`font-size: 	${() => Paper.size.font.s}px;`}
-					${max.xs`font-size: 	${() => Paper.size.font.xs}px;`}
-					${min.xxl`font-size:	${() => Paper.size.font.l}px;`}
-				`
+        ${min.m`font-size: 	${() =>
+          Paper.size.font.m}px;`} ${max.s`font-size: 	${() =>
+            Paper.size.font.s}px;`} ${max.xs`font-size: 	${() =>
+            Paper.size.font.xs}px;`} ${min.xxl`font-size:	${() =>
+            Paper.size.font.l}px;`};
+      `
     },
     block: {
       column: {
