@@ -28,12 +28,12 @@ export const CommonNav = props => {
           <span>Articles</span>
         </NavLink>
       </NavItem>
-      <NavItem prime center>
+      <NavItem prime center className="prime center">
         <NavIndexLink to={"/"}>
           <Logo />
         </NavIndexLink>
       </NavItem>
-      <NavItem prime left>
+      <NavItem prime left className="prime left">
         {props.userStatus === "ok" ? (
           <NavLink to={ROUTE_AUTH_USER_LANDING}>
             <span>My Sub’s</span>
@@ -44,7 +44,7 @@ export const CommonNav = props => {
           </NavLink>
         )}
       </NavItem>
-      <NavItem prime right>
+      <NavItem prime right className="prime right">
         {props.userStatus === "ok" ? (
           <NavLink to={"/submit/compose"}>
             <span>Submit New</span>
