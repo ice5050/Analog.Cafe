@@ -16,53 +16,53 @@
       button,hr,input{overflow:visible}audio,canvas,progress,video{display:inline-block}progress,sub,sup{vertical-align:baseline}[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}[aria-disabled],html{cursor:default}*,::after,::before{background-repeat:no-repeat;box-sizing:inherit}::after,::before{text-decoration:inherit;vertical-align:inherit}html{box-sizing:border-box;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}body,button,input,optgroup,select,textarea{margin:0}h1{font-size:2em;margin:.67em 0}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}nav ol,nav ul{list-style:none}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}::-moz-selection{background-color:#b3d4fc;color:#000;text-shadow:none}::selection{background-color:#b3d4fc;color:#000;text-shadow:none}audio,canvas,iframe,img,svg,video{vertical-align:middle}audio:not([controls]){display:none;height:0}img{border-style:none}svg{fill:currentColor}svg:not(:root){overflow:hidden}table{border-collapse:collapse}button,input,select,textarea{color:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}legend{color:inherit;display:table;max-width:100%;white-space:normal}textarea{overflow:auto;resize:vertical}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}[hidden],template{display:none}[tabindex],a,area,button,input,label,select,summary,textarea{-ms-touch-action:manipulation;touch-action:manipulation}[aria-busy=true]{cursor:progress}[aria-controls]{cursor:pointer}[aria-hidden=false][hidden]:not(:focus){clip:rect(0,0,0,0);display:inherit;position:absolute}
 
       /* <Nav/> CSS */
-      #nav {
+      .appNav {
         margin: 0;
         position: relative;
         z-index: 20;
         margin-top: 2.5em;
         margin-bottom: 2.5em;
       }
-      #nav, #wait {
+      .appNav, .waitMessage {
         font-family: Arial,sans-serif;
         letter-spacing: 0.005em;
         line-height: 1.15em;
         font-weight: 700;
       }
-      .fonts-loaded-headers #nav, .fonts-loaded-headers #wait {
+      .fonts-loaded-headers .appNav, .fonts-loaded-headers .waitMessage {
         font-family: "Exo 2",Arial, sans-serif;
         letter-spacing: 0.025em;
         font-weight: 600;
         line-height: 1.15em;
       }
       @media (min-width: 32.5625em){
-        #nav, #wait {
+        .appNav, .waitMessage {
           font-size: 20px;
         }
       }
       @media (max-width: 20em){
-        #nav, #wait {
+        .appNav, .waitMessage {
           font-size: 17px;
         }
       }
       @media (max-width: 32.5em){
-        #nav, #wait {
+        .appNav, .waitMessage {
           font-size: 18px;
         }
       }
       @media (min-width: 100.0625em){
-        #nav, #wait {
+        .appNav, .waitMessage {
           font-size: 23px;
         }
       }
-      #wait {
+      .waitMessage {
         margin: -.65em auto 0;
         text-align: center;
       }
-      #wait span {
+      .waitMessage span {
         font-size: 0.85em;
       }
-      #nav ul {
+      .appNav ul {
         padding: 0;
         display: flex;
         align-items: center;
@@ -70,41 +70,32 @@
         margin: 0 auto;
         color: #2c2c2c;
       }
-      #nav li {
+      .appNav li {
         display: block;
         text-align: center;
         width: 7em;
       }
       @media (max-width: 46.875em){
-        #nav li:not(.prime) {
+        .appNav li:not(.prime) {
           display: none;
         }
-        #nav li.prime.center {
+        .appNav li.prime.center {
           order: 1;
         }
-        #nav li.prime.left {
+        .appNav li.prime.left {
           order: 0;
         }
-        #nav li.prime.right {
+        .appNav li.prime.right {
           order: 2;
         }
       }
-      #nav a {
+      .appNav a {
         color: inherit;
         text-decoration-skip: ink;
         background: #fff;
         text-decoration: none;
       }
-      #nav a.active::before {
-    		content: 				"";
-    		width: 					110%;
-    		left: 					-5%;
-    		height: 				2px;
-    		bottom: 				-5px;
-    		background: 		${props => props.theme.color.foreground};
-    		position: 			absolute;
-    	}
-      #logo {
+      .appLogo {
         position: absolute;
         top: -1.75em;
         left: calc( 50% - 2.5em );
@@ -112,7 +103,7 @@
         padding: 1em;
         width: 5em;
       }
-      #logo > div {
+      .appLogo > div {
         background: #2c2c2c;
         box-shadow: 0 1px 1px rgba(44,44,44,0.25);
         width: 3em;
@@ -123,12 +114,12 @@
         border-radius: 0.5em;
         transform: rotate(45deg);
       }
-      #logo svg {
+      .appLogo svg {
         transform: rotate(-45deg);
         height: 100%;
         width: 100%;
       }
-      #logo svg path {
+      .appLogo svg path {
         fill: #fff;
       }
 
@@ -218,13 +209,13 @@
     <div id="app">
 
       <!-- <Nav/> quick HTML drop-in for critical HTML load -->
-      <nav id="nav">
+      <nav class="appNav">
         <ul>
           <li><a href="/photo-essays"><span>Photo Essays</span></a></li>
           <li><a href="/articles"><span>Articles</span></a></li>
           <li class="prime center">
             <a href="/">
-              <div title="Analog.Cafe" id="logo">
+              <div title="Analog.Cafe" class="appLogo">
                 <div>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 475 200">
                     <path d="M475 200h-35c-25 0-60-20-60-60V65c0-25-20-45-45-45h-70c-25 0-45 20-45 45v135h-20V60c0-40 37-60 60-60h80c40 0 60 35 60 60v75c0 25 20 45 45 45h30v20zM0 0v140c0 40 35 60 60 60h120v-20H65c-25 0-45-20-45-45V0H0zm230 180h140v20H230v-20z"></path>
@@ -237,7 +228,7 @@
           <li class="prime right"><a href="/submit"><span>Submit</span></a></li>
         </ul>
       </nav>
-      <div id="wait">
+      <div class="waitMessage">
         <span>Wait a second please…</span>
       </div>
       <!-- end <Nav/> drop-in -->

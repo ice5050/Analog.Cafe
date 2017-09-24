@@ -8,10 +8,11 @@ import Link from "../Link"
 
 // NOTE: all CSS has bee copied into /public/index.html
 // for faster critical path loading times.
+// some actionable CSS remains here.
 
 // css
-const containerVerticalSpacing = props =>
-  props.theme.size.font.make.larger / 1.2
+
+// const containerVerticalSpacing = props => props.theme.size.font.make.larger / 1.2
 
 export const NavWrapper = styled.nav`
   ${"" /* ${props => props.theme.size.font.auto} ${props =>
@@ -31,16 +32,16 @@ export const NavWrapper = styled.nav`
 const StyledLink = styled(Link)`
   ${"" /* background: 			${props => props.theme.color.background};
 	text-decoration: 	none;
-	position: 				relative;
-	&.active::before {
-		content: 				"";
-		width: 					110%;
-		left: 					-5%;
-		height: 				2px;
-		bottom: 				-5px;
-		background: 		${props => props.theme.color.foreground};
-		position: 			absolute;
-	} */};
+	position: 				relative; */};
+  &.active::before {
+    content: "";
+    width: 110%;
+    left: -5%;
+    height: 2px;
+    bottom: -5px;
+    background: ${props => props.theme.color.foreground};
+    position: absolute;
+  }
 `
 export const NavLink = props => {
   return <StyledLink {...props} activeClassName="active" />

@@ -12,7 +12,7 @@ const Nav = props => {
   if (props.top && !props.nav.location.top) return null
   if (props.bottom && !props.nav.location.bottom) return null
   return (
-    <NavWrapper id="nav">
+    <NavWrapper className="appNav">
       {props.nav.view === "COMPOSER" ? (
         <ComposerNav
           draftStatus={props.composer.draftStatus}
