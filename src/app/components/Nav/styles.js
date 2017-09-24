@@ -1,7 +1,7 @@
 // tools
 import React from "react"
 import styled from "styled-components"
-import Color from "color"
+// import Color from "color"
 
 // components
 import Link from "../Link"
