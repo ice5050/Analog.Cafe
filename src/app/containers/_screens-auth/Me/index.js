@@ -1,6 +1,7 @@
 // tools
 import React from "react"
 import Loadable from "react-loadable"
+import Helmet from "react-helmet"
 
 // redux
 import { connect } from "react-redux"
@@ -30,6 +31,9 @@ const Me = props => {
     <AsyncList
       header={
         <ButtonGroup>
+          <Helmet>
+            <title>My Submissions</title>
+          </Helmet>
           <LinkButton
             to={ROUTE_AUTH_USER_LANDING + "/edit"}
             red
