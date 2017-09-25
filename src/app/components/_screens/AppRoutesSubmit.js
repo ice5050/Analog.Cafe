@@ -4,9 +4,7 @@ import Loadable from "react-loadable"
 import { Switch, Route } from "react-router-dom"
 
 // components
-import SubmitSoon from "./SubmitSoon"
 import NotFound from "../../containers/_screens-errors/NotFound"
-import Upload from "../../containers/_screens-auth/Upload"
 import AsyncArticleLoader from "./AsyncArticleLoader"
 
 // async components
@@ -24,6 +22,17 @@ const AsyncComposer = Loadable({
   delay: 100
 })
 
+const AsyncUpload = Loadable({
+  loader: () => import("../../containers/_screens-auth/Upload"),
+  loading: AsyncArticleLoader,
+  delay: 100
+})
+const AsyncSubmitSoon = Loadable({
+  loader: () => import("./SubmitSoon"),
+  loading: AsyncArticleLoader,
+  delay: 100
+})
+
 // render
 export default props => {
   // Composer isn't ready for production yet.
@@ -34,8 +43,16 @@ export default props => {
         <Route exact path="/submit/compose" component={AsyncComposer} />
 
         {/* Signin & upload submission */}
-        <Route exact path="/submit/confirm-full-consent" component={Upload} />
-        <Route exact path="/submit/confirm-basic-consent" component={Upload} />
+        <Route
+          exact
+          path="/submit/confirm-full-consent"
+          component={AsyncUpload}
+        />
+        <Route
+          exact
+          path="/submit/confirm-basic-consent"
+          component={AsyncUpload}
+        />
 
         {/* Not found routes */}
         <Route path="/submit/*" component={NotFound} />
@@ -44,7 +61,7 @@ export default props => {
   else
     return (
       <Switch>
-        <Route exact path="/submit" component={SubmitSoon} />
+        <Route exact path="/submit" component={AsyncSubmitSoon} />
         <Route path="/submit/*" component={NotFound} />
       </Switch>
     )
