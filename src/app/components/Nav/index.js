@@ -79,7 +79,7 @@ const NavLinkSend = props => {
 export const ComposerNav = props => {
   return (
     <ul>
-      <NavItem indicator prime left>
+      <NavItem indicator prime left className="prime left">
         <ModalDispatch
           with={MESSAGE_HINT_AUTO_SAVE}
           style={{ textDecoration: "none" }}
@@ -87,12 +87,12 @@ export const ComposerNav = props => {
           <span>{props.draftStatus}</span>
         </ModalDispatch>
       </NavItem>
-      <NavItem prime center>
+      <NavItem prime center className="prime center">
         <NavIndexLink to={"/"}>
           <Logo />
         </NavIndexLink>
       </NavItem>
-      <NavItem prime right>
+      <NavItem prime right className="prime right">
         <NavLinkSend userStatus={props.userStatus} />
       </NavItem>
     </ul>
