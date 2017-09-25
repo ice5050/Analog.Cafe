@@ -88,7 +88,7 @@ export const ComposerNav = props => {
         </ModalDispatch>
       </NavItem>
       <NavItem prime center className="prime center">
-        <NavIndexLink to={"/"}>
+        <NavIndexLink to={"/"} className="indexRouteLink">
           <Logo />
         </NavIndexLink>
       </NavItem>
