@@ -26,63 +26,65 @@ export default props => {
       style={{
         paddingBottom: Math.round(100 / froth(src).ratio, 3) + "%",
         background: "#EEE",
-        height: "0",
+        height: froth(src).ratio ? "0" : "initial",
         position: "relative"
       }}
     >
       <picture
         style={{
           width: "100%",
-          height: "100%",
+          height: froth(src).ratio ? "100%" : "initial",
           display: "block",
-          position: "absolute"
+          position: froth(src).ratio ? "absolute" : "static"
         }}
       >
-        {/* WebP */}
-        <source
-          // mobile image size
-          srcSet={froth(src, "s", "webp").src}
-          media="(max-width: 480px)"
-          type="image/webp"
-        />
-        <source
-          // medium image size, largest for all images that aren't "features"
-          srcSet={froth(src, "m", "webp").src}
-          media="(max-width: 1200px)"
-          type="image/webp"
-        />
-        <source
-          // max image size, extra large only if it's a "feature"
-          srcSet={froth(src, largestSize, "webp").src}
-          media="(min-width: 1201px)"
-          type="image/webp"
-        />
+        {froth(src, "s", "webp").type === "webp" && (
+          <source
+            // mobile image size
+            srcSet={froth(src, "s", "webp").src}
+            media="(max-width: 480px)"
+            type="image/webp"
+          />
+        )}
+        {froth(src, "s", "webp").type === "webp" && (
+          <source
+            // medium image size, largest for all images that aren't "features"
+            srcSet={froth(src, "m", "webp").src}
+            media="(max-width: 1200px)"
+            type="image/webp"
+          />
+        )}
+        {froth(src, "s", "webp").type === "webp" && (
+          <source
+            // max image size, extra large only if it's a "feature"
+            srcSet={froth(src, largestSize, "webp").src}
+            media="(min-width: 1201px)"
+            type="image/webp"
+          />
+        )}
 
         {/* JPG */}
         <source
           // mobile image size
           srcSet={froth(src, "s").src}
           media="(max-width: 480px)"
-          type="image/jpeg"
         />
         <source
           // medium image size, largest for all images that aren't "features"
           srcSet={froth(src, "m").src}
           media="(max-width: 1200px)"
-          type="image/jpeg"
         />
         <source
           // max image size, extra large only if it's a "feature"
           srcSet={froth(src, largestSize).src}
           media="(min-width: 1201px)"
-          type="image/jpeg"
         />
         <img
           // default image size
           src={froth(src, "m").src}
           alt={alt}
           className={className}
-          style={{ height: "100%" }}
+          style={{ height: froth(src).ratio ? "100%" : "initial" }}
         />
       </picture>
     </div>

@@ -13,6 +13,13 @@ export const froth = (src, size = "m", type = "jpg") => {
   let width = IMAGE_FROTH_SIZES[size]
   let height = ""
   let ratio = 0
+
+  // extension is passed in through id:
+  if (/[.]/.exec(src)) {
+    type = src.split(".").pop() // log extension
+    src = src.replace(/\.[^/.]+$/, "") // remove extension from file name
+  }
+
   if (src.includes("image-froth") && !src.includes("/")) {
     src =
       IMAGE_FROTH_SERVER +
@@ -31,15 +38,9 @@ export const froth = (src, size = "m", type = "jpg") => {
         .shift() / 1000000
     height = Math.round(width / ratio, 1)
   }
-
-  console.log({
-    src,
-    ratio,
-    width,
-    height
-  })
   return {
     src,
+    type,
     ratio,
     width,
     height
