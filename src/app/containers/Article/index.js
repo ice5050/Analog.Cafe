@@ -11,10 +11,7 @@ import {
   ROUTE_ARTICLE_DIR
 } from "../../../constants/article"
 import { ROUTE_AUTHOR_API } from "../../../constants/author"
-import {
-  ROUTE_APP_PRODUCTION_DOMAIN_NAME,
-  ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL
-} from "../../../constants/app"
+import { froth } from "../../../utils/image-froth"
 
 import { schema } from "../Composer/containers/ContentEditor/schema"
 
@@ -56,12 +53,7 @@ class Article extends React.PureComponent {
           <meta name="description" content={this.props.article.summary} />
           <meta
             property="og:image"
-            content={
-              this.props.article.poster &&
-              ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL +
-                ROUTE_APP_PRODUCTION_DOMAIN_NAME +
-                this.props.article.poster.medium
-            }
+            content={froth(this.props.article.poster.medium, "s").src}
           />
         </Helmet>
         <Heading

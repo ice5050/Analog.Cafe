@@ -1,6 +1,7 @@
 // tools
 import React from "react"
 import Link from "../Link"
+import { froth } from "../../../utils/image-froth"
 
 // styles
 import { Bleed } from "./styles/bleed"
@@ -51,7 +52,8 @@ export default props => {
                       <div
                         style={
                           item.poster && {
-                            backgroundImage: "url(" + item.poster.medium + ")"
+                            backgroundImage:
+                              "url(" + froth(item.poster.medium, "s").src + ")"
                           }
                         }
                         aria-label={item.title + " poster image"}
@@ -103,7 +105,10 @@ export default props => {
                 <ZigzagPicture
                   style={
                     item.type !== "placeholder" && item.poster ? (
-                      { backgroundImage: `url(${item.poster.medium})` }
+                      {
+                        backgroundImage: `url(${froth(item.poster.medium, "s")
+                          .src})`
+                      }
                     ) : null
                   }
                 />

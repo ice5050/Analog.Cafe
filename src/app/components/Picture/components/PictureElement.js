@@ -1,9 +1,10 @@
 // tools
 import React from "react"
+import { froth } from "../../../../utils/image-froth"
 
 // return
 export default props => {
-  const src = props.src
+  let src = props.src
   const className = props.className
 
   const classFeature = "Featured image"
@@ -18,14 +19,74 @@ export default props => {
       : classNofeature + by + props.author.name
   else alt = props.feature ? classFeature : classNofeature
 
+  let largestSize = props.feature ? "l" : "m"
+
   return (
-    // feature and non-feature images should have different set of sizes.
-    // non-feature image doesn't need huge size
-    // NOTE for the list we can also use just medium images max & small images on mobile
-    <picture>
-      {/* <source srcset="smaller.jpg" media="(max-width: 768px)">
-        <source srcset="default.jpg"> */}
-      <img srcSet={src} src={src} alt={alt} className={className} />
-    </picture>
+    <div
+      style={{
+        paddingBottom: Math.round(100 / froth(src).ratio, 3) + "%",
+        background: "#EEE",
+        height: froth(src).ratio ? "0" : "initial",
+        position: "relative"
+      }}
+    >
+      <picture
+        style={{
+          width: "100%",
+          height: froth(src).ratio ? "100%" : "initial",
+          display: "block",
+          position: froth(src).ratio ? "absolute" : "static"
+        }}
+      >
+        {froth(src, "s", "webp").type === "webp" && (
+          <source
+            // mobile image size
+            srcSet={froth(src, "s", "webp").src}
+            media="(max-width: 480px)"
+            type="image/webp"
+          />
+        )}
+        {froth(src, "s", "webp").type === "webp" && (
+          <source
+            // medium image size, largest for all images that aren't "features"
+            srcSet={froth(src, "m", "webp").src}
+            media="(max-width: 1200px)"
+            type="image/webp"
+          />
+        )}
+        {froth(src, "s", "webp").type === "webp" && (
+          <source
+            // max image size, extra large only if it's a "feature"
+            srcSet={froth(src, largestSize, "webp").src}
+            media="(min-width: 1201px)"
+            type="image/webp"
+          />
+        )}
+
+        {/* JPG */}
+        <source
+          // mobile image size
+          srcSet={froth(src, "s").src}
+          media="(max-width: 480px)"
+        />
+        <source
+          // medium image size, largest for all images that aren't "features"
+          srcSet={froth(src, "m").src}
+          media="(max-width: 1200px)"
+        />
+        <source
+          // max image size, extra large only if it's a "feature"
+          srcSet={froth(src, largestSize).src}
+          media="(min-width: 1201px)"
+        />
+        <img
+          // default image size
+          src={froth(src, "m").src}
+          alt={alt}
+          className={className}
+          style={{ height: froth(src).ratio ? "100%" : "initial" }}
+        />
+      </picture>
+    </div>
   )
 }

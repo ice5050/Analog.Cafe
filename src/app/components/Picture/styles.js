@@ -16,6 +16,7 @@ export const Image = styled(({ style, ...props }) => (
   />
 ))`
   width: 100%;
+  height: auto;
   display: block;
   text-align: center;
   font-style: italic;
