@@ -80,7 +80,7 @@ export default props => {
           srcSet={froth(src, largestSize).src}
           media="(min-width: 1201px)"
         />
-        <LazyLoad unmountIfInvisible once offset="300">
+        <LazyLoad unmountIfInvisible once offset={300} height={"100%"}>
           <img
             // default image size
             src={froth(src, "m").src}
