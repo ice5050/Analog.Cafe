@@ -14,6 +14,9 @@ import {
 // styles
 import { NavLink, NavIndexLink, NavItem } from "./styles"
 
+// NOTE: components' `className` props are used in index.html and aren't required
+// if styles from `./styles.js` have the comments removed
+
 // return
 export const CommonNav = props => {
   return (
@@ -29,14 +32,14 @@ export const CommonNav = props => {
         </NavLink>
       </NavItem>
       <NavItem prime center className="prime center">
-        <NavIndexLink to={"/"}>
+        <NavIndexLink to={"/"} className="indexRouteLink">
           <Logo />
         </NavIndexLink>
       </NavItem>
       <NavItem prime left className="prime left">
         {props.userStatus === "ok" ? (
           <NavLink to={ROUTE_AUTH_USER_LANDING}>
-            <span>My Sub’s</span>
+            <span>My Stuff</span>
           </NavLink>
         ) : (
           <NavLink to={"/about"}>
@@ -47,7 +50,7 @@ export const CommonNav = props => {
       <NavItem prime right className="prime right">
         {props.userStatus === "ok" ? (
           <NavLink to={"/submit/compose"}>
-            <span>Submit New</span>
+            <span>Submit</span>
           </NavLink>
         ) : (
           <NavLink to={"/submit"}>
@@ -76,7 +79,7 @@ const NavLinkSend = props => {
 export const ComposerNav = props => {
   return (
     <ul>
-      <NavItem indicator prime left>
+      <NavItem indicator prime left className="prime left">
         <ModalDispatch
           with={MESSAGE_HINT_AUTO_SAVE}
           style={{ textDecoration: "none" }}
@@ -84,12 +87,12 @@ export const ComposerNav = props => {
           <span>{props.draftStatus}</span>
         </ModalDispatch>
       </NavItem>
-      <NavItem prime center>
-        <NavIndexLink to={"/"}>
+      <NavItem prime center className="prime center">
+        <NavIndexLink to={"/"} className="indexRouteLink">
           <Logo />
         </NavIndexLink>
       </NavItem>
-      <NavItem prime right>
+      <NavItem prime right className="prime right">
         <NavLinkSend userStatus={props.userStatus} />
       </NavItem>
     </ul>
