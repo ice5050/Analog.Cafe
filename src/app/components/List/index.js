@@ -53,7 +53,7 @@ export default props => {
                         style={
                           item.poster && {
                             backgroundImage:
-                              "url(" + froth(item.poster.medium).src + ")"
+                              "url(" + froth(item.poster.medium, "s").src + ")"
                           }
                         }
                         aria-label={item.title + " poster image"}
@@ -105,7 +105,10 @@ export default props => {
                 <ZigzagPicture
                   style={
                     item.type !== "placeholder" && item.poster ? (
-                      { backgroundImage: `url(${item.poster.medium})` }
+                      {
+                        backgroundImage: `url(${froth(item.poster.medium, "s")
+                          .src})`
+                      }
                     ) : null
                   }
                 />

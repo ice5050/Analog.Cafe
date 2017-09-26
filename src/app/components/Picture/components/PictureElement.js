@@ -22,9 +22,6 @@ export default props => {
   let largestSize = props.feature ? "l" : "m"
 
   return (
-    // feature and non-feature images should have different set of sizes.
-    // non-feature image doesn't need huge size
-    // NOTE for the list we can also use just medium images max & small images on mobile
     <div
       style={{
         paddingBottom: Math.round(100 / froth(src).ratio, 3) + "%",
@@ -41,15 +38,47 @@ export default props => {
           position: "absolute"
         }}
       >
-        {/* <source srcset="smaller.jpg" media="(max-width: 768px)">
-        <source srcset="default.jpg"> */}
-        <source srcSet={froth(src, "s").src} media="(max-width: 480px)" />
-        <source srcSet={froth(src, "m").src} media="(max-width: 1200px)" />
+        {/* WebP */}
         <source
+          // mobile image size
+          srcSet={froth(src, "s", "webp").src}
+          media="(max-width: 480px)"
+          type="image/webp"
+        />
+        <source
+          // medium image size, largest for all images that aren't "features"
+          srcSet={froth(src, "m", "webp").src}
+          media="(max-width: 1200px)"
+          type="image/webp"
+        />
+        <source
+          // max image size, extra large only if it's a "feature"
+          srcSet={froth(src, largestSize, "webp").src}
+          media="(min-width: 1201px)"
+          type="image/webp"
+        />
+
+        {/* JPG */}
+        <source
+          // mobile image size
+          srcSet={froth(src, "s").src}
+          media="(max-width: 480px)"
+          type="image/jpeg"
+        />
+        <source
+          // medium image size, largest for all images that aren't "features"
+          srcSet={froth(src, "m").src}
+          media="(max-width: 1200px)"
+          type="image/jpeg"
+        />
+        <source
+          // max image size, extra large only if it's a "feature"
           srcSet={froth(src, largestSize).src}
           media="(min-width: 1201px)"
+          type="image/jpeg"
         />
         <img
+          // default image size
           src={froth(src, "m").src}
           alt={alt}
           className={className}
