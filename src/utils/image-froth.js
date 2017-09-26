@@ -9,7 +9,11 @@ const IMAGE_FROTH_SIZES = {
 }
 
 // image-froth_1681956_9ad677d272a84ebc9360ad6199372f8b
-export const froth = (src, size = "m", type = "jpg") => {
+export const froth = (
+  src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+  size = "m",
+  type = "jpg"
+) => {
   let width = IMAGE_FROTH_SIZES[size]
   let height = ""
   let ratio = 0
