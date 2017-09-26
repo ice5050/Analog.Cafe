@@ -51,10 +51,12 @@ class Article extends React.PureComponent {
         <Helmet>
           <title>{this.props.article.title}</title>
           <meta name="description" content={this.props.article.summary} />
-          <meta
-            property="og:image"
-            content={froth(this.props.article.poster.medium, "s").src}
-          />
+          {this.props.article.poster && (
+            <meta
+              property="og:image"
+              content={froth(this.props.article.poster.medium, "s").src}
+            />
+          )}
         </Helmet>
         <Heading
           pageTitle={this.props.article.title}

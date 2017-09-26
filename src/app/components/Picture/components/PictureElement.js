@@ -1,6 +1,7 @@
 // tools
 import React from "react"
 import { froth } from "../../../../utils/image-froth"
+import LazyLoad from "react-lazyload"
 
 // return
 export default props => {
@@ -79,13 +80,15 @@ export default props => {
           srcSet={froth(src, largestSize).src}
           media="(min-width: 1201px)"
         />
-        <img
-          // default image size
-          src={froth(src, "m").src}
-          alt={alt}
-          className={className}
-          style={{ height: froth(src).ratio ? "100%" : "initial" }}
-        />
+        <LazyLoad unmountIfInvisible once offset={300} height={"100%"}>
+          <img
+            // default image size
+            src={froth(src, "m").src}
+            alt={alt}
+            className={className}
+            style={{ height: froth(src).ratio ? "100%" : "initial" }}
+          />
+        </LazyLoad>
       </picture>
     </div>
   )
