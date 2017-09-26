@@ -32,7 +32,9 @@ export default props => {
   return (
     <Bleed>
       <Ul status={props.status}>
-        {props.items.map(item => {
+        {props.items.map((item, index) => {
+          // NOTE: index is used to show high quality image for first item
+
           return (
             <li key={item.id}>
               <Link
@@ -53,7 +55,9 @@ export default props => {
                         style={
                           item.poster && {
                             backgroundImage:
-                              "url(" + froth(item.poster.medium, "s").src + ")"
+                              "url(" +
+                              froth(item.poster.medium, index ? "s" : "m").src +
+                              ")"
                           }
                         }
                         aria-label={item.title + " poster image"}
@@ -106,8 +110,10 @@ export default props => {
                   style={
                     item.type !== "placeholder" && item.poster ? (
                       {
-                        backgroundImage: `url(${froth(item.poster.medium, "s")
-                          .src})`
+                        backgroundImage: `url(${froth(
+                          item.poster.medium,
+                          index ? "s" : "m"
+                        ).src})`
                       }
                     ) : null
                   }
