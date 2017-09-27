@@ -9,6 +9,14 @@ import { LinkButton } from "../Button"
 import { Sidenote } from "../CaptionStyles"
 
 // css
+export const CardButtonStyles = css`
+  max-width: 100%;
+  margin: 0;
+  border-radius: 0;
+  &:active {
+    box-shadow: 0 -1px 0 ${props => props.theme.color.foreground};
+  }
+`
 export const Card = styled.div`
   position: relative;
   display: block;
@@ -33,6 +41,9 @@ export const Card = styled.div`
       width: 100%;
     }
   }
+  ${"" /* We know that button is a button, hower link buttons won't be reset for cards like this. */} button {
+    ${CardButtonStyles};
+  }
 `
 export const CardFlattened = styled(Card)`
   margin: ${props => props.theme.size.block.column.safety}em auto;
@@ -46,15 +57,7 @@ export const CardFlattened = styled(Card)`
         Color(props.theme.color.foreground)
           .alpha(props.theme.opacity.least)
           .string()};
-`
-
-export const CardButtonStyles = css`
-  max-width: 100%;
-  margin: 0;
-  border-radius: 0;
-  &:active {
-    box-shadow: 0 -1px 0 ${props => props.theme.color.foreground};
-  }
+  border-radius: ${props => props.theme.effects.borderRadius.small}em;
 `
 export const CardButton = styled(LinkButton)`${CardButtonStyles};`
 

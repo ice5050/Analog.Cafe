@@ -8,20 +8,18 @@ import Link from "../../../../components/Link"
 import Placeholder from "./components/Placeholder"
 
 // helpers
-import { parseHref } from "../../../../components/Link/helpers"
+import { parseHref } from "../../../../../utils/link-builder"
 
 // return
 export const schema = {
   nodes: {
-    paragraph: props =>
+    paragraph: props => (
       <p {...props.attributes} style={{ position: "relative" }}>
         <Placeholder {...props}>Write your story...</Placeholder>
         {props.children}
-      </p>,
-    heading: props =>
-      <h3>
-        {props.children}
-      </h3>, // no links or style should be allowed in headings
+      </p>
+    ),
+    heading: props => <h3>{props.children}</h3>, // no links or style should be allowed in headings
     divider: props => {
       const { node, state } = props
       const focus = state.isFocused && state.selection.hasEdgeIn(node)
@@ -51,13 +49,7 @@ export const schema = {
     }
   },
   marks: {
-    bold: props =>
-      <strong>
-        {props.children}
-      </strong>,
-    italic: props =>
-      <em>
-        {props.children}
-      </em>
+    bold: props => <strong>{props.children}</strong>,
+    italic: props => <em>{props.children}</em>
   }
 }

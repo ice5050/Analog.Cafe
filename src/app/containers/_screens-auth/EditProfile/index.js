@@ -40,6 +40,7 @@ class EditProfile extends React.PureComponent {
     // fetch user info if not present (for componentWillReceiveProps)
     if (
       this.props.user.status === "ok" &&
+      typeof this.props.user.info === "object" &&
       Object.keys(this.props.user.info).length === 0
     ) {
       this.props.getUserInfo()

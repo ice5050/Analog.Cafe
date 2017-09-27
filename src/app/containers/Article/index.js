@@ -87,10 +87,15 @@ class Article extends React.PureComponent {
             })}
             schema={schema}
           />
+          {this.props.article.poster &&
+          this.props.article.author && (
+            <SocialCard
+              image={this.props.article.poster.medium}
+              title={this.props.article.title}
+              author={this.props.article.author.name}
+            />
+          )}
         </Section>
-        <SocialCard
-          image={this.props.article.poster && this.props.article.poster.medium}
-        />
       </ArticleElement>
     )
   }
