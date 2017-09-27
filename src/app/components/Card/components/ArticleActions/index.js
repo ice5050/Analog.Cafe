@@ -8,6 +8,7 @@ import {
   TwitterButton,
   FacebookButton
 } from "../../../Button/components/SocialButtons"
+import slugToTitle from "../../../../../utils/slug-to-title"
 
 import { ROUTE_ARTICLE_DIR } from "../../../../../constants/article"
 
@@ -20,7 +21,10 @@ export default props => {
       </FacebookButton>
       <TwitterButton onClick={props.shareOnTwitter}>Tweet</TwitterButton>
       {props.nextArticle && (
-        <LinkButton to={ROUTE_ARTICLE_DIR + "/" + props.nextArticle}>
+        <LinkButton
+          to={ROUTE_ARTICLE_DIR + "/" + props.nextArticle}
+          title={slugToTitle(props.nextArticle)}
+        >
           Next Article ➢
         </LinkButton>
       )}
