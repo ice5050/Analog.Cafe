@@ -1,6 +1,6 @@
 // tools
 import axios from "axios"
-import { axiosRequest } from "./helpers"
+import { axiosRequest } from "../utils/axios-request"
 
 import { setCard } from "./modalActions"
 import errorMessages from "../constants/messages/errors"

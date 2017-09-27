@@ -3,8 +3,8 @@ import { Raw } from "slate"
 import throttle from "lodash/throttle"
 
 // redux
-import store from "../../../../store"
-import { setDraftStatus } from "../../../../actions/composerActions"
+import store from "../store"
+import { setDraftStatus } from "../actions/composerActions"
 
 // return
 export const saveContent = throttle((document, state) => {

@@ -14,7 +14,7 @@ import { LinkButton } from "../../../components/Button"
 import { Article } from "../../../components/ArticleStyles"
 
 // template for user profile button arrangement
-import { profileButtonsTemplate } from "./helpers"
+import { profileButtonsTemplate } from "../../../../utils/profile-button-labeler"
 
 import { ROUTE_AUTH_USER_LANDING } from "../../../../constants/user"
 import {

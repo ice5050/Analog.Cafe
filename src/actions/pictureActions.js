@@ -2,8 +2,8 @@
 import axios from "axios"
 import { ROUTE_IMAGE_API } from "../constants/picture"
 import errorMessages from "../constants/messages/errors"
-import { imageSrcToPictureId } from "../app/containers/Picture/helpers"
-import { axiosRequest } from "./helpers"
+import { getFroth } from "../utils/image-froth"
+import { axiosRequest } from "../utils/axios-request"
 
 // return
 const unknownAuthor = (id, error) => {
@@ -26,7 +26,7 @@ const unknownAuthor = (id, error) => {
   }
 }
 export const getInfo = src => {
-  let id = imageSrcToPictureId(src)
+  let id = getFroth(src)
   let request
   request = {
     url: ROUTE_IMAGE_API + "/" + id
