@@ -4,8 +4,8 @@ import React from "react"
 // styles
 import Heading from "../ArticleHeading"
 import { Section, Article } from "../ArticleStyles"
-import emojis from "../../../constants/emoji"
-import error from "../../../constants/error-messages"
+import emojis from "../../../constants/messages/emojis"
+import errorMessages from "../../../constants/messages/errors"
 
 // return
 export default props => {
@@ -13,14 +13,22 @@ export default props => {
     <Article>
       <Heading
         pageTitle={
-          props.isLoading
-            ? props.pastDelay ? emojis.HUG_RIGHT : "‌"
-            : error.VIEW_TEMPLATE.LIST.meta.emoji
+          props.isLoading ? props.pastDelay ? (
+            emojis.HUG_RIGHT
+          ) : (
+            "‌"
+          ) : (
+            errorMessages.VIEW_TEMPLATE.ARTICLE.title
+          )
         }
         pageSubtitle={
-          props.isLoading
-            ? props.pastDelay ? "Loading…" : "‌"
-            : error.VIEW_TEMPLATE.LIST.meta.title
+          props.isLoading ? props.pastDelay ? (
+            "Loading…"
+          ) : (
+            "‌"
+          ) : (
+            errorMessages.VIEW_TEMPLATE.ARTICLE.subtitle
+          )
         }
       />
       <Section style={{ paddingTop: "100vh" }} />

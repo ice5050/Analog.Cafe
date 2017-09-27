@@ -1,12 +1,12 @@
 // tools
 import axios from "axios"
-import { setCard } from "./modalActions"
-import errorMessage from "../constants/error-messages"
+import errorMessages from "../constants/messages/errors"
+import { axiosRequest } from "../utils/axios-request"
 
 import { ROUTE_LIST_API, ROUTE_AUTHENTICATED_LIST_API } from "../constants/list"
 
 // return
-export function setPage(page, appendItems) {
+export const setPage = (page, appendItems) => {
   if (appendItems === false)
     return {
       type: "LIST.SET_PAGE",
@@ -25,7 +25,7 @@ export function initPage(state) {
   }
 }
 
-export function fetchPage(request, appendItems = false) {
+export const fetchPage = (request, appendItems = false) => {
   return (dispatch, getState) => {
     // do not load anything outside of API scope
     if (
@@ -37,7 +37,7 @@ export function fetchPage(request, appendItems = false) {
     // get current state from store
     let listState = getState().list
 
-    // do not load list twice in a arow
+    // do not load list more than once, escape loops
     if (
       listState.requested.url === request.url &&
       listState.requested.params.tag === request.params.tag &&
@@ -46,6 +46,13 @@ export function fetchPage(request, appendItems = false) {
     )
       return
 
+    // authenticate user should they want to see protected content
+    // (i.e. thieir submissions)
+    if (request.url.includes(ROUTE_AUTHENTICATED_LIST_API))
+      request.headers = {
+        Authorization: "JWT " + localStorage.getItem("token")
+      }
+
     // reset list state (unless it's being paginated)
     if (!appendItems)
       dispatch(
@@ -53,55 +60,22 @@ export function fetchPage(request, appendItems = false) {
           requested: request
         })
       )
-
-    axios({
-      method: request.method || "get",
-      params: request.params || {},
-      data: request.data || {},
-      headers: request.headers || {},
-      url: request.url
-    })
+    axios(axiosRequest(request))
       .then(response => {
         if (response.data.page["items-total"] > 0)
           dispatch(setPage(response.data, appendItems))
         else {
           dispatch(
-            setCard(
-              {
-                status: "ok",
-                info: {
-                  title: errorMessage.VIEW_TEMPLATE.LIST.title,
-                  text: errorMessage.VIEW_TEMPLATE.LIST.text,
-                  error: errorMessage.DISAMBIGUATION.CODE_204.error
-                }
-              },
-              { url: "errors/list" }
-            )
-          )
-          dispatch(
             initPage({
-              error: errorMessage.VIEW_TEMPLATE.LIST.meta
+              error: errorMessages.VIEW_TEMPLATE.LIST
             })
           )
         }
       })
       .catch(error => {
         dispatch(
-          setCard(
-            {
-              status: "ok",
-              info: {
-                title: errorMessage.VIEW_TEMPLATE.LIST.title,
-                text: errorMessage.VIEW_TEMPLATE.LIST.text,
-                error
-              }
-            },
-            { url: "errors/list" }
-          )
-        )
-        dispatch(
           initPage({
-            error: errorMessage.VIEW_TEMPLATE.LIST.meta
+            error: errorMessages.VIEW_TEMPLATE.LIST
           })
         )
       })

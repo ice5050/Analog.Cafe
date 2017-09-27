@@ -3,11 +3,19 @@ import React from "react"
 
 // components
 import Logo from "../Logo"
-import done from "../_icons/images/done.jpg"
 import { ModalDispatch } from "../../containers/Modal"
+
+import { ROUTE_AUTH_USER_LANDING } from "../../../constants/user"
+import {
+  MESSAGE_HINT_SUBMIT_CONSENT,
+  MESSAGE_HINT_AUTO_SAVE
+} from "../../../constants/messages/hints"
 
 // styles
 import { NavLink, NavIndexLink, NavItem } from "./styles"
+
+// NOTE: components' `className` props are used in index.html and aren't required
+// if styles from `./styles.js` have the comments removed
 
 // return
 export const CommonNav = props => {
@@ -23,28 +31,32 @@ export const CommonNav = props => {
           <span>Articles</span>
         </NavLink>
       </NavItem>
-      <NavItem prime center>
-        <NavIndexLink to={"/"}>
+      <NavItem prime center className="prime center">
+        <NavIndexLink to={"/"} className="indexRouteLink">
           <Logo />
         </NavIndexLink>
       </NavItem>
-      <NavItem prime left>
-        {props.userStatus === "ok"
-          ? <NavLink to={"/submit/compose"}>
-              <span>Submit</span>
-            </NavLink>
-          : <NavLink to={"/about"}>
-              <span>About</span>
-            </NavLink>}
+      <NavItem prime left className="prime left">
+        {props.userStatus === "ok" ? (
+          <NavLink to={ROUTE_AUTH_USER_LANDING}>
+            <span>My Stuff</span>
+          </NavLink>
+        ) : (
+          <NavLink to={"/about"}>
+            <span>About</span>
+          </NavLink>
+        )}
       </NavItem>
-      <NavItem prime right>
-        {props.userStatus === "ok"
-          ? <NavLink to={"/me"}>
-              <span>My Stuff</span>
-            </NavLink>
-          : <NavLink to={"/submit"}>
-              <span>Submit</span>
-            </NavLink>}
+      <NavItem prime right className="prime right">
+        {props.userStatus === "ok" ? (
+          <NavLink to={"/submit/compose"}>
+            <span>Submit</span>
+          </NavLink>
+        ) : (
+          <NavLink to={"/submit"}>
+            <span>Submit</span>
+          </NavLink>
+        )}
       </NavItem>
     </ul>
   )
@@ -56,11 +68,7 @@ const NavLinkSendLabel = () => {
 const NavLinkSend = props => {
   return (
     <ModalDispatch
-      with={{
-        request: {
-          url: "/api/messages/submit-consent.json"
-        }
-      }}
+      with={MESSAGE_HINT_SUBMIT_CONSENT}
       style={{ textDecoration: "none" }}
     >
       <NavLinkSendLabel />
@@ -71,17 +79,9 @@ const NavLinkSend = props => {
 export const ComposerNav = props => {
   return (
     <ul>
-      <NavItem indicator prime left>
+      <NavItem indicator prime left className="prime left">
         <ModalDispatch
-          with={{
-            info: {
-              image: done,
-              title: "Never Loose Your Work!",
-              text:
-                "Your draft is saved automatically every 3 seconds onto your device. Even when you aren’t connected to the internet."
-            },
-            id: "hints/save"
-          }}
+          with={MESSAGE_HINT_AUTO_SAVE}
           style={{ textDecoration: "none" }}
         >
           <span>
@@ -89,12 +89,12 @@ export const ComposerNav = props => {
           </span>
         </ModalDispatch>
       </NavItem>
-      <NavItem prime center>
-        <NavIndexLink to={"/"}>
+      <NavItem prime center className="prime center">
+        <NavIndexLink to={"/"} className="indexRouteLink">
           <Logo />
         </NavIndexLink>
       </NavItem>
-      <NavItem prime right>
+      <NavItem prime right className="prime right">
         <NavLinkSend userStatus={props.userStatus} />
       </NavItem>
     </ul>

@@ -9,10 +9,7 @@ import Figure from "../Picture"
 import Link from "../Link"
 import { ModalDispatch } from "../../containers/Modal"
 
-import {
-  ROUTE_APP_PRODUCTION_DOMAIN_NAME,
-  ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL
-} from "../../../constants/app"
+import { froth } from "../../../utils/image-froth"
 
 // styles
 import { Section, Article, Quote } from "../ArticleStyles"
@@ -44,9 +41,8 @@ export default props => {
         <meta
           property="og:image"
           content={
-            ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL +
-            ROUTE_APP_PRODUCTION_DOMAIN_NAME +
-            "/images/pictures/about-forest.jpg"
+            froth("image-froth_669120_c34babc2fb974c8d9f03249bea647401", "s")
+              .src
           }
         />
       </Helmet>
@@ -56,7 +52,7 @@ export default props => {
       />
       <Section>
         <Figure
-          src="/images/pictures/about-forest.jpg"
+          src="image-froth_669120_c34babc2fb974c8d9f03249bea647401"
           feature
           noAuthor
           alt="Forest view"

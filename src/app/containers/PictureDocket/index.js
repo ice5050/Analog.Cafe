@@ -18,8 +18,10 @@ import { ModalDispatch } from "../Modal"
 // styles
 import placeholder from "../../components/_icons/images/placeholder-figure.jpg"
 
-// export
-export default class extends React.Component {
+import { MESSAGE_HINT_IMAGE_SUGGESTIONS } from "../../../constants/messages/hints"
+
+// return
+export default class extends React.PureComponent {
   constructor(props) {
     super(props)
     this.uploadRequest = this.uploadRequest.bind(this)
@@ -131,17 +133,7 @@ export default class extends React.Component {
           </GridRow>
         </GridContainer>
         <GridCaption>
-          <ModalDispatch
-            with={{
-              info: {
-                image: "/images/banners/image-suggestions.jpg",
-                title: "Image Suggestions",
-                text:
-                  "You can freely use these hand-picked film photographs by the editor within your submission. A credit to the original photographer will be added automatically. Of course you can still upload your own images!"
-              },
-              id: "hints/image-suggestions"
-            }}
-          >
+          <ModalDispatch with={MESSAGE_HINT_IMAGE_SUGGESTIONS}>
             Image suggestions
           </ModalDispatch>{" "}
           curated by Analog.Cafe editors.

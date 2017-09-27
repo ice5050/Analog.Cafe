@@ -3,6 +3,7 @@ import React from "react"
 
 // redux
 import { connect } from "react-redux"
+import { getInfo as getUserInfo } from "../../../../actions/userActions"
 
 // components
 import Forbidden from "../../_screens-errors/Forbidden"
@@ -13,7 +14,13 @@ import { LinkButton } from "../../../components/Button"
 import { Article } from "../../../components/ArticleStyles"
 
 // template for user profile button arrangement
-import { profileButtonsTemplate } from "./helpers"
+import { profileButtonsTemplate } from "../../../../utils/profile-button-labeler"
+
+import { ROUTE_AUTH_USER_LANDING } from "../../../../constants/user"
+import {
+  SUMMARY_LENGTH_MAX,
+  TITLE_LENGTH_MAX
+} from "../../../../constants/input"
 
 // render
 class EditProfile extends React.PureComponent {
@@ -25,10 +32,24 @@ class EditProfile extends React.PureComponent {
     this.handleButtonChange = this.handleButtonChange.bind(this)
     this.handleButtonFocus = this.handleButtonFocus.bind(this)
     this.handleButtonBlur = this.handleButtonBlur.bind(this)
-
     this.handleFileUpload = this.handleFileUpload.bind(this)
+    this.state = {}
+  }
 
-    this.state = {
+  componentDidMount = () => {
+    // fetch user info if not present (for componentWillReceiveProps)
+    if (
+      this.props.user.status === "ok" &&
+      Object.keys(this.props.user.info).length === 0
+    ) {
+      this.props.getUserInfo()
+    } else
+      // or populate all profile fields with current info
+      this.populateEditableProfile()
+  }
+  componentWillReceiveProps = () => this.populateEditableProfile()
+  populateEditableProfile = () => {
+    this.setState({
       title: this.props.user.info.title,
       text: this.props.user.info.text,
       image: this.props.user.info.image,
@@ -42,20 +63,22 @@ class EditProfile extends React.PureComponent {
         this.props.user.info.buttons && this.props.user.info.buttons[1]
           ? this.props.user.info.buttons[1].text
           : ""
-    }
+    })
   }
 
   // process changes to title and bio
   handleTitleChange = event => {
     this.setState({
       ...this.state,
-      title: event.target.value
+      title: event.target.value,
+      warningTitle: event.target.value.length >= TITLE_LENGTH_MAX
     })
   }
   handleTextChange = event => {
     this.setState({
       ...this.state,
-      text: event.target.value
+      text: event.target.value,
+      warningText: event.target.value.length >= SUMMARY_LENGTH_MAX
     })
   }
 
@@ -100,28 +123,31 @@ class EditProfile extends React.PureComponent {
   }
 
   render = () => {
-    return this.props.user.info.status === "ok"
-      ? <Article>
-          <Heading pageTitle="Edit Your Profile" />
-          <CardEditableProfile
-            // these props are pulled from Redux store that has
-            // logged-in user info
+    console.log(this.state)
+    return this.props.user.status === "ok" ? (
+      <Article>
+        <Heading pageTitle="Edit Your Profile" />
+        <CardEditableProfile
+          // these props are pulled from Redux store that has
+          // logged-in user info
 
-            // author's name
-            title={this.props.title}
-            changeTitle={this.handleTitleChange}
-            // author's bio
-            text={this.props.text}
-            changeText={this.handleTextChange}
-            // author's avatar image
-            image={this.state.image}
-            changeImage={this.handleImageChange}
-            // author's link
-            buttonText={this.state.buttonText}
-            changeButton={this.handleButtonChange}
-            focusButton={this.handleButtonFocus}
-            blurButton={this.handleButtonBlur}
-          />
+          // author's name
+          title={this.state.title}
+          changeTitle={this.handleTitleChange}
+          warningTitle={this.state.warningTitle}
+          // author's bio
+          text={this.state.text}
+          changeText={this.handleTextChange}
+          warningText={this.state.warningText}
+          // author's avatar image
+          image={this.state.image}
+          changeImage={this.handleImageChange}
+          // author's link
+          buttonText={this.state.buttonText}
+          changeButton={this.handleButtonChange}
+          focusButton={this.handleButtonFocus}
+          blurButton={this.handleButtonBlur}
+        />
 
           {/* Image upload hidden input */}
           <input
@@ -134,18 +160,27 @@ class EditProfile extends React.PureComponent {
             onChange={this.handleFileUpload}
           />
 
-          <LinkButton to="/me" red>
-            Done
-          </LinkButton>
-        </Article>
-      : <Forbidden />
+        <LinkButton to={ROUTE_AUTH_USER_LANDING} red>
+          Done
+        </LinkButton>
+      </Article>
+    ) : (
+      <Forbidden />
+    )
   }
 }
 
 // connet with redux
+const mapDispatchToProps = dispatch => {
+  return {
+    getUserInfo: () => {
+      dispatch(getUserInfo())
+    }
+  }
+}
 const mapStateToProps = state => {
   return {
     user: state.user
   }
 }
-export default connect(mapStateToProps)(EditProfile)
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfile)

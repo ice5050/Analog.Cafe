@@ -21,10 +21,10 @@ import { default as ListBlock } from "../../components/List"
 import { Section, Article } from "../../components/ArticleStyles"
 
 // helpers
-import { getListMeta } from "./helpers"
+import { getListMeta, trimAuthorName } from "../../../utils/list-utils"
 
 // return
-class List extends React.Component {
+class List extends React.PureComponent {
   listAPI = this.props.private ? ROUTE_AUTHENTICATED_LIST_API : ROUTE_LIST_API
   fetchNewList = () => {
     this.props.fetchPage(
@@ -65,46 +65,55 @@ class List extends React.Component {
           <meta name="description" content={renderedListMeta.description} />
         </Helmet>
         <ListDescription>
-          {this.props.header
-            ? this.props.header
-            : <ListHeader>
-                {this.props.list.filter.author
-                  ? <q>
-                      <em>
-                        {this.props.list.error
-                          ? this.props.list.error.title
-                          : renderedListMeta.title}
-                        {this.props.list.filter.author.name ? " " : null}
-                        {this.props.list.filter.author.name
-                          ? <span>
-                              by{" "}
-                              <ModalDispatch
-                                with={{
-                                  request: {
-                                    url:
-                                      ROUTE_AUTHOR_API +
-                                      "/" +
-                                      this.props.list.filter.author.id
-                                  }
-                                }}
-                              >
-                                {this.props.list.filter.author.name}
-                              </ModalDispatch>
-                            </span>
-                          : this.props.location.pathname.includes("/author/") &&
-                            ".."}
-                      </em>.
-                    </q>
-                  : <q>
-                      <em>{renderedListMeta.title}</em>.
-                    </q>}
-                &nbsp;{this.props.list.filter.author &&
-                this.props.list.filter.author.name
-                  ? renderedListMeta.emoji
-                  : this.props.list.error
-                    ? this.props.list.error.emoji
-                    : renderedListMeta.emoji}
-              </ListHeader>}
+          {this.props.header ? (
+            this.props.header
+          ) : (
+            <ListHeader>
+              {this.props.list.filter.author ? (
+                <q>
+                  <em>
+                    {this.props.list.error ? (
+                      this.props.list.error.title
+                    ) : (
+                      renderedListMeta.title
+                    )}
+                    {this.props.list.filter.author.name ? " " : null}
+                    {this.props.list.filter.author.name ? (
+                      <span>
+                        by{" "}
+                        <ModalDispatch
+                          with={{
+                            request: {
+                              url:
+                                ROUTE_AUTHOR_API +
+                                "/" +
+                                this.props.list.filter.author.id
+                            }
+                          }}
+                        >
+                          {trimAuthorName(this.props.list.filter.author.name)}
+                        </ModalDispatch>
+                      </span>
+                    ) : (
+                      this.props.location.pathname.includes("/author/") && ".."
+                    )}
+                  </em>.
+                </q>
+              ) : (
+                <q>
+                  <em>{renderedListMeta.title}</em>.
+                </q>
+              )}
+              &nbsp;{this.props.list.filter.author &&
+              this.props.list.filter.author.name ? (
+                renderedListMeta.emoji
+              ) : this.props.list.error ? (
+                this.props.list.error.emoji
+              ) : (
+                renderedListMeta.emoji
+              )}
+            </ListHeader>
+          )}
         </ListDescription>
 
         <ListBlock

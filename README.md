@@ -1,12 +1,14 @@
 # Analog.Cafe
-[![GitHub version](https://badge.fury.io/gh/dmitrizzle%2FAnalog.Cafe.svg)](https://badge.fury.io/gh/dmitrizzle%2FAnalog.Cafe) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![GitHub version](https://badge.fury.io/gh/dmitrizzle%2FAnalog.Cafe.svg)](https://badge.fury.io/gh/dmitrizzle%2FAnalog.Cafe) [![Known Vulnerabilities](https://snyk.io/test/github/dmitrizzle/analog.cafe/badge.svg)](https://snyk.io/test/github/dmitrizzle/analog.cafe)
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-> Lightning-fast, offline-first PWA experience for readers. Beautiful Composer app and one-click accounts for authors. Content scheduling, approval flow and user management for editors.
 
-<img src="https://github.com/dmitrizzle/Analog.Cafe/blob/develop/public/images/pictures/submit.gif?raw=true" width="373" alt="Screenshot" />
+> Offline-first React.JS web app with one-click accounts & **premium rich text editor experience**. This is a `view` layer for [Roast.Cloud](http://www.roast.cloud/) CMS.
+
+<img src="https://res.cloudinary.com/analog-cafe/image/upload/c_scale,fl_progressive,w_1268/image-froth_1076479_8f0a0ec6c4794688a66d79935fab2ca3.gif" width="373" alt="Screenshot" />
 
 ## TOC:
- - [Why](#why)?
+ - [What](#what)?
  - [Demo](#demo).
  - [How can I use this](#how-can-i-use-this)?
  - [How do I contribute](#how-do-i-contribute)?
@@ -14,16 +16,24 @@
  - [Resources](#resources).
  - [Contributors (Wiki)](https://github.com/dmitrizzle/Analog.Cafe/wiki/Contributors).
 
-### Why?
-**This is indeed another CMS, with a unique combination of features and build quality not found anywhere else.**
-* Open submissions. Users do not have to log in or have any access priveledges to contribute content. They sign up with email or Twitter once they are ready to send in their work.
-* Quality rich text editor. By default browsers provide [terrible experience](https://medium.engineering/why-contenteditable-is-terrible-122d8a40e480), Analog.Cafe attempts to fix that (on desktop and mobile).
-* React.js web application that's incredibly fast, has pro-grade image processing and storage, has pro-grade account management and, of course, has content scheduling.
+### What?
+**This is an example app used in production built to work with [Roast.Cloud](http://www.roast.cloud/) headless CMS stack.**
+* Roast.Cloud provides API access points that could be consumed by any application within any environment that works with REST architecture. This is a React.JS layer that utilizes that API on the web.
+* This project started before the API engine; all issues and project management tasks for Roast.Cloud are hosted here for now.
+* Analog.Cafe is a view-layer app built specifically for [Analog.Cafe website](https://www.analog.cafe) and is extremely opinionated for this one task. This is a first use case for Roast.Cloud and will be branched later into example projects that you can use for your own purposes.
+
+**Here's what you can do with Analog.Cafe + Roast.Cloud:**
+* Create public accounts with one click via Passport.js API integration.
+* Enjoy a premium rich text editor experience via Slate.js.
+* Produce blazing-fast offline-first web app experience for readers and visitors.
+  * Responsive image management with Cloudinary.
+  * Automatic lazy-loading for all images.
+  * User action caching in Redux.
 
 If you're interested in the story behind this project, check out this [Wiki](https://github.com/dmitrizzle/Analog.Cafe/wiki).
 
 ### Demo.
-**[Analog.Cafe](http://analog.cafe): “A film photography publication.”** Or run the app on your local machine (see "[How do I contribute](#how-do-i-contribute)?")
+**[Analog.Cafe](http://analog.cafe): “A film photography publication.”**
 
 ### How can I use this?
 Currently there is no easy way to install, configure and use the system on your website out of the box. ~The first phase of this project is planned as a pre-release on August 2017 at [Analog.Cafe](http://analog.cafe) only~ ✅, followed by 1.0 around September 2017. There are ~two~ three organizations waiting to try this system with their content, which will probably happen by early 2018. Once that's confirmed working and tested, there will be a package for general usage.
@@ -43,11 +53,9 @@ To get the code working on your machine (assuming you have [Node.js](https://nod
    * Run `yarn run dev`.
 1. Install Redis server `brew install redis`.
    * Run `redis-server`.
+1. You will need to configure your `.env` variables as well (you'll need to spin up your own [Roast.Cloud server](https://github.com/ice5050/Analog.Cafe-Backend)).
 
 ###  What is it built with?
-* [Node.js](https://github.com/nodejs/node)
-    * [Express.js](https://expressjs.com)
-    * [Redis](https://redis.io/)
 * [React.js](https://github.com/facebook/react)
     * [Create React App](https://github.com/facebookincubator/create-react-app)
     * [Redux](https://github.com/reactjs/redux)
@@ -60,5 +68,6 @@ To get the code working on your machine (assuming you have [Node.js](https://nod
 ### Resources.
 * [Wiki](https://github.com/dmitrizzle/Analog.Cafe/wiki) - story of the project, release guide and design guide.
 * [Analog.Cafe website](http://analog.cafe) - the reason this project started in the first place.
+* [Roast.Cloud on GitHub](https://github.com/ice5050/Analog.Cafe-Backend) and [Roast.Cloud website](http://roast.cloud)
 
 If you got a general suggestion (code or no code), please feel free to contact [@dmitrizzle](https://twitter.com/dmitrizzle), [submit an issue](https://github.com/dmitrizzle/Analog.Cafe/issues) or [submit a PR](https://help.github.com/articles/about-pull-requests/) (use "develop" branch as a base).

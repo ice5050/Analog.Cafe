@@ -32,7 +32,10 @@ export default props => {
         <hr />
 
         <h3>Some things to look forward to.</h3>
-        <Figure src="/images/pictures/submit.gif" nocaption />
+        <Figure
+          src="image-froth_1076479_8f0a0ec6c4794688a66d79935fab2ca3.gif"
+          nocaption
+        />
         <p>
           All submissions will be accepted through{" "}
           <strong>

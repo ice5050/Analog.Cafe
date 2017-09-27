@@ -1,7 +1,6 @@
 // tools
 import React from "react"
 import { Editor, Raw } from "slate"
-import { withRouter } from "react-router"
 import Helmet from "react-helmet"
 
 // redux & state
@@ -12,10 +11,7 @@ import {
   ROUTE_ARTICLE_DIR
 } from "../../../constants/article"
 import { ROUTE_AUTHOR_API } from "../../../constants/author"
-import {
-  ROUTE_APP_PRODUCTION_DOMAIN_NAME,
-  ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL
-} from "../../../constants/app"
+import { froth } from "../../../utils/image-froth"
 
 import { schema } from "../Composer/containers/ContentEditor/schema"
 
@@ -57,15 +53,12 @@ class Article extends React.PureComponent {
             {this.props.article.title}
           </title>
           <meta name="description" content={this.props.article.summary} />
-          <meta
-            property="og:image"
-            content={
-              this.props.article.poster &&
-              ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL +
-                ROUTE_APP_PRODUCTION_DOMAIN_NAME +
-                this.props.article.poster.medium
-            }
-          />
+          {this.props.article.poster && (
+            <meta
+              property="og:image"
+              content={froth(this.props.article.poster.medium, "s").src}
+            />
+          )}
         </Helmet>
         <Heading
           pageTitle={this.props.article.title}
@@ -113,4 +106,5 @@ const mapDispatchToProps = dispatch => {
     }
   }
 }
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Article))
+export default connect(mapStateToProps, mapDispatchToProps)(Article)
+// NOTE: withRouter() props inherited from /components/_screens/AppRoutes

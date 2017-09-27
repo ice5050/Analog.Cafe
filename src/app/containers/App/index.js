@@ -2,7 +2,6 @@
 import React from "react"
 import ReactGA from "react-ga"
 import { withRouter } from "react-router"
-import { parse as parseQueryString } from "query-string"
 
 // constants & helpers
 import {
@@ -10,7 +9,7 @@ import {
   ROUTE_APP_CURRENT_DOMAIN,
   ROUTE_APP_PRODUCTION_DOMAIN_NAME
 } from "../../../constants/app"
-import { rememberMe } from "./helpers"
+import { ROUTE_AUTH_USER_LANDING } from "../../../constants/user"
 
 // redux
 import { connect } from "react-redux"
@@ -18,7 +17,10 @@ import {
   setView as setNavView,
   setLocation as setNavLocation
 } from "../../../actions/navActions"
-import { getUser } from "../../../actions/userActions"
+import {
+  verify as verifyUser,
+  getInfo as getUserInfo
+} from "../../../actions/userActions"
 
 import { Modal } from "../Modal"
 import Nav from "../Nav"
@@ -49,22 +51,13 @@ const trackView = () => {
 class App extends React.PureComponent {
   // manipulate nav view & GA tracking
   componentDidMount = () => {
-    console.log(process.env.NODE_ENV)
+    // verify user status
+    this.props.verifyUser()
+    this.props.getUserInfo()
 
     // listen to route changes:
     this.handleRouteChnange()
     this.props.history.listen((location, action) => this.handleRouteChnange())
-
-    rememberMe(
-      // save user auth token in localStorage:
-      this.props.location.search &&
-        parseQueryString(this.props.location.search).token,
-      // retrieve auth user info & credentials & store in Redux
-      // if token exists in LS:
-      localStorage.getItem("token")
-        ? this.props.getUser(localStorage.getItem("token"))
-        : null
-    )
   }
   handleRouteChnange = () => {
     // Google Analytics
@@ -77,8 +70,8 @@ class App extends React.PureComponent {
         this.props.setNavView("COMPOSER")
         this.props.setNavLocation({ bottom: false })
         break
-      case "/me/edit":
-      case "/me/edit/":
+      case ROUTE_AUTH_USER_LANDING + "/edit":
+      case ROUTE_AUTH_USER_LANDING + "/edit/":
         this.props.setNavLocation({ top: false, bottom: false })
         break
       case "/submit/confirm-full-consent":
@@ -144,8 +137,11 @@ const mapDispatchToProps = dispatch => {
     setNavLocation: location => {
       dispatch(setNavLocation(location))
     },
-    getUser: token => {
-      dispatch(getUser(token))
+    verifyUser: () => {
+      dispatch(verifyUser())
+    },
+    getUserInfo: () => {
+      dispatch(getUserInfo())
     }
   }
 }

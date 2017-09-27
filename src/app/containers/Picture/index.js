@@ -1,6 +1,6 @@
 // tools
 import React from "react"
-import { imageSrcToPictureId } from "./helpers"
+import { getFroth } from "../../../utils/image-froth"
 import localForage from "localforage"
 
 // redux
@@ -12,6 +12,8 @@ import Picture from "../../components/Picture"
 import { PlainTextarea } from "../../components/InputStyles"
 
 // export
+// this doesn't work as well with PureComponent:
+// author links need to be clicked twice after first load to work...
 class Figure extends React.Component {
   // state for caption & selection
   constructor(props) {
@@ -85,33 +87,35 @@ class Figure extends React.Component {
     const className = focus ? "focus" : "nofocus"
     const feature = node.data.get("feature")
 
-    return src
-      ? <Picture
-          {...attributes}
-          readOnly={this.props.readOnly}
-          src={src}
-          className={className}
-          author={
-            this.props.pictures[imageSrcToPictureId(src)] &&
-            this.props.pictures[imageSrcToPictureId(src)].info.author
-          }
-          composer={!this.props.readOnly}
-          feature={feature}
-        >
-          {!this.props.readOnly
-            ? <PlainTextarea
-                value={this.state.caption}
-                placeholder="Add image title, location, camera, film&hellip;"
-                onChange={this.handleChange}
-                onClick={this.handleClick}
-              />
-            : <span>
-                {this.state.caption}
-              </span>}
-        </Picture>
-      : <Picture {...attributes} src="" className={className}>
-          Loading image…
-        </Picture>
+    return src ? (
+      <Picture
+        {...attributes}
+        readOnly={this.props.readOnly}
+        src={src}
+        className={className}
+        author={
+          this.props.pictures[getFroth(src)] &&
+          this.props.pictures[getFroth(src)].info.author
+        }
+        composer={!this.props.readOnly}
+        feature={feature}
+      >
+        {!this.props.readOnly ? (
+          <PlainTextarea
+            value={this.state.caption}
+            placeholder="Add image title, location, camera, film&hellip;"
+            onChange={this.handleChange}
+            onClick={this.handleClick}
+          />
+        ) : (
+          <span>{this.state.caption}</span>
+        )}
+      </Picture>
+    ) : (
+      <Picture {...attributes} src="" className={className}>
+        Loading image…
+      </Picture>
+    )
   }
 }
 
