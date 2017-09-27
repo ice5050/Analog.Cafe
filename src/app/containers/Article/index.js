@@ -30,6 +30,15 @@ import {
 import ArticleActions from "../../components/Card/components/ArticleActions"
 
 // render
+const safeRoute = url => {
+  return encodeURI(
+    ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL +
+      ROUTE_APP_PRODUCTION_DOMAIN_NAME +
+      ROUTE_ARTICLE_DIR +
+      "/" +
+      url
+  )
+}
 class Article extends React.PureComponent {
   fetchPage = () => {
     // do not fetch pages unless they are located in /zine dir
@@ -53,12 +62,7 @@ class Article extends React.PureComponent {
   handleShareOnFacebook = () => {
     window.open(
       "https://web.facebook.com/sharer.php?u=" +
-        encodeURI(
-          ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL +
-            ROUTE_APP_PRODUCTION_DOMAIN_NAME +
-            ROUTE_ARTICLE_DIR +
-            this.props.article.slug
-        ),
+        safeRoute(this.props.article.slug),
       "_blank",
       "height=600,width=500"
     )
@@ -66,12 +70,7 @@ class Article extends React.PureComponent {
   handleShareOnTwitter = () => {
     window.open(
       "https://twitter.com/share?url=" +
-        encodeURI(
-          ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL +
-            ROUTE_APP_PRODUCTION_DOMAIN_NAME +
-            ROUTE_ARTICLE_DIR +
-            this.props.article.slug
-        ) +
+        safeRoute(this.props.article.slug) +
         "&text=" +
         encodeURI(
           "“" +
@@ -131,7 +130,8 @@ class Article extends React.PureComponent {
             <ArticleActions
               shareOnFacebook={this.handleShareOnFacebook}
               shareOnTwitter={this.handleShareOnTwitter}
-              nextArticle={this.props.nextArticle}
+              // nextArticle={this.props.nextArticle}
+              nextArticle={"23-days-in-myanmar-df7d"}
             />
           )}
         </Section>
