@@ -2,7 +2,7 @@
 import axios from "axios"
 import { setCard } from "./modalActions"
 import errorMessages from "../constants/messages/errors"
-import { axiosRequest } from "./helpers"
+import { axiosRequest } from "../utils/axios-request"
 
 import { ROUTE_USER_API } from "../constants/user"
 

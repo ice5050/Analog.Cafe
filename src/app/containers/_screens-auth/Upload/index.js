@@ -12,12 +12,15 @@ import Heading from "../../../components/ArticleHeading"
 import { Article, Section } from "../../../components/ArticleStyles"
 
 // constants & helpers
-import { loadContent, loadHeader } from "../../Composer/helpers/loader"
+import { loadContent, loadHeader } from "../../../../utils/composer-loader"
 import { WEBSOCKET_UPLOAD_PROGRESS } from "../../../../constants/submission"
 import { ROUTE_REDIRECT_AFTER_SUBMIT } from "../../../../constants/submission"
 import emojis from "../../../../constants/messages/emojis"
 
-import { redirectToSignIn, sendSubmission } from "./helpers"
+import {
+  redirectToSignIn,
+  sendSubmission
+} from "../../../../utils/upload-utils"
 
 // redux actions
 import {
@@ -77,7 +80,7 @@ class Upload extends React.PureComponent {
             sendSubmission(data, _this.props)
           })
         } else {
-          console.log("no images")
+          console.log("no images") // <-- this is if there are no uploade images; still fires if images inserted as URLs.
           sendSubmission(data, this.props)
         }
       } else {

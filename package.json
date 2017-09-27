@@ -1,6 +1,6 @@
 {
   "name": "analog-cafe",
-  "version": "0.5.5",
+  "version": "0.6.0",
   "description": "(Loosely) Collaborative Blogging App by Analog.Cafe",
   "license": "MPL-2.0",
   "private": true,
@@ -28,6 +28,7 @@
     "react-dom": "^15.6.1",
     "react-ga": "^2.2.0",
     "react-helmet": "^5.2.0",
+    "react-lazyload": "^2.2.7",
     "react-loadable": "^4.0.5",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
@@ -66,6 +67,7 @@
     "precommit": "lint-staged",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "npm run build && aws s3 sync build/ s3://analog.cafe && aws s3 cp s3://analog.cafe/ s3://analog.cafe/ --exclude '*' --include '*.jpg' --include '*.png' --include '*.svg' --include '*.js'  --include '*.eot' --include '*.mtd' --include '*.woff' --include '*.woff2' --include '*.ico' --recursive --metadata-directive REPLACE --expires 2034-01-01T00:00:00Z --acl public-read --cache-control max-age=2592000,public",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

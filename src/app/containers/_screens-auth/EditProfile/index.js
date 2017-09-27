@@ -14,9 +14,13 @@ import { LinkButton } from "../../../components/Button"
 import { Article } from "../../../components/ArticleStyles"
 
 // template for user profile button arrangement
-import { profileButtonsTemplate } from "./helpers"
+import { profileButtonsTemplate } from "../../../../utils/profile-button-labeler"
 
 import { ROUTE_AUTH_USER_LANDING } from "../../../../constants/user"
+import {
+  SUMMARY_LENGTH_MAX,
+  TITLE_LENGTH_MAX
+} from "../../../../constants/input"
 
 // render
 class EditProfile extends React.PureComponent {
@@ -66,13 +70,15 @@ class EditProfile extends React.PureComponent {
   handleTitleChange = event => {
     this.setState({
       ...this.state,
-      title: event.target.value
+      title: event.target.value,
+      warningTitle: event.target.value.length >= TITLE_LENGTH_MAX
     })
   }
   handleTextChange = event => {
     this.setState({
       ...this.state,
-      text: event.target.value
+      text: event.target.value,
+      warningText: event.target.value.length >= SUMMARY_LENGTH_MAX
     })
   }
 
@@ -117,6 +123,7 @@ class EditProfile extends React.PureComponent {
   }
 
   render = () => {
+    console.log(this.state)
     return this.props.user.status === "ok" ? (
       <Article>
         <Heading pageTitle="Edit Your Profile" />
@@ -127,9 +134,11 @@ class EditProfile extends React.PureComponent {
           // author's name
           title={this.state.title}
           changeTitle={this.handleTitleChange}
+          warningTitle={this.state.warningTitle}
           // author's bio
           text={this.state.text}
           changeText={this.handleTextChange}
+          warningText={this.state.warningText}
           // author's avatar image
           image={this.state.image}
           changeImage={this.handleImageChange}

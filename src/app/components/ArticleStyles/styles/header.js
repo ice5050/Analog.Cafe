@@ -15,6 +15,7 @@ export const Header = styled.header`
 export const Title = styled.h1`
   ${props => props.theme.typography.title.auto} font-size: ${props =>
       props.theme.size.font.make.larger}em;
+  hyphens: auto;
 `
 export const Subtitle = styled.h2`
   ${props => props.theme.typography.title.auto} font-size: ${props =>

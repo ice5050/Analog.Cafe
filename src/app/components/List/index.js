@@ -1,6 +1,7 @@
 // tools
 import React from "react"
 import Link from "../Link"
+import { froth } from "../../../utils/image-froth"
 
 // styles
 import { Bleed } from "./styles/bleed"
@@ -10,7 +11,7 @@ import { Caption } from "./styles/caption"
 import { ZigzagPicture } from "./styles/zigzag-picture"
 
 // helper
-import { datestamp } from "./helpers"
+import { datestamp } from "../../../utils/datestamp"
 
 // constants
 import { ROUTE_ARTICLE_DIR, SUMMARY_LENGTH_MAX } from "../../../constants/list"
@@ -31,7 +32,9 @@ export default props => {
   return (
     <Bleed>
       <Ul status={props.status}>
-        {props.items.map(item => {
+        {props.items.map((item, index) => {
+          // NOTE: index is used to show high quality image for first item
+
           return (
             <li key={item.id}>
               <Link
@@ -51,7 +54,10 @@ export default props => {
                       <div
                         style={
                           item.poster && {
-                            backgroundImage: "url(" + item.poster.medium + ")"
+                            backgroundImage:
+                              "url(" +
+                              froth(item.poster.medium, index ? "s" : "m").src +
+                              ")"
                           }
                         }
                         aria-label={item.title + " poster image"}
@@ -103,7 +109,12 @@ export default props => {
                 <ZigzagPicture
                   style={
                     item.type !== "placeholder" && item.poster ? (
-                      { backgroundImage: `url(${item.poster.medium})` }
+                      {
+                        backgroundImage: `url(${froth(
+                          item.poster.medium,
+                          index ? "s" : "m"
+                        ).src})`
+                      }
                     ) : null
                   }
                 />

@@ -1,6 +1,6 @@
 // tools
 import React from "react"
-import { imageSrcToPictureId } from "./helpers"
+import { getFroth } from "../../../utils/image-froth"
 import localForage from "localforage"
 
 // redux
@@ -95,8 +95,8 @@ class Figure extends React.Component {
         src={src}
         className={className}
         author={
-          this.props.pictures[imageSrcToPictureId(src)] &&
-          this.props.pictures[imageSrcToPictureId(src)].info.author
+          this.props.pictures[getFroth(src)] &&
+          this.props.pictures[getFroth(src)].info.author
         }
         composer={!this.props.readOnly}
         feature={feature}

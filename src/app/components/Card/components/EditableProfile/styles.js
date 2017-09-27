@@ -3,8 +3,13 @@ import styled from "styled-components"
 import Color from "color"
 
 // styles
-import { Card, CardCaptionStyles, CardButtonStyles } from "../../styles"
-import { PlainTextarea } from "../../../InputStyles"
+import {
+  Card,
+  CardCaptionStyles,
+  CardButtonStyles,
+  CardHeader
+} from "../../styles"
+import { TextareaWithHighlights } from "../../../InputStyles"
 import { CaptionStyles } from "../../../CaptionStyles"
 import { ButtonStyles } from "../../../Button"
 
@@ -21,10 +26,15 @@ export const CardFlattened = styled(Card)`
           .alpha(props.theme.opacity.least)
           .string()};
 `
-export const CardCaptionEditable = styled(PlainTextarea)`
-  ${CaptionStyles}
-  ${CardCaptionStyles}
-  font-style: italic;
+export const CardHeaderEditable = styled(CardHeader)`
+  padding: 0;
+  input {
+    padding: ${props => props.theme.size.block.spacing / 4}em
+      ${props => props.theme.size.block.spacing / 2}em;
+  }
+`
+export const CardCaptionEditable = styled(TextareaWithHighlights)`
+  ${CaptionStyles} ${CardCaptionStyles} font-style: italic;
 `
 export const CardButtonEditable = styled.input`
   ${ButtonStyles} ${CardButtonStyles} border: 0;

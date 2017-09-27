@@ -1,7 +1,7 @@
 // styles
 import React from "react"
 import styled from "styled-components"
-import { title, subtitle, reset } from "./styles"
+import { title, subtitle, textarea, reset } from "./styles"
 
 // tools
 import Textarea from "react-textarea-autosize"
@@ -12,6 +12,11 @@ export const PlainTextarea = styled(({ caution, warning, ...props }) => (
   <Textarea {...props} />
 ))`
   ${reset};
+`
+export const TextareaWithHighlights = styled(
+  ({ caution, warning, ...props }) => <Textarea {...props} />
+)`
+  ${textarea};
 `
 export const TitleTextarea = styled(({ caution, warning, ...props }) => (
   <Textarea {...props} />

@@ -2,10 +2,7 @@
 import React from "react"
 import Helmet from "react-helmet"
 
-import {
-  ROUTE_APP_PRODUCTION_DOMAIN_NAME,
-  ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL
-} from "../../../constants/app"
+import { froth } from "../../../utils/image-froth"
 
 // components
 import Heading from "../ArticleHeading"
@@ -28,9 +25,8 @@ export default props => {
         <meta
           property="og:image"
           content={
-            ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL +
-            ROUTE_APP_PRODUCTION_DOMAIN_NAME +
-            "/images/pictures/submit-camera.jpg"
+            froth("image-froth_1546790_b5ff5d48edf8488387d39f64e18b2916", "s")
+              .src
           }
         />
       </Helmet>
@@ -55,7 +51,11 @@ export default props => {
           </p>
         </div>
 
-        <Figure src="/images/pictures/submit-camera.jpg" feature nocaption />
+        <Figure
+          src="image-froth_1546790_b5ff5d48edf8488387d39f64e18b2916"
+          feature
+          nocaption
+        />
 
         <h3>How to submit.</h3>
         <p>
@@ -63,7 +63,10 @@ export default props => {
           You can insert your images and edit text with ease. The Composer tool
           will do all the formatting and beautification for you.
         </p>
-        <Figure src="/images/pictures/submit.gif" nocaption />
+        <Figure
+          src="image-froth_1076479_8f0a0ec6c4794688a66d79935fab2ca3.gif"
+          nocaption
+        />
         <p>
           <strong>Image Suggestions</strong> &mdash; when you upload your
           images, you will see <em>Image Suggestions:</em> hand-picked

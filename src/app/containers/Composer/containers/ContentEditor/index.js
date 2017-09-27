@@ -9,8 +9,11 @@ import ImageButton from "./components/ImageButton"
 // helpers, plugins & schema
 import { plugins } from "./plugins"
 import { schema } from "./schema"
-import { loadContent } from "../../helpers/loader"
-import { saveContent, setDraftStatusHelper } from "../../helpers/saver"
+import { loadContent } from "../../../../../utils/composer-loader"
+import {
+  saveContent,
+  setDraftStatusHelper
+} from "../../../../../utils/composer-saver"
 
 // return
 export default class extends React.PureComponent {
