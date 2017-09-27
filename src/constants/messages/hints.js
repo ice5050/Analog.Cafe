@@ -1,19 +1,22 @@
 import done from "../../app/components/_icons/images/done.jpg"
-import placeholder from "../../app/components/_icons/images/placeholder-profile.png"
+import placeholderProfile from "../../app/components/_icons/images/placeholder-profile.png"
+import checkEmail from "../../app/components/_icons/images/check-email.png"
+import imageSuggestionsAction from "../../app/components/_icons/images/image-suggestions-action.jpg"
+import imageSuggestions from "../../app/components/_icons/images/image-suggestions.jpg"
 
 export const MESSAGE_HINT_CHECK_EMAIL = email => {
   return {
     info: {
       title: "Email Sign In",
       text: `Please check your ${email} inbox and click the link we just sent you.`,
-      image: "/images/banners/check-email.png"
+      image: checkEmail
     },
     id: "hints/check-email"
   }
 }
 export const MESSAGE_HINT_SUBMIT_CONSENT = {
   info: {
-    image: "/images/banners/image-suggestions-action.jpg",
+    image: imageSuggestionsAction,
     title: "More Exposure?",
     text:
       "If you choose “Yes,” we may suggest other authors to feature your images (from this submission) within their articles. You will be credited every time.",
@@ -33,7 +36,7 @@ export const MESSAGE_HINT_SUBMIT_CONSENT = {
 }
 export const MESSAGE_HINT_IMAGE_SUGGESTIONS = {
   info: {
-    image: "/images/banners/image-suggestions.jpg",
+    image: imageSuggestions,
     title: "Image Suggestions",
     text:
       "You can freely use these hand-picked film photographs by the editor within your submission. A credit to the original photographer will be added automatically. Of course you can still upload your own images!"
@@ -51,7 +54,7 @@ export const MESSAGE_HINT_AUTO_SAVE = {
 }
 export const MESSAGE_HINT_YOUR_PROFILE = {
   info: {
-    image: placeholder,
+    image: placeholderProfile,
     title: "Your Profile",
     text:
       "You can create, view or update your profile after you send your submission."

@@ -2,6 +2,7 @@
 import React from "react"
 import { Editor, Raw } from "slate"
 import Helmet from "react-helmet"
+import { froth } from "../../../utils/image-froth"
 
 // redux & state
 import { connect } from "react-redux"
@@ -11,7 +12,10 @@ import {
   ROUTE_ARTICLE_DIR
 } from "../../../constants/article"
 import { ROUTE_AUTHOR_API } from "../../../constants/author"
-import { froth } from "../../../utils/image-froth"
+import {
+  ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL,
+  ROUTE_APP_PRODUCTION_DOMAIN_NAME
+} from "../../../constants/app"
 
 import { schema } from "../Composer/containers/ContentEditor/schema"
 
@@ -23,8 +27,18 @@ import {
   Article as ArticleElement,
   Byline
 } from "../../components/ArticleStyles"
+import ArticleActions from "../../components/Card/components/ArticleActions"
 
 // render
+const safeRoute = url => {
+  return encodeURI(
+    ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL +
+      ROUTE_APP_PRODUCTION_DOMAIN_NAME +
+      ROUTE_ARTICLE_DIR +
+      "/" +
+      url
+  )
+}
 class Article extends React.PureComponent {
   fetchPage = () => {
     // do not fetch pages unless they are located in /zine dir
@@ -45,6 +59,31 @@ class Article extends React.PureComponent {
   componentWillUnmount = () => {
     this.unlisten()
   }
+  handleShareOnFacebook = () => {
+    window.open(
+      "https://web.facebook.com/sharer.php?u=" +
+        safeRoute(this.props.article.slug),
+      "_blank",
+      "height=600,width=500"
+    )
+  }
+  handleShareOnTwitter = () => {
+    window.open(
+      "https://twitter.com/share?url=" +
+        safeRoute(this.props.article.slug) +
+        "&text=" +
+        encodeURI(
+          "“" +
+            this.props.article.title +
+            "” by " +
+            this.props.article.author.name
+        ) +
+        "&via=analog_cafe",
+      "_blank",
+      "height=600,width=500"
+    )
+  }
+  handleNextArticle = () => {}
   render = () => {
     return (
       <ArticleElement>
@@ -54,7 +93,7 @@ class Article extends React.PureComponent {
           {this.props.article.poster && (
             <meta
               property="og:image"
-              content={froth(this.props.article.poster.medium, "s").src}
+              content={froth(this.props.article.poster.medium, "m").src}
             />
           )}
         </Helmet>
@@ -86,6 +125,15 @@ class Article extends React.PureComponent {
             })}
             schema={schema}
           />
+          {this.props.article.poster &&
+          this.props.article.author && (
+            <ArticleActions
+              shareOnFacebook={this.handleShareOnFacebook}
+              shareOnTwitter={this.handleShareOnTwitter}
+              nextArticle={this.props.nextArticle}
+              // nextArticle={"23-days-in-myanmar-df7d"}
+            />
+          )}
         </Section>
       </ArticleElement>
     )
