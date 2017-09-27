@@ -130,8 +130,8 @@ class Article extends React.PureComponent {
             <ArticleActions
               shareOnFacebook={this.handleShareOnFacebook}
               shareOnTwitter={this.handleShareOnTwitter}
-              // nextArticle={this.props.nextArticle}
-              nextArticle={"23-days-in-myanmar-df7d"}
+              nextArticle={this.props.nextArticle}
+              // nextArticle={"23-days-in-myanmar-df7d"}
             />
           )}
         </Section>
