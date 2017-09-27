@@ -3,7 +3,10 @@ import styled from "styled-components"
 import { froth } from "../../../../utils/image-froth"
 
 export const PicturePlaceholder = styled.div`
-  padding-bottom: ${props => Math.round(100 / froth(props.frothId).ratio, 3)}%;
+  padding-bottom: ${props =>
+    froth(props.frothId).ratio
+      ? Math.round(100 / froth(props.frothId).ratio, 3)
+      : 0}%;
   background: #eee;
   height: ${props => (froth(props.frothId).ratio ? "0 !important" : "initial")};
   position: relative !important;
