@@ -1,6 +1,7 @@
 // tools
 import React from "react"
 import { froth } from "../../../utils/image-froth"
+import { PicturePlaceholder } from "../Picture/components/PicturePlaceholder"
 
 // styles
 import {
@@ -28,25 +29,9 @@ export const Card = props => {
         ) : null}
       </CardHeader>
       <figure onClick={event => event.stopPropagation()}>
-        <div
-          style={{
-            paddingBottom: Math.round(100 / froth(props.image).ratio, 3) + "%",
-            background: "#EEE",
-            height: froth(props.image).ratio ? "0" : "initial",
-            position: "relative",
-            display: !froth(props.image).ratio ? "none" : "block"
-          }}
-        >
-          <img
-            src={froth(props.image, "s").src}
-            style={{
-              display: typeof props.image === "undefined" ? "none" : "block",
-              height: froth(props.image).ratio ? "100%" : "initial",
-              position: froth(props.image).ratio ? "absolute" : "static"
-            }}
-            alt="Card"
-          />
-        </div>
+        <PicturePlaceholder frothId={props.image}>
+          <img src={froth(props.image, "s").src} alt="Card" />
+        </PicturePlaceholder>
         <figcaption>
           <CardCaption
             style={{ padding: typeof props.text === "undefined" ? "0" : "" }}

@@ -17,7 +17,10 @@ import AlreadyAuthenticated from "../../_screens-errors/AlreadyAuthenticated"
 
 // styles
 import { ButtonGroup } from "../../../components/Button"
-import { TwitterButton, FacebookButton } from "./styles"
+import {
+  TwitterButton,
+  FacebookButton
+} from "../../../components/Button/components/SocialButtons"
 
 // constants & helpers
 import { ROUTE_LOGIN_TWITTER_API } from "../../../../constants/login"

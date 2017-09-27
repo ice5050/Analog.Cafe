@@ -1,31 +1,13 @@
 // tools
 import styled from "styled-components"
-import Color from "color"
 
 // styles
-import {
-  Card,
-  CardCaptionStyles,
-  CardButtonStyles,
-  CardHeader
-} from "../../styles"
+import { CardCaptionStyles, CardButtonStyles, CardHeader } from "../../styles"
 import { TextareaWithHighlights } from "../../../InputStyles"
 import { CaptionStyles } from "../../../CaptionStyles"
 import { ButtonStyles } from "../../../Button"
 
-export const CardFlattened = styled(Card)`
-  margin: ${props => props.theme.size.block.column.safety}em auto;
-  box-shadow: 0 1px 1px
-      ${props =>
-        Color(props.theme.color.foreground)
-          .alpha(props.theme.opacity.least * 2)
-          .string()},
-    0 0 0 1px
-      ${props =>
-        Color(props.theme.color.foreground)
-          .alpha(props.theme.opacity.least)
-          .string()};
-`
+export { CardFlattened } from "../../styles"
 export const CardHeaderEditable = styled(CardHeader)`
   padding: 0;
   input {

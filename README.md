@@ -1,5 +1,7 @@
 # Analog.Cafe
-[![GitHub version](https://badge.fury.io/gh/dmitrizzle%2FAnalog.Cafe.svg)](https://badge.fury.io/gh/dmitrizzle%2FAnalog.Cafe) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![GitHub version](https://badge.fury.io/gh/dmitrizzle%2FAnalog.Cafe.svg)](https://badge.fury.io/gh/dmitrizzle%2FAnalog.Cafe) [![Known Vulnerabilities](https://snyk.io/test/github/dmitrizzle/analog.cafe/badge.svg)](https://snyk.io/test/github/dmitrizzle/analog.cafe)
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
 
 > Offline-first React.JS web app with one-click accounts & **premium rich text editor experience**. This is a `view` layer for [Roast.Cloud](http://www.roast.cloud/) CMS.
 
