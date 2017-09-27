@@ -23,6 +23,7 @@ import {
   Article as ArticleElement,
   Byline
 } from "../../components/ArticleStyles"
+import SocialCard from "../../components/Card/components/SocialActions"
 
 // render
 class Article extends React.PureComponent {
@@ -54,7 +55,7 @@ class Article extends React.PureComponent {
           {this.props.article.poster && (
             <meta
               property="og:image"
-              content={froth(this.props.article.poster.medium, "s").src}
+              content={froth(this.props.article.poster.medium, "m").src}
             />
           )}
         </Helmet>
@@ -87,6 +88,9 @@ class Article extends React.PureComponent {
             schema={schema}
           />
         </Section>
+        <SocialCard
+          image={this.props.article.poster && this.props.article.poster.medium}
+        />
       </ArticleElement>
     )
   }

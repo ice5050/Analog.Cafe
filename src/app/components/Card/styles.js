@@ -34,29 +34,37 @@ export const Card = styled.div`
     }
   }
 `
+export const CardFlattened = styled(Card)`
+  margin: ${props => props.theme.size.block.column.safety}em auto;
+  box-shadow: 0 1px 1px
+      ${props =>
+        Color(props.theme.color.foreground)
+          .alpha(props.theme.opacity.least * 2)
+          .string()},
+    0 0 0 1px
+      ${props =>
+        Color(props.theme.color.foreground)
+          .alpha(props.theme.opacity.least)
+          .string()};
+`
 
 export const CardButtonStyles = css`
-max-width: 			100%;
-margin: 				0;
-border-radius: 	0;
-&:active {
-  box-shadow: 	0 -1px 0 ${props => props.theme.color.foreground};
-}
+  max-width: 100%;
+  margin: 0;
+  border-radius: 0;
+  &:active {
+    box-shadow: 0 -1px 0 ${props => props.theme.color.foreground};
+  }
 `
-export const CardButton = styled(LinkButton)`
-	${CardButtonStyles}
-`
+export const CardButton = styled(LinkButton)`${CardButtonStyles};`
 
 export const CardCaptionStyles = css`
-text-align: 	left;
-padding: 			${props => props.theme.size.block.spacing}em ${props =>
-  props.theme.size.block.column.safety}em;
-font-size: 		1.075em !important;
+  text-align: left;
+  padding: ${props => props.theme.size.block.spacing}em
+    ${props => props.theme.size.block.column.safety}em;
+  font-size: 1.075em !important;
 `
-export const CardCaption = styled(Sidenote)`
-	${CardCaptionStyles}
-
-`
+export const CardCaption = styled(Sidenote)`${CardCaptionStyles};`
 
 export const CardHeader = styled.header`
   padding: ${props => props.theme.size.block.spacing / 4}em
