@@ -33,7 +33,8 @@ export const Card = props => {
             paddingBottom: Math.round(100 / froth(props.image).ratio, 3) + "%",
             background: "#EEE",
             height: froth(props.image).ratio ? "0" : "initial",
-            position: "relative"
+            position: "relative",
+            display: !froth(props.image).ratio ? "none" : "block"
           }}
         >
           <img
