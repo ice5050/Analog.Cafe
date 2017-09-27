@@ -66,5 +66,6 @@ To get the code working on your machine (assuming you have [Node.js](https://nod
 ### Resources.
 * [Wiki](https://github.com/dmitrizzle/Analog.Cafe/wiki) - story of the project, release guide and design guide.
 * [Analog.Cafe website](http://analog.cafe) - the reason this project started in the first place.
+* [Roast.Cloud on GitHub](https://github.com/ice5050/Analog.Cafe-Backend) and [Roast.Cloud website](http://roast.cloud)
 
 If you got a general suggestion (code or no code), please feel free to contact [@dmitrizzle](https://twitter.com/dmitrizzle), [submit an issue](https://github.com/dmitrizzle/Analog.Cafe/issues) or [submit a PR](https://help.github.com/articles/about-pull-requests/) (use "develop" branch as a base).
