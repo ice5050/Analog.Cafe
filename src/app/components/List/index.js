@@ -11,7 +11,7 @@ import { Caption } from "./styles/caption"
 import { ZigzagPicture } from "./styles/zigzag-picture"
 
 // helper
-import { datestamp } from "./helpers"
+import { datestamp } from "../../../utils/datestamp"
 
 // constants
 import { ROUTE_ARTICLE_DIR, SUMMARY_LENGTH_MAX } from "../../../constants/list"

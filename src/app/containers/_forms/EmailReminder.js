@@ -9,7 +9,7 @@ import { SubtitleInput } from "../../components/InputStyles"
 import { Form } from "../../components/FormStyles"
 
 // helpers
-import validateEmail from "./helpers/validateEmail"
+import validateEmail from "../../../utils/email-validator"
 
 // render
 export default class extends React.Component {

@@ -10,7 +10,7 @@ import { SubtitleInput } from "../../components/InputStyles"
 import { Form } from "../../components/FormStyles"
 
 // helpers
-import validateEmail from "./helpers/validateEmail"
+import validateEmail from "../../../utils/email-validator"
 
 import { MESSAGE_HINT_CHECK_EMAIL } from "../../../constants/messages/hints"
 

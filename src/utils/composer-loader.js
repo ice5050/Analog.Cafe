@@ -4,7 +4,7 @@
 import {
   DEFAULT_COMPOSER_EDITOR_STATE,
   DEFAULT_COMPOSER_HEADER_STATE
-} from "../../../../constants/composer"
+} from "../constants/composer"
 
 // return
 export const loadContent = () => {

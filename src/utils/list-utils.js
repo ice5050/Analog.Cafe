@@ -1,30 +1,4 @@
-import {
-  ROUTE_FILTERS,
-  ROUTE_META,
-  ROUTE_LIST_API
-} from "../../../../constants/list"
-
-export const datestamp = unix => {
-  const m = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-  ]
-  let date = new Date(unix * 1000)
-  let year = date.getFullYear()
-  let month = m[date.getMonth()]
-  let day = date.getDate()
-  return month + " " + day + ", " + year
-}
+import { ROUTE_FILTERS, ROUTE_META, ROUTE_LIST_API } from "../constants/list"
 
 export const getListMeta = (pathname = "/", page = 1, url = ROUTE_LIST_API) => {
   let request

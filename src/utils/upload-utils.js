@@ -1,4 +1,4 @@
-import { ROUTE_SUBMISSION_API } from "../../../../../constants/submission"
+import { ROUTE_SUBMISSION_API } from "../constants/submission"
 
 // this function kicks user to sign-in scdreen but rembers where to come back to
 export const redirectToSignIn = props => {

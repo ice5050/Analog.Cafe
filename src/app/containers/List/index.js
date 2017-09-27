@@ -21,7 +21,7 @@ import { default as ListBlock } from "../../components/List"
 import { Section, Article } from "../../components/ArticleStyles"
 
 // helpers
-import { getListMeta, trimAuthorName } from "./helpers"
+import { getListMeta, trimAuthorName } from "../../../utils/list-utils"
 
 // return
 class List extends React.PureComponent {
