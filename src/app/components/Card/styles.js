@@ -41,7 +41,8 @@ export const Card = styled.div`
       width: 100%;
     }
   }
-  ${"" /* We know that button is a button, hower link buttons won't be reset for cards like this. */} button {
+  & > button,
+  & > a {
     ${CardButtonStyles};
   }
 `

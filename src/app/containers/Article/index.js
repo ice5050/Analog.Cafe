@@ -2,6 +2,7 @@
 import React from "react"
 import { Editor, Raw } from "slate"
 import Helmet from "react-helmet"
+import { froth } from "../../../utils/image-froth"
 
 // redux & state
 import { connect } from "react-redux"
@@ -11,7 +12,10 @@ import {
   ROUTE_ARTICLE_DIR
 } from "../../../constants/article"
 import { ROUTE_AUTHOR_API } from "../../../constants/author"
-import { froth } from "../../../utils/image-froth"
+import {
+  ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL,
+  ROUTE_APP_PRODUCTION_DOMAIN_NAME
+} from "../../../constants/app"
 
 import { schema } from "../Composer/containers/ContentEditor/schema"
 
@@ -23,7 +27,7 @@ import {
   Article as ArticleElement,
   Byline
 } from "../../components/ArticleStyles"
-import SocialCard from "../../components/Card/components/SocialActions"
+import ArticleActions from "../../components/Card/components/ArticleActions"
 
 // render
 class Article extends React.PureComponent {
@@ -46,6 +50,41 @@ class Article extends React.PureComponent {
   componentWillUnmount = () => {
     this.unlisten()
   }
+  handleShareOnFacebook = () => {
+    window.open(
+      "https://web.facebook.com/sharer.php?u=" +
+        encodeURI(
+          ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL +
+            ROUTE_APP_PRODUCTION_DOMAIN_NAME +
+            ROUTE_ARTICLE_DIR +
+            this.props.article.slug
+        ),
+      "_blank",
+      "height=600,width=500"
+    )
+  }
+  handleShareOnTwitter = () => {
+    window.open(
+      "https://twitter.com/share?url=" +
+        encodeURI(
+          ROUTE_APP_PRODUCTION_DOMAIN_PROTOCOL +
+            ROUTE_APP_PRODUCTION_DOMAIN_NAME +
+            ROUTE_ARTICLE_DIR +
+            this.props.article.slug
+        ) +
+        "&text=" +
+        encodeURI(
+          "“" +
+            this.props.article.title +
+            "” by " +
+            this.props.article.author.name
+        ) +
+        "&via=analog_cafe",
+      "_blank",
+      "height=600,width=500"
+    )
+  }
+  handleNextArticle = () => {}
   render = () => {
     return (
       <ArticleElement>
@@ -89,10 +128,10 @@ class Article extends React.PureComponent {
           />
           {this.props.article.poster &&
           this.props.article.author && (
-            <SocialCard
-              image={this.props.article.poster.medium}
-              title={this.props.article.title}
-              author={this.props.article.author.name}
+            <ArticleActions
+              shareOnFacebook={this.handleShareOnFacebook}
+              shareOnTwitter={this.handleShareOnTwitter}
+              nextArticle={this.props.nextArticle}
             />
           )}
         </Section>
