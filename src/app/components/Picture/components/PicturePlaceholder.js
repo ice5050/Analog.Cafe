@@ -10,10 +10,10 @@ export const PicturePlaceholder = styled.div`
   background: #eee;
   height: ${props => (froth(props.frothId).ratio ? "0 !important" : "initial")};
   position: relative !important;
-  ${props =>
-    !props.preserve &&
-    `display: ${props =>
-      !froth(props.frothId).ratio ? "none" : "block"};`} & > :first-child {
+  display: ${props =>
+    !props.preserve && (froth(props.frothId).ratio ? "block" : "none")};
+
+  & > :first-child {
     width: 100%;
     height: ${props => (froth(props.frothId).ratio ? "100%" : "initial")};
     display: block;
