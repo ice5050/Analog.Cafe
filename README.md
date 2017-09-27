@@ -51,7 +51,7 @@ To get the code working on your machine (assuming you have [Node.js](https://nod
    * Run `yarn run dev`.
 1. Install Redis server `brew install redis`.
    * Run `redis-server`.
-1. You will need to configure your `.env` variables as well.
+1. You will need to configure your `.env` variables as well (which implies you'll need to connect to Roast.Cloud API).
 
 ###  What is it built with?
 * [React.js](https://github.com/facebook/react)
