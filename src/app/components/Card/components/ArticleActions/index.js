@@ -25,7 +25,7 @@ export default props => {
           to={ROUTE_ARTICLE_DIR + "/" + props.nextArticle}
           title={slugToTitle(props.nextArticle)}
         >
-          Read Next Article ➢
+          Next Post <span>➢</span>
         </LinkButton>
       )}
     </CardFlattened>
