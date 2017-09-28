@@ -75,6 +75,9 @@ class Article extends React.PureComponent {
         encodeURI(
           "“" +
             this.props.article.title +
+            (this.props.article.subtitle
+              ? ": " + this.props.article.subtitle
+              : "") +
             "” by " +
             this.props.article.author.name
         ) +
@@ -130,8 +133,8 @@ class Article extends React.PureComponent {
             <ArticleActions
               shareOnFacebook={this.handleShareOnFacebook}
               shareOnTwitter={this.handleShareOnTwitter}
-              // nextArticle={this.props.article.nextArticle}
-              nextArticle={"23-days-in-myanmar-df7d"}
+              nextArticle={this.props.article.nextArticle}
+              // nextArticle={"23-days-in-myanmar-df7d"}
             />
           )}
         </Section>
