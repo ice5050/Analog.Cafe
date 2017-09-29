@@ -19,7 +19,7 @@ export const froth = (options = {}) => {
   let crop = options.crop || "none"
 
   let width = IMAGE_FROTH_SIZES[size]
-  let height = 0
+  let height = null
   let ratio = 0
 
   // extension is passed in through id:
