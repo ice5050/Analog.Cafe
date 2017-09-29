@@ -45,7 +45,7 @@ export default props => {
         froth({ src, size: "s", type: "webp" }).type === "webp" && (
           <source
             // medium image size, largest for all images that aren't "features"
-            srcSet={froth({ src, size: "s", type: "webp" }).src}
+            srcSet={froth({ src, size: "m", type: "webp" }).src}
             media="(max-width: 1200px)"
             type="image/webp"
           />
