@@ -19,7 +19,9 @@ import { Paper } from "./Paper"
 export default props => {
   return (
     <ThemeProvider theme={Paper}>
-      <ThemeGlobals>{props.children}</ThemeGlobals>
+      <ThemeGlobals>
+        {props.children}
+      </ThemeGlobals>
     </ThemeProvider>
   )
 }

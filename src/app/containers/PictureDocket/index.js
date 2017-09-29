@@ -60,7 +60,7 @@ export default class extends React.PureComponent {
     this.uploadRequest(file)
   } // ⤵
   uploadRequest = file => {
-    var key = uuidv1()
+    const key = uuidv1()
     localForage.setItem(key, file)
     const { editor } = this.props
     const resolvedState = editor
@@ -73,12 +73,9 @@ export default class extends React.PureComponent {
       })
       .apply()
     editor.onChange(resolvedState)
-    setTimeout(
-      function() {
-        this.handleClose()
-      }.bind(this),
-      10
-    )
+    setTimeout(() => {
+      this.handleClose()
+    }, 10)
   }
 
   render = () => {

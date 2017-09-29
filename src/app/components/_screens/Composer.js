@@ -38,7 +38,9 @@ export default props => {
         style={{ textDecoration: "none" }}
         wrapperElement="div"
       >
-        <Button red>Send Submission {emojis.CHECKMARK}</Button>
+        <Button red>
+          Send Submission {emojis.CHECKMARK}
+        </Button>
       </ModalDispatch>
     </Article>
   )

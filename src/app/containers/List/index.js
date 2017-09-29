@@ -132,11 +132,11 @@ class List extends React.PureComponent {
 
         {parseInt(this.props.list.page.total, 0) > 1 &&
         parseInt(this.props.list.page.total, 0) >
-          parseInt(this.props.list.page.current, 0) ? (
-          <LinkButton to="#more" red onClick={this.handleLoadMore.bind(this)}>
-            Load More
-          </LinkButton>
-        ) : null}
+          parseInt(this.props.list.page.current, 0)
+          ? <LinkButton to="#more" red onClick={this.handleLoadMore.bind(this)}>
+              Load More
+            </LinkButton>
+          : null}
 
         <Article>
           <Section />
