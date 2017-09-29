@@ -2,6 +2,7 @@
 import React from "react"
 import localForage from "localforage"
 import uuidv1 from "uuid/v1"
+import { froth } from "../../../utils/image-froth"
 
 // components
 import PictureDocket from "../../components/PictureDocket"
@@ -91,7 +92,17 @@ export default class extends React.PureComponent {
           <GridRow>
             <GridButton>
               <AspectRatio>
-                <img src="/images/thumbnails/square.jpg" alt="" />
+                <img
+                  src={
+                    froth({
+                      src:
+                        "image-froth_615281_5882b729360a465491c07860f6ec32e5",
+                      size: "t",
+                      crop: "square"
+                    }).src
+                  }
+                  alt=""
+                />
               </AspectRatio>
             </GridButton>
             <GridButton>

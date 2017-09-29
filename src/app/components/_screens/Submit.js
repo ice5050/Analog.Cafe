@@ -25,8 +25,10 @@ export default props => {
         <meta
           property="og:image"
           content={
-            froth("image-froth_1546790_b5ff5d48edf8488387d39f64e18b2916", "s")
-              .src
+            froth({
+              src: "image-froth_1546790_b5ff5d48edf8488387d39f64e18b2916",
+              size: "s"
+            }).src
           }
         />
       </Helmet>

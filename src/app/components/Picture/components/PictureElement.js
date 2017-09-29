@@ -26,26 +26,26 @@ export default props => {
   return (
     <PicturePlaceholder preserve frothId={src}>
       <picture>
-        {froth(src, "s", "webp").type === "webp" && (
+        {froth({ src, size: "s", type: "webp" }).type === "webp" && (
           <source
             // mobile image size
-            srcSet={froth(src, "s", "webp").src}
+            srcSet={froth({ src, size: "s", type: "webp" }).src}
             media="(max-width: 480px)"
             type="image/webp"
           />
         )}
-        {froth(src, "s", "webp").type === "webp" && (
+        {froth({ src, size: "s", type: "webp" }).type === "webp" && (
           <source
             // medium image size, largest for all images that aren't "features"
-            srcSet={froth(src, "m", "webp").src}
+            srcSet={froth({ src, size: "s", type: "webp" }).src}
             media="(max-width: 1200px)"
             type="image/webp"
           />
         )}
-        {froth(src, "s", "webp").type === "webp" && (
+        {froth({ src, size: "s", type: "webp" }).type === "webp" && (
           <source
             // max image size, extra large only if it's a "feature"
-            srcSet={froth(src, largestSize, "webp").src}
+            srcSet={froth({ src, size: largestSize, type: "webp" }).src}
             media="(min-width: 1201px)"
             type="image/webp"
           />
@@ -54,26 +54,26 @@ export default props => {
         {/* JPG */}
         <source
           // mobile image size
-          srcSet={froth(src, "s").src}
+          srcSet={froth({ src, size: "s" }).src}
           media="(max-width: 480px)"
         />
         <source
           // medium image size, largest for all images that aren't "features"
-          srcSet={froth(src, "m").src}
+          srcSet={froth({ src, size: "m" }).src}
           media="(max-width: 1200px)"
         />
         <source
           // max image size, extra large only if it's a "feature"
-          srcSet={froth(src, largestSize).src}
+          srcSet={froth({ src, size: largestSize }).src}
           media="(min-width: 1201px)"
         />
         <LazyLoad unmountIfInvisible once offset={300} height={"100%"}>
           <img
             // default image size
-            src={froth(src, "m").src}
+            src={froth({ src, size: "m" }).src}
             alt={alt}
             className={className}
-            style={{ height: froth(src).ratio ? "100%" : "initial" }}
+            style={{ height: froth({ src }).ratio ? "100%" : "initial" }}
           />
         </LazyLoad>
       </picture>
