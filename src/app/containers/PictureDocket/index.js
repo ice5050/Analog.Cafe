@@ -16,7 +16,7 @@ import {
 import { ModalDispatch } from "../Modal"
 
 // styles
-import placeholder from "../../components/_icons/images/placeholder-figure.jpg"
+import { dot } from "../../components/_icons/components/BlankDot"
 
 import { MESSAGE_HINT_IMAGE_SUGGESTIONS } from "../../../constants/messages/hints"
 
@@ -69,7 +69,7 @@ export default class extends React.PureComponent {
       .insertBlock({
         type: "image",
         isVoid: true,
-        data: { file, key, src: placeholder }
+        data: { file, key: key, src: dot }
       })
       .apply()
     editor.onChange(resolvedState)

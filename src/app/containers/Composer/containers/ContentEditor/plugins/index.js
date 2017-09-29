@@ -4,7 +4,7 @@ import localForage from "localforage"
 import uuidv1 from "uuid/v1"
 
 // styles
-import placeholder from "../../../../../components/_icons/images/placeholder-figure.jpg"
+import { dot } from "../../../../../components/_icons/components/BlankDot"
 
 // Analog.Cafe plugins
 import { MarkHotkey } from "./mark-hotkey"
@@ -155,7 +155,7 @@ export const plugins = [
         .insertBlock({
           type: "image",
           isVoid: true,
-          data: { file, key, src: placeholder }
+          data: { file, src: dot, key }
         })
         .apply()
     }

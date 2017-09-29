@@ -1,3 +1,6 @@
+// tools
+import { dot } from "../app/components/_icons/components/BlankDot"
+
 const IMAGE_FROTH_SERVER =
   "https://res.cloudinary.com/analog-cafe/image/upload/"
 const IMAGE_FROTH_OPTIONS = "c_scale,fl_progressive"
@@ -9,11 +12,7 @@ const IMAGE_FROTH_SIZES = {
 }
 
 // image-froth_1681956_9ad677d272a84ebc9360ad6199372f8b
-export const froth = (
-  src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
-  size = "m",
-  type = "jpg"
-) => {
+export const froth = (src = dot, size = "m", type = "jpg") => {
   let width = IMAGE_FROTH_SIZES[size]
   let height = ""
   let ratio = 0

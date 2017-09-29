@@ -1,5 +1,5 @@
 // constants
-import { ROUTE_APP_PRODUCTION_DOMAIN_NAME } from "../../../../constants/app"
+import { ROUTE_APP_PRODUCTION_DOMAIN_NAME } from "../constants/app"
 const apexName = ROUTE_APP_PRODUCTION_DOMAIN_NAME.replace("www.", "")
 
 export const parseHref = href => {

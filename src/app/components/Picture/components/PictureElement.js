@@ -3,6 +3,7 @@ import React from "react"
 import { froth } from "../../../../utils/image-froth"
 import LazyLoad from "react-lazyload"
 
+import { PicturePlaceholder } from "./PicturePlaceholder"
 // return
 export default props => {
   let src = props.src
@@ -23,22 +24,8 @@ export default props => {
   let largestSize = props.feature ? "l" : "m"
 
   return (
-    <div
-      style={{
-        paddingBottom: Math.round(100 / froth(src).ratio, 3) + "%",
-        background: "#EEE",
-        height: froth(src).ratio ? "0" : "initial",
-        position: "relative"
-      }}
-    >
-      <picture
-        style={{
-          width: "100%",
-          height: froth(src).ratio ? "100%" : "initial",
-          display: "block",
-          position: froth(src).ratio ? "absolute" : "static"
-        }}
-      >
+    <PicturePlaceholder preserve frothId={src}>
+      <picture>
         {froth(src, "s", "webp").type === "webp" && (
           <source
             // mobile image size
@@ -90,6 +77,6 @@ export default props => {
           />
         </LazyLoad>
       </picture>
-    </div>
+    </PicturePlaceholder>
   )
 }

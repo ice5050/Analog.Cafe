@@ -40,6 +40,7 @@ class EditProfile extends React.PureComponent {
     // fetch user info if not present (for componentWillReceiveProps)
     if (
       this.props.user.status === "ok" &&
+      typeof this.props.user.info === "object" &&
       Object.keys(this.props.user.info).length === 0
     ) {
       this.props.getUserInfo()
@@ -149,16 +150,16 @@ class EditProfile extends React.PureComponent {
           blurButton={this.handleButtonBlur}
         />
 
-          {/* Image upload hidden input */}
-          <input
-            type="file"
-            accept="image/x-png,image/jpeg"
-            style={{ display: "none" }}
-            ref={input => {
-              this.fileInput = input
-            }}
-            onChange={this.handleFileUpload}
-          />
+        {/* Image upload hidden input */}
+        <input
+          type="file"
+          accept="image/x-png,image/jpeg"
+          style={{ display: "none" }}
+          ref={input => {
+            this.fileInput = input
+          }}
+          onChange={this.handleFileUpload}
+        />
 
         <LinkButton to={ROUTE_AUTH_USER_LANDING} red>
           Done
