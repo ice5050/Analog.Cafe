@@ -109,7 +109,7 @@ export default class extends React.PureComponent {
       .apply()
 
     editor.onChange(resolvedState)
-    setTimeout(() => {
+    this.uploadHandlerTimeout = setTimeout(() => {
       this.handleClose()
     }, 10)
   }
@@ -127,10 +127,15 @@ export default class extends React.PureComponent {
       })
       .apply()
 
-    setTimeout(() => {
+    this.suggestionHandlerTimeout = setTimeout(() => {
       editor.onChange(resolvedState)
       this.handleClose()
     }, 10)
+  }
+
+  componentWillUnmount = () => {
+    clearTimeout(this.suggestionHandlerTimeout)
+    clearTimeout(this.uploadHandlerTimeout)
   }
 
   render = () => {

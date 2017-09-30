@@ -34,7 +34,6 @@ class SignIn extends React.PureComponent {
   }
 
   handleTwitterButton = () => {
-    console.log("go")
     open(
       ROUTE_LOGIN_TWITTER_API,
       {
