@@ -5,42 +5,42 @@ import { Quote } from "./quote"
 
 // css
 const sectionHeading = css`
-	${props => props.theme.typography.title.auto}
-	font-size: ${props => props.theme.size.font.make.larger / 1.5}em;
-	padding-top: ${props => props.theme.size.block.spacing}em;
-	margin-bottom: ${props => props.theme.size.block.spacing / 4}em;
-	clear: both;
+  ${props => props.theme.typography.title.auto} font-size: ${props =>
+      props.theme.size.font.make.larger / 1.5}em;
+  padding-top: ${props => props.theme.size.block.spacing}em;
+  margin-bottom: ${props => props.theme.size.block.spacing / 4}em;
+  clear: both;
 `
 const paragraph = css`
-	margin: ${props => props.theme.size.block.spacing}em 0;
+  margin: ${props => props.theme.size.block.spacing}em 0;
 
-	/* placeholder style */
-	${props =>
+  /* placeholder style */
+  ${props =>
     props.articleStatus === "loading"
       ? `opacity: ` +
         props.theme.opacity.least +
         `; letter-spacing: -1px !important;`
-      : null}
+      : null};
 `
 const sectionBreak = css`
-	text-align: 	center;
-	padding:			${props => props.theme.size.block.column.safety * 2}em 0 ${props =>
-  props.theme.size.block.spacing * 4}em;
-	color:				${props =>
+  text-align: center;
+  padding: ${props => props.theme.size.block.column.safety * 2}em 0
+    ${props => props.theme.size.block.spacing * 4}em;
+  color: ${props =>
     Color(props.theme.color.foreground)
       .alpha(props.theme.opacity.half)
       .string()};
-	border:				0;
-	margin:				0;
-	clear:				both;
-	&:before {
-		content: 			"✽ ✽ ✽";
-		line-height: 	1em;
-		display: 			block;
-	}
-	&.focus:before {
-		background-color: ${props => props.theme.color.highlight};
-	}
+  border: 0;
+  margin: 0;
+  clear: both;
+  &:before {
+    content: "✽ ✽ ✽";
+    line-height: 1em;
+    display: block;
+  }
+  &.focus:before {
+    background-color: ${props => props.theme.color.highlight};
+  }
 `
 
 // return
@@ -53,14 +53,15 @@ export const Section = styled.section`
       props.theme.size.block.column.maxwidth.l}px;`};
   padding: 0 ${props => props.theme.size.block.column.safety}em;
 
-  &::after {
+  ${props =>
+    !props.plain
+      ? `&::after {
     content: "⁓☙❦❧⁓";
     clear: both;
     display: block;
     text-align: center;
-  }
-
-  p {
+  }`
+      : null} p {
     ${paragraph};
   }
   ul {

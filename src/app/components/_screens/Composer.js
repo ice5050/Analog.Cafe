@@ -41,7 +41,7 @@ export default props => {
       >
         <Button red>Send Submission {emojis.CHECKMARK}</Button>
       </ModalDispatch>
-      <Section>
+      <Section plain>
         <p style={{ textAlign: "center" }}>
           <em>
             If you’re having trouble using this tool, please email <Email />
