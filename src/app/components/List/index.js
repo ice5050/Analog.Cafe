@@ -56,7 +56,10 @@ export default props => {
                           item.poster && {
                             backgroundImage:
                               "url(" +
-                              froth(item.poster.medium, index ? "s" : "m").src +
+                              froth({
+                                src: item.poster.medium,
+                                size: index ? "s" : "m"
+                              }).src +
                               ")"
                           }
                         }
@@ -110,10 +113,10 @@ export default props => {
                   style={
                     item.type !== "placeholder" && item.poster ? (
                       {
-                        backgroundImage: `url(${froth(
-                          item.poster.medium,
-                          index ? "s" : "m"
-                        ).src})`
+                        backgroundImage: `url(${froth({
+                          src: item.poster.medium,
+                          size: index ? "s" : "m"
+                        }).src})`
                       }
                     ) : null
                   }

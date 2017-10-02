@@ -37,7 +37,7 @@ class SignIn extends React.PureComponent {
     open(
       ROUTE_LOGIN_TWITTER_API,
       {
-        name: "Sign in by Twitter",
+        name: "Sign in with Twitter",
         width: 500,
         height: 600
       },
