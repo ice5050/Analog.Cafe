@@ -3,6 +3,11 @@ import React from "react"
 import localForage from "localforage"
 import uuidv1 from "uuid/v1"
 import { froth } from "../../../utils/image-froth"
+import { sizeLimit } from "../../../utils/upload-utils"
+
+// redux
+import { connect } from "react-redux"
+import { setCard } from "../../../actions/modalActions"
 
 // components
 import PictureDocket from "../../components/PictureDocket"
@@ -21,6 +26,7 @@ import { dot } from "../../components/_icons/components/BlankDot"
 
 // constants
 import { MESSAGE_HINT_IMAGE_SUGGESTIONS } from "../../../constants/messages/hints"
+import errorMessages from "../../../constants/messages/errors"
 const suggestions = [
   "image-froth_915090_05378814ac7d4b9b9352b603f2d944de",
   "image-froth_1546790_b5ff5d48edf8488387d39f64e18b2916",
@@ -52,7 +58,7 @@ const GridButtonImage = props => {
 }
 
 // return
-export default class extends React.PureComponent {
+class PictureDocketContainer extends React.PureComponent {
   constructor(props) {
     super(props)
     this.uploadRequest = this.uploadRequest.bind(this)
@@ -92,7 +98,17 @@ export default class extends React.PureComponent {
   }
   handleFileUpload = event => {
     const file = event.target.files[0]
-    this.uploadRequest(file)
+    sizeLimit(file.size)
+      .then(() => this.uploadRequest(file))
+      .catch(reason => {
+        this.props.setCard(
+          {
+            status: "ok",
+            info: errorMessages.VIEW_TEMPLATE.UPLOAD_SIZE
+          },
+          { url: "errors/upload" }
+        )
+      })
   } // ⤵
   uploadRequest = file => {
     const key = uuidv1()
@@ -208,3 +224,13 @@ export default class extends React.PureComponent {
     )
   }
 }
+
+// connet with redux
+const mapDispatchToProps = dispatch => {
+  return {
+    setCard: (info, request) => {
+      dispatch(setCard(info, request))
+    }
+  }
+}
+export default connect(null, mapDispatchToProps)(PictureDocketContainer)

@@ -14,12 +14,17 @@ export default {
       title: "Info not available",
       text: "This image has been authored by someone not listed in our records…"
     },
+    UPLOAD_SIZE: {
+      title: "File is Too Large!",
+      text:
+        "Your images need to be 10MB or less in size. Try selecting another PNG or JPG file."
+    },
     CARD: {
-      title: "Info not available",
+      title: "Info Not Available",
       text: "This card could not be loaded…"
     },
     SUBMISSION: {
-      title: "Submission failed",
+      title: "Submission Failed",
       text:
         "Your submission did not go through. You can try sending it again, if you like."
     }
