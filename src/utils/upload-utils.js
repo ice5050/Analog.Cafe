@@ -1,4 +1,5 @@
 import { ROUTE_SUBMISSION_API } from "../constants/submission"
+import errorMessages from "../constants/messages/errors"
 
 // this function kicks user to sign-in scdreen but rembers where to come back to
 export const redirectToSignIn = props => {
@@ -24,5 +25,12 @@ export const sendSubmission = (data, props) => {
       Authorization: "JWT " + localStorage.getItem("token")
     },
     url: ROUTE_SUBMISSION_API
+  })
+}
+
+export const sizeLimit = size => {
+  return new Promise((resolve, reject) => {
+    if (size / 1000000 <= 10) resolve("ok")
+    else reject(errorMessages.VIEW_TEMPLATE.UPLOAD_SIZE.text)
   })
 }
