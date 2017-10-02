@@ -2,7 +2,7 @@
 import { html } from "../rules"
 import localForage from "localforage"
 import uuidv1 from "uuid/v1"
-import { sizeLimit } from "../../../../../../utils/upload-utils"
+import { imageSizeLimit } from "../../../../../../utils/upload-utils"
 import errorMessages from "../../../../../../constants/messages/errors"
 
 // redux
@@ -155,7 +155,7 @@ export const plugins = [
   InsertImages({
     extensions: ["png", "jpeg"],
     applyTransform: (transform, file) => {
-      sizeLimit(file.size)
+      imageSizeLimit(file.size)
         .then(() => {
           const key = uuidv1()
           localForage.setItem(key, file)
@@ -172,7 +172,7 @@ export const plugins = [
             setCard(
               {
                 status: "ok",
-                info: errorMessages.VIEW_TEMPLATE.UPLOAD_SIZE
+                info: errorMessages.VIEW_TEMPLATE.UPLOAD_IMAGE_SIZE
               },
               { url: "errors/upload" }
             )

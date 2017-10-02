@@ -3,7 +3,7 @@ import React from "react"
 import localForage from "localforage"
 import uuidv1 from "uuid/v1"
 import { froth } from "../../../utils/image-froth"
-import { sizeLimit } from "../../../utils/upload-utils"
+import { imageSizeLimit } from "../../../utils/upload-utils"
 
 // redux
 import { connect } from "react-redux"
@@ -98,13 +98,13 @@ class PictureDocketContainer extends React.PureComponent {
   }
   handleFileUpload = event => {
     const file = event.target.files[0]
-    sizeLimit(file.size)
+    imageSizeLimit(file.size)
       .then(() => this.uploadRequest(file))
       .catch(reason => {
         this.props.setCard(
           {
             status: "ok",
-            info: errorMessages.VIEW_TEMPLATE.UPLOAD_SIZE
+            info: errorMessages.VIEW_TEMPLATE.UPLOAD_IMAGE_SIZE
           },
           { url: "errors/upload" }
         )
