@@ -3,6 +3,7 @@ import React from "react"
 import { Editor, Raw } from "slate"
 import Helmet from "react-helmet"
 import { froth } from "../../../utils/image-froth"
+import { datestamp, lunar, percise } from "../../../utils/datestamp"
 
 // redux & state
 import { connect } from "react-redux"
@@ -25,7 +26,8 @@ import { ModalDispatch } from "../Modal"
 import {
   Section,
   Article as ArticleElement,
-  Byline
+  Byline,
+  TimeStamp
 } from "../../components/ArticleStyles"
 import ArticleActions from "../../components/Card/components/ArticleActions"
 
@@ -130,6 +132,19 @@ class Article extends React.PureComponent {
             })}
             schema={schema}
           />
+          {this.props.article["post-date"] && (
+            <TimeStamp
+              dateTime={percise(this.props.article["post-date"])}
+              itemprop="datePublished"
+              title={
+                "Published on " +
+                datestamp(this.props.article["post-date"]) +
+                "."
+              }
+            >
+              {lunar(this.props.article["post-date"])}
+            </TimeStamp>
+          )}
           {this.props.article.poster &&
           this.props.article.author && (
             <ArticleActions

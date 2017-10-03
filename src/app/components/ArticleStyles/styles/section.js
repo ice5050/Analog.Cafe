@@ -93,4 +93,10 @@ export const Section = styled.section`
 
   ${"" /* border-bottom:	${ props => props.theme.elements.thickBorder }; */};
 `
+export const TimeStamp = styled.time`
+  display: block;
+  text-align: center;
+  font-size: ${props => props.theme.size.font.make.tiny}em;
+  margin-top: -${props => props.theme.size.block.spacing}em;
+`
 export const Article = styled.article``

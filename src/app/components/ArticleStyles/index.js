@@ -11,4 +11,5 @@ export { Subtitle } from "./styles/header"
 export { Byline } from "./styles/header"
 export { Article } from "./styles/section"
 export { Section } from "./styles/section"
+export { TimeStamp } from "./styles/section"
 export const Quote = styled.blockquote`${QuoteStyles};`
