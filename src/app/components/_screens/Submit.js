@@ -27,7 +27,7 @@ export default props => {
           content={
             froth({
               src: "image-froth_1546790_b5ff5d48edf8488387d39f64e18b2916",
-              size: "s"
+              size: "m"
             }).src
           }
         />
