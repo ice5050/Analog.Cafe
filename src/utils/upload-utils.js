@@ -14,8 +14,7 @@ export const sendSubmission = (data, props) => {
     method: "post",
     data,
     onUploadProgress: progressEvent => {
-      let percentCompleted
-      percentCompleted = Math.round(
+      const percentCompleted = Math.round(
         progressEvent.loaded * 100 / progressEvent.total
       )
       console.log("Upload percent complete: " + percentCompleted)
