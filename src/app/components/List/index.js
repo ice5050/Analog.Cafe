@@ -89,7 +89,7 @@ export default props => {
                         !props.private &&
                         (item.tag !== "photo-essay"
                           ? " | " +
-                            Math.round(item.stats.words / 200) +
+                            Math.ceil(item.stats.words / 200) +
                             "-minute read"
                           : " | " +
                             item.stats.images +

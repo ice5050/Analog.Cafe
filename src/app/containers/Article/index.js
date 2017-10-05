@@ -1,9 +1,9 @@
 // tools
 import React from "react"
+import Loadable from "react-loadable"
 import { Editor, Raw } from "slate"
 import Helmet from "react-helmet"
 import { froth } from "../../../utils/image-froth"
-import { datestamp, lunar, percise } from "../../../utils/datestamp"
 
 // redux & state
 import { connect } from "react-redux"
@@ -26,10 +26,14 @@ import { ModalDispatch } from "../Modal"
 import {
   Section,
   Article as ArticleElement,
-  Byline,
-  TimeStamp
+  Byline
 } from "../../components/ArticleStyles"
-import ArticleActions from "../../components/Card/components/ArticleActions"
+
+const AsyncArticleActions = Loadable({
+  loader: () => import("../../components/Card/components/ArticleActions"),
+  loading: () => <div />,
+  delay: 1000
+})
 
 // render
 const safeRoute = url => {
@@ -132,25 +136,15 @@ class Article extends React.PureComponent {
             })}
             schema={schema}
           />
-          {this.props.article["post-date"] && (
-            <TimeStamp
-              dateTime={percise(this.props.article["post-date"])}
-              itemprop="datePublished"
-              title={
-                "Published on " +
-                datestamp(this.props.article["post-date"]) +
-                "."
-              }
-            >
-              {lunar(this.props.article["post-date"])}
-            </TimeStamp>
-          )}
+
           {this.props.article.poster &&
           this.props.article.author && (
-            <ArticleActions
+            <AsyncArticleActions
               shareOnFacebook={this.handleShareOnFacebook}
               shareOnTwitter={this.handleShareOnTwitter}
               nextArticle={this.props.article.nextArticle}
+              thisArticle={this.props.article.slug}
+              thisArticlePostDate={this.props.article["post-date"]}
               // nextArticle={"23-days-in-myanmar-df7d"}
             />
           )}

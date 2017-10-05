@@ -22,7 +22,7 @@ export const datestamp = unix => {
 
 export const lunar = unix => {
   let date = new Date(unix * 1000)
-  return date.getDate() + "☾" + date.getMonth()
+  return date.getDate() + "☾" + (date.getMonth() + 1)
 }
 
 export const percise = unix => {
