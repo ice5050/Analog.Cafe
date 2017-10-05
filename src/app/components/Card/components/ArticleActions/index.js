@@ -78,7 +78,7 @@ const DatePublished = props => {
 
 export default props => {
   return (
-    <div>
+    <div style={{ clear: "both" }}>
       <DatePublished {...props} />
       <ActionsCard {...props} />
     </div>
