@@ -28,7 +28,7 @@ export default {
       text: "Please include at least one photograph or illustration."
     },
     SUBMISSION_NO_CONTENT: {
-      title: "Can’t Send Nothing!",
+      title: "Some Stuff is Missing",
       text:
         "Please make sure that you’ve added a title, text and image(s) to your submission."
     },
