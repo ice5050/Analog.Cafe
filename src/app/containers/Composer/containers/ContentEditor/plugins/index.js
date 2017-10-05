@@ -2,9 +2,15 @@
 import { html } from "../rules"
 import localForage from "localforage"
 import uuidv1 from "uuid/v1"
+import { imageSizeLimit } from "../../../../../../utils/upload-utils"
+import errorMessages from "../../../../../../constants/messages/errors"
+
+// redux
+import store from "../../../../../../store"
+import { setCard } from "../../../../../../actions/modalActions"
 
 // styles
-import placeholder from "../../../../../components/_icons/images/placeholder-figure.jpg"
+import { dot } from "../../../../../components/_icons/components/BlankDot"
 
 // Analog.Cafe plugins
 import { MarkHotkey } from "./mark-hotkey"
@@ -149,15 +155,29 @@ export const plugins = [
   InsertImages({
     extensions: ["png", "jpeg"],
     applyTransform: (transform, file) => {
-      const key = uuidv1()
-      localForage.setItem(key, file)
-      return transform
-        .insertBlock({
-          type: "image",
-          isVoid: true,
-          data: { file, src: placeholder, key }
+      imageSizeLimit(file.size)
+        .then(() => {
+          const key = uuidv1()
+          localForage.setItem(key, file)
+          return transform
+            .insertBlock({
+              type: "image",
+              isVoid: true,
+              data: { file, src: dot, key }
+            })
+            .apply()
         })
-        .apply()
+        .catch(reason => {
+          store.dispatch(
+            setCard(
+              {
+                status: "ok",
+                info: errorMessages.VIEW_TEMPLATE.UPLOAD_IMAGE_SIZE
+              },
+              { url: "errors/upload" }
+            )
+          )
+        })
     }
   }),
 

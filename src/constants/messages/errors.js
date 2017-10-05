@@ -15,13 +15,27 @@ export default {
       text: "This image has been authored by someone not listed in our records…"
     },
     CARD: {
-      title: "Info not available",
+      title: "Info Not Available",
       text: "This card could not be loaded…"
     },
     SUBMISSION: {
-      title: "Submission failed",
+      title: "Submission Failed",
       text:
         "Your submission did not go through. You can try sending it again, if you like."
+    },
+    SUBMISSION_NO_IMAGES: {
+      title: "Forgot to Add Images?",
+      text: "Please include at least one photograph or illustration."
+    },
+    SUBMISSION_NO_CONTENT: {
+      title: "Some Stuff is Missing",
+      text:
+        "Please make sure that you’ve added a title, text and image(s) to your submission."
+    },
+    UPLOAD_IMAGE_SIZE: {
+      title: "File is Too Large!",
+      text:
+        "Your images need to be 10MB or less in size. Try selecting another PNG or JPG file."
     }
   },
   DISAMBIGUATION: {

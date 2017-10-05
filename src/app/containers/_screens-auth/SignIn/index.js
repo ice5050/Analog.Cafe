@@ -1,6 +1,7 @@
 // tools
 import React from "react"
 import Helmet from "react-helmet"
+import open from "oauth-open"
 
 // redux
 import { connect } from "react-redux"
@@ -24,7 +25,6 @@ import {
 
 // constants & helpers
 import { ROUTE_LOGIN_TWITTER_API } from "../../../../constants/login"
-import { WEBSOCKET_AUTH_TOKEN } from "../../../../constants/user"
 
 // render
 class SignIn extends React.PureComponent {
@@ -33,25 +33,24 @@ class SignIn extends React.PureComponent {
     this.handleTwitterButton = this.handleTwitterButton.bind(this)
   }
 
-  componentWillMount = () => {
-    // listen for login confirmation & redirect when successful
-    const socketAuth = new WebSocket(WEBSOCKET_AUTH_TOKEN)
-    socketAuth.addEventListener("message", event => {
-      // store user token
-      localStorage.setItem("token", event.data)
-      // set up app session with Redux
-      this.props.verifyUser()
-      this.props.getUserInfo()
-
-      // redirect to predefined user route after signing in
-      this.props.history.replace({
-        pathname: this.props.user.routes.success
-      })
-    })
-  }
-
   handleTwitterButton = () => {
-    window.open(ROUTE_LOGIN_TWITTER_API, "_blank", "height=600,width=500")
+    open(
+      ROUTE_LOGIN_TWITTER_API,
+      {
+        name: "Sign in with Twitter",
+        width: 500,
+        height: 600
+      },
+      (err, code) => {
+        if (err) console.error(err)
+        localStorage.setItem("token", code.token)
+        this.props.verifyUser()
+        this.props.getUserInfo()
+        this.props.history.replace({
+          pathname: this.props.user.routes.success
+        })
+      }
+    )
   }
   handleFacebookButton = () => {
     alert("Facebook login")

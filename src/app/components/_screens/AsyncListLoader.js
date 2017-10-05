@@ -12,7 +12,7 @@ export default props => {
   return (
     <div>
       <ListDescription>
-        {props.pastDelay && (
+        {props.pastDelay &&
           <ListHeader>
             <q>
               <em>
@@ -29,7 +29,7 @@ export default props => {
               errorMessages.VIEW_TEMPLATE.LIST.emoji
             )}
           </ListHeader>
-        )}
+        }
       </ListDescription>
       <Article>
         <Section style={{ paddingTop: "100vh" }} />

@@ -8,6 +8,7 @@ import Heading from "../ArticleHeading"
 import Figure from "../Picture"
 import Link from "../Link"
 import { ModalDispatch } from "../../containers/Modal"
+import Email from "../Email"
 
 import { froth } from "../../../utils/image-froth"
 
@@ -41,8 +42,10 @@ export default props => {
         <meta
           property="og:image"
           content={
-            froth("image-froth_669120_c34babc2fb974c8d9f03249bea647401", "s")
-              .src
+            froth({
+              src: "image-froth_669120_c34babc2fb974c8d9f03249bea647401",
+              size: "m"
+            }).src
           }
         />
       </Helmet>
@@ -178,7 +181,7 @@ export default props => {
           <Link to="https://twitter.com/analog_cafe">Twitter</Link>,{" "}
           <Link to="https://facebook.com/analog8cafe">Facebook</Link> or{" "}
           <Link to="https://instagram.com/analog_cafe">Instagram</Link>.
-          Otherwise you can email <strong>d (at) analog (dot) cafe</strong>
+          Otherwise you can email <Email />
         </p>
       </Section>
     </Article>

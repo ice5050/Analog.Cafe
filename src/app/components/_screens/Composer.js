@@ -3,10 +3,11 @@ import React from "react"
 import Helmet from "react-helmet"
 
 // components
-import { Article } from "../ArticleStyles"
+import { Article, Section } from "../ArticleStyles"
 import { Button } from "../Button"
 import { ModalDispatch } from "../../containers/Modal"
 import Composer from "../../containers/Composer"
+import Email from "../Email"
 
 import {
   DEFAULT_COMPOSER_EDITOR_STATE,
@@ -40,6 +41,13 @@ export default props => {
       >
         <Button red>Send Submission {emojis.CHECKMARK}</Button>
       </ModalDispatch>
+      <Section plain>
+        <p style={{ textAlign: "center" }}>
+          <em>
+            If you’re having trouble using this tool, please email <Email />
+          </em>
+        </p>
+      </Section>
     </Article>
   )
 }

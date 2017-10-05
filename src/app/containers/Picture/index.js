@@ -67,11 +67,10 @@ class Figure extends React.Component {
       // get image author
       this.props.readOnly && this.props.getInfo(src)
     } else {
-      var _this = this
-      localForage.getItem(key).then(function(data) {
+      localForage.getItem(key).then(data => {
         const reader = new FileReader()
         reader.addEventListener("load", () =>
-          _this.setState({ src: reader.result })
+          this.setState({ src: reader.result })
         )
         if (Object.keys(file).length === 0 && file.constructor === Object) {
           reader.readAsDataURL(data)

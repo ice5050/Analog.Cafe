@@ -2,6 +2,12 @@
 import React from "react"
 import localForage from "localforage"
 import uuidv1 from "uuid/v1"
+import { froth } from "../../../utils/image-froth"
+import { imageSizeLimit } from "../../../utils/upload-utils"
+
+// redux
+import { connect } from "react-redux"
+import { setCard } from "../../../actions/modalActions"
 
 // components
 import PictureDocket from "../../components/PictureDocket"
@@ -16,12 +22,43 @@ import {
 import { ModalDispatch } from "../Modal"
 
 // styles
-import placeholder from "../../components/_icons/images/placeholder-figure.jpg"
+import { dot } from "../../components/_icons/components/BlankDot"
 
+// constants
 import { MESSAGE_HINT_IMAGE_SUGGESTIONS } from "../../../constants/messages/hints"
+import errorMessages from "../../../constants/messages/errors"
+const suggestions = [
+  "image-froth_915090_05378814ac7d4b9b9352b603f2d944de",
+  "image-froth_1546790_b5ff5d48edf8488387d39f64e18b2916",
+  "image-froth_1494432_2ed2035b7e154d6c88cb0280406f7193",
+  "image-froth_1522572_19174bdd522e4ab185e52d9d6fe9e868",
+  "image-froth_1542912_2fdd00455a0249c18bda84128470b341",
+  "image-froth_1515070_603a06c453204daa8983a81bbbeb2c63",
+  "image-froth_669104_8df1a40cea1746d79967ec4e694b59d9",
+  "image-froth_669104_a3b70899a1e74905bcb73b1e566943fc"
+]
+
+const GridButtonImage = props => {
+  return (
+    <GridButton onClick={() => props.add(props.src)}>
+      <AspectRatio>
+        <img
+          src={
+            froth({
+              src: props.src,
+              size: "t",
+              crop: "square"
+            }).src
+          }
+          alt="Editor’s suggestion"
+        />
+      </AspectRatio>
+    </GridButton>
+  )
+}
 
 // return
-export default class extends React.PureComponent {
+class PictureDocketContainer extends React.PureComponent {
   constructor(props) {
     super(props)
     this.uploadRequest = this.uploadRequest.bind(this)
@@ -49,6 +86,10 @@ export default class extends React.PureComponent {
         .apply()
     }
     editor.onChange(resolvedState)
+
+    // this helps refresh the view and update inserted image...
+    // ...i don't know why
+    window.scrollBy(0, 1)
   }
 
   // image upload handlers
@@ -57,10 +98,20 @@ export default class extends React.PureComponent {
   }
   handleFileUpload = event => {
     const file = event.target.files[0]
-    this.uploadRequest(file)
+    imageSizeLimit(file.size)
+      .then(() => this.uploadRequest(file))
+      .catch(reason => {
+        this.props.setCard(
+          {
+            status: "ok",
+            info: errorMessages.VIEW_TEMPLATE.UPLOAD_IMAGE_SIZE
+          },
+          { url: "errors/upload" }
+        )
+      })
   } // ⤵
   uploadRequest = file => {
-    var key = uuidv1()
+    const key = uuidv1()
     localForage.setItem(key, file)
     const { editor } = this.props
     const resolvedState = editor
@@ -69,16 +120,38 @@ export default class extends React.PureComponent {
       .insertBlock({
         type: "image",
         isVoid: true,
-        data: { file, key: key, src: placeholder }
+        data: { file, key: key, src: dot }
       })
       .apply()
+
     editor.onChange(resolvedState)
-    setTimeout(
-      function() {
-        this.handleClose()
-      }.bind(this),
-      10
-    )
+    this.uploadHandlerTimeout = setTimeout(() => {
+      this.handleClose()
+    }, 10)
+  }
+
+  // insert selected image suggesstion:
+  handleImageSuggestion = src => {
+    const { editor } = this.props
+    const resolvedState = editor
+      .getState()
+      .transform()
+      .insertBlock({
+        type: "image",
+        isVoid: true,
+        data: { src }
+      })
+      .apply()
+
+    this.suggestionHandlerTimeout = setTimeout(() => {
+      editor.onChange(resolvedState)
+      this.handleClose()
+    }, 10)
+  }
+
+  componentWillUnmount = () => {
+    clearTimeout(this.suggestionHandlerTimeout)
+    clearTimeout(this.uploadHandlerTimeout)
   }
 
   render = () => {
@@ -92,14 +165,15 @@ export default class extends React.PureComponent {
         </CardHeader>
         <GridContainer>
           <GridRow>
-            <GridButton>
-              <AspectRatio>
-                <img src="/images/thumbnails/square.jpg" alt="" />
-              </AspectRatio>
-            </GridButton>
-            <GridButton>
-              <img src="/images/thumbnails/square.jpg" alt="" />
-            </GridButton>
+            {suggestions.slice(0, 2).map(src => {
+              return (
+                <GridButtonImage
+                  key={src}
+                  src={src}
+                  add={this.handleImageSuggestion}
+                />
+              )
+            })}
             <GridButton onClick={this.initFileUpload} red>
               <div style={{ margin: "0 auto" }}>
                 ＋
@@ -109,30 +183,26 @@ export default class extends React.PureComponent {
             </GridButton>
           </GridRow>
           <GridRow>
-            <GridButton>
-              <AspectRatio>
-                <img src="/images/thumbnails/square.jpg" alt="" />
-              </AspectRatio>
-            </GridButton>
-            <GridButton>
-              <img src="/images/thumbnails/square.jpg" alt="" />
-            </GridButton>
-            <GridButton>
-              <img src="/images/thumbnails/square.jpg" alt="" />
-            </GridButton>
+            {suggestions.slice(2, 5).map(src => {
+              return (
+                <GridButtonImage
+                  key={src}
+                  src={src}
+                  add={this.handleImageSuggestion}
+                />
+              )
+            })}
           </GridRow>
           <GridRow>
-            <GridButton>
-              <AspectRatio>
-                <img src="/images/thumbnails/square.jpg" alt="" />
-              </AspectRatio>
-            </GridButton>
-            <GridButton>
-              <img src="/images/thumbnails/square.jpg" alt="" />
-            </GridButton>
-            <GridButton>
-              <img src="/images/thumbnails/square.jpg" alt="" />
-            </GridButton>
+            {suggestions.slice(5, 8).map(src => {
+              return (
+                <GridButtonImage
+                  key={src}
+                  src={src}
+                  add={this.handleImageSuggestion}
+                />
+              )
+            })}
           </GridRow>
         </GridContainer>
         <GridCaption>
@@ -154,3 +224,13 @@ export default class extends React.PureComponent {
     )
   }
 }
+
+// connet with redux
+const mapDispatchToProps = dispatch => {
+  return {
+    setCard: (info, request) => {
+      dispatch(setCard(info, request))
+    }
+  }
+}
+export default connect(null, mapDispatchToProps)(PictureDocketContainer)

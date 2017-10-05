@@ -71,7 +71,9 @@ const ScreenSlicer = styled.div`
 export default props => {
   return (
     <ScreenSlicer>
-      <aside>{props.children}</aside>
+      <aside>
+        {props.children}
+      </aside>
     </ScreenSlicer>
   )
 }

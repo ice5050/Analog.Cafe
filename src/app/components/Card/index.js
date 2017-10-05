@@ -30,7 +30,7 @@ export const Card = props => {
       </CardHeader>
       <figure onClick={event => event.stopPropagation()}>
         <PicturePlaceholder frothId={props.image}>
-          <img src={froth(props.image, "s").src} alt="Card" />
+          <img src={froth({ src: props.image, size: "s" }).src} alt="Card" />
         </PicturePlaceholder>
         <figcaption>
           <CardCaption

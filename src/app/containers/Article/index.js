@@ -1,5 +1,6 @@
 // tools
 import React from "react"
+import Loadable from "react-loadable"
 import { Editor, Raw } from "slate"
 import Helmet from "react-helmet"
 import { froth } from "../../../utils/image-froth"
@@ -27,7 +28,12 @@ import {
   Article as ArticleElement,
   Byline
 } from "../../components/ArticleStyles"
-import ArticleActions from "../../components/Card/components/ArticleActions"
+
+const AsyncArticleActions = Loadable({
+  loader: () => import("../../components/Card/components/ArticleActions"),
+  loading: () => <div />,
+  delay: 1000
+})
 
 // render
 const safeRoute = url => {
@@ -75,6 +81,9 @@ class Article extends React.PureComponent {
         encodeURI(
           "“" +
             this.props.article.title +
+            (this.props.article.subtitle
+              ? ": " + this.props.article.subtitle
+              : "") +
             "” by " +
             this.props.article.author.name
         ) +
@@ -93,7 +102,9 @@ class Article extends React.PureComponent {
           {this.props.article.poster && (
             <meta
               property="og:image"
-              content={froth(this.props.article.poster.medium, "m").src}
+              content={
+                froth({ src: this.props.article.poster.medium, size: "m" }).src
+              }
             />
           )}
         </Helmet>
@@ -125,12 +136,15 @@ class Article extends React.PureComponent {
             })}
             schema={schema}
           />
+
           {this.props.article.poster &&
           this.props.article.author && (
-            <ArticleActions
+            <AsyncArticleActions
               shareOnFacebook={this.handleShareOnFacebook}
               shareOnTwitter={this.handleShareOnTwitter}
-              nextArticle={this.props.nextArticle}
+              nextArticle={this.props.article.nextArticle}
+              thisArticle={this.props.article.slug}
+              thisArticlePostDate={this.props.article["post-date"]}
               // nextArticle={"23-days-in-myanmar-df7d"}
             />
           )}

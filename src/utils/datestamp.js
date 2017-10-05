@@ -19,3 +19,14 @@ export const datestamp = unix => {
   let day = date.getDate()
   return month + " " + day + ", " + year
 }
+
+export const lunar = unix => {
+  let date = new Date(unix * 1000)
+  return date.getDate() + "☾" + (date.getMonth() + 1)
+}
+
+export const percise = unix => {
+  let date = new Date(unix * 1000)
+  console.log(date.toISOString())
+  return date.toISOString()
+}

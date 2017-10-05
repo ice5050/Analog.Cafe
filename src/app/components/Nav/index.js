@@ -84,7 +84,9 @@ export const ComposerNav = props => {
           with={MESSAGE_HINT_AUTO_SAVE}
           style={{ textDecoration: "none" }}
         >
-          <span>{props.draftStatus}</span>
+          <span>
+            {props.draftStatus}
+          </span>
         </ModalDispatch>
       </NavItem>
       <NavItem prime center className="prime center">

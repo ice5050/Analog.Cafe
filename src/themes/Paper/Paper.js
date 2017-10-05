@@ -78,7 +78,8 @@ export const Paper = {
         // base: multiplier
         larger: 3,
         normal: 1,
-        smaller: 0.85
+        smaller: 0.85,
+        tiny: 0.65
       },
       // automatically set font size based on screen size; should be at the top of most components' css
       auto: css`

@@ -9,7 +9,7 @@ import {
   CardHeaderEditable
 } from "./styles"
 import { SubtitleInput } from "../../../InputStyles"
-import placeholder from "../../../_icons/images/placeholder-profile-upload.png"
+import { dot } from "../../../_icons/components/BlankDot"
 
 // constants
 import {
@@ -33,7 +33,7 @@ export default props => {
       </CardHeaderEditable>
       <figure>
         <img
-          src={props.image || placeholder}
+          src={props.image || dot}
           alt="Profile avatar"
           onClick={() => props.changeImage()}
           style={{ cursor: "pointer" }}

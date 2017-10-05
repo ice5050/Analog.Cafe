@@ -2,7 +2,9 @@
 import React from "react"
 import Helmet from "react-helmet"
 
+// redux
 import { connect } from "react-redux"
+import { setCard } from "../../../../actions/modalActions"
 
 import localForage from "localforage"
 import "localforage-getitems"
@@ -13,9 +15,9 @@ import { Article, Section } from "../../../components/ArticleStyles"
 
 // constants & helpers
 import { loadContent, loadHeader } from "../../../../utils/composer-loader"
-import { WEBSOCKET_UPLOAD_PROGRESS } from "../../../../constants/submission"
 import { ROUTE_REDIRECT_AFTER_SUBMIT } from "../../../../constants/submission"
 import emojis from "../../../../constants/messages/emojis"
+import errorMessages from "../../../../constants/messages/errors"
 
 import {
   redirectToSignIn,
@@ -34,21 +36,29 @@ import {
 
 // render
 class Upload extends React.PureComponent {
-  constructor(props) {
-    super(props)
-    this.socketUpload = new WebSocket(WEBSOCKET_UPLOAD_PROGRESS)
-  }
   componentDidMount = () => {
-    // redirects
+    // no title present
+    if (
+      !localStorage.getItem("composer-header-state") ||
+      JSON.parse(localStorage.getItem("composer-header-state")).title === ""
+    ) {
+      this.handleEmptySubmission()
+      return
+    }
+    // no body text present
+    if (
+      !localStorage.getItem("composer-content-text") ||
+      localStorage.getItem("composer-content-text") === ""
+    ) {
+      this.handleEmptySubmission()
+      return
+    }
+
     if (!localStorage.getItem("token")) {
+      // redirects
       redirectToSignIn(this.props)
     } else {
       this.props.resetLoginRedirectRoutes()
-
-      // WebSocket
-      this.socketUpload.addEventListener("message", function(event) {
-        console.log("Upload image form server to cloundinary: " + event.data)
-      })
 
       // construct submission data
       const submissionConsent = this.props.history.location.pathname.includes(
@@ -56,64 +66,75 @@ class Upload extends React.PureComponent {
       )
       const content = loadContent()
       const header = loadHeader()
-      let keys = []
-      if (content && content.document && content.document.nodes) {
-        // form adata obj
-        let data = new FormData()
-        data.append("content", JSON.stringify(content))
-        data.append("header", JSON.stringify(header))
-        data.append("isFullConsent", submissionConsent)
+      if (!(content && content.document && content.document.nodes)) {
+        return this.handleEmptySubmission()
+      }
 
-        // get filename keys for the saved images in the submission
-        for (var i = 0; i < content.document.nodes.length; i++) {
-          var node = content.document.nodes[i]
-          if (node && node.data && node.data.key) {
-            keys.push(node.data.key)
-          }
-        }
-        if (keys.length > 0) {
-          const _this = this // perhaps binding "this" to localForage fn would have been the right decision instead of _this - but I don't know and don't care to do this atm
-          localForage.getItems(keys).then(function(results) {
-            for (var i = 0; i < keys.length; i++) {
-              data.append("images[" + keys[i] + "]", results[keys[i]])
-            }
-            sendSubmission(data, _this.props)
+      // form data obj
+      let data = new FormData()
+      data.append("content", JSON.stringify(content))
+      data.append("header", JSON.stringify(header))
+      data.append("isFullConsent", submissionConsent)
+
+      // get filename keys for the saved images in the submission
+      const keys = content.document.nodes
+        .filter(node => !!(node.data && node.data.key))
+        .map(node => node.data.key)
+      const srcs = content.document.nodes
+        .filter(node => !!(node.data && node.data.src))
+        .map(node => node.data.src)
+
+      // images added from user's device
+      if (keys.length > 0) {
+        localForage.getItems(keys).then(results => {
+          keys.forEach(k => {
+            data.append("images[" + k + "]", results[k])
           })
-        } else {
-          console.log("no images") // <-- this is if there are no uploade images; still fires if images inserted as URLs.
           sendSubmission(data, this.props)
-        }
-      } else {
-        // content deleted
-        // TODO notify users that content is deleted or missplaced
-        this.props.history.replace({
-          pathname: ROUTE_REDIRECT_AFTER_SUBMIT
         })
+      } else {
+        // images added as URLs or no images
+        if (srcs.length === 0) {
+          this.props.setCard(
+            {
+              status: "ok",
+              info: errorMessages.VIEW_TEMPLATE.SUBMISSION_NO_IMAGES
+            },
+            { url: "errors/submissions" }
+          )
+          this.props.history.replace({ pathname: "/submit/compose" })
+        } else sendSubmission(data, this.props)
       }
     }
   }
+  handleEmptySubmission = () => {
+    this.props.setCard(
+      {
+        status: "ok",
+        info: errorMessages.VIEW_TEMPLATE.SUBMISSION_NO_CONTENT
+      },
+      { url: "errors/submissions" }
+    )
+    this.props.history.replace({
+      pathname: "/submit/compose"
+    })
+  }
 
-  componentWillReceiveProps = () => {
-    if (this.props.upload.status === "ok") {
+  componentWillReceiveProps = nextProps => {
+    if (nextProps.upload.status === "ok") {
       // clear submissions content and image in storage
       localStorage.removeItem("composer-content-state")
       localStorage.removeItem("composer-header-state")
       localForage.clear()
-      // close connection listener
-      this.socketUpload.close()
       // reset upload state
-      this.props.resetUploadStatus()
+      nextProps.resetUploadStatus()
       // redirect after submission complete
-      this.props.history.replace({
-        pathname: ROUTE_REDIRECT_AFTER_SUBMIT
-      })
-    } else if (this.props.upload.status !== "pending") {
-      // submission not in progress
-      this.socketUpload.close() // close socket connection
+      nextProps.history.replace({ pathname: ROUTE_REDIRECT_AFTER_SUBMIT })
+    } else if (nextProps.upload.status === "unauthorized") {
       // if user is unauthorized, redirect to sign in page
-      if (this.props.upload.status === "unauthorized") {
-        redirectToSignIn(this.props)
-      }
+      redirectToSignIn(nextProps)
+    } else if (nextProps.upload.status !== "pending") {
+      // submission not in progress
     }
   }
 
@@ -121,7 +142,7 @@ class Upload extends React.PureComponent {
     return (
       <Article>
         <Helmet>
-          <title>Uploading Submissoin…</title>
+          <title>Uploading Submission…</title>
         </Helmet>
         <Heading pageTitle={emojis.NEONCAT} pageSubtitle="Sending…" />
         <Section>
@@ -163,6 +184,9 @@ const mapDispatchToProps = dispatch => {
     },
     resetLoginRedirectRoutes: () => {
       dispatch(resetLoginRedirectRoutes())
+    },
+    setCard: (info, request) => {
+      dispatch(setCard(info, request))
     }
   }
 }
