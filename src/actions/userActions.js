@@ -15,6 +15,14 @@ const loginError = {
   }
 }
 
+const updateProfileError = {
+  status: "ok",
+  info: {
+    title: errorMessages.VIEW_TEMPLATE.CARD.title,
+    text: errorMessages.DISAMBIGUATION.CODE_401.error
+  }
+}
+
 // check if user is logged in
 export const verify = () => {
   return dispatch => {
@@ -63,6 +71,30 @@ export const getInfo = () => {
         })
       })
       .catch(error => dispatch(setCard(loginError, { url: "errors/user" })))
+  }
+}
+
+export const updateProfile = user => {
+  return dispatch => {
+    const token = localStorage.getItem("token")
+    const request = {
+      method: "put",
+      headers: {
+        Authorization: "JWT " + token
+      },
+      data: user,
+      url: ROUTE_USER_API + "/users/me"
+    }
+    axios(axiosRequest(request))
+      .then(response => {
+        dispatch({
+          type: "USER.SET_INFO",
+          payload: response.data.info
+        })
+      })
+      .catch(error =>
+        dispatch(setCard(updateProfileError, { url: "errors/user" }))
+      )
   }
 }
 
