@@ -3,14 +3,17 @@ import React from "react"
 
 // redux
 import { connect } from "react-redux"
-import { getInfo as getUserInfo } from "../../../../actions/userActions"
+import {
+  getInfo as getUserInfo,
+  setInfo as setUserInfo
+} from "../../../../actions/userActions"
 
 // components
 import Forbidden from "../../_screens-errors/Forbidden"
 import { CardEditableProfile } from "../../../components/Card"
 
 import Heading from "../../../components/ArticleHeading"
-import { LinkButton } from "../../../components/Button"
+import { Button } from "../../../components/Button"
 import { Article } from "../../../components/ArticleStyles"
 
 // template for user profile button arrangement
@@ -123,6 +126,10 @@ class EditProfile extends React.PureComponent {
     })
   }
 
+  handleDone = () => {
+    this.props.setUserInfo(this.state)
+  }
+
   render = () => {
     console.log(this.state)
     return this.props.user.status === "ok" ? (
@@ -161,21 +168,25 @@ class EditProfile extends React.PureComponent {
           onChange={this.handleFileUpload}
         />
 
-        <LinkButton to={ROUTE_AUTH_USER_LANDING} red>
+        <Button onClick={this.handleDone} red>
           Done
-        </LinkButton>
+        </Button>
       </Article>
     ) : (
       <Forbidden />
     )
   }
 }
+//to={ROUTE_AUTH_USER_LANDING}
 
 // connet with redux
 const mapDispatchToProps = dispatch => {
   return {
     getUserInfo: () => {
       dispatch(getUserInfo())
+    },
+    setUserInfo: user => {
+      dispatch(setUserInfo(user))
     }
   }
 }

@@ -15,14 +15,6 @@ const loginError = {
   }
 }
 
-const updateProfileError = {
-  status: "ok",
-  info: {
-    title: errorMessages.VIEW_TEMPLATE.CARD.title,
-    text: errorMessages.DISAMBIGUATION.CODE_401.error
-  }
-}
-
 // check if user is logged in
 export const verify = () => {
   return dispatch => {
@@ -74,7 +66,7 @@ export const getInfo = () => {
   }
 }
 
-export const updateProfile = user => {
+export const setInfo = user => {
   return dispatch => {
     const token = localStorage.getItem("token")
     const request = {
@@ -92,9 +84,7 @@ export const updateProfile = user => {
           payload: response.data.info
         })
       })
-      .catch(error =>
-        dispatch(setCard(updateProfileError, { url: "errors/user" }))
-      )
+      .catch(error => dispatch(setCard(loginError, { url: "errors/user" })))
   }
 }
 
