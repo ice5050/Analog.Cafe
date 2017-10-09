@@ -4,7 +4,7 @@ import { setCard } from "./modalActions"
 import errorMessages from "../constants/messages/errors"
 import { axiosRequest } from "../utils/axios-request"
 
-import { ROUTE_USER_API } from "../constants/user"
+import { ROUTE_USER_API, ROUTE_UPDATE_PROFILE_API } from "../constants/user"
 
 // error message
 const loginError = {
@@ -75,7 +75,7 @@ export const setInfo = user => {
         Authorization: "JWT " + token
       },
       data: user,
-      url: ROUTE_USER_API + "/users/me"
+      url: ROUTE_UPDATE_PROFILE_API
     }
     axios(axiosRequest(request))
       .then(response => {
