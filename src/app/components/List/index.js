@@ -57,7 +57,7 @@ export default props => {
                             backgroundImage:
                               "url(" +
                               froth({
-                                src: item.poster.medium,
+                                src: item.poster,
                                 size: index ? "s" : "m"
                               }).src +
                               ")"
