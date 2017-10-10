@@ -30,7 +30,7 @@ export const ROUTE_META = {
   "/articles": {
     title: "Reads of interest",
     description:
-      "Stories, editorials, reviews, how-to’s and other articles about art, inspiration and technology.",
+      "Stories, editorials, reviews, guides and other articles about art, inspiration and technology.",
     // #story
     // #editorial
     // #review
