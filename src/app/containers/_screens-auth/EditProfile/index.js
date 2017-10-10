@@ -5,7 +5,8 @@ import React from "react"
 import { connect } from "react-redux"
 import {
   getInfo as getUserInfo,
-  setInfo as setUserInfo
+  setInfo as setUserInfo,
+  acceptInfo as acceptUserInfo
 } from "../../../../actions/userActions"
 
 // components
@@ -51,7 +52,11 @@ class EditProfile extends React.PureComponent {
       // or populate all profile fields with current info
       this.populateEditableProfile()
   }
-  componentWillReceiveProps = () => this.populateEditableProfile()
+  componentWillReceiveProps = () => {
+    this.props.user.status !== "updated"
+      ? this.populateEditableProfile()
+      : this.profileUpdated()
+  }
   populateEditableProfile = () => {
     this.setState({
       title: this.props.user.info.title,
@@ -129,9 +134,12 @@ class EditProfile extends React.PureComponent {
   handleDone = () => {
     this.props.setUserInfo(this.state)
   }
+  profileUpdated = () => {
+    this.props.acceptUserInfo()
+    this.props.history.push(ROUTE_AUTH_USER_LANDING)
+  }
 
   render = () => {
-    console.log(this.state)
     return this.props.user.status === "ok" ? (
       <Article>
         <Heading pageTitle="Edit Your Profile" />
@@ -187,6 +195,9 @@ const mapDispatchToProps = dispatch => {
     },
     setUserInfo: user => {
       dispatch(setUserInfo(user))
+    },
+    acceptUserInfo: () => {
+      dispatch(acceptUserInfo())
     }
   }
 }

@@ -83,8 +83,18 @@ export const setInfo = user => {
           type: "USER.SET_INFO",
           payload: response.data.info
         })
+        dispatch({
+          type: "USER.SET_STATUS",
+          payload: "updated"
+        })
       })
       .catch(error => dispatch(setCard(loginError, { url: "errors/user" })))
+  }
+}
+export const acceptInfo = () => {
+  return {
+    type: "USER.SET_STATUS",
+    payload: "ok"
   }
 }
 
