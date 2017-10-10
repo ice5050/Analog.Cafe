@@ -114,7 +114,7 @@ export default props => {
                     item.type !== "placeholder" && item.poster ? (
                       {
                         backgroundImage: `url(${froth({
-                          src: item.poster.medium,
+                          src: item.poster,
                           size: index ? "s" : "m"
                         }).src})`
                       }
