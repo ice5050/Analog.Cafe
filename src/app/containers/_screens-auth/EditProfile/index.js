@@ -3,14 +3,18 @@ import React from "react"
 
 // redux
 import { connect } from "react-redux"
-import { getInfo as getUserInfo } from "../../../../actions/userActions"
+import {
+  getInfo as getUserInfo,
+  setInfo as setUserInfo,
+  acceptInfo as acceptUserInfo
+} from "../../../../actions/userActions"
 
 // components
 import Forbidden from "../../_screens-errors/Forbidden"
 import { CardEditableProfile } from "../../../components/Card"
 
 import Heading from "../../../components/ArticleHeading"
-import { LinkButton } from "../../../components/Button"
+import { Button } from "../../../components/Button"
 import { Article } from "../../../components/ArticleStyles"
 
 // template for user profile button arrangement
@@ -33,7 +37,9 @@ class EditProfile extends React.PureComponent {
     this.handleButtonFocus = this.handleButtonFocus.bind(this)
     this.handleButtonBlur = this.handleButtonBlur.bind(this)
     this.handleFileUpload = this.handleFileUpload.bind(this)
-    this.state = {}
+    this.state = {
+      setUserInfoPending: false
+    }
   }
 
   componentDidMount = () => {
@@ -48,7 +54,11 @@ class EditProfile extends React.PureComponent {
       // or populate all profile fields with current info
       this.populateEditableProfile()
   }
-  componentWillReceiveProps = () => this.populateEditableProfile()
+  componentWillReceiveProps = () => {
+    this.props.user.status !== "updated"
+      ? this.populateEditableProfile()
+      : this.profileUpdated()
+  }
   populateEditableProfile = () => {
     this.setState({
       title: this.props.user.info.title,
@@ -123,8 +133,23 @@ class EditProfile extends React.PureComponent {
     })
   }
 
+  handleDone = () => {
+    this.props.setUserInfo({
+      title: this.state.title,
+      text: this.state.text,
+      image: this.state.image,
+      buttons: this.state.buttons
+    })
+    this.setState({
+      setUserInfoPending: true
+    })
+  }
+  profileUpdated = () => {
+    this.props.acceptUserInfo()
+    this.props.history.push(ROUTE_AUTH_USER_LANDING)
+  }
+
   render = () => {
-    console.log(this.state)
     return this.props.user.status === "ok" ? (
       <Article>
         <Heading pageTitle="Edit Your Profile" />
@@ -161,21 +186,32 @@ class EditProfile extends React.PureComponent {
           onChange={this.handleFileUpload}
         />
 
-        <LinkButton to={ROUTE_AUTH_USER_LANDING} red>
+        <Button
+          onClick={this.handleDone}
+          red
+          loading={this.state.setUserInfoPending ? true : false}
+        >
           Done
-        </LinkButton>
+        </Button>
       </Article>
     ) : (
       <Forbidden />
     )
   }
 }
+//to={ROUTE_AUTH_USER_LANDING}
 
 // connet with redux
 const mapDispatchToProps = dispatch => {
   return {
     getUserInfo: () => {
       dispatch(getUserInfo())
+    },
+    setUserInfo: user => {
+      dispatch(setUserInfo(user))
+    },
+    acceptUserInfo: () => {
+      dispatch(acceptUserInfo())
     }
   }
 }

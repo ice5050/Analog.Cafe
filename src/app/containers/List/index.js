@@ -16,7 +16,7 @@ import { ROUTE_AUTHOR_API } from "../../../constants/author"
 
 // components
 import { ListDescription, ListHeader } from "../../components/ListDescription"
-import { LinkButton } from "../../components/Button"
+import { Button } from "../../components/Button"
 import { default as ListBlock } from "../../components/List"
 import { Section, Article } from "../../components/ArticleStyles"
 
@@ -25,7 +25,15 @@ import { getListMeta, trimAuthorName } from "../../../utils/list-utils"
 
 // return
 class List extends React.PureComponent {
-  listAPI = this.props.private ? ROUTE_AUTHENTICATED_LIST_API : ROUTE_LIST_API
+  constructor(props) {
+    super(props)
+    this.listAPI = this.props.private
+      ? ROUTE_AUTHENTICATED_LIST_API
+      : ROUTE_LIST_API
+    this.state = {
+      loadMorePending: false
+    }
+  }
   fetchNewList = () => {
     this.props.fetchPage(
       getListMeta(this.props.history.location.pathname, 1, this.listAPI).request
@@ -42,6 +50,17 @@ class List extends React.PureComponent {
       // append items:
       true
     )
+
+    // set loading state on button
+    this.setState({
+      loadMorePending: true
+    })
+  }
+  componentWillReceiveProps = () => {
+    // reset loading indicator
+    this.setState({
+      loadMorePending: false
+    })
   }
   componentDidMount = () => {
     this.fetchNewList()
@@ -132,11 +151,15 @@ class List extends React.PureComponent {
 
         {parseInt(this.props.list.page.total, 0) > 1 &&
         parseInt(this.props.list.page.total, 0) >
-          parseInt(this.props.list.page.current, 0)
-          ? <LinkButton to="#more" red onClick={this.handleLoadMore.bind(this)}>
-              Load More
-            </LinkButton>
-          : null}
+          parseInt(this.props.list.page.current, 0) ? (
+          <Button
+            red
+            onClick={this.handleLoadMore.bind(this)}
+            loading={this.state.loadMorePending ? true : false}
+          >
+            Load More
+          </Button>
+        ) : null}
 
         <Article>
           <Section />

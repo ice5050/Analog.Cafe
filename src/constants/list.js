@@ -13,7 +13,7 @@ export const ROUTE_AUTHENTICATED_LIST_API = ROUTE_API_DOMAIN + "/submissions"
 // filter sets for particular view URLs/routes
 export const ROUTE_FILTERS = {
   "/photo-essays": "photo-essay",
-  "/articles": "review:how-to:editorial:story",
+  "/articles": "review:guide:editorial:story",
   [ROUTE_AUTH_USER_LANDING]: "",
   "/": ""
 }
@@ -30,11 +30,11 @@ export const ROUTE_META = {
   "/articles": {
     title: "Reads of interest",
     description:
-      "Stories, editorials, reviews, how-to’s and other articles about art, inspiration and technology.",
+      "Stories, editorials, reviews, guides and other articles about art, inspiration and technology.",
     // #story
     // #editorial
     // #review
-    // #how-to
+    // #guide
     emoji: emojis.MONOCLE
   },
   "/": {
