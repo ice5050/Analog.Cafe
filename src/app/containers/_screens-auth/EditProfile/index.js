@@ -132,7 +132,10 @@ class EditProfile extends React.PureComponent {
   }
 
   handleDone = () => {
-    this.props.setUserInfo(this.state)
+    this.props.setUserInfo({
+      ...this.state,
+      [this.fileInput.value !== "" && "imageUpload"]: this.fileInput.files[0]
+    })
   }
   profileUpdated = () => {
     this.props.acceptUserInfo()
