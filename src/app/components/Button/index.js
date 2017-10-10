@@ -1,5 +1,6 @@
 // tools
 import React from "react"
+import Loader from "../_icons/components/Loader"
 
 // styles
 import styled, { css } from "styled-components"
@@ -66,7 +67,10 @@ export const LinkButton = styled(({ red, black, ...props }) => (
 `
 // export non-a/link version of the button
 export const Button = styled(({ red, black, ...props }) => (
-  <button {...props} />
+  <button {...props}>
+    <Loader style={props.loading ? null : { width: "0" }} />
+    {props.children}
+  </button>
 ))`
   box-sizing: content-box;
   background: inherit;
