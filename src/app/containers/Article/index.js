@@ -103,7 +103,7 @@ class Article extends React.PureComponent {
             <meta
               property="og:image"
               content={
-                froth({ src: this.props.article.poster.medium, size: "m" }).src
+                froth({ src: this.props.article.poster, size: "m" }).src
               }
             />
           )}
