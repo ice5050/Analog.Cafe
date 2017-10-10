@@ -67,7 +67,11 @@ export const LinkButton = styled(({ red, black, ...props }) => (
 `
 // export non-a/link version of the button
 export const Button = styled(({ red, black, ...props }) => (
-  <button className={props.className} onClick={props.onClick}>
+  <button
+    className={props.className}
+    onClick={props.onClick}
+    disabled={props.loading}
+  >
     <Loader style={props.loading ? null : { width: "0" }} />
     {props.children}
   </button>
