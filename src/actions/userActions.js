@@ -4,7 +4,7 @@ import { setCard } from "./modalActions"
 import errorMessages from "../constants/messages/errors"
 import { axiosRequest } from "../utils/axios-request"
 
-import { ROUTE_USER_API } from "../constants/user"
+import { ROUTE_USER_API, ROUTE_UPDATE_PROFILE_API } from "../constants/user"
 
 // error message
 const loginError = {
@@ -54,6 +54,28 @@ export const getInfo = () => {
         Authorization: "JWT " + token
       },
       url: ROUTE_USER_API
+    }
+    axios(axiosRequest(request))
+      .then(response => {
+        dispatch({
+          type: "USER.SET_INFO",
+          payload: response.data.info
+        })
+      })
+      .catch(error => dispatch(setCard(loginError, { url: "errors/user" })))
+  }
+}
+
+export const setInfo = user => {
+  return dispatch => {
+    const token = localStorage.getItem("token")
+    const request = {
+      method: "put",
+      headers: {
+        Authorization: "JWT " + token
+      },
+      data: user,
+      url: ROUTE_UPDATE_PROFILE_API
     }
     axios(axiosRequest(request))
       .then(response => {
