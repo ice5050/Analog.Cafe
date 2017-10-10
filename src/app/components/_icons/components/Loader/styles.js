@@ -3,11 +3,10 @@ import styled from "styled-components"
 export const LoaderContainer = styled.div`
   display: inline-block;
   overflow: hidden;
-  height: 1em;
+  width: ${props => props.theme.size.block.spacing}em;
+  height: ${props => props.theme.size.block.spacing}em;
+  margin: -0.1em 0 0em -${props => props.theme.size.block.spacing / 2}em;
   svg {
-    width: 1em;
-    margin-top: -.1em;
-    margin-right: 0.25em;
-    margin-left: -.5em;
+    margin-top: -.25em;
   }
 `
