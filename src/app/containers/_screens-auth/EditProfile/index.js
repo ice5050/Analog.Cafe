@@ -37,7 +37,9 @@ class EditProfile extends React.PureComponent {
     this.handleButtonFocus = this.handleButtonFocus.bind(this)
     this.handleButtonBlur = this.handleButtonBlur.bind(this)
     this.handleFileUpload = this.handleFileUpload.bind(this)
-    this.state = {}
+    this.state = {
+      setUserInfoPending: false
+    }
   }
 
   componentDidMount = () => {
@@ -133,8 +135,14 @@ class EditProfile extends React.PureComponent {
 
   handleDone = () => {
     this.props.setUserInfo({
-      ...this.state,
+      title: this.state.title,
+      text: this.state.text,
+      image: this.state.image,
+      buttons: this.state.buttons,
       [this.fileInput.value !== "" && "imageUpload"]: this.fileInput.files[0]
+    })
+    this.setState({
+      setUserInfoPending: true
     })
   }
   profileUpdated = () => {
@@ -179,7 +187,11 @@ class EditProfile extends React.PureComponent {
           onChange={this.handleFileUpload}
         />
 
-        <Button onClick={this.handleDone} red>
+        <Button
+          onClick={this.handleDone}
+          red
+          loading={this.state.setUserInfoPending ? true : false}
+        >
           Done
         </Button>
       </Article>
