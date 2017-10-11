@@ -68,13 +68,20 @@ export const getInfo = () => {
 
 export const setInfo = user => {
   return dispatch => {
-    const token = localStorage.getItem("token")
+    const data = new FormData()
+    data.append("title", user.title)
+    data.append("text", user.text)
+    data.append("buttons", JSON.stringify(user.buttons))
+    data.append("buttonText", user.buttonText)
+    data.append("image", user.imageUpload)
+
     const request = {
       method: "put",
       headers: {
-        Authorization: "JWT " + token
+        "content-type": "multipart/form-data",
+        Authorization: "JWT " + localStorage.getItem("token")
       },
-      data: user,
+      data,
       url: ROUTE_UPDATE_PROFILE_API
     }
     axios(axiosRequest(request))

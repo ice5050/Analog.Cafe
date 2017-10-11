@@ -138,7 +138,8 @@ class EditProfile extends React.PureComponent {
       title: this.state.title,
       text: this.state.text,
       image: this.state.image,
-      buttons: this.state.buttons
+      buttons: this.state.buttons,
+      [this.fileInput.value !== "" && "imageUpload"]: this.fileInput.files[0]
     })
     this.setState({
       setUserInfoPending: true
